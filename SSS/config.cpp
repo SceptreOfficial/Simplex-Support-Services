@@ -5,7 +5,7 @@ class CfgPatches {
 		name = COMPONENT;
 		author = "Sceptre";
 		authors[] = {"Sceptre"};
-		url = "";
+		url = "https://github.com/SceptreOfficial/Simplex-Support-Services";
 		units[] = {
 			"SSS_Module_AddArtillery",
 			"SSS_Module_AddCASDrone",
