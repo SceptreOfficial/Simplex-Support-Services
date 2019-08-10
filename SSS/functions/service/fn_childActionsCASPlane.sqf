@@ -9,7 +9,6 @@ private _actions = [];
 		[_this # 2 # 0,_this # 2 # 1,"CASPlane"] call SSS_fnc_selectMapPosition;
 	},{true},{},[_plane,_x]] call ace_interact_menu_fnc_createAction;
 	_actions pushBack [_action,[],_target];
-	false
-} count (_plane getVariable "SSS_weapons");
+} forEach (_plane getVariable "SSS_weapons");
 
 _actions
