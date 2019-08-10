@@ -23,7 +23,7 @@ switch (_request) do {
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			_vehicle call SSS_fnc_clearWaypoints;
-			[_vehicle,_position,0,"MOVE","","","","",WP_DONE] call SSS_fnc_addWaypoint;
+			[_vehicle,_position,0,"MOVE","CARELESS","YELLOW","NORMAL","",WP_DONE] call SSS_fnc_addWaypoint;
 
 			[{WAIT_CONDITION_WPDONE},{
 				params ["_vehicle"];
