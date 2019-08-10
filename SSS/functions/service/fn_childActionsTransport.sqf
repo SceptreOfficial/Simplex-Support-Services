@@ -16,7 +16,7 @@ params ["_target","_player","_vehicle"];
 	},{(_this # 2) getVariable "SSS_needConfirmation"},{},_vehicle] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_transportRTB","RTB",ICON_HOME,{
-		["SSS_requestTransport",[_this # 2,0],_this # 2] call CBA_fnc_targetEvent;
+		[_this # 2,0] remoteExecCall ["SSS_fnc_requestTransport",_this # 2];
 	},{(_this # 2) getVariable "SSS_awayFromBase"},{},_vehicle] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_transportPickup","Pickup",ICON_SMOKE,{

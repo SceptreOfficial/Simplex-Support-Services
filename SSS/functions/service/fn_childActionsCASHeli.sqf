@@ -4,7 +4,7 @@ params ["_target","_player","_vehicle"];
 
 [
 	[["SSS_CAS_RTB","RTB",ICON_HOME,{
-		["SSS_requestCASHeli",[_this # 2,0],_this # 2] call CBA_fnc_targetEvent;
+		[_this # 2,0] remoteExecCall ["SSS_fnc_requestCASHeli",_this # 2];
 	},{(_this # 2) getVariable "SSS_awayFromBase"},{},_vehicle] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_CAS_SAD","Search and Destroy",ICON_TARGET,{
