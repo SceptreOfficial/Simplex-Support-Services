@@ -1,0 +1,12 @@
+name = "Simplex Support Services";
+picture = "sss.paa";
+actionName = "Website";
+action = "https://github.com/SceptreOfficial/Simplex-Support-Services";
+description = "Simplex Support Services";
+logo = "sss.paa";
+logoOver = "sss.paa";
+tooltip = "Simplex Support Services";
+tooltipOwned = "Simplex Support Services Owned";
+overview = "SSS (Simplex Support Services) is a fully automated, on-call support service suite.";
+author = "Sceptre";
+overviewPicture = "sss.paa";
