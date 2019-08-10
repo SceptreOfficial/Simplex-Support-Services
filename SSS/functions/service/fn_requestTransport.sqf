@@ -3,7 +3,7 @@
 params ["_vehicle","_request",["_position",[],[[]]],["_extraParameters",[],[[]]]];
 
 if (!alive _vehicle) exitWith {};
-if (isNil {(group _vehicle) getVariable "SSS_protectWaypoints"}) exitWith {[_vehicle,true] remoteExecCall ["SSS_fnc_respawn",2];;};
+if (isNil {(group _vehicle) getVariable "SSS_protectWaypoints"}) exitWith {[_vehicle,true] remoteExecCall ["SSS_fnc_respawn",2];};
 
 switch (_request) do {
 	// RTB
