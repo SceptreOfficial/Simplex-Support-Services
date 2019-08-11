@@ -38,8 +38,7 @@ if (_weaponSet isEqualTo []) then {
 		if (!isClass (configFile >> "CfgWeapons" >> _weaponClass) || !isClass (configFile >> "CfgMagazines" >> _magazineClass)) exitWith {};
 		_weapons pushBack [_weaponClass,_magazineClass];
 	};
-	false
-} count _weaponSet;
+} forEach _weaponSet;
 
 _weapons = [_weapons,true,{getText (configFile >> "CfgMagazines" >> _this # 1 >> "displayName")}] call SSS_fnc_sortBy;
 
