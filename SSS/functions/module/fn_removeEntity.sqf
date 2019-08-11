@@ -14,30 +14,15 @@ private _title = switch (_service) do {
 
 		private _side = [west,east,independent] # _currentValue;
 		private _displayNames = (missionNamespace getVariable [format ["SSS_%1_%2",_service,_side],[]]) apply {_x getVariable "SSS_displayName"};
-		[2,[_displayNames,0]] call SSS_CDS_fnc_setValues;
-	}],
-	["CHECKBOX","Remove all",false,true,{
-		params ["_currentValue"];
-		if (_currentValue) then {
-			[2,{false}] call SSS_CDS_fnc_setEnableCondition;
-		} else {
-			[2,{true}] call SSS_CDS_fnc_setEnableCondition;
-		};
+		[1,[_displayNames,0]] call SSS_CDS_fnc_setValues;
 	}],
 	["COMBOBOX","Callsign",[[],0]]
 ],{
 	params ["_values","_service"];
-	_values params ["_sideSelection","_removeAll","_selection"];
+	_values params ["_sideSelection","_selection"];
 
-	systemChat str _selection;
+	if (_selection isEqualTo -1) exitWith {};
+
 	private _side = [west,east,independent] # _sideSelection;
-
-	if (_removeAll) then {
-		{
-			_x remoteExecCall ["SSS_fnc_remove",2];
-		} forEach (missionNamespace getVariable [format ["SSS_%1_%2",_service,_side],[]]);
-	} else {
-		if (_selection isEqualTo -1) exitWith {};
-		((missionNamespace getVariable [format ["SSS_%1_%2",_service,_side],[]]) # _selection) remoteExecCall ["SSS_fnc_remove",2];
-	};
+	((missionNamespace getVariable [format ["SSS_%1_%2",_service,_side],[]]) # _selection) remoteExecCall ["SSS_fnc_remove",2];
 },{},_service] call SSS_CDS_fnc_dialog;
