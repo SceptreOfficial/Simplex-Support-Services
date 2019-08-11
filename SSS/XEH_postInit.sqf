@@ -81,7 +81,7 @@ private _action2 = ["SSS_CAS","CAS",ICON_CAS,{},{
 						_actionData set [3,{NOTIFY_LOCAL(_this # 2,"Connect via UAV Terminal")}];
 					} else {
 						_actionData set [2,ICON_DRONE];
-						_actionData set [3,{[_this # 2,0,"CASDrone"] call SSS_fnc_selectMapPosition;}];
+						_actionData set [3,{[_this # 2,0] call SSS_fnc_selectMapPosition;}];
 					};
 				};
 			}] call ace_interact_menu_fnc_createAction;
@@ -104,7 +104,7 @@ private _action2 = ["SSS_CAS","CAS",ICON_CAS,{},{
 						_actionData set [3,{[_this # 2] call SSS_fnc_CASGunshipControl;}];
 					} else {
 						_actionData set [2,ICON_GUNSHIP];
-						_actionData set [3,{[_this # 2,0,"CASGunship"] call SSS_fnc_selectMapPosition;}];
+						_actionData set [3,{[_this # 2,0] call SSS_fnc_selectMapPosition;}];
 					};
 				};
 			}] call ace_interact_menu_fnc_createAction;
