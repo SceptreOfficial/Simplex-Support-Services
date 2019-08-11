@@ -21,6 +21,7 @@ private _message = format ["Incoming CAS: %1 - %2",getText (configFile >> "CfgMa
 NOTIFY(_entity,_message)
 [_entity,true,_position] call SSS_fnc_updateMarker;
 
+_approach = _approach * 45;
 private _direction = _approach - 180;
 private _startPos = _position getPos [6000,_approach];
 private _endPos = _position getPos [6000,_direction];
