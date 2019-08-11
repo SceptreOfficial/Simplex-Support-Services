@@ -8,15 +8,15 @@ params ["_target","_player","_vehicle"];
 	},{(_this # 2) getVariable "SSS_awayFromBase"},{},_vehicle] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_CAS_SAD","Search and Destroy",ICON_TARGET,{
-		[_this # 2,1,"CASHeli"] call SSS_fnc_selectMapPosition;
+		[_this # 2,1] call SSS_fnc_selectMapPosition;
 	},{true},{},_vehicle] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_CAS_Move","Move",ICON_MOVE,{
-		[_this # 2,2,"CASHeli"] call SSS_fnc_selectMapPosition;
+		[_this # 2,2] call SSS_fnc_selectMapPosition;
 	},{true},{},_vehicle] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_CAS_Loiter","Loiter",ICON_LOITER,{
-		[_this # 2,3,"CASHeli"] call SSS_fnc_selectMapPosition;
+		[_this # 2,3] call SSS_fnc_selectMapPosition;
 	},{true},{},_vehicle] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_CAS_Behavior","Change Behavior",ICON_GEAR,{

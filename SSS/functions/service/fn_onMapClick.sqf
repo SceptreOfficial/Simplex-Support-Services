@@ -36,7 +36,7 @@ switch (_service) do {
 	case "cargo" : {
 		// WIP
 	};
-	case "CASDrone" : {
+	case "CASDrones" : {
 		if (SSS_setting_GiveUAVTerminal) then {
 			private _UAVTerminal = switch (side player) do {
 				case west : {"B_UavTerminal"};
@@ -49,13 +49,13 @@ switch (_service) do {
 
 		[_vehicle,_position] remoteExecCall ["SSS_fnc_requestCASDrone",2];
 	};
-	case "CASGunship" : {
+	case "CASGunships" : {
 		[_vehicle,_position] remoteExecCall ["SSS_fnc_requestCASGunship",2];
 	};
-	case "CASHeli" : {
+	case "CASHelis" : {
 		[_vehicle,_request,_position] remoteExecCall ["SSS_fnc_requestCASHeli",_vehicle];
 	};
-	case "CASPlane" : {
+	case "CASPlanes" : {
 		// Get directions not blocked by terrain
 		_position set [2,1];
 		private _positionASL = AGLtoASL _position;

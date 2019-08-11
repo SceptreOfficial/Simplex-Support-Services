@@ -20,27 +20,27 @@ params ["_target","_player","_vehicle"];
 	},{(_this # 2) getVariable "SSS_awayFromBase"},{},_vehicle] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_transportPickup","Pickup",ICON_SMOKE,{
-		[_this # 2,1,"transport"] call SSS_fnc_selectMapPosition;
+		[_this # 2,1] call SSS_fnc_selectMapPosition;
 	},{true},{},_vehicle] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_transportLand","Land",ICON_LAND,{
-		[_this # 2,2,"transport"] call SSS_fnc_selectMapPosition;
+		[_this # 2,2] call SSS_fnc_selectMapPosition;
 	},{true},{},_vehicle] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_transportLandEngOff","Land - Engine Off",ICON_LAND_ENG_OFF,{
-		[_this # 2,3,"transport"] call SSS_fnc_selectMapPosition;
+		[_this # 2,3] call SSS_fnc_selectMapPosition;
 	},{true},{},_vehicle] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_transportMove","Move",ICON_MOVE,{
-		[_this # 2,4,"transport"] call SSS_fnc_selectMapPosition;
+		[_this # 2,4] call SSS_fnc_selectMapPosition;
 	},{true},{},_vehicle] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_transportHover","Hover/Fastrope",ICON_ROPE,{
-		[_this # 2,5,"transport"] call SSS_fnc_selectMapPosition;
+		[_this # 2,5] call SSS_fnc_selectMapPosition;
 	},{true},{},_vehicle] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_transportLoiter","Loiter",ICON_LOITER,{
-		[_this # 2,6,"transport"] call SSS_fnc_selectMapPosition;
+		[_this # 2,6] call SSS_fnc_selectMapPosition;
 	},{true},{},_vehicle] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_transportBehavior","Change Behavior",ICON_GEAR,{

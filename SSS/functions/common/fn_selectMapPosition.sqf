@@ -1,7 +1,8 @@
 #include "script_component.hpp"
 
-params ["_vehicle","_request","_service"];
+params ["_vehicle","_request"];
 
+private _service = _vehicle getVariable "SSS_service";
 SSS_mapClicked = false;
 openMap [true,false];
 titleText ["Select Position","PLAIN",0.5];
