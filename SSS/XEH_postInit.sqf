@@ -31,26 +31,35 @@ if (!hasInterface) exitWith {};
 private _mainAction = ["SSS_main","Support Services",ICON_SUPPORT_SERVICES,{},{true}] call ace_interact_menu_fnc_createAction;
 [player,1,["ACE_SelfActions"],_mainAction] call ace_interact_menu_fnc_addActionToObject;
 
-// Transport action
-private _action1 = ["SSS_transport","Transport",ICON_TRANSPORT,{},{
-	SSS_transportEnabled && {
-	!((missionNamespace getVariable [format ["SSS_transport_%1",side player],[]]) isEqualTo [])
+// Artillery action
+private _artilleryAction = ["SSS_artillery","Artillery",ICON_ARTILLERY,{},{
+	SSS_artilleryEnabled && {
+	!((missionNamespace getVariable [format ["SSS_artillery_%1",side player],[]]) isEqualTo [])
 }},{
 	private _actions = [];
 	{
 		if (alive _x) then {
-			private _action = [format ["SSS_transport:%1",_x],_x getVariable "SSS_displayName",ICON_HELI,{},{true},{
-				_this call SSS_fnc_childActionsTransport;
-			},_x] call ace_interact_menu_fnc_createAction;
+			private _action = [format ["SSS_artillery:%1",_x],_x getVariable "SSS_displayName","",{},{true},{},_x,[0,0,0],4,[false,false,false,false,false],{
+				params ["_target","_player","_vehicle","_actionData"];
+				if (_vehicle getVariable "SSS_cooldown" > 0) then {
+					_actionData set [2,[ICON_SELF_PROPELLED_YELLOW,ICON_MORTAR_YELLOW] select (_vehicle isKindOf "StaticWeapon")];
+					_actionData set [3,{NOTIFY_LOCAL_1(_this # 2,"<t color='#f4ca00'>NOT READY.</t> Ready in %1.",PROPER_COOLDOWN(_this # 2))}];
+					_actionData set [5,{}];
+				} else {
+					_actionData set [2,[ICON_SELF_PROPELLED,ICON_MORTAR] select (_vehicle isKindOf "StaticWeapon")];
+					_actionData set [3,{}];
+					_actionData set [5,{_this call SSS_fnc_childActionsArtillery}];
+				};
+			}] call ace_interact_menu_fnc_createAction;
 			_actions pushBack [_action,[],player];
 		};
-	} forEach (missionNamespace getVariable [format ["SSS_transport_%1",side player],[]]);
+	} forEach (missionNamespace getVariable [format ["SSS_artillery_%1",side player],[]]);
 	_actions
 }] call ace_interact_menu_fnc_createAction;
-[player,1,["ACE_SelfActions","SSS_main"],_action1] call ace_interact_menu_fnc_addActionToObject;
+[player,1,["ACE_SelfActions","SSS_main"],_artilleryAction] call ace_interact_menu_fnc_addActionToObject;
 
 // CAS action
-private _action2 = ["SSS_CAS","CAS",ICON_CAS,{},{
+private _CASAction = ["SSS_CAS","CAS",ICON_CAS,{},{
 	SSS_CASEnabled && {
 	!((missionNamespace getVariable [format ["SSS_CASHelis_%1",side player],[]]) isEqualTo []) ||
 	!((missionNamespace getVariable [format ["SSS_CASPlanes_%1",side player],[]]) isEqualTo []) ||
@@ -131,34 +140,25 @@ private _action2 = ["SSS_CAS","CAS",ICON_CAS,{},{
 	} forEach (missionNamespace getVariable [format ["SSS_CASPlanes_%1",side player],[]]);
 	_actions
 }] call ace_interact_menu_fnc_createAction;
-[player,1,["ACE_SelfActions","SSS_main"],_action2] call ace_interact_menu_fnc_addActionToObject;
+[player,1,["ACE_SelfActions","SSS_main"],_CASAction] call ace_interact_menu_fnc_addActionToObject;
 
-// Artillery action
-private _action3 = ["SSS_artillery","Artillery",ICON_ARTILLERY,{},{
-	SSS_artilleryEnabled && {
-	!((missionNamespace getVariable [format ["SSS_artillery_%1",side player],[]]) isEqualTo [])
+// Transport action
+private _transportAction = ["SSS_transport","Transport",ICON_TRANSPORT,{},{
+	SSS_transportEnabled && {
+	!((missionNamespace getVariable [format ["SSS_transport_%1",side player],[]]) isEqualTo [])
 }},{
 	private _actions = [];
 	{
 		if (alive _x) then {
-			private _action = [format ["SSS_artillery:%1",_x],_x getVariable "SSS_displayName","",{},{true},{},_x,[0,0,0],4,[false,false,false,false,false],{
-				params ["_target","_player","_vehicle","_actionData"];
-				if (_vehicle getVariable "SSS_cooldown" > 0) then {
-					_actionData set [2,[ICON_SELF_PROPELLED_YELLOW,ICON_MORTAR_YELLOW] select (_vehicle isKindOf "StaticWeapon")];
-					_actionData set [3,{NOTIFY_LOCAL_1(_this # 2,"<t color='#f4ca00'>NOT READY.</t> Ready in %1.",PROPER_COOLDOWN(_this # 2))}];
-					_actionData set [5,{}];
-				} else {
-					_actionData set [2,[ICON_SELF_PROPELLED,ICON_MORTAR] select (_vehicle isKindOf "StaticWeapon")];
-					_actionData set [3,{}];
-					_actionData set [5,{_this call SSS_fnc_childActionsArtillery}];
-				};
-			}] call ace_interact_menu_fnc_createAction;
+			private _action = [format ["SSS_transport:%1",_x],_x getVariable "SSS_displayName",ICON_HELI,{},{true},{
+				_this call SSS_fnc_childActionsTransport;
+			},_x] call ace_interact_menu_fnc_createAction;
 			_actions pushBack [_action,[],player];
 		};
-	} forEach (missionNamespace getVariable [format ["SSS_artillery_%1",side player],[]]);
+	} forEach (missionNamespace getVariable [format ["SSS_transport_%1",side player],[]]);
 	_actions
 }] call ace_interact_menu_fnc_createAction;
-[player,1,["ACE_SelfActions","SSS_main"],_action3] call ace_interact_menu_fnc_addActionToObject;
+[player,1,["ACE_SelfActions","SSS_main"],_transportAction] call ace_interact_menu_fnc_addActionToObject;
 
 //-----------------------------------------------------------------------------------------------//
 
