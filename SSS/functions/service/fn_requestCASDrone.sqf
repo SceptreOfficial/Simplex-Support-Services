@@ -18,6 +18,7 @@ private _height = (AGLToASL _position # 2) + 1000;
 private _vehicle = createVehicle [_class,_startPos,[],0,"FLY"];
 createVehicleCrew _vehicle;
 crew _vehicle joinSilent createGroup (_entity getVariable "SSS_side");
+_entity setVariable ["SSS_physicalVehicle",_vehicle,true];
 _vehicle setDir _direction;
 _vehicle setPosASL [_startPos # 0,_startPos # 1,_height];
 _vehicle setVelocityModelSpace [0,80,0];
@@ -41,7 +42,7 @@ _vehicle doMove _WPPosition;
 _vehicle flyInHeightASL [_height,_height,_height];
 
 [{
-	params ["_vehicle"];
+	params ["_vehicle","_entity"];
 	!alive _entity || {_vehicle getVariable "SSS_WPDone" || !alive _vehicle || _vehicle distance2D (_this # 5) < 200}
 },{
 	params ["_vehicle","_entity","_position","_startPos","_height"];
