@@ -31,13 +31,10 @@ _vehicle setCombatMode "BLUE";
 } forEach crew _vehicle;
 _vehicle lockDriver true;
 _vehicle lockTurret [[1],true];
+_vehicle lock true;
 _vehicle addMagazineTurret ["240Rnd_40mm_GPR_Tracer_Red_shells",[1]];
 _vehicle addMagazineTurret ["160Rnd_40mm_APFSDS_Tracer_Red_shells",[1]];
 _vehicle addWeaponTurret ["autocannon_40mm_VTOL_01",[1]];
-_vehicle addEventHandler ["GetOut",{
-	params ["_vehicle","_role","_unit","_turret"];
-	_unit moveInTurret [_vehicle,[1]]; // Counteracts Eject action from RC
-}];
 
 _vehicle setVariable ["SSS_WPDone",false];
 private _WPPosition = _position getPos [1000,(_position getDir _vehicle) - 90];
