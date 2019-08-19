@@ -44,7 +44,7 @@ if (!isNull _fries) then {deleteVehicle _fries;};
 
 // Assignment
 ADD_SUPPORT_VEHICLE(_vehicle,_side,"CASHelis")
-_vehicle addMPEventHandler ["MPKilled",{[_vehicle] call SSS_fnc_respawn;}];
+_vehicle addMPEventHandler ["MPKilled",{[_this # 0] call SSS_fnc_respawn;}];
 (driver _vehicle) addMPEventHandler ["MPKilled",{[vehicle (_this # 0),true] call SSS_fnc_respawn;}];
 
 // CBA Event
