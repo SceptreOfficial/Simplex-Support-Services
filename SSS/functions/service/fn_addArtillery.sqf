@@ -20,7 +20,7 @@ if (_callsign isEqualTo "") then {_callsign = getText (configFile >> "CfgVehicle
 private _side = side _vehicle;
 if (_side == sideLogic || _side == sideEmpty) exitWith {SSS_ERROR_2("Invalid artillery vehicle: %1 (%2)",_callsign,_vehicle)};
 if !((leader _vehicle) in _vehicle) exitWith {SSS_ERROR_2("Leader is not in artillery vehicle: %1 (%2)",_callsign,_vehicle)};
-if (!isNil {_vehicle getVariable "SSS_displayName"}) exitWith {SSS_ERROR_2("Vehicle is already assigned a service: %1 (%2)",_callsign,_vehicle)};
+if (_vehicle in (missionNamespace getVariable [format ["SSS_artillery_%1",_side],[]])) exitWith {SSS_ERROR_2("Vehicle is already assigned: %1 (%2)",_callsign,_vehicle)};
 
 // Basic setup
 private _group = group _vehicle;
