@@ -24,7 +24,6 @@ if (_vehicle in (missionNamespace getVariable [format ["SSS_artillery_%1",_side]
 
 // Basic setup
 private _group = group _vehicle;
-_group setVariable ["SSS_protectWaypoints",true,true];
 SET_VEHICLE_TRAITS_PHYSICAL(_vehicle,_group,getPosASL _vehicle,_side,"artillery",_callsign,_respawnTime)
 CREATE_TASK_MARKER(_vehicle,"mil_warning","artillery",_callsign)
 

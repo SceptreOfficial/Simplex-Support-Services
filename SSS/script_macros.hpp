@@ -98,7 +98,8 @@
 	} forEach units GRP; \
 	GRP setBehaviour "CARELESS"; \
 	GRP setCombatMode "YELLOW"; \
-	GRP enableAttack true;
+	GRP enableAttack true; \
+	GRP setVariable ["SSS_protectWaypoints",true,true];
 
 #define CREATE_TASK_MARKER(VEH,ICON,STRING,CALLSIGN) \
 	private _marker = SSS_markers select (SSS_markers pushBack format ["SSS_%1",(count SSS_markers) + 1]); \

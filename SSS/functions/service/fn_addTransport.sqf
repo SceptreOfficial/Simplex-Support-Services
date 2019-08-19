@@ -23,7 +23,6 @@ if (_vehicle in (missionNamespace getVariable [format ["SSS_transport_%1",_side]
 
 // Basic setup
 private _group = group _vehicle;
-_group setVariable ["SSS_protectWaypoints",true,true];
 private _base = createVehicle ["Land_HelipadEmpty_F",[0,0,0],[],0,"CAN_COLLIDE"];
 _base setPosASL (getPosASL _vehicle);
 SET_VEHICLE_TRAITS_PHYSICAL(_vehicle,_group,_base,_side,"transport",_callsign,_respawnTime)
