@@ -33,9 +33,6 @@ switch (_service) do {
 			};
 		},{REQUEST_CANCELLED},[_nearbyArtillery,_vehicle,_request,_position]] call SSS_CDS_fnc_dialog;
 	};
-	case "cargo" : {
-		// WIP
-	};
 	case "CASDrones" : {
 		if (SSS_setting_GiveUAVTerminal) then {
 			private _UAVTerminal = switch (side player) do {
