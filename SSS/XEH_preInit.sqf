@@ -33,17 +33,6 @@ SSS_setting_CASPlanesCooldownDefault = 300;
 ["ModuleCurator_F","init",{
 	params ["_zeus"];
 
-	_zeus addEventHandler ["CuratorObjectDeleted",{
-		params ["_zeus","_obj"];
-
-		private _serviceString = format ["SSS_%1_%2",_obj getVariable "SSS_service",_obj getVariable "SSS_side"];
-		private _serviceArray = missionNamespace getVariable [_serviceString,[]];
-
-		if !(_serviceArray isEqualTo []) then {
-			missionNamespace setVariable [_serviceString,_serviceArray - [_obj],true];
-		};
-	}];
-
 	_zeus addEventHandler ["CuratorWaypointDeleted",{
 		params ["_zeus","_group"];
 
