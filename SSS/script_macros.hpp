@@ -35,8 +35,6 @@
 #define ICON_CAS "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\cas_ca.paa"
 #define ICON_TRANSPORT "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa"
 
-#define ICON_CARGO "SSS\ui\icons\cargo.paa"
-#define ICON_CARGO_YELLOW "SSS\ui\icons\cargo_yellow.paa"
 #define ICON_DRONE "SSS\ui\icons\drone.paa"
 #define ICON_DRONE_GREEN "SSS\ui\icons\drone_green.paa"
 #define ICON_DRONE_YELLOW "SSS\ui\icons\drone_yellow.paa"

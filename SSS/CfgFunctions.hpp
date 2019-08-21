@@ -21,7 +21,6 @@ class CfgFunctions {
 		class module {
 			file = "SSS\functions\module";
 			class addArtilleryModule {};
-			//class addCargoVehicleModule {};
 			class addCASDroneModule {};
 			class addCASGunshipModule {};
 			class addCASHeliModule {};
@@ -35,7 +34,6 @@ class CfgFunctions {
 		class service {
 			file = "SSS\functions\service";
 			class addArtillery {};
-			//class addCargoVehicle {};
 			class addCASDrone {};
 			class addCASGunship {};
 			class addCASHeli {};
@@ -44,13 +42,11 @@ class CfgFunctions {
 			class CASDroneConnectTerminal {};
 			class CASGunshipControl {};
 			class childActionsArtillery {};
-			//class childActionsCargo {};
 			class childActionsCASPlane {};
 			class childActionsCASHeli {};
 			class childActionsTransport {};
 			class onMapClick {};
 			class requestArtillery {};
-			//class requestCargo {};
 			class requestCASDrone {};
 			class requestCASGunship {};
 			class requestCASHeli {};
