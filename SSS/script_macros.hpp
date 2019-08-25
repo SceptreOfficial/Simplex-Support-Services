@@ -117,7 +117,7 @@
 	private _serviceArray = missionNamespace getVariable [_serviceString,[]]; \
 	_serviceArray pushBackUnique VEH; \
 	missionNamespace setVariable [_serviceString,[_serviceArray,true,{_this getVariable "SSS_displayName"}] call SSS_fnc_sortBy,true]; \
-	VEH addEventHandler ["Deleted",{_this call SSS_fnc_remove;}]; \
+	[VEH,["Deleted",{_this call SSS_fnc_deleted;}]] remoteExecCall ["addEventHandler",0]; \
 	NOTIFY(VEH,"New support ready for requests")
 
 #define BEGIN_ORDER(VEH,POS,MESSAGE) \
