@@ -2,7 +2,7 @@
 
 if (!isServer) exitWith {};
 
-params ["_vehicle",["_crewDead",false]];
+params ["_vehicle",["_primaryGone",false]];
 
 // Sometimes killed EH fires twice. Idk why
 if (!isNil {_vehicle getVariable "SSS_respawning"}) exitWith {};
@@ -11,17 +11,12 @@ _vehicle setVariable ["SSS_respawning",true];
 [
 	_vehicle getVariable "SSS_base",_vehicle getVariable "SSS_classname",
 	_vehicle getVariable "SSS_side",_vehicle getVariable "SSS_service",
-	_vehicle getVariable "SSS_displayName",_vehicle getVariable "SSS_respawnTime",
-	_vehicle getVariable "SSS_marker",_vehicle getVariable "SSS_addedJIPID"
-] params ["_base","_classname","_side","_service","_callsign","_respawnTime","_marker","_JIPID"];
+	_vehicle getVariable "SSS_displayName",_vehicle getVariable "SSS_respawnTime"
+] params ["_base","_classname","_side","_service","_callsign","_respawnTime"];
 
-private _basePosASL = if (_base isEqualType objNull) then {
-	private _basePosASL = getPosASL _base;
-	deleteVehicle _base;
-	_basePosASL
-} else {
-	_base
-};
+if (isNil "_service") exitWith {};
+
+private _basePosASL = if (_base isEqualType objNull) then {getPosASL _base} else {_base};
 
 if (_respawnTime >= 0) then {
 	private _message = format ["Support vehicle replacement will be available in %1 seconds.",_respawnTime];
@@ -31,48 +26,34 @@ if (_respawnTime >= 0) then {
 };
 
 // Cleanup
-[_JIPID] call CBA_fnc_removeGlobalEventJIP;
-deleteMarker _marker;
-private _serviceString = format ["SSS_%1_%2",_service,_side];
-private _serviceArray = missionNamespace getVariable _serviceString;
-if (_crewDead) then {
-	missionNamespace setVariable [_serviceString,_serviceArray - [_vehicle],true];
-
-	{_vehicle setVariable [_x,nil,true];} forEach ((allVariables _vehicle) select {(_x select [0,4]) == "sss_"});
-	{
-		_x enableAI "SUPPRESSION";
-		_x enableAI "COVER";
-		_x enableAI "AUTOCOMBAT";
-		_x enableAI "MOVE";
-		[_x] orderGetIn false;
-	} forEach units group _vehicle;
-	group _vehicle enableAttack true;
-	_vehicle lockTurret [[0],false];
-	_vehicle lockCargo false;
-	_vehicle lockDriver false;
-} else {
-	missionNamespace setVariable [_serviceString,_serviceArray select {alive _x},true];
+_vehicle call SSS_fnc_remove;
+if (_primaryGone) then {
+	group _vehicle leaveVehicle _vehicle;
+	PRIMARY_CREW(_vehicle) orderGetIn false;
 };
 
-// _respawnTime of -1 = no respawn
+// _respawnTime of -1 disables respawn
 if (_respawnTime >= 0) then {
 	[{
-		params ["_classname","_callsign","_basePosASL","_respawnTime","_service"];
+		params ["_basePosASL","_classname","_side","_service","_callsign","_respawnTime"];
 
 		// Clear obstructions
-		private _obstructions = nearestObjects [ASLtoAGL _basePosASL,["LandVehicle","Air","Ship"],6,true];
-		if !(_obstructions isEqualTo []) then {
-			{
-				private _vehicle = _x;
-				{_vehicle deleteVehicleCrew _x} forEach crew _x;
-				deleteVehicle _vehicle;
-			} forEach _obstructions;
-		};
+		{
+			systemChat str _x;
+			private _obj = _x;
+			if ((_obj isKindOf "LandVehicle" || _obj isKindOf "Air" || _obj isKindOf "Ship") && {}) then {
+				{_obj deleteVehicleCrew _x} forEach crew _obj;
+				deleteVehicle _obj;
+			};
+		} forEach (ASLToAGL _basePosASL nearObjects ((sizeOf _classname) / 2));
 
 		// Create new vehicle
-		private _newVehicle = createVehicle [_classname,[0,0,0],[],0,"CAN_COLLIDE"];
+		private _newGroup = createGroup [_side,true];
+		private _newVehicle = createVehicle [_classname,[0,0,0],[],0,"NONE"];
 		_newVehicle setPosASL _basePosASL;
-		createVehicleCrew _newVehicle;
+		(createVehicleCrew _newVehicle) deleteGroupWhenEmpty true;
+		crew _newVehicle joinSilent _newGroup;
+		_newGroup addVehicle _newVehicle;
 
 		// Assign vehicle
 		switch (_service) do {
@@ -80,5 +61,5 @@ if (_respawnTime >= 0) then {
 			case "CASHelis" : {[_newVehicle,_callsign,_respawnTime] call SSS_fnc_addCASHeli;};
 			case "transport" : {[_newVehicle,_callsign,_respawnTime] call SSS_fnc_addTransport;};
 		};
-	},[_classname,_callsign,_basePosASL,_respawnTime,_service],_respawnTime] call CBA_fnc_waitAndExecute;
+	},[_basePosASL,_classname,_side,_service,_callsign,_respawnTime],_respawnTime] call CBA_fnc_waitAndExecute;
 };
