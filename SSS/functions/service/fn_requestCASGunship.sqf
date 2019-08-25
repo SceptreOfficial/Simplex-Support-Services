@@ -16,8 +16,9 @@ private _height = (AGLToASL _position # 2) + 800;
 
 // Create gunship
 private _vehicle = createVehicle [_class,_startPos,[],0,"FLY"];
-createVehicleCrew _vehicle;
-crew _vehicle joinSilent createGroup (_entity getVariable "SSS_side");
+(createVehicleCrew _vehicle) deleteGroupWhenEmpty true;
+private _newGroup = createGroup [_entity getVariable "SSS_side",true];
+crew _vehicle joinSilent _newGroup;
 _entity setVariable ["SSS_physicalVehicle",_vehicle,true];
 _vehicle setDir _direction;
 _vehicle setPosASL [_startPos # 0,_startPos # 1,_height];

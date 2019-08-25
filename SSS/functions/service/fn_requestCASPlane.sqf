@@ -30,8 +30,9 @@ _endPos set [2,3500];
 
 // Create aircraft
 private _vehicle = createVehicle [_entity getVariable "SSS_classname",[0,0,0],[],0,"FLY"];
-createVehicleCrew _vehicle;
-crew _vehicle joinSilent createGroup (_entity getVariable "SSS_side");
+(createVehicleCrew _vehicle) deleteGroupWhenEmpty true;
+private _newGroup = createGroup [_entity getVariable "SSS_side",true];
+crew _vehicle joinSilent _newGroup;
 _entity setVariable ["SSS_physicalVehicle",_vehicle,true];
 _vehicle disableAI "TARGET";
 _vehicle disableAI "AUTOTARGET";
