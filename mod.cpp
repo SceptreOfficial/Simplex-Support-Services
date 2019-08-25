@@ -7,6 +7,6 @@ logo = "sss.paa";
 logoOver = "sss.paa";
 tooltip = "Simplex Support Services";
 tooltipOwned = "Simplex Support Services Owned";
-overview = "SSS (Simplex Support Services) is a fully automated, on-call support service suite.";
+overview = "SSS (Simplex Support Services) is a fully automated, on-call support service system.";
 author = "Sceptre";
 overviewPicture = "sss.paa";
