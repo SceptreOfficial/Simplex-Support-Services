@@ -10,7 +10,10 @@ if !(_entity getVariable ["SSS_loitering",false]) exitWith {
 private _vehicle = _entity getVariable ["SSS_physicalVehicle",objNull];
 if (!alive _vehicle) exitWith {};
 private _gunner = _vehicle turretUnit [1];
-if (!isNull (_gunner getVariable ["SSS_remoteController",objNull])) exitWith {};
+if (!isNull (_gunner getVariable ["SSS_remoteController",objNull])) exitWith {
+	NOTIFY_LOCAL(_entity,"Currently occupied by another player")
+};
+
 _gunner setVariable ["SSS_remoteController",player,true];
 
 player remoteControl _gunner;
