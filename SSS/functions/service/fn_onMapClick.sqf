@@ -13,7 +13,7 @@ switch (_service) do {
 			(_x getVariable "SSS_cooldown") isEqualTo 0
 		}}}) - [_vehicle];
 
-		["Fire Mission Parameters",[
+		[format ["Fire Mission Parameters - %1",mapGridPosition _position],[
 			["SLIDER","Rounds",[[1,10,0],1]],
 			["SLIDER","Random Dispersion Radius",[[0,200,0],0]],
 			["CHECKBOX","Coordinate with nearby artillery units",false,true,{},[{true},{false}] select (_nearbyArtillery isEqualTo [])],
@@ -66,7 +66,7 @@ switch (_service) do {
 			};
 		};
 
-		["CAS Parameters",[
+		[format ["CAS Parameters - %1",mapGridPosition _position],[
 			["COMBOBOX",["Approach direction","Orange means the approach is blocked"],[_bearingList,0],false],
 			["COMBOBOX","Map position or other signal",[[
 				["Map Position","",ICON_MAP],
