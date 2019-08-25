@@ -95,7 +95,7 @@
 		_x disableAI "SUPPRESSION"; \
 		_x disableAI "COVER"; \
 		_x disableAI "AUTOCOMBAT"; \
-	} forEach units GRP; \
+	} forEach PRIMARY_CREW(VEH); \
 	GRP setBehaviour "CARELESS"; \
 	GRP setCombatMode "YELLOW"; \
 	GRP enableAttack true; \
@@ -149,4 +149,3 @@
 	[{titleFadeOut 0.5;},[],1] call CBA_fnc_waitAndExecute;
 
 #define PROPER_COOLDOWN(VEH) (VEH getVariable "SSS_cooldown") call SSS_fnc_properTime
-
