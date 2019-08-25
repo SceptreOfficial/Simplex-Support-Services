@@ -3,8 +3,13 @@
 params [["_entity",objNull,[objNull]]];
 
 if (isNull _entity) exitWith {};
+if (!local _entity) exitWith {_entity remoteExecCall ["SSS_fnc_remove",_entity];};
 
-private _serviceString = format ["SSS_%1_%2",_entity getVariable "SSS_service",_entity getVariable "SSS_side"];
+private _service = _entity getVariable ["SSS_service",""];
+if (_service isEqualTo "") exitWith {};
+_entity setVariable ["SSS_service",nil,true];
+
+private _serviceString = format ["SSS_%1_%2",_service,_entity getVariable "SSS_side"];
 private _serviceArray = missionNamespace getVariable [_serviceString,[]];
 _serviceArray deleteAt (_serviceArray find _entity);
 missionNamespace setVariable [_serviceString,_serviceArray,true];
@@ -16,27 +21,20 @@ if (isNil "_base") then {
 	deleteVehicle _entity;
 } else {
 	// Physical
-	private _vehicle = _entity;
-
 	if (_base isEqualType objNull) then {deleteVehicle _base;};
-	[_vehicle getVariable "SSS_addedJIPID"] call CBA_fnc_removeGlobalEventJIP;
-	deleteMarker (_vehicle getVariable "SSS_marker");
+	[_entity getVariable "SSS_addedJIPID"] call CBA_fnc_removeGlobalEventJIP;
+	deleteMarker (_entity getVariable "SSS_marker");
 
-	{_vehicle setVariable [_x,nil,true]} forEach ((allVariables _vehicle) select {(_x select [0,4]) == "sss_"});
-
-	["SSS_supportVehicleRemoved",_vehicle] call CBA_fnc_globalEvent;
-
-	private _groupUnits = units group _vehicle;
-	if (_groupUnits isEqualTo []) exitWith {};
+	["SSS_supportVehicleRemoved",_entity] call CBA_fnc_globalEvent;
 
 	{
 		_x enableAI "SUPPRESSION";
 		_x enableAI "COVER";
 		_x enableAI "AUTOCOMBAT";
 		_x enableAI "MOVE";
-	} forEach _groupUnits;
-	group _vehicle enableAttack true;
-	_vehicle lockTurret [[0],false];
-	_vehicle lockCargo false;
-	_vehicle lockDriver false;
+	} forEach PRIMARY_CREW(_entity);
+	group _entity enableAttack true;
+	_entity lockTurret [[0],false];
+	_entity lockCargo false;
+	_entity lockDriver false;
 };
