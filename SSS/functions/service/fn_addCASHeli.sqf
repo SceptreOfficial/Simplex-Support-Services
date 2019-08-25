@@ -46,6 +46,14 @@ if (!isNull _fries) then {deleteVehicle _fries;};
 ADD_SUPPORT_VEHICLE(_vehicle,_side,"CASHelis")
 _vehicle addMPEventHandler ["MPKilled",{[_this # 0] call SSS_fnc_respawn;}];
 (driver _vehicle) addMPEventHandler ["MPKilled",{[vehicle (_this # 0),true] call SSS_fnc_respawn;}];
+[_vehicle,"GetOut",{
+	params ["_vehicle","_role","_unit","_turret"];
+
+	if (_role == "driver") then {
+		_vehicle removeEventHandler [_thisType,_thisID];
+		[_vehicle,true] call SSS_fnc_respawn;
+	};
+}] remoteExecCall ["CBA_fnc_addBISEventHandler",2];
 
 // CBA Event
 private _JIPID = ["SSS_supportVehicleAdded",_vehicle] call CBA_fnc_globalEventJIP;
