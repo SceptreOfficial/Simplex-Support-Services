@@ -19,7 +19,7 @@
 #define WIDTH (16 * GUI_GRID_W)
 #define TITLE_H (1 * GUI_GRID_H)
 #define CONTENT_H (2 * GUI_GRID_H)
-#define GAP_H (0.1 * GUI_GRID_H)
+#define GAP_H (0.05 * GUI_GRID_H)
 #define SLOT_H ((0.25 * GUI_GRID_H) + TITLE_H + GAP_H + CONTENT_H)
 #define SLOT_LIMIT 6
 #define TIME_DURATION 5
@@ -82,13 +82,13 @@ private _display = uiNamespace getVariable "RscTitleDisplayEmpty";
 
 private _ctrlTitle = _display ctrlCreate ["RscStructuredText",-1];
 _ctrlTitle ctrlSetStructuredText parseText _title;
-_ctrlTitle ctrlSetBackgroundColor [0,0,0,0.45];
+_ctrlTitle ctrlSetBackgroundColor [0,0,0,0.4];
 _ctrlTitle ctrlSetPosition [POS_X,POS_Y,WIDTH,TITLE_H];
 _ctrlTitle ctrlCommit 0;
 
 private _ctrlContent = _display ctrlCreate ["RscStructuredText",-1];
 _ctrlContent ctrlSetStructuredText parseText _content;
-_ctrlContent ctrlSetBackgroundColor [0,0,0,0.35];
+_ctrlContent ctrlSetBackgroundColor [0,0,0,0.3];
 _ctrlContent ctrlSetPosition [POS_X,POS_Y + TITLE_H + GAP_H,WIDTH,CONTENT_H];
 _ctrlContent ctrlCommit 0;
 
