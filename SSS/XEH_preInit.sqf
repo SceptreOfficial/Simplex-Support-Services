@@ -13,22 +13,21 @@ SSS_CASPlanesEnabled = true;
 SSS_transportEnabled = true;
 
 //-----------------------------------------------------------------------------------------------//
+
 // Give UAV Terminal on CAS Drone request
 SSS_setting_GiveUAVTerminal = true;
 
-// Default respawn time for physical entities
+// Defaults
 SSS_setting_respawnTimeDefault = 60;
-
-// Artillery cooldown between requests [minimum, extra time per round fired]
 SSS_setting_artilleryCooldownDefault = [90,8];
-
-// Virtual entity cooldowns between requests
 SSS_setting_CASDronesCooldownDefault = 600;
 SSS_setting_CASDronesLoiterTime = 300;
 SSS_setting_CASGunshipsCooldownDefault = 720;
 SSS_setting_CASGunshipsLoiterTime = 300;
 SSS_setting_CASPlanesCooldownDefault = 300;
+
 //-----------------------------------------------------------------------------------------------//
+
 // Handle curator deletion of entities and waypoints
 ["ModuleCurator_F","init",{
 	params ["_zeus"];
