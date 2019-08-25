@@ -30,7 +30,8 @@ _entity setVariable ["SSS_loiterTime",_loiterTime,true];
 _entity setVariable ["SSS_activeInArea",false,true];
 
 // Assignment
-ADD_SUPPORT_VEHICLE(_entity,_side,"CASDrones")
+[true,format ["SSS_CASDrones_%1",_side],_entity] remoteExecCall ["SSS_fnc_editServiceArray",2];
+[_entity,["Deleted",{_this call SSS_fnc_deleted;}]] remoteExecCall ["addEventHandler",0];
 
 // CBA Event
 private _JIPID = ["SSS_supportEntityAdded",_entity] call CBA_fnc_globalEventJIP;

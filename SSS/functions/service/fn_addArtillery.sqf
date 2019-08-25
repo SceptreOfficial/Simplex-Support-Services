@@ -35,7 +35,8 @@ _vehicle lockCargo true;
 {_x disableAI "MOVE";} forEach units _group;
 
 // Assignment
-ADD_SUPPORT_VEHICLE(_vehicle,_side,"artillery")
+[true,format ["SSS_artillery_%1",_side],_vehicle] remoteExecCall ["SSS_fnc_editServiceArray",2];
+[_vehicle,["Deleted",{_this call SSS_fnc_deleted;}]] remoteExecCall ["addEventHandler",0];
 _vehicle addMPEventHandler ["MPKilled",{[_this # 0] call SSS_fnc_respawn;}];
 (gunner _vehicle) addMPEventHandler ["MPKilled",{[vehicle (_this # 0),true] call SSS_fnc_respawn;}];
 [_vehicle,"GetOut",{

@@ -60,7 +60,8 @@ _entity setVariable ["SSS_cooldown",0,true];
 _entity setVariable ["SSS_cooldownDefault",_cooldownDefault,true];
 
 // Assignment
-ADD_SUPPORT_VEHICLE(_entity,_side,"CASPlanes")
+[true,format ["SSS_CASPlanes_%1",_side],_entity] remoteExecCall ["SSS_fnc_editServiceArray",2];
+[_entity,["Deleted",{_this call SSS_fnc_deleted;}]] remoteExecCall ["addEventHandler",0];
 
 // CBA Event
 private _JIPID = ["SSS_supportEntityAdded",_entity] call CBA_fnc_globalEventJIP;

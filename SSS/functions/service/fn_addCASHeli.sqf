@@ -39,7 +39,8 @@ private _fries = _vehicle getVariable ["ace_fastroping_FRIES",objnull]; // FRIES
 if (!isNull _fries) then {deleteVehicle _fries;};
 
 // Assignment
-ADD_SUPPORT_VEHICLE(_vehicle,_side,"CASHelis")
+[true,format ["SSS_CASHelis_%1",_side],_vehicle] remoteExecCall ["SSS_fnc_editServiceArray",2];
+[_vehicle,["Deleted",{_this call SSS_fnc_deleted;}]] remoteExecCall ["addEventHandler",0];
 _vehicle addMPEventHandler ["MPKilled",{[_this # 0] call SSS_fnc_respawn;}];
 (driver _vehicle) addMPEventHandler ["MPKilled",{[vehicle (_this # 0),true] call SSS_fnc_respawn;}];
 [_vehicle,"GetOut",{

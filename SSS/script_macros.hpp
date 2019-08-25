@@ -112,14 +112,6 @@
 	_marker setMarkerAlpha 0; \
 	VEH setVariable ["SSS_marker",_marker,true];
 
-#define ADD_SUPPORT_VEHICLE(VEH,VEH_SIDE,SERVICE) \
-	private _serviceString = format ["SSS_%1_%2",SERVICE,VEH_SIDE]; \
-	private _serviceArray = missionNamespace getVariable [_serviceString,[]]; \
-	_serviceArray pushBackUnique VEH; \
-	missionNamespace setVariable [_serviceString,[_serviceArray,true,{_this getVariable "SSS_displayName"}] call SSS_fnc_sortBy,true]; \
-	[VEH,["Deleted",{_this call SSS_fnc_deleted;}]] remoteExecCall ["addEventHandler",0]; \
-	NOTIFY(VEH,"New support ready for requests")
-
 #define BEGIN_ORDER(VEH,POS,MESSAGE) \
 	VEH setVariable ["SSS_onTask",true]; \
 	VEH setVariable ["SSS_awayFromBase",true,true]; \
