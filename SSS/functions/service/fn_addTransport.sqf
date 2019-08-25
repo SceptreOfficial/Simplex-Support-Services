@@ -6,10 +6,6 @@ params [
 	["_respawnTime",SSS_setting_respawnTimeDefault,[0]]
 ];
 
-if (!SSS_postInitDone) exitWith {
-	[{SSS_postInitDone},{_this remoteExecCall ["SSS_fnc_addTransport",_this # 0];},_this] call CBA_fnc_waitUntilAndExecute;
-};
-
 if (!local _vehicle) exitWith {_this remoteExecCall ["SSS_fnc_addTransport",_vehicle];};
 
 // Validation

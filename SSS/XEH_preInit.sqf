@@ -1,7 +1,6 @@
 #include "script_component.hpp"
 
 SSS_markers = [];
-SSS_postInitDone = false;
 
 // Service enabling
 SSS_artilleryEnabled = true;
@@ -51,3 +50,28 @@ SSS_setting_CASPlanesCooldownDefault = 300;
 		};
 	}];
 }] call CBA_fnc_addClassEventHandler;
+
+// Transport vehicle actions
+["SSS_supportVehicleAdded",{
+	params ["_vehicle"];
+
+	if (!alive _vehicle || {(_vehicle getVariable "SSS_service") != "transport"}) exitWith {};
+
+	private _transportAction = ["SSS_transport","Transport",ICON_TRANSPORT,{},{
+		alive (_this # 0) && alive driver (_this # 0)
+	},{
+		_this call SSS_fnc_childActionsTransport;
+	},_vehicle] call ace_interact_menu_fnc_createAction;
+
+	[_vehicle,1,["ACE_SelfActions"],_transportAction] call ace_interact_menu_fnc_addActionToObject;
+	[_vehicle,0,["ACE_MainActions"],_transportAction] call ace_interact_menu_fnc_addActionToObject;
+}] call CBA_fnc_addEventHandler;
+
+["SSS_supportVehicleRemoved",{
+	params ["_vehicle"];
+
+	if (!alive _vehicle) exitWith {};
+
+	[_vehicle,1,["ACE_SelfActions","SSS_transport"]] call ace_interact_menu_fnc_removeActionFromObject;
+	[_vehicle,0,["ACE_MainActions","SSS_transport"]] call ace_interact_menu_fnc_removeActionFromObject;
+}] call CBA_fnc_addEventHandler;

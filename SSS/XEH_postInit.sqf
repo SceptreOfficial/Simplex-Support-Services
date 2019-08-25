@@ -1,34 +1,7 @@
 #include "script_component.hpp"
 #define SERVICE_ARRAY(SERVICE) (missionNamespace getVariable [format ["SSS_%1_%2",SERVICE,side player],[]])
 
-// Transport vehicle actions
-["SSS_supportVehicleAdded",{
-	params ["_vehicle"];
-
-	if (!alive _vehicle || {(_vehicle getVariable "SSS_service") != "transport"}) exitWith {};
-
-	private _transportAction = ["SSS_transport","Transport",ICON_TRANSPORT,{},{
-		alive (_this # 0) && alive driver (_this # 0)
-	},{
-		_this call SSS_fnc_childActionsTransport;
-	},_vehicle] call ace_interact_menu_fnc_createAction;
-
-	[_vehicle,1,["ACE_SelfActions"],_transportAction] call ace_interact_menu_fnc_addActionToObject;
-	[_vehicle,0,["ACE_MainActions"],_transportAction] call ace_interact_menu_fnc_addActionToObject;
-}] call CBA_fnc_addEventHandler;
-
-["SSS_supportVehicleRemoved",{
-	params ["_vehicle"];
-
-	if (!alive _vehicle) exitWith {};
-
-	[_vehicle,1,["ACE_SelfActions","SSS_transport"]] call ace_interact_menu_fnc_removeActionFromObject;
-	[_vehicle,0,["ACE_MainActions","SSS_transport"]] call ace_interact_menu_fnc_removeActionFromObject;
-}] call CBA_fnc_addEventHandler;
-
 if (!hasInterface) exitWith {};
-
-//-----------------------------------------------------------------------------------------------//
 
 // Parent action
 [player,1,["ACE_SelfActions"],
@@ -183,7 +156,3 @@ if (!hasInterface) exitWith {};
 		_actions
 	}] call ace_interact_menu_fnc_createAction
 ] call ace_interact_menu_fnc_addActionToObject;
-
-//-----------------------------------------------------------------------------------------------//
-
-SSS_postInitDone = true;
