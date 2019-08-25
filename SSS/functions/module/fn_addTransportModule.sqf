@@ -12,7 +12,7 @@ if (!isNull (findDisplay 312)) then {
 
 	["Add Transport Heli",[
 		["EDITBOX","Callsign",getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")],
-		["EDITBOX","Respawn time",str SSS_setting_respawnTimeDefault]
+		["EDITBOX","Respawn time",SSS_DEFAULT_RESPAWN_TIME]
 	],{
 		params ["_values","_object"];
 		_values params ["_callsign","_respawnTime"];

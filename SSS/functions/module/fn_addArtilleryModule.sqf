@@ -12,9 +12,9 @@ if (!isNull (findDisplay 312)) then {
 
 	["Add Artillery",[
 		["EDITBOX","Callsign",getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")],
-		["EDITBOX","Respawn time",str SSS_setting_respawnTimeDefault],
-		["EDITBOX","Cooldown",str (SSS_setting_artilleryCooldownDefault # 0)],
-		["EDITBOX","Extra cooldown time per round",str (SSS_setting_artilleryCooldownDefault # 1)]
+		["EDITBOX","Respawn time",SSS_DEFAULT_RESPAWN_TIME],
+		["EDITBOX","Cooldown",SSS_DEFAULT_COOLDOWN_ARTILLERY_MIN],
+		["EDITBOX","Extra cooldown time per round",SSS_DEFAULT_COOLDOWN_ARTILLERY_ROUND]
 	],{
 		params ["_values","_object"];
 		_values params ["_callsign","_respawnTime","_cooldown","_roundCooldown"];

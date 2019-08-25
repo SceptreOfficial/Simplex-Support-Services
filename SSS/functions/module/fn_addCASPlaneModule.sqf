@@ -22,7 +22,7 @@ if (!isNull (findDisplay 312)) then {
 		["EDITBOX","Callsign",_callsign],
 		["EDITBOX",["Weapon set","Array of weapon classnames or array of weapon:magazine arrays"],_weaponSet],
 		["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
-		["EDITBOX","Cooldown",str SSS_setting_CASPlanesCooldownDefault]
+		["EDITBOX","Cooldown",SSS_DEFAULT_COOLDOWN_PLANES]
 	],{
 		params ["_values"];
 		_values params ["_classname","_callsign","_weaponSet","_sideSelection","_cooldown"];

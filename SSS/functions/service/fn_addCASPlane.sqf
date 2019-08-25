@@ -5,7 +5,7 @@ params [
 	["_callSign","",[""]],
 	["_weaponSet",[],[[]]],
 	["_side",sideEmpty,[sideEmpty]],
-	["_cooldownDefault",SSS_setting_CASPlanesCooldownDefault,[0]]
+	["_cooldownDefault",parseNumber SSS_DEFAULT_COOLDOWN_PLANES,[0]]
 ];
 
 if (!isServer) exitWith {_this remoteExecCall ["SSS_fnc_addCASPlane",2];};

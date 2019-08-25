@@ -37,19 +37,19 @@ class CfgVehicles {
 				displayName = "Respawn Time";
 				description = "-1 will disable respawn";
 				typeName = "STRING";
-				defaultValue = "60";
+				defaultValue = SSS_DEFAULT_RESPAWN_TIME;
 			};
 			class Cooldown {
 				displayName = "Cooldown";
 				description = "Minimum time between requests";
 				typeName = "STRING";
-				defaultValue = "90";
+				defaultValue = SSS_DEFAULT_COOLDOWN_ARTILLERY_MIN;
 			};
 			class RoundCooldown {
 				displayName = "Extra cooldown time per round";
 				description = "Additional time incremented per round fired";
 				typeName = "STRING";
-				defaultValue = "8";
+				defaultValue = SSS_DEFAULT_COOLDOWN_ARTILLERY_ROUND;
 			};
 		};
 		class ModuleDescription: ModuleDescription {
@@ -100,13 +100,13 @@ class CfgVehicles {
 				displayName = "Cooldown";
 				description = "Time between requests (after loiter is finished)";
 				typeName = "STRING";
-				defaultValue = "600";
+				defaultValue = SSS_DEFAULT_COOLDOWN_DRONES;
 			};
 			class LoiterTime {
 				displayName = "Loiter time";
 				description = "How long aircraft will loiter in the area";
 				typeName = "STRING";
-				defaultValue = "300";
+				defaultValue = SSS_DEFAULT_LOITER_TIME_DRONES;
 			};
 		};
 		class ModuleDescription: ModuleDescription {
@@ -151,13 +151,13 @@ class CfgVehicles {
 				displayName = "Cooldown";
 				description = "Time between requests (after loiter is finished)";
 				typeName = "STRING";
-				defaultValue = "720";
+				defaultValue = SSS_DEFAULT_COOLDOWN_GUNSHIPS;
 			};
 			class LoiterTime {
 				displayName = "Loiter time";
 				description = "How long aircraft will loiter in the area";
 				typeName = "STRING";
-				defaultValue = "300";
+				defaultValue = SSS_DEFAULT_LOITER_TIME_GUNSHIPS;
 			};
 		};
 		class ModuleDescription: ModuleDescription {
@@ -182,7 +182,7 @@ class CfgVehicles {
 				displayName = "Respawn Time";
 				description = "-1 will disable respawn";
 				typeName = "STRING";
-				defaultValue = "60";
+				defaultValue = SSS_DEFAULT_RESPAWN_TIME;
 			};
 		};
 		class ModuleDescription: ModuleDescription {
@@ -239,7 +239,7 @@ class CfgVehicles {
 				displayName = "Cooldown";
 				description = "Time between requests";
 				typeName = "STRING";
-				defaultValue = "300";
+				defaultValue = SSS_DEFAULT_COOLDOWN_PLANES;
 			};
 		};
 		class ModuleDescription: ModuleDescription {
@@ -264,7 +264,7 @@ class CfgVehicles {
 				displayName = "Respawn Time";
 				description = "-1 will disable respawn";
 				typeName = "STRING";
-				defaultValue = "60";
+				defaultValue = SSS_DEFAULT_RESPAWN_TIME;
 			};
 		};
 		class ModuleDescription: ModuleDescription {

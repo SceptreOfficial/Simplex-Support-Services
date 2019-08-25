@@ -35,47 +35,53 @@
 #define ZEUS_MESSAGE(MESSAGE) [objNull,MESSAGE] call BIS_fnc_showCuratorFeedbackMessage;
 #define ZEUS_ERROR(MESSAGE) ZEUS_MESSAGE(MESSAGE) playSound "SSS_failure";
 
-#define ICON_SUPPORT_SERVICES "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"
-#define ICON_ARTILLERY "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\artillery_ca.paa"
-#define ICON_CAS "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\cas_ca.paa"
-#define ICON_TRANSPORT "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa"
+#define ICON_ARTILLERY 					"\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\artillery_ca.paa"
+#define ICON_CAS 						"\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\cas_ca.paa"
+#define ICON_DRONE 						"SSS\ui\icons\drone.paa"
+#define ICON_DRONE_GREEN 				"SSS\ui\icons\drone_green.paa"
+#define ICON_DRONE_YELLOW 				"SSS\ui\icons\drone_yellow.paa"
+#define ICON_GEAR 						"SSS\ui\icons\gear.paa"
+#define ICON_GUNSHIP 					"SSS\ui\icons\gunship.paa"
+#define ICON_GUNSHIP_GREEN 				"SSS\ui\icons\gunship_green.paa"
+#define ICON_GUNSHIP_YELLOW 			"SSS\ui\icons\gunship_yellow.paa"
+#define ICON_HELI 						"SSS\ui\icons\heli.paa"
+#define ICON_HELI_YELLOW 				"SSS\ui\icons\heli_yellow.paa"
+#define ICON_HOME 						"SSS\ui\icons\home.paa"
+#define ICON_LAND 						"SSS\ui\icons\land.paa"
+#define ICON_LAND_ENG_OFF 				"SSS\ui\icons\land_eng_off.paa"
+#define ICON_LAND_GREEN 				"SSS\ui\icons\land_green.paa"
+#define ICON_LOITER 					"SSS\ui\icons\loiter.paa"
+#define ICON_MAP 						"\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\map_ca.paa"
+#define ICON_MORTAR 					"SSS\ui\icons\mortar.paa"
+#define ICON_MORTAR_YELLOW 				"SSS\ui\icons\mortar_yellow.paa"
+#define ICON_MOVE 						"SSS\ui\icons\move.paa"
+#define ICON_PLANE 						"SSS\ui\icons\plane.paa"
+#define ICON_PLANE_YELLOW 				"SSS\ui\icons\plane_yellow.paa"
+#define ICON_ROPE 						"SSS\ui\icons\rope.paa"
+#define ICON_SEARCH_YELLOW 				"SSS\ui\icons\search_yellow.paa"
+#define ICON_SELF_PROPELLED 			"SSS\ui\icons\self_propelled.paa"
+#define ICON_SELF_PROPELLED_YELLOW 		"SSS\ui\icons\self_propelled_yellow.paa"
+#define ICON_SMOKE 						"SSS\ui\icons\smoke.paa"
+#define ICON_STROBE 					"SSS\ui\icons\strobe.paa"
+#define ICON_SUPPORT_SERVICES 			"\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"
+#define ICON_TARGET 					"\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\target_ca.paa"
+#define ICON_TRANSPORT 					"\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa"
 
-#define ICON_DRONE "SSS\ui\icons\drone.paa"
-#define ICON_DRONE_GREEN "SSS\ui\icons\drone_green.paa"
-#define ICON_DRONE_YELLOW "SSS\ui\icons\drone_yellow.paa"
-#define ICON_GUNSHIP "SSS\ui\icons\gunship.paa"
-#define ICON_GUNSHIP_GREEN "SSS\ui\icons\gunship_green.paa"
-#define ICON_GUNSHIP_YELLOW "SSS\ui\icons\gunship_yellow.paa"
-#define ICON_HELI "SSS\ui\icons\heli.paa"
-#define ICON_HELI_YELLOW "SSS\ui\icons\heli_yellow.paa"
-#define ICON_MORTAR "SSS\ui\icons\mortar.paa"
-#define ICON_MORTAR_YELLOW "SSS\ui\icons\mortar_yellow.paa"
-#define ICON_PLANE "SSS\ui\icons\plane.paa"
-#define ICON_PLANE_YELLOW "SSS\ui\icons\plane_yellow.paa"
-#define ICON_SELF_PROPELLED "SSS\ui\icons\self_propelled.paa"
-#define ICON_SELF_PROPELLED_YELLOW "SSS\ui\icons\self_propelled_yellow.paa"
+#define RGBA_RED 		[0.9,0,0,1]
+#define RGBA_ORANGE 	[0.85,0.4,0,1]
+#define RGBA_YELLOW 	[0.85,0.85,0,1]
+#define RGBA_GREEN 		[0,0.8,0,1]
+#define RGBA_BLUE 		[0,0,1,1]
+#define RGBA_PURPLE 	[0.75,0.15,0.75,1]
 
-#define ICON_HOME "SSS\ui\icons\home.paa"
-#define ICON_MOVE "SSS\ui\icons\move.paa"
-#define ICON_ROPE "SSS\ui\icons\rope.paa"
-#define ICON_LAND "SSS\ui\icons\land.paa"
-#define ICON_LAND_ENG_OFF "SSS\ui\icons\land_eng_off.paa"
-#define ICON_LAND_GREEN "SSS\ui\icons\land_green.paa"
-#define ICON_SEARCH_YELLOW "SSS\ui\icons\search_yellow.paa"
-#define ICON_LOITER "SSS\ui\icons\loiter.paa"
-#define ICON_GEAR "SSS\ui\icons\gear.paa"
-
-#define ICON_MAP "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\map_ca.paa"
-#define ICON_SMOKE "SSS\ui\icons\smoke.paa"
-#define ICON_STROBE "SSS\ui\icons\strobe.paa"
-#define ICON_TARGET "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\target_ca.paa"
-
-#define RGBA_RED [0.9,0,0,1]
-#define RGBA_ORANGE [0.85,0.4,0,1]
-#define RGBA_YELLOW [0.85,0.85,0,1]
-#define RGBA_GREEN [0,0.8,0,1]
-#define RGBA_BLUE [0,0,1,1]
-#define RGBA_PURPLE [0.75,0.15,0.75,1]
+#define SSS_DEFAULT_RESPAWN_TIME 				"60"
+#define SSS_DEFAULT_COOLDOWN_ARTILLERY_MIN 		"90"
+#define SSS_DEFAULT_COOLDOWN_ARTILLERY_ROUND 	"8"
+#define SSS_DEFAULT_COOLDOWN_DRONES 			"600"
+#define SSS_DEFAULT_COOLDOWN_GUNSHIPS 			"900"
+#define SSS_DEFAULT_COOLDOWN_PLANES 			"300"
+#define SSS_DEFAULT_LOITER_TIME_DRONES 			"300"
+#define SSS_DEFAULT_LOITER_TIME_GUNSHIPS 		"300"
 
 #define PRIMARY_CREW(N) ((crew N) arrayIntersect (units group N))
 

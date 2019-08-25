@@ -3,8 +3,8 @@
 params [
 	["_callSign","",[""]],
 	["_side",sideEmpty,[sideEmpty]],
-	["_cooldownDefault",SSS_setting_CASGunshipsCooldownDefault,[0]],
-	["_loiterTime",SSS_setting_CASGunshipsLoiterTime,[0]]
+	["_cooldownDefault",parseNumber SSS_DEFAULT_COOLDOWN_GUNSHIPS,[0]],
+	["_loiterTime",parseNumber SSS_DEFAULT_LOITER_TIME_GUNSHIPS,[0]]
 ];
 
 if (!isServer) exitWith {_this remoteExecCall ["SSS_fnc_addCASGunship",2];};

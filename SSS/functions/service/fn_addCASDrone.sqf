@@ -4,8 +4,8 @@ params [
 	["_classname","",["",objNull]],
 	["_callSign","",[""]],
 	["_side",sideEmpty,[sideEmpty]],
-	["_cooldownDefault",SSS_setting_CASDronesCooldownDefault,[0]],
-	["_loiterTime",SSS_setting_CASDronesLoiterTime,[0]]
+	["_cooldownDefault",parseNumber SSS_DEFAULT_COOLDOWN_DRONES,[0]],
+	["_loiterTime",parseNumber SSS_DEFAULT_LOITER_TIME_DRONES,[0]]
 ];
 
 if (!isServer) exitWith {_this remoteExecCall ["SSS_fnc_addCASDrone",2];};

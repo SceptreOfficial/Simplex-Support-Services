@@ -3,7 +3,7 @@
 params [
 	["_vehicle",objNull,[objNull]],
 	["_callsign","",[""]],
-	["_respawnTime",SSS_setting_respawnTimeDefault,[0]]
+	["_respawnTime",parseNumber SSS_DEFAULT_RESPAWN_TIME,[0]]
 ];
 
 if (!local _vehicle) exitWith {_this remoteExecCall ["SSS_fnc_addCASHeli",_vehicle];};
@@ -56,4 +56,3 @@ _vehicle addMPEventHandler ["MPKilled",{[_this # 0] call SSS_fnc_respawn;}];
 private _JIPID = ["SSS_supportVehicleAdded",_vehicle] call CBA_fnc_globalEventJIP;
 [_JIPID,_vehicle] call CBA_fnc_removeGlobalEventJIP;
 _vehicle setVariable ["SSS_addedJIPID",_JIPID,true];
-

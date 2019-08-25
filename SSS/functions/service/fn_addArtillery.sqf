@@ -3,8 +3,8 @@
 params [
 	["_vehicle",objNull,[objNull]],
 	["_callsign","",[""]],
-	["_respawnTime",SSS_setting_respawnTimeDefault,[0]],
-	["_cooldownDefault",SSS_setting_artilleryCooldownDefault,[[]],2]
+	["_respawnTime",parseNumber SSS_DEFAULT_RESPAWN_TIME,[0]],
+	["_cooldownDefault",[parseNumber SSS_DEFAULT_COOLDOWN_ARTILLERY_MIN,parseNumber SSS_DEFAULT_COOLDOWN_ARTILLERY_ROUND],[[]],2]
 ];
 
 if (!local _vehicle) exitWith {_this remoteExecCall ["SSS_fnc_addArtillery",_vehicle];};

@@ -3,7 +3,7 @@
 params [
 	["_vehicle",objNull,[objNull]],
 	["_callsign","",[""]],
-	["_respawnTime",SSS_setting_respawnTimeDefault,[0]]
+	["_respawnTime",parseNumber SSS_DEFAULT_RESPAWN_TIME,[0]]
 ];
 
 if (!local _vehicle) exitWith {_this remoteExecCall ["SSS_fnc_addTransport",_vehicle];};

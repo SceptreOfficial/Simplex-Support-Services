@@ -13,17 +13,14 @@ SSS_transportEnabled = true;
 
 //-----------------------------------------------------------------------------------------------//
 
-// Give UAV Terminal on CAS Drone request
-SSS_setting_GiveUAVTerminal = true;
-
-// Defaults
-SSS_setting_respawnTimeDefault = 60;
-SSS_setting_artilleryCooldownDefault = [90,8];
-SSS_setting_CASDronesCooldownDefault = 600;
-SSS_setting_CASDronesLoiterTime = 300;
-SSS_setting_CASGunshipsCooldownDefault = 720;
-SSS_setting_CASGunshipsLoiterTime = 300;
-SSS_setting_CASPlanesCooldownDefault = 300;
+["SSS_setting_GiveUAVTerminal","CHECKBOX",
+	["Give UAV Terminal on drone request","Gives CAS Drone requesters a UAV terminal if they don't have one"],
+	"Simplex Support Services",
+	true, // _valueInfo
+	true, // _isGlobal
+	{},
+	false, // _needRestart
+] call CBA_fnc_addSetting;
 
 //-----------------------------------------------------------------------------------------------//
 

@@ -18,8 +18,8 @@ if (!isNull (findDisplay 312)) then {
 		["EDITBOX","Classname",_classname],
 		["EDITBOX","Callsign",_callsign],
 		["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
-		["EDITBOX","Cooldown",str SSS_setting_CASDronesCooldownDefault],
-		["EDITBOX","Loiter time",str SSS_setting_CASDronesLoiterTime]
+		["EDITBOX","Cooldown",SSS_DEFAULT_COOLDOWN_DRONES],
+		["EDITBOX","Loiter time",SSS_DEFAULT_LOITER_TIME_DRONES]
 	],{
 		params ["_values"];
 		_values params ["_classname","_callsign","_sideSelection","_cooldown","_loiterTime"];

@@ -9,8 +9,8 @@ if (!isNull (findDisplay 312)) then {
 	["Add CAS Gunship",[
 		["EDITBOX","Callsign","Blackfish"],
 		["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
-		["EDITBOX","Cooldown",str SSS_setting_CASGunshipsCooldownDefault],
-		["EDITBOX","Loiter time",str SSS_setting_CASGunshipsLoiterTime]
+		["EDITBOX","Cooldown",SSS_DEFAULT_COOLDOWN_GUNSHIPS],
+		["EDITBOX","Loiter time",SSS_DEFAULT_LOITER_TIME_GUNSHIPS]
 	],{
 		params ["_values"];
 		_values params ["_callsign","_sideSelection","_cooldown","_loiterTime"];
