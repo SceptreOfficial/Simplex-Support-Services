@@ -48,6 +48,7 @@ SET_VEHICLE_TRAITS(_entity,_classname,_side,"CASPlanes",_callsign)
 CREATE_TASK_MARKER(_entity,"mil_end","CAS",_callsign)
 
 // Support specific setup
+_entity setVariable ["SSS_icon",ICON_PLANE,true];
 _entity setVariable ["SSS_weapons",_weapons,true];
 _entity setVariable ["SSS_cooldown",0,true];
 _entity setVariable ["SSS_cooldownDefault",_cooldownDefault,true];

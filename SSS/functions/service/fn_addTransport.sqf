@@ -29,6 +29,7 @@ SET_VEHICLE_TRAITS_PHYSICAL(_vehicle,_group,_base,_side,"transport",_callsign,_r
 CREATE_TASK_MARKER(_vehicle,"mil_end","Transport",_callsign)
 
 // Service specific setup
+_vehicle setVariable ["SSS_icon",ICON_HELI,true];
 _vehicle setVariable ["SSS_awayFromBase",false,true];
 _vehicle setVariable ["SSS_onTask",false,true];
 _vehicle setVariable ["SSS_interrupt",false,true];
