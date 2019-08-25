@@ -36,3 +36,5 @@ _entity setVariable ["SSS_activeInArea",false,true];
 // CBA Event
 private _JIPID = ["SSS_supportEntityAdded",_entity] call CBA_fnc_globalEventJIP;
 [_JIPID,_entity] call CBA_fnc_removeGlobalEventJIP;
+
+_entity
