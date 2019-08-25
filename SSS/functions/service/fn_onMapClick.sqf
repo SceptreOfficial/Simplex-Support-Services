@@ -4,7 +4,7 @@ params ["_units","_position","_alt","_shift","_vehicle","_request","_service"];
 
 switch (_service) do {
 	case "artillery" : {
-		if !(_position inRangeOfArtillery [[_vehicle],_request]) exitWith {NOTIFY_LOCAL(_vehicle,"Artillery range INVALID, unable to fulfill request.")};
+		if !(_position inRangeOfArtillery [[_vehicle],_request]) exitWith {NOTIFY_LOCAL(_vehicle,"Artillery range INVALID. Unable to fulfill request.")};
 
 		private _serviceArray = missionNamespace getVariable format ["SSS_artillery_%1",_vehicle getVariable "SSS_side"];
 		private _nearbyArtillery = (_serviceArray select {
