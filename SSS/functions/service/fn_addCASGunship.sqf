@@ -12,7 +12,8 @@ if (!isServer) exitWith {_this remoteExecCall ["SSS_fnc_addCASGunship",2];};
 // Validation
 private _classname = "B_T_VTOL_01_armed_F";
 if (_callsign isEqualTo "") then {_callsign = getText (configFile >> "CfgVehicles" >> _classname >> "displayName");};
-if (_side isEqualTo sideEmpty) exitWith {SSS_ERROR_1("No side defined for %1 (%2)",_callsign,_classname)};
+
+if !(_side in [west,east,resistance]) exitWith {SSS_ERROR_1("Invalid side: %1 (%2)",_callsign,_classname)};
 
 // Basic setup
 private _entity = (createGroup sideLogic) createUnit ["logic",[0,0,0],[],0,"CAN_COLLIDE"];

@@ -12,9 +12,10 @@ if (!isServer) exitWith {_this remoteExecCall ["SSS_fnc_addCASDrone",2];};
 
 // Validation
 if (_classname isEqualType objNull) then {_classname = typeOf _classname};
-if (_callsign isEqualTo "") then {_callsign = getText (configFile >> "CfgVehicles" >> _classname >> "displayName");};
 if (_classname isEqualTo "" || !(_classname isKindOf "Plane")) exitWith {SSS_ERROR_1("Invalid CAS Drone class: %1",_classname)};
-if (_side isEqualTo sideEmpty) exitWith {SSS_ERROR_1("No side defined for %1 (%2)",_callsign,_classname)};
+if (_callsign isEqualTo "") then {_callsign = getText (configFile >> "CfgVehicles" >> _classname >> "displayName");};
+
+if !(_side in [west,east,resistance]) exitWith {SSS_ERROR_1("Invalid side: %1 (%2)",_callsign,_classname)};
 
 // Basic setup
 private _entity = (createGroup sideLogic) createUnit ["logic",[0,0,0],[],0,"CAN_COLLIDE"];

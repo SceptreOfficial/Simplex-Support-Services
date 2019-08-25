@@ -12,35 +12,41 @@ if (!isServer) exitWith {_this remoteExecCall ["SSS_fnc_addCASPlane",2];};
 
 // Validation
 if (_classname isEqualType objNull) then {_classname = typeOf _classname};
-if (_callsign isEqualTo "") then {_callsign = getText (configFile >> "CfgVehicles" >> _classname >> "displayName");};
 if (_classname isEqualTo "" || !(_classname isKindOf "Plane")) exitWith {SSS_ERROR_1("Invalid CAS Plane class: %1",_classname)};
-if (_side isEqualTo sideEmpty) exitWith {SSS_ERROR_1("No side defined for %1 (%2)",_callsign,_classname)};
+if (_callsign isEqualTo "") then {_callsign = getText (configFile >> "CfgVehicles" >> _classname >> "displayName");};
 
-// Verify and compile weapons and countermeasures
-private _entityWeapons = _classname call BIS_fnc_weaponsEntityType;
+if !(_side in [west,east,resistance]) exitWith {SSS_ERROR_1("Invalid side: %1 (%2)",_callsign,_classname)};
+
+// Verify and compile weapons
 private _weapons = [];
 
 if (_weaponSet isEqualTo []) then {
-	_weaponSet = _entityWeapons select {
+	_weaponSet = (_classname call BIS_fnc_weaponsEntityType) select {
 		(toLower ((_x call BIS_fnc_itemType) # 1)) in ["machinegun","rocketlauncher","missilelauncher","bomblauncher"]
 	};
 };
 
+private _cfgWeapons = configFile >> "CfgWeapons";
+private _cfgMagazines = configFile >> "CfgMagazines";
+
 {
 	if (_x isEqualType "") then {
-		if (!isClass (configFile >> "CfgWeapons" >> _x)) exitWith {};
-		private _magazineClass = (_x call CBA_fnc_compatibleMagazines) # 0;
-		_weapons pushBack [_x,_magazineClass];
+		if (!isClass (_cfgWeapons >> _x)) exitWith {SSS_ERROR_1("Invalid weapon class: %1",_x)};
+
+		_weapons pushBack [_x,(_x call CBA_fnc_compatibleMagazines) # 0];
 	};
+
 	if (_x isEqualType []) then {
 		_x params [["_weaponClass","",[""]],["_magazineClass","",[""]]];
 
-		if (!isClass (configFile >> "CfgWeapons" >> _weaponClass) || !isClass (configFile >> "CfgMagazines" >> _magazineClass)) exitWith {};
+		if (!isClass (_cfgWeapons >> _weaponClass)) exitWith {SSS_ERROR_1("Invalid weapon class: %1",_weaponClass)};
+		if (!isClass (_cfgMagazines >> _magazineClass)) exitWith {SSS_ERROR_1("Invalid magazine class: %1",_magazineClass)};
+
 		_weapons pushBack [_weaponClass,_magazineClass];
 	};
 } forEach _weaponSet;
 
-_weapons = [_weapons,true,{getText (configFile >> "CfgMagazines" >> _this # 1 >> "displayName")}] call SSS_fnc_sortBy;
+_weapons = [_weapons,true,{getText (_cfgMagazines >> _this # 1 >> "displayName")}] call SSS_fnc_sortBy;
 
 // Basic setup
 private _entity = (createGroup sideLogic) createUnit ["logic",[0,0,0],[],0,"CAN_COLLIDE"];

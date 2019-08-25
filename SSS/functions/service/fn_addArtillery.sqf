@@ -8,19 +8,19 @@ params [
 ];
 
 if (!SSS_postInitDone) exitWith {
-	[{SSS_postInitDone},{
-		_this remoteExecCall ["SSS_fnc_addArtillery",_this # 0];
-	},_this] call CBA_fnc_waitUntilAndExecute;
+	[{SSS_postInitDone},{_this remoteExecCall ["SSS_fnc_addArtillery",_this # 0];},_this] call CBA_fnc_waitUntilAndExecute;
 };
 
 if (!local _vehicle) exitWith {_this remoteExecCall ["SSS_fnc_addArtillery",_vehicle];};
 
 // Validation
-if (_callsign isEqualTo "") then {_callsign = getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "displayName");};
 private _side = side _vehicle;
-if (_side == sideLogic || _side == sideEmpty) exitWith {SSS_ERROR_2("Invalid artillery vehicle: %1 (%2)",_callsign,_vehicle)};
-if !((leader _vehicle) in _vehicle) exitWith {SSS_ERROR_2("Leader is not in artillery vehicle: %1 (%2)",_callsign,_vehicle)};
-if (_vehicle in (missionNamespace getVariable [format ["SSS_artillery_%1",_side],[]])) exitWith {SSS_ERROR_2("Vehicle is already assigned: %1 (%2)",_callsign,_vehicle)};
+if (_callsign isEqualTo "") then {_callsign = getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "displayName");};
+
+if !(_side in [west,east,resistance]) exitWith {SSS_ERROR_2("Invalid side: %1 (%2)",_callsign,_vehicle)};
+if ({isPlayer _x} count crew _vehicle > 0) exitWith {SSS_ERROR_2("Cannot assign players: %1 (%2)",_callsign,_vehicle)};
+if (_vehicle in (missionNamespace getVariable [format ["SSS_artillery_%1",_side],[]])) exitWith {SSS_ERROR_2("Vehicle already assigned: %1 (%2)",_callsign,_vehicle)};
+if (!alive gunner _vehicle) exitWith {SSS_ERROR_2("No gunner in vehicle: %1 (%2)",_callsign,_vehicle)};
 
 // Basic setup
 private _group = group _vehicle;
@@ -28,6 +28,7 @@ SET_VEHICLE_TRAITS_PHYSICAL(_vehicle,_group,getPosASL _vehicle,_side,"artillery"
 CREATE_TASK_MARKER(_vehicle,"mil_warning","artillery",_callsign)
 
 // Service specific setup
+_vehicle setVariable ["SSS_icon",[ICON_SELF_PROPELLED,ICON_MORTAR] select (_vehicle isKindOf "StaticWeapon"),true];
 _vehicle setVariable ["SSS_awayFromBase",false,true];
 _vehicle setVariable ["SSS_onTask",false,true];
 _vehicle setVariable ["SSS_interrupt",false,true];
