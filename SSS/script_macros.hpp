@@ -72,6 +72,8 @@
 #define RGBA_BLUE [0,0,1,1]
 #define RGBA_PURPLE [0.75,0.15,0.75,1]
 
+#define PRIMARY_CREW(N) ((crew N) arrayIntersect (units group N))
+
 #define SET_VEHICLE_TRAITS(VEH,CLASS,VEH_SIDE,SERVICE,CALLSIGN) \
 	VEH setVariable ["SSS_classname",CLASS,true]; \
 	VEH setVariable ["SSS_side",VEH_SIDE,true]; \
