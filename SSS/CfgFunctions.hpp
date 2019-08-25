@@ -7,6 +7,7 @@ class CfgFunctions {
 			class changeBehavior {};
 			class clearWaypoints {};
 			class cooldown {};
+			class deleted {};
 			class getAmmoUsageFlags {};
 			class getSmokeColor {};
 			class notification {};
