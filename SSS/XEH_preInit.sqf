@@ -19,7 +19,7 @@ SSS_transportEnabled = true;
 	true, // _valueInfo
 	true, // _isGlobal
 	{},
-	false, // _needRestart
+	false // _needRestart
 ] call CBA_fnc_addSetting;
 
 //-----------------------------------------------------------------------------------------------//
