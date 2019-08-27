@@ -105,7 +105,7 @@ switch (_service) do {
 				params ["_values","_args"];
 				_args params ["_vehicle","_request","_position"];
 
-				[_vehicle,_request,_position,_values] remoteExecCall ["SSS_fnc_requestTransporti",_vehicle];
+				[_vehicle,_request,_position,_values] remoteExecCall ["SSS_fnc_requestTransport",_vehicle];
 			},{REQUEST_CANCELLED},[_vehicle,_request,_position]] call SSS_CDS_fnc_dialog
 		} else {
 			[_vehicle,_request,_position] remoteExecCall ["SSS_fnc_requestTransport",_vehicle];
