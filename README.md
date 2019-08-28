@@ -7,10 +7,10 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/acemod/ACEX/releases/latest">
+	<a href="https://github.com/SceptreOfficial/Simplex-Support-Services/releases/latest">
 		<img src="https://img.shields.io/badge/Version-0.1-blue?style=flat-square" alt="Version">
 	</a>
-	<a href="https://github.com/acemod/ACEX/issues">
+	<a href="https://github.com/SceptreOfficial/Simplex-Support-Services/issues">
 		<img src="https://img.shields.io/github/issues-raw/SceptreOfficial/Simplex-Support-Services?style=flat-square&label=Issues" alt="Issues">
 	</a>
 	<a href="https://github.com/SceptreOfficial/Simplex-Support-Services/blob/master/LICENSE">
