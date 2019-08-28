@@ -29,10 +29,10 @@
 
 **Simplex Support Services** is a fully automated, on-call support service system.
 
-For usage instructions, please see the [wiki](https://github.com/SceptreOfficial/Simplex-AI-Autonomy/wiki).
+For usage instructions, please see the [wiki](https://github.com/SceptreOfficial/Simplex-Support-Services/wiki).
 
 SAA is still under development, with many features yet to be implemented and bugs still to be found.
-Feel free to contribute, submit issues, or suggest any new features via the [issue tracker](https://github.com/SceptreOfficial/Simplex-AI-Autonomy/issues).
+Feel free to contribute, submit issues, or suggest any new features via the [issue tracker](https://github.com/SceptreOfficial/Simplex-Support-Services/issues).
 
 ### License
 
