@@ -1,17 +1,5 @@
 #include "script_component.hpp"
-/*
-	0: Group or unit <GROUP | OBJECT>
-	1: Position <ARRAY>
-	2: Placement radius <SCALAR>
-	3: Type <STRING>
-	4: Behaviour <STRING>
-	5: Combat Mode <STRING>
-	6: Speed Mode <STRING>
-	7: Formation <STRING>
-	8: Waypoint Statments <ARRAY>
-	9: Timeout <ARRAY>
-	10: Completion Radius <SCALAR>
-*/
+
 params [
 	["_target",grpNull,[grpNull,objNull]],
 	["_position",[],[[]]],
