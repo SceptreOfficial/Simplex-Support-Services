@@ -63,7 +63,7 @@
 #define ICON_SELF_PROPELLED_YELLOW 		"SSS\ui\icons\self_propelled_yellow.paa"
 #define ICON_SMOKE 						"SSS\ui\icons\smoke.paa"
 #define ICON_STROBE 					"SSS\ui\icons\strobe.paa"
-#define ICON_SUPPORT_SERVICES 			"\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"
+#define ICON_SUPPORT_SERVICES 			"SSS\ui\icons\sss.paa"
 #define ICON_TARGET 					"\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\target_ca.paa"
 #define ICON_TRANSPORT 					"\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa"
 
