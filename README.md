@@ -3,7 +3,8 @@
 </p>
 
 <p align="center">
-	<strong>Simplex Support Services</strong>
+	<strong>Simplex Support Services</strong><br />
+	<sup><strong>A support system for Arma 3.</strong></sup>
 </p>
 
 <p align="center">
@@ -22,8 +23,8 @@
 
 #### Requirements
 
-- CBA_A3 (https://github.com/CBATeam/CBA_A3)
-- ACE3 (https://github.com/acemod/ACE3)
+- [CBA_A3](https://github.com/CBATeam/CBA_A3)
+- [ACE3](https://github.com/acemod/ACE3)
 
 ### Description
 
