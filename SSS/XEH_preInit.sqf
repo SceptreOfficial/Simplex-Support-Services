@@ -22,6 +22,15 @@ SSS_transportEnabled = true;
 	false // _needRestart
 ] call CBA_fnc_addSetting;
 
+["SSS_setting_useChatNotifications","CHECKBOX",
+	["Use default chat notifications","Disables custom notification system"],
+	"Simplex Support Services",
+	false, // _valueInfo
+	false, // _isGlobal
+	{},
+	false // _needRestart
+] call CBA_fnc_addSetting;
+
 //-----------------------------------------------------------------------------------------------//
 
 // Handle curator deletion of entities and waypoints
