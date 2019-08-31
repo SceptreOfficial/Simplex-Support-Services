@@ -35,6 +35,11 @@ For usage instructions, please see the [wiki](https://github.com/SceptreOfficial
 SAA is still under development, with many features yet to be implemented and bugs still to be found.
 Feel free to contribute, submit issues, or suggest any new features via the [issue tracker](https://github.com/SceptreOfficial/Simplex-Support-Services/issues).
 
+**Known Issues:**
+- **Sometimes artillery won't fire on target.** (Might be BI fault with doArtilleryFire command)
+- **Sometimes AI helicopter pilots don't land where they're requested.** (I've done my best to counteract this and make it as uncommon as possible.
+- **Remote controlling a drone while already remote controlling a gunship will get you stuck in remote control. Respawning should get you un-stuck.**
+
 ### License
 
 This project is licensed under the GNU General Public License ([GPLv2](../master/LICENSE)).
