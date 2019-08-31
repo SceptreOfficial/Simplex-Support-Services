@@ -1,5 +1,9 @@
 #include "script_component.hpp"
 
+if (!isServer) exitWith {
+	["SSS_addWaypoint",_this] call CBA_fnc_serverEvent;
+};
+
 params [
 	["_target",grpNull,[grpNull,objNull]],
 	["_position",[],[[]]],

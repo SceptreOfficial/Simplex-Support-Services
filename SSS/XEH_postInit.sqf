@@ -1,6 +1,10 @@
 #include "script_component.hpp"
 #define SERVICE_ARRAY(SERVICE) (missionNamespace getVariable [format ["SSS_%1_%2",SERVICE,side player],[]])
 
+if (isServer) then {
+	["SAA_addWaypoint",{_this call SSS_fnc_addWaypoint}] call CBA_fnc_addEventHandler;
+};
+
 if (!hasInterface) exitWith {};
 
 // Parent action
