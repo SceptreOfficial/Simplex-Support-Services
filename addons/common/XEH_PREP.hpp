@@ -1,0 +1,16 @@
+PREP(addWaypoint);
+PREP(changeBehavior);
+PREP(clearWaypoints);
+PREP(cooldown);
+PREP(deleted);
+PREP(editServiceArray);
+PREP(getAmmoUsageFlags);
+PREP(getSmokeColor);
+PREP(notification);
+PREP(notify);
+PREP(properTime);
+PREP(remove);
+PREP(respawn);
+PREP(selectMapPosition);
+PREP(sortBy);
+PREP(updateMarker);
