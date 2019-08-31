@@ -68,14 +68,24 @@ switch (_request) do {
 			BEGIN_ORDER(_vehicle,_position,"Heading to requested location to provide CAS.")
 
 			private _group = group _vehicle;
-			{
-				_group reveal _x;
-				false
-			} count (_position nearEntities 120);
+			_group allowFleeing 0;
+
+			// Reveal area
+			{_group reveal _x} forEach (_position nearEntities 300);
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			_vehicle call SSS_fnc_clearWaypoints;
 			[_vehicle,_position,0,"SAD","COMBAT","RED","FULL","",WP_DONE] call SSS_fnc_addWaypoint;
+
+			// Reveal area again
+			[{params ["_vehicle","_position"]; CANCEL_CONDITION || _vehicle distance2D _position < 500},{
+				params ["_vehicle","_position"];
+
+				if (CANCEL_CONDITION) exitWith {};
+
+				private _group = group _vehicle;
+				{_group reveal _x} forEach (_position nearEntities 300);
+			},[_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
 
 			[{WAIT_CONDITION_WPDONE},{
 				params ["_vehicle"];
