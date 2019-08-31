@@ -28,7 +28,7 @@
 
 ### Description
 
-**Simplex Support Services** is a fully automated, on-call support service system.
+**Simplex Support Services** is a fully automated, on-call support service system. Created out of the frustration of needing to pre-configure AI and manage the potential of getting Arma'd, **SSS** is designed to make AI supports reliable and easy to use. 
 
 For usage instructions, please see the [wiki](https://github.com/SceptreOfficial/Simplex-Support-Services/wiki).
 
