@@ -1,0 +1,10 @@
+PREP(addArtilleryModule);
+PREP(addCASDroneModule);
+PREP(addCASGunshipModule);
+PREP(addCASHeliModule);
+PREP(addCASPlaneModule);
+PREP(addTransportModule);
+PREP(removeCASDroneModule);
+PREP(removeCASGunshipModule);
+PREP(removeCASPlaneModule);
+PREP(removeEntity);

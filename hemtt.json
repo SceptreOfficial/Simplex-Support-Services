@@ -1,0 +1,13 @@
+{
+	"name": "Simplex Support Services",
+	"prefix": "SSS",
+	"author": "SSS Team",
+	"files": [
+		"mod.cpp",
+		"sss.paa",
+		"README.md",
+		"LICENSE",
+		"authors.txt"
+	],
+	"sigversion": 3
+}

@@ -1,0 +1,7 @@
+{
+	"sqflint.warnings": false,
+	"sqflint.indexWorkspace": false,
+	"sqflint.indexWorkspaceTwice": false,
+	"sqf.enableACE3": true,
+	"sqf.enableCBA": true
+}
