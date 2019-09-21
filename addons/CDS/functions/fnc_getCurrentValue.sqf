@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*-----------------------------------------------------------------------------------------------//
 Authors: Sceptre
 Gets the current value of a selected control.
@@ -8,13 +9,11 @@ Parameters:
 Returns:
 Nothing
 //-----------------------------------------------------------------------------------------------*/
-#include "script_component.hpp"
-
 disableSerialization;
 params [["_index",0,[0]]];
 
-private _ctrl = findDisplay DISPLAY_IDD displayCtrl ((uiNamespace getVariable "SSS_CDS_controls") # _index);
-private _ctrlInfo = _ctrl getVariable "SSS_CDS_ctrlInfo";
+private _ctrl = findDisplay DISPLAY_IDD displayCtrl ((uiNamespace getVariable QGVAR(controls)) # _index);
+private _ctrlInfo = _ctrl getVariable QGVAR(ctrlInfo);
 
 switch (_ctrlInfo # 0) do {
 	case "SLIDER";

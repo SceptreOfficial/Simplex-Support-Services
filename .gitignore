@@ -3,6 +3,6 @@
 *.pbo
 *.biprivatekey
 *.bat
+releases/
 Thumbs.db
 desktop.ini
-releases/

@@ -1,10 +1,11 @@
 #include "script_component.hpp"
 
 disableSerialization;
-removeMissionEventHandler ["EachFrame",SSS_CDS_EFID];
+removeMissionEventHandler ["EachFrame",GVAR(EFID)];
 
-private _returnValues = (uiNamespace getVariable "SSS_CDS_controls") apply {
-	private _ctrlInfo = (findDisplay DISPLAY_IDD displayCtrl _x) getVariable "SSS_CDS_ctrlInfo";
+private _returnValues = (uiNamespace getVariable QGVAR(controls)) apply {
+	private _ctrlInfo = (findDisplay DISPLAY_IDD displayCtrl _x) getVariable QGVAR(ctrlInfo);
+	
 	[_ctrlInfo # 0,_ctrlInfo # 1,_ctrlInfo # 2,true] call FUNC(cacheValue);
 	switch (_ctrlInfo # 0) do {
 		case "SLIDER";
@@ -13,6 +14,6 @@ private _returnValues = (uiNamespace getVariable "SSS_CDS_controls") apply {
 	};
 };
 
-[_returnValues,uiNamespace getVariable "SSS_CDS_customArguments"] call (uiNamespace getVariable "SSS_CDS_onOK");
+[_returnValues,uiNamespace getVariable QGVAR(customArguments)] call (uiNamespace getVariable QGVAR(onOK));
 
 closeDialog 0;

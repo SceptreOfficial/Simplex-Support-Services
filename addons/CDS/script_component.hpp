@@ -1,19 +1,17 @@
 #define COMPONENT CDS
-#include "\z\SSS\addons\main\script_mod.hpp"
+#include "\z\SSS\addons\SSS\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
 // #define DISABLE_COMPILE_CACHE
 
 #ifdef DEBUG_ENABLED_CDS
-#define DEBUG_MODE_FULL
+	#define DEBUG_MODE_FULL
 #endif
-#ifdef DEBUG_SETTINGS_CDS
-#define DEBUG_SETTINGS DEBUG_SETTINGS_CDS
+	#ifdef DEBUG_SETTINGS_CDS
+	#define DEBUG_SETTINGS DEBUG_SETTINGS_CDS
 #endif
 
-#include "\z\SSS\addons\main\script_macros.hpp"
-
-#include "\a3\ui_f\hpp\defineDIKCodes.inc"
+#include "\z\SSS\addons\SSS\script_macros.hpp"
 
 #define DISPLAY_IDD 12700
 #define BG_IDC 12701
@@ -24,7 +22,7 @@
 #define CTRL_IDC_START 12850
 #define CTRL_AUX_IDC_START 12950
 
-#define COLOR_DISABLED 1, 1, 1, 0.35
+#define COLOR_DISABLED 1,1,1,0.35
 #define CENTER_Y 0.5
 #define TOTAL_WIDTH 1
 #define DEFAULT_X (0.5 - TOTAL_WIDTH / 2)

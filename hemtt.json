@@ -1,7 +1,7 @@
 {
 	"name": "Simplex Support Services",
 	"prefix": "SSS",
-	"author": "SSS Team",
+	"author": "Simplex Team",
 	"files": [
 		"mod.cpp",
 		"sss.paa",

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*-----------------------------------------------------------------------------------------------//
 Authors: Sceptre
 Creates a dialog with defined control types.
@@ -33,18 +34,16 @@ Parameters:
 Returns:
 Nothing
 //-----------------------------------------------------------------------------------------------*/
-#include "script_component.hpp"
-
 if (!isNull (findDisplay DISPLAY_IDD)) exitWith {};
 
 disableSerialization;
 params [["_titleText","",[""]],["_controls",[],[[]]],["_onOK",{},[{}]],["_onCancel",{},[{}]],["_customArguments",[]]];
 
-uiNamespace setVariable ["SSS_CDS_titleText",_titleText];
-uiNamespace setVariable ["SSS_CDS_onOK",_onOK];
-uiNamespace setVariable ["SSS_CDS_onCancel",_onCancel];
-uiNamespace setVariable ["SSS_CDS_customArguments",_customArguments];
-createDialog "SSS_CDS_Dialog";
+uiNamespace setVariable [QGVAR(titleText),_titleText];
+uiNamespace setVariable [QGVAR(onOK),_onOK];
+uiNamespace setVariable [QGVAR(onCancel),_onCancel];
+uiNamespace setVariable [QGVAR(customArguments),_customArguments];
+createDialog QGVAR(Dialog);
 private _display = findDisplay DISPLAY_IDD;
 private _neededHeight = count _controls * ROW_H + BUFFER_H;
 
@@ -83,7 +82,7 @@ private _posY = CENTER_Y - _neededHeight / 2 + BUFFER_H / 1.5;
 	];
 
 	// Create Description
-	private _text = _display ctrlCreate ["SSS_CDS_Text",TEXT_IDC_START + _forEachIndex];
+	private _text = _display ctrlCreate [QGVAR(Text),TEXT_IDC_START + _forEachIndex];
 	_text ctrlSetPosition [TEXT_X,_posY];
 	if (_description isEqualType []) then {
 		_text ctrlSetText (_description # 0 + ":");
@@ -92,49 +91,49 @@ private _posY = CENTER_Y - _neededHeight / 2 + BUFFER_H / 1.5;
 		_text ctrlSetText (_description + ":");
 	};
 	_text ctrlCommit 0;
-
+	
 	if (!_forceDefault) then {
 		_values = [toUpper _type,_description,_values,false] call FUNC(cacheValue);
 	};
-
+	
 	// Create control
 	switch (toUpper _type) do {
 		case "CHECKBOX" : {
 			_values params [["_bool",true,[true]]];
 
-			private _ctrl = _display ctrlCreate ["SSS_CDS_Checkbox",CTRL_IDC_START + _forEachIndex];
+			private _ctrl = _display ctrlCreate [QGVAR(Checkbox),CTRL_IDC_START + _forEachIndex];
 			_ctrl ctrlSetPosition [CTRL_X,_posY + CHECKBOX_Y];
 			_ctrl ctrlCommit 0;
 			_ctrl cbSetChecked _bool;
-			_ctrl setVariable ["SSS_CDS_ctrlInfo",[_type,_description,_bool,_onValueChanged,_enableCondition]];
-			_ctrl setVariable ["SSS_CDS_descriptionIDC",TEXT_IDC_START + _forEachIndex];
+			_ctrl setVariable [QGVAR(ctrlInfo),[_type,_description,_bool,_onValueChanged,_enableCondition]];
+			_ctrl setVariable [QGVAR(descriptionIDC),TEXT_IDC_START + _forEachIndex];
 
 			_ctrl ctrlAddEventHandler ["CheckedChanged",{
 				params ["_ctrl","_currentValue"];
 				_currentValue = _currentValue isEqualTo 1;
-				private _ctrlInfo = _ctrl getVariable "SSS_CDS_ctrlInfo";
+				private _ctrlInfo = _ctrl getVariable QGVAR(ctrlInfo);
 				_ctrlInfo set [2,_currentValue];
-				_ctrl setVariable ["SSS_CDS_ctrlInfo",_ctrlInfo];
-				[_currentValue,uiNamespace getVariable "SSS_CDS_customArguments",_ctrl] call (_ctrlInfo # 3);
+				_ctrl setVariable [QGVAR(ctrlInfo),_ctrlInfo];
+				[_currentValue,uiNamespace getVariable QGVAR(customArguments),_ctrl] call (_ctrlInfo # 3);
 			}];
 		};
 		case "EDITBOX" : {
 			_values params [["_string","",[""]]];
 
-			private _ctrl = _display ctrlCreate ["SSS_CDS_Editbox",CTRL_IDC_START + _forEachIndex];
+			private _ctrl = _display ctrlCreate [QGVAR(Editbox),CTRL_IDC_START + _forEachIndex];
 			_ctrl ctrlSetPosition [CTRL_X,_posY + EDITBOX_Y];
 			_ctrl ctrlCommit 0;
 			_ctrl ctrlSetText _string;
-			_ctrl setVariable ["SSS_CDS_ctrlInfo",[_type,_description,_string,_onValueChanged,_enableCondition]];
-			_ctrl setVariable ["SSS_CDS_descriptionIDC",TEXT_IDC_START + _forEachIndex];
+			_ctrl setVariable [QGVAR(ctrlInfo),[_type,_description,_string,_onValueChanged,_enableCondition]];
+			_ctrl setVariable [QGVAR(descriptionIDC),TEXT_IDC_START + _forEachIndex];
 
 			_ctrl ctrlAddEventHandler ["KeyUp",{
 				params ["_ctrl"];
 				private _currentValue = ctrlText _ctrl;
-				private _ctrlInfo = _ctrl getVariable "SSS_CDS_ctrlInfo";
+				private _ctrlInfo = _ctrl getVariable QGVAR(ctrlInfo);
 				_ctrlInfo set [2,_currentValue];
-				_ctrl setVariable ["SSS_CDS_ctrlInfo",_ctrlInfo];
-				[_currentValue,uiNamespace getVariable "SSS_CDS_customArguments",_ctrl] call (_ctrlInfo # 3);
+				_ctrl setVariable [QGVAR(ctrlInfo),_ctrlInfo];
+				[_currentValue,uiNamespace getVariable QGVAR(customArguments),_ctrl] call (_ctrlInfo # 3);
 			}];
 		};
 		case "SLIDER" : {
@@ -142,41 +141,41 @@ private _posY = CENTER_Y - _neededHeight / 2 + BUFFER_H / 1.5;
 			_sliderValues params [["_min",0,[0]],["_max",1,[0]],["_decimals",1,[0]]];
 
 			private _fixedValue = _sliderPos toFixed _decimals;
-			private _ctrl = _display ctrlCreate ["SSS_CDS_Slider",CTRL_IDC_START + _forEachIndex];
+			private _ctrl = _display ctrlCreate [QGVAR(Slider),CTRL_IDC_START + _forEachIndex];
 			_ctrl ctrlSetPosition [CTRL_X,_posY + SLIDER_Y];
 			_ctrl ctrlCommit 0;
 			_ctrl sliderSetRange [_min,_max];
 			_ctrl sliderSetPosition parseNumber _fixedValue;
 			_ctrl ctrlSetTooltip _fixedValue;
-			_ctrl setVariable ["SSS_CDS_ctrlInfo",[_type,_description,_values,_onValueChanged,_enableCondition]];
-			_ctrl setVariable ["SSS_CDS_descriptionIDC",TEXT_IDC_START + _forEachIndex];
+			_ctrl setVariable [QGVAR(ctrlInfo),[_type,_description,_values,_onValueChanged,_enableCondition]];
+			_ctrl setVariable [QGVAR(descriptionIDC),TEXT_IDC_START + _forEachIndex];
 
-			private _aux = _display ctrlCreate ["SSS_CDS_SliderAux",CTRL_AUX_IDC_START + _forEachIndex];
+			private _aux = _display ctrlCreate [QGVAR(SliderAux),CTRL_AUX_IDC_START + _forEachIndex];
 			_aux ctrlSetPosition [SLIDER_AUX_X,_posY + SLIDER_AUX_Y];
 			_aux ctrlCommit 0;
 			_aux ctrlSetText _fixedValue;
-			_aux setVariable ["SSS_CDS_parentIDC",CTRL_IDC_START + _forEachIndex];
-			_ctrl setVariable ["SSS_CDS_auxIDC",CTRL_AUX_IDC_START + _forEachIndex];
+			_aux setVariable [QGVAR(parentIDC),CTRL_IDC_START + _forEachIndex];
+			_ctrl setVariable [QGVAR(auxIDC),CTRL_AUX_IDC_START + _forEachIndex];
 
 			_ctrl ctrlAddEventHandler ["SliderPosChanged",{
 				params ["_ctrl","_sliderPos"];
-				private _ctrlInfo = _ctrl getVariable "SSS_CDS_ctrlInfo";
+				private _ctrlInfo = _ctrl getVariable QGVAR(ctrlInfo);
 				((_ctrlInfo # 2) # 0) params ["_min","_max","_decimals"];
 				private _currentValue = _sliderPos toFixed _decimals;
-				private _aux = findDisplay DISPLAY_IDD displayCtrl (_ctrl getVariable "SSS_CDS_auxIDC");
+				private _aux = findDisplay DISPLAY_IDD displayCtrl (_ctrl getVariable QGVAR(auxIDC));
 				_aux ctrlSetText _currentValue;
 				_ctrl ctrlSetTooltip _currentValue;
 				_currentValue = parseNumber _currentValue;
 
 				(_ctrlInfo select 2) set [1,_currentValue];
-				_ctrl setVariable ["SSS_CDS_ctrlInfo",_ctrlInfo];
-				[_currentValue,uiNamespace getVariable "SSS_CDS_customArguments",_ctrl] call (_ctrlInfo # 3);
+				_ctrl setVariable [QGVAR(ctrlInfo),_ctrlInfo];
+				[_currentValue,uiNamespace getVariable QGVAR(customArguments),_ctrl] call (_ctrlInfo # 3);
 			}];
 
 			_aux ctrlAddEventHandler ["KeyUp",{
 				params ["_aux"];
-				private _ctrl = findDisplay DISPLAY_IDD displayCtrl (_aux getVariable "SSS_CDS_parentIDC");
-				private _ctrlInfo = _ctrl getVariable "SSS_CDS_ctrlInfo";
+				private _ctrl = findDisplay DISPLAY_IDD displayCtrl (_aux getVariable QGVAR(parentIDC));
+				private _ctrlInfo = _ctrl getVariable QGVAR(ctrlInfo);
 				((_ctrlInfo # 2) # 0) params ["_min","_max","_decimals"];
 				private _currentValue = (_min max (parseNumber ctrlText _aux) min _max) toFixed _decimals;
 				_aux ctrlSetText _currentValue;
@@ -185,14 +184,14 @@ private _posY = CENTER_Y - _neededHeight / 2 + BUFFER_H / 1.5;
 				_ctrl sliderSetPosition _currentValue;
 
 				(_ctrlInfo select 2) set [1,_currentValue];
-				_ctrl setVariable ["SSS_CDS_ctrlInfo",_ctrlInfo];
-				[_currentValue,uiNamespace getVariable "SSS_CDS_customArguments",_ctrl] call (_ctrlInfo # 3);
+				_ctrl setVariable [QGVAR(ctrlInfo),_ctrlInfo];
+				[_currentValue,uiNamespace getVariable QGVAR(customArguments),_ctrl] call (_ctrlInfo # 3);
 			}];
 		};
 		case "COMBOBOX" : {
 			_values params [["_listItems",[],[[]]],["_selection",0,[0]]];
 
-			private _ctrl = _display ctrlCreate ["SSS_CDS_Combobox",CTRL_IDC_START + _forEachIndex];
+			private _ctrl = _display ctrlCreate [QGVAR(Combobox),CTRL_IDC_START + _forEachIndex];
 			_ctrl ctrlSetPosition [CTRL_X,_posY + COMBOBOX_Y];
 			_ctrl ctrlCommit 0;
 			{
@@ -208,15 +207,15 @@ private _posY = CENTER_Y - _neededHeight / 2 + BUFFER_H / 1.5;
 				};
 			} forEach _listItems;
 			_ctrl lbSetCurSel _selection;
-			_ctrl setVariable ["SSS_CDS_ctrlInfo",[_type,_description,_values,_onValueChanged,_enableCondition]];
-			_ctrl setVariable ["SSS_CDS_descriptionIDC",TEXT_IDC_START + _forEachIndex];
+			_ctrl setVariable [QGVAR(ctrlInfo),[_type,_description,_values,_onValueChanged,_enableCondition]];
+			_ctrl setVariable [QGVAR(descriptionIDC),TEXT_IDC_START + _forEachIndex];
 
 			_ctrl ctrlAddEventHandler ["LBSelChanged",{
 				params ["_ctrl","_currentValue"];
-				private _ctrlInfo = _ctrl getVariable "SSS_CDS_ctrlInfo";
+				private _ctrlInfo = _ctrl getVariable QGVAR(ctrlInfo);
 				(_ctrlInfo select 2) set [1,_currentValue];
-				_ctrl setVariable ["SSS_CDS_ctrlInfo",_ctrlInfo];
-				[_currentValue,uiNamespace getVariable "SSS_CDS_customArguments",_ctrl] call (_ctrlInfo # 3);
+				_ctrl setVariable [QGVAR(ctrlInfo),_ctrlInfo];
+				[_currentValue,uiNamespace getVariable QGVAR(customArguments),_ctrl] call (_ctrlInfo # 3);
 			}];
 		};
 		default {systemChat format ["Control %1 : Unsupported control type",_forEachIndex];};
@@ -226,13 +225,13 @@ private _posY = CENTER_Y - _neededHeight / 2 + BUFFER_H / 1.5;
 	_IDCs pushBack (CTRL_IDC_START + _forEachIndex);
 } forEach _controls;
 
-uiNamespace setVariable ["SSS_CDS_controls",_IDCs];
+uiNamespace setVariable [QGVAR(controls),_IDCs];
 ctrlSetFocus _OK;
 
 // Init all onValueChanged functions
 {
 	private _ctrl = _display displayCtrl _x;
-	private _ctrlInfo = _ctrl getVariable "SSS_CDS_ctrlInfo";
+	private _ctrlInfo = _ctrl getVariable QGVAR(ctrlInfo);
 	private _currentValue = switch (_ctrlInfo # 0) do {
 		case "CHECKBOX";
 		case "EDITBOX" : {
@@ -248,13 +247,13 @@ ctrlSetFocus _OK;
 } count _IDCs;
 
 // Handle enableConditions
-SSS_CDS_EFID = addMissionEventHandler ["EachFrame",{
+GVAR(EFID) = addMissionEventHandler ["EachFrame",{
 	disableSerialization;
 	private _display = findDisplay DISPLAY_IDD;
 
 	{
 		private _ctrl = _display displayCtrl _x;
-		private _ctrlInfo = _ctrl getVariable "SSS_CDS_ctrlInfo";
+		private _ctrlInfo = _ctrl getVariable QGVAR(ctrlInfo);
 		private _currentValue = switch (_ctrlInfo # 0) do {
 			case "CHECKBOX";
 			case "EDITBOX" : {
@@ -265,21 +264,21 @@ SSS_CDS_EFID = addMissionEventHandler ["EachFrame",{
 				(_ctrlInfo # 2) # 1
 			};
 		};
-		private _enableCtrl = [_currentValue,uiNamespace getVariable "SSS_CDS_customArguments",_ctrl] call (_ctrlInfo # 4);
+		private _enableCtrl = [_currentValue,uiNamespace getVariable QGVAR(customArguments),_ctrl] call (_ctrlInfo # 4);
 
 		if (!_enableCtrl && ctrlEnabled _ctrl) then {
 			_ctrl ctrlEnable false;
-			_display displayCtrl (_ctrl getVariable "SSS_CDS_descriptionIDC") ctrlSetTextColor [COLOR_DISABLED];
-			if (_ctrlInfo # 0 == "SLIDER") then {ctrlEnable [_ctrl getVariable "SSS_CDS_auxIDC",false];};
+			_display displayCtrl (_ctrl getVariable QGVAR(descriptionIDC)) ctrlSetTextColor [COLOR_DISABLED];
+			if (_ctrlInfo # 0 == "SLIDER") then {ctrlEnable [_ctrl getVariable QGVAR(auxIDC),false];};
 		};
 		if (_enableCtrl && !ctrlEnabled _ctrl) then {
 			_ctrl ctrlEnable true;
-			_display displayCtrl (_ctrl getVariable "SSS_CDS_descriptionIDC") ctrlSetTextColor [1,1,1,1];
-			if (_ctrlInfo # 0 == "SLIDER") then {ctrlEnable [_ctrl getVariable "SSS_CDS_auxIDC",true];};
+			_display displayCtrl (_ctrl getVariable QGVAR(descriptionIDC)) ctrlSetTextColor [1,1,1,1];
+			if (_ctrlInfo # 0 == "SLIDER") then {ctrlEnable [_ctrl getVariable QGVAR(auxIDC),true];};
 		};
 
 		false
-	} count (uiNamespace getVariable "SSS_CDS_controls");
+	} count (uiNamespace getVariable QGVAR(controls));
 }];
 
 // Handle ESC key

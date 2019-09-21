@@ -1,0 +1,32 @@
+v0.2 - Permission Update
+- Added: Requester assignment functionality (All supports must now be assigned to specific units)
+- Added: Land transport support (Move & RTB)
+- Added: Sea transport support (Move & RTB)
+- Added: Artillery support for 'Mk41 VLS' (Cruise missiles)
+- Added: Custom init code parameter for all physical supports
+- Added: 'Max rounds per request' parameter for artillery
+- Added: Loiter parameters all loiter requests
+- Added: Setting for artillery coordination distance
+- Added: Settings for admins to get access to all supports
+- Added: A couple settings for handling support entity/vehicle deletion
+- Changed: Old 'enabling' variables have been renamed. (See github or ask if desired)
+- Changed: Consolidated the 'coordinate' parameters in the artillery request dialog
+- Changed: Zeus modules are now functional and have been enabled
+- Changed: CAS drones and gunships now use native loiter waypoint
+- Changed: Removed view distance modification when remote controlling gunships
+- Changed: Some notification wording has been changed
+- Improved: Overhauled a majority of internal functions
+- Improved: New icons
+- Improved: Various tweaks
+- Fixed: Respawn had issues and has been overhauled
+- Fixed: Add waypoint locality issue
+- Fixed: CAS Gunship didn't have any roll angle
+- Fixed: Hovering sometimes had weird behavior
+- Fixed: Various minor issues
+
+v0.1.1 - Hotfix
+- Fixed: CAS plane/drone movement was laggy in MP
+- Fixed: Respawn will clear obstructions now
+- Changed: Zeus modules have been disabled due to a locality issue. All supports must be added via editor for the time being...
+
+v0.1 - Initial Release

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*-----------------------------------------------------------------------------------------------//
 Authors: Sceptre
 Sets the new selected/default value and the available values of a control.
@@ -10,13 +11,11 @@ Parameters:
 Returns:
 Nothing
 //-----------------------------------------------------------------------------------------------*/
-#include "script_component.hpp"
-
 disableSerialization;
 params [["_index",0,[0]],["_newValues",[],[true,"",[]]],["_forceDefault",true,[true]]];
 
-private _ctrl = findDisplay DISPLAY_IDD displayCtrl ((uiNamespace getVariable "SSS_CDS_controls") # _index);
-private _ctrlInfo = _ctrl getVariable "SSS_CDS_ctrlInfo";
+private _ctrl = findDisplay DISPLAY_IDD displayCtrl ((uiNamespace getVariable QGVAR(controls)) # _index);
+private _ctrlInfo = _ctrl getVariable QGVAR(ctrlInfo);
 private _type = _ctrlInfo # 0;
 private _description = _ctrlInfo # 1;
 
@@ -28,14 +27,14 @@ switch (_type) do {
 	case "CHECKBOX" : {
 		_newValues params [["_bool",true,[true]]];
 		_ctrlInfo set [2,_bool];
-		_ctrl setVariable ["SSS_CDS_ctrlInfo",_ctrlInfo];
+		_ctrl setVariable [QGVAR(ctrlInfo),_ctrlInfo];
 
 		_ctrl cbSetChecked _bool;
 	};
 	case "EDITBOX" : {
 		_newValues params [["_string","",[""]]];
 		_ctrlInfo set [2,_string];
-		_ctrl setVariable ["SSS_CDS_ctrlInfo",_ctrlInfo];
+		_ctrl setVariable [QGVAR(ctrlInfo),_ctrlInfo];
 
 		_ctrl ctrlSetText _string;
 	};
@@ -43,10 +42,10 @@ switch (_type) do {
 		_newValues params [["_sliderValues",[0,1,1],[[]],3],["_sliderPos",0.5,[0]]];
 		_sliderValues params [["_min",0,[0]],["_max",1,[0]],["_decimals",1,[0]]];
 		_ctrlInfo set [2,[[_min,_max,_decimals],_sliderPos]];
-		_ctrl setVariable ["SSS_CDS_ctrlInfo",_ctrlInfo];
+		_ctrl setVariable [QGVAR(ctrlInfo),_ctrlInfo];
 
 		private _fixedValue = _sliderPos toFixed _decimals;
-		private _aux = findDisplay DISPLAY_IDD displayCtrl (_ctrl getVariable "SSS_CDS_auxIDC");
+		private _aux = findDisplay DISPLAY_IDD displayCtrl (_ctrl getVariable QGVAR(auxIDC));
 		_aux ctrlSetText _fixedValue;
 		_ctrl sliderSetRange [_min,_max];
 		_ctrl sliderSetPosition parseNumber _fixedValue;
@@ -55,7 +54,7 @@ switch (_type) do {
 	case "COMBOBOX" : {
 		_newValues params [["_listItems",[],[[]]],["_selection",0,[0]]];
 		_ctrlInfo set [2,[_listItems,_selection]];
-		_ctrl setVariable ["SSS_CDS_ctrlInfo",_ctrlInfo];
+		_ctrl setVariable [QGVAR(ctrlInfo),_ctrlInfo];
 
 		lbClear _ctrl;
 		{
