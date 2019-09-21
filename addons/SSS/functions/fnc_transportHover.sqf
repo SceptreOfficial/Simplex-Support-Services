@@ -28,7 +28,7 @@ _vehicle setVariable ["SSS_fastropeUnits",nil];
 		private _endVectorDir = getPosASL _vehicle vectorFromTo _hoverPositionASL;
 		_endVectorDir set [2,0];
 		private _distance = getPosASL _vehicle distance _hoverPositionASL;
-		private _timeMultiplier = [0.12,0.3] select (_distance < 50);
+		private _timeMultiplier = [0.11,0.32] select (_distance < 50);
 
 		[{
 			params ["_args","_PFHID"];
@@ -68,7 +68,8 @@ _vehicle setVariable ["SSS_fastropeUnits",nil];
 				[{
 					params ["_entity","_vehicle"];
 
-					_vehicle setVectorUp [0,0,1];
+					_vehicle setVectorDirAndUp [vectorDir _vehicle,[0,0,1]];
+					_vehicle setVelocity [0,0,0];
 					_vehicle setVelocityModelSpace [0,0,0];
 
 					!local _vehicle || _vehicle getVariable "SSS_hoverDone" || CANCEL_CONDITION
