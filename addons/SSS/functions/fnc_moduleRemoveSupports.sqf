@@ -57,7 +57,7 @@ private _cfgVehicles = configFile >> "CfgVehicles";
 
 	_data pushBack [_x,_checkbox];
 	_step = _step + 0.06;
-} forEach ([SSS_entities select {!isNull _x},true,{str (_x getVariable "SSS_side")}] call FUNC(fnc_sortBy));
+} forEach ([SSS_entities select {!isNull _x},true,{str (_x getVariable "SSS_side")}] call FUNC(sortBy));
 
 private _cancel = _display ctrlCreate ["RscButton",-1];
 _cancel ctrlSetBackgroundColor [0,0,0,1];
