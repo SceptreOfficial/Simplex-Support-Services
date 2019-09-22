@@ -1,22 +1,4 @@
 #include "script_component.hpp"
-#define GROUP_COMMANDS \
-	_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",1])); \
-	if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then { \
-		_group setCombatMode "YELLOW"; \
-		_group enableAttack true; \
-		{ \
-			[_x enableAI "TARGET"]; \
-			[_x enableAI "AUTOTARGET"]; \
-		} forEach PRIMARY_CREW(_vehicle); \
-	} else { \
-		_group setCombatMode "BLUE"; \
-		_group enableAttack false; \
-		{ \
-			[_x disableAI "TARGET"]; \
-			[_x disableAI "AUTOTARGET"]; \
-		} forEach PRIMARY_CREW(_vehicle); \
-	}
-
 #define VEHICLE_ACTION_CONDITION \
 	params ["_target","_player","_entity"]; \
 	if (!alive _target || !alive driver _target || isNull _entity) exitWith {false}; \
@@ -87,7 +69,23 @@ switch (_entity getVariable "SSS_supportType") do {
 		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
 		_vehicle setCollisionLight (_entity getVariable ["SSS_collisionLightsOn",true]);
 
-		GROUP_COMMANDS;
+		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",1]));
+	
+		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {
+			_group setCombatMode "YELLOW";
+			_group enableAttack true;
+			{
+				[_x enableAI "TARGET"];
+				[_x enableAI "AUTOTARGET"];
+			} forEach PRIMARY_CREW(_vehicle);
+		} else {
+			_group setCombatMode "BLUE";
+			_group enableAttack false;
+			{
+				[_x disableAI "TARGET"];
+				[_x disableAI "AUTOTARGET"];
+			} forEach PRIMARY_CREW(_vehicle);
+		};
 
 		private _action = ["SSS_transport","Transport",ICON_TRANSPORT,{},{VEHICLE_ACTION_CONDITION},{
 			_this call FUNC(childActionsTransportHelicopter)
@@ -104,12 +102,31 @@ switch (_entity getVariable "SSS_supportType") do {
 	};
 
 	case "transportLandVehicle" : {
-		_group setBehaviour "CARELESS";
-		{_x disableAI "LIGHTS"} forEach PRIMARY_CREW(_vehicle);
+		{
+			_x disableAI "LIGHTS";
+			_x disableAI "AUTOCOMBAT";
+		} forEach PRIMARY_CREW(_vehicle);
 
 		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
 
-		GROUP_COMMANDS;
+		_group setBehaviour "SAFE";
+		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",1]));
+	
+		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {
+			_group setCombatMode "YELLOW";
+			_group enableAttack true;
+			{
+				[_x enableAI "TARGET"];
+				[_x enableAI "AUTOTARGET"];
+			} forEach PRIMARY_CREW(_vehicle);
+		} else {
+			_group setCombatMode "BLUE";
+			_group enableAttack false;
+			{
+				[_x disableAI "TARGET"];
+				[_x disableAI "AUTOTARGET"];
+			} forEach PRIMARY_CREW(_vehicle);
+		};
 
 		private _action = ["SSS_transport","Transport",ICON_TRANSPORT,{},{VEHICLE_ACTION_CONDITION},{
 			_this call FUNC(childActionsTransportLandVehicle)
@@ -126,7 +143,23 @@ switch (_entity getVariable "SSS_supportType") do {
 		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
 		_vehicle setCollisionLight (_entity getVariable ["SSS_collisionLightsOn",true]);
 
-		GROUP_COMMANDS;
+		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",1]));
+	
+		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {
+			_group setCombatMode "YELLOW";
+			_group enableAttack true;
+			{
+				[_x enableAI "TARGET"];
+				[_x enableAI "AUTOTARGET"];
+			} forEach PRIMARY_CREW(_vehicle);
+		} else {
+			_group setCombatMode "BLUE";
+			_group enableAttack false;
+			{
+				[_x disableAI "TARGET"];
+				[_x disableAI "AUTOTARGET"];
+			} forEach PRIMARY_CREW(_vehicle);
+		};
 
 		private _action = ["SSS_transport","Transport",ICON_TRANSPORT,{},{VEHICLE_ACTION_CONDITION},{
 			_this call FUNC(childActionsTransportMaritime)

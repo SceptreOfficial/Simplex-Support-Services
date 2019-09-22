@@ -1,23 +1,4 @@
 #include "script_component.hpp"
-#define GROUP_COMMANDS \
-	private _group = group _vehicle; \
-	private _groupOwner = groupOwner _group; \
-	[_group,["LIMITED","NORMAL","FULL"] select _speedMode] remoteExecCall ["setSpeedMode",_groupOwner]; \
-	if (_combatMode isEqualTo 0) then { \
-		[_group,"YELLOW"] remoteExecCall ["setCombatMode",_groupOwner]; \
-		[_group,true] remoteExecCall ["enableAttack",_groupOwner]; \
-		{ \
-			[_x,"TARGET"] remoteExecCall ["enableAI",_x]; \
-			[_x,"AUTOTARGET"] remoteExecCall ["enableAI",_x]; \
-		} forEach PRIMARY_CREW(_vehicle); \
-	} else { \
-		[_group,"BLUE"] remoteExecCall ["setCombatMode",_groupOwner]; \
-		[_group,false] remoteExecCall ["enableAttack",_groupOwner]; \
-		{ \
-			[_x,"TARGET"] remoteExecCall ["disableAI",_x]; \
-			[_x,"AUTOTARGET"] remoteExecCall ["disableAI",_x]; \
-		} forEach PRIMARY_CREW(_vehicle); \
-	}
 
 if (!isServer) exitWith {
 	_this remoteExecCall [QFUNC(changeBehavior),2];
@@ -60,7 +41,26 @@ switch (_entity getVariable "SSS_supportType") do {
 			[_vehicle,_lightsOn] remoteExecCall ["setPilotLight",_vehicle];
 			[_vehicle,_collisionLightsOn] remoteExecCall ["setCollisionLight",_vehicle];
 
-			GROUP_COMMANDS;
+			private _group = group _vehicle;
+			private _groupOwner = groupOwner _group;
+
+			[_group,["LIMITED","NORMAL","FULL"] select _speedMode] remoteExecCall ["setSpeedMode",_groupOwner];
+
+			if (_combatMode isEqualTo 0) then {
+				[_group,"YELLOW"] remoteExecCall ["setCombatMode",_groupOwner];
+				[_group,true] remoteExecCall ["enableAttack",_groupOwner];
+				{
+					[_x,"TARGET"] remoteExecCall ["enableAI",_x];
+					[_x,"AUTOTARGET"] remoteExecCall ["enableAI",_x];
+				} forEach PRIMARY_CREW(_vehicle);
+			} else {
+				[_group,"BLUE"] remoteExecCall ["setCombatMode",_groupOwner];
+				[_group,false] remoteExecCall ["enableAttack",_groupOwner];
+				{
+					[_x,"TARGET"] remoteExecCall ["disableAI",_x];
+					[_x,"AUTOTARGET"] remoteExecCall ["disableAI",_x];
+				} forEach PRIMARY_CREW(_vehicle);
+			};
 
 			NOTIFY(_entity,"Roger that. Changing it up.");
 		};
@@ -76,7 +76,27 @@ switch (_entity getVariable "SSS_supportType") do {
 		if (alive _vehicle) then {
 			[_vehicle,_lightsOn] remoteExecCall ["setPilotLight",_vehicle];
 
-			GROUP_COMMANDS;
+			private _group = group _vehicle;
+			private _groupOwner = groupOwner _group;
+
+			[_group,"SAFE"] remoteExecCall ["setBehaviour",_groupOwner];
+			[_group,["LIMITED","NORMAL","FULL"] select _speedMode] remoteExecCall ["setSpeedMode",_groupOwner];
+
+			if (_combatMode isEqualTo 0) then {
+				[_group,"YELLOW"] remoteExecCall ["setCombatMode",_groupOwner];
+				[_group,true] remoteExecCall ["enableAttack",_groupOwner];
+				{
+					[_x,"TARGET"] remoteExecCall ["enableAI",_x];
+					[_x,"AUTOTARGET"] remoteExecCall ["enableAI",_x];
+				} forEach PRIMARY_CREW(_vehicle);
+			} else {
+				[_group,"BLUE"] remoteExecCall ["setCombatMode",_groupOwner];
+				[_group,false] remoteExecCall ["enableAttack",_groupOwner];
+				{
+					[_x,"TARGET"] remoteExecCall ["disableAI",_x];
+					[_x,"AUTOTARGET"] remoteExecCall ["disableAI",_x];
+				} forEach PRIMARY_CREW(_vehicle);
+			};
 
 			NOTIFY(_entity,"Roger that. Changing it up.");
 		};
@@ -94,7 +114,26 @@ switch (_entity getVariable "SSS_supportType") do {
 			[_vehicle,_lightsOn] remoteExecCall ["setPilotLight",_vehicle];
 			[_vehicle,_collisionLightsOn] remoteExecCall ["setCollisionLight",_vehicle];
 
-			GROUP_COMMANDS;
+			private _group = group _vehicle;
+			private _groupOwner = groupOwner _group;
+
+			[_group,["LIMITED","NORMAL","FULL"] select _speedMode] remoteExecCall ["setSpeedMode",_groupOwner];
+
+			if (_combatMode isEqualTo 0) then {
+				[_group,"YELLOW"] remoteExecCall ["setCombatMode",_groupOwner];
+				[_group,true] remoteExecCall ["enableAttack",_groupOwner];
+				{
+					[_x,"TARGET"] remoteExecCall ["enableAI",_x];
+					[_x,"AUTOTARGET"] remoteExecCall ["enableAI",_x];
+				} forEach PRIMARY_CREW(_vehicle);
+			} else {
+				[_group,"BLUE"] remoteExecCall ["setCombatMode",_groupOwner];
+				[_group,false] remoteExecCall ["enableAttack",_groupOwner];
+				{
+					[_x,"TARGET"] remoteExecCall ["disableAI",_x];
+					[_x,"AUTOTARGET"] remoteExecCall ["disableAI",_x];
+				} forEach PRIMARY_CREW(_vehicle);
+			};
 
 			NOTIFY(_entity,"Roger that. Changing it up.");
 		};
