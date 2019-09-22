@@ -1,11 +1,11 @@
 v0.2 - Permission Update
 - Added: Requester assignment functionality (All supports must now be assigned to specific units)
-- Added: Land transport support (Move & RTB only)
-- Added: Sea transport support (Move & RTB only)
-- Added: Initial artillery support for 'Mk41 VLS' (Cruise missiles)
+- Added: Initial land transport support (Move & RTB only)
+- Added: Initial sea transport support (Move & RTB only)
+- Added: Initial artillery support for Mk41 VLS cruise missile system
 - Added: Custom init code parameter for all 'physical' supports (Transport, CAS Helos, and Artillery)
 - Added: 'Max rounds per request' parameter for artillery
-- Added: Loiter parameters all loiter requests
+- Added: Loiter parameters dialog all loiter requests
 - Added: Setting for artillery coordination distance
 - Added: Settings for admins to get access to all supports
 - Added: A couple settings for handling support entity/vehicle deletion
