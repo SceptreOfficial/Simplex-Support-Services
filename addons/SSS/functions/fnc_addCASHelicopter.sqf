@@ -30,7 +30,7 @@ if (!alive driver _vehicle) exitWith {
 };
 
 if (!isServer) exitWith {
-	_this remoteExecCall [QFUNC(addArtillery),2];
+	_this remoteExecCall [QFUNC(addCASHelicopter),2];
 	nil
 };
 
