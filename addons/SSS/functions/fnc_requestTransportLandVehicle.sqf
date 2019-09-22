@@ -45,7 +45,7 @@ switch (_request) do {
 				};
 
 				END_ORDER(_entity,"Arrived at base. Ready for further tasking.");
-				_vehicle setVariable ["SSS_awayFromBase",false,true];
+				_entity setVariable ["SSS_awayFromBase",false,true];
 				_vehicle setFuel 1;
 				_vehicle setVehicleAmmo 1;
 				_vehicle setDamage 0;
