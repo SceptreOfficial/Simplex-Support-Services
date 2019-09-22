@@ -32,11 +32,11 @@ if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") then {
 	private _magazineReloadTime = 1.3 * getNumber (configfile >> "CfgWeapons" >> _weapon >> "magazineReloadTime");
 	private _missileClass = getText (configfile >> "CfgMagazines" >> _magType >> "ammo");
 	private _missileMaxSpeed = getNumber (configfile >> "CfgAmmo" >> _missileClass >> "maxSpeed");
-	private _ETA = ceil (((_position distance _vehicle) / _missileMaxSpeed) + 5);
+	private _ETA = ceil (((_position distance _vehicle) / _missileMaxSpeed) + 10);
 	
 	NOTIFY_3(_entity,"Fire mission on %1 confirmed. %2 rounds - ETA %3.",mapGridPosition _position,_rounds,PROPER_TIME(_ETA));
 	[{NOTIFY(_this,"Splash - over.")},_entity,(_ETA - 5) max 0.5] call CBA_fnc_waitAndExecute;
-	[{[_this,false] call FUNC(updateMarker);},_entity,_ETA + 10 + (_rounds * 2)] call CBA_fnc_waitAndExecute;
+	[{[_this,false] call FUNC(updateMarker);},_entity,_ETA + 10 + (_rounds * 10)] call CBA_fnc_waitAndExecute;
 
 	_vehicle setFuel 1;
 	{_vehicle removeMagazine _x} forEach magazines _vehicle;
@@ -46,7 +46,7 @@ if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") then {
 	_vehicle setWeaponReloadingTime [gunner _vehicle,_weapon,0];
 	private _targetPos = _position getPos [_dispersion * sqrt random 1,random 360];
 	private _target = (createGroup sideLogic) createUnit ["Logic",_targetPos,[],0,"CAN_COLLIDE"];
-	private _targetLife = ((1.3 * _ETA) max 10) + 10;
+	private _targetLife = ((1.3 * _ETA) max 15) + 20;
 	[{deleteVehicle _this},_target,_targetLife] call CBA_fnc_waitAndExecute;
 	_vehicle reveal _target;
 	side _vehicle reportRemoteTarget [_target,_targetLife];
@@ -54,7 +54,6 @@ if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") then {
 	[{
 		params ["_entity","_vehicle","_position","_magType","_dispersion","_rounds","_target","_targetLife","_weapon","_reloadTime"];
 
-		_vehicle fireAtTarget [_target,_weapon];
 		private _roundsLeft = _rounds - 1;
 
 		if (_roundsLeft > 0) then {
@@ -95,12 +94,14 @@ if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") then {
 				};
 			},[_position,_magType,_dispersion,_targetLife,_reloadTime]] call CBA_fnc_addBISEventHandler;
 		};
+
+		_vehicle fireAtTarget [_target,_weapon];
 	},[_entity,_vehicle,_position,_magType,_dispersion,_rounds,_target,_targetLife,_weapon,_reloadTime]] call CBA_fnc_execNextFrame;
 } else {
 	private _ETA = round (_vehicle getArtilleryETA [_position,_magType]);
 	NOTIFY_3(_entity,"Fire mission on %1 confirmed. %2 rounds - ETA %3.",mapGridPosition _position,_rounds,PROPER_TIME(_ETA));
 	[{NOTIFY(_this,"Splash - over.")},_entity,(_ETA - 5) max 0.5] call CBA_fnc_waitAndExecute;
-	[{[_this,false] call FUNC(updateMarker);},_entity,_ETA + 10 + (_rounds * 2)] call CBA_fnc_waitAndExecute;
+	[{[_this,false] call FUNC(updateMarker);},_entity,_ETA + 10 + (_rounds * 3)] call CBA_fnc_waitAndExecute;
 
 	_vehicle setFuel 1;
 	_vehicle setVehicleAmmo 1;
@@ -109,9 +110,6 @@ if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") then {
 	if (_dispersion isEqualTo 0) then {
 		_vehicle doArtilleryFire [_position,_magType,_rounds];
 	} else {
-		_vehicle doArtilleryFire [_position getPos [_dispersion * sqrt random 1,random 360],_magType,1];
-		_vehicle setVariable ["SSS_roundsLeft",_rounds - 1];
-
 		[_vehicle,"Fired",{
 			params ["_vehicle","_weapon","_muzzle","_mode","_ammo","_magazine","_projectile","_gunner"];
 			_thisArgs params ["_position","_magType","_dispersion"];
@@ -131,6 +129,9 @@ if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") then {
 				_vehicle setVariable ["SSS_doneFiring",true];
 			};
 		},[_position,_magType,_dispersion]] call CBA_fnc_addBISEventHandler;
+
+		_vehicle doArtilleryFire [_position getPos [_dispersion * sqrt random 1,random 360],_magType,1];
+		_vehicle setVariable ["SSS_roundsLeft",_rounds - 1];
 	};
 };
 

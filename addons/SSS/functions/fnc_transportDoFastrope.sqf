@@ -4,7 +4,6 @@ params ["_vehicle","_unit","_ropes"];
 
 [_unit] orderGetIn false;
 moveOut _unit;
-[_unit,"ACE_FastRoping",2] call ACE_common_fnc_doAnimation;
 
 _ropes = _ropes apply {[_x # 0 distance _unit,_x]};
 _ropes sort true;
@@ -12,6 +11,7 @@ _ropes = _ropes apply {_x # 1};
 private _posASL = getPosASL (_ropes # 0 # 0);
 _posASL set [2,_posASL # 2 - 2];
 _unit setPosASL _posASL;
+[_unit,"ACE_FastRoping",2] call ACE_common_fnc_doAnimation;
 
 [{
 	params ["_unit"];
