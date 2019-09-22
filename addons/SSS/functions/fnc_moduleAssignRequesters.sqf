@@ -64,7 +64,7 @@ if (!isNull (findDisplay 312)) then {
 			_entityItem ctrlSetBackgroundColor [0,0,0,0.1];
 			_entityItem ctrlSetPosition [0.02,_step,0.7,0.05];
 			_entityItem ctrlCommit 0;
-			_entityItem ctrlSetStructuredText parseText format ["<t color='%1'>%2 : </t><img image='%3'/> %4 - ""%5""",_color,_side,_x getVariable "SSS_icon",_classDisplayName,_x getVariable "SSS_callsign"];;
+			_entityItem ctrlSetStructuredText parseText format ["<t color='%1'>%2 : </t><img image='%3'/> ""%4"" - %5",_color,_side,_x getVariable "SSS_icon",_x getVariable "SSS_callsign",_classDisplayName];;
 
 			private _checkbox = _display ctrlCreate ["RscCheckbox",-1,_cbGroup];
 			_checkbox ctrlSetPosition [0.72,_step,0.04,0.048];
@@ -73,7 +73,7 @@ if (!isNull (findDisplay 312)) then {
 
 			_data pushBack [_x,_checkbox];
 			_step = _step + 0.06;
-		} forEach ([SSS_entities select {!isNull _x},true,{str (_x getVariable "SSS_side")}] call FUNC(sortBy));
+		} forEach ([SSS_entities select {!isNull _x},true,{str (_x getVariable "SSS_side")},{_x getVariable "SSS_callsign"}] call FUNC(sortBy));
 
 		private _cancel = _display ctrlCreate ["RscButton",-1];
 		_cancel ctrlSetBackgroundColor [0,0,0,1];
