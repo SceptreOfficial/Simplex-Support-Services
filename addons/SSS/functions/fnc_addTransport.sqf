@@ -44,7 +44,7 @@ switch (true) do {
 		private _base = createVehicle ["Land_HelipadEmpty_F",[0,0,0],[],0,"CAN_COLLIDE"];
 		_base setPosASL (getPosASL _vehicle);
 
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_HELI,ICON_HELI_YELLOW,"","Transport","transportHelicopter");
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_HELI,ICON_HELI_YELLOW,ICON_HELI_GREEN,"Transport","transportHelicopter");
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,_base,_respawnTime,_customInit);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Air Transport");
 
@@ -63,7 +63,7 @@ switch (true) do {
 	};
 
 	case (_vehicle isKindOf "Ship") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_BOAT,ICON_BOAT_YELLOW,"","Transport","transportMaritime");
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_BOAT,ICON_BOAT_YELLOW,ICON_BOAT_GREEN,"Transport","transportMaritime");
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime,_customInit);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Sea Transport");
 
@@ -78,7 +78,7 @@ switch (true) do {
 	};
 
 	case (_vehicle isKindOf "LandVehicle") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_CAR,ICON_CAR_YELLOW,"","Transport","transportLandVehicle");
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_CAR,ICON_CAR_YELLOW,ICON_CAR_GREEN,"Transport","transportLandVehicle");
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime,_customInit);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Land Transport");
 

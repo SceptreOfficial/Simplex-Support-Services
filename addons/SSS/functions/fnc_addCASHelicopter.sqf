@@ -41,7 +41,7 @@ private _side = side _group;
 private _base = createVehicle ["Land_HelipadEmpty_F",[0,0,0],[],0,"CAN_COLLIDE"];
 _base setPosASL (getPosASL _vehicle);
 
-BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_HELI,ICON_HELI_YELLOW,"","CAS","CASHelicopter");
+BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_HELI,ICON_HELI_YELLOW,ICON_HELI_GREEN,"CAS","CASHelicopter");
 PHYSICAL_TRAITS(_entity,_vehicle,_group,_base,_respawnTime,_customInit);
 CREATE_TASK_MARKER(_entity,_callsign,"mil_end","CAS");
 

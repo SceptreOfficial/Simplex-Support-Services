@@ -45,6 +45,7 @@ private _entity = (createGroup sideLogic) createUnit ["Logic",[-69,-69,0],[],0,"
 private _group = group _vehicle;
 private _side = side _group;
 (switch (true) do {
+	case (_vehicle isKindOf "B_Ship_MRLS_01_base_F") : {[ICON_MISSILE,ICON_MISSILE_YELLOW,""]};
 	case (_vehicle isKindOf "StaticWeapon") : {[ICON_MORTAR,ICON_MORTAR_YELLOW,""]};
 	default {[ICON_SELF_PROPELLED,ICON_SELF_PROPELLED_YELLOW,""]};
 }) params ["_icon","_iconYellow","_iconGreen"];

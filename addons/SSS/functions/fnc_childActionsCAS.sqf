@@ -59,7 +59,7 @@ private _assignedCAS = if (ADMIN_ACCESS_CONDITION) then {
 				params ["_target","_player","_entity","_actionData"];
 
 				if (alive (_entity getVariable "SSS_vehicle")) then {
-					_actionData set [2,_entity getVariable "SSS_icon"];
+					_actionData set [2,[_entity getVariable "SSS_icon",_entity getVariable "SSS_iconGreen"] select (_entity getVariable "SSS_awayFromBase")];
 					_actionData set [3,{}];
 					_actionData set [5,{_this call FUNC(childActionsCASHelicopter)}];
 				} else {
