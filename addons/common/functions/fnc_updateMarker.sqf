@@ -1,8 +1,8 @@
 #include "script_component.hpp"
 
-params ["_namespace","_activateMarker",["_position",[0,0]]];
+params ["_entity","_activateMarker",["_position",[0,0,0]]];
 
-private _marker = _namespace getVariable "SSS_marker";
+private _marker = _entity getVariable "SSS_marker";
 
 if (_activateMarker) then {
 	_marker setMarkerPos _position;

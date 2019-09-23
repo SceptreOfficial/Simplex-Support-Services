@@ -9,7 +9,7 @@
 
 <p align="center">
 	<a href="https://github.com/SceptreOfficial/Simplex-Support-Services/releases/latest">
-		<img src="https://img.shields.io/badge/Version-0.1-blue?style=flat-square" alt="Version">
+		<img src="https://img.shields.io/badge/Version-0.2-blue?style=flat-square" alt="Version">
 	</a>
 	<a href="https://github.com/SceptreOfficial/Simplex-Support-Services/issues">
 		<img src="https://img.shields.io/github/issues-raw/SceptreOfficial/Simplex-Support-Services?style=flat-square&label=Issues" alt="Issues">
@@ -28,16 +28,16 @@
 
 ### Description
 
-**Simplex Support Services** is a fully automated, on-call support service system. Created out of the frustration of needing to pre-configure AI and manage the potential of getting Arma'd, **SSS** is designed to make AI supports reliable and easy to use. 
+**Simplex Support Services** is a fully automated, on-call support service system. Created out of the frustration of needing to pre-configure AI and manage the potential of getting Arma'd, **SSS** is designed to make AI supports reliable and easy to use.
 
 For usage instructions, please see the [wiki](https://github.com/SceptreOfficial/Simplex-Support-Services/wiki).
 
-SAA is still under development, with many features yet to be implemented and bugs still to be found.
-Feel free to contribute, submit issues, or suggest any new features via the [issue tracker](https://github.com/SceptreOfficial/Simplex-Support-Services/issues).
+The mod is still under development, with many features yet to be implemented and bugs still to be found.
+Feel free to submit issues or suggest any new features via the [issue tracker](https://github.com/SceptreOfficial/Simplex-Support-Services/issues).
 
 **Known Issues:**
 - **Sometimes artillery won't fire on target.** (Might be BI fault with doArtilleryFire command)
-- **Sometimes AI helicopter pilots don't land where they're requested.** (I've done my best to counteract this and make it as uncommon as possible.
+- **Sometimes AI helicopter pilots don't land where they're requested.** (I've done my best to counteract this and make it as uncommon as possible.)
 - **Remote controlling a drone while already remote controlling a gunship will get you stuck in remote control. Respawning should get you un-stuck.**
 
 ### License

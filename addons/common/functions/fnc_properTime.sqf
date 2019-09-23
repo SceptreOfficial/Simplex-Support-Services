@@ -1,4 +1,5 @@
 #include "script_component.hpp"
+
 /*
 	Authors: Sceptre
 	Returns a proper time description from supplied time in seconds
@@ -9,6 +10,7 @@
 	Returns:
 	Time description <STRING>
 */
+
 params [["_time",0,[0]]];
 [[],_time,0,0,0] params ["_description","_seconds","_minutes","_hours","_days"];
 

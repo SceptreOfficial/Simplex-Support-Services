@@ -3,40 +3,83 @@ ADDON = false;
 #include "XEH_PREP.hpp"
 ADDON = true;
 
-SSS_markers = [];
-
-// Service enabling
-SSS_artilleryEnabled = true;
-SSS_CASEnabled = true;
-SSS_CASDronesEnabled = true;
-SSS_CASGunshipsEnabled = true;
-SSS_CASHelisEnabled = true;
-SSS_CASPlanesEnabled = true;
-SSS_transportEnabled = true;
-
-//-----------------------------------------------------------------------------------------------//
+// Addon Options
+["SSS_setting_useChatNotifications","CHECKBOX",
+	["Use chat notifications","Disables custom notification system"],
+	["Simplex Support Services","Personal"],
+	false, // _valueInfo
+	false, // _isGlobal
+	{}, //_script
+	false // _needRestart
+] call CBA_fnc_addSetting;
 
 ["SSS_setting_GiveUAVTerminal","CHECKBOX",
 	["Give UAV Terminal on drone request","Gives CAS Drone requesters a UAV terminal if they don't have one"],
-	"Simplex Support Services",
-	true, // _valueInfo
-	true, // _isGlobal
+	["Simplex Support Services","Core"],
+	true,
+	true,
 	{},
-	false // _needRestart
+	false
 ] call CBA_fnc_addSetting;
 
-["SSS_setting_useChatNotifications","CHECKBOX",
-	["Use chat notifications","Disables custom notification system"],
-	"Simplex Support Services",
-	false, // _valueInfo
-	false, // _isGlobal
+["SSS_setting_removeSupportOnVehicleDeletion","CHECKBOX",
+	["Remove support on vehicle deletion","If disabled, any physical support vehicles capable of respawning will simply respawn"],
+	["Simplex Support Services","Core"],
+	true,
+	true,
 	{},
-	false // _needRestart
+	false
 ] call CBA_fnc_addSetting;
 
-//-----------------------------------------------------------------------------------------------//
+["SSS_setting_deleteVehicleOnEntityRemoval","CHECKBOX",
+	["Delete vehicle on entity removal","When a support entity is deleted/removed, its physical vehicle will be deleted"],
+	["Simplex Support Services","Core"],
+	false,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
 
-// Handle curator deletion of entities and waypoints
+["SSS_setting_cleanupCrew","CHECKBOX",
+	["Delete old vehicle crew on respawn","When a vehicle is no longer usable, the crew will de-spawn instead of leaving the vehicle"],
+	["Simplex Support Services","Core"],
+	true,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+["SSS_setting_adminFullAccess","CHECKBOX",
+	["Give admins access to all supports","Admins will be able to use every support available, even if services aren't shown/enabled"],
+	["Simplex Support Services","Admin"],
+	false,
+	false,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+["SSS_setting_adminLimitSide","CHECKBOX",
+	["Limit admin access to side","Limit the admin access to the current side of the admin"],
+	["Simplex Support Services","Admin"],
+	false,
+	false,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+["SSS_setting_artilleryCoordinationDistance","EDITBOX",
+	["Coordination maximum distance","Set what ""nearby"" really means for artillery coordination"],
+	["Simplex Support Services","Artillery"],
+	"100",
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+// Master array
+SSS_entities = [];
+
+// Zeus EH
 ["ModuleCurator_F","init",{
 	params ["_zeus"];
 
@@ -45,42 +88,43 @@ SSS_transportEnabled = true;
 
 		if (_group getVariable ["SSS_protectWaypoints",false]) then {
 			private _vehicle = vehicle leader _group;
-			switch (_vehicle getVariable "SSS_service") do {
-				case "transport" : {
-					["SSS_transportRequest",[_vehicle,0],_vehicle] call CBA_fnc_targetEvent;
-					SSS_WARNING_1("Support vehicle waypoint was deleted! %1 - RTB",_vehicle getVariable "SSS_displayName")
+			private _entity = _vehicle getVariable ["SSS_parentEntity",objNull];
+
+			if (isNull _entity) exitWith {};
+
+			SSS_ERROR("Support vehicle waypoint was deleted!");
+
+			switch (_entity getVariable "SSS_supportType") do {
+				case "CASHelicopter";
+				case "transportHelicopter";
+				case "transportLandVehicle";
+				case "transportMaritime" : {
+					[_entity,false] call EFUNC(common,updateMarker);
+					INTERRUPT(_entity,_vehicle);
 				};
-				case "CASHelis" : {
-					["SSS_CASRequest",[_vehicle,0],_vehicle] call CBA_fnc_targetEvent;
-					SSS_WARNING_1("Support vehicle waypoint was deleted! %1 - RTB",_vehicle getVariable "SSS_displayName")
+				default {
+					_vehicle setVariable ["SSS_WPDone",true,true];
 				};
-				default {SSS_WARNING("Support vehicle waypoint was deleted!")};
 			};
 		};
 	}];
 }] call CBA_fnc_addClassEventHandler;
 
-// Transport vehicle actions
-["SSS_supportVehicleAdded",{
-	params ["_vehicle"];
-
-	if (!alive _vehicle || {(_vehicle getVariable "SSS_service") != "transport"}) exitWith {};
-
-	private _transportAction = ["SSS_transport","Transport",ICON_TRANSPORT,{},{
-		alive (_this # 0) && alive driver (_this # 0)
-	},{
-		_this call EFUNC(service,childActionsTransport);
-	},_vehicle] call ace_interact_menu_fnc_createAction;
-
-	[_vehicle,1,["ACE_SelfActions"],_transportAction] call ace_interact_menu_fnc_addActionToObject;
-	[_vehicle,0,["ACE_MainActions"],_transportAction] call ace_interact_menu_fnc_addActionToObject;
-}] call CBA_fnc_addEventHandler;
-
-["SSS_supportVehicleRemoved",{
-	params ["_vehicle"];
-
-	if (!alive _vehicle) exitWith {};
-
-	[_vehicle,1,["ACE_SelfActions","SSS_transport"]] call ace_interact_menu_fnc_removeActionFromObject;
-	[_vehicle,0,["ACE_MainActions","SSS_transport"]] call ace_interact_menu_fnc_removeActionFromObject;
-}] call CBA_fnc_addEventHandler;
+// 'show' variables
+{
+	if (isNil _x) then {
+		missionNamespace setVariable [_x,true];
+	};
+} forEach [
+	"SSS_showArtillery",
+	"SSS_showCAS",
+	"SSS_showTransport",
+	"SSS_showCASDrones",
+	"SSS_showCASGunships",
+	"SSS_showCASHelicopters",
+	"SSS_showCASPlanes",
+	"SSS_showGroundSupportVehicles",
+	"SSS_showTransportHelicopters",
+	"SSS_showTransportLandVehicles",
+	"SSS_showTransportMaritime"
+];

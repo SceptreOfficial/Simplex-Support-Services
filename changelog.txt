@@ -1,0 +1,33 @@
+v0.2 - Permission Update
+- Added: Requester assignment functionality (All supports must now be assigned to specific units)
+- Added: Initial land transport support (Move & RTB only)
+- Added: Initial sea transport support (Move & RTB only)
+- Added: Initial artillery support for Mk41 VLS cruise missile system
+- Added: Custom init code parameter that allows executing custom code when physical vehicles are added & respawned (Artillery, CAS Helos, Transport) or spawned in (Drones, Gunships, Planes)
+- Added: 'Max rounds per request' parameter for artillery
+- Added: Loiter parameters dialog all loiter requests
+- Added: Setting for artillery coordination distance
+- Added: Settings for admins to get access to all supports
+- Added: A couple settings for handling support entity/vehicle deletion
+- Improved: Overhauled a majority of internal functions
+- Improved: Notifications are now only are shown for assigned requesters (Admins too, if setting is applied)
+- Improved: New icons and various tweaks
+- Changed: Zeus modules are now functional and have been enabled
+- Changed: Transports and CAS Helos that are 'active' / 'away from base' will have green icons in the support menu
+- Changed: Old 'enabling' variables have been renamed. (See github or ask if desired)
+- Changed: Consolidated the 'coordinate' parameters in the artillery request dialog
+- Changed: Removed view distance modification when remote controlling gunships
+- Changed: Some notification wording has been changed
+- Fixed: CAS drones and gunships now use native loiter waypoint functionality correctly
+- Fixed: Respawn had issues and has been overhauled
+- Fixed: Add waypoint locality issue that broke commanding remote vehicles
+- Fixed: Hovering could get stuck forever and helicopters would slowly rise up
+- Fixed: Some dialog values that were supposed to cache were not saving the confirmed values.
+- Fixed: Various minor issues
+
+v0.1.1 - Hotfix
+- Fixed: CAS plane/drone movement was laggy in MP
+- Fixed: Respawn will clear obstructions now
+- Changed: Zeus modules have been disabled due to a locality issue. All supports must be added via editor for the time being...
+
+v0.1 - Initial Release

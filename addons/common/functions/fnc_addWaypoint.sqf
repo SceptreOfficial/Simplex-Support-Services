@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
 if (!isServer) exitWith {
-	["SSS_addWaypoint",_this] call CBA_fnc_serverEvent;
+	_this remoteExecCall [QFUNC(addWaypoint),2];
 };
 
 params [

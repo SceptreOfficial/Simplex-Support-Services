@@ -1,65 +1,121 @@
 #include "script_component.hpp"
 
-if (!isServer) exitWith {};
+params ["_vehicle"];
 
-params ["_vehicle",["_primaryGone",false]];
+if (!isServer) exitWith {
+	_this remoteExecCall [QFUNC(respawn),2];
+};
 
-// Sometimes killed EH fires twice. Idk why
-if (!isNil {_vehicle getVariable "SSS_respawning"}) exitWith {};
-_vehicle setVariable ["SSS_respawning",true];
+private _entity = _vehicle getVariable ["SSS_parentEntity",objNull];
+if (isNull _entity) exitWith {};
 
 [
-	_vehicle getVariable "SSS_base",_vehicle getVariable "SSS_classname",
-	_vehicle getVariable "SSS_side",_vehicle getVariable "SSS_service",
-	_vehicle getVariable "SSS_displayName",_vehicle getVariable "SSS_respawnTime"
-] params ["_base","_classname","_side","_service","_callsign","_respawnTime"];
+	_entity getVariable "SSS_vehicle",
+	_entity getVariable "SSS_base",
+	_entity getVariable "SSS_respawnTime",
+	_entity getVariable "SSS_respawning"
+] params ["_vehicle","_base","_respawnTime","_respawning"];
 
-if (isNil "_service") exitWith {};
+if (_respawnTime < 0) exitWith {
+	deleteVehicle _entity;
+};
 
-private _basePosASL = if (_base isEqualType objNull) then {getPosASL _base} else {_base};
+if (_respawning) exitWith {};
+_entity setVariable ["SSS_respawning",true,true];
 
-if (_respawnTime >= 0) then {
-	private _message = format ["Support vehicle replacement will be available in %1 seconds.",_respawnTime];
-	NOTIFY(_vehicle,_message)
+_vehicle call FUNC(decommission);
+_entity setVariable ["SSS_vehicle",objNull,true];
+
+private _group = group _vehicle;
+_group setVariable ["SSS_protectWaypoints",nil,true];
+
+if (SSS_setting_cleanupCrew) then {
+	{_vehicle deleteVehicleCrew _x} forEach PRIMARY_CREW(_vehicle);
+	{deleteVehicle _x} forEach units _group;
 } else {
-	NOTIFY(_vehicle,"Support vehicle no longer available.")
+	[_group,_vehicle] remoteExecCall ["leaveVehicle",_vehicle];
+	[PRIMARY_CREW(_vehicle),false] remoteExecCall ["orderGetIn",_vehicle];
 };
 
-// Cleanup
-_vehicle call FUNC(remove);
-if (_primaryGone) then {
-	group _vehicle leaveVehicle _vehicle;
-	PRIMARY_CREW(_vehicle) orderGetIn false;
+private _message = format ["Vehicle replacement will arrive in %1",PROPER_TIME(_respawnTime)];
+NOTIFY(_entity,_message);
+
+private _basePosASL = if (_base isEqualType objNull) then {
+	getPosASL _base
+} else {
+	_base
 };
 
-// _respawnTime of -1 disables respawn
-if (_respawnTime >= 0) then {
-	[{
-		params ["_basePosASL","_classname","_side","_service","_callsign","_respawnTime"];
+[{
+	params ["_entity","_basePosASL"];
 
-		// Clear obstructions
-		{
-			systemChat str _x;
-			private _obj = _x;
-			if ((_obj isKindOf "LandVehicle" || _obj isKindOf "Air" || _obj isKindOf "Ship") && {}) then {
-				{_obj deleteVehicleCrew _x} forEach crew _obj;
-				deleteVehicle _obj;
-			};
-		} forEach (ASLToAGL _basePosASL nearObjects ((sizeOf _classname) / 2));
+	if (isNull _entity) exitWith {};
 
-		// Create new vehicle
-		private _newGroup = createGroup [_side,true];
-		private _newVehicle = createVehicle [_classname,[0,0,0],[],0,"NONE"];
-		_newVehicle setPosASL _basePosASL;
-		(createVehicleCrew _newVehicle) deleteGroupWhenEmpty true;
-		crew _newVehicle joinSilent _newGroup;
-		_newGroup addVehicle _newVehicle;
+	private _classname = _entity getVariable "SSS_classname";
 
-		// Assign vehicle
-		switch (_service) do {
-			case "artillery" : {[_newVehicle,_callsign,_respawnTime] call EFUNC(service,addArtillery);};
-			case "CASHelis" : {[_newVehicle,_callsign,_respawnTime] call EFUNC(service,addCASHeli);};
-			case "transport" : {[_newVehicle,_callsign,_respawnTime] call EFUNC(service,addTransport);};
+	// Clear obstructions
+	{
+		private _obj = _x;
+		if (_obj isKindOf "LandVehicle" || _obj isKindOf "Air" || _obj isKindOf "Ship") then {
+			{_obj deleteVehicleCrew _x} forEach crew _obj;
+			deleteVehicle _obj;
 		};
-	},[_basePosASL,_classname,_side,_service,_callsign,_respawnTime],_respawnTime] call CBA_fnc_waitAndExecute;
-};
+	} forEach (ASLToAGL _basePosASL nearObjects ((sizeOf _classname) * 0.7));
+
+	[{
+		params ["_entity","_basePosASL","_classname"];
+
+		// Create vehicle
+		private _group = createGroup [_entity getVariable "SSS_side",true];
+		private _vehicle = createVehicle [_classname,ASLToAGL _basePosASL,[],0,"NONE"];
+		(createVehicleCrew _vehicle) deleteGroupWhenEmpty true;
+		crew _vehicle joinSilent _group;
+		_group addVehicle _vehicle;
+
+		// Assign/Commission vehicle
+		_vehicle setVariable ["SSS_parentEntity",_entity,true];
+		_entity setVariable ["SSS_vehicle",_vehicle,true];
+		_group setVariable ["SSS_protectWaypoints",true,true];
+		[_vehicle,"Deleted",{_this call FUNC(deletedVehicle)}] call CBA_fnc_addBISEventHandler;
+		[_vehicle,"Killed",{(_this # 0) call FUNC(respawn)}] remoteExecCall ["CBA_fnc_addBISEventHandler",0];
+		[_entity,_vehicle] call FUNC(commission);
+
+		switch (_entity getVariable "SSS_supportType") do {
+			case "artillery" : {
+				[gunner _vehicle,"Killed",{vehicle (_this # 0) call FUNC(respawn)}] remoteExecCall ["CBA_fnc_addBISEventHandler",0];
+				[_vehicle,"GetOut",{
+					params ["_vehicle","_role"];
+
+					if (_role == "gunner") then {
+						_vehicle removeEventHandler [_thisType,_thisID];
+						_vehicle call FUNC(respawn);
+					};
+				}] call CBA_fnc_addBISEventHandler;
+			};
+
+			case "CASHelicopter";
+			case "transportHelicopter";
+			case "transportLandVehicle";
+			case "transportMaritime" : {
+				_entity setVariable ["SSS_awayFromBase",false,true];
+				_entity setVariable ["SSS_onTask",false,true];
+				_entity setVariable ["SSS_interrupt",false,true];
+
+				[driver _vehicle,"Killed",{vehicle (_this # 0) call FUNC(respawn)}] remoteExecCall ["CBA_fnc_addBISEventHandler",0];
+				[_vehicle,"GetOut",{
+					params ["_vehicle","_role"];
+
+					if (_role == "driver") then {
+						_vehicle removeEventHandler [_thisType,_thisID];
+						_vehicle call FUNC(respawn);
+					};
+				}] call CBA_fnc_addBISEventHandler;
+			};
+		};
+
+		_entity setVariable ["SSS_respawning",false,true];
+
+		// Execute custom code
+		_vehicle call (_entity getVariable "SSS_customInit");
+	},[_entity,_basePosASL,_classname]] call CBA_fnc_execNextFrame;
+},[_entity,_basePosASL],_respawnTime] call CBA_fnc_waitAndExecute;

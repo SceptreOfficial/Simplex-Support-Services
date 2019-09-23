@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*-----------------------------------------------------------------------------------------------//
 Authors: Sceptre
 Sets the condition to enable the use of a control.
@@ -9,13 +10,11 @@ Parameters:
 Returns:
 Nothing
 //-----------------------------------------------------------------------------------------------*/
-#include "script_component.hpp"
-
 disableSerialization;
 params [["_index",0,[0]],["_enableCondition",{true},[{}]]];
 
-private _ctrl = findDisplay DISPLAY_IDD displayCtrl ((uiNamespace getVariable "SSS_CDS_controls") # _index);
-private _ctrlInfo = _ctrl getVariable "SSS_CDS_ctrlInfo";
+private _ctrl = findDisplay DISPLAY_IDD displayCtrl ((uiNamespace getVariable QGVAR(controls)) # _index);
+private _ctrlInfo = _ctrl getVariable QGVAR(ctrlInfo);
 
 _ctrlInfo set [4,_enableCondition];
-_ctrl setVariable ["SSS_CDS_ctrlInfo",_ctrlInfo];
+_ctrl setVariable [QGVAR(ctrlInfo),_ctrlInfo];

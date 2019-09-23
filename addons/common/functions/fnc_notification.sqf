@@ -1,19 +1,5 @@
 #include "script_component.hpp"
-/*
-	Function: SSS_fnc_notification
-
-	Authors: Sceptre
-	Creates a notification on top of a stacked notification system.
-
-	Parameters:
-	0: Title <STRING>
-	1: Content <STRING>
-
-	Returns:
-	Nothing
-*/
 #include "\a3\ui_f\hpp\defineCommonGrids.inc"
-
 #define POS_X (safezoneX + 1 * GUI_GRID_W)
 #define POS_Y (safezoneY + 14 * GUI_GRID_H)
 #define WIDTH (16 * GUI_GRID_W)
@@ -22,11 +8,23 @@
 #define GAP_H (0.05 * GUI_GRID_H)
 #define SLOT_H ((0.25 * GUI_GRID_H) + TITLE_H + GAP_H + CONTENT_H)
 #define SLOT_LIMIT 6
-#define TIME_DURATION 5
+#define TIME_DURATION 8
 #define TIME_FADE_IN 0.3
 #define TIME_FADE_OUT 3
 #define TIME_CLEAR_SLOT 0.2
 #define TIME_PUSH_SLOT 0.2
+
+/*
+	Authors: Sceptre
+	Creates a notification on top of a stacked notification system.
+
+	Parameters:
+	0: Title (45 character limit) <STRING>
+	1: Content (90 character limit) <STRING>
+
+	Returns:
+	Nothing
+*/
 
 disableSerialization;
 params [["_title","",[""]],["_content","",[""]]];
