@@ -30,6 +30,7 @@ PREP(moduleAddCASPlane);
 PREP(moduleAddTransport);
 PREP(moduleAssignRequesters);
 PREP(moduleRemoveSupports);
+PREP(moduleUnassignRequesters);
 PREP(notification);
 PREP(notify);
 PREP(onMapClick);

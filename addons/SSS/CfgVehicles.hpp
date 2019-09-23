@@ -400,10 +400,10 @@ class CfgVehicles {
 		scopeCurator = 2;
 	};
 
-	//class SSS_Module_UnassignRequesters : SSS_Module_Base {
-	//	displayName = "Unassign Requesters";
-	//	icon = ICON_ASSIGN_REQUESTERS;
-	//	function = QFUNC(moduleUnassignRequesters);
-	//	scopeCurator = 2;
-	//};
+	class SSS_Module_UnassignRequesters : SSS_Module_Base {
+		displayName = "Unassign Requesters";
+		icon = ICON_UNASSIGN_REQUESTERS;
+		function = QFUNC(moduleUnassignRequesters);
+		scopeCurator = 2;
+	};
 };

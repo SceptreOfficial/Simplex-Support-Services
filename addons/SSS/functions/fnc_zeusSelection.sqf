@@ -8,7 +8,7 @@ private _display = finddisplay IDD_RSCDISPLAYCURATOR;
 private _ctrlMessage = _display displayctrl IDC_RSCDISPLAYCURATOR_FEEDBACKMESSAGE;
 
 playSound "FD_Finish_F";
-_ctrlMessage ctrlSetText "SELECT UNITS TO ASSIGN - PRESS ENTER TO SUBMIT";
+_ctrlMessage ctrlSetText "SELECT UNITS - PRESS ENTER TO SUBMIT";
 _ctrlMessage ctrlSetFade 1;
 _ctrlMessage ctrlCommit 0;
 _ctrlMessage ctrlSetFade 0;

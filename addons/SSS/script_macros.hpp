@@ -61,7 +61,7 @@
 	playSound "SSS_failure"
 
 #define ICON_ARTILLERY "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\artillery_ca.paa"
-#define ICON_ASSIGN_REQUESTERS "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\meet_ca.paa"
+#define ICON_ASSIGN_REQUESTERS "z\SSS\addons\SSS\ui\icons\unlock.paa"
 #define ICON_BOAT "z\SSS\addons\SSS\ui\icons\boat.paa"
 #define ICON_BOAT_GREEN "z\SSS\addons\SSS\ui\icons\boat_green.paa"
 #define ICON_BOAT_YELLOW "z\SSS\addons\SSS\ui\icons\boat_yellow.paa"
@@ -107,6 +107,7 @@
 #define ICON_TARGET "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\target_ca.paa"
 #define ICON_TRANSPORT "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa"
 #define ICON_TRASH "\A3\3DEN\Data\cfg3den\history\deleteitems_ca.paa"
+#define ICON_UNASSIGN_REQUESTERS "z\SSS\addons\SSS\ui\icons\lock.paa"
 
 #define RGBA_RED [0.9,0,0,1]
 #define RGBA_ORANGE [0.85,0.4,0,1]

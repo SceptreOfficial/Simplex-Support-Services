@@ -11,7 +11,8 @@ class CfgPatches {
 			"SSS_Module_AddCASPlane",
 			"SSS_Module_AddTransport",
 			"SSS_Module_AssignRequesters",
-			"SSS_Module_RemoveSupports"
+			"SSS_Module_RemoveSupports",
+			"SSS_Module_UnassignRequesters"
 		};
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;
