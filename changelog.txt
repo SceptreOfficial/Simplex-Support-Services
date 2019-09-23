@@ -3,7 +3,7 @@ v0.2 - Permission Update
 - Added: Initial land transport support (Move & RTB only)
 - Added: Initial sea transport support (Move & RTB only)
 - Added: Initial artillery support for Mk41 VLS cruise missile system
-- Added: Custom init code parameter for all 'physical' supports (Transport, CAS Helos, and Artillery)
+- Added: Custom init code parameter that allows executing custom code when physical vehicles are added & respawned (Artillery, CAS Helos, Transport) or spawned in (Drones, Gunships, Planes)
 - Added: 'Max rounds per request' parameter for artillery
 - Added: Loiter parameters dialog all loiter requests
 - Added: Setting for artillery coordination distance
