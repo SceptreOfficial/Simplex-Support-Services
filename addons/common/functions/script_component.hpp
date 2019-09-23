@@ -1,0 +1,1 @@
+#include "\z\SSS\addons\common\script_component.hpp"

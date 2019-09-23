@@ -1,0 +1,9 @@
+PREP(moduleAddArtillery);
+PREP(moduleAddCASDrone);
+PREP(moduleAddCASGunship);
+PREP(moduleAddCASHelicopter);
+PREP(moduleAddCASPlane);
+PREP(moduleAddTransport);
+PREP(moduleAssignRequesters);
+PREP(moduleRemoveSupports);
+PREP(moduleUnassignRequesters);

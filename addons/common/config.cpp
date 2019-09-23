@@ -6,7 +6,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {};
+		requiredAddons[] = {"SSS_main"};
 		author = "Simplex Team";
 		url = "https://github.com/SceptreOfficial/Simplex-Support-Services";
 		VERSION_CONFIG;
@@ -14,4 +14,3 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
-#include "gui.hpp"
