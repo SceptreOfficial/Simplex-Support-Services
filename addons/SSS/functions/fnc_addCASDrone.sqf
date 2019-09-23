@@ -6,7 +6,8 @@ params [
 	["_callSign","",[""]],
 	["_side",sideEmpty,[sideEmpty]],
 	["_cooldownDefault",SSS_DEFAULT_COOLDOWN_DRONES,[0]],
-	["_loiterTime",SSS_DEFAULT_LOITER_TIME_DRONES,[0]]
+	["_loiterTime",SSS_DEFAULT_LOITER_TIME_DRONES,[0]],
+	["_customInit","",["",{}]]
 ];
 
 // Validation
@@ -22,6 +23,10 @@ if (_callsign isEqualTo "") then {
 	_callsign = getText (configFile >> "CfgVehicles" >> _classname >> "displayName");
 };
 
+if (_customInit isEqualType "") then {
+	_customInit = compile _customInit;
+};
+
 if (!isServer) exitWith {
 	_this remoteExecCall [QFUNC(addCASDrone),2];
 	nil
@@ -30,7 +35,7 @@ if (!isServer) exitWith {
 // Basic setup
 private _entity = (createGroup sideLogic) createUnit ["Logic",[-69,-69,0],[],0,"CAN_COLLIDE"];
 
-BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_DRONE,ICON_DRONE_YELLOW,ICON_DRONE_GREEN,"CAS","CASDrone");
+BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_DRONE,ICON_DRONE_YELLOW,ICON_DRONE_GREEN,_customInit,"CAS","CASDrone");
 CREATE_TASK_MARKER(_entity,_callsign,"mil_end","CAS");
 
 // Specifics

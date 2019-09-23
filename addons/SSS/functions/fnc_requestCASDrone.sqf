@@ -132,3 +132,6 @@ _vehicle flyInHeightASL [_altitudeASL,_altitudeASL,_altitudeASL];
 		NOTIFY_1(_entity,"UAV is leaving the area. Support will be available again in %1.",PROPER_COOLDOWN(_entity));
 	}] call CBA_fnc_waitUntilAndExecute;
 },[_entity,_vehicle,_altitudeASL,_position,_loiterDirection,_loiterRadius,_loiterAltitude,_startPosition]] call CBA_fnc_waitUntilAndExecute;
+
+// Execute custom code
+_vehicle call (_entity getVariable "SSS_customInit");

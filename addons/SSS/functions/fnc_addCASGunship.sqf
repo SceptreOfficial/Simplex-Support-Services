@@ -5,7 +5,8 @@ params [
 	["_callSign","",[""]],
 	["_side",sideEmpty,[sideEmpty]],
 	["_cooldownDefault",SSS_DEFAULT_COOLDOWN_GUNSHIPS,[0]],
-	["_loiterTime",SSS_DEFAULT_LOITER_TIME_GUNSHIPS,[0]]
+	["_loiterTime",SSS_DEFAULT_LOITER_TIME_GUNSHIPS,[0]],
+	["_customInit","",["",{}]]
 ];
 
 private _classname = "B_T_VTOL_01_armed_F";
@@ -13,6 +14,10 @@ private _classname = "B_T_VTOL_01_armed_F";
 // Validation
 if (_callsign isEqualTo "") then {
 	_callsign = getText (configFile >> "CfgVehicles" >> _classname >> "displayName");
+};
+
+if (_customInit isEqualType "") then {
+	_customInit = compile _customInit;
 };
 
 if (!isServer) exitWith {
@@ -23,7 +28,7 @@ if (!isServer) exitWith {
 // Basic setup
 private _entity = (createGroup sideLogic) createUnit ["Logic",[-69,-69,0],[],0,"CAN_COLLIDE"];
 
-BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_GUNSHIP,ICON_GUNSHIP_YELLOW,ICON_GUNSHIP_GREEN,"CAS","CASGunship");
+BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_GUNSHIP,ICON_GUNSHIP_YELLOW,ICON_GUNSHIP_GREEN,_customInit,"CAS","CASGunship");
 CREATE_TASK_MARKER(_entity,_callsign,"mil_end","CAS");
 
 // Specifics

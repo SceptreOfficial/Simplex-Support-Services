@@ -24,7 +24,8 @@ if (!isNull (findDisplay 312)) then {
 		["EDITBOX","Callsign",_callsign],
 		["EDITBOX",["Weapon set","Array of weapon classnames or array of [weapon,magazine] arrays. Empty array for vehicle defaults"],_weaponSet],
 		["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
-		["EDITBOX","Cooldown",SSS_DEFAULT_COOLDOWN_PLANES_STR]
+		["EDITBOX","Cooldown",SSS_DEFAULT_COOLDOWN_PLANES_STR],
+		["EDITBOX",["Custom init code","Code executed when physical vehicle is spawned (vehicle = _this)"],""]
 	],{
 		params ["_values"];
 		_values params ["_classname","_callsign","_weaponSet","_sideSelection","_cooldown"];
@@ -55,7 +56,8 @@ if (!isNull (findDisplay 312)) then {
 		_logic getVariable ["Callsign",""],
 		parseSimpleArray (_logic getVariable ["WeaponSet","[]"]),
 		[west,east,independent] # (_logic getVariable ["Side",0]),
-		parseNumber (_logic getVariable ["Cooldown",SSS_DEFAULT_COOLDOWN_PLANES_STR])
+		parseNumber (_logic getVariable ["Cooldown",SSS_DEFAULT_COOLDOWN_PLANES_STR]),
+		_logic getVariable ["CustomInit",""]
 	] call FUNC(addCASPlane);
 };
 

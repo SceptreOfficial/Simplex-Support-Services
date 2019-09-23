@@ -228,3 +228,6 @@ private _vectorUp = _vectorDir vectorCrossProduct [-(_vectorDir # 1),_vectorDir 
 		};
 	};
 },0.2,[_vehicle,_entity,_target,_weapon,_weaponType,_signalSelection,_smokeColorSelection]] call CBA_fnc_addPerFrameHandler;
+
+// Execute custom code
+_vehicle call (_entity getVariable "SSS_customInit");

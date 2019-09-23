@@ -139,24 +139,24 @@
 
 #define PRIMARY_CREW(VEH) ((crew VEH) arrayIntersect (units group VEH))
 
-#define BASE_TRAITS(ENTITY,CLASSNAME,CALLSIGN,SUPPORT_SIDE,ICON,ICON_YELLOW,ICON_GREEN,SERVICE,SUPPORT_TYPE) \
+#define BASE_TRAITS(ENTITY,CLASSNAME,CALLSIGN,SUPPORT_SIDE,ICON,ICON_YELLOW,ICON_GREEN,CUSTOM_INIT,SERVICE,SUPPORT_TYPE) \
 	ENTITY setVariable ["SSS_classname",CLASSNAME,true]; \
 	ENTITY setVariable ["SSS_callsign",CALLSIGN,true]; \
 	ENTITY setVariable ["SSS_side",SUPPORT_SIDE,true]; \
 	ENTITY setVariable ["SSS_icon",ICON,true]; \
 	ENTITY setVariable ["SSS_iconYellow",ICON_YELLOW,true]; \
 	ENTITY setVariable ["SSS_iconGreen",ICON_GREEN,true]; \
+	ENTITY setVariable ["SSS_customInit",CUSTOM_INIT,true]; \
 	ENTITY setVariable ["SSS_service",SERVICE,true]; \
 	ENTITY setVariable ["SSS_supportType",SUPPORT_TYPE,true]
 
-#define PHYSICAL_TRAITS(ENTITY,VEH,GRP,BASE,RESPAWN_TIME,CUSTOM_INIT) \
+#define PHYSICAL_TRAITS(ENTITY,VEH,GRP,BASE,RESPAWN_TIME) \
 	VEH setVariable ["SSS_parentEntity",ENTITY,true]; \
 	ENTITY setVariable ["SSS_vehicle",VEH,true]; \
 	ENTITY setVariable ["SSS_base",BASE,true]; \
 	ENTITY setVariable ["SSS_respawnDir",getDir VEH,true]; \
 	ENTITY setVariable ["SSS_respawnTime",RESPAWN_TIME,true]; \
 	ENTITY setVariable ["SSS_respawning",false,true]; \
-	ENTITY setVariable ["SSS_customInit",CUSTOM_INIT,true]; \
 	GRP setVariable ["SSS_protectWaypoints",true,true]
 
 #define CREATE_TASK_MARKER(ENTITY,CALLSIGN,MARKER_ICON,STRING) \

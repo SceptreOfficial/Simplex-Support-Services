@@ -10,7 +10,8 @@ if (!isNull (findDisplay 312)) then {
 		["EDITBOX","Callsign","Blackfish"],
 		["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
 		["EDITBOX","Cooldown",SSS_DEFAULT_COOLDOWN_GUNSHIPS_STR],
-		["EDITBOX","Loiter time",SSS_DEFAULT_LOITER_TIME_GUNSHIPS_STR]
+		["EDITBOX","Loiter time",SSS_DEFAULT_LOITER_TIME_GUNSHIPS_STR],
+		["EDITBOX",["Custom init code","Code executed when physical vehicle is spawned (vehicle = _this)"],""]
 	],{
 		params ["_values"];
 		_values params ["_callsign","_sideSelection","_cooldown","_loiterTime"];
@@ -39,7 +40,8 @@ if (!isNull (findDisplay 312)) then {
 		_logic getVariable ["Callsign",""],
 		[west,east,independent] # (_logic getVariable ["Side",0]),
 		parseNumber (_logic getVariable ["Cooldown",SSS_DEFAULT_COOLDOWN_GUNSHIPS_STR]),
-		parseNumber (_logic getVariable ["LoiterTime",SSS_DEFAULT_LOITER_TIME_GUNSHIPS_STR])
+		parseNumber (_logic getVariable ["LoiterTime",SSS_DEFAULT_LOITER_TIME_GUNSHIPS_STR]),
+		_logic getVariable ["CustomInit",""]
 	] call FUNC(addCASGunship);
 };
 

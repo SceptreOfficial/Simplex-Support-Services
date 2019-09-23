@@ -6,7 +6,8 @@ params [
 	["_callSign","",[""]],
 	["_weaponSet",[],[[]]],
 	["_side",sideEmpty,[sideEmpty]],
-	["_cooldownDefault",SSS_DEFAULT_COOLDOWN_PLANES,[0]]
+	["_cooldownDefault",SSS_DEFAULT_COOLDOWN_PLANES,[0]],
+	["_customInit","",["",{}]]
 ];
 
 // Validation
@@ -20,6 +21,10 @@ if (_classname isEqualTo "" || !(_classname isKindOf "Plane")) exitWith {
 
 if (_callsign isEqualTo "") then {
 	_callsign = getText (configFile >> "CfgVehicles" >> _classname >> "displayName");
+};
+
+if (_customInit isEqualType "") then {
+	_customInit = compile _customInit;
 };
 
 if (!isServer) exitWith {
@@ -67,7 +72,7 @@ _weapons = [_weapons,true,{getText (_cfgMagazines >> _this # 1 >> "displayName")
 // Basic setup
 private _entity = (createGroup sideLogic) createUnit ["Logic",[-69,-69,0],[],0,"CAN_COLLIDE"];
 
-BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_PLANE,ICON_PLANE_YELLOW,"","CAS","CASPlane");
+BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_PLANE,ICON_PLANE_YELLOW,"",_customInit,"CAS","CASPlane");
 CREATE_TASK_MARKER(_entity,_callsign,"mil_end","CAS");
 
 // Specifics

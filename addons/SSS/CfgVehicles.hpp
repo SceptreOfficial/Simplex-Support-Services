@@ -168,6 +168,12 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = SSS_DEFAULT_LOITER_TIME_DRONES_STR;
 			};
+			class CustomInit {
+				displayName = "Custom init code";
+				description = "Code executed when physical vehicle is spawned (vehicle = _this)";
+				typeName = "STRING";
+				defaultValue = "";
+			};
 		};
 
 		class ModuleDescription: ModuleDescription {
@@ -220,6 +226,12 @@ class CfgVehicles {
 				description = "How long aircraft will loiter in the area";
 				typeName = "STRING";
 				defaultValue = SSS_DEFAULT_LOITER_TIME_GUNSHIPS_STR;
+			};
+			class CustomInit {
+				displayName = "Custom init code";
+				description = "Code executed when physical vehicle is spawned (vehicle = _this)";
+				typeName = "STRING";
+				defaultValue = "";
 			};
 		};
 
@@ -312,6 +324,12 @@ class CfgVehicles {
 				description = "Time between requests";
 				typeName = "STRING";
 				defaultValue = SSS_DEFAULT_COOLDOWN_PLANES_STR;
+			};
+			class CustomInit {
+				displayName = "Custom init code";
+				description = "Code executed when physical vehicle is spawned (vehicle = _this)";
+				typeName = "STRING";
+				defaultValue = "";
 			};
 		};
 

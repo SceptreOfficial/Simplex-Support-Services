@@ -50,8 +50,8 @@ private _side = side _group;
 	default {[ICON_SELF_PROPELLED,ICON_SELF_PROPELLED_YELLOW,""]};
 }) params ["_icon","_iconYellow","_iconGreen"];
 
-BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,_icon,_iconYellow,_iconGreen,"artillery","artillery");
-PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime,_customInit);
+BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,_icon,_iconYellow,_iconGreen,_customInit,"artillery","artillery");
+PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 CREATE_TASK_MARKER(_entity,_callsign,"mil_warning","Artillery");
 
 // Specifics
