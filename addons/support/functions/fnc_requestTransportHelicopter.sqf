@@ -123,11 +123,18 @@ switch (_request) do {
 			],35];
 
 			private _pad = if (_nearestPads isEqualTo []) then {
-				"Land_HelipadEmpty_F" createVehicle _position
+				private _dummy = (createGroup sideLogic) createUnit ["Logic",[0,0,0],[],0,"CAN_COLLIDE"];
+				_dummy setPosASL [_position # 0,_position # 1,9999];
+				private _surfacePositionASL = [_position # 0,_position # 1,9999 - (getPos _dummy # 2)];
+				deleteVehicle _dummy;
+
+				private _pad = "Land_HelipadEmpty_F" createVehicle _position;
+				_pad setPosASL _surfacePositionASL;
+				_pad
 			} else {
 				_nearestPads # 0
 			};
-
+			
 			BEGIN_ORDER(_entity,_position,"Heading to the LZ.");
 
 			_vehicle setVariable ["SSS_WPDone",false];
