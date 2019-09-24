@@ -241,7 +241,6 @@ switch (_request) do {
 				};
 
 				// Begin precision hover
-				_vehicle flyInHeight _hoverHeight;
 				[_entity,_vehicle,_position,_hoverHeight,_doFastrope] call FUNC(transportHover);
 
 				[{

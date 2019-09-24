@@ -72,19 +72,20 @@ _vehicle setVariable ["SSS_fastropeUnits",nil];
 					_vehicle setVelocity [0,0,0];
 					_vehicle setVelocityModelSpace [0,0,0];
 
-					!local _vehicle || _vehicle getVariable "SSS_hoverDone" || CANCEL_CONDITION
+					!local _vehicle || _vehicle getVariable ["SSS_hoverDone",false] || CANCEL_CONDITION
 				},{
 					params ["_entity","_vehicle"];
 
+					// Make sure it doesn't drop
 					[{
-						private _velocity = velocityModelSpace _this;
+						private _velocity = velocity _this;
 						if (_velocity # 2 < 0) then {
 							_velocity set [2,0];
-							_this setVelocityModelSpace _velocity;
+							_this setVelocity _velocity;
 						};
-
-						alive _this && alive driver _this;
-					},{},_vehicle,4] call CBA_fnc_waitUntilAndExecute;
+					
+						!alive _this || !alive driver _this;
+					},{},_vehicle,3] call CBA_fnc_waitUntilAndExecute;
 
 					_vehicle setVariable ["SSS_hoverDone",true,true];
 					_vehicle setVariable ["SSS_fastropeUnits",nil,true];
