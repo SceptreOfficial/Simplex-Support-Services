@@ -3,7 +3,7 @@ v0.2 - Permission Update
 - Added: Initial land transport support (Move & RTB only)
 - Added: Initial sea transport support (Move & RTB only)
 - Added: Initial artillery support for Mk41 VLS cruise missile system
-- Added: Custom init code parameter that allows executing custom code when physical vehicles are added & respawned (Artillery, CAS Helos, Transport) or spawned in (Drones, Gunships, Planes)
+- Added: Custom init code parameter that allows executing custom code when physical vehicles are added & respawned (Artillery, CAS Helos, Transport) or spawned in (Drones, Gunships, Planes). Modifying AI behavior, vehicle positioning or velocity could break stuff. This was primarily added for cosmetic and inventory changes.
 - Added: 'Max rounds per request' parameter for artillery
 - Added: Loiter parameters dialog all loiter requests
 - Added: Setting for artillery coordination distance
@@ -11,6 +11,7 @@ v0.2 - Permission Update
 - Added: A couple settings for handling support entity/vehicle deletion
 - Improved: Overhauled a majority of internal functions
 - Improved: Notifications are now only are shown for assigned requesters (Admins too, if setting is applied)
+- Improved: Helicopters are now be able to land on top of buildings
 - Improved: New icons and various tweaks
 - Changed: Zeus modules are now functional and have been enabled
 - Changed: Transports and CAS Helos that are 'active' / 'away from base' will have green icons in the support menu
@@ -21,7 +22,8 @@ v0.2 - Permission Update
 - Fixed: CAS drones and gunships now use native loiter waypoint functionality correctly
 - Fixed: Respawn had issues and has been overhauled
 - Fixed: Add waypoint locality issue that broke commanding remote vehicles
-- Fixed: Hovering could get stuck forever and helicopters would slowly rise up
+- Fixed: Hovering helicopters could get stuck forever
+- Fixed: Helicopters could drop and take damage if hovering less than 10m
 - Fixed: Some dialog values that were supposed to cache were not saving the confirmed values.
 - Fixed: Various minor issues
 
