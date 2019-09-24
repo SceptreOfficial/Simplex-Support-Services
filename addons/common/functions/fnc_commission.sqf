@@ -102,10 +102,7 @@ switch (_entity getVariable "SSS_supportType") do {
 	};
 
 	case "transportLandVehicle" : {
-		{
-			_x disableAI "LIGHTS";
-			_x disableAI "AUTOCOMBAT";
-		} forEach PRIMARY_CREW(_vehicle);
+		{_x disableAI "LIGHTS"} forEach PRIMARY_CREW(_vehicle);
 
 		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
 
