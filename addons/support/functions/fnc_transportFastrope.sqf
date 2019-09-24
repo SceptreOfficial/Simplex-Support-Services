@@ -6,7 +6,7 @@ _vehicle setVariable ["SSS_fastropeUnits",(crew _vehicle) - (units group driver 
 
 private _positionASL = getPosASL _vehicle;
 private _centerOfMass = getCenterOfMass _vehicle;
-private _ropeLength = (getPos _vehicle) # 2 - 0.2;
+private _ropeLength = (getPos _vehicle) # 2 - 0.1;
 private _ropes = [];
 private _fnc_helpers = {
 	params ["_vehicle","_obj"];
