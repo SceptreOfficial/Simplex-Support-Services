@@ -1,3 +1,9 @@
+v0.2.1
+- Changed: Invisible base helipads are now only created when helicopters are requested to RTB.
+- Changed: Land and sea transport default speed is now FULL.
+- Fixed: Obstruction clearing on respawn will now only remove empty or dead vehicles, and vehicles will respawn at the closest safe position possible.
+- Fixed: Artillery cooldown could break if the vehicle died in the middle of the cooldown process.
+
 v0.2 - Permission Update
 - Added: Requester assignment functionality (All supports must now be assigned to specific units)
 - Added: Initial land transport support (Move & RTB only)
