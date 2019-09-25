@@ -71,7 +71,7 @@ switch (true) do {
 		_entity setVariable ["SSS_awayFromBase",false,true];
 		_entity setVariable ["SSS_onTask",false,true];
 		_entity setVariable ["SSS_interrupt",false,true];
-		_entity setVariable ["SSS_speedMode",1,true];
+		_entity setVariable ["SSS_speedMode",2,true];
 		_entity setVariable ["SSS_combatMode",0,true];
 		_entity setVariable ["SSS_lightsOn",isLightOn _vehicle,true];
 		_entity setVariable ["SSS_collisionLightsOn",isCollisionLightOn _vehicle,true];
@@ -86,7 +86,7 @@ switch (true) do {
 		_entity setVariable ["SSS_awayFromBase",false,true];
 		_entity setVariable ["SSS_onTask",false,true];
 		_entity setVariable ["SSS_interrupt",false,true];
-		_entity setVariable ["SSS_speedMode",1,true];
+		_entity setVariable ["SSS_speedMode",2,true];
 		_entity setVariable ["SSS_combatMode",0,true];
 		_entity setVariable ["SSS_lightsOn",isLightOn _vehicle,true];
 	};

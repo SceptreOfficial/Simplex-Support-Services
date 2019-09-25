@@ -103,11 +103,10 @@ switch (_entity getVariable "SSS_supportType") do {
 
 	case "transportLandVehicle" : {
 		{_x disableAI "LIGHTS"} forEach PRIMARY_CREW(_vehicle);
-
 		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
 
 		_group setBehaviour "SAFE";
-		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",1]));
+		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",2]));
 	
 		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {
 			_group setCombatMode "YELLOW";
@@ -140,7 +139,7 @@ switch (_entity getVariable "SSS_supportType") do {
 		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
 		_vehicle setCollisionLight (_entity getVariable ["SSS_collisionLightsOn",true]);
 
-		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",1]));
+		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",2]));
 	
 		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {
 			_group setCombatMode "YELLOW";
