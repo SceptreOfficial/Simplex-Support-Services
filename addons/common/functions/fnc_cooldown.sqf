@@ -8,40 +8,22 @@ if (!isServer) exitWith {
 
 _entity setVariable ["SSS_cooldown",_time,true];
 
-if (isNil {_entity getVariable "SSS_base"}) then {
-	// Virtual
-	[{
-		params ["_args","_PFHID"];
-		_args params ["_entity","_readyMessage"];
-		private _cooldown = _entity getVariable "SSS_cooldown";
+[{
+	params ["_args","_PFHID"];
+	_args params ["_entity","_readyMessage"];
 
-		if (_cooldown > 0) then {
-			_entity setVariable ["SSS_cooldown",_cooldown - 1,true];
-		};
+	if (isNull _entity) exitWith {
+		[_PFHID] call CBA_fnc_removePerFrameHandler;
+	};
 
-		if (_cooldown <= 0) then {
-			NOTIFY(_entity,_readyMessage);
-			[_PFHID] call CBA_fnc_removePerFrameHandler;
-		};
-	},1,[_entity,_readyMessage]] call CBA_fnc_addPerFrameHandler;
-} else {
-	// Physical
-	[{
-		params ["_args","_PFHID"];
-		_args params ["_entity","_readyMessage"];
-		private _cooldown = _entity getVariable "SSS_cooldown";
-		private _vehicle = _entity getVariable "SSS_vehicle";
+	private _cooldown = _entity getVariable "SSS_cooldown";
 
-		if (alive _vehicle && {_cooldown > 0}) then {
-			_entity setVariable ["SSS_cooldown",_cooldown - 1,true];
-		};
+	if (_cooldown > 0) then {
+		_entity setVariable ["SSS_cooldown",_cooldown - 1,true];
+	};
 
-		if (!alive _vehicle || {_cooldown <= 0}) then {
-			if (alive _vehicle) then {
-				NOTIFY(_entity,_readyMessage);
-			};
-
-			[_PFHID] call CBA_fnc_removePerFrameHandler;
-		};
-	},1,[_entity,_readyMessage]] call CBA_fnc_addPerFrameHandler;
-};
+	if (_cooldown <= 0) then {
+		NOTIFY(_entity,_readyMessage);
+		[_PFHID] call CBA_fnc_removePerFrameHandler;
+	};
+},1,[_entity,_readyMessage]] call CBA_fnc_addPerFrameHandler;
