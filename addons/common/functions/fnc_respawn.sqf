@@ -56,7 +56,7 @@ private _basePosASL = if (_base isEqualType objNull) then {
 	// Clear obstructions
 	{
 		private _obj = _x;
-		if (_obj isKindOf "LandVehicle" || _obj isKindOf "Air" || _obj isKindOf "Ship") then {
+		if ((!alive _obj || {alive _x} count crew _obj == 0) && {_obj isKindOf "LandVehicle" || _obj isKindOf "Air" || _obj isKindOf "Ship"}) then {
 			{_obj deleteVehicleCrew _x} forEach crew _obj;
 			deleteVehicle _obj;
 		};
@@ -117,5 +117,5 @@ private _basePosASL = if (_base isEqualType objNull) then {
 
 		// Execute custom code
 		_vehicle call (_entity getVariable "SSS_customInit");
-	},[_entity,_basePosASL,_classname]] call CBA_fnc_execNextFrame;
+	},[_entity,_basePosASL,_classname],1] call CBA_fnc_waitAndExecute;
 },[_entity,_basePosASL],_respawnTime] call CBA_fnc_waitAndExecute;
