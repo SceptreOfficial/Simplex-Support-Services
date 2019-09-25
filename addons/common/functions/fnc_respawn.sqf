@@ -40,14 +40,8 @@ if (SSS_setting_cleanupCrew) then {
 private _message = format ["Vehicle replacement will arrive in %1",PROPER_TIME(_respawnTime)];
 NOTIFY(_entity,_message);
 
-private _basePosASL = if (_base isEqualType objNull) then {
-	getPosASL _base
-} else {
-	_base
-};
-
 [{
-	params ["_entity","_basePosASL"];
+	params ["_entity","_base"];
 
 	if (isNull _entity) exitWith {};
 
@@ -60,14 +54,14 @@ private _basePosASL = if (_base isEqualType objNull) then {
 			{_obj deleteVehicleCrew _x} forEach crew _obj;
 			deleteVehicle _obj;
 		};
-	} forEach (ASLToAGL _basePosASL nearObjects ((sizeOf _classname) * 0.7));
+	} forEach (ASLToAGL _base nearObjects ((sizeOf _classname) * 0.7));
 
 	[{
-		params ["_entity","_basePosASL","_classname"];
+		params ["_entity","_base","_classname"];
 
 		// Create vehicle
 		private _group = createGroup [_entity getVariable "SSS_side",true];
-		private _vehicle = createVehicle [_classname,ASLToAGL _basePosASL,[],0,"NONE"];
+		private _vehicle = createVehicle [_classname,ASLToAGL _base,[],0,"NONE"];
 		(createVehicleCrew _vehicle) deleteGroupWhenEmpty true;
 		crew _vehicle joinSilent _group;
 		_group addVehicle _vehicle;
@@ -117,5 +111,5 @@ private _basePosASL = if (_base isEqualType objNull) then {
 
 		// Execute custom code
 		_vehicle call (_entity getVariable "SSS_customInit");
-	},[_entity,_basePosASL,_classname],1] call CBA_fnc_waitAndExecute;
-},[_entity,_basePosASL],_respawnTime] call CBA_fnc_waitAndExecute;
+	},[_entity,_base,_classname],1] call CBA_fnc_waitAndExecute;
+},[_entity,_base],_respawnTime] call CBA_fnc_waitAndExecute;

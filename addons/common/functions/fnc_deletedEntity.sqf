@@ -16,18 +16,10 @@ publicVariable "SSS_entities";
 deleteMarker (_entity getVariable "SSS_marker");
 _entity setVariable ["SSS_respawnTime",-1,true];
 
-private _base = _entity getVariable "SSS_base";
+private _vehicle = _entity getVariable "SSS_vehicle";
 
-if (!isNil "_base") then {
-	if (_base isEqualType objNull) then {
-		deleteVehicle _base;
-	};
-
-	private _vehicle = _entity getVariable "SSS_vehicle";
-
-	if (SSS_setting_deleteVehicleOnEntityRemoval) then {
-		deleteVehicle _vehicle;
-	} else {
-		_vehicle call FUNC(decommission);
-	};
+if (SSS_setting_deleteVehicleOnEntityRemoval) then {
+	deleteVehicle _vehicle;
+} else {
+	_vehicle call FUNC(decommission);
 };

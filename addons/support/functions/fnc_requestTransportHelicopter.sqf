@@ -26,7 +26,10 @@ switch (_request) do {
 		[{!((_this # 0) getVariable "SSS_onTask")},{
 			params ["_entity","_vehicle"];
 
-			private _position = getPos (_entity getVariable "SSS_base");
+			private _base = _entity getVariable "SSS_base";
+			private _position = ASLToAGL _base;
+			private _pad = "Land_HelipadEmpty_F" createVehicle _position;
+			_pad setPosASL _base;
 
 			// Begin order
 			_entity setVariable ["SSS_onTask",true,true];
@@ -38,10 +41,11 @@ switch (_request) do {
 			[_vehicle,_position,0,"MOVE","","","","",WP_DONE] call EFUNC(common,addWaypoint);
 
 			[{WAIT_UNTIL_WPDONE},{
-				params ["_entity","_vehicle"];
+				params ["_entity","_vehicle","_pad"];
 
 				if (CANCEL_CONDITION) exitWith {
 					CANCEL_ORDER(_entity,"RTB");
+					deleteVehicle _pad;
 				};
 
 				// Begin landing
@@ -50,12 +54,13 @@ switch (_request) do {
 				_vehicle land "LAND";
 
 				[{WAIT_UNTIL_LAND},{
-					params ["_entity","_vehicle"];
+					params ["_entity","_vehicle","_pad"];
 
 					if (CANCEL_CONDITION) exitWith {
 						CANCEL_ORDER(_entity,"RTB");
 						_vehicle doFollow _vehicle;
 						_vehicle land "NONE";
+						deleteVehicle _pad;
 					};
 
 					END_ORDER(_entity,"Arrived at base. Ready for further tasking.");
@@ -65,9 +70,10 @@ switch (_request) do {
 					_vehicle setDamage 0;
 					_vehicle engineOn false;
 					_vehicle doFollow _vehicle;
+					deleteVehicle _pad;
 
-				},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
-			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
+				},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
+			},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 	};
 	// Pickup
@@ -172,7 +178,7 @@ switch (_request) do {
 
 					[{
 						params ["_entity","_vehicle"];
-						isNull _entity || !alive _vehicle || !alive driver _vehicle || _entity getVariable "SSS_onTask"
+						isNull _entity || !alive _vehicle || !alive driver _vehicle || {_entity getVariable "SSS_onTask"}
 					},{
 						deleteVehicle (_this # 2);
 					},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
