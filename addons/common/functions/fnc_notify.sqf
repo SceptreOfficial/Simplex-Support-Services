@@ -12,7 +12,7 @@ if (!(ADMIN_ACCESS_CONDITION) && {!(_entity in (player getVariable ["SSS_assigne
 if (ADMIN_ACCESS_CONDITION && SSS_setting_adminLimitSide && _side != side player) exitWith {};
 
 private _interruptedTask = _entity getVariable ["SSS_interruptedTask",""];
-if (_interruptedTask != "") then {
+if (_interruptedTask != "" && {alive (_entity getVariable ["SSS_vehicle",objNull])}) then {
 	_message = format ["%1 cancelled; %2",_interruptedTask,_message];
 	_entity setVariable ["SSS_interruptedTask",nil,true];
 };

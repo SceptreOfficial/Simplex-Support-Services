@@ -45,6 +45,8 @@ NOTIFY(_entity,_message);
 
 	if (isNull _entity) exitWith {};
 
+	_entity setVariable ["SSS_interruptedTask",nil,true];
+	
 	private _classname = _entity getVariable "SSS_classname";
 
 	// Clear obstructions
@@ -108,6 +110,7 @@ NOTIFY(_entity,_message);
 		};
 
 		_entity setVariable ["SSS_respawning",false,true];
+		NOTIFY(_entity,"Replacement vehicle has arrived.");
 
 		// Execute custom code
 		_vehicle call (_entity getVariable "SSS_customInit");
