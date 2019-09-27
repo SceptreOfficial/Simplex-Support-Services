@@ -49,6 +49,24 @@ ADDON = true;
 	false
 ] call CBA_fnc_addSetting;
 
+["SSS_setting_resetVehicleOnRTB","CHECKBOX",
+	["Reset vehicle on RTB","When a vehicle arrives back at base, it is repaired, fuel is refilled, and ammo is restored."],
+	["Simplex Support Services","Core"],
+	true,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+["SSS_setting_restoreCrewOnRTB","CHECKBOX",
+	["Restore vehicle crew on RTB","Restores health to all crew and revives any dead crew when a vehicle returns to base"],
+	["Simplex Support Services","Core"],
+	true,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
 ["SSS_setting_adminFullAccess","CHECKBOX",
 	["Give admins access to all supports","Admins will be able to use every support available, even if services aren't shown/enabled"],
 	["Simplex Support Services","Admin"],

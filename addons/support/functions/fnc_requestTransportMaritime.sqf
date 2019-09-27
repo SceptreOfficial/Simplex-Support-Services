@@ -46,12 +46,10 @@ switch (_request) do {
 
 				END_ORDER(_entity,"Arrived at base. Ready for further tasking.");
 				_entity setVariable ["SSS_awayFromBase",false,true];
-				_vehicle setFuel 1;
-				_vehicle setVehicleAmmo 1;
-				_vehicle setDamage 0;
 				_vehicle engineOn false;
 				_vehicle doFollow _vehicle;
 
+				[_entity,_vehicle] call EFUNC(common,resetOnRTB);
 			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 	};

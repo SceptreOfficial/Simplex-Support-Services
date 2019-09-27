@@ -11,6 +11,7 @@ PREP(getSmokeColor);
 PREP(notification);
 PREP(notify);
 PREP(properTime);
+PREP(resetOnRTB);
 PREP(respawn);
 PREP(sortBy);
 PREP(unassignRequesters);
