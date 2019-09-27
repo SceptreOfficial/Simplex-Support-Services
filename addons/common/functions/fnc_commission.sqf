@@ -166,4 +166,44 @@ switch (_entity getVariable "SSS_supportType") do {
 		[_vehicle,1,["ACE_SelfActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
 		[_vehicle,0,["ACE_MainActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
 	};
+
+	case "transportVTOL" : {
+		{_x disableAI "LIGHTS"} forEach PRIMARY_CREW(_vehicle);
+
+		_vehicle flyInHeight (_entity getVariable ["SSS_flyingHeight",180]);
+		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
+		_vehicle setCollisionLight (_entity getVariable ["SSS_collisionLightsOn",true]);
+
+		_group setBehaviour "CARELESS";
+		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",1]));
+	
+		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {
+			_group setCombatMode "YELLOW";
+			_group enableAttack true;
+			{
+				_x enableAI "TARGET";
+				_x enableAI "AUTOTARGET";
+			} forEach PRIMARY_CREW(_vehicle);
+		} else {
+			_group setCombatMode "BLUE";
+			_group enableAttack false;
+			{
+				_x disableAI "TARGET";
+				_x disableAI "AUTOTARGET";
+			} forEach PRIMARY_CREW(_vehicle);
+		};
+
+		private _action = ["SSS_transport","Transport",ICON_TRANSPORT,{},{VEHICLE_ACTION_CONDITION},{
+			_this call EFUNC(interaction,childActionsTransportVTOL)
+		},_entity] call ace_interact_menu_fnc_createAction;
+
+		[_vehicle,1,["ACE_SelfActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
+		[_vehicle,0,["ACE_MainActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
+
+		// FRIES makes AI pilots a nightmare
+		private _fries = _vehicle getVariable ["ace_fastroping_FRIES",objnull];
+		if (!isNull _fries) then {
+			deleteVehicle _fries;
+		};
+	};
 };

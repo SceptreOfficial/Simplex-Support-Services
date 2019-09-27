@@ -12,6 +12,7 @@ PREP(requestCASPlane);
 PREP(requestTransportHelicopter);
 PREP(requestTransportLandVehicle);
 PREP(requestTransportMaritime);
+PREP(requestTransportVTOL);
 PREP(transportDoFastrope);
 PREP(transportFastrope);
 PREP(transportHover);

@@ -239,4 +239,32 @@ switch (_entity getVariable "SSS_supportType") do {
 
 		[_entity,_request,_position] remoteExecCall [QEFUNC(support,requestTransportMaritime),_vehicle];
 	};
+
+	case "transportVTOL" : {
+		private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
+
+		if (!alive _vehicle) exitWith {};
+
+		switch (_request) do {
+			case 6 : {
+				["Loiter parameters",[
+					["SLIDER","Loiter radius",[[500,1000,0],500]],
+					["COMBOBOX","Loiter direction",[[["Clockwise","",ICON_CLOCKWISE],["Counter-Clockwise","",ICON_COUNTER_CLOCKWISE]],0]]
+				],{
+					params ["_values","_args"];
+					_args params ["_entity","_request","_position"];
+
+					private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
+
+					if (!alive _vehicle) exitWith {};
+
+					[_entity,_request,_position,_values] remoteExecCall [QEFUNC(support,requestTransportVTOL),_vehicle];
+				},{REQUEST_CANCELLED;},[_entity,_request,_position]] call EFUNC(CDS,dialog);
+			};
+
+			default {
+				[_entity,_request,_position] remoteExecCall [QEFUNC(support,requestTransportVTOL),_vehicle];
+			};
+		};
+	};
 };

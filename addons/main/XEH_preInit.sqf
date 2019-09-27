@@ -116,7 +116,8 @@ SSS_entities = [];
 				case "CASHelicopter";
 				case "transportHelicopter";
 				case "transportLandVehicle";
-				case "transportMaritime" : {
+				case "transportMaritime";
+				case "transportVTOL" : {
 					[_entity,false] call EFUNC(common,updateMarker);
 					INTERRUPT(_entity,_vehicle);
 				};
@@ -144,5 +145,6 @@ SSS_entities = [];
 	"SSS_showGroundSupportVehicles",
 	"SSS_showTransportHelicopters",
 	"SSS_showTransportLandVehicles",
-	"SSS_showTransportMaritime"
+	"SSS_showTransportMaritime",
+	"SSS_showTransportVTOLs"
 ];

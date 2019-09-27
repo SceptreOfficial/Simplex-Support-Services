@@ -92,7 +92,8 @@ NOTIFY(_entity,_message);
 			case "CASHelicopter";
 			case "transportHelicopter";
 			case "transportLandVehicle";
-			case "transportMaritime" : {
+			case "transportMaritime";
+			case "transportVTOL" : {
 				_entity setVariable ["SSS_awayFromBase",false,true];
 				_entity setVariable ["SSS_onTask",false,true];
 				_entity setVariable ["SSS_interrupt",false,true];

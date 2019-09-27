@@ -96,6 +96,7 @@
 #define ICON_MOVE "z\SSS\addons\main\ui\icons\move.paa"
 #define ICON_MOVE_ENG_OFF "z\SSS\addons\main\ui\icons\move_eng_off.paa"
 #define ICON_PLANE "z\SSS\addons\main\ui\icons\plane.paa"
+#define ICON_PLANE_GREEN "z\SSS\addons\main\ui\icons\plane_green.paa"
 #define ICON_PLANE_YELLOW "z\SSS\addons\main\ui\icons\plane_yellow.paa"
 #define ICON_ROPE "z\SSS\addons\main\ui\icons\rope.paa"
 #define ICON_SEARCH_YELLOW "z\SSS\addons\main\ui\icons\search_yellow.paa"

@@ -1,4 +1,5 @@
 v0.2.1
+- Added: Initial compatibility for VTOL transports
 - Changed: Invisible base helipads are now only created when helicopters are requested to RTB.
 - Changed: Land and sea transport default speed is now FULL.
 - Fixed: Obstruction clearing on respawn will now only remove empty or dead vehicles, and vehicles will respawn at the closest safe position possible.
