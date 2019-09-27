@@ -133,6 +133,8 @@ _vehicle flyInHeightASL [_altitudeASL,_altitudeASL,_altitudeASL];
 		[_entity,_entity getVariable "SSS_cooldownDefault","Rearmed and ready for further tasking."] call EFUNC(common,cooldown);
 
 		NOTIFY_1(_entity,"Gunship is leaving the area. Support will be available again in %1.",PROPER_COOLDOWN(_entity));
+
+		["SSS_requestCompleted",[_entity]] call CBA_fnc_globalEvent;
 	}] call CBA_fnc_waitUntilAndExecute;
 },[_entity,_vehicle,_altitudeASL,_position,_loiterRadius,_loiterAltitude,_startPosition]] call CBA_fnc_waitUntilAndExecute;
 

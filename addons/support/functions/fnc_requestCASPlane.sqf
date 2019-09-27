@@ -171,6 +171,8 @@ private _vectorUp = _vectorDir vectorCrossProduct [-(_vectorDir # 1),_vectorDir 
 		if (isNull _entity) exitWith {};
 
 		[_entity,false] call EFUNC(common,updateMarker);
+
+		["SSS_requestCompleted",[_entity]] call CBA_fnc_globalEvent;
 	};
 
 	private _distance = _vehicle distance _target;

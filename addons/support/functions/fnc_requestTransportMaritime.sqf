@@ -50,6 +50,8 @@ switch (_request) do {
 				_vehicle doFollow _vehicle;
 
 				[_entity,_vehicle] call EFUNC(common,resetOnRTB);
+
+				["SSS_requestCompleted",[_entity,["RTB"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 	};
@@ -78,10 +80,12 @@ switch (_request) do {
 
 				END_ORDER(_entity,"Destination reached. Ready for further tasking.");
 
-				if (!_engineOn) then {
+				private _requestName = if (!_engineOn) then {
 					_vehicle engineOn false;
-				};
-
+					"MOVE_ENG_OFF"
+				} else {"MOVE"};
+				
+				["SSS_requestCompleted",[_entity,[_requestName]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle,_engineOn]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position,_engineOn]] call CBA_fnc_waitUntilAndExecute;
 	};

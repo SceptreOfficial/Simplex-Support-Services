@@ -70,6 +70,8 @@ switch (_request) do {
 					deleteVehicle _pad;
 
 					[_entity,_vehicle] call EFUNC(common,resetOnRTB);
+
+					["SSS_requestCompleted",[_entity,["RTB"]]] call CBA_fnc_globalEvent;
 				},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
 			},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
@@ -118,6 +120,7 @@ switch (_request) do {
 				// RTB
 				[_entity,0] call FUNC(requestCASHelicopter);
 
+				["SSS_requestCompleted",[_entity,["SAD"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
 	};
@@ -143,6 +146,7 @@ switch (_request) do {
 
 				END_ORDER(_entity,"Destination reached. Ready for further tasking.");
 
+				["SSS_requestCompleted",[_entity,["MOVE"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
 	};
@@ -181,6 +185,7 @@ switch (_request) do {
 				_entity setVariable ["SSS_onTask",false,true];
 				NOTIFY(_entity,"Destination reached. Loitering until further tasking.");
 
+				["SSS_requestCompleted",[_entity,["LOITER"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle,_position,_loiterRadius,_loiterDirection]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position,_loiterRadius,_loiterDirection]] call CBA_fnc_waitUntilAndExecute;
 	};

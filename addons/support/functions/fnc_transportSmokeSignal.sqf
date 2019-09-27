@@ -112,13 +112,9 @@ private _signalType = if (sunOrMoon isEqualTo 1) then {
 
 				END_ORDER(_entity,"Touchdown. Load up!");
 
-				[{
-					params ["_entity","_vehicle"];
-					isNull _entity || !alive _vehicle || !alive driver _vehicle || _entity getVariable "SSS_onTask"
-				},{
-					deleteVehicle (_this # 2);
-				},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
+				[{deleteVehicle _this},_pad,5] call CBA_fnc_waitAndExecute;
 
+				["SSS_requestCompleted",[_entity,["PICKUP"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
 	},[_entity,_vehicle,_position,_signalPos,_signal]] call CBA_fnc_waitUntilAndExecute;

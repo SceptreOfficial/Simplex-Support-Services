@@ -139,14 +139,14 @@ if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") then {
 [{
 	params ["_entity","_vehicle"];
 
-	if (alive _vehicle &&
-		alive gunner _vehicle &&
-		isNil {_vehicle getVariable "SSS_doneFiring"} &&
-		(_entity getVariable "SSS_cooldown") > 0
-	) then {
+	if (!isNull _entity && {(_entity getVariable "SSS_cooldown") > 0 && alive _vehicle && alive gunner _vehicle && isNil {_vehicle getVariable "SSS_doneFiring"}}) then {
 		(gunner _vehicle) setAmmo [currentWeapon _vehicle,20];
 		false
 	} else {
+		if (!isNull _entity) then {
+			["SSS_requestCompleted",[_entity]] call CBA_fnc_globalEvent;
+		};
+
 		_vehicle setVariable ["SSS_doneFiring",nil];
 		true
 	};
