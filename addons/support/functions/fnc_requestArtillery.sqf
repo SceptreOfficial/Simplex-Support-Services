@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params ["_entity","_magType",["_position",[],[[]]],"_rounds","_dispersion"];
+params [["_entity",objNull,[objNull]],["_magType","",[""]],["_position",[],[[]]],["_rounds",1,[1]],["_dispersion",0,[0]]];
 
 private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
 
