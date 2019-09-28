@@ -7,9 +7,9 @@ if (!local _logic) exitWith {};
 disableSerialization;
 if (!isNull (findDisplay 312)) then {
 	private _object = attachedTo _logic;
-	private _classname = "";
+	private _classname = "B_Plane_CAS_01_F";
 	private _callsign = "";
-	private _weaponSet = [];
+	private _weaponSet = str ["Gatling_30mm_Plane_CAS_01_F","Rocket_04_HE_Plane_CAS_01_F","Bomb_04_Plane_CAS_01_F"];
 
 	if (_object isKindOf "Plane") then {
 		_classname = typeOf _object;

@@ -7,7 +7,7 @@ if (!local _logic) exitWith {};
 disableSerialization;
 if (!isNull (findDisplay 312)) then {
 	private _object = attachedTo _logic;
-	private _classname = "";
+	private _classname = "B_UAV_02_F";
 	private _callsign = "";
 
 	if (_object isKindOf "Plane") then {
