@@ -117,6 +117,8 @@
 #define RGBA_BLUE [0,0,1,1]
 #define RGBA_PURPLE [0.75,0.15,0.75,1]
 
+#define SSS_DEFAULT_ARTILLERY_COORDINATION_DISTANCE 100
+#define SSS_DEFAULT_ARTILLERY_COORDINATION_DISTANCE_STR "100"
 #define SSS_DEFAULT_ARTILLERY_MAX_ROUNDS 10
 #define SSS_DEFAULT_ARTILLERY_MAX_ROUNDS_STR "10"
 #define SSS_DEFAULT_RESPAWN_TIME 60
@@ -206,10 +208,10 @@
 #define CANCEL_CONDITION isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle}}
 
 #define WAIT_UNTIL_WPDONE params ["_entity","_vehicle"]; \
-	isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle || _vehicle getVariable "SSS_WPDone"}}
+	isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle || {_vehicle getVariable "SSS_WPDone"}}}
 
 #define WAIT_UNTIL_LAND params ["_entity","_vehicle"]; \
-	isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle || (getPos _vehicle) select 2 < 1}}
+	isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle || {(getPos _vehicle) select 2 < 1}}}
 
 #define REQUEST_CANCELLED \
 	titleText ["Request Cancelled","PLAIN",0.5]; \
