@@ -24,6 +24,9 @@ private _vehicle = createVehicle [_entity getVariable "SSS_classname",_startPosi
 (createVehicleCrew _vehicle) deleteGroupWhenEmpty true;
 private _group = createGroup [_entity getVariable "SSS_side",true];
 crew _vehicle joinSilent _group;
+_vehicle setDir (_startPosition getDir _position);
+_vehicle setPos [_startPosition # 0,_startPosition # 1,_altitudeASL];
+_vehicle setVelocityModelSpace [0,150,0];
 _vehicle allowFleeing 0;
 _vehicle setBehaviour "CARELESS";
 _vehicle setCombatMode "BLUE";
@@ -47,6 +50,7 @@ _entity setVariable ["SSS_requestParameters",[_position,_loiterDirection,_loiter
 _vehicle setVariable ["SSS_WPDone",false];
 private _WP = _group addWaypoint [_position getPos [_loiterRadius,(_position getDir _startPosition) + ([45,-45] # _loiterDirection)],0];
 _WP setWaypointType "Move";
+_WP setWaypointSpeed "FULL";
 _WP setWaypointCompletionRadius 200;
 _WP setWaypointStatements ["true","(vehicle this) setVariable ['SSS_WPDone',true];"];
 _vehicle flyInHeightASL [_altitudeASL,_altitudeASL,_altitudeASL];
