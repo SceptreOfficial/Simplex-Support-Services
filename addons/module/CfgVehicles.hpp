@@ -59,6 +59,12 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = SSS_DEFAULT_ARTILLERY_MAX_ROUNDS_STR;
 			};
+			class CoordinationDistance {
+				displayName = "Maximum coordination distance";
+				description = "Set what ""nearby"" really means for artillery coordination";
+				typeName = "STRING";
+				defaultValue = SSS_DEFAULT_ARTILLERY_COORDINATION_DISTANCE_STR;
+			};
 			class CustomInit {
 				displayName = "Custom init code";
 				description = "Code executed when vehicle is added & respawned (vehicle = _this)";

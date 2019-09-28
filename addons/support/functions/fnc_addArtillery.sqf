@@ -7,6 +7,7 @@ params [
 	["_respawnTime",SSS_DEFAULT_RESPAWN_TIME,[0]],
 	["_cooldownDefault",[SSS_DEFAULT_COOLDOWN_ARTILLERY_MIN,SSS_DEFAULT_COOLDOWN_ARTILLERY_ROUND],[[]],2],
 	["_maxRounds",SSS_DEFAULT_ARTILLERY_MAX_ROUNDS,[0]],
+	["_coordinationDistance",SSS_DEFAULT_ARTILLERY_COORDINATION_DISTANCE,[0]],
 	["_customInit","",["",{}]]
 ];
 
@@ -58,6 +59,7 @@ CREATE_TASK_MARKER(_entity,_callsign,"mil_warning","Artillery");
 _entity setVariable ["SSS_cooldown",0,true];
 _entity setVariable ["SSS_cooldownDefault",_cooldownDefault,true];
 _entity setVariable ["SSS_maxRounds",_maxRounds,true];
+_entity setVariable ["SSS_coordinationDistance",_coordinationDistance,true];
 
 // Assignment
 [_requesters,[_entity]] call EFUNC(common,assignRequesters);

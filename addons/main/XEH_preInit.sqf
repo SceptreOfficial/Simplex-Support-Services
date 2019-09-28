@@ -85,15 +85,6 @@ ADDON = true;
 	false
 ] call CBA_fnc_addSetting;
 
-["SSS_setting_artilleryCoordinationDistance","EDITBOX",
-	["Coordination maximum distance","Set what ""nearby"" really means for artillery coordination"],
-	["Simplex Support Services","Artillery"],
-	"100",
-	true,
-	{},
-	false
-] call CBA_fnc_addSetting;
-
 // Master array
 SSS_entities = [];
 

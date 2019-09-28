@@ -16,10 +16,11 @@ if (!isNull (findDisplay 312)) then {
 		["EDITBOX","Cooldown",SSS_DEFAULT_COOLDOWN_ARTILLERY_MIN_STR],
 		["EDITBOX","Extra cooldown time per round",SSS_DEFAULT_COOLDOWN_ARTILLERY_ROUND_STR],
 		["EDITBOX","Maximum rounds per request",SSS_DEFAULT_ARTILLERY_MAX_ROUNDS_STR],
+		["EDITBOX",["Maximum coordination distance","Set what ""nearby"" really means for artillery coordination"],SSS_DEFAULT_ARTILLERY_COORDINATION_DISTANCE_STR],
 		["EDITBOX",["Custom init code","Code executed when vehicle is added & respawned (vehicle = _this)"],""]
 	],{
 		params ["_values","_object"];
-		_values params ["_callsign","_respawnTime","_cooldown","_roundCooldown","_maxRounds","_customInit"];
+		_values params ["_callsign","_respawnTime","_cooldown","_roundCooldown","_maxRounds","_coordinationDistance","_customInit"];
 
 		[
 			[],
@@ -28,6 +29,7 @@ if (!isNull (findDisplay 312)) then {
 			parseNumber _respawnTime,
 			[parseNumber _cooldown,parseNumber _roundCooldown],
 			parseNumber _maxRounds,
+			parseNumber _coordinationDistance,
 			_customInit
 		] call EFUNC(support,addArtillery);
 
@@ -60,6 +62,7 @@ if (!isNull (findDisplay 312)) then {
 				parseNumber (_logic getVariable ["RoundCooldown",SSS_DEFAULT_ARTILLERY_MAX_ROUNDS_STR])
 			],
 			parseNumber (_logic getVariable ["MaxRounds",SSS_DEFAULT_ARTILLERY_MAX_ROUNDS_STR]),
+			parseNumber (_logic getVariable ["CoordinationDistance",SSS_DEFAULT_ARTILLERY_COORDINATION_DISTANCE_STR]),
 			_logic getVariable ["CustomInit",""]
 		] call EFUNC(support,addArtillery);
 	} forEach _vehicles;
