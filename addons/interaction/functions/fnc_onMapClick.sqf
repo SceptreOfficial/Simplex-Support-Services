@@ -150,7 +150,7 @@ switch (_entity getVariable "SSS_supportType") do {
 		};
 
 		["CAS Parameters - " + mapGridPosition _position,[
-			["COMBOBOX",["Approach direction","Orange means the approach is blocked"],[_bearingList,0],false],
+			["COMBOBOX",["Approach from","Orange means the approach is blocked"],[_bearingList,0],false],
 			["COMBOBOX","Map position or other signal",[[
 				["Map Position","",ICON_MAP],
 				["Laser Target","",ICON_TARGET],
