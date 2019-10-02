@@ -50,6 +50,7 @@ private _fnc_helpers = {
 			[_PFHID] call CBA_fnc_removePerFrameHandler;
 			//_vehicle setVariable ["SSS_hoverDone",true,true];
 			_vehicle setVariable ["SSS_fastropeUnits",nil,true];
+			["SSS_requestCompleted",[_entity,["HOVER",true]]] call CBA_fnc_globalEvent;
 
 			{
 				_x params ["_hook","_rope"];
