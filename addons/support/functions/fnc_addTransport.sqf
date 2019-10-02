@@ -133,4 +133,4 @@ publicVariable "SSS_entities";
 // Execute custom code
 _vehicle call _customInit;
 
-nil
+_entity
