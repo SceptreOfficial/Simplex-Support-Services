@@ -18,6 +18,8 @@ if ((_entity getVariable "SSS_cooldown") > 0) exitWith {
 	NOTIFY_1(_entity,"<t color='#f4ca00'>NOT READY.</t> Ready in %1.",PROPER_COOLDOWN(_entity));
 };
 
+["SSS_requestSubmitted",[_entity,[_magType,_position,_rounds,_dispersion]]] call CBA_fnc_globalEvent;
+
 // Start cooldown
 private _cooldownDefault = _entity getVariable "SSS_cooldownDefault";
 [_entity,_cooldownDefault # 0 + (_cooldownDefault # 1 * _rounds),"Rearmed and ready for further tasking."] call EFUNC(common,cooldown);

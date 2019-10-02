@@ -12,6 +12,8 @@ if ((_entity getVariable "SSS_cooldown") > 0) exitWith {
 	NOTIFY_1(_entity,"<t color='#f4ca00'>NOT READY.</t> Ready in %1.",PROPER_COOLDOWN(_entity));
 };
 
+["SSS_requestSubmitted",[_entity,[_position,_loiterRadius,_loiterAltitude]]] call CBA_fnc_globalEvent;
+
 NOTIFY(_entity,"Gunship is on the way and will notify on arrival.");
 
 // Update task marker

@@ -5,18 +5,20 @@
 #define SEARCH_RADIUS 350
 #define DIRECTIONS ["N","NE","E","SE","S","SW","W","NW"]
 
-if (!isServer) exitWith {
-	_this remoteExecCall [QFUNC(requestCASPlane),2];
-};
-
 params ["_entity","_selectedWeapon","_position","_approachDirection","_signalSelection","_smokeColorSelection"];
 _selectedWeapon params ["_weapon","_magazine"];
 
 if (isNull _entity) exitwith {};
 
+if (!isServer) exitWith {
+	_this remoteExecCall [QFUNC(requestCASPlane),2];
+};
+
 if ((_entity getVariable "SSS_cooldown") > 0) exitWith {
 	NOTIFY_1(_entity,"<t color='#f4ca00'>NOT READY.</t> Ready in %1.",PROPER_COOLDOWN(_entity));
 };
+
+["SSS_requestSubmitted",[_entity,[_selectedWeapon,_position,_approachDirection,_signalSelection,_smokeColorSelection]]] call CBA_fnc_globalEvent;
 
 [_entity,_entity getVariable "SSS_cooldownDefault","Rearmed and ready for further tasking."] call EFUNC(common,cooldown);
 

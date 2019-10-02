@@ -16,6 +16,8 @@ if (!local _vehicle) exitWith {
 	_this remoteExecCall [QFUNC(requestTransportHelicopter),_vehicle];
 };
 
+["SSS_requestSubmitted",[_entity,[_request,_position,_extraParams]]] call CBA_fnc_globalEvent;
+
 switch (_request) do {
 	// RTB
 	case 0 : {
