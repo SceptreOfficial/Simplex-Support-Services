@@ -19,7 +19,7 @@ if (!local _vehicle) exitWith {
 ["SSS_requestSubmitted",[_entity,[_request,_position,_extraParams]]] call CBA_fnc_globalEvent;
 
 switch (_request) do {
-	// RTB
+	case "RTB";
 	case 0 : {
 		if !(_entity getVariable "SSS_awayFromBase") exitWith {};
 
@@ -78,7 +78,8 @@ switch (_request) do {
 			},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 	};
-	// Pickup
+
+	case "PICKUP";
 	case 1 : {
 		INTERRUPT(_entity,_vehicle);
 
@@ -113,8 +114,10 @@ switch (_request) do {
 			},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
 	};
-	// Land / Land (eng off)
+
+	case "LAND";
 	case 2;
+	case "LAND_ENG_OFF";
 	case 3 : {
 		private _engineOn = _request isEqualTo 2;
 
@@ -194,7 +197,8 @@ switch (_request) do {
 			},[_entity,_vehicle,_pad,_deletePad,_engineOn]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position,_engineOn]] call CBA_fnc_waitUntilAndExecute;
 	};
-	// Move
+
+	case "MOVE";
 	case 4 : {
 		INTERRUPT(_entity,_vehicle);
 
@@ -220,7 +224,8 @@ switch (_request) do {
 			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
 	};
-	// Hover / Fastrope
+	
+	case "HOVER";
 	case 5 : {
 		_extraParams params ["_hoverHeight","_doFastrope"];
 
@@ -277,7 +282,8 @@ switch (_request) do {
 			},[_entity,_vehicle,_position,_hoverHeight,_doFastrope]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position,_hoverHeight,_doFastrope]] call CBA_fnc_waitUntilAndExecute;
 	};
-	// Loiter
+	
+	case "LOITER";
 	case 6 : {
 		_extraParams params ["_loiterRadius","_loiterDirection"];
 
