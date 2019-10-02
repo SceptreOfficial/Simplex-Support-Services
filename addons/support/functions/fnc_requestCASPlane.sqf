@@ -53,10 +53,7 @@ crew _vehicle joinSilent _group;
 _vehicle allowFleeing 0;
 _vehicle setBehaviour "CARELESS";
 _vehicle setCombatMode "BLUE";
-{
-	_x disableAI "TARGET";
-	_x disableAI "AUTOTARGET";
-} forEach crew _vehicle;
+{_x disableAI "AUTOTARGET"} forEach crew _vehicle;
 
 _vehicle lockDriver true;
 _vehicle engineOn true;
