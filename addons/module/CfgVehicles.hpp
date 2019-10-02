@@ -314,8 +314,18 @@ class CfgVehicles {
 		displayName = "Assign Requesters";
 		icon = ICON_ASSIGN_REQUESTERS;
 		function = QFUNC(moduleAssignRequesters);
+		isGlobal = 2;
 		scope = 2;
 		scopeCurator = 2;
+
+		class Arguments {
+			class AssignList {
+				displayName = "Assignment List";
+				description = "List of custom unit variable names. JIP compatible method compared to syncing. (eg. p1,p2,p3)";
+				typeName = "STRING";
+				defaultValue = "";
+			};
+		};
 	};
 
 	class GVAR(RemoveSupports) : GVAR(Base) {
