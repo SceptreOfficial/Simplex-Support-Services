@@ -4,6 +4,7 @@ PREP(changeBehavior);
 PREP(clearWaypoints);
 PREP(commission);
 PREP(cooldown);
+PREP(createMarker);
 PREP(decommission);
 PREP(deletedEntity);
 PREP(deletedVehicle);

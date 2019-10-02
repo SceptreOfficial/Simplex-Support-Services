@@ -163,14 +163,7 @@
 	ENTITY setVariable ["SSS_respawning",false,true]; \
 	GRP setVariable ["SSS_protectWaypoints",true,true]
 
-#define CREATE_TASK_MARKER(ENTITY,CALLSIGN,MARKER_ICON,STRING) \
-	private _marker = createMarker [format ["SSS_%1_%2",ENTITY,CBA_missionTime],[0,0,0]]; \
-	_marker setMarkerShape "ICON"; \
-	_marker setMarkerType MARKER_ICON; \
-	_marker setMarkerColor "ColorGrey"; \
-	_marker setMarkerText format ["%1 - %2",STRING,CALLSIGN]; \
-	_marker setMarkerAlpha 0; \
-	ENTITY setVariable ["SSS_marker",_marker,true]
+#define CREATE_TASK_MARKER(ENTITY,CALLSIGN,MARKER_ICON,STRING) [ENTITY,CALLSIGN,MARKER_ICON,STRING] call EFUNC(common,createMarker);
 
 #define BEGIN_ORDER(ENTITY,POS,MESSAGE) \
 	ENTITY setVariable ["SSS_onTask",true,true]; \

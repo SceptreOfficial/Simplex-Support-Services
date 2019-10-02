@@ -13,7 +13,7 @@ if (isNil "_service") exitWith {};
 SSS_entities deleteAt (SSS_entities find _entity);
 publicVariable "SSS_entities";
 
-deleteMarker (_entity getVariable "SSS_marker");
+[_entity getVariable "SSS_marker"] remoteExecCall ["deleteMarkerLocal",0];
 _entity setVariable ["SSS_respawnTime",-1,true];
 
 private _vehicle = _entity getVariable "SSS_vehicle";
