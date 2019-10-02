@@ -109,6 +109,9 @@
 #define ICON_TRANSPORT "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa"
 #define ICON_TRASH "\A3\3DEN\Data\cfg3den\history\deleteitems_ca.paa"
 #define ICON_UNASSIGN_REQUESTERS "z\SSS\addons\main\ui\icons\lock.paa"
+#define ICON_VTOL "z\SSS\addons\main\ui\icons\vtol.paa"
+#define ICON_VTOL_GREEN "z\SSS\addons\main\ui\icons\vtol_green.paa"
+#define ICON_VTOL_YELLOW "z\SSS\addons\main\ui\icons\vtol_yellow.paa"
 
 #define RGBA_RED [0.9,0,0,1]
 #define RGBA_ORANGE [0.85,0.4,0,1]
