@@ -188,7 +188,7 @@ switch (_entity getVariable "SSS_supportType") do {
 		switch (_request) do {
 			case 5 : {
 				["Hover parameters",[
-					["SLIDER","Hover height",[[3,40,0],15],false],
+					["SLIDER","Hover height",[[1,40,0],15],false],
 					["CHECKBOX","Fastrope at position",true,false]
 				],{
 					params ["_values","_args"];
