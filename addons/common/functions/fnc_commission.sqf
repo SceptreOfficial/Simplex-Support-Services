@@ -31,24 +31,30 @@ _vehicle allowFleeing 0;
 	_x allowFleeing 0;
 	_x disableAI "SUPPRESSION";
 	_x disableAI "COVER";
-	_x disableAI "AUTOCOMBAT";
 } forEach PRIMARY_CREW(_vehicle);
 
 private _group = group _vehicle;
 
 switch (_entity getVariable "SSS_supportType") do {
 	case "artillery" : {
+		{
+			_x disableAI "MOVE";
+			_x disableAI "AUTOCOMBAT";
+		} forEach PRIMARY_CREW(_vehicle);
 		_vehicle lockTurret [[0],true];
 		_vehicle lockCargo true;
-		{_x disableAI "MOVE"} forEach PRIMARY_CREW(_vehicle);
+
 		_group enableAttack true;
 	};
 
 	case "CASHelicopter" : {
+		{
+			_x disableAI "LIGHTS";
+			_x disableAI "AUTOCOMBAT";
+		} forEach PRIMARY_CREW(_vehicle);
 		_vehicle lockTurret [[0],true];
 		_vehicle lockCargo true;
 		_vehicle lock true;
-		{_x disableAI "LIGHTS"} forEach PRIMARY_CREW(_vehicle);
 
 		_vehicle flyInHeight (_entity getVariable ["SSS_flyingHeight",180]);
 		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
@@ -64,7 +70,10 @@ switch (_entity getVariable "SSS_supportType") do {
 	};
 
 	case "transportHelicopter" : {
-		{_x disableAI "LIGHTS"} forEach PRIMARY_CREW(_vehicle);
+		{
+			_x disableAI "LIGHTS";
+			_x disableAI "AUTOCOMBAT";
+		} forEach PRIMARY_CREW(_vehicle);
 
 		_vehicle flyInHeight (_entity getVariable ["SSS_flyingHeight",180]);
 		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
@@ -104,10 +113,13 @@ switch (_entity getVariable "SSS_supportType") do {
 	};
 
 	case "transportLandVehicle" : {
-		{_x disableAI "LIGHTS"} forEach PRIMARY_CREW(_vehicle);
+		{
+			_x disableAI "LIGHTS";
+		} forEach PRIMARY_CREW(_vehicle);
+
 		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
 
-		_group setBehaviour "SAFE";
+		//_group setBehaviour "SAFE";
 		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",2]));
 	
 		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {
@@ -135,7 +147,10 @@ switch (_entity getVariable "SSS_supportType") do {
 	};
 
 	case "transportMaritime" : {
-		{_x disableAI "LIGHTS"} forEach PRIMARY_CREW(_vehicle);
+		{
+			_x disableAI "LIGHTS";
+			_x disableAI "AUTOCOMBAT";
+		} forEach PRIMARY_CREW(_vehicle);
 
 		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
 		_vehicle setCollisionLight (_entity getVariable ["SSS_collisionLightsOn",true]);
@@ -168,7 +183,10 @@ switch (_entity getVariable "SSS_supportType") do {
 	};
 
 	case "transportVTOL" : {
-		{_x disableAI "LIGHTS"} forEach PRIMARY_CREW(_vehicle);
+		{
+			_x disableAI "LIGHTS";
+			_x disableAI "AUTOCOMBAT";
+		} forEach PRIMARY_CREW(_vehicle);
 
 		_vehicle flyInHeight (_entity getVariable ["SSS_flyingHeight",180]);
 		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
