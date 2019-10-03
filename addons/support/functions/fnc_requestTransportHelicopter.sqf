@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params [["_entity",objNull,[objNull]],["_request",0,[0]],["_position",[],[[]]],["_extraParams",[],[[]]]];
+params [["_entity",objNull,[objNull]],["_request",0,[0,""]],["_position",[],[[]]],["_extraParams",[],[[]]]];
 
 if (isNull _entity) exitWith {};
 

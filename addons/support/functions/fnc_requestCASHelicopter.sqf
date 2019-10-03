@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params [["_entity",objNull,[objNull]],["_request",0,[0]],["_position",[],[[]]],["_extraParams",[],[[]]]];
+params [["_entity",objNull,[objNull]],["_request",0,[0,""]],["_position",[],[[]]],["_extraParams",[],[[]]]];
 
 if (isNull _entity) exitWith {};
 
@@ -19,7 +19,7 @@ if (!local _vehicle) exitWith {
 ["SSS_requestSubmitted",[_entity,[_request,_position,_extraParams]]] call CBA_fnc_globalEvent;
 
 switch (_request) do {
-	// RTB
+	case "RTB";
 	case 0 : {
 		if !(_entity getVariable "SSS_awayFromBase") exitWith {};
 
@@ -78,7 +78,8 @@ switch (_request) do {
 			},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 	};
-	// Search and Destroy
+	
+	case "SAD";
 	case 1 : {
 		INTERRUPT(_entity,_vehicle);
 
@@ -126,7 +127,8 @@ switch (_request) do {
 			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
 	};
-	// Move
+	
+	case "MOVE";
 	case 2 : {
 		INTERRUPT(_entity,_vehicle);
 
@@ -152,7 +154,8 @@ switch (_request) do {
 			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
 	};
-	// Loiter
+	
+	case "LOITER";
 	case 3 : {
 		_extraParams params ["_loiterRadius","_loiterDirection"];
 
@@ -191,6 +194,7 @@ switch (_request) do {
 			},[_entity,_vehicle,_position,_loiterRadius,_loiterDirection]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position,_loiterRadius,_loiterDirection]] call CBA_fnc_waitUntilAndExecute;
 	};
-	// Gun Run
+	
+	case "GUN_RUN";
 	case 4: {};
 };
