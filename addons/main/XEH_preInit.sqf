@@ -134,7 +134,6 @@ SSS_entities = [];
 	"SSS_showCASGunships",
 	"SSS_showCASHelicopters",
 	"SSS_showCASPlanes",
-	"SSS_showGroundSupportVehicles",
 	"SSS_showTransportHelicopters",
 	"SSS_showTransportLandVehicles",
 	"SSS_showTransportMaritime",

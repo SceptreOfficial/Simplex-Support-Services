@@ -16,11 +16,6 @@ if (ADMIN_ACCESS_CONDITION) exitWith {true};
 			(_x getVariable "SSS_service") == "CAS" && {!isNull _x}
 		}]
 	};
-	case "groundSupport" : {
-		[SSS_showGroundSupport,(_player getVariable ['SSS_assignedEntities',[]]) select {
-			(_x getVariable "SSS_service") == "groundSupport" && {!isNull _x}
-		}]
-	};
 	case "transport" : {
 		[SSS_showTransport,(_player getVariable ['SSS_assignedEntities',[]]) select {
 			(_x getVariable "SSS_service") == "transport" && {!isNull _x}
