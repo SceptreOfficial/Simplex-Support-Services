@@ -139,6 +139,7 @@ switch (_entity getVariable "SSS_supportType") do {
 		};
 	};
 
+	case "transportPlane";
 	case "transportVTOL" : {
 		_values params ["_flyingHeight","_speedMode","_combatMode","_lightsOn","_collisionLightsOn"];
 

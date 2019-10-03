@@ -9,8 +9,11 @@ if (!local _vehicle) exitWith {
 };
 
 if (SSS_setting_resetVehicleOnRTB) then {
+	if ((_entity getVariable "SSS_supportType") != "transportPlane") then {
+		_vehicle setFuel 1;
+	};
+
 	_vehicle setDamage 0;
-	_vehicle setFuel 1;
 	_vehicle setVehicleAmmo 1;
 };
 
@@ -31,8 +34,11 @@ if (SSS_setting_restoreCrewOnRTB) then {
 			_x allowFleeing 0;
 			_x disableAI "SUPPRESSION";
 			_x disableAI "COVER";
-			_x disableAI "AUTOCOMBAT";
 			_x disableAI "LIGHTS";
+			
+			if ((_entity getVariable "SSS_supportType") != "transportLandVehicle") then {
+				_x disableAI "AUTOCOMBAT";
+			};
 		} forEach _crew;
 
 		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {

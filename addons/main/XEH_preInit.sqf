@@ -1,7 +1,6 @@
 #include "script_component.hpp"
 ADDON = false;
 #include "XEH_PREP.hpp"
-ADDON = true;
 
 // Addon Options
 ["SSS_setting_useChatNotifications","CHECKBOX",
@@ -108,10 +107,12 @@ SSS_entities = [];
 				case "transportHelicopter";
 				case "transportLandVehicle";
 				case "transportMaritime";
+				case "transportPlane";
 				case "transportVTOL" : {
 					[_entity,false] call EFUNC(common,updateMarker);
 					INTERRUPT(_entity,_vehicle);
 				};
+
 				default {
 					_vehicle setVariable ["SSS_WPDone",true,true];
 				};
@@ -137,5 +138,8 @@ SSS_entities = [];
 	"SSS_showTransportHelicopters",
 	"SSS_showTransportLandVehicles",
 	"SSS_showTransportMaritime",
+	"SSS_showTransportPlanes",
 	"SSS_showTransportVTOLs"
 ];
+
+ADDON = true;

@@ -110,6 +110,23 @@ NOTIFY(_entity,_message);
 					};
 				}] call CBA_fnc_addBISEventHandler;
 			};
+
+			case "transportPlane" : {
+				_vehicle setFuel 0;
+				_entity setVariable ["SSS_awayFromBase",false,true];
+				_entity setVariable ["SSS_onTask",false,true];
+				_entity setVariable ["SSS_interrupt",false,true];
+
+				[driver _vehicle,"Killed",{vehicle (_this # 0) call FUNC(respawn)}] remoteExecCall ["CBA_fnc_addBISEventHandler",0];
+				[_vehicle,"GetOut",{
+					params ["_vehicle","_role"];
+
+					if (_role == "driver") then {
+						_vehicle removeEventHandler [_thisType,_thisID];
+						_vehicle call FUNC(respawn);
+					};
+				}] call CBA_fnc_addBISEventHandler;
+			};
 		};
 
 		_entity setVariable ["SSS_respawning",false,true];

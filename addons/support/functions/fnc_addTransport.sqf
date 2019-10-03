@@ -60,7 +60,7 @@ switch (true) do {
 	};
 
 	case (_vehicle isKindOf "VTOL_Base_F") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_PLANE,ICON_PLANE_YELLOW,ICON_PLANE_GREEN,_customInit,"Transport","transportVTOL");
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_VTOL,ICON_VTOL_YELLOW,ICON_VTOL_GREEN,_customInit,"Transport","transportVTOL");
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Air Transport");
 
@@ -71,7 +71,24 @@ switch (true) do {
 		_entity setVariable ["SSS_needConfirmation",false,true];
 		_entity setVariable ["SSS_signalApproved",false,true];
 		_entity setVariable ["SSS_deniedSignals",[],true];
-		_entity setVariable ["SSS_flyingHeight",80,true];
+		_entity setVariable ["SSS_flyingHeight",250,true];
+		_entity setVariable ["SSS_speedMode",1,true];
+		_entity setVariable ["SSS_combatMode",0,true];
+		_entity setVariable ["SSS_lightsOn",isLightOn _vehicle,true];
+		_entity setVariable ["SSS_collisionLightsOn",isCollisionLightOn _vehicle,true];
+	};
+
+	case (_vehicle isKindOf "Plane") : {
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_PLANE,ICON_PLANE_YELLOW,ICON_PLANE_GREEN,_customInit,"Transport","transportPlane");
+		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
+		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Air Transport");
+
+		// Specifics
+		_vehicle setFuel 0;
+		_entity setVariable ["SSS_awayFromBase",false,true];
+		_entity setVariable ["SSS_onTask",false,true];
+		_entity setVariable ["SSS_interrupt",false,true];
+		_entity setVariable ["SSS_flyingHeight",500,true];
 		_entity setVariable ["SSS_speedMode",1,true];
 		_entity setVariable ["SSS_combatMode",0,true];
 		_entity setVariable ["SSS_lightsOn",isLightOn _vehicle,true];

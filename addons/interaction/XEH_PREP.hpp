@@ -6,6 +6,7 @@ PREP(childActionsTransport);
 PREP(childActionsTransportHelicopter);
 PREP(childActionsTransportLandVehicle);
 PREP(childActionsTransportMaritime);
+PREP(childActionsTransportPlane);
 PREP(childActionsTransportVTOL);
 PREP(onMapClick);
 PREP(selectPosition);

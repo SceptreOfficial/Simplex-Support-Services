@@ -9,7 +9,7 @@
 
 		private _object = attachedTo _logic;
 
-		if (!alive _object || !(_object isKindOf "Helicopter" || _object isKindOf "Ship" || _object isKindOf "LandVehicle")) exitWith {};
+		if (!alive _object || _object isKindOf "CAManBase" || _object isKindOf "Logic") exitWith {};
 
 		["Add Transport",[
 			["EDITBOX","Callsign",getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")],
@@ -28,6 +28,7 @@
 			] call EFUNC(support,addTransport);
 
 			switch (true) do {
+				case (_object isKindOf "Plane");
 				case (_object isKindOf "Helicopter") : {ZEUS_MESSAGE("Air Transport added");};
 				case (_object isKindOf "Ship") : {ZEUS_MESSAGE("Sea Transport added");};
 				case (_object isKindOf "LandVehicle") : {ZEUS_MESSAGE("Land Transport added");};

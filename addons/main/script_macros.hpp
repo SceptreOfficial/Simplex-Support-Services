@@ -95,6 +95,7 @@
 #define ICON_MORTAR_YELLOW "z\SSS\addons\main\ui\icons\mortar_yellow.paa"
 #define ICON_MOVE "z\SSS\addons\main\ui\icons\move.paa"
 #define ICON_MOVE_ENG_OFF "z\SSS\addons\main\ui\icons\move_eng_off.paa"
+#define ICON_PARACHUTE "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\supplydrop_ca.paa"
 #define ICON_PLANE "z\SSS\addons\main\ui\icons\plane.paa"
 #define ICON_PLANE_GREEN "z\SSS\addons\main\ui\icons\plane_green.paa"
 #define ICON_PLANE_YELLOW "z\SSS\addons\main\ui\icons\plane_yellow.paa"
@@ -210,9 +211,37 @@
 #define WAIT_UNTIL_LAND params ["_entity","_vehicle"]; \
 	isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle || {(getPos _vehicle) select 2 < 1}}}
 
+#define WAIT_UNTIL_PLANE_LANDED params ["_entity","_vehicle"]; \
+	isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle || {(getPos _vehicle) select 2 < 1 && (vectorMagnitude velocityModelSpace _vehicle) < 10}}}
+
 #define REQUEST_CANCELLED \
 	titleText ["Request Cancelled","PLAIN",0.5]; \
 	[{titleFadeOut 0.5;},[],1] call CBA_fnc_waitAndExecute
 
 #define PROPER_TIME(SECONDS) SECONDS call EFUNC(common,properTime)
 #define PROPER_COOLDOWN(ENTITY) PROPER_TIME(ENTITY getVariable "SSS_cooldown")
+
+#define PLANE_TAKEOFF(VEH) \
+private _worldCfg = configfile >> "CfgWorlds" >> worldName; \
+private _airportData = [[getArray (_worldCfg >> "ilsPosition"),getArray (_worldCfg >> "ilsTaxiIn"),getArray (_worldCfg >> "ilsDirection")]]; \
+private _secondaryData = "true" configClasses (_worldCfg >> "SecondaryAirports"); \
+ \
+if !(_secondaryData isEqualTo []) then { \
+	_airportData append (_secondaryData apply { \
+		private _cfg = _worldCfg >> "SecondaryAirports" >> configName _x; \
+		[getArray (_cfg >> "ilsPosition"),getArray (_cfg >> "ilsTaxiIn"),getArray (_cfg >> "ilsDirection")] \
+	}); \
+}; \
+ \
+_airportData = _airportData apply {[(_x select 0) distance2D _vehicle,_x]}; \
+_airportData sort true; \
+(_airportData select 0 select 1) params ["_position","_ilsTaxiIn","_ilsDirection"]; \
+ \
+if !(_ilsTaxiIn isEqualTo []) then { \
+	_position = [_ilsTaxiIn select (count _ilsTaxiIn - 2),_ilsTaxiIn select (count _ilsTaxiIn - 1)]; \
+}; \
+ \
+_vehicle setDir (((_ilsDirection select 0) atan2 (_ilsDirection select 2)) - 180); \
+_vehicle setPos _position; \
+_vehicle setFuel 1; \
+_vehicle engineOn true
