@@ -13,7 +13,7 @@ if (isNil {(group _vehicle) getVariable "SSS_protectWaypoints"}) exitWith {
 };
 
 if (!local _vehicle) exitWith {
-	_this remoteExecCall [QFUNC(requestTransportHelicopter),_vehicle];
+	_this remoteExecCall [QFUNC(requestTransportVTOL),_vehicle];
 };
 
 ["SSS_requestSubmitted",[_entity,[_request,_position,_extraParams]]] call CBA_fnc_globalEvent;
