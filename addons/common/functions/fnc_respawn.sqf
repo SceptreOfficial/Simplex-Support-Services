@@ -11,10 +11,9 @@ if (isNull _entity) exitWith {};
 
 [
 	_entity getVariable "SSS_vehicle",
-	_entity getVariable "SSS_base",
 	_entity getVariable "SSS_respawnTime",
 	_entity getVariable "SSS_respawning"
-] params ["_vehicle","_base","_respawnTime","_respawning"];
+] params ["_vehicle","_respawnTime","_respawning"];
 
 if (_respawnTime < 0) exitWith {
 	deleteVehicle _entity;
@@ -41,13 +40,14 @@ private _message = format ["Vehicle replacement will arrive in %1",PROPER_TIME(_
 NOTIFY(_entity,_message);
 
 [{
-	params ["_entity","_base"];
+	params ["_entity"];
 
 	if (isNull _entity) exitWith {};
 
 	_entity setVariable ["SSS_interruptedTask",nil,true];
 	
 	private _classname = _entity getVariable "SSS_classname";
+	private _base = _entity getVariable "SSS_base";
 
 	// Clear obstructions
 	{
@@ -67,6 +67,8 @@ NOTIFY(_entity,_message);
 		(createVehicleCrew _vehicle) deleteGroupWhenEmpty true;
 		crew _vehicle joinSilent _group;
 		_group addVehicle _vehicle;
+		_vehicle setDir (_entity getVariable "SSS_baseDir");
+		_vehicle setPos getPos _vehicle;
 
 		// Assign/Commission vehicle
 		_vehicle setVariable ["SSS_parentEntity",_entity,true];
@@ -116,4 +118,4 @@ NOTIFY(_entity,_message);
 		// Execute custom code
 		_vehicle call (_entity getVariable "SSS_customInit");
 	},[_entity,_base,_classname],1] call CBA_fnc_waitAndExecute;
-},[_entity,_base],_respawnTime] call CBA_fnc_waitAndExecute;
+},[_entity],_respawnTime] call CBA_fnc_waitAndExecute;

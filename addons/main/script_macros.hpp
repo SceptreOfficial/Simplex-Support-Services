@@ -161,6 +161,7 @@
 	VEH setVariable ["SSS_parentEntity",ENTITY,true]; \
 	ENTITY setVariable ["SSS_vehicle",VEH,true]; \
 	ENTITY setVariable ["SSS_base",BASE,true]; \
+	ENTITY setVariable ["SSS_baseDir",getDirVisual VEH,true]; \
 	ENTITY setVariable ["SSS_respawnDir",getDir VEH,true]; \
 	ENTITY setVariable ["SSS_respawnTime",RESPAWN_TIME,true]; \
 	ENTITY setVariable ["SSS_respawning",false,true]; \
