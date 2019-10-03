@@ -14,6 +14,8 @@ PREP(requestTransportLandVehicle);
 PREP(requestTransportMaritime);
 PREP(requestTransportVTOL);
 PREP(transportDoFastrope);
+PREP(transportDoParadrop);
 PREP(transportFastrope);
 PREP(transportHover);
+PREP(transportParadrop);
 PREP(transportSmokeSignal);
