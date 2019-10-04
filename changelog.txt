@@ -1,8 +1,28 @@
-v0.2.1
+v0.2.5
+- Added: List attribute to 'assign requesters' editor module. Use this to counteract JIP issues.
+- Added: Initial compatibility for VTOL transports.
+- Added: Initial compatibility for Plane transports.
+- Added: Paradrop feature for VTOL and plane transports
+- Added: Addon options for resetting vehicles & restoring crew after RTB requests are complete.
+- Changed: Artillery coordination distance setting has been removed. It is now a parameter for each artillery support.
+- Changed: Transport helictoper minimum hover height parameter has been lowered from 3 to 1.
 - Changed: Invisible base helipads are now only created when helicopters are requested to RTB.
 - Changed: Land and sea transport default speed is now FULL.
+- Changed: Helicopters will remain 'hovering' after fastroping.
+- Changed: Add CAS drone & plane zeus modules will now include default classnames like the editor modules.
+- Changed: Respawning vehicles will now orient to their original direction.
+- Improved: A few icon updates.
+- Fixed: Markers were showing globally. They will only for the side the support is on now.
+- Fixed: Land vehicles should turn in when engaged now.
+- Fixed: There wasn't a notification after vehicle respawns.
 - Fixed: Obstruction clearing on respawn will now only remove empty or dead vehicles, and vehicles will respawn at the closest safe position possible.
 - Fixed: Artillery cooldown could break if the vehicle died in the middle of the cooldown process.
+- Fixed: Land requests can no longer delete pre-placed helipads.
+- Fixed: Drones and gunships were not spawning in at high altitudes.
+- Fixed: Drones would take a long time to reach the requested area.
+- Fixed: CAS planes came in sooner than designed ETA.
+- Fixed: CAS plane rockets should be more accurate now.
+- Fixed: Various misc. issues
 
 v0.2 - Permission Update
 - Added: Requester assignment functionality (All supports must now be assigned to specific units)

@@ -16,7 +16,7 @@ params ["_target","_player","_entity"];
 	},{(_this # 2) getVariable "SSS_needConfirmation"},{},_entity] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_RTB","RTB",ICON_HOME,{
-		(_this # 2) call EFUNC(support,requestTransportHelicopter);
+		(_this # 2) call EFUNC(support,requestTransportVTOL);
 	},{(_this # 2 # 0) getVariable "SSS_awayFromBase"},{},[_entity,"RTB"]] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_Pickup","Pickup",ICON_SMOKE,{
@@ -35,9 +35,9 @@ params ["_target","_player","_entity"];
 		_this call FUNC(selectPosition);
 	},{true},{},[_entity,"MOVE"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_Hover","Hover/Fastrope",ICON_ROPE,{
+	[["SSS_Paradrop","Paradrop",ICON_PARACHUTE,{
 		_this call FUNC(selectPosition);
-	},{true},{},[_entity,"HOVER"]] call ace_interact_menu_fnc_createAction,[],_target],
+	},{true},{},[_entity,"PARADROP"]] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_Loiter","Loiter",ICON_LOITER,{
 		_this call FUNC(selectPosition);

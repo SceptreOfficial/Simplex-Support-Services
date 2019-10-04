@@ -13,7 +13,7 @@ if (isNil {(group _vehicle) getVariable "SSS_protectWaypoints"}) exitWith {
 };
 
 if (!local _vehicle) exitWith {
-	_this remoteExecCall [QFUNC(requestCASHelicopter),_vehicle];
+	_this remoteExecCall [QFUNC(requestTransportPlane),_vehicle];
 };
 
 ["SSS_requestSubmitted",[_entity,[_request,_position,_extraParams]]] call CBA_fnc_globalEvent;
@@ -28,10 +28,7 @@ switch (_request) do {
 		[{!((_this # 0) getVariable "SSS_onTask")},{
 			params ["_entity","_vehicle"];
 
-			private _base = _entity getVariable "SSS_base";
-			private _position = ASLToAGL _base;
-			private _pad = "Land_HelipadEmpty_F" createVehicle _position;
-			_pad setPosASL _base;
+			private _position = ASLToAGL (_entity getVariable "SSS_base");
 
 			// Begin order
 			_entity setVariable ["SSS_onTask",true,true];
@@ -40,106 +37,60 @@ switch (_request) do {
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
-			[_vehicle,_position,0,"MOVE","CARELESS","YELLOW","FULL","",WP_DONE] call EFUNC(common,addWaypoint);
+			[_vehicle,_position,0,"MOVE","","","","",WP_DONE] call EFUNC(common,addWaypoint);
 
 			[{WAIT_UNTIL_WPDONE},{
-				params ["_entity","_vehicle","_pad"];
+				params ["_entity","_vehicle"];
 
 				if (CANCEL_CONDITION) exitWith {
 					CANCEL_ORDER(_entity,"RTB");
-					deleteVehicle _pad;
 				};
 
 				// Begin landing
 				(group _vehicle) setSpeedMode "LIMITED";
-				doStop _vehicle;
-				_vehicle land "LAND";
+				_vehicle action ["Land",_vehicle]; 
 
-				[{WAIT_UNTIL_LAND},{
-					params ["_entity","_vehicle","_pad"];
+				[{WAIT_UNTIL_PLANE_LANDED},{
+					params ["_entity","_vehicle"];
 
 					if (CANCEL_CONDITION) exitWith {
 						CANCEL_ORDER(_entity,"RTB");
 						_vehicle doFollow _vehicle;
-						_vehicle land "NONE";
-						deleteVehicle _pad;
 					};
+
+					_vehicle setDir (_entity getVariable "SSS_baseDir");
+					_vehicle setPosASL (_entity getVariable "SSS_base");
 
 					END_ORDER(_entity,"Arrived at base. Ready for further tasking.");
 					_entity setVariable ["SSS_awayFromBase",false,true];
 					_vehicle engineOn false;
+					_vehicle setFuel 0;
 					_vehicle doFollow _vehicle;
-					deleteVehicle _pad;
 
 					[_entity,_vehicle] call EFUNC(common,resetOnRTB);
 
 					["SSS_requestCompleted",[_entity,["RTB"]]] call CBA_fnc_globalEvent;
-				},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
-			},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
+				},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
+			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 	};
-	
-	case "SAD";
+
+	case "MOVE";
 	case 1 : {
 		INTERRUPT(_entity,_vehicle);
 
 		[{!((_this # 0) getVariable "SSS_onTask")},{
 			params ["_entity","_vehicle","_position"];
 
-			BEGIN_ORDER(_entity,_position,"Heading to location to provide CAS.");
-
-			private _group = group _vehicle;
-			_group allowFleeing 0;
-
-			// Reveal area
-			{_group reveal _x} forEach (_position nearEntities 300);
-
-			_vehicle setVariable ["SSS_WPDone",false];
-			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
-			[_vehicle,_position,0,"SAD","COMBAT","RED","FULL","",WP_DONE] call EFUNC(common,addWaypoint);
-
-			// Reveal area when vehicle reaches the area
-			[{
-				params ["_entity","_vehicle","_position"];
-				isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle || _vehicle distance2D _position < 500}}
-			},{
-				params ["_entity","_vehicle","_position"];
-
-				if (CANCEL_CONDITION) exitWith {};
-
-				private _group = group _vehicle;
-				{_group reveal _x} forEach (_position nearEntities 300);
-			},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
-
-			[{WAIT_UNTIL_WPDONE},{
-				params ["_entity","_vehicle"];
-
-				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"SAD");
-				};
-
-				END_ORDER(_entity,"Search and Destroy Complete.");
-
-				// RTB
-				[_entity,0] call FUNC(requestCASHelicopter);
-
-				["SSS_requestCompleted",[_entity,["SAD"]]] call CBA_fnc_globalEvent;
-			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
-		},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
-	};
-	
-	case "MOVE";
-	case 2 : {
-		INTERRUPT(_entity,_vehicle);
-
-		[{!((_this # 0) getVariable "SSS_onTask")},{
-			params ["_entity","_vehicle","_position"];
-
+			if !(_entity getVariable "SSS_awayFromBase") then {
+				PLANE_TAKEOFF(_vehicle);
+			};
+			
 			BEGIN_ORDER(_entity,_position,"Moving to requested location.");
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
-			[_vehicle,_position,0,"MOVE","CARELESS","YELLOW","NORMAL","",WP_DONE] call EFUNC(common,addWaypoint);
+			[_vehicle,_position,0,"MOVE","","","","",WP_DONE] call EFUNC(common,addWaypoint);
 
 			[{WAIT_UNTIL_WPDONE},{
 				params ["_entity","_vehicle"];
@@ -155,6 +106,42 @@ switch (_request) do {
 		},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
 	};
 	
+	case "PARADROP";
+	case 2 : {
+		_extraParams params ["_jumpDelay","_AIOpeningHeight"];
+
+		INTERRUPT(_entity,_vehicle);
+
+		[{!((_this # 0) getVariable "SSS_onTask")},{
+			params ["_entity","_vehicle","_position","_jumpDelay","_AIOpeningHeight"];
+
+			if !(_entity getVariable "SSS_awayFromBase") then {
+				PLANE_TAKEOFF(_vehicle);
+			};
+
+			BEGIN_ORDER(_entity,_position,"Moving to location for paradrop. Get ready...");
+
+			_vehicle setVariable ["SSS_WPDone",false];
+			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
+			[_vehicle,_position,0,"MOVE","","","","",WP_DONE] call EFUNC(common,addWaypoint);
+
+			[{WAIT_UNTIL_WPDONE},{
+				params ["_entity","_vehicle","_jumpDelay","_AIOpeningHeight"];
+
+				if (CANCEL_CONDITION) exitWith {
+					CANCEL_ORDER(_entity,"Paradrop");
+				};
+
+				_vehicle doMove (_vehicle getRelPos [5000,0]);
+				[_entity,_vehicle,_jumpDelay,_AIOpeningHeight] call FUNC(transportParadrop);
+
+				END_ORDER(_entity,"Go! Go! Go!");
+
+				["SSS_requestCompleted",[_entity,["PARADROP"]]] call CBA_fnc_globalEvent;
+			},[_entity,_vehicle,_jumpDelay,_AIOpeningHeight]] call CBA_fnc_waitUntilAndExecute;
+		},[_entity,_vehicle,_position,_jumpDelay,_AIOpeningHeight]] call CBA_fnc_waitUntilAndExecute;
+	};
+	
 	case "LOITER";
 	case 3 : {
 		_extraParams params ["_loiterRadius","_loiterDirection"];
@@ -164,12 +151,16 @@ switch (_request) do {
 		[{!((_this # 0) getVariable "SSS_onTask")},{
 			params ["_entity","_vehicle","_position","_loiterRadius","_loiterDirection"];
 
+			if !(_entity getVariable "SSS_awayFromBase") then {
+				PLANE_TAKEOFF(_vehicle);
+			};
+
 			BEGIN_ORDER(_entity,_position,"Moving to requested location to loiter.");
 
 			private _prepDist = [100,_loiterRadius + 100] select (_vehicle distance2D _position > (_loiterRadius + 100));
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
-			[_vehicle,_position getPos [_prepDist,_position getDir _vehicle],0,"MOVE","CARELESS","YELLOW","NORMAL","",WP_DONE] call EFUNC(common,addWaypoint);
+			[_vehicle,_position getPos [_prepDist,_position getDir _vehicle],0,"MOVE","","","","",WP_DONE] call EFUNC(common,addWaypoint);
 
 			[{WAIT_UNTIL_WPDONE},{
 				params ["_entity","_vehicle","_position","_loiterRadius","_loiterDirection"];
@@ -194,7 +185,4 @@ switch (_request) do {
 			},[_entity,_vehicle,_position,_loiterRadius,_loiterDirection]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position,_loiterRadius,_loiterDirection]] call CBA_fnc_waitUntilAndExecute;
 	};
-	
-	case "GUN_RUN";
-	case 4: {};
 };

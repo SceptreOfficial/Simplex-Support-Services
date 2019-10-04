@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params [["_entity",objNull,[objNull]],["_request",0,[0]],["_position",[],[[]]],["_extraParams",[],[[]]]];
+params [["_entity",objNull,[objNull]],["_request",0,[0,""]],["_position",[],[[]]],["_extraParams",[],[[]]]];
 
 if (isNull _entity) exitWith {};
 
@@ -16,8 +16,10 @@ if (!local _vehicle) exitWith {
 	_this remoteExecCall [QFUNC(requestTransportHelicopter),_vehicle];
 };
 
+["SSS_requestSubmitted",[_entity,[_request,_position,_extraParams]]] call CBA_fnc_globalEvent;
+
 switch (_request) do {
-	// RTB
+	case "RTB";
 	case 0 : {
 		if !(_entity getVariable "SSS_awayFromBase") exitWith {};
 
@@ -65,18 +67,19 @@ switch (_request) do {
 
 					END_ORDER(_entity,"Arrived at base. Ready for further tasking.");
 					_entity setVariable ["SSS_awayFromBase",false,true];
-					_vehicle setFuel 1;
-					_vehicle setVehicleAmmo 1;
-					_vehicle setDamage 0;
 					_vehicle engineOn false;
 					_vehicle doFollow _vehicle;
 					deleteVehicle _pad;
 
+					[_entity,_vehicle] call EFUNC(common,resetOnRTB);
+
+					["SSS_requestCompleted",[_entity,["RTB"]]] call CBA_fnc_globalEvent;
 				},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
 			},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 	};
-	// Pickup
+
+	case "PICKUP";
 	case 1 : {
 		INTERRUPT(_entity,_vehicle);
 
@@ -111,8 +114,10 @@ switch (_request) do {
 			},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
 	};
-	// Land / Land (eng off)
+
+	case "LAND";
 	case 2;
+	case "LAND_ENG_OFF";
 	case 3 : {
 		private _engineOn = _request isEqualTo 2;
 
@@ -128,7 +133,9 @@ switch (_request) do {
 				"HeliHCivil","HeliHRescue"
 			],35];
 
+			private _deletePad = false;
 			private _pad = if (_nearestPads isEqualTo []) then {
+				_deletePad = true;
 				private _dummy = (createGroup sideLogic) createUnit ["Logic",[0,0,0],[],0,"CAN_COLLIDE"];
 				_dummy setPosASL [_position # 0,_position # 1,9999];
 				private _surfacePositionASL = [_position # 0,_position # 1,9999 - (getPos _dummy # 2)];
@@ -148,11 +155,13 @@ switch (_request) do {
 			[_vehicle,getPos _pad,0,"MOVE","","","","",WP_DONE] call EFUNC(common,addWaypoint);
 
 			[{WAIT_UNTIL_WPDONE},{
-				params ["_entity","_vehicle","_pad","_engineOn"];
+				params ["_entity","_vehicle","_pad","_deletePad","_engineOn"];
 
 				if (CANCEL_CONDITION) exitWith {
 					CANCEL_ORDER(_entity,"Landing");
-					deleteVehicle _pad;
+					if (_deletePad) then {
+						deleteVehicle _pad;
+					};
 				};
 
 				// Begin landing
@@ -161,33 +170,35 @@ switch (_request) do {
 				_vehicle land "GET IN";
 
 				[{WAIT_UNTIL_LAND},{
-					params ["_entity","_vehicle","_pad","_engineOn"];
+					params ["_entity","_vehicle","_pad","_deletePad","_engineOn"];
 
 					if (CANCEL_CONDITION) exitWith {
 						CANCEL_ORDER(_entity,"Landing");
 						_vehicle doFollow _vehicle;
 						_vehicle land "NONE";
-						deleteVehicle _pad;
+						if (_deletePad) then {
+							deleteVehicle _pad;
+						};
 					};
 
 					END_ORDER(_entity,"Landed at location. Ready for further tasking.");
 
-					if (!_engineOn) then {
+					private _requestName = if (!_engineOn) then {
 						_vehicle engineOn false;
+						"LAND_ENG_OFF"
+					} else {"LAND"};
+
+					if (_deletePad) then {
+						[{deleteVehicle _this},_pad,5] call CBA_fnc_waitAndExecute;
 					};
 
-					[{
-						params ["_entity","_vehicle"];
-						isNull _entity || !alive _vehicle || !alive driver _vehicle || {_entity getVariable "SSS_onTask"}
-					},{
-						deleteVehicle (_this # 2);
-					},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
-
-				},[_entity,_vehicle,_pad,_engineOn]] call CBA_fnc_waitUntilAndExecute;
-			},[_entity,_vehicle,_pad,_engineOn]] call CBA_fnc_waitUntilAndExecute;
+					["SSS_requestCompleted",[_entity,[_requestName]]] call CBA_fnc_globalEvent;
+				},[_entity,_vehicle,_pad,_deletePad,_engineOn]] call CBA_fnc_waitUntilAndExecute;
+			},[_entity,_vehicle,_pad,_deletePad,_engineOn]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position,_engineOn]] call CBA_fnc_waitUntilAndExecute;
 	};
-	// Move
+
+	case "MOVE";
 	case 4 : {
 		INTERRUPT(_entity,_vehicle);
 
@@ -209,10 +220,12 @@ switch (_request) do {
 
 				END_ORDER(_entity,"Destination reached. Ready for further tasking.");
 
+				["SSS_requestCompleted",[_entity,["MOVE"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
 	};
-	// Hover / Fastrope
+	
+	case "HOVER";
 	case 5 : {
 		_extraParams params ["_hoverHeight","_doFastrope"];
 
@@ -269,7 +282,8 @@ switch (_request) do {
 			},[_entity,_vehicle,_position,_hoverHeight,_doFastrope]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position,_hoverHeight,_doFastrope]] call CBA_fnc_waitUntilAndExecute;
 	};
-	// Loiter
+	
+	case "LOITER";
 	case 6 : {
 		_extraParams params ["_loiterRadius","_loiterDirection"];
 
@@ -304,6 +318,7 @@ switch (_request) do {
 				_entity setVariable ["SSS_onTask",false,true];
 				NOTIFY(_entity,"Destination reached. Loitering until further tasking.");
 
+				["SSS_requestCompleted",[_entity,["LOITER"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle,_position,_loiterRadius,_loiterDirection]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position,_loiterRadius,_loiterDirection]] call CBA_fnc_waitUntilAndExecute;
 	};

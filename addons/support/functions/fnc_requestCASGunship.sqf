@@ -12,18 +12,23 @@ if ((_entity getVariable "SSS_cooldown") > 0) exitWith {
 	NOTIFY_1(_entity,"<t color='#f4ca00'>NOT READY.</t> Ready in %1.",PROPER_COOLDOWN(_entity));
 };
 
+["SSS_requestSubmitted",[_entity,[_position,_loiterRadius,_loiterAltitude]]] call CBA_fnc_globalEvent;
+
 NOTIFY(_entity,"Gunship is on the way and will notify on arrival.");
 
 // Update task marker
 [_entity,true,_position] call EFUNC(common,updateMarker);
 
 // Create vehicle
-private _startPosition = _position getPos [5000,floor random 360];
+private _startPosition = _position getPos [6000,floor random 360];
 private _altitudeASL = (AGLToASL _position # 2) + _loiterAltitude;
 private _vehicle = createVehicle [_entity getVariable "SSS_classname",_startPosition,[],0,"FLY"];
 (createVehicleCrew _vehicle) deleteGroupWhenEmpty true;
 private _group = createGroup [_entity getVariable "SSS_side",true];
 crew _vehicle joinSilent _group;
+_vehicle setDir (_startPosition getDir _position);
+_vehicle setPos [_startPosition # 0,_startPosition # 1,_altitudeASL];
+_vehicle setVelocityModelSpace [0,150,0];
 _vehicle allowFleeing 0;
 _vehicle setBehaviour "CARELESS";
 _vehicle setCombatMode "BLUE";
@@ -51,6 +56,7 @@ _entity setVariable ["SSS_requestParameters",[_position,_loiterRadius,_loiterAlt
 _vehicle setVariable ["SSS_WPDone",false];
 private _WP = _group addWaypoint [_position getPos [_loiterRadius,(_position getDir _startPosition) - 45],0];
 _WP setWaypointType "Move";
+_WP setWaypointSpeed "FULL";
 _WP setWaypointCompletionRadius 200;
 _WP setWaypointStatements ["true","(vehicle this) setVariable ['SSS_WPDone',true];"];
 _vehicle flyInHeightASL [_altitudeASL,_altitudeASL,_altitudeASL];
@@ -133,6 +139,8 @@ _vehicle flyInHeightASL [_altitudeASL,_altitudeASL,_altitudeASL];
 		[_entity,_entity getVariable "SSS_cooldownDefault","Rearmed and ready for further tasking."] call EFUNC(common,cooldown);
 
 		NOTIFY_1(_entity,"Gunship is leaving the area. Support will be available again in %1.",PROPER_COOLDOWN(_entity));
+
+		["SSS_requestCompleted",[_entity]] call CBA_fnc_globalEvent;
 	}] call CBA_fnc_waitUntilAndExecute;
 },[_entity,_vehicle,_altitudeASL,_position,_loiterRadius,_loiterAltitude,_startPosition]] call CBA_fnc_waitUntilAndExecute;
 

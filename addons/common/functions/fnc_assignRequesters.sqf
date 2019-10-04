@@ -15,5 +15,5 @@ params [["_candidates",[],[[]]],["_entities",[],[[]]]];
 {
 	private _requesters = _x getVariable ["SSS_requesters",[]];
 	{_requesters pushBackUnique _x} forEach _candidates;
-	_entity setVariable ["SSS_requesters",_requesters - [objNull],true];
+	_x setVariable ["SSS_requesters",_requesters - [objNull],true];
 } forEach _entities;

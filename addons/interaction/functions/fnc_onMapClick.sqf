@@ -36,7 +36,7 @@ switch (_entity getVariable "SSS_supportType") do {
 
 				_request in _magazines && {
 				_vehicle != _otherVehicle && {
-				_vehicle distance2D _otherVehicle < parseNumber SSS_setting_artilleryCoordinationDistance && {
+				_vehicle distance2D _otherVehicle < (_x getVariable "SSS_coordinationDistance") && {
 				(_x getVariable "SSS_cooldown") isEqualTo 0}}}
 			} else {
 				false
@@ -116,22 +116,27 @@ switch (_entity getVariable "SSS_supportType") do {
 
 		if (!alive _vehicle) exitWith {};
 
-		if (_request isEqualTo 3) then {
-			["Loiter parameters",[
-				["SLIDER","Loiter radius",[[150,1000,0],200]],
-				["COMBOBOX","Loiter direction",[[["Clockwise","",ICON_CLOCKWISE],["Counter-Clockwise","",ICON_COUNTER_CLOCKWISE]],0]]
-			],{
-				params ["_values","_args"];
-				_args params ["_entity","_request","_position"];
+		switch (_request) do {
+			case "LOITER";
+			case 3 : {
+				["Loiter parameters",[
+					["SLIDER","Loiter radius",[[150,1500,0],200]],
+					["COMBOBOX","Loiter direction",[[["Clockwise","",ICON_CLOCKWISE],["Counter-Clockwise","",ICON_COUNTER_CLOCKWISE]],0]]
+				],{
+					params ["_values","_args"];
+					_args params ["_entity","_request","_position"];
 
-				private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
+					private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
 
-				if (!alive _vehicle) exitWith {};
+					if (!alive _vehicle) exitWith {};
 
-				[_entity,_request,_position,_values] remoteExecCall [QEFUNC(support,requestCASHelicopter),_vehicle];
-			},{REQUEST_CANCELLED;},[_entity,_request,_position]] call EFUNC(CDS,dialog);
-		} else {
-			[_entity,_request,_position] remoteExecCall [QEFUNC(support,requestCASHelicopter),_vehicle];
+					[_entity,_request,_position,_values] remoteExecCall [QEFUNC(support,requestCASHelicopter),_vehicle];
+				},{REQUEST_CANCELLED;},[_entity,_request,_position]] call EFUNC(CDS,dialog);
+			};
+
+			default {
+				[_entity,_request,_position] remoteExecCall [QEFUNC(support,requestCASHelicopter),_vehicle];
+			};
 		};
 	};
 
@@ -150,7 +155,7 @@ switch (_entity getVariable "SSS_supportType") do {
 		};
 
 		["CAS Parameters - " + mapGridPosition _position,[
-			["COMBOBOX",["Approach direction","Orange means the approach is blocked"],[_bearingList,0],false],
+			["COMBOBOX",["Approach from","Orange means the approach is blocked"],[_bearingList,0],false],
 			["COMBOBOX","Map position or other signal",[[
 				["Map Position","",ICON_MAP],
 				["Laser Target","",ICON_TARGET],
@@ -186,9 +191,10 @@ switch (_entity getVariable "SSS_supportType") do {
 		if (!alive _vehicle) exitWith {};
 
 		switch (_request) do {
+			case "HOVER";
 			case 5 : {
 				["Hover parameters",[
-					["SLIDER","Hover height",[[3,40,0],15],false],
+					["SLIDER","Hover height",[[1,40,0],15],false],
 					["CHECKBOX","Fastrope at position",true,false]
 				],{
 					params ["_values","_args"];
@@ -202,9 +208,10 @@ switch (_entity getVariable "SSS_supportType") do {
 				},{REQUEST_CANCELLED;},[_entity,_request,_position]] call EFUNC(CDS,dialog);
 			};
 
+			case "LOITER";
 			case 6 : {
 				["Loiter parameters",[
-					["SLIDER","Loiter radius",[[150,1000,0],200]],
+					["SLIDER","Loiter radius",[[150,1500,0],200]],
 					["COMBOBOX","Loiter direction",[[["Clockwise","",ICON_CLOCKWISE],["Counter-Clockwise","",ICON_COUNTER_CLOCKWISE]],0]]
 				],{
 					params ["_values","_args"];
@@ -238,5 +245,97 @@ switch (_entity getVariable "SSS_supportType") do {
 		if (!alive _vehicle) exitWith {};
 
 		[_entity,_request,_position] remoteExecCall [QEFUNC(support,requestTransportMaritime),_vehicle];
+	};
+
+	case "transportPlane" : {
+		private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
+
+		if (!alive _vehicle) exitWith {};
+
+		switch (_request) do {
+			case "PARADROP";
+			case 2 : {
+				["Paradrop parameters",[
+					["SLIDER",["Jump delay","Seconds between each unit jumping out"],[[0,5,1],1]],
+					["SLIDER","AI opening height",[[100,2000,0],200]]
+				],{
+					params ["_values","_args"];
+					_args params ["_entity","_request","_position"];
+
+					private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
+
+					if (!alive _vehicle) exitWith {};
+
+					[_entity,_request,_position,_values] remoteExecCall [QEFUNC(support,requestTransportPlane),_vehicle];
+				},{REQUEST_CANCELLED;},[_entity,_request,_position]] call EFUNC(CDS,dialog);
+			};
+
+			case "LOITER";
+			case 3 : {
+				["Loiter parameters",[
+					["SLIDER","Loiter radius",[[500,1500,0],500]],
+					["COMBOBOX","Loiter direction",[[["Clockwise","",ICON_CLOCKWISE],["Counter-Clockwise","",ICON_COUNTER_CLOCKWISE]],0]]
+				],{
+					params ["_values","_args"];
+					_args params ["_entity","_request","_position"];
+
+					private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
+
+					if (!alive _vehicle) exitWith {};
+
+					[_entity,_request,_position,_values] remoteExecCall [QEFUNC(support,requestTransportPlane),_vehicle];
+				},{REQUEST_CANCELLED;},[_entity,_request,_position]] call EFUNC(CDS,dialog);
+			};
+
+			default {
+				[_entity,_request,_position] remoteExecCall [QEFUNC(support,requestTransportPlane),_vehicle];
+			};
+		};
+	};
+
+	case "transportVTOL" : {
+		private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
+
+		if (!alive _vehicle) exitWith {};
+
+		switch (_request) do {
+			case "PARADROP";
+			case 5 : {
+				["Paradrop parameters",[
+					["SLIDER",["Jump delay","Seconds between each unit jumping out"],[[0,5,1],1]],
+					["SLIDER","A.I. opening height",[[100,2000,0],200]]
+				],{
+					params ["_values","_args"];
+					_args params ["_entity","_request","_position"];
+
+					private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
+
+					if (!alive _vehicle) exitWith {};
+
+					[_entity,_request,_position,_values] remoteExecCall [QEFUNC(support,requestTransportPlane),_vehicle];
+				},{REQUEST_CANCELLED;},[_entity,_request,_position]] call EFUNC(CDS,dialog);
+			};
+
+			case "LOITER";
+			case 6 : {
+				["Loiter parameters",[
+					["SLIDER","Loiter radius",[[500,1500,0],500]],
+					["COMBOBOX","Loiter direction",[[["Clockwise","",ICON_CLOCKWISE],["Counter-Clockwise","",ICON_COUNTER_CLOCKWISE]],0]]
+				],{
+					params ["_values","_args"];
+					_args params ["_entity","_request","_position"];
+
+					private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
+
+					if (!alive _vehicle) exitWith {};
+
+					[_entity,_request,_position,_values] remoteExecCall [QEFUNC(support,requestTransportVTOL),_vehicle];
+				},{REQUEST_CANCELLED;},[_entity,_request,_position]] call EFUNC(CDS,dialog);
+			};
+
+			default {
+				[_entity,_request,_position] remoteExecCall [QEFUNC(support,requestTransportVTOL),_vehicle];
+			};
+		};
 	};
 };

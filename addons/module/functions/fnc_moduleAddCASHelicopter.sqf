@@ -1,58 +1,68 @@
 #include "script_component.hpp"
 
-params ["_logic","_synced"];
+[{
+	params ["_logic","_synced"];
 
-if (!local _logic) exitWith {};
+	disableSerialization;
+	if (!isNull (findDisplay 312)) then {
+		if (!local _logic) exitWith {};
 
-disableSerialization;
-if (!isNull (findDisplay 312)) then {
-	private _object = attachedTo _logic;
+		private _object = attachedTo _logic;
 
-	if (!alive _object || !(_object isKindOf "Helicopter")) exitWith {};
+		if (!alive _object || !(_object isKindOf "Helicopter")) exitWith {};
 
-	["Add CAS Helicopter",[
-		["EDITBOX","Callsign",getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")],
-		["EDITBOX","Respawn time",SSS_DEFAULT_RESPAWN_TIME_STR],
-		["EDITBOX",["Custom init code","Code executed when vehicle is added & respawned (vehicle = _this)"],""]
-	],{
-		params ["_values","_object"];
-		_values params ["_callsign","_respawnTime","_customInit"];
+		["Add CAS Helicopter",[
+			["EDITBOX","Callsign",getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")],
+			["EDITBOX","Respawn time",SSS_DEFAULT_RESPAWN_TIME_STR],
+			["EDITBOX",["Custom init code","Code executed when vehicle is added & respawned (vehicle = _this)"],""]
+		],{
+			params ["_values","_object"];
+			_values params ["_callsign","_respawnTime","_customInit"];
 
-		[
-			[],
-			_object,
-			_callsign,
-			parseNumber _respawnTime,
-			_customInit
-		] call EFUNC(support,addCASHelicopter);
+			[
+				[],
+				_object,
+				_callsign,
+				parseNumber _respawnTime,
+				_customInit
+			] call EFUNC(support,addCASHelicopter);
 
-		ZEUS_MESSAGE("CAS Helicopter added");
-	},{},_object] call EFUNC(CDS,dialog);
-} else {
-	private _requesters = [];
-	private _vehicles = [];
+			ZEUS_MESSAGE("CAS Helicopter added");
+		},{},_object] call EFUNC(CDS,dialog);
+	} else {
+		if (!isServer) exitWith {};
 
-	{
-		if (typeOf _x == QGVAR(AssignRequesters)) then {
-			_requesters append ((synchronizedObjects _x) select {!(_x isKindOf "Logic")});
-		} else {
-			if (alive _x) then {
-				_vehicles pushBackUnique _x;
+		private _requesterModules = [];
+		private _requesters = [];
+		private _vehicles = [];
+
+		{
+			if (typeOf _x == QGVAR(AssignRequesters)) then {
+				_requesterModules pushBack _x;
+				_requesters append ((synchronizedObjects _x) select {!(_x isKindOf "Logic")});
+			} else {
+				if (alive _x) then {
+					_vehicles pushBackUnique _x;
+				};
 			};
-		};
-	} forEach synchronizedObjects _logic;
+		} forEach synchronizedObjects _logic;
 
-	if (_vehicles isEqualTo []) exitWith {};
+		if (_vehicles isEqualTo []) exitWith {};
 
-	{
-		[
-			_requesters,
-			_x,
-			_logic getVariable ["Callsign",""],
-			parseNumber (_logic getVariable ["RespawnTime",SSS_DEFAULT_RESPAWN_TIME_STR]),
-			_logic getVariable ["CustomInit",""]
-		] call EFUNC(support,addCASHelicopter);
-	} forEach _vehicles;
-};
+		private _entities = [];
 
-deleteVehicle _logic;
+		{
+			_entities pushBack ([
+				_requesters,
+				_x,
+				_logic getVariable ["Callsign",""],
+				parseNumber (_logic getVariable ["RespawnTime",SSS_DEFAULT_RESPAWN_TIME_STR]),
+				_logic getVariable ["CustomInit",""]
+			] call EFUNC(support,addCASHelicopter));
+		} forEach _vehicles;
+
+		{_x setVariable ["SSS_entitiesToAssign",(_x getVariable ["SSS_entitiesToAssign",[]]) + _entities,true]} forEach _requesterModules;
+	};
+
+	deleteVehicle _logic;
+},_this] call CBA_fnc_directCall;

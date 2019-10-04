@@ -95,7 +95,9 @@
 #define ICON_MORTAR_YELLOW "z\SSS\addons\main\ui\icons\mortar_yellow.paa"
 #define ICON_MOVE "z\SSS\addons\main\ui\icons\move.paa"
 #define ICON_MOVE_ENG_OFF "z\SSS\addons\main\ui\icons\move_eng_off.paa"
+#define ICON_PARACHUTE "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\supplydrop_ca.paa"
 #define ICON_PLANE "z\SSS\addons\main\ui\icons\plane.paa"
+#define ICON_PLANE_GREEN "z\SSS\addons\main\ui\icons\plane_green.paa"
 #define ICON_PLANE_YELLOW "z\SSS\addons\main\ui\icons\plane_yellow.paa"
 #define ICON_ROPE "z\SSS\addons\main\ui\icons\rope.paa"
 #define ICON_SEARCH_YELLOW "z\SSS\addons\main\ui\icons\search_yellow.paa"
@@ -108,6 +110,9 @@
 #define ICON_TRANSPORT "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa"
 #define ICON_TRASH "\A3\3DEN\Data\cfg3den\history\deleteitems_ca.paa"
 #define ICON_UNASSIGN_REQUESTERS "z\SSS\addons\main\ui\icons\lock.paa"
+#define ICON_VTOL "z\SSS\addons\main\ui\icons\vtol.paa"
+#define ICON_VTOL_GREEN "z\SSS\addons\main\ui\icons\vtol_green.paa"
+#define ICON_VTOL_YELLOW "z\SSS\addons\main\ui\icons\vtol_yellow.paa"
 
 #define RGBA_RED [0.9,0,0,1]
 #define RGBA_ORANGE [0.85,0.4,0,1]
@@ -116,6 +121,8 @@
 #define RGBA_BLUE [0,0,1,1]
 #define RGBA_PURPLE [0.75,0.15,0.75,1]
 
+#define SSS_DEFAULT_ARTILLERY_COORDINATION_DISTANCE 100
+#define SSS_DEFAULT_ARTILLERY_COORDINATION_DISTANCE_STR "100"
 #define SSS_DEFAULT_ARTILLERY_MAX_ROUNDS 10
 #define SSS_DEFAULT_ARTILLERY_MAX_ROUNDS_STR "10"
 #define SSS_DEFAULT_RESPAWN_TIME 60
@@ -155,19 +162,13 @@
 	VEH setVariable ["SSS_parentEntity",ENTITY,true]; \
 	ENTITY setVariable ["SSS_vehicle",VEH,true]; \
 	ENTITY setVariable ["SSS_base",BASE,true]; \
+	ENTITY setVariable ["SSS_baseDir",getDirVisual VEH,true]; \
 	ENTITY setVariable ["SSS_respawnDir",getDir VEH,true]; \
 	ENTITY setVariable ["SSS_respawnTime",RESPAWN_TIME,true]; \
 	ENTITY setVariable ["SSS_respawning",false,true]; \
 	GRP setVariable ["SSS_protectWaypoints",true,true]
 
-#define CREATE_TASK_MARKER(ENTITY,CALLSIGN,MARKER_ICON,STRING) \
-	private _marker = createMarker [format ["SSS_%1_%2",ENTITY,CBA_missionTime],[0,0,0]]; \
-	_marker setMarkerShape "ICON"; \
-	_marker setMarkerType MARKER_ICON; \
-	_marker setMarkerColor "ColorGrey"; \
-	_marker setMarkerText format ["%1 - %2",STRING,CALLSIGN]; \
-	_marker setMarkerAlpha 0; \
-	ENTITY setVariable ["SSS_marker",_marker,true]
+#define CREATE_TASK_MARKER(ENTITY,CALLSIGN,MARKER_ICON,STRING) [ENTITY,CALLSIGN,MARKER_ICON,STRING] call EFUNC(common,createMarker);
 
 #define BEGIN_ORDER(ENTITY,POS,MESSAGE) \
 	ENTITY setVariable ["SSS_onTask",true,true]; \
@@ -205,10 +206,13 @@
 #define CANCEL_CONDITION isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle}}
 
 #define WAIT_UNTIL_WPDONE params ["_entity","_vehicle"]; \
-	isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle || _vehicle getVariable "SSS_WPDone"}}
+	isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle || {_vehicle getVariable "SSS_WPDone"}}}
 
 #define WAIT_UNTIL_LAND params ["_entity","_vehicle"]; \
-	isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle || (getPos _vehicle) select 2 < 1}}
+	isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle || {(getPos _vehicle) select 2 < 1}}}
+
+#define WAIT_UNTIL_PLANE_LANDED params ["_entity","_vehicle"]; \
+	isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle || {(getPos _vehicle) select 2 < 1 && (vectorMagnitude velocityModelSpace _vehicle) < 10}}}
 
 #define REQUEST_CANCELLED \
 	titleText ["Request Cancelled","PLAIN",0.5]; \
@@ -216,3 +220,28 @@
 
 #define PROPER_TIME(SECONDS) SECONDS call EFUNC(common,properTime)
 #define PROPER_COOLDOWN(ENTITY) PROPER_TIME(ENTITY getVariable "SSS_cooldown")
+
+#define PLANE_TAKEOFF(VEH) \
+private _worldCfg = configfile >> "CfgWorlds" >> worldName; \
+private _airportData = [[getArray (_worldCfg >> "ilsPosition"),getArray (_worldCfg >> "ilsTaxiIn"),getArray (_worldCfg >> "ilsDirection")]]; \
+private _secondaryData = "true" configClasses (_worldCfg >> "SecondaryAirports"); \
+ \
+if !(_secondaryData isEqualTo []) then { \
+	_airportData append (_secondaryData apply { \
+		private _cfg = _worldCfg >> "SecondaryAirports" >> configName _x; \
+		[getArray (_cfg >> "ilsPosition"),getArray (_cfg >> "ilsTaxiIn"),getArray (_cfg >> "ilsDirection")] \
+	}); \
+}; \
+ \
+_airportData = _airportData apply {[(_x select 0) distance2D _vehicle,_x]}; \
+_airportData sort true; \
+(_airportData select 0 select 1) params ["_position","_ilsTaxiIn","_ilsDirection"]; \
+ \
+if !(_ilsTaxiIn isEqualTo []) then { \
+	_position = [_ilsTaxiIn select (count _ilsTaxiIn - 2),_ilsTaxiIn select (count _ilsTaxiIn - 1)]; \
+}; \
+ \
+_vehicle setDir (((_ilsDirection select 0) atan2 (_ilsDirection select 2)) - 180); \
+_vehicle setPos _position; \
+_vehicle setFuel 1; \
+_vehicle engineOn true

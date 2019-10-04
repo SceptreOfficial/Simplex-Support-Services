@@ -96,6 +96,7 @@ _vehicle setVariable ["SSS_fastropeUnits",nil];
 					[_entity,_vehicle] call FUNC(transportFastrope);
 				} else {
 					NOTIFY(_entity,"Hovering at location.");
+					["SSS_requestCompleted",[_entity,["HOVER",false]]] call CBA_fnc_globalEvent;
 				};
 			};
 		},0,[

@@ -1,6 +1,7 @@
 class CfgVehicles {
 	class Logic;
 	class Module_F : Logic {
+		class AttributesBase;
 		class ModuleDescription;
 	};
 
@@ -59,16 +60,18 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = SSS_DEFAULT_ARTILLERY_MAX_ROUNDS_STR;
 			};
+			class CoordinationDistance {
+				displayName = "Maximum coordination distance";
+				description = "Set what ""nearby"" really means for artillery coordination";
+				typeName = "STRING";
+				defaultValue = SSS_DEFAULT_ARTILLERY_COORDINATION_DISTANCE_STR;
+			};
 			class CustomInit {
 				displayName = "Custom init code";
 				description = "Code executed when vehicle is added & respawned (vehicle = _this)";
 				typeName = "STRING";
 				defaultValue = "";
 			};
-		};
-
-		class ModuleDescription: ModuleDescription {
-			description = "Add Artillery";
 		};
 	};
 
@@ -131,10 +134,6 @@ class CfgVehicles {
 				defaultValue = "";
 			};
 		};
-
-		class ModuleDescription: ModuleDescription {
-			description = "Add CAS Drone";
-		};
 	};
 
 	class GVAR(AddCASGunship) : GVAR(Base) {
@@ -190,10 +189,6 @@ class CfgVehicles {
 				defaultValue = "";
 			};
 		};
-
-		class ModuleDescription: ModuleDescription {
-			description = "Add CAS Gunship";
-		};
 	};
 
 	class GVAR(AddCASHeli) : GVAR(Base) {
@@ -222,10 +217,6 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "";
 			};
-		};
-
-		class ModuleDescription: ModuleDescription {
-			description = "Add CAS Helicopter";
 		};
 	};
 
@@ -288,10 +279,6 @@ class CfgVehicles {
 				defaultValue = "";
 			};
 		};
-
-		class ModuleDescription: ModuleDescription {
-			description = "Add CAS Plane";
-		};
 	};
 
 	class GVAR(AddTransport) : GVAR(Base) {
@@ -321,31 +308,23 @@ class CfgVehicles {
 				defaultValue = "";
 			};
 		};
-
-		class ModuleDescription: ModuleDescription {
-			description = "Add Transport";
-		};
 	};
 
 	class GVAR(AssignRequesters) : GVAR(Base) {
 		displayName = "Assign Requesters";
 		icon = ICON_ASSIGN_REQUESTERS;
 		function = QFUNC(moduleAssignRequesters);
+		isGlobal = 2;
 		scope = 2;
 		scopeCurator = 2;
 
 		class Arguments {
-			class Description {
-				data = "";
-				control = "SubCategoryNoHeader2";
-				displayName = "";
-				description = "Sync desired requesters and support modules to this module";
-				tooltip = "";
+			class AssignList {
+				displayName = "Assignment List";
+				description = "List of custom unit variable names. JIP compatible method compared to syncing. (eg. p1,p2,p3)";
+				typeName = "STRING";
+				defaultValue = "";
 			};
-		};
-
-		class ModuleDescription: ModuleDescription {
-			description = "Sync desired requesters and support modules to this module";
 		};
 	};
 

@@ -31,28 +31,36 @@ _vehicle allowFleeing 0;
 	_x allowFleeing 0;
 	_x disableAI "SUPPRESSION";
 	_x disableAI "COVER";
-	_x disableAI "AUTOCOMBAT";
 } forEach PRIMARY_CREW(_vehicle);
 
 private _group = group _vehicle;
-_group enableAttack true;
 
 switch (_entity getVariable "SSS_supportType") do {
 	case "artillery" : {
+		{
+			_x disableAI "MOVE";
+			_x disableAI "AUTOCOMBAT";
+		} forEach PRIMARY_CREW(_vehicle);
 		_vehicle lockTurret [[0],true];
 		_vehicle lockCargo true;
-		{_x disableAI "MOVE"} forEach PRIMARY_CREW(_vehicle);
+
+		_group enableAttack true;
 	};
 
 	case "CASHelicopter" : {
+		{
+			_x disableAI "LIGHTS";
+			_x disableAI "AUTOCOMBAT";
+		} forEach PRIMARY_CREW(_vehicle);
 		_vehicle lockTurret [[0],true];
 		_vehicle lockCargo true;
 		_vehicle lock true;
-		{_x disableAI "LIGHTS"} forEach PRIMARY_CREW(_vehicle);
 
 		_vehicle flyInHeight (_entity getVariable ["SSS_flyingHeight",180]);
 		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
 		_vehicle setCollisionLight (_entity getVariable ["SSS_collisionLightsOn",true]);
+
+		_group enableAttack true;
 
 		// FRIES makes AI pilots a nightmare
 		private _fries = _vehicle getVariable ["ace_fastroping_FRIES",objnull];
@@ -62,28 +70,31 @@ switch (_entity getVariable "SSS_supportType") do {
 	};
 
 	case "transportHelicopter" : {
-		_group setBehaviour "CARELESS";
-		{_x disableAI "LIGHTS"} forEach PRIMARY_CREW(_vehicle);
+		{
+			_x disableAI "LIGHTS";
+			_x disableAI "AUTOCOMBAT";
+		} forEach PRIMARY_CREW(_vehicle);
 
 		_vehicle flyInHeight (_entity getVariable ["SSS_flyingHeight",180]);
 		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
 		_vehicle setCollisionLight (_entity getVariable ["SSS_collisionLightsOn",true]);
 
+		_group setBehaviour "CARELESS";
 		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",1]));
 	
 		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {
 			_group setCombatMode "YELLOW";
 			_group enableAttack true;
 			{
-				[_x enableAI "TARGET"];
-				[_x enableAI "AUTOTARGET"];
+				_x enableAI "TARGET";
+				_x enableAI "AUTOTARGET";
 			} forEach PRIMARY_CREW(_vehicle);
 		} else {
 			_group setCombatMode "BLUE";
 			_group enableAttack false;
 			{
-				[_x disableAI "TARGET"];
-				[_x disableAI "AUTOTARGET"];
+				_x disableAI "TARGET";
+				_x disableAI "AUTOTARGET";
 			} forEach PRIMARY_CREW(_vehicle);
 		};
 
@@ -102,25 +113,28 @@ switch (_entity getVariable "SSS_supportType") do {
 	};
 
 	case "transportLandVehicle" : {
-		{_x disableAI "LIGHTS"} forEach PRIMARY_CREW(_vehicle);
+		{
+			_x disableAI "LIGHTS";
+		} forEach PRIMARY_CREW(_vehicle);
+
 		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
 
-		_group setBehaviour "SAFE";
+		//_group setBehaviour "SAFE";
 		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",2]));
 	
 		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {
 			_group setCombatMode "YELLOW";
 			_group enableAttack true;
 			{
-				[_x enableAI "TARGET"];
-				[_x enableAI "AUTOTARGET"];
+				_x enableAI "TARGET";
+				_x enableAI "AUTOTARGET";
 			} forEach PRIMARY_CREW(_vehicle);
 		} else {
 			_group setCombatMode "BLUE";
 			_group enableAttack false;
 			{
-				[_x disableAI "TARGET"];
-				[_x disableAI "AUTOTARGET"];
+				_x disableAI "TARGET";
+				_x disableAI "AUTOTARGET";
 			} forEach PRIMARY_CREW(_vehicle);
 		};
 
@@ -133,32 +147,109 @@ switch (_entity getVariable "SSS_supportType") do {
 	};
 
 	case "transportMaritime" : {
-		_group setBehaviour "CARELESS";
-		{_x disableAI "LIGHTS"} forEach PRIMARY_CREW(_vehicle);
+		{
+			_x disableAI "LIGHTS";
+			_x disableAI "AUTOCOMBAT";
+		} forEach PRIMARY_CREW(_vehicle);
 
 		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
 		_vehicle setCollisionLight (_entity getVariable ["SSS_collisionLightsOn",true]);
 
+		_group setBehaviour "CARELESS";
 		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",2]));
 	
 		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {
 			_group setCombatMode "YELLOW";
 			_group enableAttack true;
 			{
-				[_x enableAI "TARGET"];
-				[_x enableAI "AUTOTARGET"];
+				_x enableAI "TARGET";
+				_x enableAI "AUTOTARGET";
 			} forEach PRIMARY_CREW(_vehicle);
 		} else {
 			_group setCombatMode "BLUE";
 			_group enableAttack false;
 			{
-				[_x disableAI "TARGET"];
-				[_x disableAI "AUTOTARGET"];
+				_x disableAI "TARGET";
+				_x disableAI "AUTOTARGET";
 			} forEach PRIMARY_CREW(_vehicle);
 		};
 
 		private _action = ["SSS_transport","Transport",ICON_TRANSPORT,{},{VEHICLE_ACTION_CONDITION},{
 			_this call EFUNC(interaction,childActionsTransportMaritime)
+		},_entity] call ace_interact_menu_fnc_createAction;
+
+		[_vehicle,1,["ACE_SelfActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
+		[_vehicle,0,["ACE_MainActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
+	};
+
+	case "transportPlane" : {
+		{
+			_x disableAI "LIGHTS";
+			_x disableAI "AUTOCOMBAT";
+		} forEach PRIMARY_CREW(_vehicle);
+
+		_vehicle flyInHeight (_entity getVariable ["SSS_flyingHeight",500]);
+		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
+		_vehicle setCollisionLight (_entity getVariable ["SSS_collisionLightsOn",true]);
+
+		_group setBehaviour "CARELESS";
+		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",1]));
+	
+		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {
+			_group setCombatMode "YELLOW";
+			_group enableAttack true;
+			{
+				_x enableAI "TARGET";
+				_x enableAI "AUTOTARGET";
+			} forEach PRIMARY_CREW(_vehicle);
+		} else {
+			_group setCombatMode "BLUE";
+			_group enableAttack false;
+			{
+				_x disableAI "TARGET";
+				_x disableAI "AUTOTARGET";
+			} forEach PRIMARY_CREW(_vehicle);
+		};
+
+		private _action = ["SSS_transport","Transport",ICON_TRANSPORT,{},{VEHICLE_ACTION_CONDITION},{
+			_this call EFUNC(interaction,childActionsTransportPlane)
+		},_entity] call ace_interact_menu_fnc_createAction;
+
+		[_vehicle,1,["ACE_SelfActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
+		[_vehicle,0,["ACE_MainActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
+	};
+
+	case "transportVTOL" : {
+		{
+			_x disableAI "LIGHTS";
+			_x disableAI "AUTOCOMBAT";
+		} forEach PRIMARY_CREW(_vehicle);
+
+		_vehicle flyInHeight (_entity getVariable ["SSS_flyingHeight",250]);
+		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
+		_vehicle setCollisionLight (_entity getVariable ["SSS_collisionLightsOn",true]);
+
+		_group setBehaviour "CARELESS";
+		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",1]));
+	
+		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {
+			_group setCombatMode "YELLOW";
+			_group enableAttack true;
+			{
+				_x enableAI "TARGET";
+				_x enableAI "AUTOTARGET";
+			} forEach PRIMARY_CREW(_vehicle);
+		} else {
+			_group setCombatMode "BLUE";
+			_group enableAttack false;
+			{
+				_x disableAI "TARGET";
+				_x disableAI "AUTOTARGET";
+			} forEach PRIMARY_CREW(_vehicle);
+		};
+
+		private _action = ["SSS_transport","Transport",ICON_TRANSPORT,{},{VEHICLE_ACTION_CONDITION},{
+			_this call EFUNC(interaction,childActionsTransportVTOL)
 		},_entity] call ace_interact_menu_fnc_createAction;
 
 		[_vehicle,1,["ACE_SelfActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];

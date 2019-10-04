@@ -1,7 +1,6 @@
 #include "script_component.hpp"
 ADDON = false;
 #include "XEH_PREP.hpp"
-ADDON = true;
 
 // Addon Options
 ["SSS_setting_useChatNotifications","CHECKBOX",
@@ -49,6 +48,24 @@ ADDON = true;
 	false
 ] call CBA_fnc_addSetting;
 
+["SSS_setting_resetVehicleOnRTB","CHECKBOX",
+	["Reset vehicle on RTB","When a vehicle arrives back at base, it is repaired, fuel is refilled, and ammo is restored."],
+	["Simplex Support Services","Core"],
+	true,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+["SSS_setting_restoreCrewOnRTB","CHECKBOX",
+	["Restore vehicle crew on RTB","Restores health to all crew and revives any dead crew when a vehicle returns to base"],
+	["Simplex Support Services","Core"],
+	true,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
 ["SSS_setting_adminFullAccess","CHECKBOX",
 	["Give admins access to all supports","Admins will be able to use every support available, even if services aren't shown/enabled"],
 	["Simplex Support Services","Admin"],
@@ -63,15 +80,6 @@ ADDON = true;
 	["Simplex Support Services","Admin"],
 	false,
 	false,
-	{},
-	false
-] call CBA_fnc_addSetting;
-
-["SSS_setting_artilleryCoordinationDistance","EDITBOX",
-	["Coordination maximum distance","Set what ""nearby"" really means for artillery coordination"],
-	["Simplex Support Services","Artillery"],
-	"100",
-	true,
 	{},
 	false
 ] call CBA_fnc_addSetting;
@@ -98,10 +106,13 @@ SSS_entities = [];
 				case "CASHelicopter";
 				case "transportHelicopter";
 				case "transportLandVehicle";
-				case "transportMaritime" : {
+				case "transportMaritime";
+				case "transportPlane";
+				case "transportVTOL" : {
 					[_entity,false] call EFUNC(common,updateMarker);
 					INTERRUPT(_entity,_vehicle);
 				};
+
 				default {
 					_vehicle setVariable ["SSS_WPDone",true,true];
 				};
@@ -123,8 +134,11 @@ SSS_entities = [];
 	"SSS_showCASGunships",
 	"SSS_showCASHelicopters",
 	"SSS_showCASPlanes",
-	"SSS_showGroundSupportVehicles",
 	"SSS_showTransportHelicopters",
 	"SSS_showTransportLandVehicles",
-	"SSS_showTransportMaritime"
+	"SSS_showTransportMaritime",
+	"SSS_showTransportPlanes",
+	"SSS_showTransportVTOLs"
 ];
+
+ADDON = true;

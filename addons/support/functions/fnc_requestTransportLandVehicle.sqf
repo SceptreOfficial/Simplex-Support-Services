@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params [["_entity",objNull,[objNull]],["_request",0,[0]],["_position",[],[[]]],["_extraParams",[],[[]]]];
+params [["_entity",objNull,[objNull]],["_request",0,[0,""]],["_position",[],[[]]],["_extraParams",[],[[]]]];
 
 if (isNull _entity) exitWith {};
 
@@ -16,8 +16,10 @@ if (!local _vehicle) exitWith {
 	_this remoteExecCall [QFUNC(requestTransportLandVehicle),_vehicle];
 };
 
+["SSS_requestSubmitted",[_entity,[_request,_position,_extraParams]]] call CBA_fnc_globalEvent;
+
 switch (_request) do {
-	// RTB
+	case "RTB";
 	case 0 : {
 		if !(_entity getVariable "SSS_awayFromBase") exitWith {};
 
@@ -46,17 +48,19 @@ switch (_request) do {
 
 				END_ORDER(_entity,"Arrived at base. Ready for further tasking.");
 				_entity setVariable ["SSS_awayFromBase",false,true];
-				_vehicle setFuel 1;
-				_vehicle setVehicleAmmo 1;
-				_vehicle setDamage 0;
 				_vehicle engineOn false;
 				_vehicle doFollow _vehicle;
 
+				[_entity,_vehicle] call EFUNC(common,resetOnRTB);
+
+				["SSS_requestCompleted",[_entity,["RTB"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 	};
-	// Move
+	
+	case "MOVE";
 	case 1;
+	case "MOVE_ENG_OFF";
 	case 2 : {
 		private _engineOn = _request isEqualTo 2;
 
@@ -80,10 +84,12 @@ switch (_request) do {
 
 				END_ORDER(_entity,"Destination reached. Ready for further tasking.");
 
-				if (!_engineOn) then {
+				private _requestName = if (!_engineOn) then {
 					_vehicle engineOn false;
-				};
+					"MOVE_ENG_OFF"
+				} else {"MOVE"};
 
+				["SSS_requestCompleted",[_entity,[_requestName]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle,_engineOn]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position,_engineOn]] call CBA_fnc_waitUntilAndExecute;
 	};

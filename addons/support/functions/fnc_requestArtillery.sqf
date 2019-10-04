@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params ["_entity","_magType",["_position",[],[[]]],"_rounds","_dispersion"];
+params [["_entity",objNull,[objNull]],["_magType","",[""]],["_position",[],[[]]],["_rounds",1,[1]],["_dispersion",0,[0]]];
 
 private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
 
@@ -17,6 +17,8 @@ if (!local _vehicle) exitWith {
 if ((_entity getVariable "SSS_cooldown") > 0) exitWith {
 	NOTIFY_1(_entity,"<t color='#f4ca00'>NOT READY.</t> Ready in %1.",PROPER_COOLDOWN(_entity));
 };
+
+["SSS_requestSubmitted",[_entity,[_magType,_position,_rounds,_dispersion]]] call CBA_fnc_globalEvent;
 
 // Start cooldown
 private _cooldownDefault = _entity getVariable "SSS_cooldownDefault";
@@ -139,14 +141,14 @@ if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") then {
 [{
 	params ["_entity","_vehicle"];
 
-	if (alive _vehicle &&
-		alive gunner _vehicle &&
-		isNil {_vehicle getVariable "SSS_doneFiring"} &&
-		(_entity getVariable "SSS_cooldown") > 0
-	) then {
+	if (!isNull _entity && {(_entity getVariable "SSS_cooldown") > 0 && alive _vehicle && alive gunner _vehicle && isNil {_vehicle getVariable "SSS_doneFiring"}}) then {
 		(gunner _vehicle) setAmmo [currentWeapon _vehicle,20];
 		false
 	} else {
+		if (!isNull _entity) then {
+			["SSS_requestCompleted",[_entity]] call CBA_fnc_globalEvent;
+		};
+
 		_vehicle setVariable ["SSS_doneFiring",nil];
 		true
 	};
