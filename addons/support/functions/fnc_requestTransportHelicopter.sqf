@@ -119,7 +119,7 @@ switch (_request) do {
 	case 2;
 	case "LAND_ENG_OFF";
 	case 3 : {
-		private _engineOn = _request isEqualTo 2;
+		private _engineOn = _request isEqualTo 2 || _request == "LAND";
 
 		INTERRUPT(_entity,_vehicle);
 

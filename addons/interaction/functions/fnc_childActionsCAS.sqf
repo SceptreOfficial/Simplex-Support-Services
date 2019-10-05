@@ -3,16 +3,7 @@
 params ["_target","_player"];
 
 private _actions = [];
-private _assignedCAS = if (ADMIN_ACCESS_CONDITION) then {
-	if (SSS_setting_adminLimitSide) then {
-		private _side = side _target;
-		SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == "CAS" && {_x getVariable "SSS_side" == _side}}}
-	} else {
-		SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == "CAS"}}
-	};
-} else {
-	(_target getVariable ["SSS_assignedEntities",[]]) select {!isNull _x && {(_x getVariable "SSS_service") == "CAS"}}
-};
+private _assignedCAS = GET_SERVICE_ENTITIES("CAS");
 
 {
 	private _action = switch (_x getVariable "SSS_supportType") do {

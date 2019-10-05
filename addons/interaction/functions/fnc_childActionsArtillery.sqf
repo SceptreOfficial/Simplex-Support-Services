@@ -3,16 +3,7 @@
 params ["_target","_player"];
 
 private _actions = [];
-private _assignedArtillery = if (ADMIN_ACCESS_CONDITION) then {
-	if (SSS_setting_adminLimitSide) then {
-		private _side = side _target;
-		SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == "artillery" && {_x getVariable "SSS_side" == _side}}}
-	} else {
-		SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == "artillery"}}
-	};
-} else {
-	(_target getVariable ["SSS_assignedEntities",[]]) select {!isNull _x && {(_x getVariable "SSS_service") == "artillery"}}
-};
+private _assignedArtillery = GET_SERVICE_ENTITIES("artillery");
 
 {
 	private _action = ["SSS_artillery:" + str _x,_x getVariable "SSS_callsign","",{},{true},{},_x,ACTION_DEFAULTS,{

@@ -62,7 +62,7 @@ switch (_request) do {
 	case 1;
 	case "MOVE_ENG_OFF";
 	case 2 : {
-		private _engineOn = _request isEqualTo 2;
+		private _engineOn = _request isEqualTo 2 || _request == "MOVE";
 
 		INTERRUPT(_entity,_vehicle);
 

@@ -26,9 +26,9 @@ private _showService = switch (_service) do {
 };
 
 private _bool = if (SSS_setting_specialItemsLogic) then {
-	_hasItem && _showService && !(_assignedServices isEqualTo [])
+	_showService && {_hasItem && !(_assignedServices isEqualTo [])}
 } else {
-	_hasItem || (_showService && !(_assignedServices isEqualTo []))
+	_showService && {_hasItem || !(_assignedServices isEqualTo [])}
 };
 
 _bool

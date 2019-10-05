@@ -8,8 +8,34 @@ if (isNull _entity) exitWith {};
 
 private _side = _entity getVariable "SSS_side";
 
-if (!(ADMIN_ACCESS_CONDITION) && {!(_entity in (player getVariable ["SSS_assignedEntities",[]]))}) exitWith {};
-if (ADMIN_ACCESS_CONDITION && SSS_setting_adminLimitSide && _side != side player) exitWith {};
+private _canSee = if (ADMIN_ACCESS_CONDITION) then {
+	if (SSS_setting_adminLimitSide && {_side != side player}) then {false} else {true};
+} else {
+	private _specialItems = (([SSS_setting_specialItems] call CBA_fnc_removeWhitespace) splitString ",") apply {toLower _x};
+	private _hasItem = if (_specialItems isEqualTo []) then {
+		true
+	} else {
+		private _playerItems = assignedItems player;
+		_playerItems append uniformItems player;
+		_playerItems append vestItems player;
+		_playerItems append backpackItems player;
+		_playerItems = _playerItems apply {toLower _x};
+
+		!((_playerItems arrayIntersect _specialItems) isEqualTo [])
+	};
+
+	if (SSS_setting_specialItemsLogic) then {
+		_hasItem && _entity in (player getVariable ["SSS_assignedEntities",[]])
+	} else {
+		if (SSS_setting_specialItemsLimitSide) then {
+			_hasItem || _entity in (player getVariable ["SSS_assignedEntities",[]]) && {_side == side player}
+		} else {
+			_hasItem || _entity in (player getVariable ["SSS_assignedEntities",[]])
+		};
+	};
+};
+
+if (!_canSee) exitWith {};
 
 private _interruptedTask = _entity getVariable ["SSS_interruptedTask",""];
 if (_interruptedTask != "" && {alive (_entity getVariable ["SSS_vehicle",objNull])}) then {
