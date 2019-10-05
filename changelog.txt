@@ -1,5 +1,6 @@
 v0.2.5.1 - Hotfix
 - Fixed: Engines were always turning off on land or move requests even though the option wasn't selected.
+- Fixed: 'Show variables' were lower priority than special item check
 
 v0.2.5
 - Added: List attribute to 'assign requesters' editor module. Use this to counteract JIP issues.
