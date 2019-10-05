@@ -84,6 +84,15 @@ ADDON = false;
 	false
 ] call CBA_fnc_addSetting;
 
+["SSS_setting_specialItemsLimitSide","CHECKBOX",
+	["Special items - Limit side for 'OR' logic","Enable to filter all supports to player side"],
+	["Simplex Support Services","Special Items"],
+	true,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
 ["SSS_setting_adminFullAccess","CHECKBOX",
 	["Give admins access to all supports","Admins will be able to use every support available, even if services aren't shown/enabled"],
 	["Simplex Support Services","Admin"],

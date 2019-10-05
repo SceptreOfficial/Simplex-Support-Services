@@ -3,16 +3,7 @@
 params ["_target","_player"];
 
 private _actions = [];
-private _assignedTransport = if (ADMIN_ACCESS_CONDITION) then {
-	if (SSS_setting_adminLimitSide) then {
-		private _side = side _target;
-		SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == "transport" && {_x getVariable "SSS_side" == _side}}}
-	} else {
-		SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == "transport"}}
-	};
-} else {
-	(_target getVariable ["SSS_assignedEntities",[]]) select {!isNull _x && {(_x getVariable "SSS_service") == "transport"}}
-};
+private _assignedTransport = GET_SERVICE_ENTITIES("transport");
 
 {
 	private _action = switch (_x getVariable "SSS_supportType") do {

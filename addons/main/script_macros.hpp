@@ -222,26 +222,47 @@
 #define PROPER_COOLDOWN(ENTITY) PROPER_TIME(ENTITY getVariable "SSS_cooldown")
 
 #define PLANE_TAKEOFF(VEH) \
-private _worldCfg = configfile >> "CfgWorlds" >> worldName; \
-private _airportData = [[getArray (_worldCfg >> "ilsPosition"),getArray (_worldCfg >> "ilsTaxiIn"),getArray (_worldCfg >> "ilsDirection")]]; \
-private _secondaryData = "true" configClasses (_worldCfg >> "SecondaryAirports"); \
- \
-if !(_secondaryData isEqualTo []) then { \
-	_airportData append (_secondaryData apply { \
-		private _cfg = _worldCfg >> "SecondaryAirports" >> configName _x; \
-		[getArray (_cfg >> "ilsPosition"),getArray (_cfg >> "ilsTaxiIn"),getArray (_cfg >> "ilsDirection")] \
-	}); \
-}; \
- \
-_airportData = _airportData apply {[(_x select 0) distance2D _vehicle,_x]}; \
-_airportData sort true; \
-(_airportData select 0 select 1) params ["_position","_ilsTaxiIn","_ilsDirection"]; \
- \
-if !(_ilsTaxiIn isEqualTo []) then { \
-	_position = [_ilsTaxiIn select (count _ilsTaxiIn - 2),_ilsTaxiIn select (count _ilsTaxiIn - 1)]; \
-}; \
- \
-_vehicle setDir (((_ilsDirection select 0) atan2 (_ilsDirection select 2)) - 180); \
-_vehicle setPos _position; \
-_vehicle setFuel 1; \
-_vehicle engineOn true
+	private _worldCfg = configfile >> "CfgWorlds" >> worldName; \
+	private _airportData = [[getArray (_worldCfg >> "ilsPosition"),getArray (_worldCfg >> "ilsTaxiIn"),getArray (_worldCfg >> "ilsDirection")]]; \
+	private _secondaryData = "true" configClasses (_worldCfg >> "SecondaryAirports"); \
+	 \
+	if !(_secondaryData isEqualTo []) then { \
+		_airportData append (_secondaryData apply { \
+			private _cfg = _worldCfg >> "SecondaryAirports" >> configName _x; \
+			[getArray (_cfg >> "ilsPosition"),getArray (_cfg >> "ilsTaxiIn"),getArray (_cfg >> "ilsDirection")] \
+		}); \
+	}; \
+	 \
+	_airportData = _airportData apply {[(_x select 0) distance2D _vehicle,_x]}; \
+	_airportData sort true; \
+	(_airportData select 0 select 1) params ["_position","_ilsTaxiIn","_ilsDirection"]; \
+	 \
+	if !(_ilsTaxiIn isEqualTo []) then { \
+		_position = [_ilsTaxiIn select (count _ilsTaxiIn - 2),_ilsTaxiIn select (count _ilsTaxiIn - 1)]; \
+	}; \
+	 \
+	_vehicle setDir (((_ilsDirection select 0) atan2 (_ilsDirection select 2)) - 180); \
+	_vehicle setPos _position; \
+	_vehicle setFuel 1; \
+	_vehicle engineOn true
+
+#define GET_SERVICE_ENTITIES(SERVICE) if (ADMIN_ACCESS_CONDITION) then { \
+	if (SSS_setting_adminLimitSide) then { \
+			private _side = side _target; \
+			SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == SERVICE && {_x getVariable "SSS_side" == _side}}} \
+		} else { \
+			SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == SERVICE}} \
+		}; \
+	} else { \
+		if (!SSS_setting_specialItemsLogic && ([SSS_setting_specialItems] call CBA_fnc_removeWhitespace) != "") then { \
+			if (SSS_setting_specialItemsLimitSide) then { \
+				private _side = side _target; \
+				SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == SERVICE && {_x getVariable "SSS_side" == _side}}} \
+			} else { \
+				SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == SERVICE}} \
+			}; \
+		} else { \
+			(_target getVariable ["SSS_assignedEntities",[]]) select {!isNull _x && {(_x getVariable "SSS_service") == SERVICE}} \
+		}; \
+	}
+
