@@ -1,3 +1,6 @@
+v0.2.5.1 - Hotfix
+- Fixed: Engines were always turning off on land or move requests even though the option wasn't selected.
+
 v0.2.5
 - Added: List attribute to 'assign requesters' editor module. Use this to counteract JIP issues.
 - Added: Addon options to set special items that permit access to supports
