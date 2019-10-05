@@ -1,5 +1,6 @@
 v0.2.5
 - Added: List attribute to 'assign requesters' editor module. Use this to counteract JIP issues.
+- Added: Addon options to set special items that permit access to supports
 - Added: Initial compatibility for VTOL transports.
 - Added: Initial compatibility for Plane transports.
 - Added: Paradrop feature for VTOL and plane transports
