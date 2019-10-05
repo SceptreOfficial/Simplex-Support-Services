@@ -110,7 +110,11 @@ if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") then {
 	(gunner _vehicle) setAmmo [currentWeapon _vehicle,20];
 
 	if (_dispersion isEqualTo 0) then {
-		_vehicle doArtilleryFire [_position,_magType,_rounds];
+		[{
+			params ["_vehicle","_position","_magType","_rounds"];
+
+			_vehicle doArtilleryFire [_position,_magType,_rounds];
+		},[_vehicle,_position,_magType,_rounds]] call CBA_fnc_execNextFrame;
 	} else {
 		[_vehicle,"Fired",{
 			params ["_vehicle","_weapon","_muzzle","_mode","_ammo","_magazine","_projectile","_gunner"];
@@ -118,22 +122,27 @@ if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") then {
 
 			if (_magazine != _magType) exitWith {};
 
-			private _roundsLeft = _vehicle getVariable "SSS_roundsLeft";
-
-			if (_roundsLeft > 0) then {
-				_vehicle doArtilleryFire [_position getPos [_dispersion * sqrt random 1,random 360],_magType,1];
-				_roundsLeft = _roundsLeft - 1;
-				_vehicle setVariable ["SSS_roundsLeft",_roundsLeft];
-			};
+			private _roundsLeft = (_vehicle getVariable "SSS_roundsLeft") - 1;
+			_vehicle setVariable ["SSS_roundsLeft",_roundsLeft];
 
 			if (_roundsLeft <= 0) then {
 				_vehicle removeEventHandler [_thisType,_thisID];
 				_vehicle setVariable ["SSS_doneFiring",true];
 			};
 		},[_position,_magType,_dispersion]] call CBA_fnc_addBISEventHandler;
+		
+		_vehicle setVariable ["SSS_roundsLeft",_rounds];
 
-		_vehicle doArtilleryFire [_position getPos [_dispersion * sqrt random 1,random 360],_magType,1];
-		_vehicle setVariable ["SSS_roundsLeft",_rounds - 1];
+		[{
+			params ["_vehicle","_position","_magType","_dispersion"];
+
+			if (unitReady _vehicle && isNil {_vehicle getVariable "SSS_doneFiring"}) then {
+				_vehicle doArtilleryFire [_position getPos [_dispersion * sqrt random 1,random 360],_magType,1];
+				systemChat str CBA_missionTime;
+			};
+
+			(_vehicle getVariable "SSS_roundsLeft") <= 0 || {!alive _vehicle || !alive gunner _vehicle}
+		},{},[_vehicle,_position,_magType,_dispersion]] call CBA_fnc_waitUntilAndExecute;
 	};
 };
 
