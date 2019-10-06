@@ -2,16 +2,26 @@
 ADDON = false;
 #include "XEH_PREP.hpp"
 
-// Addon Options
-["SSS_setting_useChatNotifications","CHECKBOX",
-	["Use chat notifications","Disables custom notification system"],
-	["Simplex Support Services","Personal"],
+// Admin
+["SSS_setting_adminFullAccess","CHECKBOX",
+	["Give admins access to all supports","Admins will be able to use every support available, even if services aren't shown/enabled"],
+	["Simplex Support Services","Admin"],
 	false, // _valueInfo
 	false, // _isGlobal
 	{}, //_script
 	false // _needRestart
 ] call CBA_fnc_addSetting;
 
+["SSS_setting_adminLimitSide","CHECKBOX",
+	["Limit admin access to side","Limit the admin access to the current side of the admin"],
+	["Simplex Support Services","Admin"],
+	false,
+	false,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+// Core
 ["SSS_setting_GiveUAVTerminal","CHECKBOX",
 	["Give UAV Terminal on drone request","Gives CAS Drone requesters a UAV terminal if they don't have one"],
 	["Simplex Support Services","Core"],
@@ -66,6 +76,45 @@ ADDON = false;
 	false
 ] call CBA_fnc_addSetting;
 
+// Milsim mode
+["SSS_setting_milsimModeArtillery","CHECKBOX",
+	["Enable milsim mode - Artillery","Require map grid coordinates on requests"],
+	["Simplex Support Services","Milsim Mode"],
+	false,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+["SSS_setting_milsimModeCAS","CHECKBOX",
+	["Enable milsim mode - CAS","Require map grid coordinates on requests"],
+	["Simplex Support Services","Milsim Mode"],
+	false,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+["SSS_setting_milsimModeTransport","CHECKBOX",
+	["Enable milsim mode - Transport","Require map grid coordinates on requests"],
+	["Simplex Support Services","Milsim Mode"],
+	false,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+// Personal
+["SSS_setting_useChatNotifications","CHECKBOX",
+	["Use chat notifications","Disables custom notification system"],
+	["Simplex Support Services","Personal"],
+	false,
+	false,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+// Special Items
 ["SSS_setting_specialItems","EDITBOX",
 	["Special items - classnames","Items used to permit access to supports. Leave empty to ignore. Separate with commas (eg. itemRadio,itemMap)"],
 	["Simplex Support Services","Special Items"],
@@ -89,24 +138,6 @@ ADDON = false;
 	["Simplex Support Services","Special Items"],
 	true,
 	true,
-	{},
-	false
-] call CBA_fnc_addSetting;
-
-["SSS_setting_adminFullAccess","CHECKBOX",
-	["Give admins access to all supports","Admins will be able to use every support available, even if services aren't shown/enabled"],
-	["Simplex Support Services","Admin"],
-	false,
-	false,
-	{},
-	false
-] call CBA_fnc_addSetting;
-
-["SSS_setting_adminLimitSide","CHECKBOX",
-	["Limit admin access to side","Limit the admin access to the current side of the admin"],
-	["Simplex Support Services","Admin"],
-	false,
-	false,
 	{},
 	false
 ] call CBA_fnc_addSetting;

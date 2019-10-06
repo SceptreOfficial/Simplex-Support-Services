@@ -1,7 +1,8 @@
 #include "script_component.hpp"
 
-params ["_units","_position","_alt","_shift","_target","_player","_args"];
-_args params ["_entity","_request"];
+params ["_target","_entity","_request","_position"];
+
+if (isNull _entity) exitWith {};
 
 switch (_entity getVariable "SSS_supportType") do {
 	case "artillery" : {
@@ -42,7 +43,7 @@ switch (_entity getVariable "SSS_supportType") do {
 				false
 			};
 		};
-
+		
 		["Fire Mission Parameters - " + mapGridPosition _position,[
 			["SLIDER","Rounds",[[1,_entity getVariable "SSS_maxRounds",0],1]],
 			["SLIDER","Random Dispersion Radius",[[0,250,0],0]],
