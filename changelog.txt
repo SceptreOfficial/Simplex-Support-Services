@@ -1,3 +1,8 @@
+v0.2.5.6
+- Added: 'Milsim modes' to force using grid coordinates instead of clicking on the map
+- Fixed: VTOL engines should stay running after normal landing
+- Fixed: Removed extra systemChat logging in artillery request function
+
 v0.2.5.3 - Hotfix
 - Added: Option to limit supports to side for special item 'OR' logic
 - Fixed: Engines were always turning off on land or move requests even though the option wasn't selected.
