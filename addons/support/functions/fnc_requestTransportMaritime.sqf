@@ -84,10 +84,13 @@ switch (_request) do {
 
 				END_ORDER(_entity,"Destination reached. Ready for further tasking.");
 
-				private _requestName = if (!_engineOn) then {
+				private _requestName = if (_engineOn) then {
+					[{_this engineOn true},_vehicle,1] call CBA_fnc_waitAndExecute;
+					"MOVE"
+				} else {
 					_vehicle engineOn false;
 					"MOVE_ENG_OFF"
-				} else {"MOVE"};
+				};
 				
 				["SSS_requestCompleted",[_entity,[_requestName]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle,_engineOn]] call CBA_fnc_waitUntilAndExecute;

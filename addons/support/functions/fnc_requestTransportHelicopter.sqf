@@ -183,10 +183,13 @@ switch (_request) do {
 
 					END_ORDER(_entity,"Landed at location. Ready for further tasking.");
 
-					private _requestName = if (!_engineOn) then {
+					private _requestName = if (_engineOn) then {
+						[{_this engineOn true},_vehicle,1] call CBA_fnc_waitAndExecute;
+						"LAND"
+					} else {
 						_vehicle engineOn false;
 						"LAND_ENG_OFF"
-					} else {"LAND"};
+					};
 
 					if (_deletePad) then {
 						[{deleteVehicle _this},_pad,5] call CBA_fnc_waitAndExecute;
