@@ -5,7 +5,7 @@ _args params ["_entity","_request"];
 
 if (missionNamespace getVariable format ["SSS_setting_milsimMode%1",_entity getVariable "SSS_service"]) then {
 	["Map grid position",[
-		["EDITBOX","Grid",""]
+		["EDITBOX",["Grid","Supports up to a 10 digit grid reference"],""]
 	],{
 		params ["_values","_args"];
 		_values params ["_grid"];
