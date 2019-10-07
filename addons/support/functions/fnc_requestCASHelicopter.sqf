@@ -92,13 +92,12 @@ switch (_request) do {
 			_group allowFleeing 0;
 
 			// Reveal area
-			{_group reveal _x} forEach (_position nearEntities 300);
+			{_group reveal _x} forEach (_position nearEntities 500);
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
-			[_vehicle,_position,0,"SAD","COMBAT","RED","FULL","",WP_DONE] call EFUNC(common,addWaypoint);
+			[_vehicle,_position,0,"SAD","COMBAT","RED","","",WP_DONE] call EFUNC(common,addWaypoint);
 
-			// Reveal area when vehicle reaches the area
 			[{
 				params ["_entity","_vehicle","_position"];
 				isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle || _vehicle distance2D _position < 500}}
@@ -107,8 +106,11 @@ switch (_request) do {
 
 				if (CANCEL_CONDITION) exitWith {};
 
+				// Reveal area again
 				private _group = group _vehicle;
-				{_group reveal _x} forEach (_position nearEntities 300);
+				{_group reveal _x} forEach (_position nearEntities 500);
+
+				_vehicle flyInHeight (_entity getVariable "SSS_flyingHeight");
 			},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
 
 			[{WAIT_UNTIL_WPDONE},{
@@ -141,6 +143,10 @@ switch (_request) do {
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
 			[_vehicle,_position,0,"MOVE","CARELESS","YELLOW","NORMAL","",WP_DONE] call EFUNC(common,addWaypoint);
 
+			// Reveal area
+			private _group = group _vehicle;
+			{_group reveal _x} forEach (_position nearEntities 500);
+
 			[{WAIT_UNTIL_WPDONE},{
 				params ["_entity","_vehicle"];
 
@@ -170,6 +176,10 @@ switch (_request) do {
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
 			[_vehicle,_position getPos [_prepDist,_position getDir _vehicle],0,"MOVE","CARELESS","YELLOW","NORMAL","",WP_DONE] call EFUNC(common,addWaypoint);
+
+			// Reveal area
+			private _group = group _vehicle;
+			{_group reveal _x} forEach (_position nearEntities 500);
 
 			[{WAIT_UNTIL_WPDONE},{
 				params ["_entity","_vehicle","_position","_loiterRadius","_loiterDirection"];
