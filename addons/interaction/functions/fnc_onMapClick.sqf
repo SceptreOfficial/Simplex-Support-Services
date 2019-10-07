@@ -304,7 +304,7 @@ switch (_entity getVariable "SSS_supportType") do {
 			case 5 : {
 				["Paradrop parameters",[
 					["SLIDER",["Jump delay","Seconds between each unit jumping out"],[[0,5,1],1]],
-					["SLIDER","A.I. opening height",[[100,2000,0],200]]
+					["SLIDER","AI opening height",[[100,2000,0],200]]
 				],{
 					params ["_values","_args"];
 					_args params ["_entity","_request","_position"];
