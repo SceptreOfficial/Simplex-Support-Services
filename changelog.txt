@@ -1,3 +1,11 @@
+v0.2.5.9
+- Added: 'Milsim mode' settings to force using grid coordinates instead of clicking on the map (supports up to 10 digits)
+- Changed: CAS helicopters now have targets revealed near the request position to encourage engagment
+- Changed: Increased VTOL flying height parameters
+- Changed: Modified artillery function in an attempt to make it more reliable (native 'doArtilleryFire' command still isn't 100% reliable though)
+- Fixed: VTOL engines would always shut off after landing
+- Fixed: Removed extra systemChat logging in artillery request function
+
 v0.2.5.3 - Hotfix
 - Added: Option to limit supports to side for special item 'OR' logic
 - Fixed: Engines were always turning off on land or move requests even though the option wasn't selected.

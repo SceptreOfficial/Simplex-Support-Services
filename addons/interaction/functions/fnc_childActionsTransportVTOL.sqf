@@ -47,7 +47,7 @@ params ["_target","_player","_entity"];
 		private _entity = _this # 2;
 
 		["Change Behavior",[
-			["SLIDER","Flying height",[[40,1000,0],_entity getVariable "SSS_flyingHeight"]],
+			["SLIDER","Flying height",[[50,2000,0],_entity getVariable "SSS_flyingHeight"]],
 			["COMBOBOX","Speed Mode",[["LIMITED","NORMAL","FULL"],_entity getVariable "SSS_speedMode"]],
 			["COMBOBOX","Combat Mode",[["Fire At will","Hold Fire"],_entity getVariable "SSS_combatMode"]],
 			["CHECKBOX","Headlight",_entity getVariable "SSS_lightsOn"],

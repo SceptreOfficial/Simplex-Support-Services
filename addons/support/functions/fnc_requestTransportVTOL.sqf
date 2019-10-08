@@ -183,10 +183,23 @@ switch (_request) do {
 
 					END_ORDER(_entity,"Landed at location. Ready for further tasking.");
 
-					private _requestName = if (!_engineOn) then {
+					private _requestName = if (_engineOn) then {
+						group _vehicle setBehaviour "AWARE"; // VTOLs ignore engineOn command otherwise
+
+						[{
+							params ["_entity","_vehicle"];
+							isNull _entity || {_entity getVariable "SSS_onTask" || {!alive _vehicle || !alive driver _vehicle}}
+						},{
+							params ["_entity","_vehicle"];
+							group _vehicle setBehaviour "CARELESS";
+						},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
+
+						[{_this engineOn true},_vehicle,1] call CBA_fnc_waitAndExecute;
+						"LAND"
+					} else {
 						_vehicle engineOn false;
 						"LAND_ENG_OFF"
-					} else {"LAND"};
+					};
 
 					if (_deletePad) then {
 						[{deleteVehicle _this},_pad,5] call CBA_fnc_waitAndExecute;

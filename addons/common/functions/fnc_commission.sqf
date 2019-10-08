@@ -37,14 +37,12 @@ private _group = group _vehicle;
 
 switch (_entity getVariable "SSS_supportType") do {
 	case "artillery" : {
-		{
-			_x disableAI "MOVE";
-			_x disableAI "AUTOCOMBAT";
-		} forEach PRIMARY_CREW(_vehicle);
+		{_x disableAI "PATH"} forEach PRIMARY_CREW(_vehicle);
 		_vehicle lockTurret [[0],true];
 		_vehicle lockCargo true;
 
 		_group enableAttack true;
+		_group setBehaviour "COMBAT";
 	};
 
 	case "CASHelicopter" : {

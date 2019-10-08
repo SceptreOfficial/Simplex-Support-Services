@@ -14,6 +14,9 @@ private _returnValues = (uiNamespace getVariable QGVAR(controls)) apply {
 	};
 };
 
-[_returnValues,uiNamespace getVariable QGVAR(customArguments)] call (uiNamespace getVariable QGVAR(onOK));
-
 closeDialog 0;
+
+[{isNull (findDisplay DISPLAY_IDD)},{
+	params ["_returnValues","_customArguments","_code"];
+	[_returnValues,_customArguments] call _code;
+},[_returnValues,uiNamespace getVariable QGVAR(customArguments),uiNamespace getVariable QGVAR(onOK)]] call CBA_fnc_waitUntilAndExecute;
