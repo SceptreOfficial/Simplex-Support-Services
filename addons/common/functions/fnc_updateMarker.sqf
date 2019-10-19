@@ -23,5 +23,5 @@ if (_activateMarker) then {
 		};
 	}] remoteExecCall ["call",0];
 } else {
-	[_marker,0] remoteExecCall ["setMarkerAlphaLocal",0];
+	_marker setMarkerAlpha 0;
 };
