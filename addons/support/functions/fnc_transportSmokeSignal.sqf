@@ -31,7 +31,7 @@ private _signalType = if (sunOrMoon isEqualTo 1) then {
 	_args params ["_entity","_vehicle","_position","_signalType"];
 
 	if (CANCEL_CONDITION) exitWith {
-		CANCEL_ORDER(_entity,"Pickup");
+		CANCEL_ORDER(_entity);
 		[_PFHID] call CBA_fnc_removePerFrameHandler;
 	};
 
@@ -62,7 +62,7 @@ private _signalType = if (sunOrMoon isEqualTo 1) then {
 		params ["_entity","_vehicle","_position","_signalPos","_signal"];
 
 		if (CANCEL_CONDITION) exitWith {
-			CANCEL_ORDER(_entity,"Pickup");
+			CANCEL_ORDER(_entity);
 			_entity setVariable ["SSS_needConfirmation",false,true];
 			_entity setVariable ["SSS_deniedSignals",[],true];
 		};
@@ -91,7 +91,7 @@ private _signalType = if (sunOrMoon isEqualTo 1) then {
 			params ["_entity","_vehicle","_pad"];
 
 			if (CANCEL_CONDITION) exitWith {
-				CANCEL_ORDER(_entity,"Pickup");
+				CANCEL_ORDER(_entity);
 				deleteVehicle _pad;
 			};
 
@@ -104,7 +104,7 @@ private _signalType = if (sunOrMoon isEqualTo 1) then {
 				params ["_entity","_vehicle","_pad"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Pickup");
+					CANCEL_ORDER(_entity);
 					_vehicle doFollow _vehicle;
 					_vehicle land "NONE";
 					deleteVehicle _pad;

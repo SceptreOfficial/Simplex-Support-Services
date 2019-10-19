@@ -43,7 +43,7 @@ switch (_request) do {
 				params ["_entity","_vehicle"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"RTB");
+					CANCEL_ORDER(_entity);
 				};
 
 				// Begin landing
@@ -54,7 +54,7 @@ switch (_request) do {
 					params ["_entity","_vehicle"];
 
 					if (CANCEL_CONDITION) exitWith {
-						CANCEL_ORDER(_entity,"RTB");
+						CANCEL_ORDER(_entity);
 						_vehicle doFollow _vehicle;
 					};
 
@@ -96,7 +96,7 @@ switch (_request) do {
 				params ["_entity","_vehicle"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Move");
+					CANCEL_ORDER(_entity);
 				};
 
 				END_ORDER(_entity,"Destination reached. Ready for further tasking.");
@@ -129,7 +129,7 @@ switch (_request) do {
 				params ["_entity","_vehicle","_jumpDelay","_AIOpeningHeight"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Paradrop");
+					CANCEL_ORDER(_entity);
 				};
 
 				_vehicle doMove (_vehicle getRelPos [5000,0]);
@@ -166,7 +166,7 @@ switch (_request) do {
 				params ["_entity","_vehicle","_position","_loiterRadius","_loiterDirection"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Loiter");
+					CANCEL_ORDER(_entity);
 				};
 
 				// Loiter

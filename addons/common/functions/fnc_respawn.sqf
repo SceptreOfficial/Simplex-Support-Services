@@ -43,8 +43,6 @@ NOTIFY(_entity,_message);
 	params ["_entity"];
 
 	if (isNull _entity) exitWith {};
-
-	_entity setVariable ["SSS_interruptedTask",nil,true];
 	
 	private _classname = _entity getVariable "SSS_classname";
 	private _base = _entity getVariable "SSS_base";

@@ -46,7 +46,7 @@ switch (_request) do {
 				params ["_entity","_vehicle","_pad"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"RTB");
+					CANCEL_ORDER(_entity);
 					deleteVehicle _pad;
 				};
 
@@ -59,7 +59,7 @@ switch (_request) do {
 					params ["_entity","_vehicle","_pad"];
 
 					if (CANCEL_CONDITION) exitWith {
-						CANCEL_ORDER(_entity,"RTB");
+						CANCEL_ORDER(_entity);
 						_vehicle doFollow _vehicle;
 						_vehicle land "NONE";
 						deleteVehicle _pad;
@@ -97,7 +97,7 @@ switch (_request) do {
 				params ["_entity","_vehicle","_position"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Pickup");
+					CANCEL_ORDER(_entity);
 				};
 
 				// Loiter until smoke found
@@ -158,7 +158,7 @@ switch (_request) do {
 				params ["_entity","_vehicle","_pad","_deletePad","_engineOn"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Landing");
+					CANCEL_ORDER(_entity);
 					if (_deletePad) then {
 						deleteVehicle _pad;
 					};
@@ -173,7 +173,7 @@ switch (_request) do {
 					params ["_entity","_vehicle","_pad","_deletePad","_engineOn"];
 
 					if (CANCEL_CONDITION) exitWith {
-						CANCEL_ORDER(_entity,"Landing");
+						CANCEL_ORDER(_entity);
 						_vehicle doFollow _vehicle;
 						_vehicle land "NONE";
 						if (_deletePad) then {
@@ -218,7 +218,7 @@ switch (_request) do {
 				params ["_entity","_vehicle"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Move");
+					CANCEL_ORDER(_entity);
 				};
 
 				END_ORDER(_entity,"Destination reached. Ready for further tasking.");
@@ -258,8 +258,7 @@ switch (_request) do {
 				params ["_entity","_vehicle","_position","_hoverHeight","_doFastrope"];
 
 				if (CANCEL_CONDITION) exitWith {
-					private _task = ["Hover","Fastope"] select _doFastrope;
-					CANCEL_ORDER(_entity,_task);
+					CANCEL_ORDER(_entity);
 				};
 
 				// Begin precision hover
@@ -273,7 +272,7 @@ switch (_request) do {
 
 					if (CANCEL_CONDITION) exitWith {
 						private _task = ["Hover","Fastope"] select _doFastrope;
-						CANCEL_ORDER(_entity,_task);
+						CANCEL_ORDER(_entity);
 						_vehicle setVariable ["SSS_hoverDone",true,true];
 					};
 
@@ -306,7 +305,7 @@ switch (_request) do {
 				params ["_entity","_vehicle","_position","_loiterRadius","_loiterDirection"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Loiter");
+					CANCEL_ORDER(_entity);
 				};
 
 				// Loiter

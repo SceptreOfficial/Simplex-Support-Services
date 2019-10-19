@@ -183,10 +183,9 @@
 
 #define WP_DONE ["true","(vehicle this) setVariable ['SSS_WPDone',true,true];"]
 
-#define CANCEL_ORDER(ENTITY,TASK) \
+#define CANCEL_ORDER(ENTITY) \
 	ENTITY setVariable ["SSS_interrupt",false]; \
 	ENTITY setVariable ["SSS_onTask",false,true]; \
-	ENTITY setVariable ["SSS_interruptedTask",TASK,true]; \
 	[ENTITY,false] call EFUNC(common,updateMarker)
 
 #define INTERRUPT(ENTITY,VEH) \
@@ -197,7 +196,7 @@
 			!(_entity getVariable "SSS_onTask") || !local _vehicle || !alive _vehicle \
 		},{},[ENTITY,VEH],8,{ \
 			params ["_entity","_vehicle"]; \
-			CANCEL_ORDER(_entity,""); \
+			CANCEL_ORDER(_entity); \
 			_vehicle doFollow _vehicle; \
 			_vehicle land "NONE"; \
 		}] call CBA_fnc_waitUntilAndExecute; \

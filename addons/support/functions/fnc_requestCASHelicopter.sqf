@@ -46,7 +46,7 @@ switch (_request) do {
 				params ["_entity","_vehicle","_pad"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"RTB");
+					CANCEL_ORDER(_entity);
 					deleteVehicle _pad;
 				};
 
@@ -59,7 +59,7 @@ switch (_request) do {
 					params ["_entity","_vehicle","_pad"];
 
 					if (CANCEL_CONDITION) exitWith {
-						CANCEL_ORDER(_entity,"RTB");
+						CANCEL_ORDER(_entity);
 						_vehicle doFollow _vehicle;
 						_vehicle land "NONE";
 						deleteVehicle _pad;
@@ -117,7 +117,7 @@ switch (_request) do {
 				params ["_entity","_vehicle"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"SAD");
+					CANCEL_ORDER(_entity);
 				};
 
 				END_ORDER(_entity,"Search and Destroy Complete.");
@@ -151,7 +151,7 @@ switch (_request) do {
 				params ["_entity","_vehicle"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Move");
+					CANCEL_ORDER(_entity);
 				};
 
 				END_ORDER(_entity,"Destination reached. Ready for further tasking.");
@@ -185,7 +185,7 @@ switch (_request) do {
 				params ["_entity","_vehicle","_position","_loiterRadius","_loiterDirection"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Loiter");
+					CANCEL_ORDER(_entity);
 				};
 
 				// Loiter

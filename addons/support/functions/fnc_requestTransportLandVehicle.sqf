@@ -43,7 +43,7 @@ switch (_request) do {
 				params ["_entity","_vehicle"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"RTB");
+					CANCEL_ORDER(_entity);
 				};
 
 				END_ORDER(_entity,"Arrived at base. Ready for further tasking.");
@@ -79,7 +79,7 @@ switch (_request) do {
 				params ["_entity","_vehicle"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Move");
+					CANCEL_ORDER(_entity);
 				};
 
 				END_ORDER(_entity,"Destination reached. Ready for further tasking.");
