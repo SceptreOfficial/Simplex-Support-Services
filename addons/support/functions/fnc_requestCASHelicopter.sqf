@@ -123,7 +123,7 @@ switch (_request) do {
 				END_ORDER(_entity,"Search and Destroy Complete.");
 
 				// RTB
-				[_entity,0] call FUNC(requestCASHelicopter);
+				[_entity,"RTB"] call FUNC(requestCASHelicopter);
 
 				["SSS_requestCompleted",[_entity,["SAD"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
