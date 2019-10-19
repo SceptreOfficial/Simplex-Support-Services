@@ -116,6 +116,10 @@
 
 		deleteVehicle _logic;
 	} else {
+		if (local _logic) then {
+			_logic setPos [0,0,0];
+		};
+
 		private _fnc = {
 			params ["_logic"];
 
