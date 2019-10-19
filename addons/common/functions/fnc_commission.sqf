@@ -152,8 +152,6 @@ switch (_entity getVariable "SSS_supportType") do {
 	};
 };
 
-if ((_entity getVariable "SSS_service") == "Transport") then {
-	private _ID = ["SSS_commissioned",_vehicle] call CBA_fnc_globalEventJIP;
-	[_ID,_vehicle] call CBA_fnc_removeGlobalEventJIP;
-	_vehicle setVariable ["SSS_commissionedEventID",_ID,true];
-};
+private _ID = ["SSS_commissioned",_vehicle] call CBA_fnc_globalEventJIP;
+[_ID,_vehicle] call CBA_fnc_removeGlobalEventJIP;
+_vehicle setVariable ["SSS_commissionedEventID",_ID,true];
