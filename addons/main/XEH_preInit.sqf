@@ -145,7 +145,24 @@ ADDON = false;
 // Master array
 SSS_entities = [];
 
-// Zeus EH
+// Transport action
+["SSS_commissioned",{
+	params ["_vehicle"];
+
+	private _entity = _vehicle getVariable ["SSS_parentEntity",objNull];
+
+	if (!alive _vehicle || isNull _entity || {(_entity getVariable "SSS_service") != "Transport"}) exitWith {};
+
+	private _action = ["SSS_transport","Transport",ICON_TRANSPORT,{},
+		EFUNC(interaction,transportVehicleActionCondition),
+		EFUNC(interaction,transportVehicleActionChildren)
+	] call ace_interact_menu_fnc_createAction;
+
+	[_vehicle,0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToObject;
+	[_vehicle,1,["ACE_SelfActions"],_action] call ace_interact_menu_fnc_addActionToObject;
+}] call CBA_fnc_addEventHandler;
+
+// Zeus handling
 ["ModuleCurator_F","init",{
 	params ["_zeus"];
 

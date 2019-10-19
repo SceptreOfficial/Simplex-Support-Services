@@ -25,5 +25,4 @@ private _group = group _vehicle;
 _group setCombatMode "YELLOW";
 _group enableAttack true;
 
-[_vehicle,1,["ACE_SelfActions","SSS_transport"]] remoteExecCall ["ace_interact_menu_fnc_removeActionFromObject",0];
-[_vehicle,0,["ACE_MainActions","SSS_transport"]] remoteExecCall ["ace_interact_menu_fnc_removeActionFromObject",0];
+[_vehicle getVariable "SSS_commissionedEventID"] call CBA_fnc_removeGlobalEventJIP;

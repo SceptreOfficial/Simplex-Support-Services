@@ -1,16 +1,20 @@
 #include "script_component.hpp"
-#define VEHICLE_ACTION_CONDITION \
-	params ["_target","_player","_entity"]; \
-	if (!alive _target || !alive driver _target || isNull _entity) exitWith {false}; \
-	if (ADMIN_ACCESS_CONDITION) then { \
-		if (SSS_setting_adminLimitSide) then { \
-			side _target == side _player \
+#define CHANGE_COMBAT_MODE \
+		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then { \
+			_group setCombatMode "YELLOW"; \
+			_group enableAttack true; \
+			{ \
+				_x enableAI "TARGET"; \
+				_x enableAI "AUTOTARGET"; \
+			} forEach PRIMARY_CREW(_vehicle); \
 		} else { \
-			true \
-		}; \
-	} else { \
-		_entity in (_player getVariable ["SSS_assignedEntities",[]]) \
-	};
+			_group setCombatMode "BLUE"; \
+			_group enableAttack false; \
+			{ \
+				_x disableAI "TARGET"; \
+				_x disableAI "AUTOTARGET"; \
+			} forEach PRIMARY_CREW(_vehicle); \
+		}
 
 params [["_entity",objNull,[objNull]],["_vehicle",objNull,[objNull]]];
 
@@ -80,28 +84,7 @@ switch (_entity getVariable "SSS_supportType") do {
 		_group setBehaviour "CARELESS";
 		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",1]));
 	
-		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {
-			_group setCombatMode "YELLOW";
-			_group enableAttack true;
-			{
-				_x enableAI "TARGET";
-				_x enableAI "AUTOTARGET";
-			} forEach PRIMARY_CREW(_vehicle);
-		} else {
-			_group setCombatMode "BLUE";
-			_group enableAttack false;
-			{
-				_x disableAI "TARGET";
-				_x disableAI "AUTOTARGET";
-			} forEach PRIMARY_CREW(_vehicle);
-		};
-
-		private _action = ["SSS_transport","Transport",ICON_TRANSPORT,{},{VEHICLE_ACTION_CONDITION},{
-			_this call EFUNC(interaction,childActionsTransportHelicopter)
-		},_entity] call ace_interact_menu_fnc_createAction;
-
-		[_vehicle,1,["ACE_SelfActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
-		[_vehicle,0,["ACE_MainActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
+		CHANGE_COMBAT_MODE;
 
 		// FRIES makes AI pilots a nightmare
 		private _fries = _vehicle getVariable ["ace_fastroping_FRIES",objnull];
@@ -111,37 +94,14 @@ switch (_entity getVariable "SSS_supportType") do {
 	};
 
 	case "transportLandVehicle" : {
-		{
-			_x disableAI "LIGHTS";
-		} forEach PRIMARY_CREW(_vehicle);
+		{_x disableAI "LIGHTS"} forEach PRIMARY_CREW(_vehicle);
 
 		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
 
 		//_group setBehaviour "SAFE";
 		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",2]));
 	
-		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {
-			_group setCombatMode "YELLOW";
-			_group enableAttack true;
-			{
-				_x enableAI "TARGET";
-				_x enableAI "AUTOTARGET";
-			} forEach PRIMARY_CREW(_vehicle);
-		} else {
-			_group setCombatMode "BLUE";
-			_group enableAttack false;
-			{
-				_x disableAI "TARGET";
-				_x disableAI "AUTOTARGET";
-			} forEach PRIMARY_CREW(_vehicle);
-		};
-
-		private _action = ["SSS_transport","Transport",ICON_TRANSPORT,{},{VEHICLE_ACTION_CONDITION},{
-			_this call EFUNC(interaction,childActionsTransportLandVehicle)
-		},_entity] call ace_interact_menu_fnc_createAction;
-
-		[_vehicle,1,["ACE_SelfActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
-		[_vehicle,0,["ACE_MainActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
+		CHANGE_COMBAT_MODE;
 	};
 
 	case "transportMaritime" : {
@@ -156,28 +116,7 @@ switch (_entity getVariable "SSS_supportType") do {
 		_group setBehaviour "CARELESS";
 		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",2]));
 	
-		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {
-			_group setCombatMode "YELLOW";
-			_group enableAttack true;
-			{
-				_x enableAI "TARGET";
-				_x enableAI "AUTOTARGET";
-			} forEach PRIMARY_CREW(_vehicle);
-		} else {
-			_group setCombatMode "BLUE";
-			_group enableAttack false;
-			{
-				_x disableAI "TARGET";
-				_x disableAI "AUTOTARGET";
-			} forEach PRIMARY_CREW(_vehicle);
-		};
-
-		private _action = ["SSS_transport","Transport",ICON_TRANSPORT,{},{VEHICLE_ACTION_CONDITION},{
-			_this call EFUNC(interaction,childActionsTransportMaritime)
-		},_entity] call ace_interact_menu_fnc_createAction;
-
-		[_vehicle,1,["ACE_SelfActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
-		[_vehicle,0,["ACE_MainActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
+		CHANGE_COMBAT_MODE;
 	};
 
 	case "transportPlane" : {
@@ -193,28 +132,7 @@ switch (_entity getVariable "SSS_supportType") do {
 		_group setBehaviour "CARELESS";
 		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",1]));
 	
-		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {
-			_group setCombatMode "YELLOW";
-			_group enableAttack true;
-			{
-				_x enableAI "TARGET";
-				_x enableAI "AUTOTARGET";
-			} forEach PRIMARY_CREW(_vehicle);
-		} else {
-			_group setCombatMode "BLUE";
-			_group enableAttack false;
-			{
-				_x disableAI "TARGET";
-				_x disableAI "AUTOTARGET";
-			} forEach PRIMARY_CREW(_vehicle);
-		};
-
-		private _action = ["SSS_transport","Transport",ICON_TRANSPORT,{},{VEHICLE_ACTION_CONDITION},{
-			_this call EFUNC(interaction,childActionsTransportPlane)
-		},_entity] call ace_interact_menu_fnc_createAction;
-
-		[_vehicle,1,["ACE_SelfActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
-		[_vehicle,0,["ACE_MainActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
+		CHANGE_COMBAT_MODE;
 	};
 
 	case "transportVTOL" : {
@@ -230,27 +148,12 @@ switch (_entity getVariable "SSS_supportType") do {
 		_group setBehaviour "CARELESS";
 		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",1]));
 	
-		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then {
-			_group setCombatMode "YELLOW";
-			_group enableAttack true;
-			{
-				_x enableAI "TARGET";
-				_x enableAI "AUTOTARGET";
-			} forEach PRIMARY_CREW(_vehicle);
-		} else {
-			_group setCombatMode "BLUE";
-			_group enableAttack false;
-			{
-				_x disableAI "TARGET";
-				_x disableAI "AUTOTARGET";
-			} forEach PRIMARY_CREW(_vehicle);
-		};
-
-		private _action = ["SSS_transport","Transport",ICON_TRANSPORT,{},{VEHICLE_ACTION_CONDITION},{
-			_this call EFUNC(interaction,childActionsTransportVTOL)
-		},_entity] call ace_interact_menu_fnc_createAction;
-
-		[_vehicle,1,["ACE_SelfActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
-		[_vehicle,0,["ACE_MainActions"],_action] remoteExecCall ["ace_interact_menu_fnc_addActionToObject",0];
+		CHANGE_COMBAT_MODE;
 	};
+};
+
+if ((_entity getVariable "SSS_service") == "Transport") then {
+	private _ID = ["SSS_commissioned",_vehicle] call CBA_fnc_globalEventJIP;
+	[_ID,_vehicle] call CBA_fnc_removeGlobalEventJIP;
+	_vehicle setVariable ["SSS_commissionedEventID",_ID,true];
 };

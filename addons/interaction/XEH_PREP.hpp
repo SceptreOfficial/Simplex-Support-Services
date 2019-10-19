@@ -11,4 +11,5 @@ PREP(childActionsTransportPlane);
 PREP(childActionsTransportVTOL);
 PREP(onMapClick);
 PREP(selectPosition);
-PREP(serviceActionCondition);
+PREP(transportVehicleActionChildren);
+PREP(transportVehicleActionCondition);
