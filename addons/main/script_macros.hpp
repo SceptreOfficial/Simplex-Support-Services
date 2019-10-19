@@ -181,7 +181,7 @@
 	[ENTITY,false] call EFUNC(common,updateMarker); \
 	NOTIFY(ENTITY,MESSAGE)
 
-#define WP_DONE ["true","(vehicle this) setVariable ['SSS_WPDone',true,true];"]
+#define WP_DONE ["true","(vehicle this) setVariable ['SSS_WPDone',true];"]
 
 #define CANCEL_ORDER(ENTITY) \
 	ENTITY setVariable ["SSS_interrupt",false]; \
