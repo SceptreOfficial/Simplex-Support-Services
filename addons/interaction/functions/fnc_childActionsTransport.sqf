@@ -7,7 +7,7 @@ private _actions = [];
 {
 	private _action = switch (_x getVariable "SSS_supportType") do {
 		case "transportHelicopter" : {
-			["SSS_transport:" + str _x,_x getVariable "SSS_callsign","",{},{SSS_showTransportHelicopters},{},_x,ACTION_DEFAULTS,{
+			["SSS_transport:" + str _forEachIndex,_x getVariable "SSS_callsign","",{},{SSS_showTransportHelicopters},{},_x,ACTION_DEFAULTS,{
 				params ["_target","_player","_entity","_actionData"];
 
 				if (alive (_entity getVariable "SSS_vehicle")) then {
@@ -25,7 +25,7 @@ private _actions = [];
 		};
 
 		case "transportLandVehicle" : {
-			["SSS_transport:" + str _x,_x getVariable "SSS_callsign","",{},{SSS_showTransportLandVehicles},{},_x,ACTION_DEFAULTS,{
+			["SSS_transport:" + str _forEachIndex,_x getVariable "SSS_callsign","",{},{SSS_showTransportLandVehicles},{},_x,ACTION_DEFAULTS,{
 				params ["_target","_player","_entity","_actionData"];
 
 				if (alive (_entity getVariable "SSS_vehicle")) then {
@@ -43,7 +43,7 @@ private _actions = [];
 		};
 
 		case "transportMaritime" : {
-			["SSS_transport:" + str _x,_x getVariable "SSS_callsign","",{},{SSS_showTransportLandVehicles},{},_x,ACTION_DEFAULTS,{
+			["SSS_transport:" + str _forEachIndex,_x getVariable "SSS_callsign","",{},{SSS_showTransportLandVehicles},{},_x,ACTION_DEFAULTS,{
 				params ["_target","_player","_entity","_actionData"];
 
 				if (alive (_entity getVariable "SSS_vehicle")) then {
@@ -61,7 +61,7 @@ private _actions = [];
 		};
 
 		case "transportPlane" : {
-			["SSS_transport:" + str _x,_x getVariable "SSS_callsign","",{},{SSS_showTransportPlanes},{},_x,ACTION_DEFAULTS,{
+			["SSS_transport:" + str _forEachIndex,_x getVariable "SSS_callsign","",{},{SSS_showTransportPlanes},{},_x,ACTION_DEFAULTS,{
 				params ["_target","_player","_entity","_actionData"];
 
 				if (alive (_entity getVariable "SSS_vehicle")) then {
@@ -79,7 +79,7 @@ private _actions = [];
 		};
 
 		case "transportVTOL" : {
-			["SSS_transport:" + str _x,_x getVariable "SSS_callsign","",{},{SSS_showTransportVTOLs},{},_x,ACTION_DEFAULTS,{
+			["SSS_transport:" + str _forEachIndex,_x getVariable "SSS_callsign","",{},{SSS_showTransportVTOLs},{},_x,ACTION_DEFAULTS,{
 				params ["_target","_player","_entity","_actionData"];
 
 				if (alive (_entity getVariable "SSS_vehicle")) then {

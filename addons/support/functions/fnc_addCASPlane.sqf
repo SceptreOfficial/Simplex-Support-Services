@@ -70,7 +70,7 @@ private _cfgMagazines = configFile >> "CfgMagazines";
 _weapons = [_weapons,true,{getText (_cfgMagazines >> _this # 1 >> "displayName")}] call EFUNC(common,sortBy);
 
 // Basic setup
-private _entity = (createGroup sideLogic) createUnit ["Logic",[-69,-69,0],[],0,"CAN_COLLIDE"];
+private _entity = true call CBA_fnc_createNamespace;
 
 BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_PLANE,ICON_PLANE_YELLOW,"",_customInit,"CAS","CASPlane");
 CREATE_TASK_MARKER(_entity,_callsign,"mil_end","CAS");

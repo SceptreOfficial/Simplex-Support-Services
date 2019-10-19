@@ -33,7 +33,7 @@ if (!isServer) exitWith {
 };
 
 // Basic setup
-private _entity = (createGroup sideLogic) createUnit ["Logic",[-69,-69,0],[],0,"CAN_COLLIDE"];
+private _entity = true call CBA_fnc_createNamespace;
 
 BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_DRONE,ICON_DRONE_YELLOW,ICON_DRONE_GREEN,_customInit,"CAS","CASDrone");
 CREATE_TASK_MARKER(_entity,_callsign,"mil_end","CAS");

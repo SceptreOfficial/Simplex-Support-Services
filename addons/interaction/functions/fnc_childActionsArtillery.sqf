@@ -5,7 +5,7 @@ params ["_target","_player"];
 private _actions = [];
 
 {
-	private _action = ["SSS_artillery:" + str _x,_x getVariable "SSS_callsign","",{},{true},{},_x,ACTION_DEFAULTS,{
+	private _action = ["SSS_artillery:" + str _forEachIndex,_x getVariable "SSS_callsign","",{},{true},{},_x,ACTION_DEFAULTS,{
 		params ["_target","_player","_entity","_actionData"];
 
 		if (alive (_entity getVariable "SSS_vehicle")) then {
