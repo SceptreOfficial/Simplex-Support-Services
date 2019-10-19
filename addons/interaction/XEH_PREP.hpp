@@ -1,3 +1,4 @@
+PREP(availableEntities);
 PREP(CASGunshipControl);
 PREP(childActionsArtillery);
 PREP(childActionsCAS);

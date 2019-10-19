@@ -3,7 +3,6 @@
 params ["_target","_player"];
 
 private _actions = [];
-private _assignedArtillery = GET_SERVICE_ENTITIES("artillery");
 
 {
 	private _action = ["SSS_artillery:" + str _x,_x getVariable "SSS_callsign","",{},{true},{},_x,ACTION_DEFAULTS,{
@@ -53,6 +52,6 @@ private _assignedArtillery = GET_SERVICE_ENTITIES("artillery");
 	}] call ace_interact_menu_fnc_createAction;
 
 	_actions pushBack [_action,[],_target];
-} forEach ([_assignedArtillery,true,{_this getVariable "SSS_callsign"}] call EFUNC(common,sortBy));
+} forEach ([[_target,"artillery"] call FUNC(availableEntities),true,{_this getVariable "SSS_callsign"}] call EFUNC(common,sortBy));
 
 _actions

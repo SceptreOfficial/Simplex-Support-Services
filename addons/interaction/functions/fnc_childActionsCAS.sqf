@@ -3,7 +3,6 @@
 params ["_target","_player"];
 
 private _actions = [];
-private _assignedCAS = GET_SERVICE_ENTITIES("CAS");
 
 {
 	private _action = switch (_x getVariable "SSS_supportType") do {
@@ -97,6 +96,6 @@ private _assignedCAS = GET_SERVICE_ENTITIES("CAS");
 	};
 
 	_actions pushBack [_action,[],_target];
-} forEach ([_assignedCAS,true,{_this getVariable "SSS_callsign"}] call EFUNC(common,sortBy));
+} forEach ([[_target,"CAS"] call FUNC(availableEntities),true,{_this getVariable "SSS_callsign"}] call EFUNC(common,sortBy));
 
 _actions

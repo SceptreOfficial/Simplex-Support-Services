@@ -245,23 +245,3 @@
 	_vehicle setFuel 1; \
 	_vehicle engineOn true
 
-#define GET_SERVICE_ENTITIES(SERVICE) if (ADMIN_ACCESS_CONDITION) then { \
-	if (SSS_setting_adminLimitSide) then { \
-			private _side = side _target; \
-			SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == SERVICE && {_x getVariable "SSS_side" == _side}}} \
-		} else { \
-			SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == SERVICE}} \
-		}; \
-	} else { \
-		if (!SSS_setting_specialItemsLogic && ([SSS_setting_specialItems] call CBA_fnc_removeWhitespace) != "") then { \
-			if (SSS_setting_specialItemsLimitSide) then { \
-				private _side = side _target; \
-				SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == SERVICE && {_x getVariable "SSS_side" == _side}}} \
-			} else { \
-				SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == SERVICE}} \
-			}; \
-		} else { \
-			(_target getVariable ["SSS_assignedEntities",[]]) select {!isNull _x && {(_x getVariable "SSS_service") == SERVICE}} \
-		}; \
-	}
-

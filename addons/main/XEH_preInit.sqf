@@ -120,14 +120,14 @@ ADDON = false;
 	["Simplex Support Services","Special Items"],
 	"",
 	true,
-	{},
+	{missionNamespace setVariable["SSS_specialItemsArray",(([_this] call CBA_fnc_removeWhitespace) splitString ",") apply {toLower _x},true]},
 	false
 ] call CBA_fnc_addSetting;
 
 ["SSS_setting_specialItemsLogic","LIST",
 	["Special items - logic","Select what logic to evaluate"],
 	["Simplex Support Services","Special Items"],
-	[[true,false],["Assignment AND items","Assignment OR items"],0],
+	[[true,false],["Assignment AND item","Assignment OR item"],0],
 	true,
 	{},
 	false

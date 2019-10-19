@@ -3,7 +3,6 @@
 params ["_target","_player"];
 
 private _actions = [];
-private _assignedTransport = GET_SERVICE_ENTITIES("transport");
 
 {
 	private _action = switch (_x getVariable "SSS_supportType") do {
@@ -99,6 +98,6 @@ private _assignedTransport = GET_SERVICE_ENTITIES("transport");
 	};
 
 	_actions pushBack [_action,[],_target];
-} forEach ([_assignedTransport,true,{_this getVariable "SSS_callsign"}] call EFUNC(common,sortBy));
+} forEach ([[_target,"transport"] call FUNC(availableEntities),true,{_this getVariable "SSS_callsign"}] call EFUNC(common,sortBy));
 
 _actions
