@@ -2,6 +2,8 @@
 
 params [
 	["_requesters",[],[[]]],
+	["_classname","",["",objNull]],
+	["_turretPath",[1],[[]]],
 	["_callSign","",[""]],
 	["_side",sideEmpty,[sideEmpty]],
 	["_cooldownDefault",SSS_DEFAULT_COOLDOWN_GUNSHIPS,[0]],
@@ -9,9 +11,19 @@ params [
 	["_customInit","",["",{}]]
 ];
 
-private _classname = "B_T_VTOL_01_armed_F";
-
 // Validation
+if (_classname isEqualType objNull) then {
+	_classname = typeOf _classname;
+};
+
+if (_classname isEqualTo "" || !(_classname isKindOf "Plane")) exitWith {
+	SSS_ERROR_1("Invalid CAS Gunship classname: %1",_classname);
+};
+
+if (_turretPath isEqualTo []) exitWith {
+	SSS_ERROR_1("Invalid CAS Gunship turret path: %1",_turretPath);
+};
+
 if (_callsign isEqualTo "") then {
 	_callsign = getText (configFile >> "CfgVehicles" >> _classname >> "displayName");
 };
@@ -36,6 +48,7 @@ _entity setVariable ["SSS_cooldown",0,true];
 _entity setVariable ["SSS_cooldownDefault",_cooldownDefault,true];
 _entity setVariable ["SSS_loiterTime",_loiterTime,true];
 _entity setVariable ["SSS_active",false,true];
+_entity setVariable ["SSS_turretPath",_turretPath,true];
 
 // Assignment
 [_requesters,[_entity]] call EFUNC(common,assignRequesters);

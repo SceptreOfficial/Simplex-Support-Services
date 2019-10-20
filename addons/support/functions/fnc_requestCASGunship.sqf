@@ -41,10 +41,12 @@ _vehicle setVariable ["SSS_parentEntity",_entity,true];
 _entity setVariable ["SSS_vehicle",_vehicle,true];
 _group setVariable ["SSS_protectWaypoints",true,true];
 
-// Add 40mm to the primary gunner
-_vehicle addMagazineTurret ["240Rnd_40mm_GPR_Tracer_Red_shells",[1]];
-_vehicle addMagazineTurret ["160Rnd_40mm_APFSDS_Tracer_Red_shells",[1]];
-_vehicle addWeaponTurret ["autocannon_40mm_VTOL_01",[1]];
+// Add 40mm to the primary gunner on blackfish
+if (typeOf _vehicle == "B_T_VTOL_01_armed_F") then {
+	_vehicle addMagazineTurret ["240Rnd_40mm_GPR_Tracer_Red_shells",[1]];
+	_vehicle addMagazineTurret ["160Rnd_40mm_APFSDS_Tracer_Red_shells",[1]];
+	_vehicle addWeaponTurret ["autocannon_40mm_VTOL_01",[1]];
+};
 
 // Lock Control
 _vehicle lockTurret [[1],true];
@@ -55,7 +57,7 @@ _entity setVariable ["SSS_requestParameters",[_position,_loiterRadius,_loiterAlt
 
 _vehicle setVariable ["SSS_WPDone",false];
 private _WP = _group addWaypoint [_position getPos [_loiterRadius,(_position getDir _startPosition) - 45],0];
-_WP setWaypointType "Move";
+_WP setWaypointType "MOVE";
 _WP setWaypointSpeed "FULL";
 _WP setWaypointCompletionRadius 200;
 _WP setWaypointStatements ["true","(vehicle this) setVariable ['SSS_WPDone',true];"];
@@ -80,7 +82,7 @@ _vehicle flyInHeightASL [_altitudeASL,_altitudeASL,_altitudeASL];
 
 	// Loiter
 	private _WP = (group _vehicle) addWaypoint [_position,0];
-	_WP setWaypointType "Loiter";
+	_WP setWaypointType "LOITER";
 	_WP setWaypointLoiterType "CIRCLE_L";
 	_WP setWaypointLoiterRadius _loiterRadius;
 	_vehicle flyInHeightASL [_altitudeASL,_altitudeASL,_altitudeASL];
@@ -116,7 +118,7 @@ _vehicle flyInHeightASL [_altitudeASL,_altitudeASL,_altitudeASL];
 		{deleteWaypoint [_group,0]} forEach (waypoints _group);
 
 		private _WP = _group addWaypoint [_startPosition,0];
-		_WP setWaypointType "Move";
+		_WP setWaypointType "MOVE";
 		_WP setWaypointCompletionRadius 100;
 		_WP setWaypointStatements ["true","
 			private _vehicle = vehicle this;

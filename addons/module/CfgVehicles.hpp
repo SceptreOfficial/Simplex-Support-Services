@@ -144,6 +144,18 @@ class CfgVehicles {
 		scopeCurator = 2;
 
 		class Arguments {
+			class Classname {
+				displayName = "Classname";
+				description = "Classname of gunship vehicle";
+				typeName = "STRING";
+				defaultValue = "B_T_VTOL_01_armed_F";
+			};
+			class TurretPath {
+				displayName = "TurretPath";
+				description = "Turret path to gunner";
+				typeName = "STRING";
+				defaultValue = "[1]";
+			};
 			class Callsign {
 				displayName = "Callsign";
 				description = "Display name";
