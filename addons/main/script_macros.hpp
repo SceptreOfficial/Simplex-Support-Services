@@ -103,6 +103,7 @@
 #define ICON_SEARCH_YELLOW "z\SSS\addons\main\ui\icons\search_yellow.paa"
 #define ICON_SELF_PROPELLED "z\SSS\addons\main\ui\icons\self_propelled.paa"
 #define ICON_SELF_PROPELLED_YELLOW "z\SSS\addons\main\ui\icons\self_propelled_yellow.paa"
+#define ICON_SLINGLOAD "z\SSS\addons\main\ui\icons\slingLoad.paa"
 #define ICON_SMOKE "z\SSS\addons\main\ui\icons\smoke.paa"
 #define ICON_STROBE "z\SSS\addons\main\ui\icons\strobe.paa"
 #define ICON_SUPPORT_SERVICES "z\SSS\addons\main\ui\icons\sss.paa"

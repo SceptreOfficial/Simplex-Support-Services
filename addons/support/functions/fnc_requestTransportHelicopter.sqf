@@ -325,6 +325,113 @@ switch (_request) do {
 		},[_entity,_vehicle,_position,_loiterRadius,_loiterDirection]] call CBA_fnc_waitUntilAndExecute;
 	};
 
+	case "SLINGLOAD" : {
+		INTERRUPT(_entity,_vehicle);
+
+		[{!((_this # 0) getVariable "SSS_onTask")},{
+			params ["_entity","_vehicle","_position"];
+
+			BEGIN_ORDER(_entity,_position,"Moving to sling loading area.");
+			_entity setVariable ["SSS_slingLoadPosition",_position,true];
+
+			_vehicle setVariable ["SSS_WPDone",false];
+			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
+			[_vehicle,_position,0,"MOVE","","","","",WP_DONE] call EFUNC(common,addWaypoint);
+
+			[{WAIT_UNTIL_WPDONE},{
+				params ["_entity","_vehicle"];
+
+				if (CANCEL_CONDITION) exitWith {
+					CANCEL_ORDER(_entity);
+					_entity setVariable ["SSS_slingLoadPosition",nil,true];
+				};
+
+				NOTIFY(_entity,"Arrived at sling load location. Please confirm object to attach.");
+				_entity setVariable ["SSS_slingLoadReady",true,true];
+
+				[{
+					params ["_entity","_vehicle"];
+
+					isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle || !(_entity getVariable "SSS_slingLoadReady")}}
+				},{
+					params ["_entity","_vehicle"];
+
+					if (CANCEL_CONDITION) exitWith {
+						CANCEL_ORDER(_entity);
+						_entity setVariable ["SSS_slingLoadPosition",nil,true];
+						_entity setVariable ["SSS_slingLoadReady",false,true];
+					};
+
+					private _object = _entity getVariable ["SSS_slingLoadObject",objNull];
+					_entity setVariable ["SSS_slingLoadObject",objNull,true];
+					_entity setVariable ["SSS_slingLoadPosition",nil,true];
+
+					if (isNull _object) then {
+						END_ORDER(_entity,"Sling Load cancelled. No object selected.");
+						["SSS_requestCompleted",[_entity,["SLINGLOAD",objNull]]] call CBA_fnc_globalEvent;
+					} else {
+						if (!local _object) then {
+							[[_object,_vehicle],{
+								params ["_object","_vehicle"];
+								_object setOwner owner _vehicle;
+							}] remoteExecCall ["call",2];
+						};
+
+						private _WP = (group _vehicle) addWaypoint [getPos _object,0];
+						_WP setWaypointType "HOOK";
+
+						NOTIFY(_entity,"Sling loading object...");
+
+						[{
+							params ["_entity","_vehicle"];
+
+							isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle || !isNull getSlingLoad _vehicle}}
+						},{
+							params ["_entity","_vehicle"];
+
+							if (CANCEL_CONDITION) exitWith {
+								CANCEL_ORDER(_entity);
+							};
+
+							END_ORDER(_entity,"Object sling loaded.");
+							["SSS_requestCompleted",[_entity,["SLINGLOAD",getSlingLoad _vehicle]]] call CBA_fnc_globalEvent;
+						},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
+					};
+				},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
+			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
+		},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
+	};
+
+	case "UNHOOK" : {
+		INTERRUPT(_entity,_vehicle);
+
+		[{!((_this # 0) getVariable "SSS_onTask")},{
+			params ["_entity","_vehicle","_position"];
+
+			BEGIN_ORDER(_entity,_position,"Moving to position to detach.");
+
+			private _pad = "Land_HelipadEmpty_F" createVehicle _position;
+
+			_vehicle setVariable ["SSS_WPDone",false];
+			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
+			[_vehicle,_position,0,"UNHOOK","","","","",WP_DONE] call EFUNC(common,addWaypoint);
+
+			[{WAIT_UNTIL_WPDONE},{
+				params ["_entity","_vehicle","_pad"];
+
+				deleteVehicle _pad;
+
+				if (CANCEL_CONDITION) exitWith {
+					CANCEL_ORDER(_entity);
+				};
+
+				END_ORDER(_entity,"Load detached. Ready for further tasking.");
+
+				["SSS_requestCompleted",[_entity,["UNHOOK"]]] call CBA_fnc_globalEvent;
+			},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
+		},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
+	};
+
 	case "PARADROP" : {
 		_extraParams params ["_jumpDelay","_AIOpeningHeight"];
 

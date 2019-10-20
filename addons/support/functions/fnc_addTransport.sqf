@@ -52,6 +52,8 @@ switch (true) do {
 		_entity setVariable ["SSS_needConfirmation",false,true];
 		_entity setVariable ["SSS_signalApproved",false,true];
 		_entity setVariable ["SSS_deniedSignals",[],true];
+		_entity setVariable ["SSS_slingLoadReady",false,true];
+		_entity setVariable ["SSS_slingLoadObject",objNull,true];
 		_entity setVariable ["SSS_flyingHeight",80,true];
 		_entity setVariable ["SSS_speedMode",1,true];
 		_entity setVariable ["SSS_combatMode",0,true];

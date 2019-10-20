@@ -15,6 +15,35 @@ params ["_target","_player","_entity"];
 		_entity setVariable ["SSS_needConfirmation",false,true];
 	},{(_this # 2) getVariable "SSS_needConfirmation"},{},_entity] call ace_interact_menu_fnc_createAction,[],_target],
 
+	[["SSS_SlingLoadSelect","Select object to sling load",[ICON_SLINGLOAD,HEX_GREEN],{
+		params ["_target","_player","_entity"];
+
+		private _vehicle = _entity getVariable "SSS_vehicle";
+		private _position = _entity getVariable ["SSS_slingLoadPosition",getPos _vehicle];
+		private _objects = (nearestObjects [_position,SSS_slingLoadWhitelist,SSS_setting_slingLoadSearchRadius]) select {_vehicle canSlingLoad _x};
+
+		if (_objects isEqualTo []) exitWith {
+			NOTIFY_LOCAL(_entity,"No objects available for sling load.");
+		};
+
+		private _cfgVehicles = configFile >> "CfgVehicles";
+
+		["Select object to sling load",[
+			["COMBOBOX","Object",[_objects apply {getText (_cfgVehicles >> typeOf _x >> "displayName")},0]]
+		],{
+			params ["_values","_args"];
+			_values params ["_index"];
+			_args params ["_entity","_objects"];
+
+			_entity setVariable ["SSS_slingLoadObject",_objects # _index,true];
+			_entity setVariable ["SSS_slingLoadReady",false,true];
+		},{},[_entity,_objects]] call EFUNC(CDS,dialog);
+	},{(_this # 2) getVariable "SSS_slingLoadReady"},{},_entity] call ace_interact_menu_fnc_createAction,[],_target],
+
+	[["SSS_Unhook","Unhook",[ICON_SLINGLOAD,HEX_YELLOW],{
+		_this call FUNC(selectPosition);
+	},{!isNull getSlingLoad (_this # 2 # 0 getVariable "SSS_vehicle")},{},[_entity,"UNHOOK"]] call ace_interact_menu_fnc_createAction,[],_target],
+	
 	[["SSS_RTB","RTB",ICON_HOME,{
 		(_this # 2) call EFUNC(support,requestTransportHelicopter);
 	},{(_this # 2 # 0) getVariable "SSS_awayFromBase"},{},[_entity,"RTB"]] call ace_interact_menu_fnc_createAction,[],_target],
@@ -42,6 +71,10 @@ params ["_target","_player","_entity"];
 	[["SSS_Loiter","Loiter",ICON_LOITER,{
 		_this call FUNC(selectPosition);
 	},{true},{},[_entity,"LOITER"]] call ace_interact_menu_fnc_createAction,[],_target],
+
+	[["SSS_SlingLoad","Sling Load",ICON_SLINGLOAD,{
+		_this call FUNC(selectPosition);
+	},{true},{},[_entity,"SLINGLOAD"]] call ace_interact_menu_fnc_createAction,[],_target],
 
 	[["SSS_Paradrop","Paradrop",ICON_PARACHUTE,{
 		_this call FUNC(selectPosition);

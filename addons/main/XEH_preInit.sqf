@@ -59,7 +59,7 @@ ADDON = false;
 ] call CBA_fnc_addSetting;
 
 ["SSS_setting_resetVehicleOnRTB","CHECKBOX",
-	["Reset vehicle on RTB","When a vehicle arrives back at base, it is repaired, fuel is refilled, and ammo is restored."],
+	["Reset vehicle on RTB","When a vehicle arrives back at base, it is repaired, fuel is refilled, and ammo is restored"],
 	["Simplex Support Services","Core"],
 	true,
 	true,
@@ -71,6 +71,25 @@ ADDON = false;
 	["Restore vehicle crew on RTB","Restores health to all crew and revives any dead crew when a vehicle returns to base"],
 	["Simplex Support Services","Core"],
 	true,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+// Logistics
+["SSS_setting_slingLoadWhitelist","EDITBOX",
+	["Sling load whitelist","Only these classnames will be searched for at sling load request locations"],
+	["Simplex Support Services","Logistics"],
+	"",
+	true,
+	{missionNamespace setVariable["SSS_slingLoadWhitelist",(([_this] call CBA_fnc_removeWhitespace) splitString ",") apply {toLower _x},true]},
+	false
+] call CBA_fnc_addSetting;
+
+["SSS_setting_slingLoadSearchRadius","SLIDER",
+	["Sling load search radius","Determines how far from the request position to search for objects"],
+	["Simplex Support Services","Logistics"],
+	[10,200,100,0],
 	true,
 	{},
 	false
