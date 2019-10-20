@@ -23,7 +23,7 @@ params ["_target","_player","_entity"];
 		private _entity = _this # 2;
 
 		["Change Behavior",[
-			["SLIDER","Flying height",[[40,1000,0],_entity getVariable "SSS_flyingHeight"]],
+			["SLIDER","Flying height",[[40,2000,0],_entity getVariable "SSS_flyingHeight"]],
 			["CHECKBOX","Headlight",_entity getVariable "SSS_lightsOn"],
 			["CHECKBOX","Collision lights",_entity getVariable "SSS_collisionLightsOn"]
 		],{
