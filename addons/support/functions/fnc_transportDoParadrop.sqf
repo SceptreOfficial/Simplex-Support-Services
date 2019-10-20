@@ -8,7 +8,7 @@ _unit addBackpack "B_Parachute";
 
 if (isPlayer _unit) then {
 	[{
-		!alive _this || {!(_this in _this) && ((getPos _this) # 2) < 2}
+		!alive _this || {!(vehicle _this isKindOf "ParachuteBase") && (getPos _this # 2) < 2}
 	},{
 		_this setUnitLoadout (_this getVariable "SAA_paradropLoadout");
 		_this setVariable ["SAA_paradropLoadout",nil];
@@ -23,7 +23,7 @@ if (isPlayer _unit) then {
 		_unit action ["OpenParachute",_unit];
 
 		[{
-			!alive _this || {!(_this in _this) && ((getPos _this) # 2) < 2}
+			!alive _this || {!(vehicle _this isKindOf "ParachuteBase") && (getPos _this # 2) < 2}
 		},{
 			_this setUnitLoadout (_this getVariable "SAA_paradropLoadout");
 			_this setVariable ["SAA_paradropLoadout",nil];
