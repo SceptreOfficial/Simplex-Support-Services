@@ -252,6 +252,7 @@ switch (_request) do {
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
 			[_vehicle,_position,0,"MOVE","","","","",WP_DONE] call EFUNC(common,addWaypoint);
+			(group _vehicle) addWaypoint [_position getPos [5000,_vehicle getDir _position],0];
 
 			[{WAIT_UNTIL_WPDONE},{
 				params ["_entity","_vehicle","_jumpDelay","_AIOpeningHeight"];
@@ -260,7 +261,6 @@ switch (_request) do {
 					CANCEL_ORDER(_entity);
 				};
 
-				_vehicle doMove (_vehicle getRelPos [5000,0]);
 				[_entity,_vehicle,_jumpDelay,_AIOpeningHeight] call FUNC(transportParadrop);
 
 				END_ORDER(_entity,"Go! Go! Go!");
