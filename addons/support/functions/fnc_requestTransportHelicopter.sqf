@@ -324,4 +324,35 @@ switch (_request) do {
 			},[_entity,_vehicle,_position,_loiterRadius,_loiterDirection]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position,_loiterRadius,_loiterDirection]] call CBA_fnc_waitUntilAndExecute;
 	};
+
+	case "PARADROP" : {
+		_extraParams params ["_jumpDelay","_AIOpeningHeight"];
+
+		INTERRUPT(_entity,_vehicle);
+
+		[{!((_this # 0) getVariable "SSS_onTask")},{
+			params ["_entity","_vehicle","_position","_jumpDelay","_AIOpeningHeight"];
+
+			BEGIN_ORDER(_entity,_position,"Moving to location for paradrop. Get ready...");
+
+			_vehicle setVariable ["SSS_WPDone",false];
+			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
+			[_vehicle,_position,0,"MOVE","","","","",WP_DONE] call EFUNC(common,addWaypoint);
+			(group _vehicle) addWaypoint [_position getPos [5000,_vehicle getDir _position],0];
+
+			[{WAIT_UNTIL_WPDONE},{
+				params ["_entity","_vehicle","_jumpDelay","_AIOpeningHeight"];
+
+				if (CANCEL_CONDITION) exitWith {
+					CANCEL_ORDER(_entity);
+				};
+
+				[_entity,_vehicle,_jumpDelay,_AIOpeningHeight] call FUNC(transportParadrop);
+
+				END_ORDER(_entity,"Go! Go! Go!");
+
+				["SSS_requestCompleted",[_entity,["PARADROP"]]] call CBA_fnc_globalEvent;
+			},[_entity,_vehicle,_jumpDelay,_AIOpeningHeight]] call CBA_fnc_waitUntilAndExecute;
+		},[_entity,_vehicle,_position,_jumpDelay,_AIOpeningHeight]] call CBA_fnc_waitUntilAndExecute;
+	};
 };

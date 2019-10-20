@@ -226,6 +226,22 @@ switch (_entity getVariable "SSS_supportType") do {
 				},{REQUEST_CANCELLED;},[_entity,_request,_position]] call EFUNC(CDS,dialog);
 			};
 
+			case "PARADROP" : {
+				["Paradrop parameters",[
+					["SLIDER",["Jump delay","Seconds between each unit jumping out"],[[0,5,1],1]],
+					["SLIDER","AI opening height",[[100,2000,0],200]]
+				],{
+					params ["_values","_args"];
+					_args params ["_entity","_request","_position"];
+
+					private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
+
+					if (!alive _vehicle) exitWith {};
+
+					[_entity,_request,_position,_values] remoteExecCall [QEFUNC(support,requestTransportHelicopter),_vehicle];
+				},{REQUEST_CANCELLED;},[_entity,_request,_position]] call EFUNC(CDS,dialog);
+			};
+
 			default {
 				[_entity,_request,_position] remoteExecCall [QEFUNC(support,requestTransportHelicopter),_vehicle];
 			};

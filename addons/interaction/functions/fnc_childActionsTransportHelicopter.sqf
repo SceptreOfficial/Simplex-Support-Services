@@ -43,6 +43,10 @@ params ["_target","_player","_entity"];
 		_this call FUNC(selectPosition);
 	},{true},{},[_entity,"LOITER"]] call ace_interact_menu_fnc_createAction,[],_target],
 
+	[["SSS_Paradrop","Paradrop",ICON_PARACHUTE,{
+		_this call FUNC(selectPosition);
+	},{true},{},[_entity,"PARADROP"]] call ace_interact_menu_fnc_createAction,[],_target],
+
 	[["SSS_Behavior","Change Behavior",ICON_GEAR,{
 		private _entity = _this # 2;
 
