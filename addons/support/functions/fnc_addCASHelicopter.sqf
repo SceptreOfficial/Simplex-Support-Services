@@ -39,7 +39,7 @@ private _entity = true call CBA_fnc_createNamespace;
 private _group = group _vehicle;
 private _side = side _group;
 
-BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_HELI,ICON_HELI_YELLOW,ICON_HELI_GREEN,_customInit,"CAS","CASHelicopter");
+BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_HELI,_customInit,"CAS","CASHelicopter");
 PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 CREATE_TASK_MARKER(_entity,_callsign,"mil_end","CAS");
 

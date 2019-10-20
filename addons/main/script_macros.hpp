@@ -114,6 +114,9 @@
 #define ICON_VTOL_GREEN "z\SSS\addons\main\ui\icons\vtol_green.paa"
 #define ICON_VTOL_YELLOW "z\SSS\addons\main\ui\icons\vtol_yellow.paa"
 
+#define HEX_YELLOW "#f5ca00"
+#define HEX_GREEN "#20ca24"
+
 #define RGBA_RED [0.9,0,0,1]
 #define RGBA_ORANGE [0.85,0.4,0,1]
 #define RGBA_YELLOW [0.85,0.85,0,1]
@@ -147,13 +150,13 @@
 
 #define PRIMARY_CREW(VEH) ((crew VEH) arrayIntersect (units group VEH))
 
-#define BASE_TRAITS(ENTITY,CLASSNAME,CALLSIGN,SUPPORT_SIDE,ICON,ICON_YELLOW,ICON_GREEN,CUSTOM_INIT,SERVICE,SUPPORT_TYPE) \
+#define BASE_TRAITS(ENTITY,CLASSNAME,CALLSIGN,SUPPORT_SIDE,ICON,CUSTOM_INIT,SERVICE,SUPPORT_TYPE) \
 	ENTITY setVariable ["SSS_classname",CLASSNAME,true]; \
 	ENTITY setVariable ["SSS_callsign",CALLSIGN,true]; \
 	ENTITY setVariable ["SSS_side",SUPPORT_SIDE,true]; \
 	ENTITY setVariable ["SSS_icon",ICON,true]; \
-	ENTITY setVariable ["SSS_iconYellow",ICON_YELLOW,true]; \
-	ENTITY setVariable ["SSS_iconGreen",ICON_GREEN,true]; \
+	ENTITY setVariable ["SSS_iconYellow",[ICON,HEX_YELLOW],true]; \
+	ENTITY setVariable ["SSS_iconGreen",[ICON,HEX_GREEN],true]; \
 	ENTITY setVariable ["SSS_customInit",CUSTOM_INIT,true]; \
 	ENTITY setVariable ["SSS_service",SERVICE,true]; \
 	ENTITY setVariable ["SSS_supportType",SUPPORT_TYPE,true]

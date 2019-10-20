@@ -41,7 +41,7 @@ private _side = side _group;
 
 switch (true) do {
 	case (_vehicle isKindOf "Helicopter") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_HELI,ICON_HELI_YELLOW,ICON_HELI_GREEN,_customInit,"Transport","transportHelicopter");
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_HELI,_customInit,"Transport","transportHelicopter");
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Air Transport");
 
@@ -60,7 +60,7 @@ switch (true) do {
 	};
 
 	case (_vehicle isKindOf "VTOL_Base_F") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_VTOL,ICON_VTOL_YELLOW,ICON_VTOL_GREEN,_customInit,"Transport","transportVTOL");
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_VTOL,_customInit,"Transport","transportVTOL");
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Air Transport");
 
@@ -79,7 +79,7 @@ switch (true) do {
 	};
 
 	case (_vehicle isKindOf "Plane") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_PLANE,ICON_PLANE_YELLOW,ICON_PLANE_GREEN,_customInit,"Transport","transportPlane");
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_PLANE,_customInit,"Transport","transportPlane");
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Air Transport");
 
@@ -96,7 +96,7 @@ switch (true) do {
 	};
 
 	case (_vehicle isKindOf "Ship") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_BOAT,ICON_BOAT_YELLOW,ICON_BOAT_GREEN,_customInit,"Transport","transportMaritime");
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_BOAT,_customInit,"Transport","transportMaritime");
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Sea Transport");
 
@@ -111,7 +111,7 @@ switch (true) do {
 	};
 
 	case (_vehicle isKindOf "LandVehicle") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_CAR,ICON_CAR_YELLOW,ICON_CAR_GREEN,_customInit,"Transport","transportLandVehicle");
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_CAR,_customInit,"Transport","transportLandVehicle");
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Land Transport");
 

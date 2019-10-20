@@ -40,7 +40,7 @@ if (!isServer) exitWith {
 // Basic setup
 private _entity = true call CBA_fnc_createNamespace;
 
-BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_GUNSHIP,ICON_GUNSHIP_YELLOW,ICON_GUNSHIP_GREEN,_customInit,"CAS","CASGunship");
+BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_GUNSHIP,_customInit,"CAS","CASGunship");
 CREATE_TASK_MARKER(_entity,_callsign,"mil_end","CAS");
 
 // Specifics

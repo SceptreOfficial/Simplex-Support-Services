@@ -45,13 +45,13 @@ if (!isServer) exitWith {
 private _entity = true call CBA_fnc_createNamespace;
 private _group = group _vehicle;
 private _side = side _group;
-(switch (true) do {
-	case (_vehicle isKindOf "B_Ship_MRLS_01_base_F") : {[ICON_MISSILE,ICON_MISSILE_YELLOW,""]};
-	case (_vehicle isKindOf "StaticWeapon") : {[ICON_MORTAR,ICON_MORTAR_YELLOW,""]};
-	default {[ICON_SELF_PROPELLED,ICON_SELF_PROPELLED_YELLOW,""]};
-}) params ["_icon","_iconYellow","_iconGreen"];
+private _icon = switch (true) do {
+	case (_vehicle isKindOf "B_Ship_MRLS_01_base_F") : {ICON_MISSILE};
+	case (_vehicle isKindOf "StaticWeapon") : {ICON_MORTAR};
+	default {ICON_SELF_PROPELLED};
+};
 
-BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,_icon,_iconYellow,_iconGreen,_customInit,"artillery","artillery");
+BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,_icon,_customInit,"artillery","artillery");
 PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 CREATE_TASK_MARKER(_entity,_callsign,"mil_warning","Artillery");
 

@@ -72,7 +72,7 @@ _weapons = [_weapons,true,{getText (_cfgMagazines >> _this # 1 >> "displayName")
 // Basic setup
 private _entity = true call CBA_fnc_createNamespace;
 
-BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_PLANE,ICON_PLANE_YELLOW,"",_customInit,"CAS","CASPlane");
+BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_PLANE,_customInit,"CAS","CASPlane");
 CREATE_TASK_MARKER(_entity,_callsign,"mil_end","CAS");
 
 // Specifics
