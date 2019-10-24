@@ -271,7 +271,6 @@ switch (_request) do {
 					params ["_entity","_vehicle","_doFastrope"];
 
 					if (CANCEL_CONDITION) exitWith {
-						private _task = ["Hover","Fastope"] select _doFastrope;
 						CANCEL_ORDER(_entity);
 						_vehicle setVariable ["SSS_hoverDone",true,true];
 					};
