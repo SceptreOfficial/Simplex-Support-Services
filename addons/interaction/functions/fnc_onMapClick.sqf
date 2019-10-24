@@ -46,8 +46,8 @@ switch (_entity getVariable "SSS_supportType") do {
 		
 		["Fire Mission Parameters - " + mapGridPosition _position,[
 			["SLIDER","Rounds",[[1,_entity getVariable "SSS_maxRounds",0],1]],
-			["SLIDER","Random Dispersion Radius",[[0,250,0],0]],
-			["SLIDER","Coordinate with nearby artillery",[[0,count _nearbyArtillery,0],0],true,{},[{false},{true}] select (count _nearbyArtillery > 0)]
+			["SLIDER","Random dispersion radius",[[0,250,0],0]],
+			["SLIDER",["Coordination amount","Request fire mission from similar nearby artillery"],[[0,count _nearbyArtillery,0],0],true,{},[{false},{true}] select (count _nearbyArtillery > 0)]
 		],{
 			params ["_values","_args"];
 			_values params ["_rounds","_dispersion","_coordinateCount"];
@@ -89,7 +89,7 @@ switch (_entity getVariable "SSS_supportType") do {
 		["Drone Request Parameters",[
 			["COMBOBOX","Loiter direction",[[["Clockwise","",ICON_CLOCKWISE],["Counter-Clockwise","",ICON_COUNTER_CLOCKWISE]],0]],
 			["SLIDER","Loiter radius",[[800,2500,0],1000]],
-			["SLIDER","Loiter altitude above position",[[600,2500,0],1000]]
+			["SLIDER","Altitude above position",[[600,2500,0],1000]]
 		],{
 			params ["_values","_args"];
 			_values params ["_loiterDirection","_loiterRadius","_loiterAltitude"];
@@ -102,7 +102,7 @@ switch (_entity getVariable "SSS_supportType") do {
 	case "CASGunship" : {
 		["Gunship Request Parameters",[
 			["SLIDER","Loiter radius",[[800,2500,0],1000]],
-			["SLIDER","Loiter altitude above position",[[600,2500,0],1000]]
+			["SLIDER","Altitude above position",[[600,2500,0],1000]]
 		],{
 			params ["_values","_args"];
 			_values params ["_loiterRadius","_loiterAltitude"];
