@@ -31,6 +31,15 @@ ADDON = false;
 	false
 ] call CBA_fnc_addSetting;
 
+["SSS_setting_vehicleActionRequirement","CHECKBOX",
+	["Require assignment/special item for direct transport action","When disabled, anyone can interact with a transport when near/inside the vehicle"],
+	["Simplex Support Services","Core"],
+	false,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
 ["SSS_setting_removeSupportOnVehicleDeletion","CHECKBOX",
 	["Remove support on vehicle deletion","If disabled, any physical support vehicles capable of respawning will simply respawn"],
 	["Simplex Support Services","Core"],
