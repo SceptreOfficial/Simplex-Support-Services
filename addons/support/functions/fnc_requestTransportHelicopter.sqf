@@ -136,10 +136,13 @@ switch (_request) do {
 			private _deletePad = false;
 			private _pad = if (_nearestPads isEqualTo []) then {
 				_deletePad = true;
-				private _dummy = (createGroup sideLogic) createUnit ["Logic",[0,0,0],[],0,"CAN_COLLIDE"];
-				_dummy setPosASL [_position # 0,_position # 1,9999];
-				private _surfacePositionASL = [_position # 0,_position # 1,9999 - (getPos _dummy # 2)];
-				deleteVehicle _dummy;
+
+				private _intersect = (lineIntersectsSurfaces [[_position # 0,_position # 1,getPosASL _vehicle # 2 + 100],ATLToASL [_position # 0,_position # 1,0],_vehicle]) # 0 # 0;
+				private _surfacePositionASL = if (isNil "_intersect") then {
+					AGLtoASL _position
+				} else {
+					_intersect
+				};
 
 				private _pad = "Land_HelipadEmpty_F" createVehicle _position;
 				_pad setPosASL _surfacePositionASL;
@@ -167,7 +170,7 @@ switch (_request) do {
 				// Begin landing
 				(group _vehicle) setSpeedMode "LIMITED";
 				doStop _vehicle;
-				_vehicle land "GET IN";
+				_vehicle land "LAND";
 
 				[{WAIT_UNTIL_LAND},{
 					params ["_entity","_vehicle","_pad","_deletePad","_engineOn"];
@@ -184,7 +187,7 @@ switch (_request) do {
 					END_ORDER(_entity,"Landed at location. Ready for further tasking.");
 
 					private _requestName = if (_engineOn) then {
-						[{_this engineOn true},_vehicle,1] call CBA_fnc_waitAndExecute;
+						[{_this engineOn true},{},_vehicle,2] call CBA_fnc_waitUntilAndExecute;
 						"LAND"
 					} else {
 						_vehicle engineOn false;
@@ -192,7 +195,7 @@ switch (_request) do {
 					};
 
 					if (_deletePad) then {
-						[{deleteVehicle _this},_pad,5] call CBA_fnc_waitAndExecute;
+						[{deleteVehicle _this},_pad,60] call CBA_fnc_waitAndExecute;
 					};
 
 					["SSS_requestCompleted",[_entity,[_requestName]]] call CBA_fnc_globalEvent;

@@ -194,7 +194,7 @@ switch (_request) do {
 							group _vehicle setBehaviour "CARELESS";
 						},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 
-						[{_this engineOn true},_vehicle,1] call CBA_fnc_waitAndExecute;
+						[{_this engineOn true},{},_vehicle,2] call CBA_fnc_waitUntilAndExecute;
 						"LAND"
 					} else {
 						_vehicle engineOn false;
