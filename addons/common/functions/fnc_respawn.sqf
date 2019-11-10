@@ -9,17 +9,15 @@ if (!isServer) exitWith {
 private _entity = _vehicle getVariable ["SSS_parentEntity",objNull];
 if (isNull _entity) exitWith {};
 
-[
-	_entity getVariable "SSS_vehicle",
-	_entity getVariable "SSS_respawnTime",
-	_entity getVariable "SSS_respawning"
-] params ["_vehicle","_respawnTime","_respawning"];
+private _vehicle = _entity getVariable "SSS_vehicle";
+if (isNull _vehicle) exitWith {};
 
+private _respawnTime = _entity getVariable ["SSS_respawnTime",-1];
 if (_respawnTime < 0) exitWith {
 	deleteVehicle _entity;
 };
 
-if (_respawning) exitWith {};
+if (_entity getVariable "SSS_respawning") exitWith {};
 _entity setVariable ["SSS_respawning",true,true];
 
 _vehicle call FUNC(decommission);
