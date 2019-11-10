@@ -20,8 +20,8 @@
 			["EDITBOX","Classname",_classname],
 			["EDITBOX","Callsign",_callsign],
 			["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
-			["EDITBOX","Cooldown",SSS_DEFAULT_COOLDOWN_DRONES_STR],
-			["EDITBOX","Loiter time",SSS_DEFAULT_LOITER_TIME_DRONES_STR],
+			["EDITBOX","Cooldown",str DEFAULT_COOLDOWN_DRONES],
+			["EDITBOX","Loiter time",str DEFAULT_LOITER_TIME_DRONES],
 			["EDITBOX",["Custom init code","Code executed when physical vehicle is spawned (vehicle = _this)"],""]
 		],{
 			params ["_values"];
@@ -56,8 +56,8 @@
 			_logic getVariable ["Classname",""],
 			_logic getVariable ["Callsign",""],
 			[west,east,independent] # (_logic getVariable ["Side",0]),
-			parseNumber (_logic getVariable ["Cooldown",SSS_DEFAULT_COOLDOWN_DRONES_STR]),
-			parseNumber (_logic getVariable ["LoiterTime",SSS_DEFAULT_LOITER_TIME_DRONES_STR]),
+			parseNumber (_logic getVariable ["Cooldown",str DEFAULT_COOLDOWN_DRONES]),
+			parseNumber (_logic getVariable ["LoiterTime",str DEFAULT_LOITER_TIME_DRONES]),
 			_logic getVariable ["CustomInit",""]
 		] call EFUNC(support,addCASDrone);
 

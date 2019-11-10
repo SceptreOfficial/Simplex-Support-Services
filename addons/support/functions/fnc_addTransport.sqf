@@ -4,7 +4,7 @@ params [
 	["_requesters",[],[[]]],
 	["_vehicle",objNull,[objNull]],
 	["_callsign","",[""]],
-	["_respawnTime",SSS_DEFAULT_RESPAWN_TIME,[0]],
+	["_respawnTime",DEFAULT_RESPAWN_TIME,[0]],
 	["_customInit","",["",{}]]
 ];
 

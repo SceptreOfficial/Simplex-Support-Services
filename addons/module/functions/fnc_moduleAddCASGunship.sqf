@@ -21,8 +21,8 @@
 			["EDITBOX",["Turret path","Turret path to gunner"],"[1]"],
 			["EDITBOX","Callsign",_callsign],
 			["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
-			["EDITBOX","Cooldown",SSS_DEFAULT_COOLDOWN_GUNSHIPS_STR],
-			["EDITBOX","Loiter time",SSS_DEFAULT_LOITER_TIME_GUNSHIPS_STR],
+			["EDITBOX","Cooldown",str DEFAULT_COOLDOWN_GUNSHIPS],
+			["EDITBOX","Loiter time",str DEFAULT_LOITER_TIME_GUNSHIPS],
 			["EDITBOX",["Custom init code","Code executed when physical vehicle is spawned (vehicle = _this)"],""]
 		],{
 			params ["_values"];
@@ -59,8 +59,8 @@
 			parseSimpleArray (_logic getVariable ["TurretPath","[1]"]),
 			_logic getVariable ["Callsign",""],
 			[west,east,independent] # (_logic getVariable ["Side",0]),
-			parseNumber (_logic getVariable ["Cooldown",SSS_DEFAULT_COOLDOWN_GUNSHIPS_STR]),
-			parseNumber (_logic getVariable ["LoiterTime",SSS_DEFAULT_LOITER_TIME_GUNSHIPS_STR]),
+			parseNumber (_logic getVariable ["Cooldown",str DEFAULT_COOLDOWN_GUNSHIPS]),
+			parseNumber (_logic getVariable ["LoiterTime",str DEFAULT_LOITER_TIME_GUNSHIPS]),
 			_logic getVariable ["CustomInit",""]
 		] call EFUNC(support,addCASGunship);
 

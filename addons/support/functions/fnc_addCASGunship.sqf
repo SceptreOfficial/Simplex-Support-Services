@@ -6,8 +6,8 @@ params [
 	["_turretPath",[1],[[]]],
 	["_callSign","",[""]],
 	["_side",sideEmpty,[sideEmpty]],
-	["_cooldownDefault",SSS_DEFAULT_COOLDOWN_GUNSHIPS,[0]],
-	["_loiterTime",SSS_DEFAULT_LOITER_TIME_GUNSHIPS,[0]],
+	["_cooldownDefault",DEFAULT_COOLDOWN_GUNSHIPS,[0]],
+	["_loiterTime",DEFAULT_LOITER_TIME_GUNSHIPS,[0]],
 	["_customInit","",["",{}]]
 ];
 

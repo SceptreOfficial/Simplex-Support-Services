@@ -40,31 +40,31 @@ class CfgVehicles {
 				displayName = "Respawn Time";
 				description = "-1 will disable respawn";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_RESPAWN_TIME_STR;
+				defaultValue = DEFAULT_RESPAWN_TIME;
 			};
 			class Cooldown {
 				displayName = "Cooldown";
 				description = "Minimum time between requests";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_COOLDOWN_ARTILLERY_MIN_STR;
+				defaultValue = DEFAULT_COOLDOWN_ARTILLERY_MIN;
 			};
 			class RoundCooldown {
 				displayName = "Extra cooldown time per round";
 				description = "Additional time incremented per round fired";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_COOLDOWN_ARTILLERY_ROUND_STR;
+				defaultValue = DEFAULT_COOLDOWN_ARTILLERY_ROUND;
 			};
 			class MaxRounds {
 				displayName = "Maximum rounds per request";
 				description = "Max amount/slider range for requests";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_ARTILLERY_MAX_ROUNDS_STR;
+				defaultValue = DEFAULT_ARTILLERY_MAX_ROUNDS;
 			};
 			class CoordinationDistance {
 				displayName = "Maximum coordination distance";
 				description = "Set what ""nearby"" really means for artillery coordination";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_ARTILLERY_COORDINATION_DISTANCE_STR;
+				defaultValue = DEFAULT_ARTILLERY_COORDINATION_DISTANCE;
 			};
 			class CustomInit {
 				displayName = "Custom init code";
@@ -119,13 +119,13 @@ class CfgVehicles {
 				displayName = "Cooldown";
 				description = "Time between requests (after loiter is finished)";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_COOLDOWN_DRONES_STR;
+				defaultValue = DEFAULT_COOLDOWN_DRONES;
 			};
 			class LoiterTime {
 				displayName = "Loiter time";
 				description = "How long aircraft will loiter in the area";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_LOITER_TIME_DRONES_STR;
+				defaultValue = DEFAULT_LOITER_TIME_DRONES;
 			};
 			class CustomInit {
 				displayName = "Custom init code";
@@ -186,13 +186,13 @@ class CfgVehicles {
 				displayName = "Cooldown";
 				description = "Time between requests (after loiter is finished)";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_COOLDOWN_GUNSHIPS_STR;
+				defaultValue = DEFAULT_COOLDOWN_GUNSHIPS;
 			};
 			class LoiterTime {
 				displayName = "Loiter time";
 				description = "How long aircraft will loiter in the area";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_LOITER_TIME_GUNSHIPS_STR;
+				defaultValue = DEFAULT_LOITER_TIME_GUNSHIPS;
 			};
 			class CustomInit {
 				displayName = "Custom init code";
@@ -221,7 +221,7 @@ class CfgVehicles {
 				displayName = "Respawn Time";
 				description = "-1 will disable respawn";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_RESPAWN_TIME_STR;
+				defaultValue = DEFAULT_RESPAWN_TIME;
 			};
 			class CustomInit {
 				displayName = "Custom init code";
@@ -282,7 +282,7 @@ class CfgVehicles {
 				displayName = "Cooldown";
 				description = "Time between requests";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_COOLDOWN_PLANES_STR;
+				defaultValue = DEFAULT_COOLDOWN_PLANES;
 			};
 			class CustomInit {
 				displayName = "Custom init code";
@@ -311,7 +311,7 @@ class CfgVehicles {
 				displayName = "Respawn Time";
 				description = "-1 will disable respawn";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_RESPAWN_TIME;
+				defaultValue = DEFAULT_RESPAWN_TIME;
 			};
 			class CustomInit {
 				displayName = "Custom init code";

@@ -4,10 +4,10 @@ params [
 	["_requesters",[],[[]]],
 	["_vehicle",objNull,[objNull]],
 	["_callsign","",[""]],
-	["_respawnTime",SSS_DEFAULT_RESPAWN_TIME,[0]],
-	["_cooldownDefault",[SSS_DEFAULT_COOLDOWN_ARTILLERY_MIN,SSS_DEFAULT_COOLDOWN_ARTILLERY_ROUND],[[]],2],
-	["_maxRounds",SSS_DEFAULT_ARTILLERY_MAX_ROUNDS,[0]],
-	["_coordinationDistance",SSS_DEFAULT_ARTILLERY_COORDINATION_DISTANCE,[0]],
+	["_respawnTime",DEFAULT_RESPAWN_TIME,[0]],
+	["_cooldownDefault",[DEFAULT_COOLDOWN_ARTILLERY_MIN,DEFAULT_COOLDOWN_ARTILLERY_ROUND],[[]],2],
+	["_maxRounds",DEFAULT_ARTILLERY_MAX_ROUNDS,[0]],
+	["_coordinationDistance",DEFAULT_ARTILLERY_COORDINATION_DISTANCE,[0]],
 	["_customInit","",["",{}]]
 ];
 
@@ -17,7 +17,7 @@ if (_callsign isEqualTo "") then {
 };
 
 if (_maxRounds < 0) then {
-	_maxRounds = SSS_DEFAULT_ARTILLERY_MAX_ROUNDS;
+	_maxRounds = DEFAULT_ARTILLERY_MAX_ROUNDS;
 };
 
 if (_customInit isEqualType "") then {

@@ -5,8 +5,8 @@ params [
 	["_classname","",["",objNull]],
 	["_callSign","",[""]],
 	["_side",sideEmpty,[sideEmpty]],
-	["_cooldownDefault",SSS_DEFAULT_COOLDOWN_DRONES,[0]],
-	["_loiterTime",SSS_DEFAULT_LOITER_TIME_DRONES,[0]],
+	["_cooldownDefault",DEFAULT_COOLDOWN_DRONES,[0]],
+	["_loiterTime",DEFAULT_LOITER_TIME_DRONES,[0]],
 	["_customInit","",["",{}]]
 ];
 

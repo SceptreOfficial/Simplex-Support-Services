@@ -6,7 +6,7 @@ params [
 	["_callSign","",[""]],
 	["_weaponSet",[],[[]]],
 	["_side",sideEmpty,[sideEmpty]],
-	["_cooldownDefault",SSS_DEFAULT_COOLDOWN_PLANES,[0]],
+	["_cooldownDefault",DEFAULT_COOLDOWN_PLANES,[0]],
 	["_customInit","",["",{}]]
 ];
 
