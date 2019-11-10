@@ -448,9 +448,10 @@ switch (_request) do {
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
 			[_vehicle,_position,0,"MOVE","","","","",WP_DONE] call EFUNC(common,addWaypoint);
 			(group _vehicle) addWaypoint [_position getPos [5000,_vehicle getDir _position],0];
-
+			(group _vehicle) addWaypoint [_position,100];
+			
 			[{WAIT_UNTIL_WPDONE},{
-				params ["_entity","_vehicle","_jumpDelay","_AIOpeningHeight"];
+				params ["_entity","_vehicle","_position","_jumpDelay","_AIOpeningHeight"];
 
 				if (CANCEL_CONDITION) exitWith {
 					CANCEL_ORDER(_entity);
@@ -461,7 +462,7 @@ switch (_request) do {
 				END_ORDER(_entity,"Go! Go! Go!");
 
 				["SSS_requestCompleted",[_entity,["PARADROP"]]] call CBA_fnc_globalEvent;
-			},[_entity,_vehicle,_jumpDelay,_AIOpeningHeight]] call CBA_fnc_waitUntilAndExecute;
+			},[_entity,_vehicle,_position,_jumpDelay,_AIOpeningHeight]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position,_jumpDelay,_AIOpeningHeight]] call CBA_fnc_waitUntilAndExecute;
 	};
 };
