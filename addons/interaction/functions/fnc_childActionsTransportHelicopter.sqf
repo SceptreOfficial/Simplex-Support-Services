@@ -20,16 +20,31 @@ params ["_target","_player","_entity"];
 
 		private _vehicle = _entity getVariable "SSS_vehicle";
 		private _position = _entity getVariable ["SSS_slingLoadPosition",getPos _vehicle];
-		private _objects = (nearestObjects [_position,SSS_slingLoadWhitelist,SSS_setting_slingLoadSearchRadius]) select {_vehicle canSlingLoad _x};
+		private _objects = (nearestObjects [_position,SSS_slingLoadWhitelist,SSS_setting_slingLoadSearchRadius]) select {
+			_vehicle canSlingLoad _x && {side _vehicle getFriend side _x >= 0.6}
+		};
 
 		if (_objects isEqualTo []) exitWith {
-			NOTIFY_LOCAL(_entity,"No objects available for sling load.");
+			NOTIFY_LOCAL(_entity,"No sling loadable objects nearby.");
 		};
 
 		private _cfgVehicles = configFile >> "CfgVehicles";
+		private _rows = [];
+		
+		{
+			private _cfg = _cfgVehicles >> typeOf _x;
+			private _name = getText (_cfg >> "displayName");
+			private _icon = getText (_cfg >> "picture");
 
-		["Select object to sling load",[
-			["COMBOBOX","Object",[_objects apply {getText (_cfgVehicles >> typeOf _x >> "displayName")},0]]
+			if (toLower _icon in ["","picturething"]) then {
+				_icon = ICON_BOX;
+			};
+
+			_rows pushBack [[_name,_icon],"","","",str (_x distance _position) + "m"];
+		} forEach _objects;
+
+		["Select object",[
+			["LISTNBOX","Sling loadable objects:",[_rows,0,12]]
 		],{
 			params ["_values","_args"];
 			_values params ["_index"];
