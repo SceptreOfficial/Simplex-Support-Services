@@ -9,7 +9,7 @@ if (missionNamespace getVariable format ["SSS_setting_milsimMode%1",_entity getV
 	],{
 		params ["_values","_args"];
 		_values params ["_grid"];
-		_args params ["_target","_entity","_request"];
+		_args params ["_player","_entity","_request"];
 
 		if (_grid isEqualTo "") exitWith {
 			titleText ["Request Cancelled - No grid input","PLAIN",0.5];
@@ -18,8 +18,8 @@ if (missionNamespace getVariable format ["SSS_setting_milsimMode%1",_entity getV
 		
 		private _position = _grid call CBA_fnc_mapGridToPos;
 		
-		[_target,_entity,_request,_position] call FUNC(onMapClick);
-	},{REQUEST_CANCELLED;},[_target,_entity,_request]] call EFUNC(CDS,dialog);
+		[_player,_entity,_request,_position] call FUNC(onMapClick);
+	},{REQUEST_CANCELLED;},[_player,_entity,_request]] call EFUNC(CDS,dialog);
 } else {
 	SSS_mapWasOpened = visibleMap;
 	SSS_mapClicked = false;
@@ -28,7 +28,7 @@ if (missionNamespace getVariable format ["SSS_setting_milsimMode%1",_entity getV
 	titleText ["Select Position","PLAIN",0.5];
 
 	["SSS_selectPosition","onMapSingleClick",{
-		params ["_units","_position","_alt","_shift","_target","_entity","_request"];
+		params ["_units","_position","_alt","_shift","_player","_entity","_request"];
 
 		["SSS_selectPosition","onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
 
@@ -38,8 +38,8 @@ if (missionNamespace getVariable format ["SSS_setting_milsimMode%1",_entity getV
 			openMap [false,false];
 		};
 
-		[_target,_entity,_request,_position] call FUNC(onMapClick);
-	},[_target,_entity,_request]] call BIS_fnc_addStackedEventHandler;
+		[_player,_entity,_request,_position] call FUNC(onMapClick);
+	},[_player,_entity,_request]] call BIS_fnc_addStackedEventHandler;
 
 	[{!visibleMap || SSS_mapClicked},{
 		if (!SSS_mapClicked) then {

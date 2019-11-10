@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params ["_target","_entity","_request","_position"];
+params ["_player","_entity","_request","_position"];
 
 if (isNull _entity) exitWith {};
 
