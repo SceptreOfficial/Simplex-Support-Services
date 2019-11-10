@@ -36,7 +36,7 @@ switch (_entity getVariable "SSS_supportType") do {
 		["Fire Mission Parameters - " + mapGridPosition _position,[
 			["SLIDER","Rounds",[[1,_entity getVariable "SSS_maxRounds",0],1]],
 			["SLIDER","Random dispersion radius",[[0,250,0],0]],
-			["SLIDER",["Coordination amount","Request fire mission from similar nearby artillery"],[[0,count _nearbyArtillery,0],0],true,{},[{false},{true}] select (count _nearbyArtillery > 0)]
+			["SLIDER",["Coordination amount","Request fire mission from similar nearby artillery"],[[0,count _nearbyArtillery,0],0],true,{},count _nearbyArtillery > 0]
 		],{
 			params ["_values","_args"];
 			_values params ["_rounds","_dispersion","_coordinateCount"];
