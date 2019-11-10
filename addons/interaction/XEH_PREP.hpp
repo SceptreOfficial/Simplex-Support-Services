@@ -3,6 +3,7 @@ PREP(CASGunshipControl);
 PREP(childActionsArtillery);
 PREP(childActionsCAS);
 PREP(childActionsCASHelicopter);
+PREP(childActionsLogistics);
 PREP(childActionsTransport);
 PREP(childActionsTransportHelicopter);
 PREP(childActionsTransportLandVehicle);

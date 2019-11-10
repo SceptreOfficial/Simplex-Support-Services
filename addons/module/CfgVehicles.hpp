@@ -316,8 +316,152 @@ class CfgVehicles {
 			class CustomInit {
 				displayName = "Custom init code";
 				description = "Code executed when vehicle is added & respawned (vehicle = _this)";
+	class GVAR(AddLogisticsAirdrop) : GVAR(Base) {
+		displayName = "Add Logistics Airdrop";
+		icon = ICON_PARACHUTE;
+		function = QFUNC(moduleAddLogisticsAirdrop);
+		scope = 2;
+		scopeCurator = 2;
+
+		class Arguments {
+			class Classname {
+				displayName = "Classname";
+				description = "Classname of air vehicle";
+				typeName = "STRING";
+				defaultValue = "B_T_VTOL_01_vehicle_F";
+			};
+			class Callsign {
+				displayName = "Callsign";
+				description = "Display name";
+				typeName = "STRING";
+				defaultValue = "Logistics Airdrop";
+			};
+			class SpawnPosition {
+				displayName = "Fixed spawn position";
+				description = "In format [x,y] or [x,y,z]. Leave empty to generate random position from request location.";
 				typeName = "STRING";
 				defaultValue = "";
+			};
+			class SpawnDelay {
+				displayName = "Spawn delay";
+				description = "Time before air vehicle is spawned after request is submitted";
+				typeName = "STRING";
+				defaultValue = DEFAULT_LOGISTICS_AIRDROP_SPAWN_DELAY;
+			};
+			class FlyingHeight {
+				displayName = "Flying height";
+				description = "AGL altitude in meters";
+				typeName = "STRING";
+				defaultValue = DEFAULT_LOGISTICS_AIRDROP_FLYING_HEIGHT;
+			};
+			class ListFunction {
+				displayName = "List function";
+				description = "Code that must return an array of items that can be requested. \n\nSupported list item arguments: \n0: Classname <STRING> \n1: Custom name <STRING> \n2: Custom icon <STRING> \n3: Init code <CODE> \n\nExample array: \n[""Box_NATO_Wps_F"",[""Box_NATO_Equip_F"",""Equipment"","""",{systemChat ""dress up time""}]]";
+				typeName = "STRING";
+				defaultValue = "[]";
+			};
+			class UniversalInitCode {
+				displayName = "Universal init code";
+				description = "Code executed when any requested object is spawned. \n(Object = _this)";
+				typeName = "STRING";
+				defaultValue = "";
+			};
+			class AllowMulti {
+				displayName = "Allow amount input";
+				description = "Allow requesting multiple items";
+				typeName = "NUMBER";
+				class values {
+					class False {
+						default = 1;
+						name = "False";
+						value = 0;
+					};
+					class True {
+						name = "True";
+						value = 1;
+					};
+				};
+			};
+			class Side {
+				displayName = "Side";
+				description = "Support side";
+				typeName = "NUMBER";
+				class values {
+					class BLUFOR {
+						default = 1;
+						name = "BLUFOR";
+						value = 0;
+					};
+					class OPFOR {
+						name = "OPFOR";
+						value = 1;
+					};
+					class Independent {
+						name = "Independent";
+						value = 2;
+					};
+				};
+			};
+			class Cooldown {
+				displayName = "Cooldown";
+				description = "Time between requests";
+				typeName = "STRING";
+				defaultValue = DEFAULT_COOLDOWN_LOGISTICS_AIRDROP;
+			};
+			class CustomInit {
+				displayName = "Custom init code";
+				description = "Code executed when air vehicle is spawned. \n(Vehicle = _this)";
+				typeName = "STRING";
+				defaultValue = "";
+			};
+		};
+	};
+
+	class GVAR(AddLogisticsStation) : GVAR(Base) {
+		displayName = "Add Logistics Station";
+		icon = ICON_BOX;
+		function = QFUNC(moduleAddLogisticsStation);
+		scope = 2;
+		scopeCurator = 2;
+
+		class Arguments {
+			class Callsign {
+				displayName = "Callsign";
+				description = "Display name";
+				typeName = "STRING";
+				defaultValue = "Logistics Station";
+			};
+			class ListFunction {
+				displayName = "List function";
+				description = "Code that must return an array of items that can be requested. \n\nSupported list item arguments: \n0: Classname <STRING> \n1: Custom name <STRING> \n2: Custom icon <STRING> \n3: Init code <CODE> \n\nExample array: \n[""Box_NATO_Wps_F"",[""Box_NATO_Equip_F"",""Equipment"","""",{systemChat ""dress up time""}]]";
+				typeName = "STRING";
+				defaultValue = "[]";
+			};
+			class UniversalInitCode {
+				displayName = "Universal init code";
+				description = "Code executed when any requested object is spawned \n(Object = _this)";
+				typeName = "STRING";
+				defaultValue = "";
+			};
+			class Side {
+				displayName = "Side";
+				description = "Support side";
+				typeName = "NUMBER";
+				class values {
+					class BLUFOR {
+						default = 1;
+						name = "BLUFOR";
+						value = 0;
+					};
+					class OPFOR {
+						name = "OPFOR";
+						value = 1;
+					};
+					class Independent {
+						name = "Independent";
+						value = 2;
+					};
+				};
 			};
 		};
 	};

@@ -65,6 +65,7 @@
 #define ICON_BOAT "z\SSS\addons\main\ui\icons\boat.paa"
 #define ICON_BOAT_GREEN "z\SSS\addons\main\ui\icons\boat_green.paa"
 #define ICON_BOAT_YELLOW "z\SSS\addons\main\ui\icons\boat_yellow.paa"
+#define ICON_BOX "z\SSS\addons\main\ui\icons\box.paa"
 #define ICON_CAR "z\SSS\addons\main\ui\icons\car.paa"
 #define ICON_CAR_GREEN "z\SSS\addons\main\ui\icons\car_green.paa"
 #define ICON_CAR_YELLOW "z\SSS\addons\main\ui\icons\car_yellow.paa"
@@ -117,7 +118,6 @@
 
 #define HEX_YELLOW "#f5ca00"
 #define HEX_GREEN "#20ca24"
-
 #define RGBA_RED [0.9,0,0,1]
 #define RGBA_ORANGE [0.85,0.4,0,1]
 #define RGBA_YELLOW [0.85,0.85,0,1]
@@ -241,6 +241,34 @@
 	_vehicle setPos _position; \
 	_vehicle setFuel 1; \
 	_vehicle engineOn true
+
+#define COMPILE_LOGISTICS_LISTS \
+	private _listFnc = _entity getVariable "SSS_listFnc"; \
+	private _list = []; \
+	private _beautifiedList = []; \
+	private _searchList = []; \
+	private _cfgVehicles = configFile >> "CfgVehicles"; \
+	{ \
+		_x params [["_classname","",[""]],["_customName","",[""]],["_customIcon","",[""]],["_initFnc",{},[{}]]]; \
+		private _cfg = _cfgVehicles >> _classname; \
+		if (isClass _cfg) then { \
+			private _text = if (_customName isEqualTo "") then { \
+				getText (_cfg >> "displayName") \
+			} else { \
+				_customName \
+			}; \
+			private _icon = if (_customIcon isEqualTo "") then { \
+				private _path = getText (_cfg >> "picture"); \
+				if (_path == "picturething") then {_path = "";}; \
+				_path \
+			} else { \
+				_customIcon \
+			}; \
+			_list pushBack [_classname,_text,_initFnc]; \
+			_beautifiedList pushBack [[_text,_icon]]; \
+			_searchList pushBack (toLower _text); \
+		}; \
+	} forEach ([] call _listFnc)
 
 #define NOTIFY_LOCAL_NOT_READY_COOLDOWN(ENTITY) \
 	private _string = ["<t color='#f4ca00'>NOT READY.</t> Ready in %1.","NOT READY. Ready in %1."] select SSS_setting_useChatNotifications; \

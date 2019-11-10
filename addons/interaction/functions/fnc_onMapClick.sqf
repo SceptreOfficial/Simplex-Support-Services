@@ -345,4 +345,8 @@ switch (_entity getVariable "SSS_supportType") do {
 			};
 		};
 	};
+
+	case "logisticsAirdrop" : {
+		[_entity,_position,_player] call EFUNC(support,requestLogisticsAirdrop);
+	};
 };

@@ -39,6 +39,16 @@ class CfgVehicles {
 					exceptions[] = {"isNotDragging","notOnMap","isNotInside","isNotSitting","isNotSwimming"};
 					showDisabled = 0;
 				};
+
+				class SSS_logistics {
+					displayName = "Logistics";
+					icon = ICON_BOX;
+					condition = "SSS_showLogistics";
+					statement = "";
+					insertChildren = QUOTE(_this call FUNC(childActionsLogistics));
+					exceptions[] = {"isNotDragging","notOnMap","isNotInside","isNotSitting","isNotSwimming"};
+					showDisabled = 0;
+				};
 			};
 		};
 	};
