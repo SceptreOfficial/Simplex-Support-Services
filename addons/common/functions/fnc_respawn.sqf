@@ -64,7 +64,6 @@ NOTIFY(_entity,_message);
 		crew _vehicle joinSilent _group;
 		_group addVehicle _vehicle;
 		_vehicle setDir (_entity getVariable "SSS_baseDir");
-		_vehicle setPos getPos _vehicle;
 
 		// Assign/Commission vehicle
 		_vehicle setVariable ["SSS_parentEntity",_entity,true];
