@@ -13,7 +13,7 @@
 
 		["Add CAS Helicopter",[
 			["EDITBOX","Callsign",getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")],
-			["EDITBOX","Respawn time",SSS_DEFAULT_RESPAWN_TIME_STR],
+			["EDITBOX","Respawn time",str DEFAULT_RESPAWN_TIME],
 			["EDITBOX",["Custom init code","Code executed when vehicle is added & respawned (vehicle = _this)"],""]
 		],{
 			params ["_values","_object"];
@@ -56,7 +56,7 @@
 				_requesters,
 				_x,
 				_logic getVariable ["Callsign",""],
-				parseNumber (_logic getVariable ["RespawnTime",SSS_DEFAULT_RESPAWN_TIME_STR]),
+				parseNumber (_logic getVariable ["RespawnTime",str DEFAULT_RESPAWN_TIME]),
 				_logic getVariable ["CustomInit",""]
 			] call EFUNC(support,addCASHelicopter));
 		} forEach _vehicles;

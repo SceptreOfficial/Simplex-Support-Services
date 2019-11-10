@@ -31,6 +31,15 @@ ADDON = false;
 	false
 ] call CBA_fnc_addSetting;
 
+["SSS_setting_directActionRequirement","CHECKBOX",
+	["Need assignment/special item for direct action","When disabled, anyone can interact directly with transports or logistics booths"],
+	["Simplex Support Services","Core"],
+	false,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
 ["SSS_setting_removeSupportOnVehicleDeletion","CHECKBOX",
 	["Remove support on vehicle deletion","If disabled, any physical support vehicles capable of respawning will simply respawn"],
 	["Simplex Support Services","Core"],
@@ -59,7 +68,7 @@ ADDON = false;
 ] call CBA_fnc_addSetting;
 
 ["SSS_setting_resetVehicleOnRTB","CHECKBOX",
-	["Reset vehicle on RTB","When a vehicle arrives back at base, it is repaired, fuel is refilled, and ammo is restored."],
+	["Reset vehicle on RTB","When a vehicle arrives back at base, it is repaired, fuel is refilled, and ammo is restored"],
 	["Simplex Support Services","Core"],
 	true,
 	true,
@@ -73,6 +82,35 @@ ADDON = false;
 	true,
 	true,
 	{},
+	false
+] call CBA_fnc_addSetting;
+
+// Sling Loading
+["SSS_setting_slingLoadWhitelist","EDITBOX",
+	["Sling load whitelist","Only these classnames will be searched for at sling load request locations"],
+	["Simplex Support Services","Sling Loading"],
+	"",
+	true,
+	{missionNamespace setVariable["SSS_slingLoadWhitelist",(([_this] call CBA_fnc_removeWhitespace) splitString ",") apply {toLower _x},true]},
+	false
+] call CBA_fnc_addSetting;
+
+["SSS_setting_slingLoadSearchRadius","SLIDER",
+	["Sling load search radius","Determines how far from the request position to search for objects"],
+	["Simplex Support Services","Sling Loading"],
+	[10,200,100,0],
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+// Logistics
+["SSS_setting_logisticsAirdropMaxAmount","EDITBOX",
+	["Airdrop max amount","Maximum number of items that can be spawned per request"],
+	["Simplex Support Services","Logistics"],
+	"5",
+	true,
+	{missionNamespace setVariable["SSS_logisticsAirdropMaxAmount",(parseNumber _this) max 0,true]},
 	false
 ] call CBA_fnc_addSetting;
 
@@ -104,6 +142,15 @@ ADDON = false;
 	false
 ] call CBA_fnc_addSetting;
 
+["SSS_setting_milsimModeLogistics","CHECKBOX",
+	["Enable milsim mode - Logistics","Require map grid coordinates on requests"],
+	["Simplex Support Services","Milsim Mode"],
+	false,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
 // Personal
 ["SSS_setting_useChatNotifications","CHECKBOX",
 	["Use chat notifications","Disables custom notification system"],
@@ -120,14 +167,14 @@ ADDON = false;
 	["Simplex Support Services","Special Items"],
 	"",
 	true,
-	{},
+	{missionNamespace setVariable["SSS_specialItemsArray",(([_this] call CBA_fnc_removeWhitespace) splitString ",") apply {toLower _x},true]},
 	false
 ] call CBA_fnc_addSetting;
 
 ["SSS_setting_specialItemsLogic","LIST",
 	["Special items - logic","Select what logic to evaluate"],
 	["Simplex Support Services","Special Items"],
-	[[true,false],["Assignment AND items","Assignment OR items"],0],
+	[[true,false],["Assignment AND item","Assignment OR item"],0],
 	true,
 	{},
 	false
@@ -145,7 +192,47 @@ ADDON = false;
 // Master array
 SSS_entities = [];
 
-// Zeus EH
+// Transport action
+["SSS_commissioned",{
+	params ["_vehicle"];
+
+	private _entity = _vehicle getVariable ["SSS_parentEntity",objNull];
+
+	if (!alive _vehicle || isNull _entity || {(_entity getVariable "SSS_service") != "Transport"}) exitWith {};
+
+	private _action = ["SSS_transport","Transport",ICON_TRANSPORT,{},
+		EFUNC(interaction,transportVehicleActionCondition),
+		EFUNC(interaction,transportVehicleActionChildren)
+	] call ace_interact_menu_fnc_createAction;
+
+	[_vehicle,0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToObject;
+	[_vehicle,1,["ACE_SelfActions"],_action] call ace_interact_menu_fnc_addActionToObject;
+}] call CBA_fnc_addEventHandler;
+
+["SSS_logisticsStationBooth",{
+	params ["_entity","_booth"];
+
+	if (isNull _entity) exitWith {};
+
+	private _assignedStations = _booth getVariable ["SSS_assignedStations",[]];
+	private _index = _assignedStations pushBack _entity;
+	_booth setVariable ["SSS_assignedStations",_assignedStations];
+
+	private _action = ["SSS_logisticsStations:" + str _index,_entity getVariable "SSS_callsign",ICON_BOX,{
+		_this call EFUNC(support,requestLogisticsStation)
+	},{
+		params ["_target","_player","_entity"];
+
+		if (SSS_setting_directActionRequirement && {!(_entity in ([_player,"logistics"] call EFUNC(interaction,availableEntities)))}) exitWith {false};
+		
+		!isNull _entity && SSS_showLogisticsStations && {(_entity getVariable "SSS_side") getFriend side _player >= 0.6}
+	},{},_entity] call ace_interact_menu_fnc_createAction;
+
+	[_booth,0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToObject;
+	[_booth,1,["ACE_SelfActions"],_action] call ace_interact_menu_fnc_addActionToObject;
+}] call CBA_fnc_addEventHandler;
+
+// Zeus handling
 ["ModuleCurator_F","init",{
 	params ["_zeus"];
 
@@ -196,7 +283,10 @@ SSS_entities = [];
 	"SSS_showTransportLandVehicles",
 	"SSS_showTransportMaritime",
 	"SSS_showTransportPlanes",
-	"SSS_showTransportVTOLs"
+	"SSS_showTransportVTOLs",
+	"SSS_showLogistics",
+	"SSS_showLogisticsAirdrops",
+	"SSS_showLogisticsStations"
 ];
 
 ADDON = true;

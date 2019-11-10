@@ -37,13 +37,13 @@ switch (_request) do {
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
-			[_vehicle,_position,0,"MOVE","","","","",WP_DONE] call EFUNC(common,addWaypoint);
+			[_vehicle,_position,0,"MOVE","","","","",WP_DONE,[2,2,2]] call EFUNC(common,addWaypoint);
 
 			[{WAIT_UNTIL_WPDONE},{
 				params ["_entity","_vehicle"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"RTB");
+					CANCEL_ORDER(_entity);
 				};
 
 				END_ORDER(_entity,"Arrived at base. Ready for further tasking.");
@@ -79,7 +79,7 @@ switch (_request) do {
 				params ["_entity","_vehicle"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Move");
+					CANCEL_ORDER(_entity);
 				};
 
 				END_ORDER(_entity,"Destination reached. Ready for further tasking.");

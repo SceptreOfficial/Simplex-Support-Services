@@ -40,13 +40,13 @@ switch (_request) do {
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
-			[_vehicle,_position,0,"MOVE","","","","",WP_DONE] call EFUNC(common,addWaypoint);
+			[_vehicle,_position,0,"MOVE","","","","",WP_DONE,[2,2,2]] call EFUNC(common,addWaypoint);
 
 			[{WAIT_UNTIL_WPDONE},{
 				params ["_entity","_vehicle","_pad"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"RTB");
+					CANCEL_ORDER(_entity);
 					deleteVehicle _pad;
 				};
 
@@ -59,7 +59,7 @@ switch (_request) do {
 					params ["_entity","_vehicle","_pad"];
 
 					if (CANCEL_CONDITION) exitWith {
-						CANCEL_ORDER(_entity,"RTB");
+						CANCEL_ORDER(_entity);
 						_vehicle doFollow _vehicle;
 						_vehicle land "NONE";
 						deleteVehicle _pad;
@@ -78,7 +78,7 @@ switch (_request) do {
 			},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 	};
-	
+
 	case "PICKUP";
 	case 1 : {
 		INTERRUPT(_entity,_vehicle);
@@ -97,7 +97,7 @@ switch (_request) do {
 				params ["_entity","_vehicle","_position"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Pickup");
+					CANCEL_ORDER(_entity);
 				};
 
 				// Loiter until smoke found
@@ -114,7 +114,7 @@ switch (_request) do {
 			},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
 	};
-	
+
 	case "LAND";
 	case 2;
 	case "LAND_ENG_OFF";
@@ -147,7 +147,7 @@ switch (_request) do {
 			} else {
 				_nearestPads # 0
 			};
-			
+
 			BEGIN_ORDER(_entity,_position,"Heading to the LZ.");
 
 			_vehicle setVariable ["SSS_WPDone",false];
@@ -158,7 +158,7 @@ switch (_request) do {
 				params ["_entity","_vehicle","_pad","_deletePad","_engineOn"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Landing");
+					CANCEL_ORDER(_entity);
 					if (_deletePad) then {
 						deleteVehicle _pad;
 					};
@@ -173,7 +173,7 @@ switch (_request) do {
 					params ["_entity","_vehicle","_pad","_deletePad","_engineOn"];
 
 					if (CANCEL_CONDITION) exitWith {
-						CANCEL_ORDER(_entity,"Landing");
+						CANCEL_ORDER(_entity);
 						_vehicle doFollow _vehicle;
 						_vehicle land "NONE";
 						if (_deletePad) then {
@@ -194,7 +194,7 @@ switch (_request) do {
 							group _vehicle setBehaviour "CARELESS";
 						},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 
-						[{_this engineOn true},_vehicle,1] call CBA_fnc_waitAndExecute;
+						[{_this engineOn true},{},_vehicle,2] call CBA_fnc_waitUntilAndExecute;
 						"LAND"
 					} else {
 						_vehicle engineOn false;
@@ -210,7 +210,7 @@ switch (_request) do {
 			},[_entity,_vehicle,_pad,_deletePad,_engineOn]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position,_engineOn]] call CBA_fnc_waitUntilAndExecute;
 	};
-	
+
 	case "MOVE";
 	case 4 : {
 		INTERRUPT(_entity,_vehicle);
@@ -228,7 +228,7 @@ switch (_request) do {
 				params ["_entity","_vehicle"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Move");
+					CANCEL_ORDER(_entity);
 				};
 
 				END_ORDER(_entity,"Destination reached. Ready for further tasking.");
@@ -254,22 +254,24 @@ switch (_request) do {
 			[_vehicle,_position,0,"MOVE","","","","",WP_DONE] call EFUNC(common,addWaypoint);
 
 			[{WAIT_UNTIL_WPDONE},{
-				params ["_entity","_vehicle","_jumpDelay","_AIOpeningHeight"];
+				params ["_entity","_vehicle","_position","_jumpDelay","_AIOpeningHeight"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Paradrop");
+					CANCEL_ORDER(_entity);
 				};
 
-				_vehicle doMove (_vehicle getRelPos [5000,0]);
+				(group _vehicle) addWaypoint [_position getRelPos [5000,0],0];
+				(group _vehicle) addWaypoint [_position,100];
+
 				[_entity,_vehicle,_jumpDelay,_AIOpeningHeight] call FUNC(transportParadrop);
 
 				END_ORDER(_entity,"Go! Go! Go!");
 
 				["SSS_requestCompleted",[_entity,["PARADROP"]]] call CBA_fnc_globalEvent;
-			},[_entity,_vehicle,_jumpDelay,_AIOpeningHeight]] call CBA_fnc_waitUntilAndExecute;
+			},[_entity,_vehicle,_position,_jumpDelay,_AIOpeningHeight]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position,_jumpDelay,_AIOpeningHeight]] call CBA_fnc_waitUntilAndExecute;
 	};
-	
+
 	case "LOITER";
 	case 6 : {
 		_extraParams params ["_loiterRadius","_loiterDirection"];
@@ -290,7 +292,7 @@ switch (_request) do {
 				params ["_entity","_vehicle","_position","_loiterRadius","_loiterDirection"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Loiter");
+					CANCEL_ORDER(_entity);
 				};
 
 				// Loiter

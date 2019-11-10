@@ -5,8 +5,8 @@ params [
 	["_classname","",["",objNull]],
 	["_callSign","",[""]],
 	["_side",sideEmpty,[sideEmpty]],
-	["_cooldownDefault",SSS_DEFAULT_COOLDOWN_DRONES,[0]],
-	["_loiterTime",SSS_DEFAULT_LOITER_TIME_DRONES,[0]],
+	["_cooldownDefault",DEFAULT_COOLDOWN_DRONES,[0]],
+	["_loiterTime",DEFAULT_LOITER_TIME_DRONES,[0]],
 	["_customInit","",["",{}]]
 ];
 
@@ -17,6 +17,7 @@ if (_classname isEqualType objNull) then {
 
 if (_classname isEqualTo "" || !(_classname isKindOf "Plane")) exitWith {
 	SSS_ERROR_1("Invalid CAS Drone classname: %1",_classname);
+	objNull
 };
 
 if (_callsign isEqualTo "") then {
@@ -29,13 +30,13 @@ if (_customInit isEqualType "") then {
 
 if (!isServer) exitWith {
 	_this remoteExecCall [QFUNC(addCASDrone),2];
-	nil
+	objNull
 };
 
 // Basic setup
-private _entity = (createGroup sideLogic) createUnit ["Logic",[-69,-69,0],[],0,"CAN_COLLIDE"];
+private _entity = true call CBA_fnc_createNamespace;
 
-BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_DRONE,ICON_DRONE_YELLOW,ICON_DRONE_GREEN,_customInit,"CAS","CASDrone");
+BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_DRONE,_customInit,"CAS","CASDrone");
 CREATE_TASK_MARKER(_entity,_callsign,"mil_end","CAS");
 
 // Specifics

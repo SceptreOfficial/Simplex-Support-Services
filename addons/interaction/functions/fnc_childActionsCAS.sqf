@@ -3,17 +3,16 @@
 params ["_target","_player"];
 
 private _actions = [];
-private _assignedCAS = GET_SERVICE_ENTITIES("CAS");
 
 {
 	private _action = switch (_x getVariable "SSS_supportType") do {
 		case "CASDrone" : {
-			["SSS_CAS:" + str _x,_x getVariable "SSS_callsign","",{},{SSS_showCASDrones},{},_x,ACTION_DEFAULTS,{
+			["SSS_CAS:" + str _forEachIndex,_x getVariable "SSS_callsign","",{},{SSS_showCASDrones},{},_x,ACTION_DEFAULTS,{
 				params ["_target","_player","_entity","_actionData"];
 
 				if (_entity getVariable "SSS_cooldown" > 0) then {
 					_actionData set [2,_entity getVariable "SSS_iconYellow"];
-					_actionData set [3,{NOTIFY_LOCAL_1(_this # 2,"<t color='#f4ca00'>NOT READY.</t> Ready in %1.",PROPER_COOLDOWN(_this # 2))}];
+					_actionData set [3,{NOTIFY_LOCAL_NOT_READY_COOLDOWN(_this # 2)}];
 				} else {
 					if (_entity getVariable "SSS_active") then {
 						_actionData set [2,_entity getVariable "SSS_iconGreen"];
@@ -27,12 +26,12 @@ private _assignedCAS = GET_SERVICE_ENTITIES("CAS");
 		};
 
 		case "CASGunship" : {
-			["SSS_CAS:" + str _x,_x getVariable "SSS_callsign","",{},{SSS_showCASGunships},{},_x,ACTION_DEFAULTS,{
+			["SSS_CAS:" + str _forEachIndex,_x getVariable "SSS_callsign","",{},{SSS_showCASGunships},{},_x,ACTION_DEFAULTS,{
 				params ["_target","_player","_entity","_actionData"];
 
 				if (_entity getVariable "SSS_cooldown" > 0) then {
 					_actionData set [2,_entity getVariable "SSS_iconYellow"];
-					_actionData set [3,{NOTIFY_LOCAL_1(_this # 2,"<t color='#f4ca00'>NOT READY.</t> Ready in %1.",PROPER_COOLDOWN(_this # 2))}];
+					_actionData set [3,{NOTIFY_LOCAL_NOT_READY_COOLDOWN(_this # 2)}];
 				} else {
 					if (_entity getVariable "SSS_active") then {
 						_actionData set [2,_entity getVariable "SSS_iconGreen"];
@@ -46,7 +45,7 @@ private _assignedCAS = GET_SERVICE_ENTITIES("CAS");
 		};
 
 		case "CASHelicopter" : {
-			["SSS_CAS:" + str _x,_x getVariable "SSS_callsign","",{},{SSS_showCASHelicopters},{},_x,ACTION_DEFAULTS,{
+			["SSS_CAS:" + str _forEachIndex,_x getVariable "SSS_callsign","",{},{SSS_showCASHelicopters},{},_x,ACTION_DEFAULTS,{
 				params ["_target","_player","_entity","_actionData"];
 
 				if (alive (_entity getVariable "SSS_vehicle")) then {
@@ -56,7 +55,7 @@ private _assignedCAS = GET_SERVICE_ENTITIES("CAS");
 				} else {
 					_actionData set [2,_entity getVariable "SSS_iconYellow"];
 					_actionData set [3,{
-						NOTIFY_LOCAL(_this # 2,"<t color='#f4ca00'>No vehicle available at this time. A replacement is on the way.</t>");
+						NOTIFY_LOCAL(_this # 2,"No vehicle available at this time. A replacement is on the way.");
 					}];
 					_actionData set [5,{}];
 				};
@@ -69,7 +68,7 @@ private _assignedCAS = GET_SERVICE_ENTITIES("CAS");
 
 				if (_entity getVariable "SSS_cooldown" > 0) then {
 					_actionData set [2,_entity getVariable "SSS_iconYellow"];
-					_actionData set [3,{NOTIFY_LOCAL_1(_this # 2,"<t color='#f4ca00'>NOT READY.</t> Ready in %1.",PROPER_COOLDOWN(_this # 2))}];
+					_actionData set [3,{NOTIFY_LOCAL_NOT_READY_COOLDOWN(_this # 2)}];
 					_actionData set [5,{}];
 				} else {
 					_actionData set [2,_entity getVariable "SSS_icon"];
@@ -97,6 +96,6 @@ private _assignedCAS = GET_SERVICE_ENTITIES("CAS");
 	};
 
 	_actions pushBack [_action,[],_target];
-} forEach ([_assignedCAS,true,{_this getVariable "SSS_callsign"}] call EFUNC(common,sortBy));
+} forEach ([[_target,"CAS"] call FUNC(availableEntities),true,{_this getVariable "SSS_callsign"}] call EFUNC(common,sortBy));
 
 _actions

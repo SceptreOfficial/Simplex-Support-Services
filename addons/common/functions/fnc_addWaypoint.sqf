@@ -1,9 +1,5 @@
 #include "script_component.hpp"
 
-if (!isServer) exitWith {
-	_this remoteExecCall [QFUNC(addWaypoint),2];
-};
-
 params [
 	["_target",grpNull,[grpNull,objNull]],
 	["_position",[],[[]]],
@@ -27,13 +23,15 @@ if (_formation isEqualTo "") then {_formation = "NO CHANGE";};
 // Always overwrites waypoint index 0
 private _WP = _target addWaypoint [_position,_radius,0];
 _WP setWaypointType _type;
-_WP setWaypointBehaviour _behaviour;
-_WP setWaypointCombatMode _combatMode;
-_WP setWaypointSpeed _speed;
-_WP setWaypointFormation _formation;
-_WP setWaypointStatements _statements;
 _WP setWaypointTimeout _timeout;
+_WP setWaypointStatements _statements;
 _WP setWaypointCompletionRadius _completionRadius;
+
+[_WP,_behaviour] remoteExecCall ["setWaypointBehaviour",2];
+[_WP,_combatMode] remoteExecCall ["setWaypointCombatMode",2];
+[_WP,_speed] remoteExecCall ["setWaypointSpeed",2];
+[_WP,_formation] remoteExecCall ["setWaypointFormation",2];
+
 _target setCurrentWaypoint _WP;
 
 _WP

@@ -4,7 +4,7 @@ params [
 	["_requesters",[],[[]]],
 	["_vehicle",objNull,[objNull]],
 	["_callsign","",[""]],
-	["_respawnTime",SSS_DEFAULT_RESPAWN_TIME,[0]],
+	["_respawnTime",DEFAULT_RESPAWN_TIME,[0]],
 	["_customInit","",["",{}]]
 ];
 
@@ -19,27 +19,30 @@ if (_customInit isEqualType "") then {
 
 if (!isNull (_vehicle getVariable ["SSS_parentEntity",objNull])) exitWith {
 	SSS_ERROR_2("Vehicle is already a support: %1 (%2)",_callsign,_vehicle);
+	objNull
 };
 
 if ({isPlayer _x} count crew _vehicle > 0) exitWith {
 	SSS_ERROR_2("No players allowed: %1 (%2)",_callsign,_vehicle);
+	objNull
 };
 
 if (!alive driver _vehicle) exitWith {
 	SSS_ERROR_2("No driver in vehicle: %1 (%2)",_callsign,_vehicle);
+	objNull
 };
 
 if (!isServer) exitWith {
 	_this remoteExecCall [QFUNC(addCASHelicopter),2];
-	nil
+	objNull
 };
 
 // Basic setup
-private _entity = (createGroup sideLogic) createUnit ["Logic",[-69,-69,0],[],0,"CAN_COLLIDE"];
+private _entity = true call CBA_fnc_createNamespace;
 private _group = group _vehicle;
 private _side = side _group;
 
-BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_HELI,ICON_HELI_YELLOW,ICON_HELI_GREEN,_customInit,"CAS","CASHelicopter");
+BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_HELI,_customInit,"CAS","CASHelicopter");
 PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 CREATE_TASK_MARKER(_entity,_callsign,"mil_end","CAS");
 

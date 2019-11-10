@@ -10,7 +10,9 @@ private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
 
 if (!alive _vehicle) exitWith {};
 
-private _gunner = _vehicle turretUnit [1];
+private _gunner = _vehicle turretUnit (_entity getVariable ["SSS_turretPath",[1]]);
+
+if (!alive _gunner) exitWith {};
 
 if (!isNull (_gunner getVariable ["SSS_remoteController",objNull])) exitWith {
 	NOTIFY_LOCAL(_entity,"Currently occupied by another player");

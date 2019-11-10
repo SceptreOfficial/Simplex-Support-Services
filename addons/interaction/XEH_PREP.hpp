@@ -1,7 +1,9 @@
+PREP(availableEntities);
 PREP(CASGunshipControl);
 PREP(childActionsArtillery);
 PREP(childActionsCAS);
 PREP(childActionsCASHelicopter);
+PREP(childActionsLogistics);
 PREP(childActionsTransport);
 PREP(childActionsTransportHelicopter);
 PREP(childActionsTransportLandVehicle);
@@ -10,4 +12,5 @@ PREP(childActionsTransportPlane);
 PREP(childActionsTransportVTOL);
 PREP(onMapClick);
 PREP(selectPosition);
-PREP(serviceActionCondition);
+PREP(transportVehicleActionChildren);
+PREP(transportVehicleActionCondition);

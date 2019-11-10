@@ -53,7 +53,7 @@
 			private _cfgVehicles = configFile >> "CfgVehicles";
 
 			{
-				private _classDisplayName = getText (_cfgVehicles >> _x getVariable "SSS_classname" >> "displayName");
+				private _classDisplayName = getText (_cfgVehicles >> _x getVariable ["SSS_classname",""] >> "displayName");
 				private _side = _x getVariable "SSS_side";
 				private _color = switch (_side) do {
 					case east : {"#800000"};
@@ -116,6 +116,10 @@
 
 		deleteVehicle _logic;
 	} else {
+		if (local _logic) then {
+			_logic setPos [0,0,0];
+		};
+
 		private _fnc = {
 			params ["_logic"];
 

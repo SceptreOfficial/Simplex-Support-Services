@@ -1,3 +1,28 @@
+v0.3
+- Added: 'Logistics Airdrop' support
+- Added: 'Logistics Station' support (You can also sync this module to any object you want to have as a 'booth')
+- Added: Transport helicopter sling loading
+- Added: Transport helicopters can now use the paradrop request
+- Added: Option for non-assigned units to directly interact with vehicles
+- Added: Initial functionality to use modded CAS gunships
+- Changed: Changed some wording for some dialogs/options
+- Changed: Increased flying height option for helicopters
+- Changed: Vehicles now return to the paradrop area after paradropping
+- Improved: Support entities now use CBA namespaces instead of game logics
+- Improved: Internal dialog API has been updated
+- Improved: Paradrop exit conditions/error management
+- Improved: Minor icon updates
+- Improved: Standardized access condition checking
+- Improved: Hovering and fastroping has been slightly improved
+- Fixed: Ropes would not deploy correctly from the huron and possibly other helicopters.
+- Fixed: A special/rare issue where hovering could break and the helicopter would rise to the heavens and landing would no longer function correctly (Thanks SlammanDan)
+- Fixed: Special item condition OR logic was giving too much assigned access
+- Fixed: Transport actions on vehicles weren't showing up JIP players
+- Fixed: Markers could not show up for JIP players
+- Fixed: Landing and Hover requests could break in rare cases
+- Fixed: Chat notifications included extra color formatting text
+- Removed: Cancelled task is no longer included in notification messages
+
 v0.2.5.9
 - Added: 'Milsim mode' settings to force using grid coordinates instead of clicking on the map (supports up to 10 digits)
 - Changed: CAS helicopters now have targets revealed near the request position to encourage engagment

@@ -42,18 +42,18 @@
 #define SSS_WARNING_4(MESSAGE,ARG1,ARG2,ARG3,ARG4) 				SSS_ERROR(FORMAT_4(MESSAGE,ARG1,ARG2,ARG3,ARG4))
 #define SSS_WARNING_5(MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5) 		SSS_ERROR(FORMAT_5(MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5))
 
-#define NOTIFY_LOCAL(VEH,MESSAGE) 								[VEH,MESSAGE] call EFUNC(common,notify)
-#define NOTIFY_LOCAL_1(VEH,MESSAGE,ARG1) 					 	NOTIFY_LOCAL(VEH,FORMAT_1(MESSAGE,ARG1))
-#define NOTIFY_LOCAL_2(VEH,MESSAGE,ARG1,ARG2) 			 		NOTIFY_LOCAL(VEH,FORMAT_2(MESSAGE,ARG1,ARG2))
-#define NOTIFY_LOCAL_3(VEH,MESSAGE,ARG1,ARG2,ARG3) 		 		NOTIFY_LOCAL(VEH,FORMAT_3(MESSAGE,ARG1,ARG2,ARG3))
-#define NOTIFY_LOCAL_4(VEH,MESSAGE,ARG1,ARG2,ARG3,ARG4) 		NOTIFY_LOCAL(VEH,FORMAT_4(MESSAGE,ARG1,ARG2,ARG3,ARG4))
-#define NOTIFY_LOCAL_5(VEH,MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5) 	NOTIFY_LOCAL(VEH,FORMAT_5(MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5))
-#define NOTIFY(VEH,MESSAGE) 									[VEH,MESSAGE] remoteExecCall [QEFUNC(common,notify),0]
-#define NOTIFY_1(VEH,MESSAGE,ARG1) 								NOTIFY(VEH,FORMAT_1(MESSAGE,ARG1))
-#define NOTIFY_2(VEH,MESSAGE,ARG1,ARG2) 						NOTIFY(VEH,FORMAT_2(MESSAGE,ARG1,ARG2))
-#define NOTIFY_3(VEH,MESSAGE,ARG1,ARG2,ARG3) 					NOTIFY(VEH,FORMAT_3(MESSAGE,ARG1,ARG2,ARG3))
-#define NOTIFY_4(VEH,MESSAGE,ARG1,ARG2,ARG3,ARG4) 				NOTIFY(VEH,FORMAT_4(MESSAGE,ARG1,ARG2,ARG3,ARG4))
-#define NOTIFY_5(VEH,MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5) 			NOTIFY(VEH,FORMAT_5(MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5))
+#define NOTIFY_LOCAL(ENTITY,MESSAGE) 								[ENTITY,MESSAGE] call EFUNC(common,notify)
+#define NOTIFY_LOCAL_1(ENTITY,MESSAGE,ARG1) 					 	NOTIFY_LOCAL(ENTITY,FORMAT_1(MESSAGE,ARG1))
+#define NOTIFY_LOCAL_2(ENTITY,MESSAGE,ARG1,ARG2) 			 		NOTIFY_LOCAL(ENTITY,FORMAT_2(MESSAGE,ARG1,ARG2))
+#define NOTIFY_LOCAL_3(ENTITY,MESSAGE,ARG1,ARG2,ARG3) 		 		NOTIFY_LOCAL(ENTITY,FORMAT_3(MESSAGE,ARG1,ARG2,ARG3))
+#define NOTIFY_LOCAL_4(ENTITY,MESSAGE,ARG1,ARG2,ARG3,ARG4) 			NOTIFY_LOCAL(ENTITY,FORMAT_4(MESSAGE,ARG1,ARG2,ARG3,ARG4))
+#define NOTIFY_LOCAL_5(ENTITY,MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5) 	NOTIFY_LOCAL(ENTITY,FORMAT_5(MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5))
+#define NOTIFY(ENTITY,MESSAGE) 										[ENTITY,MESSAGE] remoteExecCall [QEFUNC(common,notify),0]
+#define NOTIFY_1(ENTITY,MESSAGE,ARG1) 								NOTIFY(ENTITY,FORMAT_1(MESSAGE,ARG1))
+#define NOTIFY_2(ENTITY,MESSAGE,ARG1,ARG2) 							NOTIFY(ENTITY,FORMAT_2(MESSAGE,ARG1,ARG2))
+#define NOTIFY_3(ENTITY,MESSAGE,ARG1,ARG2,ARG3) 					NOTIFY(ENTITY,FORMAT_3(MESSAGE,ARG1,ARG2,ARG3))
+#define NOTIFY_4(ENTITY,MESSAGE,ARG1,ARG2,ARG3,ARG4) 				NOTIFY(ENTITY,FORMAT_4(MESSAGE,ARG1,ARG2,ARG3,ARG4))
+#define NOTIFY_5(ENTITY,MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5) 			NOTIFY(ENTITY,FORMAT_5(MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5))
 
 #define ZEUS_MESSAGE(MESSAGE) [objNull,MESSAGE] call BIS_fnc_showCuratorFeedbackMessage
 #define ZEUS_ERROR(MESSAGE) \
@@ -65,6 +65,7 @@
 #define ICON_BOAT "z\SSS\addons\main\ui\icons\boat.paa"
 #define ICON_BOAT_GREEN "z\SSS\addons\main\ui\icons\boat_green.paa"
 #define ICON_BOAT_YELLOW "z\SSS\addons\main\ui\icons\boat_yellow.paa"
+#define ICON_BOX "z\SSS\addons\main\ui\icons\box.paa"
 #define ICON_CAR "z\SSS\addons\main\ui\icons\car.paa"
 #define ICON_CAR_GREEN "z\SSS\addons\main\ui\icons\car_green.paa"
 #define ICON_CAR_YELLOW "z\SSS\addons\main\ui\icons\car_yellow.paa"
@@ -103,6 +104,7 @@
 #define ICON_SEARCH_YELLOW "z\SSS\addons\main\ui\icons\search_yellow.paa"
 #define ICON_SELF_PROPELLED "z\SSS\addons\main\ui\icons\self_propelled.paa"
 #define ICON_SELF_PROPELLED_YELLOW "z\SSS\addons\main\ui\icons\self_propelled_yellow.paa"
+#define ICON_SLINGLOAD "z\SSS\addons\main\ui\icons\slingLoad.paa"
 #define ICON_SMOKE "z\SSS\addons\main\ui\icons\smoke.paa"
 #define ICON_STROBE "z\SSS\addons\main\ui\icons\strobe.paa"
 #define ICON_SUPPORT_SERVICES "z\SSS\addons\main\ui\icons\sss.paa"
@@ -114,6 +116,8 @@
 #define ICON_VTOL_GREEN "z\SSS\addons\main\ui\icons\vtol_green.paa"
 #define ICON_VTOL_YELLOW "z\SSS\addons\main\ui\icons\vtol_yellow.paa"
 
+#define HEX_YELLOW "#f5ca00"
+#define HEX_GREEN "#20ca24"
 #define RGBA_RED [0.9,0,0,1]
 #define RGBA_ORANGE [0.85,0.4,0,1]
 #define RGBA_YELLOW [0.85,0.85,0,1]
@@ -121,39 +125,35 @@
 #define RGBA_BLUE [0,0,1,1]
 #define RGBA_PURPLE [0.75,0.15,0.75,1]
 
-#define SSS_DEFAULT_ARTILLERY_COORDINATION_DISTANCE 100
-#define SSS_DEFAULT_ARTILLERY_COORDINATION_DISTANCE_STR "100"
-#define SSS_DEFAULT_ARTILLERY_MAX_ROUNDS 10
-#define SSS_DEFAULT_ARTILLERY_MAX_ROUNDS_STR "10"
-#define SSS_DEFAULT_RESPAWN_TIME 60
-#define SSS_DEFAULT_RESPAWN_TIME_STR "60"
-#define SSS_DEFAULT_COOLDOWN_ARTILLERY_MIN 90
-#define SSS_DEFAULT_COOLDOWN_ARTILLERY_MIN_STR "90"
-#define SSS_DEFAULT_COOLDOWN_ARTILLERY_ROUND 8
-#define SSS_DEFAULT_COOLDOWN_ARTILLERY_ROUND_STR "8"
-#define SSS_DEFAULT_COOLDOWN_DRONES 600
-#define SSS_DEFAULT_COOLDOWN_DRONES_STR "600"
-#define SSS_DEFAULT_COOLDOWN_GUNSHIPS 900
-#define SSS_DEFAULT_COOLDOWN_GUNSHIPS_STR "900"
-#define SSS_DEFAULT_COOLDOWN_PLANES 300
-#define SSS_DEFAULT_COOLDOWN_PLANES_STR "300"
-#define SSS_DEFAULT_LOITER_TIME_DRONES 300
-#define SSS_DEFAULT_LOITER_TIME_DRONES_STR "300"
-#define SSS_DEFAULT_LOITER_TIME_GUNSHIPS 300
-#define SSS_DEFAULT_LOITER_TIME_GUNSHIPS_STR "300"
+#define DEFAULT_ARTILLERY_COORDINATION_DISTANCE 100
+#define DEFAULT_ARTILLERY_MAX_ROUNDS 10
+#define DEFAULT_LOGISTICS_AIRDROP_FLYING_HEIGHT 500
+#define DEFAULT_LOGISTICS_AIRDROP_SPAWN_DELAY 30
+#define DEFAULT_RESPAWN_TIME 60
+#define DEFAULT_COOLDOWN_ARTILLERY_MIN 90
+#define DEFAULT_COOLDOWN_ARTILLERY_ROUND 8
+#define DEFAULT_COOLDOWN_DRONES 600
+#define DEFAULT_COOLDOWN_GUNSHIPS 900
+#define DEFAULT_COOLDOWN_LOGISTICS_AIRDROP 300
+#define DEFAULT_COOLDOWN_PLANES 300
+#define DEFAULT_LOITER_TIME_DRONES 300
+#define DEFAULT_LOITER_TIME_GUNSHIPS 300
 
 #define ADMIN_ACCESS_CONDITION SSS_setting_adminFullAccess && {serverCommandAvailable "#kick" || !isMultiplayer}
 #define ACTION_DEFAULTS [0,0,0],4,[false,false,false,false,false]
-
 #define PRIMARY_CREW(VEH) ((crew VEH) arrayIntersect (units group VEH))
+#define WP_DONE ["true","(vehicle this) setVariable ['SSS_WPDone',true];"]
+#define PROPER_TIME(SECONDS) SECONDS call EFUNC(common,properTime)
+#define PROPER_COOLDOWN(ENTITY) PROPER_TIME(ENTITY getVariable "SSS_cooldown")
 
-#define BASE_TRAITS(ENTITY,CLASSNAME,CALLSIGN,SUPPORT_SIDE,ICON,ICON_YELLOW,ICON_GREEN,CUSTOM_INIT,SERVICE,SUPPORT_TYPE) \
+#define CREATE_TASK_MARKER(ENTITY,CALLSIGN,MARKER_ICON,STRING) [ENTITY,CALLSIGN,MARKER_ICON,STRING] call EFUNC(common,createMarker)
+#define BASE_TRAITS(ENTITY,CLASSNAME,CALLSIGN,SUPPORT_SIDE,ICON,CUSTOM_INIT,SERVICE,SUPPORT_TYPE) \
 	ENTITY setVariable ["SSS_classname",CLASSNAME,true]; \
 	ENTITY setVariable ["SSS_callsign",CALLSIGN,true]; \
 	ENTITY setVariable ["SSS_side",SUPPORT_SIDE,true]; \
 	ENTITY setVariable ["SSS_icon",ICON,true]; \
-	ENTITY setVariable ["SSS_iconYellow",ICON_YELLOW,true]; \
-	ENTITY setVariable ["SSS_iconGreen",ICON_GREEN,true]; \
+	ENTITY setVariable ["SSS_iconYellow",[ICON,HEX_YELLOW],true]; \
+	ENTITY setVariable ["SSS_iconGreen",[ICON,HEX_GREEN],true]; \
 	ENTITY setVariable ["SSS_customInit",CUSTOM_INIT,true]; \
 	ENTITY setVariable ["SSS_service",SERVICE,true]; \
 	ENTITY setVariable ["SSS_supportType",SUPPORT_TYPE,true]
@@ -168,8 +168,6 @@
 	ENTITY setVariable ["SSS_respawning",false,true]; \
 	GRP setVariable ["SSS_protectWaypoints",true,true]
 
-#define CREATE_TASK_MARKER(ENTITY,CALLSIGN,MARKER_ICON,STRING) [ENTITY,CALLSIGN,MARKER_ICON,STRING] call EFUNC(common,createMarker);
-
 #define BEGIN_ORDER(ENTITY,POS,MESSAGE) \
 	ENTITY setVariable ["SSS_onTask",true,true]; \
 	ENTITY setVariable ["SSS_awayFromBase",true,true]; \
@@ -181,12 +179,9 @@
 	[ENTITY,false] call EFUNC(common,updateMarker); \
 	NOTIFY(ENTITY,MESSAGE)
 
-#define WP_DONE ["true","(vehicle this) setVariable ['SSS_WPDone',true,true];"]
-
-#define CANCEL_ORDER(ENTITY,TASK) \
+#define CANCEL_ORDER(ENTITY) \
 	ENTITY setVariable ["SSS_interrupt",false]; \
 	ENTITY setVariable ["SSS_onTask",false,true]; \
-	ENTITY setVariable ["SSS_interruptedTask",TASK,true]; \
 	[ENTITY,false] call EFUNC(common,updateMarker)
 
 #define INTERRUPT(ENTITY,VEH) \
@@ -197,7 +192,7 @@
 			!(_entity getVariable "SSS_onTask") || !local _vehicle || !alive _vehicle \
 		},{},[ENTITY,VEH],8,{ \
 			params ["_entity","_vehicle"]; \
-			CANCEL_ORDER(_entity,""); \
+			CANCEL_ORDER(_entity); \
 			_vehicle doFollow _vehicle; \
 			_vehicle land "NONE"; \
 		}] call CBA_fnc_waitUntilAndExecute; \
@@ -216,10 +211,7 @@
 
 #define REQUEST_CANCELLED \
 	titleText ["Request Cancelled","PLAIN",0.5]; \
-	[{titleFadeOut 0.5;},[],1] call CBA_fnc_waitAndExecute
-
-#define PROPER_TIME(SECONDS) SECONDS call EFUNC(common,properTime)
-#define PROPER_COOLDOWN(ENTITY) PROPER_TIME(ENTITY getVariable "SSS_cooldown")
+	[{titleFadeOut 0.5},[],1] call CBA_fnc_waitAndExecute
 
 #define PLANE_TAKEOFF(VEH) \
 	private _worldCfg = configfile >> "CfgWorlds" >> worldName; \
@@ -246,23 +238,39 @@
 	_vehicle setFuel 1; \
 	_vehicle engineOn true
 
-#define GET_SERVICE_ENTITIES(SERVICE) if (ADMIN_ACCESS_CONDITION) then { \
-	if (SSS_setting_adminLimitSide) then { \
-			private _side = side _target; \
-			SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == SERVICE && {_x getVariable "SSS_side" == _side}}} \
-		} else { \
-			SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == SERVICE}} \
-		}; \
-	} else { \
-		if (!SSS_setting_specialItemsLogic && ([SSS_setting_specialItems] call CBA_fnc_removeWhitespace) != "") then { \
-			if (SSS_setting_specialItemsLimitSide) then { \
-				private _side = side _target; \
-				SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == SERVICE && {_x getVariable "SSS_side" == _side}}} \
+#define COMPILE_LOGISTICS_LISTS \
+	private _listFnc = _entity getVariable "SSS_listFnc"; \
+	private _list = []; \
+	private _beautifiedList = []; \
+	private _searchList = []; \
+	private _cfgVehicles = configFile >> "CfgVehicles"; \
+	{ \
+		_x params [["_classname","",[""]],["_customName","",[""]],["_customIcon","",[""]],["_initFnc",{},[{}]]]; \
+		private _cfg = _cfgVehicles >> _classname; \
+		if (isClass _cfg) then { \
+			private _text = if (_customName isEqualTo "") then { \
+				getText (_cfg >> "displayName") \
 			} else { \
-				SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == SERVICE}} \
+				_customName \
 			}; \
-		} else { \
-			(_target getVariable ["SSS_assignedEntities",[]]) select {!isNull _x && {(_x getVariable "SSS_service") == SERVICE}} \
+			private _icon = if (_customIcon isEqualTo "") then { \
+				private _path = getText (_cfg >> "picture"); \
+				if (_path == "picturething") then {_path = "";}; \
+				_path \
+			} else { \
+				_customIcon \
+			}; \
+			_list pushBack [_classname,_text,_initFnc]; \
+			_beautifiedList pushBack [[_text,_icon]]; \
+			_searchList pushBack (toLower _text); \
 		}; \
-	}
+	} forEach ([] call _listFnc)
+
+#define NOTIFY_LOCAL_NOT_READY_COOLDOWN(ENTITY) \
+	private _string = ["<t color='#f4ca00'>NOT READY.</t> Ready in %1.","NOT READY. Ready in %1."] select SSS_setting_useChatNotifications; \
+	NOTIFY_LOCAL_1(ENTITY,_string,PROPER_COOLDOWN(ENTITY))
+
+#define NOTIFY_NOT_READY_COOLDOWN(ENTITY) \
+	private _string = ["<t color='#f4ca00'>NOT READY.</t> Ready in %1.","NOT READY. Ready in %1."] select SSS_setting_useChatNotifications; \
+	NOTIFY_1(ENTITY,_string,PROPER_COOLDOWN(ENTITY))
 

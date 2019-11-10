@@ -1,22 +1,30 @@
 #include "script_component.hpp"
 
 disableSerialization;
-removeMissionEventHandler ["EachFrame",GVAR(EFID)];
+GVAR(PFHID) call CBA_fnc_removePerFrameHandler;
 
-private _returnValues = (uiNamespace getVariable QGVAR(controls)) apply {
-	private _ctrlInfo = (findDisplay DISPLAY_IDD displayCtrl _x) getVariable QGVAR(ctrlInfo);
-	
-	[_ctrlInfo # 0,_ctrlInfo # 1,_ctrlInfo # 2,true] call FUNC(cacheValue);
-	switch (_ctrlInfo # 0) do {
+private _values = (uiNamespace getVariable QGVAR(controls)) apply {
+	private _data = _x getVariable QGVAR(data);
+	switch (_data # 0) do {
+		case "CHECKBOX";
+		case "EDITBOX" : {
+			private _value = _data # 2;
+			GVAR(cache) setVariable [[uiNamespace getVariable QGVAR(title),_data # 1,_data # 0] joinString "~",_value];
+			_value
+		};
 		case "SLIDER";
-		case "COMBOBOX" : {(_ctrlInfo # 2) # 1};
-		default {_ctrlInfo # 2};
-	};
+		case "COMBOBOX";
+		case "LISTNBOX" : {
+			private _value = _data # 2 # 1;
+			GVAR(cache) setVariable [[uiNamespace getVariable QGVAR(title),_data # 1,_data # 0,_data # 2 # 0] joinString "~",_value];
+			_value
+		};
+	}
 };
 
 closeDialog 0;
 
-[{isNull (findDisplay DISPLAY_IDD)},{
-	params ["_returnValues","_customArguments","_code"];
-	[_returnValues,_customArguments] call _code;
-},[_returnValues,uiNamespace getVariable QGVAR(customArguments),uiNamespace getVariable QGVAR(onOK)]] call CBA_fnc_waitUntilAndExecute;
+[{isNull (uiNamespace getVariable QGVAR(display))},{
+	params ["_values","_arguments","_code"];
+	[_values,_arguments] call _code;
+},[_values,uiNamespace getVariable QGVAR(arguments),uiNamespace getVariable QGVAR(onConfirm)]] call CBA_fnc_waitUntilAndExecute;

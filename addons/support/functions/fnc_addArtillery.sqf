@@ -4,10 +4,10 @@ params [
 	["_requesters",[],[[]]],
 	["_vehicle",objNull,[objNull]],
 	["_callsign","",[""]],
-	["_respawnTime",SSS_DEFAULT_RESPAWN_TIME,[0]],
-	["_cooldownDefault",[SSS_DEFAULT_COOLDOWN_ARTILLERY_MIN,SSS_DEFAULT_COOLDOWN_ARTILLERY_ROUND],[[]],2],
-	["_maxRounds",SSS_DEFAULT_ARTILLERY_MAX_ROUNDS,[0]],
-	["_coordinationDistance",SSS_DEFAULT_ARTILLERY_COORDINATION_DISTANCE,[0]],
+	["_respawnTime",DEFAULT_RESPAWN_TIME,[0]],
+	["_cooldownDefault",[DEFAULT_COOLDOWN_ARTILLERY_MIN,DEFAULT_COOLDOWN_ARTILLERY_ROUND],[[]],2],
+	["_maxRounds",DEFAULT_ARTILLERY_MAX_ROUNDS,[0]],
+	["_coordinationDistance",DEFAULT_ARTILLERY_COORDINATION_DISTANCE,[0]],
 	["_customInit","",["",{}]]
 ];
 
@@ -17,7 +17,7 @@ if (_callsign isEqualTo "") then {
 };
 
 if (_maxRounds < 0) then {
-	_maxRounds = SSS_DEFAULT_ARTILLERY_MAX_ROUNDS;
+	_maxRounds = DEFAULT_ARTILLERY_MAX_ROUNDS;
 };
 
 if (_customInit isEqualType "") then {
@@ -26,32 +26,35 @@ if (_customInit isEqualType "") then {
 
 if (!isNull (_vehicle getVariable ["SSS_parentEntity",objNull])) exitWith {
 	SSS_ERROR_2("Vehicle is already a support: %1 (%2)",_callsign,_vehicle);
+	objNull
 };
 
 if ({isPlayer _x} count crew _vehicle > 0) exitWith {
 	SSS_ERROR_2("No players allowed: %1 (%2)",_callsign,_vehicle);
+	objNull
 };
 
 if (!alive gunner _vehicle) exitWith {
 	SSS_ERROR_2("No gunner in vehicle: %1 (%2)",_callsign,_vehicle);
+	objNull
 };
 
 if (!isServer) exitWith {
 	_this remoteExecCall [QFUNC(addArtillery),2];
-	nil
+	objNull
 };
 
 // Basic setup
-private _entity = (createGroup sideLogic) createUnit ["Logic",[-69,-69,0],[],0,"CAN_COLLIDE"];
+private _entity = true call CBA_fnc_createNamespace;
 private _group = group _vehicle;
 private _side = side _group;
-(switch (true) do {
-	case (_vehicle isKindOf "B_Ship_MRLS_01_base_F") : {[ICON_MISSILE,ICON_MISSILE_YELLOW,""]};
-	case (_vehicle isKindOf "StaticWeapon") : {[ICON_MORTAR,ICON_MORTAR_YELLOW,""]};
-	default {[ICON_SELF_PROPELLED,ICON_SELF_PROPELLED_YELLOW,""]};
-}) params ["_icon","_iconYellow","_iconGreen"];
+private _icon = switch (true) do {
+	case (_vehicle isKindOf "B_Ship_MRLS_01_base_F") : {ICON_MISSILE};
+	case (_vehicle isKindOf "StaticWeapon") : {ICON_MORTAR};
+	default {ICON_SELF_PROPELLED};
+};
 
-BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,_icon,_iconYellow,_iconGreen,_customInit,"artillery","artillery");
+BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,_icon,_customInit,"artillery","artillery");
 PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 CREATE_TASK_MARKER(_entity,_callsign,"mil_warning","Artillery");
 

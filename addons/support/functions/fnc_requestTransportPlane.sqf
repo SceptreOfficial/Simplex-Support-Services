@@ -37,24 +37,24 @@ switch (_request) do {
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
-			[_vehicle,_position,0,"MOVE","","","","",WP_DONE] call EFUNC(common,addWaypoint);
+			[_vehicle,_position,0,"MOVE","","","","",WP_DONE,[2,2,2]] call EFUNC(common,addWaypoint);
 
 			[{WAIT_UNTIL_WPDONE},{
 				params ["_entity","_vehicle"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"RTB");
+					CANCEL_ORDER(_entity);
 				};
 
 				// Begin landing
 				(group _vehicle) setSpeedMode "LIMITED";
-				_vehicle action ["Land",_vehicle]; 
+				_vehicle action ["Land",_vehicle];
 
 				[{WAIT_UNTIL_PLANE_LANDED},{
 					params ["_entity","_vehicle"];
 
 					if (CANCEL_CONDITION) exitWith {
-						CANCEL_ORDER(_entity,"RTB");
+						CANCEL_ORDER(_entity);
 						_vehicle doFollow _vehicle;
 					};
 
@@ -85,7 +85,7 @@ switch (_request) do {
 			if !(_entity getVariable "SSS_awayFromBase") then {
 				PLANE_TAKEOFF(_vehicle);
 			};
-			
+
 			BEGIN_ORDER(_entity,_position,"Moving to requested location.");
 
 			_vehicle setVariable ["SSS_WPDone",false];
@@ -96,7 +96,7 @@ switch (_request) do {
 				params ["_entity","_vehicle"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Move");
+					CANCEL_ORDER(_entity);
 				};
 
 				END_ORDER(_entity,"Destination reached. Ready for further tasking.");
@@ -105,7 +105,7 @@ switch (_request) do {
 			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
 	};
-	
+
 	case "PARADROP";
 	case 2 : {
 		_extraParams params ["_jumpDelay","_AIOpeningHeight"];
@@ -126,22 +126,24 @@ switch (_request) do {
 			[_vehicle,_position,0,"MOVE","","","","",WP_DONE] call EFUNC(common,addWaypoint);
 
 			[{WAIT_UNTIL_WPDONE},{
-				params ["_entity","_vehicle","_jumpDelay","_AIOpeningHeight"];
+				params ["_entity","_vehicle","_position","_jumpDelay","_AIOpeningHeight"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Paradrop");
+					CANCEL_ORDER(_entity);
 				};
 
-				_vehicle doMove (_vehicle getRelPos [5000,0]);
+				(group _vehicle) addWaypoint [_position getRelPos [5000,0],0];
+				(group _vehicle) addWaypoint [_position,100];
+				
 				[_entity,_vehicle,_jumpDelay,_AIOpeningHeight] call FUNC(transportParadrop);
 
 				END_ORDER(_entity,"Go! Go! Go!");
 
 				["SSS_requestCompleted",[_entity,["PARADROP"]]] call CBA_fnc_globalEvent;
-			},[_entity,_vehicle,_jumpDelay,_AIOpeningHeight]] call CBA_fnc_waitUntilAndExecute;
+			},[_entity,_vehicle,_position,_jumpDelay,_AIOpeningHeight]] call CBA_fnc_waitUntilAndExecute;
 		},[_entity,_vehicle,_position,_jumpDelay,_AIOpeningHeight]] call CBA_fnc_waitUntilAndExecute;
 	};
-	
+
 	case "LOITER";
 	case 3 : {
 		_extraParams params ["_loiterRadius","_loiterDirection"];
@@ -166,7 +168,7 @@ switch (_request) do {
 				params ["_entity","_vehicle","_position","_loiterRadius","_loiterDirection"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Loiter");
+					CANCEL_ORDER(_entity);
 				};
 
 				// Loiter

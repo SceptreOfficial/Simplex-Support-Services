@@ -4,7 +4,7 @@ params [
 	["_requesters",[],[[]]],
 	["_vehicle",objNull,[objNull]],
 	["_callsign","",[""]],
-	["_respawnTime",SSS_DEFAULT_RESPAWN_TIME,[0]],
+	["_respawnTime",DEFAULT_RESPAWN_TIME,[0]],
 	["_customInit","",["",{}]]
 ];
 
@@ -19,29 +19,32 @@ if (_customInit isEqualType "") then {
 
 if (!isNull (_vehicle getVariable ["SSS_parentEntity",objNull])) exitWith {
 	SSS_ERROR_2("Vehicle is already a support: %1 (%2)",_callsign,_vehicle);
+	objNull
 };
 
 if ({isPlayer _x} count crew _vehicle > 0) exitWith {
 	SSS_ERROR_2("No players allowed: %1 (%2)",_callsign,_vehicle);
+	objNull
 };
 
 if (!alive driver _vehicle) exitWith {
 	SSS_ERROR_2("No driver in vehicle: %1 (%2)",_callsign,_vehicle);
+	objNull
 };
 
 if (!isServer) exitWith {
 	_this remoteExecCall [QFUNC(addTransport),2];
-	nil
+	objNull
 };
 
 // Basic setup
-private _entity = (createGroup sideLogic) createUnit ["Logic",[-69,-69,0],[],0,"CAN_COLLIDE"];
+private _entity = true call CBA_fnc_createNamespace;
 private _group = group _vehicle;
 private _side = side _group;
 
 switch (true) do {
 	case (_vehicle isKindOf "Helicopter") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_HELI,ICON_HELI_YELLOW,ICON_HELI_GREEN,_customInit,"Transport","transportHelicopter");
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_HELI,_customInit,"Transport","transportHelicopter");
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Air Transport");
 
@@ -52,6 +55,8 @@ switch (true) do {
 		_entity setVariable ["SSS_needConfirmation",false,true];
 		_entity setVariable ["SSS_signalApproved",false,true];
 		_entity setVariable ["SSS_deniedSignals",[],true];
+		_entity setVariable ["SSS_slingLoadReady",false,true];
+		_entity setVariable ["SSS_slingLoadObject",objNull,true];
 		_entity setVariable ["SSS_flyingHeight",80,true];
 		_entity setVariable ["SSS_speedMode",1,true];
 		_entity setVariable ["SSS_combatMode",0,true];
@@ -60,7 +65,7 @@ switch (true) do {
 	};
 
 	case (_vehicle isKindOf "VTOL_Base_F") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_VTOL,ICON_VTOL_YELLOW,ICON_VTOL_GREEN,_customInit,"Transport","transportVTOL");
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_VTOL,_customInit,"Transport","transportVTOL");
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Air Transport");
 
@@ -79,7 +84,7 @@ switch (true) do {
 	};
 
 	case (_vehicle isKindOf "Plane") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_PLANE,ICON_PLANE_YELLOW,ICON_PLANE_GREEN,_customInit,"Transport","transportPlane");
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_PLANE,_customInit,"Transport","transportPlane");
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Air Transport");
 
@@ -96,7 +101,7 @@ switch (true) do {
 	};
 
 	case (_vehicle isKindOf "Ship") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_BOAT,ICON_BOAT_YELLOW,ICON_BOAT_GREEN,_customInit,"Transport","transportMaritime");
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_BOAT,_customInit,"Transport","transportMaritime");
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Sea Transport");
 
@@ -111,7 +116,7 @@ switch (true) do {
 	};
 
 	case (_vehicle isKindOf "LandVehicle") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_CAR,ICON_CAR_YELLOW,ICON_CAR_GREEN,_customInit,"Transport","transportLandVehicle");
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_CAR,_customInit,"Transport","transportLandVehicle");
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Land Transport");
 

@@ -13,11 +13,11 @@
 
 		["Add Artillery",[
 			["EDITBOX","Callsign",getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")],
-			["EDITBOX","Respawn time",SSS_DEFAULT_RESPAWN_TIME_STR],
-			["EDITBOX","Cooldown",SSS_DEFAULT_COOLDOWN_ARTILLERY_MIN_STR],
-			["EDITBOX","Extra cooldown time per round",SSS_DEFAULT_COOLDOWN_ARTILLERY_ROUND_STR],
-			["EDITBOX","Maximum rounds per request",SSS_DEFAULT_ARTILLERY_MAX_ROUNDS_STR],
-			["EDITBOX",["Maximum coordination distance","Set what ""nearby"" really means for artillery coordination"],SSS_DEFAULT_ARTILLERY_COORDINATION_DISTANCE_STR],
+			["EDITBOX","Respawn time",str DEFAULT_RESPAWN_TIME],
+			["EDITBOX","Cooldown",str DEFAULT_COOLDOWN_ARTILLERY_MIN],
+			["EDITBOX","Extra cooldown time per round",str DEFAULT_COOLDOWN_ARTILLERY_ROUND],
+			["EDITBOX","Maximum rounds per request",str DEFAULT_ARTILLERY_MAX_ROUNDS],
+			["EDITBOX",["Maximum coordination distance","Set what ""nearby"" really means for artillery coordination"],str DEFAULT_ARTILLERY_COORDINATION_DISTANCE],
 			["EDITBOX",["Custom init code","Code executed when vehicle is added & respawned (vehicle = _this)"],""]
 		],{
 			params ["_values","_object"];
@@ -63,13 +63,13 @@
 				_requesters,
 				_x,
 				_logic getVariable ["Callsign",""],
-				parseNumber (_logic getVariable ["RespawnTime",SSS_DEFAULT_RESPAWN_TIME_STR]),
+				parseNumber (_logic getVariable ["RespawnTime",str DEFAULT_RESPAWN_TIME]),
 				[
-					parseNumber (_logic getVariable ["Cooldown",SSS_DEFAULT_COOLDOWN_ARTILLERY_ROUND_STR]),
-					parseNumber (_logic getVariable ["RoundCooldown",SSS_DEFAULT_ARTILLERY_MAX_ROUNDS_STR])
+					parseNumber (_logic getVariable ["Cooldown",str DEFAULT_COOLDOWN_ARTILLERY_ROUND]),
+					parseNumber (_logic getVariable ["RoundCooldown",str DEFAULT_ARTILLERY_MAX_ROUNDS])
 				],
-				parseNumber (_logic getVariable ["MaxRounds",SSS_DEFAULT_ARTILLERY_MAX_ROUNDS_STR]),
-				parseNumber (_logic getVariable ["CoordinationDistance",SSS_DEFAULT_ARTILLERY_COORDINATION_DISTANCE_STR]),
+				parseNumber (_logic getVariable ["MaxRounds",str DEFAULT_ARTILLERY_MAX_ROUNDS]),
+				parseNumber (_logic getVariable ["CoordinationDistance",str DEFAULT_ARTILLERY_COORDINATION_DISTANCE]),
 				_logic getVariable ["CustomInit",""]
 			] call EFUNC(support,addArtillery));
 		} forEach _vehicles;

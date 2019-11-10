@@ -40,13 +40,13 @@ switch (_request) do {
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
-			[_vehicle,_position,0,"MOVE","CARELESS","YELLOW","FULL","",WP_DONE] call EFUNC(common,addWaypoint);
+			[_vehicle,_position,0,"MOVE","CARELESS","YELLOW","FULL","",WP_DONE,[2,2,2]] call EFUNC(common,addWaypoint);
 
 			[{WAIT_UNTIL_WPDONE},{
 				params ["_entity","_vehicle","_pad"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"RTB");
+					CANCEL_ORDER(_entity);
 					deleteVehicle _pad;
 				};
 
@@ -59,7 +59,7 @@ switch (_request) do {
 					params ["_entity","_vehicle","_pad"];
 
 					if (CANCEL_CONDITION) exitWith {
-						CANCEL_ORDER(_entity,"RTB");
+						CANCEL_ORDER(_entity);
 						_vehicle doFollow _vehicle;
 						_vehicle land "NONE";
 						deleteVehicle _pad;
@@ -117,13 +117,13 @@ switch (_request) do {
 				params ["_entity","_vehicle"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"SAD");
+					CANCEL_ORDER(_entity);
 				};
 
 				END_ORDER(_entity,"Search and Destroy Complete.");
 
 				// RTB
-				[_entity,0] call FUNC(requestCASHelicopter);
+				[_entity,"RTB"] call FUNC(requestCASHelicopter);
 
 				["SSS_requestCompleted",[_entity,["SAD"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
@@ -151,7 +151,7 @@ switch (_request) do {
 				params ["_entity","_vehicle"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Move");
+					CANCEL_ORDER(_entity);
 				};
 
 				END_ORDER(_entity,"Destination reached. Ready for further tasking.");
@@ -185,7 +185,7 @@ switch (_request) do {
 				params ["_entity","_vehicle","_position","_loiterRadius","_loiterDirection"];
 
 				if (CANCEL_CONDITION) exitWith {
-					CANCEL_ORDER(_entity,"Loiter");
+					CANCEL_ORDER(_entity);
 				};
 
 				// Loiter

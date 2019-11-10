@@ -40,35 +40,35 @@ class CfgVehicles {
 				displayName = "Respawn Time";
 				description = "-1 will disable respawn";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_RESPAWN_TIME_STR;
+				defaultValue = DEFAULT_RESPAWN_TIME;
 			};
 			class Cooldown {
 				displayName = "Cooldown";
 				description = "Minimum time between requests";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_COOLDOWN_ARTILLERY_MIN_STR;
+				defaultValue = DEFAULT_COOLDOWN_ARTILLERY_MIN;
 			};
 			class RoundCooldown {
 				displayName = "Extra cooldown time per round";
 				description = "Additional time incremented per round fired";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_COOLDOWN_ARTILLERY_ROUND_STR;
+				defaultValue = DEFAULT_COOLDOWN_ARTILLERY_ROUND;
 			};
 			class MaxRounds {
 				displayName = "Maximum rounds per request";
 				description = "Max amount/slider range for requests";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_ARTILLERY_MAX_ROUNDS_STR;
+				defaultValue = DEFAULT_ARTILLERY_MAX_ROUNDS;
 			};
 			class CoordinationDistance {
 				displayName = "Maximum coordination distance";
 				description = "Set what ""nearby"" really means for artillery coordination";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_ARTILLERY_COORDINATION_DISTANCE_STR;
+				defaultValue = DEFAULT_ARTILLERY_COORDINATION_DISTANCE;
 			};
 			class CustomInit {
 				displayName = "Custom init code";
-				description = "Code executed when vehicle is added & respawned (vehicle = _this)";
+				description = "Code executed when vehicle is added & respawned. \n(Vehicle = _this)";
 				typeName = "STRING";
 				defaultValue = "";
 			};
@@ -97,7 +97,7 @@ class CfgVehicles {
 			};
 			class Side {
 				displayName = "Side";
-				description = "Side which support will be available to";
+				description = "Support side";
 				typeName = "NUMBER";
 				class values {
 					class BLUFOR {
@@ -119,17 +119,17 @@ class CfgVehicles {
 				displayName = "Cooldown";
 				description = "Time between requests (after loiter is finished)";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_COOLDOWN_DRONES_STR;
+				defaultValue = DEFAULT_COOLDOWN_DRONES;
 			};
 			class LoiterTime {
 				displayName = "Loiter time";
 				description = "How long aircraft will loiter in the area";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_LOITER_TIME_DRONES_STR;
+				defaultValue = DEFAULT_LOITER_TIME_DRONES;
 			};
 			class CustomInit {
 				displayName = "Custom init code";
-				description = "Code executed when physical vehicle is spawned (vehicle = _this)";
+				description = "Code executed when physical vehicle is spawned. \n(Vehicle = _this)";
 				typeName = "STRING";
 				defaultValue = "";
 			};
@@ -144,6 +144,18 @@ class CfgVehicles {
 		scopeCurator = 2;
 
 		class Arguments {
+			class Classname {
+				displayName = "Classname";
+				description = "Classname of gunship vehicle";
+				typeName = "STRING";
+				defaultValue = "B_T_VTOL_01_armed_F";
+			};
+			class TurretPath {
+				displayName = "TurretPath";
+				description = "Turret path to gunner";
+				typeName = "STRING";
+				defaultValue = "[1]";
+			};
 			class Callsign {
 				displayName = "Callsign";
 				description = "Display name";
@@ -152,7 +164,7 @@ class CfgVehicles {
 			};
 			class Side {
 				displayName = "Side";
-				description = "Side which support will be available to";
+				description = "Support side";
 				typeName = "NUMBER";
 				class values {
 					class BLUFOR {
@@ -174,17 +186,17 @@ class CfgVehicles {
 				displayName = "Cooldown";
 				description = "Time between requests (after loiter is finished)";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_COOLDOWN_GUNSHIPS_STR;
+				defaultValue = DEFAULT_COOLDOWN_GUNSHIPS;
 			};
 			class LoiterTime {
 				displayName = "Loiter time";
 				description = "How long aircraft will loiter in the area";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_LOITER_TIME_GUNSHIPS_STR;
+				defaultValue = DEFAULT_LOITER_TIME_GUNSHIPS;
 			};
 			class CustomInit {
 				displayName = "Custom init code";
-				description = "Code executed when physical vehicle is spawned (vehicle = _this)";
+				description = "Code executed when physical vehicle is spawned. \n(Vehicle = _this)";
 				typeName = "STRING";
 				defaultValue = "";
 			};
@@ -209,11 +221,11 @@ class CfgVehicles {
 				displayName = "Respawn Time";
 				description = "-1 will disable respawn";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_RESPAWN_TIME_STR;
+				defaultValue = DEFAULT_RESPAWN_TIME;
 			};
 			class CustomInit {
 				displayName = "Custom init code";
-				description = "Code executed when vehicle is added & respawned (vehicle = _this)";
+				description = "Code executed when vehicle is added & respawned. \n(Vehicle = _this)";
 				typeName = "STRING";
 				defaultValue = "";
 			};
@@ -248,7 +260,7 @@ class CfgVehicles {
 			};
 			class Side {
 				displayName = "Side";
-				description = "Side which support will be available to";
+				description = "Support side";
 				typeName = "NUMBER";
 				class values {
 					class BLUFOR {
@@ -270,11 +282,11 @@ class CfgVehicles {
 				displayName = "Cooldown";
 				description = "Time between requests";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_COOLDOWN_PLANES_STR;
+				defaultValue = DEFAULT_COOLDOWN_PLANES;
 			};
 			class CustomInit {
 				displayName = "Custom init code";
-				description = "Code executed when physical vehicle is spawned (vehicle = _this)";
+				description = "Code executed when physical vehicle is spawned. \n(Vehicle = _this)";
 				typeName = "STRING";
 				defaultValue = "";
 			};
@@ -299,13 +311,163 @@ class CfgVehicles {
 				displayName = "Respawn Time";
 				description = "-1 will disable respawn";
 				typeName = "STRING";
-				defaultValue = SSS_DEFAULT_RESPAWN_TIME;
+				defaultValue = DEFAULT_RESPAWN_TIME;
 			};
 			class CustomInit {
 				displayName = "Custom init code";
-				description = "Code executed when vehicle is added & respawned (vehicle = _this)";
+				description = "Code executed when vehicle is added & respawned. \n(Vehicle = _this)";
 				typeName = "STRING";
 				defaultValue = "";
+			};
+		};
+	};
+
+	class GVAR(AddLogisticsAirdrop) : GVAR(Base) {
+		displayName = "Add Logistics Airdrop";
+		icon = ICON_PARACHUTE;
+		function = QFUNC(moduleAddLogisticsAirdrop);
+		scope = 2;
+		scopeCurator = 2;
+
+		class Arguments {
+			class Classname {
+				displayName = "Classname";
+				description = "Classname of air vehicle";
+				typeName = "STRING";
+				defaultValue = "B_T_VTOL_01_vehicle_F";
+			};
+			class Callsign {
+				displayName = "Callsign";
+				description = "Display name";
+				typeName = "STRING";
+				defaultValue = "Logistics Airdrop";
+			};
+			class SpawnPosition {
+				displayName = "Fixed spawn position";
+				description = "In format [x,y] or [x,y,z]. Leave empty to generate random position from request location.";
+				typeName = "STRING";
+				defaultValue = "";
+			};
+			class SpawnDelay {
+				displayName = "Spawn delay";
+				description = "Time before air vehicle is spawned after request is submitted";
+				typeName = "STRING";
+				defaultValue = DEFAULT_LOGISTICS_AIRDROP_SPAWN_DELAY;
+			};
+			class FlyingHeight {
+				displayName = "Flying height";
+				description = "AGL altitude in meters";
+				typeName = "STRING";
+				defaultValue = DEFAULT_LOGISTICS_AIRDROP_FLYING_HEIGHT;
+			};
+			class ListFunction {
+				displayName = "List function";
+				description = "Code that must return an array of items that can be requested. \n\nSupported list item arguments: \n0: Classname <STRING> \n1: Custom name <STRING> \n2: Custom icon <STRING> \n3: Init code <CODE> \n\nExample array: \n[""Box_NATO_Wps_F"",[""Box_NATO_Equip_F"",""Equipment"","""",{systemChat ""dress up time""}]]";
+				typeName = "STRING";
+				defaultValue = "[]";
+			};
+			class UniversalInitCode {
+				displayName = "Universal init code";
+				description = "Code executed when any requested object is spawned. \n(Object = _this)";
+				typeName = "STRING";
+				defaultValue = "";
+			};
+			class AllowMulti {
+				displayName = "Allow amount input";
+				description = "Allow requesting multiple items";
+				typeName = "NUMBER";
+				class values {
+					class False {
+						default = 1;
+						name = "False";
+						value = 0;
+					};
+					class True {
+						name = "True";
+						value = 1;
+					};
+				};
+			};
+			class Side {
+				displayName = "Side";
+				description = "Support side";
+				typeName = "NUMBER";
+				class values {
+					class BLUFOR {
+						default = 1;
+						name = "BLUFOR";
+						value = 0;
+					};
+					class OPFOR {
+						name = "OPFOR";
+						value = 1;
+					};
+					class Independent {
+						name = "Independent";
+						value = 2;
+					};
+				};
+			};
+			class Cooldown {
+				displayName = "Cooldown";
+				description = "Time between requests";
+				typeName = "STRING";
+				defaultValue = DEFAULT_COOLDOWN_LOGISTICS_AIRDROP;
+			};
+			class CustomInit {
+				displayName = "Custom init code";
+				description = "Code executed when air vehicle is spawned. \n(Vehicle = _this)";
+				typeName = "STRING";
+				defaultValue = "";
+			};
+		};
+	};
+
+	class GVAR(AddLogisticsStation) : GVAR(Base) {
+		displayName = "Add Logistics Station";
+		icon = ICON_BOX;
+		function = QFUNC(moduleAddLogisticsStation);
+		scope = 2;
+		scopeCurator = 2;
+
+		class Arguments {
+			class Callsign {
+				displayName = "Callsign";
+				description = "Display name";
+				typeName = "STRING";
+				defaultValue = "Logistics Station";
+			};
+			class ListFunction {
+				displayName = "List function";
+				description = "Code that must return an array of items that can be requested. \n\nSupported list item arguments: \n0: Classname <STRING> \n1: Custom name <STRING> \n2: Custom icon <STRING> \n3: Init code <CODE> \n\nExample array: \n[""Box_NATO_Wps_F"",[""Box_NATO_Equip_F"",""Equipment"","""",{systemChat ""dress up time""}]]";
+				typeName = "STRING";
+				defaultValue = "[]";
+			};
+			class UniversalInitCode {
+				displayName = "Universal init code";
+				description = "Code executed when any requested object is spawned \n(Object = _this)";
+				typeName = "STRING";
+				defaultValue = "";
+			};
+			class Side {
+				displayName = "Side";
+				description = "Support side";
+				typeName = "NUMBER";
+				class values {
+					class BLUFOR {
+						default = 1;
+						name = "BLUFOR";
+						value = 0;
+					};
+					class OPFOR {
+						name = "OPFOR";
+						value = 1;
+					};
+					class Independent {
+						name = "Independent";
+						value = 2;
+					};
+				};
 			};
 		};
 	};
@@ -321,7 +483,7 @@ class CfgVehicles {
 		class Arguments {
 			class AssignList {
 				displayName = "Assignment List";
-				description = "List of custom unit variable names. JIP compatible method compared to syncing. (eg. p1,p2,p3)";
+				description = "List of custom unit variable names. JIP compatible method compared to syncing. \n(example: p1,p2,p3)";
 				typeName = "STRING";
 				defaultValue = "";
 			};

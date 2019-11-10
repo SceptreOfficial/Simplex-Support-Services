@@ -9,17 +9,15 @@ if (!isServer) exitWith {
 private _entity = _vehicle getVariable ["SSS_parentEntity",objNull];
 if (isNull _entity) exitWith {};
 
-[
-	_entity getVariable "SSS_vehicle",
-	_entity getVariable "SSS_respawnTime",
-	_entity getVariable "SSS_respawning"
-] params ["_vehicle","_respawnTime","_respawning"];
+private _vehicle = _entity getVariable "SSS_vehicle";
+if (isNull _vehicle) exitWith {};
 
+private _respawnTime = _entity getVariable ["SSS_respawnTime",-1];
 if (_respawnTime < 0) exitWith {
 	deleteVehicle _entity;
 };
 
-if (_respawning) exitWith {};
+if (_entity getVariable "SSS_respawning") exitWith {};
 _entity setVariable ["SSS_respawning",true,true];
 
 _vehicle call FUNC(decommission);
@@ -43,8 +41,6 @@ NOTIFY(_entity,_message);
 	params ["_entity"];
 
 	if (isNull _entity) exitWith {};
-
-	_entity setVariable ["SSS_interruptedTask",nil,true];
 	
 	private _classname = _entity getVariable "SSS_classname";
 	private _base = _entity getVariable "SSS_base";
@@ -68,7 +64,6 @@ NOTIFY(_entity,_message);
 		crew _vehicle joinSilent _group;
 		_group addVehicle _vehicle;
 		_vehicle setDir (_entity getVariable "SSS_baseDir");
-		_vehicle setPos getPos _vehicle;
 
 		// Assign/Commission vehicle
 		_vehicle setVariable ["SSS_parentEntity",_entity,true];

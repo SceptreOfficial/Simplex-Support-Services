@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params ["_target","_entity","_request","_position"];
+params ["_player","_entity","_request","_position"];
 
 if (isNull _entity) exitWith {};
 
@@ -11,21 +11,11 @@ switch (_entity getVariable "SSS_supportType") do {
 		if (!alive _vehicle) exitWith {};
 
 		if (!(_vehicle isKindOf "B_Ship_MRLS_01_base_F") && {!(_position inRangeOfArtillery [[_vehicle],_request])}) exitWith {
-			NOTIFY_LOCAL(_entity,"<t color='#f4ca00'>Position out of range.</t> Unable to fulfill request.");
+			private _string = ["<t color='#f4ca00'>Position out of range.</t> Unable to fulfill request.","Position out of range. Unable to fulfill request."] select SSS_setting_useChatNotifications;
+			NOTIFY_LOCAL(_entity,_string);
 		};
 
-		private _assignedArtillery = if (ADMIN_ACCESS_CONDITION) then {
-			if (SSS_setting_adminLimitSide) then {
-				private _side = side _target;
-				SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == "artillery" && {_x getVariable "SSS_side" == _side}}}
-			} else {
-				SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == "artillery"}}
-			};
-		} else {
-			(_target getVariable ["SSS_assignedEntities",[]]) select {!isNull _x && {(_x getVariable "SSS_service") == "artillery"}}
-		};
-
-		private _nearbyArtillery = _assignedArtillery select {
+		private _nearbyArtillery = ([_player,"artillery"] call FUNC(availableEntities)) select {
 			private _otherVehicle = _x getVariable ["SSS_vehicle",objNull];
 
 			if (alive _otherVehicle) then {
@@ -46,8 +36,8 @@ switch (_entity getVariable "SSS_supportType") do {
 		
 		["Fire Mission Parameters - " + mapGridPosition _position,[
 			["SLIDER","Rounds",[[1,_entity getVariable "SSS_maxRounds",0],1]],
-			["SLIDER","Random Dispersion Radius",[[0,250,0],0]],
-			["SLIDER","Coordinate with nearby artillery",[[0,count _nearbyArtillery,0],0],true,{},[{false},{true}] select (count _nearbyArtillery > 0)]
+			["SLIDER","Random dispersion radius",[[0,250,0],0]],
+			["SLIDER",["Coordination amount","Request fire mission from similar nearby artillery"],[[0,count _nearbyArtillery,0],0],true,{},count _nearbyArtillery > 0]
 		],{
 			params ["_values","_args"];
 			_values params ["_rounds","_dispersion","_coordinateCount"];
@@ -89,7 +79,7 @@ switch (_entity getVariable "SSS_supportType") do {
 		["Drone Request Parameters",[
 			["COMBOBOX","Loiter direction",[[["Clockwise","",ICON_CLOCKWISE],["Counter-Clockwise","",ICON_COUNTER_CLOCKWISE]],0]],
 			["SLIDER","Loiter radius",[[800,2500,0],1000]],
-			["SLIDER","Loiter altitude above position",[[600,2500,0],1000]]
+			["SLIDER","Altitude above position",[[600,2500,0],1000]]
 		],{
 			params ["_values","_args"];
 			_values params ["_loiterDirection","_loiterRadius","_loiterAltitude"];
@@ -102,7 +92,7 @@ switch (_entity getVariable "SSS_supportType") do {
 	case "CASGunship" : {
 		["Gunship Request Parameters",[
 			["SLIDER","Loiter radius",[[800,2500,0],1000]],
-			["SLIDER","Loiter altitude above position",[[600,2500,0],1000]]
+			["SLIDER","Altitude above position",[[600,2500,0],1000]]
 		],{
 			params ["_values","_args"];
 			_values params ["_loiterRadius","_loiterAltitude"];
@@ -214,6 +204,22 @@ switch (_entity getVariable "SSS_supportType") do {
 				["Loiter parameters",[
 					["SLIDER","Loiter radius",[[150,1500,0],200]],
 					["COMBOBOX","Loiter direction",[[["Clockwise","",ICON_CLOCKWISE],["Counter-Clockwise","",ICON_COUNTER_CLOCKWISE]],0]]
+				],{
+					params ["_values","_args"];
+					_args params ["_entity","_request","_position"];
+
+					private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
+
+					if (!alive _vehicle) exitWith {};
+
+					[_entity,_request,_position,_values] remoteExecCall [QEFUNC(support,requestTransportHelicopter),_vehicle];
+				},{REQUEST_CANCELLED;},[_entity,_request,_position]] call EFUNC(CDS,dialog);
+			};
+
+			case "PARADROP" : {
+				["Paradrop parameters",[
+					["SLIDER",["Jump delay","Seconds between each unit jumping out"],[[0,5,1],1]],
+					["SLIDER","AI opening height",[[100,2000,0],200]]
 				],{
 					params ["_values","_args"];
 					_args params ["_entity","_request","_position"];
@@ -338,5 +344,9 @@ switch (_entity getVariable "SSS_supportType") do {
 				[_entity,_request,_position] remoteExecCall [QEFUNC(support,requestTransportVTOL),_vehicle];
 			};
 		};
+	};
+
+	case "logisticsAirdrop" : {
+		[_entity,_position,_player] call EFUNC(support,requestLogisticsAirdrop);
 	};
 };
