@@ -69,7 +69,7 @@ switch (_request) do {
 					_entity setVariable ["SSS_awayFromBase",false,true];
 					_vehicle engineOn false;
 					_vehicle doFollow _vehicle;
-					deleteVehicle _pad;
+					[{deleteVehicle _this},_pad,10] call CBA_fnc_waitAndExecute;
 
 					[_entity,_vehicle] call EFUNC(common,resetOnRTB);
 
