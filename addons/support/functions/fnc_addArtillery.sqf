@@ -26,19 +26,22 @@ if (_customInit isEqualType "") then {
 
 if (!isNull (_vehicle getVariable ["SSS_parentEntity",objNull])) exitWith {
 	SSS_ERROR_2("Vehicle is already a support: %1 (%2)",_callsign,_vehicle);
+	objNull
 };
 
 if ({isPlayer _x} count crew _vehicle > 0) exitWith {
 	SSS_ERROR_2("No players allowed: %1 (%2)",_callsign,_vehicle);
+	objNull
 };
 
 if (!alive gunner _vehicle) exitWith {
 	SSS_ERROR_2("No gunner in vehicle: %1 (%2)",_callsign,_vehicle);
+	objNull
 };
 
 if (!isServer) exitWith {
 	_this remoteExecCall [QFUNC(addArtillery),2];
-	nil
+	objNull
 };
 
 // Basic setup

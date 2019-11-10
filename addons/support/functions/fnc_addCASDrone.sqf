@@ -17,6 +17,7 @@ if (_classname isEqualType objNull) then {
 
 if (_classname isEqualTo "" || !(_classname isKindOf "Plane")) exitWith {
 	SSS_ERROR_1("Invalid CAS Drone classname: %1",_classname);
+	objNull
 };
 
 if (_callsign isEqualTo "") then {
@@ -29,7 +30,7 @@ if (_customInit isEqualType "") then {
 
 if (!isServer) exitWith {
 	_this remoteExecCall [QFUNC(addCASDrone),2];
-	nil
+	objNull
 };
 
 // Basic setup

@@ -18,10 +18,12 @@ if (_classname isEqualType objNull) then {
 
 if (_classname isEqualTo "" || !(_classname isKindOf "Plane")) exitWith {
 	SSS_ERROR_1("Invalid CAS Gunship classname: %1",_classname);
+	objNull
 };
 
 if (_turretPath isEqualTo []) exitWith {
 	SSS_ERROR_1("Invalid CAS Gunship turret path: %1",_turretPath);
+	objNull
 };
 
 if (_callsign isEqualTo "") then {
@@ -34,7 +36,7 @@ if (_customInit isEqualType "") then {
 
 if (!isServer) exitWith {
 	_this remoteExecCall [QFUNC(addCASGunship),2];
-	nil
+	objNull
 };
 
 // Basic setup
