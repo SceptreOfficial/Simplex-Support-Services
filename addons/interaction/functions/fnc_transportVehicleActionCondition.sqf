@@ -8,7 +8,7 @@ private _entity = _vehicle getVariable ["SSS_parentEntity",objNull];
 
 if (isNull _entity) exitWith {false};
 	
-if (SSS_setting_vehicleActionRequirement && !(_entity in ([_player,"transport"] call FUNC(availableEntities)))) exitWith {};
+if (SSS_setting_directActionRequirement && {!(_entity in ([_player,"transport"] call FUNC(availableEntities)))}) exitWith {false};
 
 private _showSupport = switch (_entity getVariable "SSS_supportType") do {
 	case "transportHelicopter" : {SSS_showTransportHelicopters};

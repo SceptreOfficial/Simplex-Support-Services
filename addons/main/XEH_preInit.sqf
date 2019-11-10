@@ -31,8 +31,8 @@ ADDON = false;
 	false
 ] call CBA_fnc_addSetting;
 
-["SSS_setting_vehicleActionRequirement","CHECKBOX",
-	["Require assignment/special item for direct transport action","When disabled, anyone can interact with a transport when near/inside the vehicle"],
+["SSS_setting_directActionRequirement","CHECKBOX",
+	["Need assignment/special item for direct action","When disabled, anyone can interact directly with transports or logistics booths"],
 	["Simplex Support Services","Core"],
 	false,
 	true,
