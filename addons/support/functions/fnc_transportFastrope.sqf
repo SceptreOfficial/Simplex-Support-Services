@@ -8,17 +8,17 @@ private _ropes = [];
 private _centerOfMass = getCenterOfMass _vehicle;
 
 {
-	_x set [2,(_vehicle worldToModel ASLToAGL getPosASL _vehicle) # 2];
+	_x set [2,(0 boundingBoxReal _vehicle) # 0 # 2];
 
-	private _hook = createVehicle ["ace_fastroping_helper",_vehicle modelToWorld _x,[],0,"CAN_COLLIDE"];
+	private _hook = createVehicle ["ace_fastroping_helper",_vehicle modelToWorldVisual _x,[],0,"CAN_COLLIDE"];
 	_hook allowDamage false;
 	_hook attachTo [_vehicle,_x];
 	
-	private _end = createVehicle ["ace_fastroping_helper",_vehicle modelToWorld _x,[],0,"CAN_COLLIDE"];
+	private _end = createVehicle ["ace_fastroping_helper",_vehicle modelToWorldVisual _x,[],0,"CAN_COLLIDE"];
 	_end allowDamage false;
 
 	private _rope = ropeCreate [_hook,[0,0,0],_end,[0,0,0],1];
-	ropeUnwind [_rope,8,getPos _vehicle # 2];
+	ropeUnwind [_rope,7,getPosVisual _vehicle # 2 - 0.5];
 
 	_ropes pushBack [_hook,_rope,_end];
 } forEach [
