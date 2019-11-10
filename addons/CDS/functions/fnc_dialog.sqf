@@ -81,8 +81,12 @@ _dummy ctrlCommit 0;
 		["_valueData",[],[true,"",[]]],
 		["_forceDefault",true,[true]],
 		["_onValueChanged",{},[{}]],
-		["_enableCondition",{true},[{}]]
+		["_enableCondition",{true},[{},true]]
 	];
+
+	if (_enableCondition isEqualType true) then {
+		_enableCondition = [{false},{true}] select _enableCondition;
+	};
 
 	_description params [["_descriptionText","",[""]],["_descriptionTooltip","",[""]]];
 	_description = [_descriptionText,_descriptionTooltip];
@@ -138,7 +142,7 @@ _dummy ctrlCommit 0;
 			_controls pushBack _ctrl;
 
 			_ctrl ctrlAddEventHandler ["KeyUp",{
-				params ["_ctrl"];
+				params ["_ctrl","_key"];
 
 				private _string = ctrlText _ctrl;
 				private _data = _ctrl getVariable QGVAR(data);
@@ -385,7 +389,7 @@ _ctrlBG ctrlSetPosition [POS_X - BUFFER,_contentX - BUFFER,CONTENT_WIDTH + (BUFF
 _ctrlBG ctrlCommit 0;
 _ctrlTitle ctrlSetPosition [POS_X - BUFFER,_contentX - BUFFER - SPACING - TITLE_HEIGHT,CONTENT_WIDTH + (BUFFER * 2),TITLE_HEIGHT];
 _ctrlTitle ctrlCommit 0;
-_ctrlGroup ctrlSetPosition [POS_X,_contentX,CONTENT_WIDTH,_contentHeight];
+_ctrlGroup ctrlSetPosition [POS_X,_contentX,CONTENT_WIDTH + BUFFER,_contentHeight];
 _ctrlGroup ctrlCommit 0;
 _ctrlCancel ctrlSetPosition [POS_X - BUFFER,_contentX + _contentHeight + BUFFER + SPACING,BUTTON_WIDTH,BUTTON_HEIGHT];
 _ctrlCancel ctrlCommit 0;

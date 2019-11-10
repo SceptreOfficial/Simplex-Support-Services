@@ -271,7 +271,7 @@ class GVAR(Dialog) {
 				border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
 				shadow = 0;
 				scrollSpeed = 0.06;
-				width = 0.021;
+				width = 0.01;
 				height = 0;
 				autoScrollEnabled = 1;
 				autoScrollSpeed = -1;
@@ -289,7 +289,7 @@ class GVAR(Dialog) {
 				shadow = 0;
 				scrollSpeed = 0.06;
 				width = 0;
-				height = 0.028;
+				height = 0.01;
 				autoScrollEnabled = 1;
 				autoScrollSpeed = -1;
 				autoScrollDelay = 5;
