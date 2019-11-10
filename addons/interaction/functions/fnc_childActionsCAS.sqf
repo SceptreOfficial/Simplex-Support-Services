@@ -12,7 +12,7 @@ private _actions = [];
 
 				if (_entity getVariable "SSS_cooldown" > 0) then {
 					_actionData set [2,_entity getVariable "SSS_iconYellow"];
-					_actionData set [3,{NOTIFY_LOCAL_1(_this # 2,"<t color='#f4ca00'>NOT READY.</t> Ready in %1.",PROPER_COOLDOWN(_this # 2))}];
+					_actionData set [3,{NOTIFY_LOCAL_NOT_READY_COOLDOWN(_this # 2)}];
 				} else {
 					if (_entity getVariable "SSS_active") then {
 						_actionData set [2,_entity getVariable "SSS_iconGreen"];
@@ -31,7 +31,7 @@ private _actions = [];
 
 				if (_entity getVariable "SSS_cooldown" > 0) then {
 					_actionData set [2,_entity getVariable "SSS_iconYellow"];
-					_actionData set [3,{NOTIFY_LOCAL_1(_this # 2,"<t color='#f4ca00'>NOT READY.</t> Ready in %1.",PROPER_COOLDOWN(_this # 2))}];
+					_actionData set [3,{NOTIFY_LOCAL_NOT_READY_COOLDOWN(_this # 2)}];
 				} else {
 					if (_entity getVariable "SSS_active") then {
 						_actionData set [2,_entity getVariable "SSS_iconGreen"];
@@ -55,7 +55,7 @@ private _actions = [];
 				} else {
 					_actionData set [2,_entity getVariable "SSS_iconYellow"];
 					_actionData set [3,{
-						NOTIFY_LOCAL(_this # 2,"<t color='#f4ca00'>No vehicle available at this time. A replacement is on the way.</t>");
+						NOTIFY_LOCAL(_this # 2,"No vehicle available at this time. A replacement is on the way.");
 					}];
 					_actionData set [5,{}];
 				};
@@ -68,7 +68,7 @@ private _actions = [];
 
 				if (_entity getVariable "SSS_cooldown" > 0) then {
 					_actionData set [2,_entity getVariable "SSS_iconYellow"];
-					_actionData set [3,{NOTIFY_LOCAL_1(_this # 2,"<t color='#f4ca00'>NOT READY.</t> Ready in %1.",PROPER_COOLDOWN(_this # 2))}];
+					_actionData set [3,{NOTIFY_LOCAL_NOT_READY_COOLDOWN(_this # 2)}];
 					_actionData set [5,{}];
 				} else {
 					_actionData set [2,_entity getVariable "SSS_icon"];

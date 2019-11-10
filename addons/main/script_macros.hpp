@@ -249,3 +249,11 @@
 	_vehicle setFuel 1; \
 	_vehicle engineOn true
 
+#define NOTIFY_LOCAL_NOT_READY_COOLDOWN(ENTITY) \
+	private _string = ["<t color='#f4ca00'>NOT READY.</t> Ready in %1.","NOT READY. Ready in %1."] select SSS_setting_useChatNotifications; \
+	NOTIFY_LOCAL_1(ENTITY,_string,PROPER_COOLDOWN(ENTITY))
+
+#define NOTIFY_NOT_READY_COOLDOWN(ENTITY) \
+	private _string = ["<t color='#f4ca00'>NOT READY.</t> Ready in %1.","NOT READY. Ready in %1."] select SSS_setting_useChatNotifications; \
+	NOTIFY_1(ENTITY,_string,PROPER_COOLDOWN(ENTITY))
+

@@ -9,7 +9,7 @@ if (!isServer) exitWith {
 };
 
 if ((_entity getVariable "SSS_cooldown") > 0) exitWith {
-	NOTIFY_1(_entity,"<t color='#f4ca00'>NOT READY.</t> Ready in %1.",PROPER_COOLDOWN(_entity));
+	NOTIFY_NOT_READY_COOLDOWN(_entity);
 };
 
 ["SSS_requestSubmitted",[_entity,[_position,_loiterRadius,_loiterAltitude]]] call CBA_fnc_globalEvent;

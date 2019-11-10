@@ -11,7 +11,8 @@ switch (_entity getVariable "SSS_supportType") do {
 		if (!alive _vehicle) exitWith {};
 
 		if (!(_vehicle isKindOf "B_Ship_MRLS_01_base_F") && {!(_position inRangeOfArtillery [[_vehicle],_request])}) exitWith {
-			NOTIFY_LOCAL(_entity,"<t color='#f4ca00'>Position out of range.</t> Unable to fulfill request.");
+			private _string = ["<t color='#f4ca00'>Position out of range.</t> Unable to fulfill request.","Position out of range. Unable to fulfill request."] select SSS_setting_useChatNotifications;
+			NOTIFY_LOCAL(_entity,_string);
 		};
 
 		private _nearbyArtillery = ([_player,"artillery"] call FUNC(availableEntities)) select {
