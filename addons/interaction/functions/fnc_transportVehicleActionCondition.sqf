@@ -2,7 +2,7 @@
 
 params ["_vehicle","_player"];
 
-if (!alive _vehicle || !alive driver _vehicle || {side _vehicle != side _player}) exitWith {false};
+if (!alive _vehicle || !alive driver _vehicle || {side _vehicle getFriend side _player < 0.6}) exitWith {false};
 
 private _entity = _vehicle getVariable ["SSS_parentEntity",objNull];
 
