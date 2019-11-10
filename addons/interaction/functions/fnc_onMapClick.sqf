@@ -14,18 +14,7 @@ switch (_entity getVariable "SSS_supportType") do {
 			NOTIFY_LOCAL(_entity,"<t color='#f4ca00'>Position out of range.</t> Unable to fulfill request.");
 		};
 
-		private _assignedArtillery = if (ADMIN_ACCESS_CONDITION) then {
-			if (SSS_setting_adminLimitSide) then {
-				private _side = side _target;
-				SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == "artillery" && {_x getVariable "SSS_side" == _side}}}
-			} else {
-				SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == "artillery"}}
-			};
-		} else {
-			(_target getVariable ["SSS_assignedEntities",[]]) select {!isNull _x && {(_x getVariable "SSS_service") == "artillery"}}
-		};
-
-		private _nearbyArtillery = _assignedArtillery select {
+		private _nearbyArtillery = ([_player,"artillery"] call FUNC(availableEntities)) select {
 			private _otherVehicle = _x getVariable ["SSS_vehicle",objNull];
 
 			if (alive _otherVehicle) then {
