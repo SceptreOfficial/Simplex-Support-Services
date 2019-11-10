@@ -141,9 +141,12 @@
 
 #define ADMIN_ACCESS_CONDITION SSS_setting_adminFullAccess && {serverCommandAvailable "#kick" || !isMultiplayer}
 #define ACTION_DEFAULTS [0,0,0],4,[false,false,false,false,false]
-
 #define PRIMARY_CREW(VEH) ((crew VEH) arrayIntersect (units group VEH))
+#define WP_DONE ["true","(vehicle this) setVariable ['SSS_WPDone',true];"]
+#define PROPER_TIME(SECONDS) SECONDS call EFUNC(common,properTime)
+#define PROPER_COOLDOWN(ENTITY) PROPER_TIME(ENTITY getVariable "SSS_cooldown")
 
+#define CREATE_TASK_MARKER(ENTITY,CALLSIGN,MARKER_ICON,STRING) [ENTITY,CALLSIGN,MARKER_ICON,STRING] call EFUNC(common,createMarker)
 #define BASE_TRAITS(ENTITY,CLASSNAME,CALLSIGN,SUPPORT_SIDE,ICON,CUSTOM_INIT,SERVICE,SUPPORT_TYPE) \
 	ENTITY setVariable ["SSS_classname",CLASSNAME,true]; \
 	ENTITY setVariable ["SSS_callsign",CALLSIGN,true]; \
@@ -165,8 +168,6 @@
 	ENTITY setVariable ["SSS_respawning",false,true]; \
 	GRP setVariable ["SSS_protectWaypoints",true,true]
 
-#define CREATE_TASK_MARKER(ENTITY,CALLSIGN,MARKER_ICON,STRING) [ENTITY,CALLSIGN,MARKER_ICON,STRING] call EFUNC(common,createMarker);
-
 #define BEGIN_ORDER(ENTITY,POS,MESSAGE) \
 	ENTITY setVariable ["SSS_onTask",true,true]; \
 	ENTITY setVariable ["SSS_awayFromBase",true,true]; \
@@ -177,8 +178,6 @@
 	ENTITY setVariable ["SSS_onTask",false,true]; \
 	[ENTITY,false] call EFUNC(common,updateMarker); \
 	NOTIFY(ENTITY,MESSAGE)
-
-#define WP_DONE ["true","(vehicle this) setVariable ['SSS_WPDone',true];"]
 
 #define CANCEL_ORDER(ENTITY) \
 	ENTITY setVariable ["SSS_interrupt",false]; \
@@ -212,10 +211,7 @@
 
 #define REQUEST_CANCELLED \
 	titleText ["Request Cancelled","PLAIN",0.5]; \
-	[{titleFadeOut 0.5;},[],1] call CBA_fnc_waitAndExecute
-
-#define PROPER_TIME(SECONDS) SECONDS call EFUNC(common,properTime)
-#define PROPER_COOLDOWN(ENTITY) PROPER_TIME(ENTITY getVariable "SSS_cooldown")
+	[{titleFadeOut 0.5},[],1] call CBA_fnc_waitAndExecute
 
 #define PLANE_TAKEOFF(VEH) \
 	private _worldCfg = configfile >> "CfgWorlds" >> worldName; \

@@ -68,7 +68,7 @@ class CfgVehicles {
 			};
 			class CustomInit {
 				displayName = "Custom init code";
-				description = "Code executed when vehicle is added & respawned (vehicle = _this)";
+				description = "Code executed when vehicle is added & respawned. \n(Vehicle = _this)";
 				typeName = "STRING";
 				defaultValue = "";
 			};
@@ -97,7 +97,7 @@ class CfgVehicles {
 			};
 			class Side {
 				displayName = "Side";
-				description = "Side which support will be available to";
+				description = "Support side";
 				typeName = "NUMBER";
 				class values {
 					class BLUFOR {
@@ -129,7 +129,7 @@ class CfgVehicles {
 			};
 			class CustomInit {
 				displayName = "Custom init code";
-				description = "Code executed when physical vehicle is spawned (vehicle = _this)";
+				description = "Code executed when physical vehicle is spawned. \n(Vehicle = _this)";
 				typeName = "STRING";
 				defaultValue = "";
 			};
@@ -164,7 +164,7 @@ class CfgVehicles {
 			};
 			class Side {
 				displayName = "Side";
-				description = "Side which support will be available to";
+				description = "Support side";
 				typeName = "NUMBER";
 				class values {
 					class BLUFOR {
@@ -196,7 +196,7 @@ class CfgVehicles {
 			};
 			class CustomInit {
 				displayName = "Custom init code";
-				description = "Code executed when physical vehicle is spawned (vehicle = _this)";
+				description = "Code executed when physical vehicle is spawned. \n(Vehicle = _this)";
 				typeName = "STRING";
 				defaultValue = "";
 			};
@@ -225,7 +225,7 @@ class CfgVehicles {
 			};
 			class CustomInit {
 				displayName = "Custom init code";
-				description = "Code executed when vehicle is added & respawned (vehicle = _this)";
+				description = "Code executed when vehicle is added & respawned. \n(Vehicle = _this)";
 				typeName = "STRING";
 				defaultValue = "";
 			};
@@ -260,7 +260,7 @@ class CfgVehicles {
 			};
 			class Side {
 				displayName = "Side";
-				description = "Side which support will be available to";
+				description = "Support side";
 				typeName = "NUMBER";
 				class values {
 					class BLUFOR {
@@ -286,7 +286,7 @@ class CfgVehicles {
 			};
 			class CustomInit {
 				displayName = "Custom init code";
-				description = "Code executed when physical vehicle is spawned (vehicle = _this)";
+				description = "Code executed when physical vehicle is spawned. \n(Vehicle = _this)";
 				typeName = "STRING";
 				defaultValue = "";
 			};
@@ -315,7 +315,13 @@ class CfgVehicles {
 			};
 			class CustomInit {
 				displayName = "Custom init code";
-				description = "Code executed when vehicle is added & respawned (vehicle = _this)";
+				description = "Code executed when vehicle is added & respawned. \n(Vehicle = _this)";
+				typeName = "STRING";
+				defaultValue = "";
+			};
+		};
+	};
+
 	class GVAR(AddLogisticsAirdrop) : GVAR(Base) {
 		displayName = "Add Logistics Airdrop";
 		icon = ICON_PARACHUTE;
@@ -477,7 +483,7 @@ class CfgVehicles {
 		class Arguments {
 			class AssignList {
 				displayName = "Assignment List";
-				description = "List of custom unit variable names. JIP compatible method compared to syncing. (eg. p1,p2,p3)";
+				description = "List of custom unit variable names. JIP compatible method compared to syncing. \n(example: p1,p2,p3)";
 				typeName = "STRING";
 				defaultValue = "";
 			};
