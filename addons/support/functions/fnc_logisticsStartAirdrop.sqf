@@ -155,16 +155,11 @@ NOTIFY(_entity,FORMAT_2("%1 airdrop inbound. ETA %2.",_objText,_ETA));
 				[{{isNull _x} count _this > 0},{deleteVehicle (_this # 1)},[_object,_parachute]] call CBA_fnc_waitUntilAndExecute;
 				[{
 					if (isNull _this) exitWith {};
-
 					_this setVelocityModelSpace [0,30,0];
 
 					[{
-						if (isNull _this) then {true} else {
-							_this setVectorUp [0,0,1];
-
-							private _vel = velocity _this;
-							_vel # 0 < 1 && _vel # 1 < 1
-						}
+						_this setVectorUp [0,0,1];
+						isNull _this || {getPos _this # 2 < 2}
 					},{},_this] call CBA_fnc_waitUntilAndExecute;
 				},_parachute] call CBA_fnc_execNextFrame;
 
