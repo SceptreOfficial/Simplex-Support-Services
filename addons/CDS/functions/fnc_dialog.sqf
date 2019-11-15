@@ -367,7 +367,7 @@ GVAR(PFHID) = [{
 			_ctrl ctrlEnable false;
 			(_ctrl getVariable QGVAR(ctrlDescription)) ctrlSetTextColor [COLOR_DISABLED];
 			if (_data # 0 == "SLIDER") then {
-				ctrlEnable [_ctrl getVariable QGVAR(ctrlEdit),false];
+				(_ctrl getVariable QGVAR(ctrlEdit)) ctrlEnable false;
 			};
 		};
 
@@ -375,7 +375,7 @@ GVAR(PFHID) = [{
 			_ctrl ctrlEnable true;
 			(_ctrl getVariable QGVAR(ctrlDescription)) ctrlSetTextColor [1,1,1,1];
 			if (_data # 0 == "SLIDER") then {
-				ctrlEnable [_ctrl getVariable QGVAR(ctrlEdit),true];
+				(_ctrl getVariable QGVAR(ctrlEdit)) ctrlEnable true;
 			};
 		};
 	} forEach (uiNamespace getVariable QGVAR(controls));
