@@ -1,3 +1,10 @@
+v0.3.0.5 - Hotfix
+- Improved: Zeus management modules now have standardized coloring
+- Tweaked: Airdropped cargo will now be forced upright until it lands
+- Fixed: Logistics modules were not showing up for zeus
+- Fixed: Slider editboxes were not properly disabling
+- Fixed: Hovering over water could result in helicopters being submerged
+
 v0.3
 - Added: 'Logistics Airdrop' support
 - Added: 'Logistics Station' support (You can also sync this module to any object you want to have as a 'booth')
