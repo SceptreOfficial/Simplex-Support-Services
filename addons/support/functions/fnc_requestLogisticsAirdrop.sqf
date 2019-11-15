@@ -53,5 +53,9 @@ if (_list isEqualTo []) exitWith {
 		NOTIFY_LOCAL_NOT_READY_COOLDOWN(_entity);
 	};
 	
+	if !(_entity getVariable "SSS_allowMulti") then {
+		_amount = 1;
+	};
+
 	[_entity,_position,_player,_list # _selection,_amount] remoteExecCall [QFUNC(logisticsStartAirdrop),2];
 },{},[_entity,_position,_player,_list,_searchList]] call EFUNC(CDS,Dialog);

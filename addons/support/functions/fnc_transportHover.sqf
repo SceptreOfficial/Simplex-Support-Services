@@ -17,9 +17,11 @@ _vehicle setVariable ["SSS_fastropeUnits",nil];
 	};
 	
 	private _vehicleASL = getPosASL _vehicle;
-	private _intersect = (lineIntersectsSurfaces [[_position # 0,_position # 1,_vehicleASL # 2 + 100],ATLToASL [_position # 0,_position # 1,0],_vehicle]) # 0 # 0;
+	private _surfaceASL = ATLToASL [_position # 0,_position # 1,0];
+	_surfaceASL set [2,_surfaceASL # 2 max 0];
+	private _intersect = (lineIntersectsSurfaces [[_position # 0,_position # 1,_vehicleASL # 2 + 100],_surfaceASL,_vehicle]) # 0 # 0;
 	private _hoverPositionASL = if (isNil "_intersect") then {
-		ATLToASL [_position # 0,_position # 1,0 + _hoverHeight];
+		[_surfaceASL # 0,_surfaceASL # 1,_surfaceASL # 2 + _hoverHeight];
 	} else {
 		_intersect set [2,_intersect # 2 + _hoverHeight];
 		_intersect

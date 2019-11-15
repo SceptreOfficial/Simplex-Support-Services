@@ -10,6 +10,8 @@ class CfgPatches {
 			QGVAR(AddCASHeli),
 			QGVAR(AddCASPlane),
 			QGVAR(AddTransport),
+			QGVAR(AddLogisticsAirdrop),
+			QGVAR(AddLogisticsStation),
 			QGVAR(AssignRequesters),
 			QGVAR(RemoveSupports),
 			QGVAR(UnassignRequesters)
