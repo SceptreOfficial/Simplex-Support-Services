@@ -1,4 +1,6 @@
 #include "script_component.hpp"
+#define TITLE_RGBA [profilenamespace getvariable ["GUI_BCG_RGB_R",0.77],profilenamespace getvariable ["GUI_BCG_RGB_G",0.51],profilenamespace getvariable ["GUI_BCG_RGB_B",0.08],profilenamespace getvariable ["GUI_BCG_RGB_A",1]]
+#define BG_RGBA [0,0,0,0.8]
 
 params ["_logic"];
 
@@ -6,6 +8,7 @@ if (!local _logic) exitWith {};
 
 if (SSS_entities isEqualTo []) exitWith {
 	ZEUS_ERROR("No supports exist");\
+	deleteVehicle _logic;
 };
 
 disableSerialization;
@@ -30,13 +33,13 @@ private _fnc_selectionUI = {
 	private _display = findDisplay 312 createDisplay "RscDisplayEmpty";
 
 	private _title = _display ctrlCreate ["RscText",-1];
-	_title ctrlSetBackgroundColor [0.2,0,0,0.5];
+	_title ctrlSetBackgroundColor TITLE_RGBA;
 	_title ctrlSetPosition [0.1,0.08,0.8,0.075];
 	_title ctrlCommit 0;
 	_title ctrlSetText "Select supports to be unassigned";
 
 	private _BG = _display ctrlCreate ["RscText",-1];
-	_BG ctrlSetBackgroundColor [0,0,0,0.5];
+	_BG ctrlSetBackgroundColor BG_RGBA;
 	_BG ctrlSetPosition [0.1,0.16,0.8,0.7];
 	_BG ctrlCommit 0;
 	_BG ctrlSetText "";
