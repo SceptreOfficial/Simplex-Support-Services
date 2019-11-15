@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params [["_entity",objNull,[objNull]],["_request",0,[0,""]],["_position",[],[[]]],["_extraParams",[],[[]]]];
+params [["_entity",objNull,[objNull]],["_request","",[""]],["_position",[],[[]]],["_extraParams",[],[[]]]];
 
 if (isNull _entity) exitWith {};
 
@@ -18,9 +18,8 @@ if (!local _vehicle) exitWith {
 
 ["SSS_requestSubmitted",[_entity,[_request,_position,_extraParams]]] call CBA_fnc_globalEvent;
 
-switch (_request) do {
-	case "RTB";
-	case 0 : {
+switch (toUpper _request) do {
+	case "RTB" : {
 		if !(_entity getVariable "SSS_awayFromBase") exitWith {};
 
 		INTERRUPT(_entity,_vehicle);
@@ -59,10 +58,8 @@ switch (_request) do {
 	};
 	
 	case "MOVE";
-	case 1;
-	case "MOVE_ENG_OFF";
-	case 2 : {
-		private _engineOn = _request isEqualTo 2 || _request == "MOVE";
+	case "MOVE_ENG_OFF" : {
+		private _engineOn = _request == "MOVE";
 
 		INTERRUPT(_entity,_vehicle);
 

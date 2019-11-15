@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params [["_entity",objNull,[objNull]],["_request",0,[0,""]],["_position",[],[[]]],["_extraParams",[],[[]]]];
+params [["_entity",objNull,[objNull]],["_request","",[""]],["_position",[],[[]]],["_extraParams",[],[[]]]];
 
 if (isNull _entity) exitWith {};
 
@@ -18,9 +18,8 @@ if (!local _vehicle) exitWith {
 
 ["SSS_requestSubmitted",[_entity,[_request,_position,_extraParams]]] call CBA_fnc_globalEvent;
 
-switch (_request) do {
-	case "RTB";
-	case 0 : {
+switch (toUpper _request) do {
+	case "RTB" : {
 		if !(_entity getVariable "SSS_awayFromBase") exitWith {};
 
 		INTERRUPT(_entity,_vehicle);
@@ -75,8 +74,7 @@ switch (_request) do {
 		},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 	};
 
-	case "MOVE";
-	case 1 : {
+	case "MOVE" : {
 		INTERRUPT(_entity,_vehicle);
 
 		[{!((_this # 0) getVariable "SSS_onTask")},{
@@ -106,8 +104,7 @@ switch (_request) do {
 		},[_entity,_vehicle,_position]] call CBA_fnc_waitUntilAndExecute;
 	};
 
-	case "PARADROP";
-	case 2 : {
+	case "PARADROP" : {
 		_extraParams params ["_jumpDelay","_AIOpeningHeight"];
 
 		INTERRUPT(_entity,_vehicle);
@@ -144,8 +141,7 @@ switch (_request) do {
 		},[_entity,_vehicle,_position,_jumpDelay,_AIOpeningHeight]] call CBA_fnc_waitUntilAndExecute;
 	};
 
-	case "LOITER";
-	case 3 : {
+	case "LOITER" : {
 		_extraParams params ["_loiterRadius","_loiterDirection"];
 
 		INTERRUPT(_entity,_vehicle);
