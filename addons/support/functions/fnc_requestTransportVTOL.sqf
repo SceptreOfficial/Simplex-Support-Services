@@ -254,7 +254,7 @@ switch (toUpper _request) do {
 					CANCEL_ORDER(_entity);
 				};
 
-				(group _vehicle) addWaypoint [_position getRelPos [5000,0],0];
+				(group _vehicle) addWaypoint [_vehicle getRelPos [5000,0],0];
 				(group _vehicle) addWaypoint [_position,100];
 
 				[_entity,_vehicle,_jumpDelay,_AIOpeningHeight] call FUNC(transportParadrop);
