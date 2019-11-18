@@ -1,3 +1,6 @@
+v0.3.0.6 - Hotfix
+- Fixed: Plane and VTOL transport paradrops were broken.
+
 v0.3.0.5 - Hotfix
 - Improved: Zeus management modules now have standardized coloring
 - Tweaked: Airdropped cargo will now be forced upright until it lands
