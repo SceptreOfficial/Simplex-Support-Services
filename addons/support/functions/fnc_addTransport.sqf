@@ -5,7 +5,8 @@ params [
 	["_vehicle",objNull,[objNull]],
 	["_callsign","",[""]],
 	["_respawnTime",DEFAULT_RESPAWN_TIME,[0]],
-	["_customInit","",["",{}]]
+	["_customInit","",["",{}]],
+	["_disableRespawn",false,[false]]
 ];
 
 // Validation
@@ -138,16 +139,33 @@ publicVariable "SSS_entities";
 // Event handlers
 [_entity,"Deleted",{_this call EFUNC(common,deletedEntity)}] call CBA_fnc_addBISEventHandler;
 [_vehicle,"Deleted",{_this call EFUNC(common,deletedVehicle)}] call CBA_fnc_addBISEventHandler;
-[_vehicle,"Killed",{(_this # 0) call EFUNC(common,respawn)}] remoteExecCall ["CBA_fnc_addBISEventHandler",0];
-[driver _vehicle,"Killed",{vehicle (_this # 0) call EFUNC(common,respawn)}] remoteExecCall ["CBA_fnc_addBISEventHandler",0];
-[_vehicle,"GetOut",{
+
+private _addEH = {
+	params ["_vehicle", "_entity", "_vehicleKilledCallback", "_driverKilledCallback", "_getOutCallback"];
+
+	[_vehicle,"Killed",_vehicleKilledCallback,_entity] remoteExecCall ["CBA_fnc_addBISEventHandler",0];
+	[driver _vehicle,"Killed",_driverKilledCallback,_entity] remoteExecCall ["CBA_fnc_addBISEventHandler",0];
+	[_vehicle,"GetOut",_getOutCallback] call CBA_fnc_addBISEventHandler;
+};
+
+private _vehicleKilledCallback = {(_this # 0) call EFUNC(common,respawn)};
+private _driverKilledCallback = {vehicle (_this # 0) call EFUNC(common,respawn)};
+private _getOutCallback = {
 	params ["_vehicle","_role"];
 
-	if (_role == "driver") then {
+	if (_role == "driver" && {!(isPlayer (driver _vehicle))}) then {
 		_vehicle removeEventHandler [_thisType,_thisID];
 		_vehicle call EFUNC(common,respawn);
 	};
-}] call CBA_fnc_addBISEventHandler;
+};
+
+if (_disableRespawn) then {
+	_vehicleKilledCallback = {_thisArgs call EFUNC(common,deletedEntity)};
+	_driverKilledCallback = {_thisArgs call EFUNC(common,deletedEntity)};
+	[_vehicle, _entity, _vehicleKilledCallback, _driverKilledCallback, _getOutCallback] call _addEH;
+} else {
+	[_vehicle, _entity, _vehicleKilledCallback, _driverKilledCallback, _getOutCallback] call _addEH;
+};
 
 // Commission vehicle
 [_entity,_vehicle] call EFUNC(common,commission);
