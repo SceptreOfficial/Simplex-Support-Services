@@ -123,6 +123,12 @@ _vehicle flyInHeightASL [_altitudeASL,_altitudeASL,_altitudeASL];
 		_group setCurrentWaypoint _WP;
 		_vehicle doFollow _vehicle;
 
+		// Fly at correct altitude
+		[{
+			params ["_vehicle","_altitude"];
+			_vehicle flyInHeight _altitude;
+		},[_vehicle,getPosATL _vehicle # 2],1] call CBA_fnc_waitAndExecute;
+
 		// Lock gunner
 		_vehicle lockTurret [[0],false];
 
