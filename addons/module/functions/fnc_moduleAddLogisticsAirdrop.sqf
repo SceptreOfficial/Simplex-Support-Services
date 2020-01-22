@@ -23,18 +23,24 @@
 			["EDITBOX",["List function","Code that must return an array of items that can be requested"],"[]"],
 			["EDITBOX",["Universal init code","Code executed when request object is spawned"],""],
 			["CHECKBOX",["Allow amount input","Allow requesting multiple items"],false],
-			["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
 			["EDITBOX","Cooldown",str DEFAULT_COOLDOWN_LOGISTICS_AIRDROP],
-			["EDITBOX",["Custom init code","Code executed when physical vehicle is spawned \n(Vehicle = _this)"],""]
+			["EDITBOX",["Custom init code","Code executed when physical vehicle is spawned \n(Vehicle = _this)"],""],
+			["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
+			["EDITBOX",["Access items","Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)"],"itemRadio"],
+			["EDITBOX",["Access condition","Code evaluated on a requester's client that must return true for the support to be accessible."],"true"]
 		],{
-			(_this # 0) params ["_classname","_callsign","_spawnPosition","_spawnDelay","_flyingHeight","_listFnc","_universalInitFnc","_allowMulti","_sideSelection","_cooldown","_customInit"];
+			(_this # 0) params [
+				"_classname","_callsign","_spawnPosition","_spawnDelay",
+				"_flyingHeight","_listFnc","_universalInitFnc","_allowMulti",
+				"_cooldown","_customInit","_sideSelection","_accessItems",
+				"_accessCondition"
+			];
 			
 			if (_spawnPosition == "") then {
 				_spawnPosition = "[]";
 			};
 
 			[
-				[],
 				_classname,
 				_callsign,
 				parseSimpleArray _spawnPosition,
@@ -43,9 +49,11 @@
 				_listFnc,
 				_universalInitFnc,
 				_allowMulti,
-				[west,east,independent] # _sideSelection,
 				parseNumber _cooldown,
-				_customInit
+				_customInit,
+				[west,east,independent] # _sideSelection,
+				STR_TO_ARRAY_LOWER(_accessItems),
+				_accessCondition
 			] call EFUNC(support,addLogisticsAirdrop);
 
 			ZEUS_MESSAGE("Logistics airdrop added");
@@ -53,23 +61,13 @@
 	} else {
 		if (!isServer) exitWith {};
 
-		private _requesterModules = [];
-		private _requesters = [];
-
-		{
-			if (typeOf _x == QGVAR(AssignRequesters)) then {
-				_requesterModules pushBack _x;
-				_requesters append ((synchronizedObjects _x) select {!(_x isKindOf "Logic")});
-			};
-		} forEach synchronizedObjects _logic;
-
 		private _spawnPosition = _logic getVariable ["SpawnPosition","[]"];
+		
 		if (_spawnPosition == "") then {
 			_spawnPosition = "[]";
 		};
 
-		private _entity = [
-			_requesters,
+		[
 			_logic getVariable ["Classname",""],
 			_logic getVariable ["Callsign",""],
 			parseSimpleArray _spawnPosition,
@@ -78,12 +76,12 @@
 			_logic getVariable ["ListFunction","[]"],
 			_logic getVariable ["UniversalInitCode",""],
 			(_logic getVariable ["AllowMulti",0]) isEqualTo 1,
-			[west,east,independent] # (_logic getVariable ["Side",0]),
 			parseNumber (_logic getVariable ["Cooldown",str DEFAULT_COOLDOWN_LOGISTICS_AIRDROP]),
-			_logic getVariable ["CustomInit",""]
+			_logic getVariable ["CustomInit",""],
+			[west,east,independent] # (_logic getVariable ["Side",0]),
+			STR_TO_ARRAY_LOWER(_logic getVariable [ARR_2("AccessItems","itemRadio")]),
+			_logic getVariable ["AccessCondition","true"]
 		] call EFUNC(support,addLogisticsAirdrop);
-
-		{_x setVariable ["SSS_entitiesToAssign",(_x getVariable ["SSS_entitiesToAssign",[]]) + [_entity],true]} forEach _requesterModules;
 	};
 
 	deleteVehicle _logic;

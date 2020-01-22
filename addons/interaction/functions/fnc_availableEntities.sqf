@@ -2,47 +2,38 @@
 
 params ["_target","_service"];
 
-private _availableEntities = switch (true) do {
-	case (SSS_setting_adminFullAccess && {serverCommandAvailable "#kick" || !isMultiplayer}) : {
-		if (SSS_setting_adminLimitSide) then {
-			private _side = side _target;
-			SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == _service && {_x getVariable "SSS_side" == _side}}}
-		} else {
-			SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == _service}}
-		}
-	};
+private _targetSide = side group _target;
 
-	case !(SSS_specialItemsArray isEqualTo []) : {
-		private _items = assignedItems _target;
-		_items append uniformItems _target;
-		_items append vestItems _target;
-		_items append backpackItems _target;
-
-		private _hasSpecialItem = !(((_items apply {toLower _x}) arrayIntersect SSS_specialItemsArray) isEqualTo []);
-
-		if (SSS_setting_specialItemsLogic) then {
-			if (_hasSpecialItem) then {
-				(_target getVariable ["SSS_assignedEntities",[]]) select {!isNull _x && {(_x getVariable "SSS_service") == _service}}
-			} else {
-				[]
-			}
-		} else {
-			if (_hasSpecialItem) then {
-				if (SSS_setting_specialItemsLimitSide) then {
-					private _side = side _target;
-					SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == _service && {_x getVariable "SSS_side" == _side}}}
-				} else {
-					SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == _service}}
-				};
-			} else {
-				(_target getVariable ["SSS_assignedEntities",[]]) select {!isNull _x && {(_x getVariable "SSS_service") == _service}}
-			}
-		}
-	};
-
-	default {
-		(_target getVariable ["SSS_assignedEntities",[]]) select {!isNull _x && {(_x getVariable "SSS_service") == _service}}
-	};
+if (SSS_setting_adminFullAccess && {serverCommandAvailable "#kick" || !isMultiplayer}) exitWith {
+	if (SSS_setting_adminLimitSide) then {
+		SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == _service && {_x getVariable "SSS_side" == _targetSide}}}
+	} else {
+		SSS_entities select {!isNull _x && {(_x getVariable "SSS_service") == _service}}
+	}
 };
 
-_availableEntities
+private _targetItems = assignedItems _target;
+_targetItems append uniformItems _target;
+_targetItems append vestItems _target;
+_targetItems append backpackItems _target;
+_targetItems append [
+	headgear _target,
+	goggles _target,
+	uniform _target,
+	vest _target,
+	backpack _target,
+	primaryWeapon _target,
+	secondaryWeapon _target,
+	handgunWeapon _target
+];
+_targetItems = _targetItems apply {toLower _x};
+
+SSS_entities select {
+	private _accessItems = _x getVariable "SSS_accessItems";
+
+	!isNull _x && {
+	(_x getVariable "SSS_service") == _service && {
+	_x getVariable "SSS_side" == _targetSide && {
+	(_accessItems isEqualTo [] || !((_accessItems arrayIntersect _targetItems) isEqualTo [])) && {
+	[] call (_x getVariable "SSS_accessCondition")
+}}}}}

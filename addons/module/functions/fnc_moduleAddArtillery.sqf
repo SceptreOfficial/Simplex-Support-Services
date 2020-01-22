@@ -18,20 +18,23 @@
 			["EDITBOX","Extra cooldown time per round",str DEFAULT_COOLDOWN_ARTILLERY_ROUND],
 			["EDITBOX","Maximum rounds per request",str DEFAULT_ARTILLERY_MAX_ROUNDS],
 			["EDITBOX",["Maximum coordination distance","Set what ""nearby"" really means for artillery coordination"],str DEFAULT_ARTILLERY_COORDINATION_DISTANCE],
-			["EDITBOX",["Custom init code","Code executed when vehicle is added & respawned (vehicle = _this)"],""]
+			["EDITBOX",["Custom init code","Code executed when vehicle is added & respawned (vehicle = _this)"],""],
+			["EDITBOX",["Access items","Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)"],"itemRadio"],
+			["EDITBOX",["Access condition","Code evaluated on a requester's client that must return true for the support to be accessible."],"true"]
 		],{
 			params ["_values","_object"];
-			_values params ["_callsign","_respawnTime","_cooldown","_roundCooldown","_maxRounds","_coordinationDistance","_customInit"];
+			_values params ["_callsign","_respawnTime","_cooldown","_roundCooldown","_maxRounds","_coordinationDistance","_customInit","_accessItems","_accessCondition"];
 
 			[
-				[],
 				_object,
 				_callsign,
 				parseNumber _respawnTime,
 				[parseNumber _cooldown,parseNumber _roundCooldown],
 				parseNumber _maxRounds,
 				parseNumber _coordinationDistance,
-				_customInit
+				_customInit,
+				STR_TO_ARRAY_LOWER(_accessItems),
+				_accessCondition
 			] call EFUNC(support,addArtillery);
 
 			ZEUS_MESSAGE("Artillery added");
@@ -39,42 +42,24 @@
 	} else {
 		if (!isServer) exitWith {};
 
-		private _requesterModules = [];
-		private _requesters = [];
-		private _vehicles = [];
-
 		{
-			if (typeOf _x == QGVAR(AssignRequesters)) then {
-				_requesterModules pushBack _x;
-				_requesters append ((synchronizedObjects _x) select {!(_x isKindOf "Logic")});
-			} else {
-				if (alive _x) then {
-					_vehicles pushBackUnique _x;
-				};
+			if (alive _x) then {
+				[
+					_x,
+					_logic getVariable ["Callsign",""],
+					parseNumber (_logic getVariable ["RespawnTime",str DEFAULT_RESPAWN_TIME]),
+					[
+						parseNumber (_logic getVariable ["Cooldown",str DEFAULT_COOLDOWN_ARTILLERY_ROUND]),
+						parseNumber (_logic getVariable ["RoundCooldown",str DEFAULT_ARTILLERY_MAX_ROUNDS])
+					],
+					parseNumber (_logic getVariable ["MaxRounds",str DEFAULT_ARTILLERY_MAX_ROUNDS]),
+					parseNumber (_logic getVariable ["CoordinationDistance",str DEFAULT_ARTILLERY_COORDINATION_DISTANCE]),
+					_logic getVariable ["CustomInit",""],
+					STR_TO_ARRAY_LOWER(_logic getVariable [ARR_2("AccessItems","itemRadio")]),
+					_logic getVariable ["AccessCondition","true"]
+				] call EFUNC(support,addArtillery);
 			};
 		} forEach synchronizedObjects _logic;
-
-		if (_vehicles isEqualTo []) exitWith {};
-
-		private _entities = [];
-
-		{
-			_entities pushBack ([
-				_requesters,
-				_x,
-				_logic getVariable ["Callsign",""],
-				parseNumber (_logic getVariable ["RespawnTime",str DEFAULT_RESPAWN_TIME]),
-				[
-					parseNumber (_logic getVariable ["Cooldown",str DEFAULT_COOLDOWN_ARTILLERY_ROUND]),
-					parseNumber (_logic getVariable ["RoundCooldown",str DEFAULT_ARTILLERY_MAX_ROUNDS])
-				],
-				parseNumber (_logic getVariable ["MaxRounds",str DEFAULT_ARTILLERY_MAX_ROUNDS]),
-				parseNumber (_logic getVariable ["CoordinationDistance",str DEFAULT_ARTILLERY_COORDINATION_DISTANCE]),
-				_logic getVariable ["CustomInit",""]
-			] call EFUNC(support,addArtillery));
-		} forEach _vehicles;
-
-		{_x setVariable ["SSS_entitiesToAssign",(_x getVariable ["SSS_entitiesToAssign",[]]) + _entities,true]} forEach _requesterModules;
 	};
 
 	deleteVehicle _logic;

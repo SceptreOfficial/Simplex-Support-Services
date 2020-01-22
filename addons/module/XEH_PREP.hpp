@@ -6,6 +6,4 @@ PREP(moduleAddCASPlane);
 PREP(moduleAddTransport);
 PREP(moduleAddLogisticsAirdrop);
 PREP(moduleAddLogisticsStation);
-PREP(moduleAssignRequesters);
 PREP(moduleRemoveSupports);
-PREP(moduleUnassignRequesters);

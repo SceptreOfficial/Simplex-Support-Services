@@ -1,7 +1,6 @@
 #include "script_component.hpp"
 
 params [
-	["_requesters",[],[[]]],
 	["_classname","",[""]],
 	["_callsign","",[""]],
 	["_spawnPosition",[],[[]]],
@@ -10,9 +9,11 @@ params [
 	["_listFnc","",["",{}]],
 	["_universalInitFnc",{},["",{}]],
 	["_allowMulti",false,[false]],
-	["_side",sideEmpty,[sideEmpty]],
 	["_cooldownDefault",DEFAULT_COOLDOWN_LOGISTICS_AIRDROP,[0]],
-	["_customInit","",["",{}]]
+	["_customInit",{},[{},""]],
+	["_side",sideEmpty,[sideEmpty]],
+	["_accessItems",[],[[]]],
+	["_accessCondition",{},[{},""]]
 ];
 
 // Validation
@@ -42,6 +43,10 @@ if (_customInit isEqualType "") then {
 	_customInit = compile _customInit;
 };
 
+if (_accessCondition isEqualType "") then {
+	_accessCondition = compile _accessCondition;
+};
+
 if (!isServer) exitWith {
 	_this remoteExecCall [QFUNC(addLogisticsAirdrop),2];
 	objNull
@@ -50,7 +55,7 @@ if (!isServer) exitWith {
 // Basic setup
 private _entity = true call CBA_fnc_createNamespace;
 
-BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_PARACHUTE,_customInit,"logistics","logisticsAirdrop");
+BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_PARACHUTE,_customInit,"logistics","logisticsAirdrop",_accessItems,_accessCondition);
 CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Airdrop");
 
 // Specifics
@@ -64,7 +69,6 @@ _entity setVariable ["SSS_cooldown",0,true];
 _entity setVariable ["SSS_cooldownDefault",_cooldownDefault,true];
 
 // Assignment
-[_requesters,[_entity]] call EFUNC(common,assignRequesters);
 SSS_entities pushBack _entity;
 publicVariable "SSS_entities";
 

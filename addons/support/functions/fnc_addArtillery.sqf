@@ -1,14 +1,15 @@
 #include "script_component.hpp"
 
 params [
-	["_requesters",[],[[]]],
 	["_vehicle",objNull,[objNull]],
 	["_callsign","",[""]],
 	["_respawnTime",DEFAULT_RESPAWN_TIME,[0]],
 	["_cooldownDefault",[DEFAULT_COOLDOWN_ARTILLERY_MIN,DEFAULT_COOLDOWN_ARTILLERY_ROUND],[[]],2],
 	["_maxRounds",DEFAULT_ARTILLERY_MAX_ROUNDS,[0]],
 	["_coordinationDistance",DEFAULT_ARTILLERY_COORDINATION_DISTANCE,[0]],
-	["_customInit","",["",{}]]
+	["_customInit",{},[{},""]],
+	["_accessItems",[],[[]]],
+	["_accessCondition",{},[{},""]]
 ];
 
 // Validation
@@ -22,6 +23,10 @@ if (_maxRounds < 0) then {
 
 if (_customInit isEqualType "") then {
 	_customInit = compile _customInit;
+};
+
+if (_accessCondition isEqualType "") then {
+	_accessCondition = compile _accessCondition;
 };
 
 if (!isNull (_vehicle getVariable ["SSS_parentEntity",objNull])) exitWith {
@@ -54,7 +59,7 @@ private _icon = switch (true) do {
 	default {ICON_SELF_PROPELLED};
 };
 
-BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,_icon,_customInit,"artillery","artillery");
+BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,_icon,_customInit,"artillery","artillery",_accessItems,_accessCondition);
 PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 CREATE_TASK_MARKER(_entity,_callsign,"mil_warning","Artillery");
 
@@ -65,7 +70,6 @@ _entity setVariable ["SSS_maxRounds",_maxRounds,true];
 _entity setVariable ["SSS_coordinationDistance",_coordinationDistance,true];
 
 // Assignment
-[_requesters,[_entity]] call EFUNC(common,assignRequesters);
 SSS_entities pushBack _entity;
 publicVariable "SSS_entities";
 

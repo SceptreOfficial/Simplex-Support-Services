@@ -1,13 +1,14 @@
 #include "script_component.hpp"
 
 params [
-	["_requesters",[],[[]]],
 	["_classname","",["",objNull]],
 	["_callSign","",[""]],
-	["_side",sideEmpty,[sideEmpty]],
 	["_cooldownDefault",DEFAULT_COOLDOWN_DRONES,[0]],
 	["_loiterTime",DEFAULT_LOITER_TIME_DRONES,[0]],
-	["_customInit","",["",{}]]
+	["_customInit",{},[{},""]],
+	["_side",sideEmpty,[sideEmpty]],
+	["_accessItems",[],[[]]],
+	["_accessCondition",{},[{},""]]
 ];
 
 // Validation
@@ -28,6 +29,10 @@ if (_customInit isEqualType "") then {
 	_customInit = compile _customInit;
 };
 
+if (_accessCondition isEqualType "") then {
+	_accessCondition = compile _accessCondition;
+};
+
 if (!isServer) exitWith {
 	_this remoteExecCall [QFUNC(addCASDrone),2];
 	objNull
@@ -36,7 +41,7 @@ if (!isServer) exitWith {
 // Basic setup
 private _entity = true call CBA_fnc_createNamespace;
 
-BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_DRONE,_customInit,"CAS","CASDrone");
+BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_DRONE,_customInit,"CAS","CASDrone",_accessItems,_accessCondition);
 CREATE_TASK_MARKER(_entity,_callsign,"mil_end","CAS");
 
 // Specifics
@@ -46,7 +51,6 @@ _entity setVariable ["SSS_loiterTime",_loiterTime,true];
 _entity setVariable ["SSS_active",false,true];
 
 // Assignment
-[_requesters,[_entity]] call EFUNC(common,assignRequesters);
 SSS_entities pushBack _entity;
 publicVariable "SSS_entities";
 

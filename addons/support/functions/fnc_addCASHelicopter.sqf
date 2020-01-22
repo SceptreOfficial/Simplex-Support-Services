@@ -1,11 +1,12 @@
 #include "script_component.hpp"
 
 params [
-	["_requesters",[],[[]]],
 	["_vehicle",objNull,[objNull]],
 	["_callsign","",[""]],
 	["_respawnTime",DEFAULT_RESPAWN_TIME,[0]],
-	["_customInit","",["",{}]]
+	["_customInit",{},[{},""]],
+	["_accessItems",[],[[]]],
+	["_accessCondition",{},[{},""]]
 ];
 
 // Validation
@@ -15,6 +16,10 @@ if (_callsign isEqualTo "") then {
 
 if (_customInit isEqualType "") then {
 	_customInit = compile _customInit;
+};
+
+if (_accessCondition isEqualType "") then {
+	_accessCondition = compile _accessCondition;
 };
 
 if (!isNull (_vehicle getVariable ["SSS_parentEntity",objNull])) exitWith {
@@ -42,7 +47,7 @@ private _entity = true call CBA_fnc_createNamespace;
 private _group = group _vehicle;
 private _side = side _group;
 
-BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_HELI,_customInit,"CAS","CASHelicopter");
+BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_HELI,_customInit,"CAS","CASHelicopter",_accessItems,_accessCondition);
 PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 CREATE_TASK_MARKER(_entity,_callsign,"mil_end","CAS");
 
@@ -55,7 +60,6 @@ _entity setVariable ["SSS_lightsOn",isLightOn _vehicle,true];
 _entity setVariable ["SSS_collisionLightsOn",isCollisionLightOn _vehicle,true];
 
 // Assignment
-[_requesters,[_entity]] call EFUNC(common,assignRequesters);
 SSS_entities pushBack _entity;
 publicVariable "SSS_entities";
 

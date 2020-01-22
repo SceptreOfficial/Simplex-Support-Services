@@ -19,21 +19,25 @@
 		["Add CAS Drone",[
 			["EDITBOX","Classname",_classname],
 			["EDITBOX","Callsign",_callsign],
-			["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
 			["EDITBOX","Cooldown",str DEFAULT_COOLDOWN_DRONES],
 			["EDITBOX","Loiter time",str DEFAULT_LOITER_TIME_DRONES],
-			["EDITBOX",["Custom init code","Code executed when physical vehicle is spawned (vehicle = _this)"],""]
+			["EDITBOX",["Custom init code","Code executed when physical vehicle is spawned (vehicle = _this)"],""],
+			["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
+			["EDITBOX",["Access items","Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)"],"itemRadio"],
+			["EDITBOX",["Access condition","Code evaluated on a requester's client that must return true for the support to be accessible."],"true"]
 		],{
 			params ["_values"];
-			_values params ["_classname","_callsign","_sideSelection","_cooldown","_loiterTime"];
+			_values params ["_classname","_callsign","_cooldown","_loiterTime","_customInit","_sideSelection","_accessItems","_accessCondition"];
 
 			[
-				[],
 				_classname,
 				_callsign,
-				[west,east,independent] # _sideSelection,
 				parseNumber _cooldown,
-				parseNumber _loiterTime
+				parseNumber _loiterTime,
+				_customInit,
+				[west,east,independent] # _sideSelection,
+				STR_TO_ARRAY_LOWER(_accessItems),
+				_accessCondition
 			] call EFUNC(support,addCASDrone);
 
 			ZEUS_MESSAGE("CAS Drone added");
@@ -41,27 +45,16 @@
 	} else {
 		if (!isServer) exitWith {};
 
-		private _requesterModules = [];
-		private _requesters = [];
-
-		{
-			if (typeOf _x == QGVAR(AssignRequesters)) then {
-				_requesterModules pushBack _x;
-				_requesters append ((synchronizedObjects _x) select {!(_x isKindOf "Logic")});
-			};
-		} forEach synchronizedObjects _logic;
-
-		private _entity = [
-			_requesters,
+		[
 			_logic getVariable ["Classname",""],
 			_logic getVariable ["Callsign",""],
-			[west,east,independent] # (_logic getVariable ["Side",0]),
 			parseNumber (_logic getVariable ["Cooldown",str DEFAULT_COOLDOWN_DRONES]),
 			parseNumber (_logic getVariable ["LoiterTime",str DEFAULT_LOITER_TIME_DRONES]),
-			_logic getVariable ["CustomInit",""]
+			_logic getVariable ["CustomInit",""],
+			[west,east,independent] # (_logic getVariable ["Side",0]),
+			STR_TO_ARRAY_LOWER(_logic getVariable [ARR_2("AccessItems","itemRadio")]),
+			_logic getVariable ["AccessCondition","true"]
 		] call EFUNC(support,addCASDrone);
-
-		{_x setVariable ["SSS_entitiesToAssign",(_x getVariable ["SSS_entitiesToAssign",[]]) + [_entity],true]} forEach _requesterModules;
 	};
 
 	deleteVehicle _logic;

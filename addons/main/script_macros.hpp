@@ -61,7 +61,6 @@
 	playSound "SSS_failure"
 
 #define ICON_ARTILLERY "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\artillery_ca.paa"
-#define ICON_ASSIGN_REQUESTERS "z\SSS\addons\main\ui\icons\unlock.paa"
 #define ICON_BOAT "z\SSS\addons\main\ui\icons\boat.paa"
 #define ICON_BOAT_GREEN "z\SSS\addons\main\ui\icons\boat_green.paa"
 #define ICON_BOAT_YELLOW "z\SSS\addons\main\ui\icons\boat_yellow.paa"
@@ -87,6 +86,7 @@
 #define ICON_LAND "z\SSS\addons\main\ui\icons\land.paa"
 #define ICON_LAND_ENG_OFF "z\SSS\addons\main\ui\icons\land_eng_off.paa"
 #define ICON_LAND_GREEN "z\SSS\addons\main\ui\icons\land_green.paa"
+#define ICON_LOCK "z\SSS\addons\main\ui\icons\lock.paa"
 #define ICON_LOITER "z\SSS\addons\main\ui\icons\loiter.paa"
 #define ICON_MAP "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\map_ca.paa"
 #define ICON_MISSILE "z\SSS\addons\main\ui\icons\missile.paa"
@@ -111,7 +111,7 @@
 #define ICON_TARGET "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\target_ca.paa"
 #define ICON_TRANSPORT "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa"
 #define ICON_TRASH "\A3\3DEN\Data\cfg3den\history\deleteitems_ca.paa"
-#define ICON_UNASSIGN_REQUESTERS "z\SSS\addons\main\ui\icons\lock.paa"
+#define ICON_UNLOCK "z\SSS\addons\main\ui\icons\unlock.paa"
 #define ICON_VTOL "z\SSS\addons\main\ui\icons\vtol.paa"
 #define ICON_VTOL_GREEN "z\SSS\addons\main\ui\icons\vtol_green.paa"
 #define ICON_VTOL_YELLOW "z\SSS\addons\main\ui\icons\vtol_yellow.paa"
@@ -147,7 +147,7 @@
 #define PROPER_COOLDOWN(ENTITY) PROPER_TIME(ENTITY getVariable "SSS_cooldown")
 
 #define CREATE_TASK_MARKER(ENTITY,CALLSIGN,MARKER_ICON,STRING) [ENTITY,CALLSIGN,MARKER_ICON,STRING] call EFUNC(common,createMarker)
-#define BASE_TRAITS(ENTITY,CLASSNAME,CALLSIGN,SUPPORT_SIDE,ICON,CUSTOM_INIT,SERVICE,SUPPORT_TYPE) \
+#define BASE_TRAITS(ENTITY,CLASSNAME,CALLSIGN,SUPPORT_SIDE,ICON,CUSTOM_INIT,SERVICE,SUPPORT_TYPE,ACCESS_ITEMS,ACCESS_CONDITION) \
 	ENTITY setVariable ["SSS_classname",CLASSNAME,true]; \
 	ENTITY setVariable ["SSS_callsign",CALLSIGN,true]; \
 	ENTITY setVariable ["SSS_side",SUPPORT_SIDE,true]; \
@@ -156,7 +156,9 @@
 	ENTITY setVariable ["SSS_iconGreen",[ICON,HEX_GREEN],true]; \
 	ENTITY setVariable ["SSS_customInit",CUSTOM_INIT,true]; \
 	ENTITY setVariable ["SSS_service",SERVICE,true]; \
-	ENTITY setVariable ["SSS_supportType",SUPPORT_TYPE,true]
+	ENTITY setVariable ["SSS_supportType",SUPPORT_TYPE,true]; \
+	ENTITY setVariable ["SSS_accessItems",ACCESS_ITEMS,true]; \
+	ENTITY setVariable ["SSS_accessCondition",ACCESS_CONDITION,true]
 
 #define PHYSICAL_TRAITS(ENTITY,VEH,GRP,BASE,RESPAWN_TIME) \
 	VEH setVariable ["SSS_parentEntity",ENTITY,true]; \
@@ -274,3 +276,4 @@
 	private _string = ["<t color='#f4ca00'>NOT READY.</t> Ready in %1.","NOT READY. Ready in %1."] select SSS_setting_useChatNotifications; \
 	NOTIFY_1(ENTITY,_string,PROPER_COOLDOWN(ENTITY))
 
+#define STR_TO_ARRAY_LOWER(STRING) (([STRING] call CBA_fnc_removeWhitespace) splitString ",") apply {toLower _x}
