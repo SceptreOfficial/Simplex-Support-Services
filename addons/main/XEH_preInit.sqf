@@ -196,7 +196,7 @@ SSS_entities = [];
 		params ["_target","_player","_entity"];
 
 		if (SSS_setting_directActionRequirement && {!(_entity in ([_player,"logistics"] call EFUNC(interaction,availableEntities)))}) exitWith {false};
-
+		
 		!isNull _entity && SSS_showLogisticsStations && {(_entity getVariable "SSS_side") getFriend side _player >= 0.6}
 	},{},_entity] call ace_interact_menu_fnc_createAction;
 
