@@ -26,6 +26,7 @@ _targetItems append [
 	secondaryWeapon _target,
 	handgunWeapon _target
 ];
+
 _targetItems = _targetItems apply {toLower _x};
 
 SSS_entities select {

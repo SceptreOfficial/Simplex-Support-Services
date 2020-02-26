@@ -444,19 +444,37 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "";
 			};
-			class AllowMulti {
-				displayName = "Allow amount input";
-				description = "Allow requesting multiple items";
+			class MaxAmount {
+				displayName = "Maximum amount input";
+				description = "Maximum number of items that can be spawned per request.";
+				typeName = "STRING";
+				defaultValue = "1";
+			};
+			class LandingSignal {
+				displayName = "Landing signal";
+				description = "Color of signal when item lands, or none for no signal. \nSmoke used during daytime, chemlights used at night.";
 				typeName = "NUMBER";
 				class values {
-					class False {
-						default = 1;
-						name = "False";
+					class None {
+						name = "None";
 						value = 0;
 					};
-					class True {
-						name = "True";
+					class Yellow {
+						default = 1;
+						name = "Yellow";
 						value = 1;
+					};
+					class Green {
+						name = "Green";
+						value = 2;
+					};
+					class Red {
+						name = "Red";
+						value = 3;
+					};
+					class Blue {
+						name = "Blue";
+						value = 4;
 					};
 				};
 			};

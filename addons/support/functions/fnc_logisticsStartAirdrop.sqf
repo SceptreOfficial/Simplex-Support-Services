@@ -13,7 +13,7 @@ if ((_entity getVariable "SSS_cooldown") > 0) exitWith {
 	NOTIFY_NOT_READY_COOLDOWN(_entity);
 };
 
-["SSS_requestSubmitted",[_entity,[_position,_objectData]]] call CBA_fnc_globalEvent;
+["SSS_requestSubmitted",[_entity,[_position,_objectData,_amount]]] call CBA_fnc_globalEvent;
 
 [_entity,_entity getVariable "SSS_cooldownDefault","Ready for new requests."] call EFUNC(common,cooldown);
 
@@ -70,6 +70,9 @@ NOTIFY(_entity,FORMAT_2("%1 airdrop inbound. ETA %2.",_objText,_ETA));
 	},{
 		params ["_entity","_vehicle","_player","_spawnPosition","_objectData","_amount"];
 		_objectData params ["_objClass","_objText","_objInitFnc"];
+
+		// Remove marker
+		[_entity,false] call EFUNC(common,updateMarker);
 
 		if (!alive _vehicle) exitWith {};
 
@@ -163,6 +166,29 @@ NOTIFY(_entity,FORMAT_2("%1 airdrop inbound. ETA %2.",_objText,_ETA));
 					},{},_this] call CBA_fnc_waitUntilAndExecute;
 				},_parachute] call CBA_fnc_execNextFrame;
 
+				// Landing signal
+				private _signalColor = [0,"yellow","green","red","blue"] # (_entity getVariable "SSS_landingSignal");
+
+				if (_signalColor isEqualType "") then {
+					[{
+						params ["_object","_signalColor"];
+
+						isNull _object || {getPos _object # 2 < 1}
+					},{
+						params ["_object","_signalColor"];
+
+						if (isNull _object) exitWith {};
+						
+						(date call BIS_fnc_sunriseSunsetTime) params ["_sunrise","_sunset"];
+						
+						if (daytime > _sunrise && daytime < _sunset) then {
+							("SmokeShell" + _signalColor) createVehicle getPos _object;
+						} else {
+							("ACE_G_Chemlight_Hi" + _signalColor) createVehicle getPos _object;
+						};
+					},[_object,_signalColor]] call CBA_fnc_waitUntilAndExecute;
+				};
+
 				_object
 			};
 
@@ -172,9 +198,10 @@ NOTIFY(_entity,FORMAT_2("%1 airdrop inbound. ETA %2.",_objText,_ETA));
 
 			_object setVariable ["SSS_requester",_player,true];
 
+			// Custom inits
 			_object call _objInitFnc;
 			_object call (_entity getVariable ["SSS_universalInitFnc",{}]);
-		},0.8,[_entity,_vehicle,_player,_objClass,_objText,_objInitFnc]] call CBA_fnc_addPerFrameHandler;
+		},0.6,[_entity,_vehicle,_player,_objClass,_objText,_objInitFnc]] call CBA_fnc_addPerFrameHandler;
 	},[_entity,_vehicle,_player,_spawnPosition,_objectData,_amount]] call CBA_fnc_waitUntilAndExecute;
 
 	_vehicle call (_entity getVariable "SSS_customInit");

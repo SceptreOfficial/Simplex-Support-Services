@@ -8,7 +8,8 @@ params [
 	["_flyingHeight",DEFAULT_LOGISTICS_AIRDROP_FLYING_HEIGHT,[0]],
 	["_listFnc","",["",{}]],
 	["_universalInitFnc",{},["",{}]],
-	["_allowMulti",false,[false]],
+	["_maxAmount",1,[0]],
+	["_landingSignal",1,[0]],
 	["_cooldownDefault",DEFAULT_COOLDOWN_LOGISTICS_AIRDROP,[0]],
 	["_customInit",{},[{},""]],
 	["_side",sideEmpty,[sideEmpty]],
@@ -64,7 +65,8 @@ _entity setVariable ["SSS_spawnDelay",_spawnDelay,true];
 _entity setVariable ["SSS_flyingHeight",_flyingHeight,true];
 _entity setVariable ["SSS_listFnc",_listFnc,true];
 _entity setVariable ["SSS_universalInitFnc",_universalInitFnc,true];
-_entity setVariable ["SSS_allowMulti",_allowMulti,true];
+_entity setVariable ["SSS_maxAmount",_maxAmount max 1,true];
+_entity setVariable ["SSS_landingSignal",_landingSignal,true];
 _entity setVariable ["SSS_cooldown",0,true];
 _entity setVariable ["SSS_cooldownDefault",_cooldownDefault,true];
 
