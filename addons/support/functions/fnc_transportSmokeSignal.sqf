@@ -8,7 +8,9 @@ if (_firstCall) then {
 	_entity setVariable ["SSS_deniedSignals",[],true];
 };
 
-private _signalType = if (sunOrMoon isEqualTo 1) then {
+(date call BIS_fnc_sunriseSunsetTime) params ["_sunrise","_sunset"];
+
+private _signalType = if (daytime > _sunrise && daytime < _sunset) then {
 	if (_firstCall) then {
 		NOTIFY(_entity,"Arrived at pickup destination. Pop smoke to confirm landing position.");
 	} else {
