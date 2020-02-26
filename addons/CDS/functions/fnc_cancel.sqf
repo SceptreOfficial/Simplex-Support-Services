@@ -7,7 +7,8 @@ private _values = (uiNamespace getVariable QGVAR(controls)) apply {
 	private _data = _x getVariable QGVAR(data);
 	switch (_data # 0) do {
 		case "CHECKBOX";
-		case "EDITBOX" : {_data # 2};
+		case "EDITBOX";
+		case "BUTTON" : {_data # 2};
 		case "SLIDER";
 		case "COMBOBOX";
 		case "LISTNBOX" : {_data # 2 # 1};

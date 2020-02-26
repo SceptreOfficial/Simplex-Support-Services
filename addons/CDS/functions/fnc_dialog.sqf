@@ -78,7 +78,7 @@ _dummy ctrlCommit 0;
 	_x params [
 		["_type","",[""]],
 		["_description","",["",[]]],
-		["_valueData",[],[true,"",[]]],
+		["_valueData",[],[true,"",[],{}]],
 		["_forceDefault",true,[true]],
 		["_onValueChanged",{},[{}]],
 		["_enableCondition",{true},[{},true]]
@@ -110,7 +110,7 @@ _dummy ctrlCommit 0;
 			_ctrl setVariable [QGVAR(ctrlDescription),_ctrlDescription];
 			_controls pushBack _ctrl;
 
-			_ctrl ctrlAddEventHandler ["CheckedChanged",{
+			[_ctrl,"CheckedChanged",{
 				params ["_ctrl","_bool"];
 				_bool = _bool isEqualTo 1;
 
@@ -118,7 +118,7 @@ _dummy ctrlCommit 0;
 				_data set [2,_bool];
 				_ctrl setVariable [QGVAR(data),_data];
 				[_bool,uiNamespace getVariable QGVAR(arguments),_ctrl] call (_data # 3);
-			}];
+			}] call CBA_fnc_addBISEventHandler;
 
 			_posY = _posY + ITEM_HEIGHT + SPACING;
 		};
@@ -141,7 +141,7 @@ _dummy ctrlCommit 0;
 			_ctrl setVariable [QGVAR(ctrlDescription),_ctrlDescription];
 			_controls pushBack _ctrl;
 
-			_ctrl ctrlAddEventHandler ["KeyUp",{
+			[_ctrl,"KeyUp",{
 				params ["_ctrl","_key"];
 
 				private _string = ctrlText _ctrl;
@@ -149,7 +149,7 @@ _dummy ctrlCommit 0;
 				_data set [2,_string];
 				_ctrl setVariable [QGVAR(data),_data];
 				[_string,uiNamespace getVariable QGVAR(arguments),_ctrl] call (_data # 3);
-			}];
+			}] call CBA_fnc_addBISEventHandler;
 
 			_posY = _posY + ITEM_HEIGHT + SPACING;
 		};
@@ -183,7 +183,7 @@ _dummy ctrlCommit 0;
 			_ctrl setVariable [QGVAR(ctrlEdit),_ctrlEdit];
 			_ctrlEdit setVariable [QGVAR(slider),_ctrl];
 
-			_ctrl ctrlAddEventHandler ["SliderPosChanged",{
+			[_ctrl,"SliderPosChanged",{
 				params ["_ctrl","_sliderPos"];
 
 				private _data = _ctrl getVariable QGVAR(data);
@@ -198,9 +198,9 @@ _dummy ctrlCommit 0;
 				(_data select 2) set [1,_sliderPos];
 				_ctrl setVariable [QGVAR(data),_data];
 				[_sliderPos,uiNamespace getVariable QGVAR(arguments),_ctrl] call (_data # 3);
-			}];
+			}] call CBA_fnc_addBISEventHandler;
 
-			_ctrlEdit ctrlAddEventHandler ["KeyUp",{
+			[_ctrlEdit,"KeyUp",{
 				params ["_ctrlEdit"];
 
 				private _ctrl = _ctrlEdit getVariable QGVAR(slider);
@@ -214,9 +214,9 @@ _dummy ctrlCommit 0;
 				(_data select 2) set [1,_value];
 				_ctrl setVariable [QGVAR(data),_data];
 				[_value,uiNamespace getVariable QGVAR(arguments),_ctrl] call (_data # 3);
-			}];
+			}] call CBA_fnc_addBISEventHandler;
 
-			_ctrlEdit ctrlAddEventHandler ["KillFocus",{
+			[_ctrlEdit,"KillFocus",{
 				params ["_ctrlEdit"];
 
 				private _ctrl = _ctrlEdit getVariable QGVAR(slider);
@@ -224,7 +224,7 @@ _dummy ctrlCommit 0;
 				((_data # 2) # 0) params ["_min","_max","_decimals"];
 
 				_ctrlEdit ctrlSetText (sliderPosition _ctrl toFixed _decimals);
-			}];
+			}] call CBA_fnc_addBISEventHandler;
 
 			_posY = _posY + ITEM_HEIGHT + SPACING;
 		};
@@ -256,14 +256,14 @@ _dummy ctrlCommit 0;
 			_ctrl setVariable [QGVAR(ctrlDescription),_ctrlDescription];
 			_controls pushBack _ctrl;
 
-			_ctrl ctrlAddEventHandler ["LBSelChanged",{
+			[_ctrl,"LBSelChanged",{
 				params ["_ctrl","_selection"];
 
 				private _data = _ctrl getVariable QGVAR(data);
 				(_data select 2) set [1,_selection];
 				_ctrl setVariable [QGVAR(data),_data];
 				[_selection,uiNamespace getVariable QGVAR(arguments),_ctrl] call (_data # 3);
-			}];
+			}] call CBA_fnc_addBISEventHandler;
 
 			_posY = _posY + ITEM_HEIGHT + SPACING;
 		};
@@ -310,16 +310,46 @@ _dummy ctrlCommit 0;
 			_ctrl setVariable [QGVAR(ctrlBG),_ctrlBG];
 			_controls pushBack _ctrl;
 
-			_ctrl ctrlAddEventHandler ["LBSelChanged",{
+			[_ctrl,"LBSelChanged",{
 				params ["_ctrl","_selection"];
 
 				private _data = _ctrl getVariable QGVAR(data);
 				(_data select 2) set [1,_selection];
 				_ctrl setVariable [QGVAR(data),_data];
 				[_selection,uiNamespace getVariable QGVAR(arguments),_ctrl] call (_data # 3);
-			}];
+			}] call CBA_fnc_addBISEventHandler;
 
 			_posY = _posY + ITEM_HEIGHT + SPACING + _height + SPACING;
+		};
+
+		case "BUTTON" : {
+			_valueData params [["_code",{},[{},""]]];
+
+			if (_code isEqualType "") then {
+				_code = compile _code;
+			};
+
+			if (!_forceDefault) then {
+				_code = GVAR(cache) getVariable [[_title,_description,_type] joinString "~",_code];
+			};
+
+			private _ctrl = _display ctrlCreate [QGVAR(Button),-1,_ctrlGroup];
+			_ctrl ctrlSetPosition [0,_posY];
+			_ctrl ctrlCommit 0;
+			_ctrl ctrlSetText _descriptionText;
+			_ctrl ctrlSetTooltip _descriptionTooltip;
+			
+			_ctrl setVariable [QGVAR(data),[_type,_description,_code,_onValueChanged,_enableCondition]];
+			_ctrl setVariable [QGVAR(ctrlDescription),_ctrl];
+			_controls pushBack _ctrl;
+
+			[_ctrl,"ButtonClick",{
+				params ["_ctrl"];
+
+				((_ctrl getVariable QGVAR(data)) # 2) call CBA_fnc_directCall;
+			}] call CBA_fnc_addBISEventHandler;
+
+			_posY = _posY + ITEM_HEIGHT + SPACING;
 		};
 	};
 } forEach _content;
@@ -362,10 +392,15 @@ GVAR(PFHID) = [{
 		};
 
 		private _enableCtrl = [_value,uiNamespace getVariable QGVAR(arguments),_ctrl] call (_data # 4);
+		private _ctrlDescription = _ctrl getVariable [QGVAR(ctrlDescription),controlNull];
 
 		if (!_enableCtrl && ctrlEnabled _ctrl) then {
 			_ctrl ctrlEnable false;
-			(_ctrl getVariable QGVAR(ctrlDescription)) ctrlSetTextColor [COLOR_DISABLED];
+
+			if (!isNull _ctrlDescription) then {
+				_ctrlDescription ctrlSetTextColor [COLOR_DISABLED];
+			};
+			
 			if (_data # 0 == "SLIDER") then {
 				(_ctrl getVariable QGVAR(ctrlEdit)) ctrlEnable false;
 			};
@@ -373,7 +408,11 @@ GVAR(PFHID) = [{
 
 		if (_enableCtrl && !ctrlEnabled _ctrl) then {
 			_ctrl ctrlEnable true;
-			(_ctrl getVariable QGVAR(ctrlDescription)) ctrlSetTextColor [1,1,1,1];
+
+			if (!isNull _ctrlDescription) then {
+				_ctrlDescription ctrlSetTextColor [1,1,1,1];
+			};
+
 			if (_data # 0 == "SLIDER") then {
 				(_ctrl getVariable QGVAR(ctrlEdit)) ctrlEnable true;
 			};
@@ -391,9 +430,9 @@ _ctrlTitle ctrlSetPosition [POS_X - BUFFER,_contentX - BUFFER - SPACING - TITLE_
 _ctrlTitle ctrlCommit 0;
 _ctrlGroup ctrlSetPosition [POS_X,_contentX,CONTENT_WIDTH + BUFFER,_contentHeight];
 _ctrlGroup ctrlCommit 0;
-_ctrlCancel ctrlSetPosition [POS_X - BUFFER,_contentX + _contentHeight + BUFFER + SPACING,BUTTON_WIDTH,BUTTON_HEIGHT];
+_ctrlCancel ctrlSetPosition [POS_X - BUFFER,_contentX + _contentHeight + BUFFER + SPACING,MENU_BUTTON_WIDTH,MENU_BUTTON_HEIGHT];
 _ctrlCancel ctrlCommit 0;
-_ctrlConfirm ctrlSetPosition [POS_X + CONTENT_WIDTH - BUTTON_WIDTH + BUFFER,_contentX + _contentHeight + BUFFER + SPACING,BUTTON_WIDTH,BUTTON_HEIGHT];
+_ctrlConfirm ctrlSetPosition [POS_X + CONTENT_WIDTH - MENU_BUTTON_WIDTH + BUFFER,_contentX + _contentHeight + BUFFER + SPACING,MENU_BUTTON_WIDTH,MENU_BUTTON_HEIGHT];
 _ctrlConfirm ctrlCommit 0;
 
 // Set title and focus
@@ -401,9 +440,9 @@ _ctrlTitle ctrlSetText _title;
 ctrlSetFocus _ctrlConfirm;
 
 // Handle ESC key
-_display displayAddEventHandler ["KeyDown",{
+[_display,"KeyDown",{
 	if (_this # 1 == DIK_ESCAPE) then {call FUNC(cancel);};
 	false
-}];
+}] call CBA_fnc_addBISEventHandler;
 
 true

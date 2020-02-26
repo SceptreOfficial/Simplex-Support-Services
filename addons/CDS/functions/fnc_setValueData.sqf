@@ -15,6 +15,9 @@ switch (_type) do {
 			_bool = GVAR(cache) getVariable [[uiNamespace getVariable QGVAR(title),_description,_type] joinString "~",_bool];
 		};
 
+		_data set [2,_bool];
+		_ctrl setVariable [QGVAR(data),_data];
+		
 		_ctrl cbSetChecked _bool;
 	};
 
@@ -24,6 +27,9 @@ switch (_type) do {
 		if (!_forceDefault) then {
 			_string = GVAR(cache) getVariable [[uiNamespace getVariable QGVAR(title),_description,_type] joinString "~",_string];
 		};
+
+		_data set [2,_string];
+		_ctrl setVariable [QGVAR(data),_data];
 
 		_ctrl ctrlSetText _string;
 	};
@@ -99,5 +105,16 @@ switch (_type) do {
 		} forEach _rows;
 
 		_ctrl lnbSetCurSelRow _selection;
+	};
+
+	case "BUTTON" : {
+		_valueData params [["_code",{},[{},""]]];
+
+		if (!_forceDefault) then {
+			_code = GVAR(cache) getVariable [[uiNamespace getVariable QGVAR(title),_description,_type] joinString "~",_code];
+		};
+
+		_data set [2,_code];
+		_ctrl setVariable [QGVAR(data),_data];
 	};
 };
