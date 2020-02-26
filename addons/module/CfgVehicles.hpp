@@ -74,13 +74,13 @@ class CfgVehicles {
 			};
 			class AccessItems {
 				displayName = "Access items";
-				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)";
+				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
 				typeName = "STRING";
-				defaultValue = "itemRadio";
+				defaultValue = "itemMap";
 			};
 			class AccessCondition {
 				displayName = "Access condition";
-				description = "Code evaluated on a requester's client that must return true for the support to be accessible.";
+				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -147,13 +147,13 @@ class CfgVehicles {
 			};
 			class AccessItems {
 				displayName = "Access items";
-				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)";
+				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
 				typeName = "STRING";
-				defaultValue = "itemRadio";
+				defaultValue = "itemMap";
 			};
 			class AccessCondition {
 				displayName = "Access condition";
-				description = "Code evaluated on a requester's client that must return true for the support to be accessible.";
+				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -226,13 +226,13 @@ class CfgVehicles {
 			};
 			class AccessItems {
 				displayName = "Access items";
-				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)";
+				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
 				typeName = "STRING";
-				defaultValue = "itemRadio";
+				defaultValue = "itemMap";
 			};
 			class AccessCondition {
 				displayName = "Access condition";
-				description = "Code evaluated on a requester's client that must return true for the support to be accessible.";
+				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -267,13 +267,13 @@ class CfgVehicles {
 			};
 			class AccessItems {
 				displayName = "Access items";
-				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)";
+				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
 				typeName = "STRING";
-				defaultValue = "itemRadio";
+				defaultValue = "itemMap";
 			};
 			class AccessCondition {
 				displayName = "Access condition";
-				description = "Code evaluated on a requester's client that must return true for the support to be accessible.";
+				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -340,13 +340,13 @@ class CfgVehicles {
 			};
 			class AccessItems {
 				displayName = "Access items";
-				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)";
+				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
 				typeName = "STRING";
-				defaultValue = "itemRadio";
+				defaultValue = "itemMap";
 			};
 			class AccessCondition {
 				displayName = "Access condition";
-				description = "Code evaluated on a requester's client that must return true for the support to be accessible.";
+				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -381,13 +381,13 @@ class CfgVehicles {
 			};
 			class AccessItems {
 				displayName = "Access items";
-				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)";
+				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
 				typeName = "STRING";
-				defaultValue = "itemRadio";
+				defaultValue = "itemMap";
 			};
 			class AccessCondition {
 				displayName = "Access condition";
-				description = "Code evaluated on a requester's client that must return true for the support to be accessible.";
+				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -512,13 +512,13 @@ class CfgVehicles {
 			};
 			class AccessItems {
 				displayName = "Access items";
-				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)";
+				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
 				typeName = "STRING";
-				defaultValue = "itemRadio";
+				defaultValue = "itemMap";
 			};
 			class AccessCondition {
 				displayName = "Access condition";
-				description = "Code evaluated on a requester's client that must return true for the support to be accessible.";
+				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -573,13 +573,13 @@ class CfgVehicles {
 			};
 			class AccessItems {
 				displayName = "Access items";
-				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)";
+				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
 				typeName = "STRING";
-				defaultValue = "itemRadio";
+				defaultValue = "itemMap";
 			};
 			class AccessCondition {
 				displayName = "Access condition";
-				description = "Code evaluated on a requester's client that must return true for the support to be accessible.";
+				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
 				typeName = "STRING";
 				defaultValue = "true";
 			};

@@ -16,7 +16,7 @@
 			["EDITBOX","Respawn time",str DEFAULT_RESPAWN_TIME],
 			["EDITBOX",["Custom init code","Code executed when vehicle is added & respawned (vehicle = _this)"],""],
 			["EDITBOX",["Access items","Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)"],"itemRadio"],
-			["EDITBOX",["Access condition","Code evaluated on a requester's client that must return true for the support to be accessible."],"true"]
+			["EDITBOX",["Access condition","Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];"],"true"]
 		],{
 			params ["_values","_object"];
 			_values params ["_callsign","_respawnTime","_customInit","_accessItems","_accessCondition"];
