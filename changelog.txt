@@ -1,5 +1,10 @@
-v0.3.1.1
-- Added: All support modules/entities now have specific access items and condition attributes (replacing the "Assign Requester" module and "Special Items")
+v0.3.1.6
+- Added: All support modules/entities now have specific access items and access condition attributes (replacing the "Assign Requester" module and "Special Items")
+- Added: Logistics airdrop landing signal feature
+- Changed: Logistics airdrop multiple amount input setting now is its own module attribute: Maximum amount input
+- Changed: Artillery - removed doWatch command on fire mission.
+- Improved: Internal dialog framework
+- Improved: Transport helicopter pickup request day/night detection should be more precise now
 - Removed: Access assignment system and special items CBA setting
 - Fixed: CAS drones and gunships were not flying away at proper altitudes
 - Fixed: Notifications were being displayed to everyone
