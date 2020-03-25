@@ -1,10 +1,16 @@
-v0.3.1.6
+v0.3.2.2
 - Added: All support modules/entities now have specific access items and access condition attributes (replacing the "Assign Requester" module and "Special Items")
 - Added: Logistics airdrop landing signal feature
+- Added: "Shut up" button on transport vehicles to silence crew members
+- Added: Sitrep action to get current location/damage status
+- Added: Request approval condition
 - Changed: Logistics airdrop multiple amount input setting now is its own module attribute: Maximum amount input
 - Changed: Artillery - removed doWatch command on fire mission.
+- Changed: Increased hover height option to 2000m
+- Changed: Misc. tweaks
 - Improved: Internal dialog framework
 - Improved: Transport helicopter pickup request day/night detection should be more precise now
+- Improved: Access items will also check inheritance (TFAR compat)
 - Removed: Access assignment system and special items CBA setting
 - Fixed: CAS drones and gunships were not flying away at proper altitudes
 - Fixed: Notifications were being displayed to everyone
