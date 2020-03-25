@@ -6,8 +6,8 @@ ADDON = false;
 ["SSS_setting_adminFullAccess","CHECKBOX",
 	["Give admins access to all supports","Admins will be able to use every support available, even if services aren't shown/enabled"],
 	["Simplex Support Services","Admin"],
-	false, // _valueInfo
-	false, // _isGlobal
+	true, // _valueInfo
+	true, // _isGlobal
 	{}, //_script
 	false // _needRestart
 ] call CBA_fnc_addSetting;

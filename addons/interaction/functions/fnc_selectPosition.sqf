@@ -13,7 +13,7 @@ if (missionNamespace getVariable format ["SSS_setting_milsimMode%1",_entity getV
 
 		if (_grid isEqualTo "") exitWith {
 			titleText ["Request Cancelled - No grid input","PLAIN",0.5];
-			[{titleFadeOut 0.5;},[],1] call CBA_fnc_waitAndExecute;
+			[{titleFadeOut 0.5},[],1] call CBA_fnc_waitAndExecute;
 		};
 		
 		private _position = _grid call CBA_fnc_mapGridToPos;
