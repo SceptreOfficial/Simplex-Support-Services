@@ -39,7 +39,7 @@ switch (toUpper _request) do {
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
-			[_vehicle,_position,0,"MOVE","CARELESS","YELLOW","FULL","",WP_DONE,[2,2,2]] call EFUNC(common,addWaypoint);
+			[_vehicle,_position,0,"MOVE","CARELESS","YELLOW","FULL","",WP_DONE] call EFUNC(common,addWaypoint);
 
 			[{WAIT_UNTIL_WPDONE},{
 				params ["_entity","_vehicle","_pad"];
@@ -52,7 +52,7 @@ switch (toUpper _request) do {
 				// Begin landing
 				(group _vehicle) setSpeedMode "LIMITED";
 				doStop _vehicle;
-				_vehicle land "LAND";
+				[{_this land "LAND"},_vehicle] call CBA_fnc_execNextFrame;
 
 				[{WAIT_UNTIL_LAND},{
 					params ["_entity","_vehicle","_pad"];

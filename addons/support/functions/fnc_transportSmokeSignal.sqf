@@ -100,7 +100,7 @@ private _signalType = if (daytime > _sunrise && daytime < _sunset) then {
 			// Begin landing
 			(group _vehicle) setSpeedMode "LIMITED";
 			doStop _vehicle;
-			_vehicle land "GET IN";
+			[{_this land "GET IN"},_vehicle] call CBA_fnc_execNextFrame;
 
 			[{WAIT_UNTIL_LAND},{
 				params ["_entity","_vehicle","_pad"];

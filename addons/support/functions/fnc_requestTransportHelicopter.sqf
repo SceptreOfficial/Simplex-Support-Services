@@ -39,7 +39,7 @@ switch (toUpper _request) do {
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
-			[_vehicle,_position,0,"MOVE","CARELESS","","","",WP_DONE,[2,2,2]] call EFUNC(common,addWaypoint);
+			[_vehicle,_position,0,"MOVE","CARELESS","","","",WP_DONE] call EFUNC(common,addWaypoint);
 
 			[{WAIT_UNTIL_WPDONE},{
 				params ["_entity","_vehicle","_pad"];
@@ -52,7 +52,18 @@ switch (toUpper _request) do {
 				// Begin landing
 				(group _vehicle) setSpeedMode "LIMITED";
 				doStop _vehicle;
-				_vehicle land "LAND";
+				[{_this land "LAND"},_vehicle] call CBA_fnc_execNextFrame;
+
+				// Execute land again if helicopter unresponsive
+				[{
+					params ["_entity","_vehicle","_landStartPosASL"];
+
+					if (CANCEL_CONDITION) exitWith {};
+
+					if (getPosASLVisual _vehicle distance _landStartPosASL < 8 && getPos _vehicle # 2 > 1) then {
+						_vehicle land "LAND";
+					};
+				},[_entity,_vehicle,getPosASLVisual _vehicle],8] call CBA_fnc_waitAndExecute;
 
 				[{WAIT_UNTIL_LAND},{
 					params ["_entity","_vehicle","_pad"];
@@ -115,12 +126,10 @@ switch (toUpper _request) do {
 
 	case "LAND";
 	case "LAND_ENG_OFF" : {
-		private _engineOn = _request == "LAND";
-
 		INTERRUPT(_entity,_vehicle);
 
 		[{!((_this # 0) getVariable "SSS_onTask")},{
-			params ["_entity","_vehicle","_position","_engineOn"];
+			params ["_entity","_vehicle","_position","_request"];
 
 			private _nearestPads = nearestObjects [_position,[
 				"Land_HelipadSquare_F","Land_HelipadRescue_F",
@@ -154,7 +163,7 @@ switch (toUpper _request) do {
 			[_vehicle,getPos _pad,0,"MOVE","","","","",WP_DONE] call EFUNC(common,addWaypoint);
 
 			[{WAIT_UNTIL_WPDONE},{
-				params ["_entity","_vehicle","_pad","_deletePad","_engineOn"];
+				params ["_entity","_vehicle","_pad","_deletePad","_request"];
 
 				if (CANCEL_CONDITION) exitWith {
 					CANCEL_ORDER(_entity);
@@ -166,10 +175,15 @@ switch (toUpper _request) do {
 				// Begin landing
 				(group _vehicle) setSpeedMode "LIMITED";
 				doStop _vehicle;
-				_vehicle land "LAND";
+				
+				if (_request == "LAND_ENG_OFF") then {
+					[{_this land "LAND"},_vehicle] call CBA_fnc_execNextFrame;
+				} else {
+					[{_this land "GET IN"},_vehicle] call CBA_fnc_execNextFrame;
+				};
 
 				[{WAIT_UNTIL_LAND},{
-					params ["_entity","_vehicle","_pad","_deletePad","_engineOn"];
+					params ["_entity","_vehicle","_pad","_deletePad","_request"];
 
 					if (CANCEL_CONDITION) exitWith {
 						CANCEL_ORDER(_entity);
@@ -182,22 +196,14 @@ switch (toUpper _request) do {
 
 					END_ORDER(_entity,"Landed at location. Ready for further tasking.");
 
-					private _requestName = if (_engineOn) then {
-						[{_this engineOn true},{},_vehicle,2] call CBA_fnc_waitUntilAndExecute;
-						"LAND"
-					} else {
-						_vehicle engineOn false;
-						"LAND_ENG_OFF"
-					};
-
 					if (_deletePad) then {
 						[{deleteVehicle _this},_pad,60] call CBA_fnc_waitAndExecute;
 					};
 
-					["SSS_requestCompleted",[_entity,[_requestName]]] call CBA_fnc_globalEvent;
-				},[_entity,_vehicle,_pad,_deletePad,_engineOn]] call CBA_fnc_waitUntilAndExecute;
-			},[_entity,_vehicle,_pad,_deletePad,_engineOn]] call CBA_fnc_waitUntilAndExecute;
-		},[_entity,_vehicle,_position,_engineOn]] call CBA_fnc_waitUntilAndExecute;
+					["SSS_requestCompleted",[_entity,[_request]]] call CBA_fnc_globalEvent;
+				},[_entity,_vehicle,_pad,_deletePad,_request]] call CBA_fnc_waitUntilAndExecute;
+			},[_entity,_vehicle,_pad,_deletePad,_request]] call CBA_fnc_waitUntilAndExecute;
+		},[_entity,_vehicle,_position,_request]] call CBA_fnc_waitUntilAndExecute;
 	};
 
 	case "MOVE" : {
