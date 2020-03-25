@@ -346,7 +346,7 @@ _dummy ctrlCommit 0;
 			[_ctrl,"ButtonClick",{
 				params ["_ctrl"];
 
-				((_ctrl getVariable QGVAR(data)) # 2) call CBA_fnc_directCall;
+				[(_ctrl getVariable QGVAR(data)) # 2,uiNamespace getVariable QGVAR(arguments)] call CBA_fnc_directCall;
 			}] call CBA_fnc_addBISEventHandler;
 
 			_posY = _posY + ITEM_HEIGHT + SPACING;
