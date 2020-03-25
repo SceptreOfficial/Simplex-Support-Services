@@ -27,7 +27,8 @@ params ["_target","_player","_entity"];
 			["COMBOBOX","Speed Mode",[["LIMITED","NORMAL","FULL"],_entity getVariable "SSS_speedMode"]],
 			["COMBOBOX","Combat Mode",[["Fire At will","Hold Fire"],_entity getVariable "SSS_combatMode"]],
 			["CHECKBOX","Headlight",_entity getVariable "SSS_lightsOn"],
-			["CHECKBOX","Collision lights",_entity getVariable "SSS_collisionLightsOn"]
+			["CHECKBOX","Collision lights",_entity getVariable "SSS_collisionLightsOn"],
+			["BUTTON","Shut up!",SHUP_UP_BUTTON_CODE]
 		],{
 			_this call EFUNC(common,changeBehavior);
 		},{},_entity] call EFUNC(CDS,dialog);

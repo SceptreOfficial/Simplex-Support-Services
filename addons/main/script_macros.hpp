@@ -277,3 +277,10 @@
 	NOTIFY_1(ENTITY,_string,PROPER_COOLDOWN(ENTITY))
 
 #define STR_TO_ARRAY_LOWER(STRING) (([STRING] call CBA_fnc_removeWhitespace) splitString ",") apply {toLower _x}
+
+#define SHUP_UP_BUTTON_CODE { \
+	params ["_entity"]; \
+	private _vehicle = _entity getVariable "SSS_vehicle"; \
+	{[_x,"NoVoice"] remoteExecCall ["setSpeaker",0]} forEach PRIMARY_CREW(_vehicle); \
+	NOTIFY_LOCAL(_entity,"We'll be quiet."); \
+}
