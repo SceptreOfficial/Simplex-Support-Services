@@ -9,7 +9,8 @@ params [
 	["_coordinationDistance",DEFAULT_ARTILLERY_COORDINATION_DISTANCE,[0]],
 	["_customInit",{},[{},""]],
 	["_accessItems",[],[[]]],
-	["_accessCondition",{},[{},""]]
+	["_accessCondition",{true},[{},""]],
+	["_requestCondition",{true},[{},""]]
 ];
 
 // Validation
@@ -27,6 +28,10 @@ if (_customInit isEqualType "") then {
 
 if (_accessCondition isEqualType "") then {
 	_accessCondition = compile _accessCondition;
+};
+
+if (_requestCondition isEqualType "") then {
+	_requestCondition = compile _requestCondition;
 };
 
 if (!isNull (_vehicle getVariable ["SSS_parentEntity",objNull])) exitWith {
@@ -59,7 +64,7 @@ private _icon = switch (true) do {
 	default {ICON_SELF_PROPELLED};
 };
 
-BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,_icon,_customInit,"artillery","artillery",_accessItems,_accessCondition);
+BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,_icon,_customInit,"artillery","artillery",_accessItems,_accessCondition,_requestCondition);
 PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 CREATE_TASK_MARKER(_entity,_callsign,"mil_warning","Artillery");
 

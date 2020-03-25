@@ -8,7 +8,8 @@ params [
 	["_customInit",{},[{},""]],
 	["_side",sideEmpty,[sideEmpty]],
 	["_accessItems",[],[[]]],
-	["_accessCondition",{},[{},""]]
+	["_accessCondition",{true},[{},""]],
+	["_requestCondition",{true},[{},""]]
 ];
 
 // Validation
@@ -33,6 +34,10 @@ if (_accessCondition isEqualType "") then {
 	_accessCondition = compile _accessCondition;
 };
 
+if (_requestCondition isEqualType "") then {
+	_requestCondition = compile _requestCondition;
+};
+
 if (!isServer) exitWith {
 	_this remoteExecCall [QFUNC(addCASDrone),2];
 	objNull
@@ -41,7 +46,7 @@ if (!isServer) exitWith {
 // Basic setup
 private _entity = true call CBA_fnc_createNamespace;
 
-BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_DRONE,_customInit,"CAS","CASDrone",_accessItems,_accessCondition);
+BASE_TRAITS(_entity,_classname,_callsign,_side,ICON_DRONE,_customInit,"CAS","CASDrone",_accessItems,_accessCondition,_requestCondition);
 CREATE_TASK_MARKER(_entity,_callsign,"mil_end","CAS");
 
 // Specifics

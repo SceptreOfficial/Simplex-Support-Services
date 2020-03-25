@@ -148,7 +148,7 @@
 #define PROPER_COOLDOWN(ENTITY) PROPER_TIME(ENTITY getVariable "SSS_cooldown")
 
 #define CREATE_TASK_MARKER(ENTITY,CALLSIGN,MARKER_ICON,STRING) [ENTITY,CALLSIGN,MARKER_ICON,STRING] call EFUNC(common,createMarker)
-#define BASE_TRAITS(ENTITY,CLASSNAME,CALLSIGN,SUPPORT_SIDE,ICON,CUSTOM_INIT,SERVICE,SUPPORT_TYPE,ACCESS_ITEMS,ACCESS_CONDITION) \
+#define BASE_TRAITS(ENTITY,CLASSNAME,CALLSIGN,SUPPORT_SIDE,ICON,CUSTOM_INIT,SERVICE,SUPPORT_TYPE,ACCESS_ITEMS,ACCESS_CONDITION,REQUEST_CONDITION) \
 	ENTITY setVariable ["SSS_classname",CLASSNAME,true]; \
 	ENTITY setVariable ["SSS_callsign",CALLSIGN,true]; \
 	ENTITY setVariable ["SSS_side",SUPPORT_SIDE,true]; \
@@ -158,8 +158,9 @@
 	ENTITY setVariable ["SSS_customInit",CUSTOM_INIT,true]; \
 	ENTITY setVariable ["SSS_service",SERVICE,true]; \
 	ENTITY setVariable ["SSS_supportType",SUPPORT_TYPE,true]; \
-	ENTITY setVariable ["SSS_accessItems",ACCESS_ITEMS,true]; \
-	ENTITY setVariable ["SSS_accessCondition",ACCESS_CONDITION,true]
+	ENTITY setVariable ["SSS_accessItems",ACCESS_ITEMS apply {toLower _x},true]; \
+	ENTITY setVariable ["SSS_accessCondition",ACCESS_CONDITION,true]; \
+	ENTITY setVariable ["SSS_requestCondition",REQUEST_CONDITION,true]
 
 #define PHYSICAL_TRAITS(ENTITY,VEH,GRP,BASE,RESPAWN_TIME) \
 	VEH setVariable ["SSS_parentEntity",ENTITY,true]; \

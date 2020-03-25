@@ -84,6 +84,12 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "true";
 			};
+			class RequestApprovalCondition {
+				displayName = "Request approval condition";
+				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				typeName = "STRING";
+				defaultValue = "true";
+			};
 		};
 	};
 
@@ -154,6 +160,12 @@ class CfgVehicles {
 			class AccessCondition {
 				displayName = "Access condition";
 				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
+				typeName = "STRING";
+				defaultValue = "true";
+			};
+			class RequestApprovalCondition {
+				displayName = "Request approval condition";
+				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -236,6 +248,12 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "true";
 			};
+			class RequestApprovalCondition {
+				displayName = "Request approval condition";
+				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				typeName = "STRING";
+				defaultValue = "true";
+			};
 		};
 	};
 
@@ -274,6 +292,12 @@ class CfgVehicles {
 			class AccessCondition {
 				displayName = "Access condition";
 				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
+				typeName = "STRING";
+				defaultValue = "true";
+			};
+			class RequestApprovalCondition {
+				displayName = "Request approval condition";
+				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -350,6 +374,12 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "true";
 			};
+			class RequestApprovalCondition {
+				displayName = "Request approval condition";
+				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				typeName = "STRING";
+				defaultValue = "true";
+			};
 		};
 	};
 
@@ -388,6 +418,12 @@ class CfgVehicles {
 			class AccessCondition {
 				displayName = "Access condition";
 				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
+				typeName = "STRING";
+				defaultValue = "true";
+			};
+			class RequestApprovalCondition {
+				displayName = "Request approval condition";
+				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -522,6 +558,12 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "true";
 			};
+			class RequestApprovalCondition {
+				displayName = "Request approval condition";
+				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				typeName = "STRING";
+				defaultValue = "true";
+			};
 		};
 	};
 
@@ -580,6 +622,12 @@ class CfgVehicles {
 			class AccessCondition {
 				displayName = "Access condition";
 				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
+				typeName = "STRING";
+				defaultValue = "true";
+			};
+			class RequestApprovalCondition {
+				displayName = "Request approval condition";
+				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
 				typeName = "STRING";
 				defaultValue = "true";
 			};

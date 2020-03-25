@@ -6,7 +6,8 @@ params [
 	["_respawnTime",DEFAULT_RESPAWN_TIME,[0]],
 	["_customInit",{},[{},""]],
 	["_accessItems",[],[[]]],
-	["_accessCondition",{},[{},""]]
+	["_accessCondition",{true},[{},""]],
+	["_requestCondition",{true},[{},""]]
 ];
 
 // Validation
@@ -20,6 +21,10 @@ if (_customInit isEqualType "") then {
 
 if (_accessCondition isEqualType "") then {
 	_accessCondition = compile _accessCondition;
+};
+
+if (_requestCondition isEqualType "") then {
+	_requestCondition = compile _requestCondition;
 };
 
 if (!isNull (_vehicle getVariable ["SSS_parentEntity",objNull])) exitWith {
@@ -49,7 +54,7 @@ private _side = side _group;
 
 switch (true) do {
 	case (_vehicle isKindOf "Helicopter") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_HELI,_customInit,"Transport","transportHelicopter",_accessItems,_accessCondition);
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_HELI,_customInit,"Transport","transportHelicopter",_accessItems,_accessCondition,_requestCondition);
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Air Transport");
 
@@ -70,7 +75,7 @@ switch (true) do {
 	};
 
 	case (_vehicle isKindOf "VTOL_Base_F") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_VTOL,_customInit,"Transport","transportVTOL",_accessItems,_accessCondition);
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_VTOL,_customInit,"Transport","transportVTOL",_accessItems,_accessCondition,_requestCondition);
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Air Transport");
 
@@ -89,7 +94,7 @@ switch (true) do {
 	};
 
 	case (_vehicle isKindOf "Plane") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_PLANE,_customInit,"Transport","transportPlane",_accessItems,_accessCondition);
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_PLANE,_customInit,"Transport","transportPlane",_accessItems,_accessCondition,_requestCondition);
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Air Transport");
 
@@ -106,7 +111,7 @@ switch (true) do {
 	};
 
 	case (_vehicle isKindOf "Ship") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_BOAT,_customInit,"Transport","transportMaritime",_accessItems,_accessCondition);
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_BOAT,_customInit,"Transport","transportMaritime",_accessItems,_accessCondition,_requestCondition);
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Sea Transport");
 
@@ -121,7 +126,7 @@ switch (true) do {
 	};
 
 	case (_vehicle isKindOf "LandVehicle") : {
-		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_CAR,_customInit,"Transport","transportLandVehicle",_accessItems,_accessCondition);
+		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_CAR,_customInit,"Transport","transportLandVehicle",_accessItems,_accessCondition,_requestCondition);
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Land Transport");
 

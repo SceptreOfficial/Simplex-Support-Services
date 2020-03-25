@@ -19,11 +19,12 @@
 			["EDITBOX","Maximum rounds per request",str DEFAULT_ARTILLERY_MAX_ROUNDS],
 			["EDITBOX",["Maximum coordination distance","Set what ""nearby"" really means for artillery coordination"],str DEFAULT_ARTILLERY_COORDINATION_DISTANCE],
 			["EDITBOX",["Custom init code","Code executed when vehicle is added & respawned (vehicle = _this)"],""],
-			["EDITBOX",["Access items","Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)"],"itemRadio"],
-			["EDITBOX",["Access condition","Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];"],"true"]
+			["EDITBOX",["Access items","Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)"],"itemMap"],
+			["EDITBOX",["Access condition","Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];"],"true"],
+			["EDITBOX",["Request approval condition","Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>"],"true"]
 		],{
 			params ["_values","_object"];
-			_values params ["_callsign","_respawnTime","_cooldown","_roundCooldown","_maxRounds","_coordinationDistance","_customInit","_accessItems","_accessCondition"];
+			_values params ["_callsign","_respawnTime","_cooldown","_roundCooldown","_maxRounds","_coordinationDistance","_customInit","_accessItems","_accessCondition","_requestCondition"];
 
 			[
 				_object,
@@ -34,7 +35,8 @@
 				parseNumber _coordinationDistance,
 				_customInit,
 				STR_TO_ARRAY_LOWER(_accessItems),
-				_accessCondition
+				_accessCondition,
+				_requestCondition
 			] call EFUNC(support,addArtillery);
 
 			ZEUS_MESSAGE("Artillery added");
@@ -56,7 +58,8 @@
 					parseNumber (_logic getVariable ["CoordinationDistance",str DEFAULT_ARTILLERY_COORDINATION_DISTANCE]),
 					_logic getVariable ["CustomInit",""],
 					STR_TO_ARRAY_LOWER(_logic getVariable [ARR_2("AccessItems","itemRadio")]),
-					_logic getVariable ["AccessCondition","true"]
+					_logic getVariable ["AccessCondition","true"],
+					_logic getVariable ["RequestApprovalCondition","true"]
 				] call EFUNC(support,addArtillery);
 			};
 		} forEach synchronizedObjects _logic;

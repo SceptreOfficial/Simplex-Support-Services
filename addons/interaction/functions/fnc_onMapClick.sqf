@@ -4,6 +4,24 @@ params ["_player","_entity","_request","_position"];
 
 if (isNull _entity) exitWith {};
 
+if (count _position isEqualTo 2) then {
+	_position set [2,0];
+};
+
+private _approvalReturn = [_position] call (_entity getVariable ["SSS_requestCondition",{true}]);
+private _denialText = "Request denied. ";
+private _approval = if (_approvalReturn isEqualType true) then {
+	_approvalReturn
+} else {
+	_approvalReturn params [["_bool",false,[false]],["_reason","",[""]]];
+	_denialText = _denialText + _reason;
+	_bool
+};
+
+if (!_approval) exitWith {
+	NOTIFY_LOCAL(_entity,_denialText);
+};
+
 switch (_entity getVariable "SSS_supportType") do {
 	case "artillery" : {
 		private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
