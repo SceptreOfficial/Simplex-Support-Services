@@ -185,7 +185,7 @@ switch (_entity getVariable "SSS_supportType") do {
 			case "HOVER";
 			case 5 : {
 				["Hover parameters",[
-					["SLIDER","Hover height",[[1,40,0],15],false],
+					["SLIDER",["Hover height","Terrain collision is possible if set too low for angle/enviroment"],[[1,2000,0],15],false],
 					["CHECKBOX","Fastrope at position",true,false]
 				],{
 					params ["_values","_args"];
