@@ -23,14 +23,11 @@ if (_formation isEqualTo "") then {_formation = "NO CHANGE";};
 // Always overwrites waypoint index 0
 private _WP = _target addWaypoint [_position,_radius,0];
 _WP setWaypointType _type;
-_WP setWaypointTimeout _timeout;
 _WP setWaypointStatements _statements;
+_WP setWaypointTimeout _timeout;
 _WP setWaypointCompletionRadius _completionRadius;
 
-[_WP,_behaviour] remoteExecCall ["setWaypointBehaviour",2];
-[_WP,_combatMode] remoteExecCall ["setWaypointCombatMode",2];
-[_WP,_speed] remoteExecCall ["setWaypointSpeed",2];
-[_WP,_formation] remoteExecCall ["setWaypointFormation",2];
+[QGVAR(addWaypointServer),[_WP,_behaviour,_combatMode,_speed,_formation]] call CBA_fnc_serverEvent;
 
 _target setCurrentWaypoint _WP;
 
