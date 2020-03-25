@@ -99,7 +99,7 @@ switch (true) do {
 		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Air Transport");
 
 		// Specifics
-		_vehicle setFuel 0;
+		[_vehicle,0] remoteExecCall ["setFuel",owner _vehicle];
 		_entity setVariable ["SSS_awayFromBase",false,true];
 		_entity setVariable ["SSS_onTask",false,true];
 		_entity setVariable ["SSS_interrupt",false,true];
