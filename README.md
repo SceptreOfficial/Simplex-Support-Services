@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="https://github.com/SceptreOfficial/Simplex-Support-Services/raw/master/assets/sss_black.png" width="256">
+	<img src="https://github.com/SceptreOfficial/Simplex-Support-Services/raw/master/assets/sss_black.png" width="128">
 </p>
 
 <p align="center">
