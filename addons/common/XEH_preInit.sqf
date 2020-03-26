@@ -11,8 +11,6 @@ if (isServer) then {
 		_WP setWaypointSpeed _speed;
 		_WP setWaypointFormation _formation;
 	}] call CBA_fnc_addEventHandler;
-
-	
 };
 
 ADDON = true;

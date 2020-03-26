@@ -196,9 +196,7 @@ SSS_entities = [];
 
 // Zeus handling
 ["ModuleCurator_F","init",{
-	params ["_zeus"];
-
-	_zeus addEventHandler ["CuratorWaypointDeleted",{
+	[_this # 0,"CuratorWaypointDeleted",{
 		params ["_zeus","_group"];
 
 		if (_group getVariable ["SSS_protectWaypoints",false]) then {
@@ -225,7 +223,7 @@ SSS_entities = [];
 				};
 			};
 		};
-	}];
+	}] call CBA_fnc_addBISEventHandler;
 }] call CBA_fnc_addClassEventHandler;
 
 // 'show' variables
