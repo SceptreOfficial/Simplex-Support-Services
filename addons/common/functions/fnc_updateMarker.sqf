@@ -15,7 +15,7 @@ if (_activateMarker) then {
 	[[_entity,_marker,_side,_position],{
 		params ["_entity","_marker","_side","_position"];
 
-		if (side player == _side || _entity in (player getVariable ["SSS_assignedEntities",[]])) then {
+		if (side group player == _side) then {
 			_marker setMarkerPosLocal _position;
 			_marker setMarkerAlphaLocal 0.8;
 		} else {

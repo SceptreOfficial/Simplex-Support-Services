@@ -9,7 +9,6 @@ if (!isNil {_entity getVariable "SSS_parentEntity"}) then {
 private _service = _entity getVariable "SSS_service";
 if (isNil "_service") exitWith {};
 
-[_entity getVariable "SSS_requesters",[_entity]] call FUNC(unassignRequesters);
 SSS_entities deleteAt (SSS_entities find _entity);
 publicVariable "SSS_entities";
 

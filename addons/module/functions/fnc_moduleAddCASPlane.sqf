@@ -24,20 +24,26 @@
 			["EDITBOX","Classname",_classname],
 			["EDITBOX","Callsign",_callsign],
 			["EDITBOX",["Weapon set","Array of weapon classnames or array of [weapon,magazine] arrays. Empty array for vehicle defaults"],_weaponSet],
-			["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
 			["EDITBOX","Cooldown",str DEFAULT_COOLDOWN_PLANES],
-			["EDITBOX",["Custom init code","Code executed when physical vehicle is spawned (vehicle = _this)"],""]
+			["EDITBOX",["Custom init code","Code executed when physical vehicle is spawned (vehicle = _this)"],""],
+			["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
+			["EDITBOX",["Access items","Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)"],"itemMap"],
+			["EDITBOX",["Access condition","Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];"],"true"],
+			["EDITBOX",["Request approval condition","Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>"],"true"]
 		],{
 			params ["_values"];
-			_values params ["_classname","_callsign","_weaponSet","_sideSelection","_cooldown"];
+			_values params ["_classname","_callsign","_weaponSet","_cooldown","_customInit","_sideSelection","_accessItems","_accessCondition","_requestCondition"];
 
 			[
-				[],
 				_classname,
 				_callsign,
 				parseSimpleArray _weaponSet,
+				parseNumber _cooldown,
+				_customInit,
 				[west,east,independent] # _sideSelection,
-				parseNumber _cooldown
+				STR_TO_ARRAY_LOWER(_accessItems),
+				_accessCondition,
+				_requestCondition
 			] call EFUNC(support,addCASPlane);
 
 			ZEUS_MESSAGE("CAS Plane added");
@@ -45,27 +51,17 @@
 	} else {
 		if (!isServer) exitWith {};
 
-		private _requesterModules = [];
-		private _requesters = [];
-
-		{
-			if (typeOf _x == QGVAR(AssignRequesters)) then {
-				_requesterModules pushBack _x;
-				_requesters append ((synchronizedObjects _x) select {!(_x isKindOf "Logic")});
-			};
-		} forEach synchronizedObjects _logic;
-
-		private _entity = [
-			_requesters,
+		[
 			_logic getVariable ["Classname",""],
 			_logic getVariable ["Callsign",""],
 			parseSimpleArray (_logic getVariable ["WeaponSet","[]"]),
-			[west,east,independent] # (_logic getVariable ["Side",0]),
 			parseNumber (_logic getVariable ["Cooldown",str DEFAULT_COOLDOWN_PLANES]),
-			_logic getVariable ["CustomInit",""]
+			_logic getVariable ["CustomInit",""],
+			[west,east,independent] # (_logic getVariable ["Side",0]),
+			STR_TO_ARRAY_LOWER(_logic getVariable [ARR_2("AccessItems","itemRadio")]),
+			_logic getVariable ["AccessCondition","true"],
+			_logic getVariable ["RequestApprovalCondition","true"]
 		] call EFUNC(support,addCASPlane);
-
-		{_x setVariable ["SSS_entitiesToAssign",(_x getVariable ["SSS_entitiesToAssign",[]]) + [_entity],true]} forEach _requesterModules;
 	};
 
 	deleteVehicle _logic;

@@ -7,7 +7,8 @@ private _values = (uiNamespace getVariable QGVAR(controls)) apply {
 	private _data = _x getVariable QGVAR(data);
 	switch (_data # 0) do {
 		case "CHECKBOX";
-		case "EDITBOX" : {
+		case "EDITBOX";
+		case "BUTTON" : {
 			private _value = _data # 2;
 			GVAR(cache) setVariable [[uiNamespace getVariable QGVAR(title),_data # 1,_data # 0] joinString "~",_value];
 			_value

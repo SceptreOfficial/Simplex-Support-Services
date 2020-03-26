@@ -6,7 +6,7 @@ params [["_entity",objNull,[objNull]],["_message","",[""]]];
 
 if (isNull _entity) exitWith {};
 
-if !(_entity in ([player,_entity getVariable "SSS_service"] call FUNC(availableEntities))) exitWith {};
+if !(_entity in ([player,_entity getVariable "SSS_service"] call EFUNC(interaction,availableEntities))) exitWith {};
 
 if (SSS_setting_useChatNotifications) then {
 	systemChat format ["%1 : %2",_entity getVariable "SSS_callsign",_message];

@@ -14,6 +14,8 @@ if (_list isEqualTo []) exitWith {
 	SSS_ERROR("Invalid logistics list");
 };
 
+private _maxAmount = _entity getVariable "SSS_maxAmount";
+
 ["Select object",[
 	["EDITBOX","Find","",true,{
 		params ["_value","_args"];
@@ -41,7 +43,7 @@ if (_list isEqualTo []) exitWith {
 		};
 	}],
 	["LISTNBOX","Available objects",[_beautifiedList,0,10]],
-	["SLIDER","Amount",[[1,SSS_logisticsAirdropMaxAmount,0],1],true,{},_entity getVariable "SSS_allowMulti"]
+	["SLIDER","Amount",[[1,_maxAmount,0],1],true,{},_maxAmount >= 1]
 ],{
 	params ["_values","_args"];
 	_values params ["_find","_selection","_amount"];
@@ -51,10 +53,6 @@ if (_list isEqualTo []) exitWith {
 
 	if ((_entity getVariable "SSS_cooldown") > 0) exitWith {
 		NOTIFY_LOCAL_NOT_READY_COOLDOWN(_entity);
-	};
-	
-	if !(_entity getVariable "SSS_allowMulti") then {
-		_amount = 1;
 	};
 
 	[_entity,_position,_player,_list # _selection,_amount] remoteExecCall [QFUNC(logisticsStartAirdrop),2];

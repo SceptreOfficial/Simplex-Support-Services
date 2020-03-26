@@ -37,7 +37,7 @@ class CfgVehicles {
 				defaultValue = "";
 			};
 			class RespawnTime {
-				displayName = "Respawn Time";
+				displayName = "Respawn time";
 				description = "-1 will disable respawn";
 				typeName = "STRING";
 				defaultValue = DEFAULT_RESPAWN_TIME;
@@ -72,6 +72,24 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "";
 			};
+			class AccessItems {
+				displayName = "Access items";
+				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
+				typeName = "STRING";
+				defaultValue = "itemMap";
+			};
+			class AccessCondition {
+				displayName = "Access condition";
+				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
+				typeName = "STRING";
+				defaultValue = "true";
+			};
+			class RequestApprovalCondition {
+				displayName = "Request approval condition";
+				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				typeName = "STRING";
+				defaultValue = "true";
+			};
 		};
 	};
 
@@ -95,6 +113,24 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "";
 			};
+			class Cooldown {
+				displayName = "Cooldown";
+				description = "Time between requests (after loiter is finished)";
+				typeName = "STRING";
+				defaultValue = DEFAULT_COOLDOWN_DRONES;
+			};
+			class LoiterTime {
+				displayName = "Loiter time";
+				description = "How long aircraft will loiter in the area";
+				typeName = "STRING";
+				defaultValue = DEFAULT_LOITER_TIME_DRONES;
+			};
+			class CustomInit {
+				displayName = "Custom init code";
+				description = "Code executed when physical vehicle is spawned. \n(Vehicle = _this)";
+				typeName = "STRING";
+				defaultValue = "";
+			};
 			class Side {
 				displayName = "Side";
 				description = "Support side";
@@ -115,23 +151,23 @@ class CfgVehicles {
 					};
 				};
 			};
-			class Cooldown {
-				displayName = "Cooldown";
-				description = "Time between requests (after loiter is finished)";
+			class AccessItems {
+				displayName = "Access items";
+				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
 				typeName = "STRING";
-				defaultValue = DEFAULT_COOLDOWN_DRONES;
+				defaultValue = "itemMap";
 			};
-			class LoiterTime {
-				displayName = "Loiter time";
-				description = "How long aircraft will loiter in the area";
+			class AccessCondition {
+				displayName = "Access condition";
+				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
 				typeName = "STRING";
-				defaultValue = DEFAULT_LOITER_TIME_DRONES;
+				defaultValue = "true";
 			};
-			class CustomInit {
-				displayName = "Custom init code";
-				description = "Code executed when physical vehicle is spawned. \n(Vehicle = _this)";
+			class RequestApprovalCondition {
+				displayName = "Request approval condition";
+				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
 				typeName = "STRING";
-				defaultValue = "";
+				defaultValue = "true";
 			};
 		};
 	};
@@ -162,6 +198,24 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "Blackfish";
 			};
+			class Cooldown {
+				displayName = "Cooldown";
+				description = "Time between requests (after loiter is finished)";
+				typeName = "STRING";
+				defaultValue = DEFAULT_COOLDOWN_GUNSHIPS;
+			};
+			class LoiterTime {
+				displayName = "Loiter time";
+				description = "How long aircraft will loiter in the area";
+				typeName = "STRING";
+				defaultValue = DEFAULT_LOITER_TIME_GUNSHIPS;
+			};
+			class CustomInit {
+				displayName = "Custom init code";
+				description = "Code executed when physical vehicle is spawned. \n(Vehicle = _this)";
+				typeName = "STRING";
+				defaultValue = "";
+			};
 			class Side {
 				displayName = "Side";
 				description = "Support side";
@@ -182,23 +236,23 @@ class CfgVehicles {
 					};
 				};
 			};
-			class Cooldown {
-				displayName = "Cooldown";
-				description = "Time between requests (after loiter is finished)";
+			class AccessItems {
+				displayName = "Access items";
+				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
 				typeName = "STRING";
-				defaultValue = DEFAULT_COOLDOWN_GUNSHIPS;
+				defaultValue = "itemMap";
 			};
-			class LoiterTime {
-				displayName = "Loiter time";
-				description = "How long aircraft will loiter in the area";
+			class AccessCondition {
+				displayName = "Access condition";
+				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
 				typeName = "STRING";
-				defaultValue = DEFAULT_LOITER_TIME_GUNSHIPS;
+				defaultValue = "true";
 			};
-			class CustomInit {
-				displayName = "Custom init code";
-				description = "Code executed when physical vehicle is spawned. \n(Vehicle = _this)";
+			class RequestApprovalCondition {
+				displayName = "Request approval condition";
+				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
 				typeName = "STRING";
-				defaultValue = "";
+				defaultValue = "true";
 			};
 		};
 	};
@@ -218,7 +272,7 @@ class CfgVehicles {
 				defaultValue = "";
 			};
 			class RespawnTime {
-				displayName = "Respawn Time";
+				displayName = "Respawn time";
 				description = "-1 will disable respawn";
 				typeName = "STRING";
 				defaultValue = DEFAULT_RESPAWN_TIME;
@@ -228,6 +282,24 @@ class CfgVehicles {
 				description = "Code executed when vehicle is added & respawned. \n(Vehicle = _this)";
 				typeName = "STRING";
 				defaultValue = "";
+			};
+			class AccessItems {
+				displayName = "Access items";
+				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
+				typeName = "STRING";
+				defaultValue = "itemMap";
+			};
+			class AccessCondition {
+				displayName = "Access condition";
+				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
+				typeName = "STRING";
+				defaultValue = "true";
+			};
+			class RequestApprovalCondition {
+				displayName = "Request approval condition";
+				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				typeName = "STRING";
+				defaultValue = "true";
 			};
 		};
 	};
@@ -258,6 +330,18 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "[""Gatling_30mm_Plane_CAS_01_F"",""Rocket_04_HE_Plane_CAS_01_F"",""Bomb_04_Plane_CAS_01_F""]";
 			};
+			class Cooldown {
+				displayName = "Cooldown";
+				description = "Time between requests";
+				typeName = "STRING";
+				defaultValue = DEFAULT_COOLDOWN_PLANES;
+			};
+			class CustomInit {
+				displayName = "Custom init code";
+				description = "Code executed when physical vehicle is spawned. \n(Vehicle = _this)";
+				typeName = "STRING";
+				defaultValue = "";
+			};
 			class Side {
 				displayName = "Side";
 				description = "Support side";
@@ -278,17 +362,23 @@ class CfgVehicles {
 					};
 				};
 			};
-			class Cooldown {
-				displayName = "Cooldown";
-				description = "Time between requests";
+			class AccessItems {
+				displayName = "Access items";
+				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
 				typeName = "STRING";
-				defaultValue = DEFAULT_COOLDOWN_PLANES;
+				defaultValue = "itemMap";
 			};
-			class CustomInit {
-				displayName = "Custom init code";
-				description = "Code executed when physical vehicle is spawned. \n(Vehicle = _this)";
+			class AccessCondition {
+				displayName = "Access condition";
+				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
 				typeName = "STRING";
-				defaultValue = "";
+				defaultValue = "true";
+			};
+			class RequestApprovalCondition {
+				displayName = "Request approval condition";
+				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				typeName = "STRING";
+				defaultValue = "true";
 			};
 		};
 	};
@@ -308,7 +398,7 @@ class CfgVehicles {
 				defaultValue = "";
 			};
 			class RespawnTime {
-				displayName = "Respawn Time";
+				displayName = "Respawn time";
 				description = "-1 will disable respawn";
 				typeName = "STRING";
 				defaultValue = DEFAULT_RESPAWN_TIME;
@@ -318,6 +408,24 @@ class CfgVehicles {
 				description = "Code executed when vehicle is added & respawned. \n(Vehicle = _this)";
 				typeName = "STRING";
 				defaultValue = "";
+			};
+			class AccessItems {
+				displayName = "Access items";
+				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
+				typeName = "STRING";
+				defaultValue = "itemMap";
+			};
+			class AccessCondition {
+				displayName = "Access condition";
+				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
+				typeName = "STRING";
+				defaultValue = "true";
+			};
+			class RequestApprovalCondition {
+				displayName = "Request approval condition";
+				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				typeName = "STRING";
+				defaultValue = "true";
 			};
 		};
 	};
@@ -372,21 +480,51 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "";
 			};
-			class AllowMulti {
-				displayName = "Allow amount input";
-				description = "Allow requesting multiple items";
+			class MaxAmount {
+				displayName = "Maximum amount input";
+				description = "Maximum number of items that can be spawned per request.";
+				typeName = "STRING";
+				defaultValue = "1";
+			};
+			class LandingSignal {
+				displayName = "Landing signal";
+				description = "Color of signal when item lands, or none for no signal. \nSmoke used during daytime, chemlights used at night.";
 				typeName = "NUMBER";
 				class values {
-					class False {
-						default = 1;
-						name = "False";
+					class None {
+						name = "None";
 						value = 0;
 					};
-					class True {
-						name = "True";
+					class Yellow {
+						default = 1;
+						name = "Yellow";
 						value = 1;
 					};
+					class Green {
+						name = "Green";
+						value = 2;
+					};
+					class Red {
+						name = "Red";
+						value = 3;
+					};
+					class Blue {
+						name = "Blue";
+						value = 4;
+					};
 				};
+			};
+			class Cooldown {
+				displayName = "Cooldown";
+				description = "Time between requests";
+				typeName = "STRING";
+				defaultValue = DEFAULT_COOLDOWN_LOGISTICS_AIRDROP;
+			};
+			class CustomInit {
+				displayName = "Custom init code";
+				description = "Code executed when air vehicle is spawned. \n(Vehicle = _this)";
+				typeName = "STRING";
+				defaultValue = "";
 			};
 			class Side {
 				displayName = "Side";
@@ -408,17 +546,23 @@ class CfgVehicles {
 					};
 				};
 			};
-			class Cooldown {
-				displayName = "Cooldown";
-				description = "Time between requests";
+			class AccessItems {
+				displayName = "Access items";
+				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
 				typeName = "STRING";
-				defaultValue = DEFAULT_COOLDOWN_LOGISTICS_AIRDROP;
+				defaultValue = "itemMap";
 			};
-			class CustomInit {
-				displayName = "Custom init code";
-				description = "Code executed when air vehicle is spawned. \n(Vehicle = _this)";
+			class AccessCondition {
+				displayName = "Access condition";
+				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
 				typeName = "STRING";
-				defaultValue = "";
+				defaultValue = "true";
+			};
+			class RequestApprovalCondition {
+				displayName = "Request approval condition";
+				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				typeName = "STRING";
+				defaultValue = "true";
 			};
 		};
 	};
@@ -469,23 +613,23 @@ class CfgVehicles {
 					};
 				};
 			};
-		};
-	};
-
-	class GVAR(AssignRequesters) : GVAR(Base) {
-		displayName = "Assign Requesters";
-		icon = ICON_ASSIGN_REQUESTERS;
-		function = QFUNC(moduleAssignRequesters);
-		isGlobal = 2;
-		scope = 2;
-		scopeCurator = 2;
-
-		class Arguments {
-			class AssignList {
-				displayName = "Assignment List";
-				description = "List of custom unit variable names. JIP compatible method compared to syncing. \n(example: p1,p2,p3)";
+			class AccessItems {
+				displayName = "Access items";
+				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
 				typeName = "STRING";
-				defaultValue = "";
+				defaultValue = "itemMap";
+			};
+			class AccessCondition {
+				displayName = "Access condition";
+				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
+				typeName = "STRING";
+				defaultValue = "true";
+			};
+			class RequestApprovalCondition {
+				displayName = "Request approval condition";
+				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				typeName = "STRING";
+				defaultValue = "true";
 			};
 		};
 	};
@@ -494,13 +638,6 @@ class CfgVehicles {
 		displayName = "Remove Supports";
 		icon = ICON_TRASH;
 		function = QFUNC(moduleRemoveSupports);
-		scopeCurator = 2;
-	};
-
-	class GVAR(UnassignRequesters) : GVAR(Base) {
-		displayName = "Unassign Requesters";
-		icon = ICON_UNASSIGN_REQUESTERS;
-		function = QFUNC(moduleUnassignRequesters);
 		scopeCurator = 2;
 	};
 };

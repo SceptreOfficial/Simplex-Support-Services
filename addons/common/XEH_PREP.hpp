@@ -1,5 +1,4 @@
 PREP(addWaypoint);
-PREP(assignRequesters);
 PREP(changeBehavior);
 PREP(clearWaypoints);
 PREP(commission);
@@ -15,6 +14,5 @@ PREP(properTime);
 PREP(resetOnRTB);
 PREP(respawn);
 PREP(sortBy);
-PREP(unassignRequesters);
 PREP(updateMarker);
 PREP(zeusSelection);

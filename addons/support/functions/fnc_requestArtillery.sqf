@@ -107,7 +107,7 @@ if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") then {
 
 	_vehicle setFuel 1;
 	_vehicle setVehicleAmmo 1;
-	(gunner _vehicle) doWatch _position;
+	//(gunner _vehicle) doWatch _position;
 	_vehicle setVariable ["SSS_roundsLeft",_rounds];
 	_vehicle setVariable ["SSS_doneFiring",false];
 

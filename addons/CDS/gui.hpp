@@ -173,7 +173,7 @@ class GVAR(ListNBox) {
 	idcRight = -1;
 	color[] = {0.95,0.95,0.95,1};
 	colorText[] = {1,1,1,1};
-	colorDisabled[] = {1,1,1,0.25};
+	colorDisabled[] = {COLOR_DISABLED};
 	colorScrollbar[] = {0.95,0.95,0.95,1};
 	colorSelect[] = {0,0,0,1};
 	colorSelect2[] = {0,0,0,1};
@@ -205,6 +205,36 @@ class GVAR(ListNBox) {
 		arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
 		border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
 	};
+};
+
+class GVAR(Button) {
+	idc = -1;
+	type = 1;
+	x = 0;
+	y = 0;
+	w = BUTTON_WIDTH;
+	h = BUTTON_HEIGHT;
+	colorBackground[] = {0,0,0,1};
+	colorBackgroundActive[] = {0.3,0.3,0.3,1};
+	colorBackgroundDisabled[] = {0,0,0,1};
+	colorBorder[] = {0,0,0,0};
+	colorDisabled[] = {COLOR_DISABLED};
+	colorFocused[] = {0.2,0.2,0.2,1};
+	colorShadow[] = {0,0,0,0};
+	colorText[] = {1,1,1,1};
+	text = "";
+	font = "RobotoCondensed";
+	sizeEx = GUI_GRID_H * 1;
+	style = 2;
+	borderSize = 0;
+	offsetPressedX = 0;
+	offsetPressedY = 0;
+	offsetX = 0;
+	offsetY = 0;
+	soundClick[] = {"\A3\ui_f\data\sound\RscButton\soundClick",0.09,1.0};
+	soundEnter[] = {"\A3\ui_f\data\sound\RscButton\soundEnter",0.09,1.0};
+	soundEscape[] = {"\A3\ui_f\data\sound\RscButton\soundEscape",0.09,1.0};
+	soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush",0.09,1.0};
 };
 
 class GVAR(Dialog) {

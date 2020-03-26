@@ -8,7 +8,9 @@ if (_firstCall) then {
 	_entity setVariable ["SSS_deniedSignals",[],true];
 };
 
-private _signalType = if (sunOrMoon isEqualTo 1) then {
+(date call BIS_fnc_sunriseSunsetTime) params ["_sunrise","_sunset"];
+
+private _signalType = if (daytime > _sunrise && daytime < _sunset) then {
 	if (_firstCall) then {
 		NOTIFY(_entity,"Arrived at pickup destination. Pop smoke to confirm landing position.");
 	} else {
@@ -98,7 +100,7 @@ private _signalType = if (sunOrMoon isEqualTo 1) then {
 			// Begin landing
 			(group _vehicle) setSpeedMode "LIMITED";
 			doStop _vehicle;
-			_vehicle land "GET IN";
+			[{_this land "GET IN"},_vehicle] call CBA_fnc_execNextFrame;
 
 			[{WAIT_UNTIL_LAND},{
 				params ["_entity","_vehicle","_pad"];

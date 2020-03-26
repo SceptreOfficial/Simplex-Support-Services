@@ -12,9 +12,7 @@ class CfgPatches {
 			QGVAR(AddTransport),
 			QGVAR(AddLogisticsAirdrop),
 			QGVAR(AddLogisticsStation),
-			QGVAR(AssignRequesters),
-			QGVAR(RemoveSupports),
-			QGVAR(UnassignRequesters)
+			QGVAR(RemoveSupports)
 		};
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;

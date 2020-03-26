@@ -6,8 +6,8 @@ ADDON = false;
 ["SSS_setting_adminFullAccess","CHECKBOX",
 	["Give admins access to all supports","Admins will be able to use every support available, even if services aren't shown/enabled"],
 	["Simplex Support Services","Admin"],
-	false, // _valueInfo
-	false, // _isGlobal
+	true, // _valueInfo
+	true, // _isGlobal
 	{}, //_script
 	false // _needRestart
 ] call CBA_fnc_addSetting;
@@ -32,7 +32,7 @@ ADDON = false;
 ] call CBA_fnc_addSetting;
 
 ["SSS_setting_directActionRequirement","CHECKBOX",
-	["Need assignment/special item for direct action","When disabled, anyone can interact directly with transports or logistics booths"],
+	["Require access item/condition for direct action","When disabled, anyone can interact directly with transports or logistics booths"],
 	["Simplex Support Services","Core"],
 	false,
 	true,
@@ -104,16 +104,6 @@ ADDON = false;
 	false
 ] call CBA_fnc_addSetting;
 
-// Logistics
-["SSS_setting_logisticsAirdropMaxAmount","EDITBOX",
-	["Airdrop max amount","Maximum number of items that can be spawned per request"],
-	["Simplex Support Services","Logistics"],
-	"5",
-	true,
-	{missionNamespace setVariable["SSS_logisticsAirdropMaxAmount",(parseNumber _this) max 0,true]},
-	false
-] call CBA_fnc_addSetting;
-
 // Milsim mode
 ["SSS_setting_milsimModeArtillery","CHECKBOX",
 	["Enable milsim mode - Artillery","Require map grid coordinates on requests"],
@@ -161,34 +151,6 @@ ADDON = false;
 	false
 ] call CBA_fnc_addSetting;
 
-// Special Items
-["SSS_setting_specialItems","EDITBOX",
-	["Special items - classnames","Items used to permit access to supports. Leave empty to ignore. Separate with commas (eg. itemRadio,itemMap)"],
-	["Simplex Support Services","Special Items"],
-	"",
-	true,
-	{missionNamespace setVariable["SSS_specialItemsArray",(([_this] call CBA_fnc_removeWhitespace) splitString ",") apply {toLower _x},true]},
-	false
-] call CBA_fnc_addSetting;
-
-["SSS_setting_specialItemsLogic","LIST",
-	["Special items - logic","Select what logic to evaluate"],
-	["Simplex Support Services","Special Items"],
-	[[true,false],["Assignment AND item","Assignment OR item"],0],
-	true,
-	{},
-	false
-] call CBA_fnc_addSetting;
-
-["SSS_setting_specialItemsLimitSide","CHECKBOX",
-	["Special items - Limit side for 'OR' logic","Enable to filter all supports to player side"],
-	["Simplex Support Services","Special Items"],
-	true,
-	true,
-	{},
-	false
-] call CBA_fnc_addSetting;
-
 // Master array
 SSS_entities = [];
 
@@ -225,7 +187,7 @@ SSS_entities = [];
 
 		if (SSS_setting_directActionRequirement && {!(_entity in ([_player,"logistics"] call EFUNC(interaction,availableEntities)))}) exitWith {false};
 		
-		!isNull _entity && SSS_showLogisticsStations && {(_entity getVariable "SSS_side") getFriend side _player >= 0.6}
+		!isNull _entity && SSS_showLogisticsStations && {(_entity getVariable "SSS_side") == side group _player}
 	},{},_entity] call ace_interact_menu_fnc_createAction;
 
 	[_booth,0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToObject;

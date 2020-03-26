@@ -14,17 +14,22 @@
 		["Add Transport",[
 			["EDITBOX","Callsign",getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")],
 			["EDITBOX","Respawn time",str DEFAULT_RESPAWN_TIME],
-			["EDITBOX",["Custom init code","Code executed when vehicle is added & respawned (vehicle = _this)"],""]
+			["EDITBOX",["Custom init code","Code executed when vehicle is added & respawned (vehicle = _this)"],""],
+			["EDITBOX",["Access items","Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)"],"itemMap"],
+			["EDITBOX",["Access condition","Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];"],"true"],
+			["EDITBOX",["Request approval condition","Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>"],"true"]
 		],{
 			params ["_values","_object"];
-			_values params ["_callsign","_respawnTime","_customInit"];
+			_values params ["_callsign","_respawnTime","_customInit","_accessItems","_accessCondition","_requestCondition"];
 
 			[
-				[],
 				_object,
 				_callsign,
 				parseNumber _respawnTime,
-				_customInit
+				_customInit,
+				STR_TO_ARRAY_LOWER(_accessItems),
+				_accessCondition,
+				_requestCondition
 			] call EFUNC(support,addTransport);
 
 			switch (true) do {
@@ -37,36 +42,19 @@
 	} else {
 		if (!isServer) exitWith {};
 
-		private _requesterModules = [];
-		private _requesters = [];
-		private _vehicles = [];
-
 		{
-			if (typeOf _x == QGVAR(AssignRequesters)) then {
-				_requesterModules pushBack _x;
-				_requesters append ((synchronizedObjects _x) select {!(_x isKindOf "Logic")});
-			} else {
-				if (alive _x) then {
-					_vehicles pushBackUnique _x;
-				};
+			if (alive _x) then {
+				[
+					_x,
+					_logic getVariable ["Callsign",""],
+					parseNumber (_logic getVariable ["RespawnTime",str DEFAULT_RESPAWN_TIME]),
+					_logic getVariable ["CustomInit",""],
+					STR_TO_ARRAY_LOWER(_logic getVariable [ARR_2("AccessItems","itemRadio")]),
+					_logic getVariable ["AccessCondition","true"],
+					_logic getVariable ["RequestApprovalCondition","true"]
+				] call EFUNC(support,addTransport);
 			};
 		} forEach synchronizedObjects _logic;
-
-		if (_vehicles isEqualTo []) exitWith {};
-
-		private _entities = [];
-
-		{
-			_entities pushBack ([
-				_requesters,
-				_x,
-				_logic getVariable ["Callsign",""],
-				parseNumber (_logic getVariable ["RespawnTime",str DEFAULT_RESPAWN_TIME]),
-				_logic getVariable ["CustomInit",""]
-			] call EFUNC(support,addTransport));
-		} forEach _vehicles;
-
-		{_x setVariable ["SSS_entitiesToAssign",(_x getVariable ["SSS_entitiesToAssign",[]]) + _entities,true]} forEach _requesterModules;
 	};
 
 	deleteVehicle _logic;

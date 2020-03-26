@@ -63,7 +63,7 @@ private _actions = [];
 		};
 
 		case "CASPlane" : {
-			["SSS_CAS:" + str _x,_x getVariable "SSS_callsign","",{},{SSS_showCASPlanes},{},_x,ACTION_DEFAULTS,{
+			["SSS_CAS:" + str _forEachIndex,_x getVariable "SSS_callsign","",{},{SSS_showCASPlanes},{},_x,ACTION_DEFAULTS,{
 				params ["_target","_player","_entity","_actionData"];
 
 				if (_entity getVariable "SSS_cooldown" > 0) then {
