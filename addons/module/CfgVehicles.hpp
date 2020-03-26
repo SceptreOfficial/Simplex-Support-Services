@@ -86,7 +86,7 @@ class CfgVehicles {
 			};
 			class RequestApprovalCondition {
 				displayName = "Request approval condition";
-				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
 				typeName = "STRING";
 				defaultValue = "true";
 			};
