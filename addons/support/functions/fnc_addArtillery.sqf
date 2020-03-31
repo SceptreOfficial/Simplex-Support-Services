@@ -7,6 +7,7 @@ params [
 	["_cooldownDefault",[DEFAULT_COOLDOWN_ARTILLERY_MIN,DEFAULT_COOLDOWN_ARTILLERY_ROUND],[[]],2],
 	["_maxRounds",DEFAULT_ARTILLERY_MAX_ROUNDS,[0]],
 	["_coordinationDistance",DEFAULT_ARTILLERY_COORDINATION_DISTANCE,[0]],
+	["_coordinationType",0,[0]],
 	["_customInit",{},[{},""]],
 	["_accessItems",[],[[]]],
 	["_accessCondition",{true},[{},""]],
@@ -73,6 +74,7 @@ _entity setVariable ["SSS_cooldown",0,true];
 _entity setVariable ["SSS_cooldownDefault",_cooldownDefault,true];
 _entity setVariable ["SSS_maxRounds",_maxRounds,true];
 _entity setVariable ["SSS_coordinationDistance",_coordinationDistance,true];
+_entity setVariable ["SSS_coordinationType",_coordinationType,true];
 
 // Assignment
 SSS_entities pushBack _entity;

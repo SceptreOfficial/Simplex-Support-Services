@@ -66,6 +66,26 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = DEFAULT_ARTILLERY_COORDINATION_DISTANCE;
 			};
+			class CoordinationType {
+				displayName = "Coordinate with";
+				description = "Set what kind of artillery to coordinate with";
+				typeName = "NUMBER";
+				class values {
+					class SupportsOnly {
+						name = "Support entities only (requires access)";
+						value = 0;
+					};
+					class NonSupportsOnly {
+						name = "Non-support entities only";
+						value = 1;
+					};
+					class Anything {
+						default = 1;
+						name = "Any nearby batteries (supports require access)";
+						value = 2;
+					};
+				};
+			};
 			class CustomInit {
 				displayName = "Custom init code";
 				description = "Code executed when vehicle is added & respawned. \n(Vehicle = _this)";
