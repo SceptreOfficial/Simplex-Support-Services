@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="SSS">
+	<Package name="Common">
+		<Key ID="STR_SSS_Common_RogerThat">
+			<English>Roger that. Changing it up.</English>
+			<French>Compris. C'est parti.</French>
+		</Key>
+		<Key ID="STR_SSS_Common_VehicleReplacementETA">
+			<English>Vehicle destroyed. A replacement vehicle will arrive in %1 seconds.</English>
+			<French>Véhicule détruit. Un véhicule de remplacement arrivera dans %1 secondes.</French>
+		</Key>
+		<Key ID="STR_SSS_Common_VehicleReplacementArrived">
+			<English>Replacement vehicle has arrived.</English>
+			<French>Le véhicule de remplacement est arrivé.</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Zeus_SelectUnits">
+			<English>SELECT UNITS - PRESS ENTER TO SUBMIT</English>
+			<French>SELECTIONNER LES UNITES - APPUYEZ SUR ENTRER POUR SOUMETTRE</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Zeus_SelectCancelled">
+			<English>Selection cancelled</English>
+			<French>Sélection annulée</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Zeus_SelectSubmitted">
+			<English>Selection submitted</English>
+			<French>Sélection soumise</French>
+		</Key>
+	</Package>
+</Project>
