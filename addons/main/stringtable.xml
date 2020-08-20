@@ -1,81 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="SSS">
 	<Package name="Main">
-		<Key ID="STR_SSS_Main_SimplexSupportService">
+		<Key ID="STR_SSS_Main_SimplexSupportServices">
 			<English>Simplex Support Services</English>
 			<French>Simplex Support Services</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_AdminFullAccess_DisplayName">
-			<English>Give admins access to all supports</English>
-			<French>Donner un accès complet aux admins</French>
+			<English>Give admin access to all supports</English>
+			<French>Donner à l'admin un accès à tous les supports</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_AdminFullAccess_Description">
-			<English>Admins will be able to use every support available</English>
-			<French>Les admins seront capable d'utiliser tous les supports disponibles</French>
+			<English>Admin will be able to use every support available</English>
+			<French>L'admin sera capable d'utiliser tous les supports disponibles.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_AdminLimitSide_DisplayName">
 			<English>Limit admin access to side</English>
-			<French>Limiter l'accès admin à la faction</French>
+			<French>Limiter l'accès admin à son propre camp</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_AdminLimitSide_Description">
 			<English>Limit the admin access to the current side of the admin</English>
-			<French>Limite les accès admin aux supports de la faction de l'admin</French>
+			<French>L'admin n'aura accès qu'aux supports de son propre camp.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_GiveUAVTerminal_DisplayName">
 			<English>Give UAV Terminal on drone request</English>
-			<French>Fournir un terminal pour les requêtes de drone</French>
+			<French>Fournir un terminal pour les demandes de drone</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_GiveUAVTerminal_Description">
 			<English>Gives CAS Drone requesters a UAV terminal if they don't have one</English>
-			<French>Fournit un terminal de controle s'il n'en possède pas au joueur capable de faire des requêtes de drone</French>
+			<French>Fournit un terminal de controle s'il n'en possède pas au joueur capable de faire des demandes de drone.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_DirectActionRequirement_DisplayName">
 			<English>Require access item/condition for direct action</English>
-			<French>Nécessite une dotation/une condition spécifique</French>
+			<French>Restreindre l'interaction de proximité</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_DirectActionRequirement_Description">
 			<English>When disabled, anyone can interact directly with transports or logistics booths</English>
-			<French>Si désactivé, tout le monde est capable d'interagir directement avec les transports ou les containers de logistique</French>
+			<French>L'interaction de proximité ne peut se faire qu'avec un objet/condition spécifique.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_RemoveSupportOnVehicleDeletion_DisplayName">
 			<English>Remove support on vehicle deletion</English>
-			<French>Enlève le support lorsque le véhicule est supprimé</French>
+			<French>Désactiver la réapparition pour les véhicules détruits</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_RemoveSupportOnVehicleDeletion_Description">
 			<English>If disabled, any physical support vehicles capable of respawning will simply respawn</English>
-			<French>Si désactivé, tout véhicule de support capable de réapparaître le fera</French>
+			<French>Si activé, les véhicules détruits ne réapparaîtront pas, même s'ils sont configurés pour.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_DeleteVehicleOnEntityRemoval_DisplayName">
 			<English>Delete vehicle on entity removal</English>
-			<French>Suprimme le véhicule si l'entité l'est aussi</French>
+			<French>Supprimer le véhicule si l'entité l'est aussi</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_DeleteVehicleOnEntityRemoval_Description">
 			<English>When a support entity is deleted/removed, its physical vehicle will be deleted</English>
-			<French>Quand une entité de support est supprimée, son véhicule le sera aussi</French>
+			<French>Quand une entité de support est supprimée, son véhicule le sera aussi.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_CleanupCrew_DisplayName">
 			<English>Delete old vehicle crew on respawn</English>
-			<French>Supprime l'équipage si le véhicule respawn</French>
+			<French>Supprimer l'équipage si le véhicule réapparaît</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_CleanupCrew_Description">
 			<English>When a vehicle is no longer usable, the crew will de-spawn instead of leaving the vehicle</English>
-			<French>Lorsqu'un véhicule n'est plus utilisable, l'équipage despawnera au lieu de quitter le véhicule</French>
+			<French>L'équipage sera supprimé lorsque le véhicule ne sera plus utilisable.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_ResetVehicleOnRTB_DisplayName">
 			<English>Reset vehicle on RTB</English>
-			<French>Réinitialise le véhicule lorsqu'il retourne à la base</French>
+			<French>Réinitialiser le véhicule lorsqu'il retourne à sa base</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_ResetVehicleOnRTB_Description">
 			<English>When a vehicle arrives back at base, it is repaired, fuel is refilled, and ammo is restored</English>
-			<French>Quand un véhicule retourne à la base, il est réparé, réapprovisionné et réarmé</French>
+			<French>Quand un véhicule retourne à sa base, il est réparé, réapprovisionné et réarmé.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_RestoreCrewOnRTB_DisplayName">
 			<English>Restore vehicle crew on RTB</English>
-			<French>Rétablit l'équipage sur un retour à la base</French>
+			<French>Rétablir l'équipage sur un retour à sa base</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_RestoreCrewOnRTB_Description">
 			<English>Restores health to all crew and revives any dead crew when a vehicle returns to base</English>
-			<French>Soigne l'équipage et ranime les membres d'équipage décédés lorsqu'un véhicule retourne à la base</French>
+			<French>Les membres d'équipage sont soignés et réanimés lorsqu'un véhicule retourne à sa base.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_SlingLoadWhitelist_DisplayName">
 			<English>Sling load whitelist</English>
@@ -83,47 +83,47 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_SlingLoadWhitelist_Description">
 			<English>Only these classnames will be searched for at sling load request locations</English>
-			<French>Limite le matériel héliportable à ces seules classnames</French>
+			<French>Limite le matériel héliportable à ces seuls classnames.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_SlingLoadSearchRadius_DisplayName">
 			<English>Sling load search radius</English>
-			<French>Rayon de recherche du matériel héliportable</French>
+			<French>Rayon de la zone de collecte du matériel héliportable</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_SlingLoadSearchRadius_Description">
 			<English>Determines how far from the request position to search for objects</English>
-			<French>Défini la distance maximale de recherche des objets à héliporter sur la position demandée</French>
+			<French>Définit le rayon de la zone de collecte où doit se trouver le matériel héliportable.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_MilsimModeArtillery_DisplayName">
 			<English>Enable milsim mode - Artillery</English>
-			<French>Active le mode milsim - Artillerie</French>
+			<French>Activer le mode milsim - Artillerie</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_MilsimModeArtillery_Description">
 			<English>Require map grid coordinates on requests</English>
-			<French>La position demandée doit être désignée par ses coordonnées</French>
+			<French>La cible doit être désignée par ses coordonnées.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_MilsimModeCAS_DisplayName">
 			<English>Enable milsim mode - CAS</English>
-			<French>Active le mode milsim - CAS</French>
+			<French>Activer le mode milsim - CAS</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_MilsimModeCAS_Description">
 			<English>Require map grid coordinates on requests</English>
-			<French>La position demandée doit être désignée par ses coordonnées</French>
+			<French>La cible doit être désignée par ses coordonnées.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_MilsimModeTransport_DisplayName">
 			<English>Enable milsim mode - Transport</English>
-			<French>Active le mode milsim - Transport</French>
+			<French>Activer le mode milsim - Transport</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_MilsimModeTransport_Description">
 			<English>Require map grid coordinates on requests</English>
-			<French>La position demandée doit être désignée par ses coordonnées</French>
+			<French>La destination doit être désignée par ses coordonnées.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_MilsimModeLogistics_DisplayName">
 			<English>Enable milsim mode - Logistics</English>
-			<French>Active le mode milsim - Logistique</French>
+			<French>Activer le mode milsim - Logistique</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_MilsimModeLogistics_Description">
 			<English>Require map grid coordinates on requests</English>
-			<French>La position demandée doit être désignée par ses coordonnées</French>
+			<French>La position doit être désignée par ses coordonnées.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_UseChatNotifications_DisplayName">
 			<English>Use chat notifications</English>
@@ -131,7 +131,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_UseChatNotifications_Description">
 			<English>Disables custom notification system</English>
-			<French>Désactive le système de notification personnalisé</French>
+			<French>Désactive le système de notification personnalisé.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_CategoryAdmin">
 			<English>Admin</English>
