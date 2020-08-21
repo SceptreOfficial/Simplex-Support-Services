@@ -27,7 +27,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_GiveUAVTerminal_Description">
 			<English>Gives CAS Drone requesters a UAV terminal if they don't have one</English>
-			<French>Fournit un terminal de controle s'il n'en possède pas au joueur capable de faire des demandes de drone.</French>
+			<French>Fournit un terminal pour les demandes de drone, si le joueur n'en est pas déjà équipé.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_DirectActionRequirement_DisplayName">
 			<English>Require access item/condition for direct action</English>
