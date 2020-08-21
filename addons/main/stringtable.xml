@@ -59,7 +59,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_CleanupCrew_Description">
 			<English>When a vehicle is no longer usable, the crew will de-spawn instead of leaving the vehicle</English>
-			<French>L'équipage sera supprimé lorsque le véhicule ne sera plus utilisable.</French>
+			<French>L'équipage est supprimé si le véhicule n'est plus utilisable.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_ResetVehicleOnRTB_DisplayName">
 			<English>Reset vehicle on RTB</English>
