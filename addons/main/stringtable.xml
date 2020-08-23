@@ -19,7 +19,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_AdminLimitSide_Description">
 			<English>Limit the admin access to the current side of the admin</English>
-			<French>L'admin n'aura accès qu'aux supports de son propre camp.</French>
+			<French>L'administrateur ne peut se servir que des supports de son propre camp.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_GiveUAVTerminal_DisplayName">
 			<English>Give UAV Terminal on drone request</English>
