@@ -63,7 +63,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_ResetVehicleOnRTB_DisplayName">
 			<English>Reset vehicle on RTB</English>
-			<French>Réinitialiser le véhicule lorsqu'il retourne à sa base</French>
+			<French>Réinitialiser les véhicules de retour à la base</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_ResetVehicleOnRTB_Description">
 			<English>When a vehicle arrives back at base, it is repaired, fuel is refilled, and ammo is restored</English>
