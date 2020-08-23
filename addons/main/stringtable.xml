@@ -11,7 +11,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_AdminFullAccess_Description">
 			<English>Admin will be able to use every support available</English>
-			<French>L'admin sera capable d'utiliser tous les supports disponibles.</French>
+			<French>L'administrateur peut utiliser l'intégralité des supports disponibles.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_AdminLimitSide_DisplayName">
 			<English>Limit admin access to side</English>
