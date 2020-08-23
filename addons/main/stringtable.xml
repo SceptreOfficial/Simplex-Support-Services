@@ -35,7 +35,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_DirectActionRequirement_Description">
 			<English>When disabled, anyone can interact directly with transports or logistics booths</English>
-			<French>L'interaction de proximité ne peut se faire qu'avec un objet/condition spécifique.</French>
+			<French>L'interaction de proximité n'est possible que si le joueur est en possession d'un objet spécifique, ou sous toute autre condition préalablement configurée.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_RemoveSupportOnVehicleDeletion_DisplayName">
 			<English>Remove support on vehicle deletion</English>
