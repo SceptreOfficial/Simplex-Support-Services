@@ -67,7 +67,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_ResetVehicleOnRTB_Description">
 			<English>When a vehicle arrives back at base, it is repaired, fuel is refilled, and ammo is restored</English>
-			<French>Quand un véhicule retourne à sa base, il est réparé, réapprovisionné et réarmé.</French>
+			<French>Les véhicules de retour à leur base sont réparés, réapprovisionnés et réarmés.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_RestoreCrewOnRTB_DisplayName">
 			<English>Restore vehicle crew on RTB</English>
