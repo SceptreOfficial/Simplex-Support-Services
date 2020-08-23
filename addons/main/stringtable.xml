@@ -75,7 +75,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_RestoreCrewOnRTB_Description">
 			<English>Restores health to all crew and revives any dead crew when a vehicle returns to base</English>
-			<French>Les membres d'équipage sont soignés et réanimés lorsqu'un véhicule retourne à sa base.</French>
+			<French>Réinitialise l'équipage des véhicules après retour à la base.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_SlingLoadWhitelist_DisplayName">
 			<English>Sling load whitelist</English>
