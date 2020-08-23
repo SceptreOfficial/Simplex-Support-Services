@@ -39,7 +39,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_RemoveSupportOnVehicleDeletion_DisplayName">
 			<English>Remove support on vehicle deletion</English>
-			<French>Désactiver la réapparition pour les véhicules détruits</French>
+			<French>Désactiver la réapparition des véhicules supprimés</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_RemoveSupportOnVehicleDeletion_Description">
 			<English>If disabled, any physical support vehicles capable of respawning will simply respawn</English>
