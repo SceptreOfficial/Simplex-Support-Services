@@ -119,7 +119,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_MilsimModeLogistics_DisplayName">
 			<English>Enable milsim mode - Logistics</English>
-			<French>Activer le mode milsim - Logistique</French>
+			<French>Mode milsim - Logistique</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_MilsimModeLogistics_Description">
 			<English>Require map grid coordinates on requests</English>
