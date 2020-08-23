@@ -7,7 +7,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_AdminFullAccess_DisplayName">
 			<English>Give admin access to all supports</English>
-			<French>Donner à l'admin un accès à tous les supports</French>
+			<French>L'administrateur a accès à tous les supports</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_AdminFullAccess_Description">
 			<English>Admin will be able to use every support available</English>
