@@ -43,7 +43,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_RemoveSupportOnVehicleDeletion_Description">
 			<English>If disabled, any physical support vehicles capable of respawning will simply respawn</English>
-			<French>Si activé, les véhicules détruits ne réapparaîtront pas, même s'ils sont configurés pour.</French>
+			<French>Les véhicules ayant été supprimés ne réapparaîtront pas, même s'ils ont été configurés pour le faire.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_DeleteVehicleOnEntityRemoval_DisplayName">
 			<English>Delete vehicle on entity removal</English>
