@@ -15,7 +15,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_AdminLimitSide_DisplayName">
 			<English>Limit admin access to side</English>
-			<French>Limiter l'accès admin à son propre camp</French>
+			<French>Limiter l'administrateur à son propre camp</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_AdminLimitSide_Description">
 			<English>Limit the admin access to the current side of the admin</English>
