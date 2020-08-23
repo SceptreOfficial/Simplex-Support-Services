@@ -55,7 +55,7 @@ params ["_target","_player","_entity"];
 		},{},[_entity,_objects]] call EFUNC(CDS,dialog);
 	},{(_this # 2) getVariable "SSS_slingLoadReady"},{},_entity] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_Unhook",localize LSTRING(Unhook,[ICON_SLINGLOAD,HEX_YELLOW],{
+	[["SSS_Unhook",localize LSTRING(Unhook),[ICON_SLINGLOAD,HEX_YELLOW],{
 		_this call FUNC(selectPosition);
 	},{!isNull getSlingLoad (_this # 2 # 0 getVariable "SSS_vehicle")},{},[_entity,"UNHOOK"]] call ace_interact_menu_fnc_createAction,[],_target],
 	

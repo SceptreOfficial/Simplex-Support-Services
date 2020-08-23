@@ -4,7 +4,7 @@ params ["_target","_player","_args"];
 _args params ["_entity","_request"];
 
 if (missionNamespace getVariable format ["SSS_setting_milsimMode%1",_entity getVariable "SSS_service"]) then {
-	[localize LSTRING(localize LSTRING(MapGridPosition),[
+	[localize LSTRING(MapGridPosition),[
 		["EDITBOX",[localize LSTRING(Grid),localize LSTRING(Support10DigitsRef)],""]
 	],{
 		params ["_values","_args"];
