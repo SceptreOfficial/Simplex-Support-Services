@@ -3,44 +3,44 @@
 params ["_target","_player","_entity"];
 
 [
-	[["SSS_RTB","RTB",ICON_HOME,{
+	[["SSS_RTB",localize LSTRING(RTB),ICON_HOME,{
 		(_this # 2) call EFUNC(support,requestTransportPlane);
 	},{(_this # 2 # 0) getVariable "SSS_awayFromBase"},{},[_entity,"RTB"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_Move","Move",ICON_MOVE,{
+	[["SSS_Move",localize LSTRING(Move),ICON_MOVE,{
 		_this call FUNC(selectPosition);
 	},{true},{},[_entity,"MOVE"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_Paradrop","Paradrop",ICON_PARACHUTE,{
+	[["SSS_Paradrop",localize LSTRING(Paradrop),ICON_PARACHUTE,{
 		_this call FUNC(selectPosition);
 	},{true},{},[_entity,"PARADROP"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_Loiter","Loiter",ICON_LOITER,{
+	[["SSS_Loiter",localize LSTRING(Loiter),ICON_LOITER,{
 		_this call FUNC(selectPosition);
 	},{true},{},[_entity,"LOITER"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_Behavior","Change Behavior",ICON_GEAR,{
+	[["SSS_Behavior",localize LSTRING(ChangeBehavior),ICON_GEAR,{
 		private _entity = _this # 2;
 
-		["Change Behavior",[
-			["SLIDER","Flying height",[[50,2000,0],_entity getVariable "SSS_flyingHeight"]],
-			["COMBOBOX","Speed Mode",[["LIMITED","NORMAL","FULL"],_entity getVariable "SSS_speedMode"]],
-			["COMBOBOX","Combat Mode",[["Fire At will","Hold Fire"],_entity getVariable "SSS_combatMode"]],
-			["CHECKBOX","Headlight",_entity getVariable "SSS_lightsOn"],
-			["CHECKBOX","Collision lights",_entity getVariable "SSS_collisionLightsOn"],
-			["BUTTON","Shut up!",SHUP_UP_BUTTON_CODE]
+		[localize LSTRING(ChangeBehavior),[
+			["SLIDER",localize LSTRING(FlyingHeight),[[50,2000,0],_entity getVariable "SSS_flyingHeight"]],
+			["COMBOBOX",localize LSTRING(SpeedMode),[[localize LSTRING(Limited),localize LSTRING(Normal),localize LSTRING(Full)],_entity getVariable "SSS_speedMode"]],
+			["COMBOBOX",localize LSTRING(CombatMode),[[localize LSTRING(FireAtWill),localize LSTRING(HoldFire)],_entity getVariable "SSS_combatMode"]],
+			["CHECKBOX",localize LSTRING(Headlight),_entity getVariable "SSS_lightsOn"],
+			["CHECKBOX",localize LSTRING(CollisionLights),_entity getVariable "SSS_collisionLightsOn"],
+			["BUTTON",localize LSTRING(ShutUp),SHUP_UP_BUTTON_CODE]
 		],{
 			_this call EFUNC(common,changeBehavior);
 		},{},_entity] call EFUNC(CDS,dialog);
 	},{true},{},_entity] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_SITREP","SITREP",ICON_SITREP,{
+	[["SSS_SITREP",localize LSTRING(SITREP),ICON_SITREP,{
 		private _entity = _this # 2;
 		private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
-		private _message = format ["Location: Grid %1<br />%2",mapGridPosition _vehicle,switch true do {
-			case (!canMove _vehicle) : {"Status: Disabled"};
-			case (damage _vehicle > 0) : {"Status: Damaged"};
-			default {"Status: Green"};
+		private _message = format [localize LSTRING(LocationGridAndStatus),mapGridPosition _vehicle,switch true do {
+			case (!canMove _vehicle) : {localize LSTRING(StatusDisabled)};
+			case (damage _vehicle > 0) : {localize LSTRING(StatusDamaged)};
+			default {localize LSTRING(StatusGreen)};
 		}];
 
 		NOTIFY_LOCAL(_entity,_message);

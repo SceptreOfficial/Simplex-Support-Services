@@ -4,15 +4,15 @@ params ["_target","_player","_args"];
 _args params ["_entity","_request"];
 
 if (missionNamespace getVariable format ["SSS_setting_milsimMode%1",_entity getVariable "SSS_service"]) then {
-	["Map grid position",[
-		["EDITBOX",["Grid","Supports up to a 10 digit grid reference"],""]
+	[localize LSTRING(localize LSTRING(MapGridPosition),[
+		["EDITBOX",[localize LSTRING(Grid),localize LSTRING(Support10DigitsRef)],""]
 	],{
 		params ["_values","_args"];
 		_values params ["_grid"];
 		_args params ["_player","_entity","_request"];
 
 		if (_grid isEqualTo "") exitWith {
-			titleText ["Request Cancelled - No grid input","PLAIN",0.5];
+			titleText [localize LSTRING(RequestCancelledNoGridInput),"PLAIN",0.5];
 			[{titleFadeOut 0.5},[],1] call CBA_fnc_waitAndExecute;
 		};
 		
@@ -25,7 +25,7 @@ if (missionNamespace getVariable format ["SSS_setting_milsimMode%1",_entity getV
 	SSS_mapClicked = false;
 
 	openMap [true,false];
-	titleText ["Select Position","PLAIN",0.5];
+	titleText [localize LSTRING(SelectPosition),"PLAIN",0.5];
 
 	["SSS_selectPosition","onMapSingleClick",{
 		params ["_units","_position","_alt","_shift","_player","_entity","_request"];

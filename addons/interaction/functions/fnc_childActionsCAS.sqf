@@ -16,7 +16,7 @@ private _actions = [];
 				} else {
 					if (_entity getVariable "SSS_active") then {
 						_actionData set [2,_entity getVariable "SSS_iconGreen"];
-						_actionData set [3,{NOTIFY_LOCAL(_this # 2,"Connect via UAV Terminal")}];
+						_actionData set [3,{NOTIFY_LOCAL(_this # 2,localize LSTRING(ConnectViaUAVTerminal))}];
 					} else {
 						_actionData set [2,_entity getVariable "SSS_icon"];
 						_actionData set [3,{_this call FUNC(selectPosition);}];
@@ -55,7 +55,7 @@ private _actions = [];
 				} else {
 					_actionData set [2,_entity getVariable "SSS_iconYellow"];
 					_actionData set [3,{
-						NOTIFY_LOCAL(_this # 2,"No vehicle available at this time. A replacement is on the way.");
+						NOTIFY_LOCAL(_this # 2,localize LSTRING(VehicleUnderReplacement));
 					}];
 					_actionData set [5,{}];
 				};

@@ -17,7 +17,7 @@ private _actions = [];
 				} else {
 					_actionData set [2,_entity getVariable "SSS_iconYellow"];
 					_actionData set [3,{
-						NOTIFY_LOCAL(_this # 2,"No vehicle available at this time. A replacement is on the way.");
+						NOTIFY_LOCAL(_this # 2,localize LSTRING(VehicleUnderReplacement));
 					}];
 					_actionData set [5,{}];
 				};
@@ -35,7 +35,7 @@ private _actions = [];
 				} else {
 					_actionData set [2,_entity getVariable "SSS_iconYellow"];
 					_actionData set [3,{
-						NOTIFY_LOCAL(_this # 2,"No vehicle available at this time. A replacement is on the way.");
+						NOTIFY_LOCAL(_this # 2,localize LSTRING(VehicleUnderReplacement));
 					}];
 					_actionData set [5,{}];
 				};
@@ -53,7 +53,7 @@ private _actions = [];
 				} else {
 					_actionData set [2,_entity getVariable "SSS_iconYellow"];
 					_actionData set [3,{
-						NOTIFY_LOCAL(_this # 2,"No vehicle available at this time. A replacement is on the way.");
+						NOTIFY_LOCAL(_this # 2,localize LSTRING(VehicleUnderReplacement));
 					}];
 					_actionData set [5,{}];
 				};
@@ -71,7 +71,7 @@ private _actions = [];
 				} else {
 					_actionData set [2,_entity getVariable "SSS_iconYellow"];
 					_actionData set [3,{
-						NOTIFY_LOCAL(_this # 2,"No vehicle available at this time. A replacement is on the way.");
+						NOTIFY_LOCAL(_this # 2,localize LSTRING(VehicleUnderReplacement));
 					}];
 					_actionData set [5,{}];
 				};
@@ -89,7 +89,7 @@ private _actions = [];
 				} else {
 					_actionData set [2,_entity getVariable "SSS_iconYellow"];
 					_actionData set [3,{
-						NOTIFY_LOCAL(_this # 2,"No vehicle available at this time. A replacement is on the way.");
+						NOTIFY_LOCAL(_this # 2,localize LSTRING(VehicleUnderReplacement));
 					}];
 					_actionData set [5,{}];
 				};

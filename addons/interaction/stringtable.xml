@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="SSS">
+	<Package name="Interaction">
+		<Key ID="STR_SSS_Interaction_SupportServices">
+			<English>Support Services</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Artillery">
+			<English>Artillery</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_CAS">
+			<English>CAS</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Transport">
+			<English>Transport</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Logistics">
+			<English>Logistics</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_GunshipNotInArea">
+			<English>Not in the requested area yet. Gunship is on the way and will notify on arrival.</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_CurrentlyOccupied">
+			<English>Currently occupied by another player</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_VehicleUnderReplacement">
+			<English>No vehicle available at this time. A replacement is on the way.</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_ConnectViaUAVTerminal">
+			<English>Connect via UAV Terminal</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_RTB">
+			<English>RTB</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SAD">
+			<English>SAD</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Move">
+			<English>Move</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Loiter">
+			<English>Loiter</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_ChangeBehavior">
+			<English>Change behavior</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_FlyingHeight">
+			<English>Flying height</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Headlight">
+			<English>Headlight</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_CollisionLights">
+			<English>Collision lights</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SITREP">
+			<English>SITREP</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_StatusDisabled">
+			<English>Status: Disabled</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_StatusDamaged">
+			<English>Status: Damaged</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_StatusGreen">
+			<English>Status: Green</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_LocationGridAndStatus">
+			<English>Location: Grid %1<br />%2</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_ConfirmSignal">
+			<English>Confirm Signal</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SearchNewSignal">
+			<English>Search for new Signal</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SelectObjecSlingLoad">
+			<English>Select object to sling load</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_NoSlingLoadableObjects">
+			<English>No sling loadable objects nearby.</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SlingLoadableObjects">
+			<English>Sling loadable objects:</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Unhook">
+			<English>Unhook</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Pickup">
+			<English>Pickup</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Land">
+			<English>Land</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_LandEngineOff">
+			<English>Land - Engine Off</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_HoverFastrope">
+			<English>Hover/Fastrope</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SlingLoad">
+			<English>Sling Load</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Paradrop">
+			<English>Paradrop</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SpeedMode">
+			<English>Speed Mode</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_CombatMode">
+			<English>Combat Mode</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_ShutUp">
+			<English>Shut up!</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Limited">
+			<English>LIMITED</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Normal">
+			<English>NORMAL</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Full">
+			<English>FULL</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_FireAtWill">
+			<English>Fire At will</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_HoldFire">
+			<English>Hold Fire</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_RequestDenied">
+			<English>Request denied. </English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_MapGridPosition">
+			<English>Map grid position</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Grid">
+			<English>Grid</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Support10DigitsRef">
+			<English>Supports up to a 10 digit grid reference</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_RequestCancelledNoGridInput">
+			<English>Request Cancelled - No grid input</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SelectPosition">
+			<English>Select Position</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_PositionOutOfRangeColored">
+			<English><t color='#f4ca00'>Position out of range.</t> Unable to fulfill request.</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_PositionOutOfRange">
+			<English>Position out of range. Unable to fulfill request.</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_FireMissionParameters">
+			<English>Fire Mission Parameters - </English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Rounds">
+			<English>Rounds</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_RandomDispersionRadius">
+			<English>Random dispersion radius</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_CoordinationAmount">
+			<English>Coordination amount</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_RequestFireFromSimilarArtillery">
+			<English>Request fire mission from similar nearby artillery</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_DroneRequestParameters">
+			<English>Drone Request Parameters</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_LoiterDirection">
+			<English>Loiter direction</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_LoiterRadius">
+			<English>Loiter radius</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Clockwise">
+			<English>Clockwise</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_ConterClockwise">
+			<English>Counter-Clockwise</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_AltitudeAbovePosition">
+			<English>Altitude above position</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_GunshipRequestParameters">
+			<English>Gunship Request Parameters</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_LoiterParameters">
+			<English>Loiter parameters</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_TerrainObstructingApproach">
+			<English>Terrain obstructing approach</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_CASParameters">
+			<English>CAS Parameters - </English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_ApproachFrom">
+			<English>Approach from</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_OrangeMeansApproachBlocked">
+			<English>Orange means the approach is blocked</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_MapPositionOrOtherSignal">
+			<English>Map position or other signal</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_MapPosition">
+			<English>Map Position</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_LaserTarget">
+			<English>Laser Target</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SmokeSignal">
+			<English>Smoke Signal</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_IRSignal">
+			<English>IR Signal</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_HoverParameters">
+			<English>Hover parameters</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_HoverHeight">
+			<English>Hover height</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_TerrainCollisionPossible">
+			<English>Terrain collision is possible if set too low for angle/enviroment</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_FastropeAtPosition">
+			<English>Fastrope at position</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_ParadropParameters">
+			<English>Paradrop parameters</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_JumpDelay">
+			<English>Jump delay</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SecondsBetweenJumps">
+			<English>Seconds between each unit jumping out</English>
+		</Key>
+		<Key ID="STR_SSS_Interaction_AIOpeningHeight">
+			<English>AI opening height</English>
+		</Key>
+	</Package>
+</Project>
