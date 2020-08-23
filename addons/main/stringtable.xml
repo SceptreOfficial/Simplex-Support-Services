@@ -55,7 +55,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_CleanupCrew_DisplayName">
 			<English>Delete old vehicle crew on respawn</English>
-			<French>Supprimer l'équipage si le véhicule réapparaît</French>
+			<French>Supprimer l'équipage des véhicules hors d'usage</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_CleanupCrew_Description">
 			<English>When a vehicle is no longer usable, the crew will de-spawn instead of leaving the vehicle</English>
