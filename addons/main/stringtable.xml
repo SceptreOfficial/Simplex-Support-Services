@@ -51,7 +51,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_DeleteVehicleOnEntityRemoval_Description">
 			<English>When a support entity is deleted/removed, its physical vehicle will be deleted</English>
-			<French>Quand une entité de support est supprimée, son véhicule le sera aussi.</French>
+			<French>Quand une entité de support est supprimée, son véhicule l'est aussi.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_CleanupCrew_DisplayName">
 			<English>Delete old vehicle crew on respawn</English>
