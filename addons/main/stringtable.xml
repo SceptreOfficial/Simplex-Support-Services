@@ -71,7 +71,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_RestoreCrewOnRTB_DisplayName">
 			<English>Restore vehicle crew on RTB</English>
-			<French>Rétablir l'équipage sur un retour à sa base</French>
+			<French>Réinitialiser l'équipage après un retour sur base</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_RestoreCrewOnRTB_Description">
 			<English>Restores health to all crew and revives any dead crew when a vehicle returns to base</English>
