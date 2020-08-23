@@ -37,6 +37,9 @@
 		<Key ID="STR_SSS_Interaction_Move">
 			<English>Move</English>
 		</Key>
+		<Key ID="STR_SSS_Interaction_MoveEngineOff">
+			<English>Move - Engine off</English>
+		</Key>
 		<Key ID="STR_SSS_Interaction_Loiter">
 			<English>Loiter</English>
 		</Key>
