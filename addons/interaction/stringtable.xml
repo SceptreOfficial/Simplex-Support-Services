@@ -180,9 +180,11 @@
 		</Key>
 		<Key ID="STR_SSS_Interaction_Clockwise">
 			<English>Clockwise</English>
+			<French>Sens horaire</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_ConterClockwise">
 			<English>Counter-Clockwise</English>
+			<French>Sens anti-horaire</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_AltitudeAbovePosition">
 			<English>Altitude above position</English>

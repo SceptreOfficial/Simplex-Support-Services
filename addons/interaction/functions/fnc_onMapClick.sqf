@@ -187,7 +187,7 @@ switch (_entity getVariable "SSS_supportType") do {
 					[2,{false}] call EFUNC(CDS,setEnableCondition);
 				};
 			}],
-			["COMBOBOX","Smoke Color",[[
+			["COMBOBOX",localize LSTRING(SmokeColor),[[
 				LELSTRING(Main,SmokeColorWhite),
 				LELSTRING(Main,SmokeColorBlack),
 				[LELSTRING(Main,SmokeColorRed),"","",[0.9,0,0,1]],
