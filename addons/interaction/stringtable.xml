@@ -73,7 +73,7 @@
 		<Key ID="STR_SSS_Interaction_SearchNewSignal">
 			<English>Search for new Signal</English>
 		</Key>
-		<Key ID="STR_SSS_Interaction_SelectObjecSlingLoad">
+		<Key ID="STR_SSS_Interaction_SelectObjectSlingLoad">
 			<English>Select object to sling load</English>
 		</Key>
 		<Key ID="STR_SSS_Interaction_NoSlingLoadableObjects">

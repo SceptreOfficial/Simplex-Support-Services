@@ -33,7 +33,7 @@ params ["_target","_player","_entity"];
 		private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
 		private _message = format [localize LSTRING(LocationGridAndStatus),mapGridPosition _vehicle,switch true do {
 			case (!canMove _vehicle) : {localize LSTRING(StatusDisabled)};
-			case (damage _vehicle > 0) : {localize LSTRING(StatusDamaged};
+			case (damage _vehicle > 0) : {localize LSTRING(StatusDamaged)};
 			default {localize LSTRING(StatusGreen)};
 		}];
 
