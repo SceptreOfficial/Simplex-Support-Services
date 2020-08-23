@@ -95,7 +95,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_MilsimModeArtillery_DisplayName">
 			<English>Enable milsim mode - Artillery</English>
-			<French>Activer le mode milsim - Artillerie</French>
+			<French>Mode milsim - Artillerie</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_MilsimModeArtillery_Description">
 			<English>Require map grid coordinates on requests</English>
