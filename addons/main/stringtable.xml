@@ -107,7 +107,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_MilsimModeCAS_Description">
 			<English>Require map grid coordinates on requests</English>
-			<French>La cible doit être désignée par ses coordonnées.</French>
+			<French>Les cibles doivent être désignées par des coordonnées et non plus en sélectionnant un point sur la carte.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_MilsimModeTransport_DisplayName">
 			<English>Enable milsim mode - Transport</English>
