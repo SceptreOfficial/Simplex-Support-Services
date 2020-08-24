@@ -11,17 +11,17 @@
 
 		if (!alive _object || !(_object isKindOf "AllVehicles")) exitWith {};
 
-		["Add Artillery",[
-			["EDITBOX","Callsign",getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")],
-			["EDITBOX","Respawn time",str DEFAULT_RESPAWN_TIME],
-			["EDITBOX","Cooldown",str DEFAULT_COOLDOWN_ARTILLERY_MIN],
-			["EDITBOX","Extra cooldown time per round",str DEFAULT_COOLDOWN_ARTILLERY_ROUND],
-			["EDITBOX","Maximum rounds per request",str DEFAULT_ARTILLERY_MAX_ROUNDS],
-			["EDITBOX",["Maximum coordination distance","Set what ""nearby"" really means for artillery coordination"],str DEFAULT_ARTILLERY_COORDINATION_DISTANCE],
-			["EDITBOX",["Custom init code","Code executed when vehicle is added & respawned (vehicle = _this)"],""],
-			["EDITBOX",["Access items","Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)"],"itemMap"],
-			["EDITBOX",["Access condition","Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];"],"true"],
-			["EDITBOX",["Request approval condition","Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>"],"true"]
+		[localize LSTRING(AddArtillery),[
+			["EDITBOX",[localize LSTRING(CallsignName),localize LSTRING(CallsignDescription)],getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")],
+			["EDITBOX",[localize LSTRING(RespawnTimeName),localize LSTRING(RespawnTimeDescription)],str DEFAULT_RESPAWN_TIME],
+			["EDITBOX",[localize LSTRING(CooldownName),localize LSTRING(CooldownDescription)],str DEFAULT_COOLDOWN_ARTILLERY_MIN],
+			["EDITBOX",[localize LSTRING(RoundCooldownName),localize LSTRING(RoundCooldownDescription)],str DEFAULT_COOLDOWN_ARTILLERY_ROUND],
+			["EDITBOX",[localize LSTRING(MaxRoundsName),localize LSTRING(MaxRoundsDescription)]str DEFAULT_ARTILLERY_MAX_ROUNDS],
+			["EDITBOX",[localize LSTRING(CoordinationDistanceName),localize LSTRING(CoordinationDistanceDescription)],str DEFAULT_ARTILLERY_COORDINATION_DISTANCE],
+			["EDITBOX",[localize LSTRING(CustomInitName),localize LSTRING(CustomInitDescription)],""],
+			["EDITBOX",[localize LSTRING(AccessItemsName),localize LSTRING(AccessItemsDescription)],"itemMap"],
+			["EDITBOX",[localize LSTRING(AccessConditionName),localize LSTRING(AccessConditionDescription)],"true"],
+			["EDITBOX",[localize LSTRING(RequestApprovalConditionName),localize LSTRING(RequestApprovalConditionDescription)],"true"]
 		],{
 			params ["_values","_object"];
 			_values params ["_callsign","_respawnTime","_cooldown","_roundCooldown","_maxRounds","_coordinationDistance","_customInit","_accessItems","_accessCondition","_requestCondition"];
@@ -39,7 +39,7 @@
 				_requestCondition
 			] call EFUNC(support,addArtillery);
 
-			ZEUS_MESSAGE("Artillery added");
+			ZEUS_MESSAGE(localize LSTRING(ZeusArtilleryAdded));
 		},{},_object] call EFUNC(CDS,dialog);
 	} else {
 		if (!isServer) exitWith {};

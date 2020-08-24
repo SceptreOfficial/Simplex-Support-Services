@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="SSS">
+	<Package name="Module">
+		<Key ID="STR_SSS_Module_SimplexSupportServices">
+			<English>Simplex Support Services</English>
+		</Key>
+		<Key ID="STR_SSS_Module_AddArtillery">
+			<English>Add Artillery</English>
+		</Key>
+		<Key ID="STR_SSS_Module_CallsignName">
+			<English>Callsign</English>
+		</Key>
+		<Key ID="STR_SSS_Module_CallsignDescription">
+			<English>Display name</English>
+		</Key>
+		<Key ID="STR_SSS_Module_RespawnTimeName">
+			<English>Respawn time</English>
+		</Key>
+		<Key ID="STR_SSS_Module_RespawnTimeDescription">
+			<English>-1 will disable respawn</English>
+		</Key>
+		<Key ID="STR_SSS_Module_CooldownName">
+			<English>Cooldown</English>
+		</Key>
+		<Key ID="STR_SSS_Module_CooldownDescription">
+			<English>Minimum time between requests</English>
+		</Key>
+		<Key ID="STR_SSS_Module_RoundCooldownName">
+			<English>Extra cooldown time per round</English>
+		</Key>
+		<Key ID="STR_SSS_Module_RoundCooldownDescription">
+			<English>Additional time incremented per round fired</English>
+		</Key>
+		<Key ID="STR_SSS_Module_MaxRoundsName">
+			<English>Maximum rounds per request</English>
+		</Key>
+		<Key ID="STR_SSS_Module_MaxRoundsDescription">
+			<English>Max amount/slider range for requests</English>
+		</Key>
+		<Key ID="STR_SSS_Module_CoordinationDistanceName">
+			<English>Maximum coordination distance</English>
+		</Key>
+		<Key ID="STR_SSS_Module_CoordinationDistanceDescription">
+			<English>Set what ""nearby"" really means for artillery coordination</English>
+		</Key>
+		<Key ID="STR_SSS_Module_CustomInitName">
+			<English>Custom init code</English>
+		</Key>
+		<Key ID="STR_SSS_Module_CustomInitDescription">
+			<English>Code executed when vehicle is added & respawned. \n(Vehicle = _this)</English>
+		</Key>
+		<Key ID="STR_SSS_Module_AccessItemsName">
+			<English>Access items</English>
+		</Key>
+		<Key ID="STR_SSS_Module_AccessItemsDescription">
+			<English>Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)</English>
+		</Key>
+		<Key ID="STR_SSS_Module_AccessConditionName">
+			<English>Access condition</English>
+		</Key>
+		<Key ID="STR_SSS_Module_AccessConditionDescription">
+			<English>Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];</English>
+		</Key>
+		<Key ID="STR_SSS_Module_RequestApprovalConditionName">
+			<English>Request approval condition</English>
+		</Key>
+		<Key ID="STR_SSS_Module_RequestApprovalConditionDescription">
+			<English>Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING></English>
+		</Key>
+		<Key ID="STR_SSS_Module_AddCASDrone">
+			<English>Add CAS Drone</English>
+		</Key>
+		<Key ID="STR_SSS_Module_ClassnameName">
+			<English>Classname</English>
+		</Key>
+		<Key ID="STR_SSS_Module_ClassnameCASDroneDescription">
+			<English>Classname of drone vehicle</English>
+		</Key>
+		<Key ID="STR_SSS_Module_CooldownCASDescription">
+			<English>Time between requests (after loiter is finished)</English>
+		</Key>
+		<Key ID="STR_SSS_Module_LoiterTimeName">
+			<English>Loiter time</English>
+		</Key>
+		<Key ID="STR_SSS_Module_LoiterTimeDescription">
+			<English>How long aircraft will loiter in the area</English>
+		</Key>
+		<Key ID="STR_SSS_Module_SideName">
+			<English>Side</English>
+		</Key>
+		<Key ID="STR_SSS_Module_SideDescription">
+			<English>Support side</English>
+		</Key>
+		<Key ID="STR_SSS_Module_AddCASGunship">
+			<English>Add CAS Gunship</English>
+		</Key>
+		<Key ID="STR_SSS_Module_ClassnameCASGunshipDescription">
+			<English>Classname of gunship vehicle</English>
+		</Key>
+		<Key ID="STR_SSS_Module_TurretPathName">
+			<English>TurretPath</English>
+		</Key>
+		<Key ID="STR_SSS_Module_TurretPathDescription">
+			<English>Turret path to gunner</English>
+		</Key>
+		<Key ID="STR_SSS_Module_AddCASHelicopter">
+			<English>Add CAS Helicopter</English>
+		</Key>
+		<Key ID="STR_SSS_Module_AddCASPlane">
+			<English>Add CAS Plane</English>
+		</Key>
+		<Key ID="STR_SSS_Module_ClassnameCASPlaneDescription">
+			<English>Classname of plane vehicle</English>
+		</Key>
+		<Key ID="STR_SSS_Module_WeaponSetName">
+			<English>Weapon set</English>
+		</Key>
+		<Key ID="STR_SSS_Module_WeaponSetDescription">
+			<English>Array of weapon classnames or array of [weapon,magazine] arrays. Empty array for vehicle defaults</English>
+		</Key>
+		<Key ID="STR_SSS_Module_AddTransport">
+			<English>Add Transport</English>
+		</Key>
+		<Key ID="STR_SSS_Module_AddLogisticsAirdrop">
+			<English>Add Logistics Airdrop</English>
+		</Key>
+		<Key ID="STR_SSS_Module_CallsignLogisticsAidropDescription">
+			<English>Classname of air vehicle</English>
+		</Key>
+		<Key ID="STR_SSS_Module_CallsignLogisticsAirdropDefaultValue">
+			<English>Logistics Airdrop</English>
+		</Key>
+		<Key ID="STR_SSS_Module_SpawnPositionName">
+			<English>Fixed spawn position</English>
+		</Key>
+		<Key ID="STR_SSS_Module_SpawnPositionDescription">
+			<English>In format [x,y] or [x,y,z]. Leave empty to generate random position from request location.</English>
+		</Key>
+		<Key ID="STR_SSS_Module_SpawnDelayName">
+			<English>Spawn delay</English>
+		</Key>
+		<Key ID="STR_SSS_Module_SpawnDelayDescription">
+			<English>Time before air vehicle is spawned after request is submitted</English>
+		</Key>
+		<Key ID="STR_SSS_Module_FlyingHeightName">
+			<English>Flying height</English>
+		</Key>
+		<Key ID="STR_SSS_Module_FlyingHeightDescription">
+			<English>AGL altitude in meters</English>
+		</Key>
+		<Key ID="STR_SSS_Module_ListFunctionName">
+			<English>List function</English>
+		</Key>
+		<Key ID="STR_SSS_Module_ListFunctionDescription">
+			<English>Code that must return an array of items that can be requested. \n\nSupported list item arguments: \n0: Classname <STRING> \n1: Custom name <STRING> \n2: Custom icon <STRING> \n3: Init code <CODE> \n\nExample array: \n[""Box_NATO_Wps_F"",[""Box_NATO_Equip_F"",""Equipment"","""",{systemChat ""dress up time""}]]</English>
+		</Key>
+		<Key ID="STR_SSS_Module_UniversalInitCodeName">
+			<English>Universal init code</English>
+		</Key>
+		<Key ID="STR_SSS_Module_UniversalInitCodeDescription">
+			<English>Code executed when any requested object is spawned. \n(Object = _this)</English>
+		</Key>
+		<Key ID="STR_SSS_Module_MaxAmountName">
+			<English>Maximum amount input</English>
+		</Key>
+		<Key ID="STR_SSS_Module_MaxAmountDescription">
+			<English>Maximum number of items that can be spawned per request.</English>
+		</Key>
+		<Key ID="STR_SSS_Module_LandingSignalName">
+			<English>Landing signal</English>
+		</Key>
+		<Key ID="STR_SSS_Module_LandingSignalDescription">
+			<English>Color of signal when item lands, or none for no signal. \nSmoke used during daytime, chemlights used at night.</English>
+		</Key>
+		<Key ID="STR_SSS_Module_LandingSignalNone">
+			<English>None</English>
+		</Key>
+		<Key ID="STR_SSS_Module_LandingSignalYellow">
+			<English>Yellow</English>
+		</Key>
+		<Key ID="STR_SSS_Module_LandingSignalGreen">
+			<English>Green</English>
+		</Key>
+		<Key ID="STR_SSS_Module_LandingSignalRed">
+			<English>Red</English>
+		</Key>
+		<Key ID="STR_SSS_Module_LandingSignalBlue">
+			<English>Blue</English>
+		</Key>
+		<Key ID="STR_SSS_Module_AddLogisticsStation">
+			<English>Add Logistics Station</English>
+		</Key>
+		<Key ID="STR_SSS_Module_CallsignAddLogisticsStationDefaultValue">
+			<English>Logistics Station</English>
+		</Key>
+		<Key ID="STR_SSS_Module_RemoveSupports">
+			<English>Remove Supports</English>
+		</Key>
+		<Key ID="STR_SSS_Module_ZeusArtilleryAdded">
+			<English>Artillery added</English>
+		</Key>
+		<Key ID="STR_SSS_Module_ZeusCASDroneAdded">
+			<English>CAS Drone added</English>
+		</Key>
+		<Key ID="STR_SSS_Module_ZeusCASGunshipAdded">
+			<English>CAS Gunship added</English>
+		</Key>
+		<Key ID="STR_SSS_Module_ZeusCASHelicopterAdded">
+			<English>CAS Helicopter added</English>
+		</Key>
+		<Key ID="STR_SSS_Module_ZeusCASPlaneAdded">
+			<English>CAS Plane added</English>
+		</Key>
+		<Key ID="STR_SSS_Module_ZeusLogisticsAirdropAdded">
+			<English>Logistics airdrop added</English>
+		</Key>
+		<Key ID="STR_SSS_Module_ZeusLogisticsStationAdded">
+			<English>Logistics station added</English>
+		</Key>
+		<Key ID="STR_SSS_Module_ZeusAirTransportAdded">
+			<English>Air Transport added</English>
+		</Key>
+		<Key ID="STR_SSS_Module_ZeusSeaTransportAdded">
+			<English>Sea Transport added</English>
+		</Key>
+		<Key ID="STR_SSS_Module_ZeusLandTransportAdded">
+			<English>Land Transport added</English>
+		</Key>
+		<Key ID="STR_SSS_Module_SpawnDirectionName">
+			<English>Spawn direction</English>
+		</Key>
+		<Key ID="STR_SSS_Module_ZeusNoSupportsExist">
+			<English>No supports exist</English>
+		</Key>
+		<Key ID="STR_SSS_Module_SelectSupportsToRemove">
+			<English>Select supports to be removed</English>
+		</Key>
+		<Key ID="STR_SSS_Module_CANCEL">
+			<English>CANCEL</English>
+			<French>ANNULER</French>
+		</Key>
+		<Key ID="STR_SSS_Module_CONFIRM">
+			<English>CONFIRM</English>
+			<French>CONFIRMER</French>
+		</Key>
+		<Key ID="STR_SSS_Module_ZeusSupportsRemoved">
+			<English>Supports removed</English>
+		</Key>
+	</Package>
+</Project>
