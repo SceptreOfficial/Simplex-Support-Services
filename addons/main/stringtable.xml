@@ -87,7 +87,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_SlingLoadSearchRadius_DisplayName">
 			<English>Sling load search radius</English>
-			<French>Rayon de la zone de collecte du matériel héliportable</French>
+			<French>Rayon de recherche de matériel héliportable</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_SlingLoadSearchRadius_Description">
 			<English>Determines how far from the request position to search for objects</English>
