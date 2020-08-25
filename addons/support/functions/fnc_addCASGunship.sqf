@@ -19,12 +19,12 @@ if (_classname isEqualType objNull) then {
 };
 
 if (_classname isEqualTo "" || !(_classname isKindOf "Plane")) exitWith {
-	SSS_ERROR_1("Invalid CAS Gunship classname: %1",_classname);
+	SSS_ERROR_1(localize LSTRING(InvalidCASGunshipClassname),_classname);
 	objNull
 };
 
 if (_turretPath isEqualTo []) exitWith {
-	SSS_ERROR_1("Invalid CAS Gunship turret path: %1",_turretPath);
+	SSS_ERROR_1(localize LSTRING(InvalidCASGunshipTurretPath),_turretPath);
 	objNull
 };
 

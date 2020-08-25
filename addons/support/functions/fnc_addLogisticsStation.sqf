@@ -21,7 +21,7 @@ _spawnPosASL params [["_posX",0,[0]],["_posY",0,[0]],["_posZ",0,[0]]];
 _spawnPosASL = [_posX,_posY,_posZ];
 
 if (_callsign isEqualTo "") then {
-	_callsign = "Logistics Station";
+	_callsign = localize LSTRING(DefaultCallsignLogisticsStation);
 };
 
 if (_listFnc isEqualType "") then {

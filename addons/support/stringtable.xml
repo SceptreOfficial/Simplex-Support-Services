@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="SSS">
+	<Package name="Support">
+		<Key ID="STR_SSS_Support_VehicleAlreadyASupport">
+			<English>Vehicle is already a support: %1 (%2)</English>
+		</Key>
+		<Key ID="STR_SSS_Support_NoPlayersAllowed">
+			<English>No players allowed: %1 (%2)</English>
+		</Key>
+		<Key ID="STR_SSS_Support_NoGunnerInVehicle">
+			<English>No gunner in vehicle: %1 (%2)</English>
+		</Key>
+		<Key ID="STR_SSS_Support_NoDriverInVehicle">
+			<English>No driver in vehicle: %1 (%2)</English>
+		</Key>
+		<Key ID="STR_SSS_Support_InvalidCASDroneClassname">
+			<English>Invalid CAS Drone classname: %1</English>
+		</Key>
+		<Key ID="STR_SSS_Support_InvalidCASGunshipClassname">
+			<English>Invalid CAS Gunship classname: %1</English>
+		</Key>
+		<Key ID="STR_SSS_Support_InvalidCASGunshipTurretPath">
+			<English>Invalid CAS Gunship turret path: %1</English>
+		</Key>
+		<Key ID="STR_SSS_Support_InvalidCASPlaneClassname">
+			<English>Invalid CAS Plane classname: %1</English>
+		</Key>
+		<Key ID="STR_SSS_Support_InvalidLogisticsAirdropClassname">
+			<English>Invalid Logistics Airdrop classname: %1</English>
+		</Key>
+		<Key ID="STR_SSS_Support_DefaultCallsignLogisticsAirdrop">
+			<English>Logistics Airdrop</English>
+		</Key>
+		<Key ID="STR_SSS_Support_DefaultCallsignLogisticsStation">
+			<English>Logistics Station</English>
+		</Key>
+		<Key ID="STR_SSS_Support_AirTransport">
+			<English>Air Transport</English>
+		</Key>
+		<Key ID="STR_SSS_Support_SeaTransport">
+			<English>Sea Transport</English>
+		</Key>
+		<Key ID="STR_SSS_Support_LandTransport">
+			<English>Land Transport</English>
+		</Key>
+		<Key ID="STR_SSS_Support_ReadyForNewRequests">
+			<English>Ready for new requests.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_AirdropInboundETA">
+			<English>%1 airdrop inbound. ETA %2.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_ObjectDropped">
+			<English>%1 dropped.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_RearmedAndReady">
+			<English>Rearmed and ready for further tasking.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_FireMissionConfirmed">
+			<English>Fire mission on %1 confirmed. %2 rounds - ETA %3.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_SplashOver">
+			<English>Splash - over.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_UAVOnTheWay">
+			<English>UAV is on the way and will notify on arrival.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_UAVInRequestedArea">
+			<English>UAV is in the requested area. Connect via UAV Terminal.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_DroneDestroyed">
+			<English>Drone has been destroyed.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_UAVIsLeaving">
+			<English>UAV is leaving the area. Support will be available again in %1.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_GunshipOnTheWay">
+			<English>Gunship is on the way and will notify on arrival.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_GunshipInRequestedArea">
+			<English>Gunship is in the requested area. Connect via support menu</English>
+		</Key>
+		<Key ID="STR_SSS_Support_GunshipDestroyed">
+			<English>Gunship has been destroyed.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_GunshipIsLeaving">
+			<English>Gunship is leaving the area. Support will be available again in %1.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_ReturningToBase">
+			<English>Returning to base.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_ArrivedAtBase">
+			<English>Arrived at base. Ready for further tasking.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_HeadingToLocationToProvideCAS">
+			<English>Heading to location to provide CAS.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_SearchAndDestroyComplete">
+			<English>Search and Destroy Complete.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_MovingToRequestLocation">
+			<English>Moving to requested location.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_DestinationReached">
+			<English>Destination reached. Ready for further tasking.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_MovingToRequestLocationLoiter">
+			<English>Moving to requested location to loiter.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_DestinationReachedLoitering">
+			<English>Destination reached. Loitering until further tasking.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_MoveFromETA">
+			<English>%1 from %2. ETA 45s. %3</English>
+		</Key>
+		<Key ID="STR_SSS_Support_FiringCoordinates">
+			<English>Firing %1 on map coordinates.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_WillFireLaserTarget">
+			<English>Will fire %1 at laser target.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_WillFireSmoke">
+			<English>Will fire %1 at %2 smoke.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_WillFireIRStrobe">
+			<English>Will fire %1 at IR strobe.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_NoSignalFoundReadyForNewRequests">
+			<English>No suitable signal was found. Ready for new requests in %1</English>
+		</Key>
+		<Key ID="STR_SSS_Support_InvalidLogisticsList">
+			<English>Invalid logistics list</English>
+		</Key>
+		<Key ID="STR_SSS_Support_SelectObject">
+			<English>Select object</English>
+		</Key>
+		<Key ID="STR_SSS_Support_Find">
+			<English>Find</English>
+		</Key>
+		<Key ID="STR_SSS_Support_AvailableObjects">
+			<English>Available objects</English>
+		</Key>
+		<Key ID="STR_SSS_Support_Amount">
+			<English>Amount</English>
+		</Key>
+		<Key ID="STR_SSS_Support_ObjectDelivered">
+			<English>%1 delivered.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_HeadingToPickupLocationPrepareSignal">
+			<English>Heading to pickup location. Prepare to signal on arrival.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_HeadingToLZ">
+			<English>Heading to the LZ.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_LandedAtLocation">
+			<English>Landed at location. Ready for further tasking.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_MovingLocationFastrope">
+			<English>Moving to location to fastrope from %1m.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_MovingLocationHover">
+			<English>Moving to location to hover at %1m.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_MovingToSlingLoadingArea">
+			<English>Moving to sling loading area.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_ArrivedAtSlingLoadLocation">
+			<English>Arrived at sling load location. Please confirm object to attach.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_SlingLoadCancelled">
+			<English>Sling Load cancelled. No object selected.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_SlingLoadingObject">
+			<English>Sling loading object...</English>
+		</Key>
+		<Key ID="STR_SSS_Support_ObjectSlingLoaded">
+			<English>Object sling loaded.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_MovingToPositionToDetach">
+			<English>Moving to position to detach.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_LoadDetached">
+			<English>Load detached. Ready for further tasking.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_MovingToLocationForParadrop">
+			<English>Moving to location for paradrop. Get ready...</English>
+		</Key>
+		<Key ID="STR_SSS_Support_GoGoGo">
+			<English>"Go! Go! Go!"</English>
+		</Key>
+		<Key ID="STR_SSS_Support_FastropingAtLocation">
+			<English>Fastroping at location.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_HoveringAtLocation">
+			<English>Hovering at location.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_ArrivedAtPickupDestinationWaitSmoke">
+			<English>Arrived at pickup destination. Pop smoke to confirm landing position.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_DisregardingSignalRequireNewSmoke">
+			<English>Disregarding that signal. Pop a new smoke to confirm landing position.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_ArrivedAtPickupDestinationWaitIR">
+			<English>Arrived at pickup destination. Deploy IR signal to confirm landing position.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_DisregardingSignalRequireNewIR">
+			<English>Disregarding that signal. Deploy a new IR signal to confirm landing position.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_SignalSeenSmoke">
+			<English>a %1 smoke</English>
+		</Key>
+		<Key ID="STR_SSS_Support_SignalSeenIR">
+			<English>an IR signal</English>
+		</Key>
+		<Key ID="STR_SSS_Support_WeSeeSignalConfirm">
+			<English>We see %1. Do you confirm?</English>
+		</Key>
+		<Key ID="STR_SSS_Support_SignalConfirmedClearLZ">
+			<English>Signal confirmed. Clear the LZ.</English>
+		</Key>
+		<Key ID="STR_SSS_Support_TouchdownLoadUp">
+			<English>Touchdown. Load up!</English>
+		</Key>
+	</Package>
+</Project>

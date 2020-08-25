@@ -32,7 +32,7 @@ switch (toUpper _request) do {
 			// Begin order
 			_entity setVariable ["SSS_onTask",true,true];
 			[_entity,true,_position] call EFUNC(common,updateMarker);
-			NOTIFY(_entity,"Returning to base.");
+			NOTIFY(_entity,localize LSTRING(ReturningToBase));
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
@@ -60,7 +60,7 @@ switch (toUpper _request) do {
 					_vehicle setDir (_entity getVariable "SSS_baseDir");
 					_vehicle setPosASL (_entity getVariable "SSS_base");
 
-					END_ORDER(_entity,"Arrived at base. Ready for further tasking.");
+					END_ORDER(_entity,localize LSTRING(ArrivedAtBase));
 					_entity setVariable ["SSS_awayFromBase",false,true];
 					_vehicle engineOn false;
 					_vehicle setFuel 0;
@@ -84,7 +84,7 @@ switch (toUpper _request) do {
 				PLANE_TAKEOFF(_vehicle);
 			};
 
-			BEGIN_ORDER(_entity,_position,"Moving to requested location.");
+			BEGIN_ORDER(_entity,_position,localize LSTRING(MovingToRequestLocation));
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
@@ -97,7 +97,7 @@ switch (toUpper _request) do {
 					CANCEL_ORDER(_entity);
 				};
 
-				END_ORDER(_entity,"Destination reached. Ready for further tasking.");
+				END_ORDER(_entity,localize LSTRING(DestinationReached));
 
 				["SSS_requestCompleted",[_entity,["MOVE"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
@@ -116,7 +116,7 @@ switch (toUpper _request) do {
 				PLANE_TAKEOFF(_vehicle);
 			};
 
-			BEGIN_ORDER(_entity,_position,"Moving to location for paradrop. Get ready...");
+			BEGIN_ORDER(_entity,_position,localize LSTRING(MovingToLocationForParadrop));
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
@@ -134,7 +134,7 @@ switch (toUpper _request) do {
 				
 				[_entity,_vehicle,_jumpDelay,_AIOpeningHeight] call FUNC(transportParadrop);
 
-				END_ORDER(_entity,"Go! Go! Go!");
+				END_ORDER(_entity,localize LSTRING(GoGoGo));
 
 				["SSS_requestCompleted",[_entity,["PARADROP"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle,_position,_jumpDelay,_AIOpeningHeight]] call CBA_fnc_waitUntilAndExecute;
@@ -153,7 +153,7 @@ switch (toUpper _request) do {
 				PLANE_TAKEOFF(_vehicle);
 			};
 
-			BEGIN_ORDER(_entity,_position,"Moving to requested location to loiter.");
+			BEGIN_ORDER(_entity,_position,localize LSTRING(MovingToRequestLocationLoiter));
 
 			private _prepDist = [100,_loiterRadius + 100] select (_vehicle distance2D _position > (_loiterRadius + 100));
 			_vehicle setVariable ["SSS_WPDone",false];
@@ -177,7 +177,7 @@ switch (toUpper _request) do {
 
 				// End order without removing marker
 				_entity setVariable ["SSS_onTask",false,true];
-				NOTIFY(_entity,"Destination reached. Loitering until further tasking.");
+				NOTIFY(_entity,localize LSTRING(DestinationReachedLoitering));
 
 				["SSS_requestCompleted",[_entity,["LOITER"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle,_position,_loiterRadius,_loiterDirection]] call CBA_fnc_waitUntilAndExecute;

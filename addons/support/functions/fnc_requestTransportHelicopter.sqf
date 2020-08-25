@@ -35,7 +35,7 @@ switch (toUpper _request) do {
 			// Begin order
 			_entity setVariable ["SSS_onTask",true,true];
 			[_entity,true,_position] call EFUNC(common,updateMarker);
-			NOTIFY(_entity,"Returning to base.");
+			NOTIFY(_entity,localize LSTRING(ReturningToBase));
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
@@ -75,7 +75,7 @@ switch (toUpper _request) do {
 						deleteVehicle _pad;
 					};
 
-					END_ORDER(_entity,"Arrived at base. Ready for further tasking.");
+					END_ORDER(_entity,localize LSTRING(ArrivedAtBase));
 					_entity setVariable ["SSS_awayFromBase",false,true];
 					_vehicle engineOn false;
 					_vehicle doFollow _vehicle;
@@ -95,7 +95,7 @@ switch (toUpper _request) do {
 		[{!((_this # 0) getVariable "SSS_onTask")},{
 			params ["_entity","_vehicle","_position"];
 
-			BEGIN_ORDER(_entity,_position,"Heading to pickup location. Prepare to signal on arrival.");
+			BEGIN_ORDER(_entity,_position,localize LSTRING(HeadingToPickupLocationPrepareSignal));
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
@@ -156,7 +156,7 @@ switch (toUpper _request) do {
 				_nearestPads # 0
 			};
 			
-			BEGIN_ORDER(_entity,_position,"Heading to the LZ.");
+			BEGIN_ORDER(_entity,_position,localize LSTRING(HeadingToLZ));
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
@@ -194,7 +194,7 @@ switch (toUpper _request) do {
 						};
 					};
 
-					END_ORDER(_entity,"Landed at location. Ready for further tasking.");
+					END_ORDER(_entity,localize LSTRING(LandedAtLocation));
 
 					if (_deletePad) then {
 						[{deleteVehicle _this},_pad,60] call CBA_fnc_waitAndExecute;
@@ -212,7 +212,7 @@ switch (toUpper _request) do {
 		[{!((_this # 0) getVariable "SSS_onTask")},{
 			params ["_entity","_vehicle","_position"];
 
-			BEGIN_ORDER(_entity,_position,"Moving to requested location.");
+			BEGIN_ORDER(_entity,_position,localize LSTRING(MovingToRequestLocation));
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
@@ -225,7 +225,7 @@ switch (toUpper _request) do {
 					CANCEL_ORDER(_entity);
 				};
 
-				END_ORDER(_entity,"Destination reached. Ready for further tasking.");
+				END_ORDER(_entity,localize LSTRING(DestinationReached));
 
 				["SSS_requestCompleted",[_entity,["MOVE"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
@@ -241,9 +241,9 @@ switch (toUpper _request) do {
 			params ["_entity","_vehicle","_position","_hoverHeight","_doFastrope"];
 
 			private _message = if (_doFastrope) then {
-				format ["Moving to location to fastrope from %1m.",_hoverHeight]
+				format [localize LSTRING(MovingLocationFastrope),_hoverHeight]
 			} else {
-				format ["Moving to location to hover at %1m.",_hoverHeight]
+				format [localize LSTRING(MovingLocationHover),_hoverHeight]
 			};
 
 			BEGIN_ORDER(_entity,_position,_message);
@@ -295,7 +295,7 @@ switch (toUpper _request) do {
 		[{!((_this # 0) getVariable "SSS_onTask")},{
 			params ["_entity","_vehicle","_position","_loiterRadius","_loiterDirection"];
 
-			BEGIN_ORDER(_entity,_position,"Moving to requested location to loiter.");
+			BEGIN_ORDER(_entity,_position,localize LSTRING(MovingToRequestLocationLoiter));
 
 			private _prepDist = [100,_loiterRadius + 100] select (_vehicle distance2D _position > (_loiterRadius + 100));
 			_vehicle setVariable ["SSS_WPDone",false];
@@ -319,7 +319,7 @@ switch (toUpper _request) do {
 
 				// End order without removing marker
 				_entity setVariable ["SSS_onTask",false,true];
-				NOTIFY(_entity,"Destination reached. Loitering until further tasking.");
+				NOTIFY(_entity,localize LSTRING(DestinationReachedLoitering));
 
 				["SSS_requestCompleted",[_entity,["LOITER"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle,_position,_loiterRadius,_loiterDirection]] call CBA_fnc_waitUntilAndExecute;
@@ -332,7 +332,7 @@ switch (toUpper _request) do {
 		[{!((_this # 0) getVariable "SSS_onTask")},{
 			params ["_entity","_vehicle","_position"];
 
-			BEGIN_ORDER(_entity,_position,"Moving to sling loading area.");
+			BEGIN_ORDER(_entity,_position,localize LSTRING(MovingToSlingLoadingArea));
 			_entity setVariable ["SSS_slingLoadPosition",_position,true];
 
 			_vehicle setVariable ["SSS_WPDone",false];
@@ -347,7 +347,7 @@ switch (toUpper _request) do {
 					_entity setVariable ["SSS_slingLoadPosition",nil,true];
 				};
 
-				NOTIFY(_entity,"Arrived at sling load location. Please confirm object to attach.");
+				NOTIFY(_entity,localize LSTRING(ArrivedAtSlingLoadLocation));
 				_entity setVariable ["SSS_slingLoadReady",true,true];
 
 				[{
@@ -368,7 +368,7 @@ switch (toUpper _request) do {
 					_entity setVariable ["SSS_slingLoadPosition",nil,true];
 
 					if (isNull _object) then {
-						END_ORDER(_entity,"Sling Load cancelled. No object selected.");
+						END_ORDER(_entity,localize LSTRING(SlingLoadCancelled));
 						["SSS_requestCompleted",[_entity,["SLINGLOAD",objNull]]] call CBA_fnc_globalEvent;
 					} else {
 						if (!local _object) then {
@@ -381,7 +381,7 @@ switch (toUpper _request) do {
 						private _WP = (group _vehicle) addWaypoint [getPos _object,0];
 						_WP setWaypointType "HOOK";
 
-						NOTIFY(_entity,"Sling loading object...");
+						NOTIFY(_entity,localize LSTRING(SlingLoadingObject));
 
 						[{
 							params ["_entity","_vehicle"];
@@ -394,7 +394,7 @@ switch (toUpper _request) do {
 								CANCEL_ORDER(_entity);
 							};
 
-							END_ORDER(_entity,"Object sling loaded.");
+							END_ORDER(_entity,localize LSTRING(ObjectSlingLoaded));
 							["SSS_requestCompleted",[_entity,["SLINGLOAD",getSlingLoad _vehicle]]] call CBA_fnc_globalEvent;
 						},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 					};
@@ -409,7 +409,7 @@ switch (toUpper _request) do {
 		[{!((_this # 0) getVariable "SSS_onTask")},{
 			params ["_entity","_vehicle","_position"];
 
-			BEGIN_ORDER(_entity,_position,"Moving to position to detach.");
+			BEGIN_ORDER(_entity,_position,localize LSTRING(MovingToPositionToDetach));
 
 			private _pad = "Land_HelipadEmpty_F" createVehicle _position;
 
@@ -426,7 +426,7 @@ switch (toUpper _request) do {
 					CANCEL_ORDER(_entity);
 				};
 
-				END_ORDER(_entity,"Load detached. Ready for further tasking.");
+				END_ORDER(_entity,localize LSTRING(LoadDetached));
 
 				["SSS_requestCompleted",[_entity,["UNHOOK"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle,_pad]] call CBA_fnc_waitUntilAndExecute;
@@ -441,7 +441,7 @@ switch (toUpper _request) do {
 		[{!((_this # 0) getVariable "SSS_onTask")},{
 			params ["_entity","_vehicle","_position","_jumpDelay","_AIOpeningHeight"];
 
-			BEGIN_ORDER(_entity,_position,"Moving to location for paradrop. Get ready...");
+			BEGIN_ORDER(_entity,_position,localize LSTRING(MovingToLocationForParadrop));
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
@@ -458,7 +458,7 @@ switch (toUpper _request) do {
 
 				[_entity,_vehicle,_jumpDelay,_AIOpeningHeight] call FUNC(transportParadrop);
 
-				END_ORDER(_entity,"Go! Go! Go!");
+				END_ORDER(_entity,localize LSTRING(GoGoGo));
 
 				["SSS_requestCompleted",[_entity,["PARADROP"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle,_position,_jumpDelay,_AIOpeningHeight]] call CBA_fnc_waitUntilAndExecute;

@@ -28,17 +28,17 @@ if (_requestCondition isEqualType "") then {
 };
 
 if (!isNull (_vehicle getVariable ["SSS_parentEntity",objNull])) exitWith {
-	SSS_ERROR_2("Vehicle is already a support: %1 (%2)",_callsign,_vehicle);
+	SSS_ERROR_2(localize LSTRING(VehicleAlreadyASupport),_callsign,_vehicle);
 	objNull
 };
 
 if ({isPlayer _x} count crew _vehicle > 0) exitWith {
-	SSS_ERROR_2("No players allowed: %1 (%2)",_callsign,_vehicle);
+	SSS_ERROR_2(localize LSTRING(NoPlayersAllowed),_callsign,_vehicle);
 	objNull
 };
 
 if (!alive driver _vehicle) exitWith {
-	SSS_ERROR_2("No driver in vehicle: %1 (%2)",_callsign,_vehicle);
+	SSS_ERROR_2(localize LSTRING(NoDriverInVehicle),_callsign,_vehicle);
 	objNull
 };
 

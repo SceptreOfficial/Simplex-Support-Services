@@ -11,13 +11,13 @@ if ((_entity getVariable "SSS_cooldown") > 0) exitWith {
 COMPILE_LOGISTICS_LISTS;
 
 if (_list isEqualTo []) exitWith {
-	SSS_ERROR("Invalid logistics list");
+	SSS_ERROR(localize LSTRING(InvalidLogisticsList));
 };
 
 private _maxAmount = _entity getVariable "SSS_maxAmount";
 
-["Select object",[
-	["EDITBOX","Find","",true,{
+[localize LSTRING(SelectObject),[
+	["EDITBOX",localize LSTRING(Find),"",true,{
 		params ["_value","_args"];
 		
 		private _searchList = _args # 4;
@@ -42,8 +42,8 @@ private _maxAmount = _entity getVariable "SSS_maxAmount";
 			_listbox lnbSetCurSelRow _result;
 		};
 	}],
-	["LISTNBOX","Available objects",[_beautifiedList,0,10]],
-	["SLIDER","Amount",[[1,_maxAmount,0],1],true,{},_maxAmount >= 1]
+	["LISTNBOX",localize LSTRING(AvailableObjects),[_beautifiedList,0,10]],
+	["SLIDER",localize LSTRING(Amount),[[1,_maxAmount,0],1],true,{},_maxAmount >= 1]
 ],{
 	params ["_values","_args"];
 	_values params ["_find","_selection","_amount"];

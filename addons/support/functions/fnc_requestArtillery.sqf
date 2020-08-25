@@ -22,7 +22,7 @@ if ((_entity getVariable "SSS_cooldown") > 0) exitWith {
 
 // Start cooldown
 private _cooldownDefault = _entity getVariable "SSS_cooldownDefault";
-[_entity,_cooldownDefault # 0 + (_cooldownDefault # 1 * _rounds),"Rearmed and ready for further tasking."] call EFUNC(common,cooldown);
+[_entity,_cooldownDefault # 0 + (_cooldownDefault # 1 * _rounds),localize LSTRING(RearmedAndReady)] call EFUNC(common,cooldown);
 
 // Update task marker
 [_entity,true,_position] call EFUNC(common,updateMarker);
@@ -36,8 +36,8 @@ if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") then {
 	private _missileMaxSpeed = getNumber (configfile >> "CfgAmmo" >> _missileClass >> "maxSpeed");
 	private _ETA = ceil (((_position distance _vehicle) / _missileMaxSpeed) + 10);
 	
-	NOTIFY_3(_entity,"Fire mission on %1 confirmed. %2 rounds - ETA %3.",mapGridPosition _position,_rounds,PROPER_TIME(_ETA));
-	[{NOTIFY(_this,"Splash - over.")},_entity,(_ETA - 5) max 0.5] call CBA_fnc_waitAndExecute;
+	NOTIFY_3(_entity,localize LSTRING(FireMissionConfirmed),mapGridPosition _position,_rounds,PROPER_TIME(_ETA));
+	[{NOTIFY(_this,localize LSTRING(SplashOver))},_entity,(_ETA - 5) max 0.5] call CBA_fnc_waitAndExecute;
 	[{[_this,false] call EFUNC(common,updateMarker);},_entity,_ETA + 10 + (_rounds * 10)] call CBA_fnc_waitAndExecute;
 
 	_vehicle setFuel 1;
@@ -101,8 +101,8 @@ if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") then {
 	},[_entity,_vehicle,_position,_magType,_dispersion,_rounds,_target,_targetLife,_weapon,_reloadTime]] call CBA_fnc_execNextFrame;
 } else {
 	private _ETA = round (_vehicle getArtilleryETA [_position,_magType]);
-	NOTIFY_3(_entity,"Fire mission on %1 confirmed. %2 rounds - ETA %3.",mapGridPosition _position,_rounds,PROPER_TIME(_ETA));
-	[{NOTIFY(_this,"Splash - over.")},_entity,(_ETA - 5) max 0.5] call CBA_fnc_waitAndExecute;
+	NOTIFY_3(_entity,localize LSTRING(FireMissionConfirmed),mapGridPosition _position,_rounds,PROPER_TIME(_ETA));
+	[{NOTIFY(_this,localize LSTRING(SplashOver))},_entity,(_ETA - 5) max 0.5] call CBA_fnc_waitAndExecute;
 	[{[_this,false] call EFUNC(common,updateMarker);},_entity,_ETA + 10 + (_rounds * 3)] call CBA_fnc_waitAndExecute;
 
 	_vehicle setFuel 1;

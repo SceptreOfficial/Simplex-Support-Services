@@ -12,17 +12,17 @@ if (_firstCall) then {
 
 private _signalType = if (daytime > _sunrise && daytime < _sunset) then {
 	if (_firstCall) then {
-		NOTIFY(_entity,"Arrived at pickup destination. Pop smoke to confirm landing position.");
+		NOTIFY(_entity,localize LSTRING(ArrivedAtPickupDestinationWaitSmoke));
 	} else {
-		NOTIFY(_entity,"Disregarding that signal. Pop a new smoke to confirm landing position.");
+		NOTIFY(_entity,localize LSTRING(DisregardingSignalRequireNewSmoke));
 	};
 
 	"SmokeShell"
 } else {
 	if (_firstCall) then {
-		NOTIFY(_entity,"Arrived at pickup destination. Deploy IR signal to confirm landing position.");
+		NOTIFY(_entity,localize LSTRING(ArrivedAtPickupDestinationWaitIR));
 	} else {
-		NOTIFY(_entity,"Disregarding that signal. Deploy a new IR signal to confirm landing position.");
+		NOTIFY(_entity,localize LSTRING(DisregardingSignalRequireNewIR));
 	};
 
 	"IRStrobeBase"
@@ -46,12 +46,12 @@ private _signalType = if (daytime > _sunrise && daytime < _sunset) then {
 	_entity setVariable ["SSS_needConfirmation",true,true];
 
 	private _signalSeen = if (_signalType == "SmokeShell") then {
-		format ["a %1 smoke",toLower (_signal call EFUNC(common,getSmokeColor))]
+		format [localize LSTRING(SignalSeenSmoke),toLower (_signal call EFUNC(common,getSmokeColor))]
 	} else {
-		"an IR signal"
+		localize LSTRING(SignalSeenIR)
 	};
 
-	NOTIFY_1(_entity,"We see %1. Do you confirm?",_signalSeen);
+	NOTIFY_1(_entity,localize LSTRING(WeSeeSignalConfirm),_signalSeen);
 
 	private _signalPos = getPos _signal;
 	_signalPos set [2,0];
@@ -76,7 +76,7 @@ private _signalType = if (daytime > _sunrise && daytime < _sunset) then {
 		};
 
 		// Signal approved
-		NOTIFY(_entity,"Signal confirmed. Clear the LZ.");
+		NOTIFY(_entity,localize LSTRING(SignalConfirmedClearLZ));
 		_entity setVariable ["SSS_deniedSignals",[],true];
 
 		if (!isNull _signal) then {
@@ -112,7 +112,7 @@ private _signalType = if (daytime > _sunrise && daytime < _sunset) then {
 					deleteVehicle _pad;
 				};
 
-				END_ORDER(_entity,"Touchdown. Load up!");
+				END_ORDER(_entity,localize LSTRING(TouchdownLoadUp));
 
 				[{deleteVehicle _this},_pad,5] call CBA_fnc_waitAndExecute;
 

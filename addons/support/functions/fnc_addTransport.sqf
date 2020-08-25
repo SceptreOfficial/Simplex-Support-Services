@@ -28,17 +28,17 @@ if (_requestCondition isEqualType "") then {
 };
 
 if (!isNull (_vehicle getVariable ["SSS_parentEntity",objNull])) exitWith {
-	SSS_ERROR_2("Vehicle is already a support: %1 (%2)",_callsign,_vehicle);
+	SSS_ERROR_2(localize LSTRING(VehicleAlreadyASupport),_callsign,_vehicle);
 	objNull
 };
 
 if ({isPlayer _x} count crew _vehicle > 0) exitWith {
-	SSS_ERROR_2("No players allowed: %1 (%2)",_callsign,_vehicle);
+	SSS_ERROR_2(localize LSTRING(NoPlayersAllowed),_callsign,_vehicle);
 	objNull
 };
 
 if (!alive driver _vehicle) exitWith {
-	SSS_ERROR_2("No driver in vehicle: %1 (%2)",_callsign,_vehicle);
+	SSS_ERROR_2(localize LSTRING(NoDriverInVehicle),_callsign,_vehicle);
 	objNull
 };
 
@@ -56,7 +56,7 @@ switch (true) do {
 	case (_vehicle isKindOf "Helicopter") : {
 		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_HELI,_customInit,"Transport","transportHelicopter",_accessItems,_accessCondition,_requestCondition);
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
-		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Air Transport");
+		CREATE_TASK_MARKER(_entity,_callsign,"mil_end",localize LSTRING(AirTransport));
 
 		// Specifics
 		_entity setVariable ["SSS_awayFromBase",false,true];
@@ -77,7 +77,7 @@ switch (true) do {
 	case (_vehicle isKindOf "VTOL_Base_F") : {
 		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_VTOL,_customInit,"Transport","transportVTOL",_accessItems,_accessCondition,_requestCondition);
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
-		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Air Transport");
+		CREATE_TASK_MARKER(_entity,_callsign,"mil_end",localize LSTRING(AirTransport));
 
 		// Specifics
 		_entity setVariable ["SSS_awayFromBase",false,true];
@@ -96,7 +96,7 @@ switch (true) do {
 	case (_vehicle isKindOf "Plane") : {
 		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_PLANE,_customInit,"Transport","transportPlane",_accessItems,_accessCondition,_requestCondition);
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
-		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Air Transport");
+		CREATE_TASK_MARKER(_entity,_callsign,"mil_end",localize LSTRING(AirTransport));
 
 		// Specifics
 		[_vehicle,0] remoteExecCall ["setFuel",owner _vehicle];
@@ -113,7 +113,7 @@ switch (true) do {
 	case (_vehicle isKindOf "Ship") : {
 		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_BOAT,_customInit,"Transport","transportMaritime",_accessItems,_accessCondition,_requestCondition);
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
-		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Sea Transport");
+		CREATE_TASK_MARKER(_entity,_callsign,"mil_end",localize LSTRING(SeaTransport);
 
 		// Specifics
 		_entity setVariable ["SSS_awayFromBase",false,true];
@@ -128,7 +128,7 @@ switch (true) do {
 	case (_vehicle isKindOf "LandVehicle") : {
 		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_CAR,_customInit,"Transport","transportLandVehicle",_accessItems,_accessCondition,_requestCondition);
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
-		CREATE_TASK_MARKER(_entity,_callsign,"mil_end","Land Transport");
+		CREATE_TASK_MARKER(_entity,_callsign,"mil_end",localize LSTRING(LandTransport));
 
 		// Specifics
 		_entity setVariable ["SSS_awayFromBase",false,true];

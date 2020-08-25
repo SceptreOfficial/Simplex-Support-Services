@@ -18,7 +18,7 @@ if (_classname isEqualType objNull) then {
 };
 
 if (_classname isEqualTo "" || !(_classname isKindOf "Plane")) exitWith {
-	SSS_ERROR_1("Invalid CAS Drone classname: %1",_classname);
+	SSS_ERROR_1(localize LSTRING(InvalidCASDroneClassname),_classname);
 	objNull
 };
 
