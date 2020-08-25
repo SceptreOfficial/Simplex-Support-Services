@@ -79,7 +79,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_SlingLoadWhitelist_DisplayName">
 			<English>Sling load whitelist</English>
-			<French>Liste du matériel héliportable</French>
+			<French>Liste blanche du matériel héliportable</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_SlingLoadWhitelist_Description">
 			<English>Only these classnames will be searched for at sling load request locations</English>
