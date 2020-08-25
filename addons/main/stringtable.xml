@@ -83,7 +83,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_SlingLoadWhitelist_Description">
 			<English>Only these classnames will be searched for at sling load request locations</English>
-			<French>Limite le matériel héliportable à ces seuls classnames.</French>
+			<French>Limite le matériel héliportable à ces seuls classnames.\nLaisser le champ vide pour permettre le transport de tous les équipements héliportables.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_SlingLoadSearchRadius_DisplayName">
 			<English>Sling load search radius</English>
