@@ -91,7 +91,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_SlingLoadSearchRadius_Description">
 			<English>Determines how far from the request position to search for objects</English>
-			<French>Définit le rayon de la zone de collecte où doit se trouver le matériel héliportable.</French>
+			<French>Définit le rayon, en mètres, au-delà duquel l'hélicoptère ne sera plus en mesure de trouver du matériel à transporter.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_MilsimModeArtillery_DisplayName">
 			<English>Enable milsim mode - Artillery</English>
