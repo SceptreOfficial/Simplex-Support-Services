@@ -27,9 +27,11 @@
 		</Key>
 		<Key ID="STR_SSS_Support_InvalidCASGunshipTurretPath">
 			<English>Invalid CAS Gunship turret path: %1</English>
+			<French>Classname de tourelle de cannonière volante invalide : %1</French>
 		</Key>
 		<Key ID="STR_SSS_Support_InvalidCASPlaneClassname">
 			<English>Invalid CAS Plane classname: %1</English>
+			<French>Classname d'avion pour CAS invalide : %1</French>
 		</Key>
 		<Key ID="STR_SSS_Support_InvalidLogisticsAirdropClassname">
 			<English>Invalid Logistics Airdrop classname: %1</English>
@@ -61,6 +63,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_AirdropInboundETA">
 			<English>%1 airdrop inbound. ETA %2.</English>
+			<French>%1 : parachutage en approche. ETA %2.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_ObjectDropped">
 			<English>%1 dropped.</English>
@@ -68,7 +71,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_RearmedAndReady">
 			<English>Rearmed and ready for further tasking.</English>
-			<French>Réarmé et disponible pour une nouvelle tâche.</French>
+			<French>Réarmé et disponible pour une nouvelle mission.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_FireMissionConfirmed">
 			<English>Fire mission on %1 confirmed. %2 rounds - ETA %3.</English>
@@ -96,15 +99,19 @@
 		</Key>
 		<Key ID="STR_SSS_Support_GunshipOnTheWay">
 			<English>Gunship is on the way and will notify on arrival.</English>
+			<French>La canonnière volante est en route et vous préviendra à son arrivée.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_GunshipInRequestedArea">
 			<English>Gunship is in the requested area. Connect via support menu</English>
+			<French>La canonnière volante est dans la zone demandée. Connectez-vous via le menu de support.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_GunshipDestroyed">
 			<English>Gunship has been destroyed.</English>
+			<French>La canonnière volante a été détruite.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_GunshipIsLeaving">
 			<English>Gunship is leaving the area. Support will be available again in %1s.</English>
+			<French>La canonnière volante quitte la zone. Elle sera de nouveau disponible dans %1 s.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_ReturningToBase">
 			<English>Returning to base.</English>
@@ -112,10 +119,11 @@
 		</Key>
 		<Key ID="STR_SSS_Support_ArrivedAtBase">
 			<English>Arrived at base. Ready for further tasking.</English>
-			<French>Arrivé à la base. Disponible pour une nouvelle tâche.</French>
+			<French>Arrivé à la base. Disponible pour une nouvelle mission.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_HeadingToLocationToProvideCAS">
 			<English>Heading to location to provide CAS.</English>
+			<French>Support CAS en route vers la position.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_SearchAndDestroyComplete">
 			<English>Search and Destroy Complete.</English>
@@ -127,7 +135,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_DestinationReached">
 			<English>Destination reached. Ready for further tasking.</English>
-			<French>Destination atteinte. Disponible pour une nouvelle tâche.</French>
+			<French>Destination atteinte. Disponible pour une nouvelle mission.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_MovingToRequestLocationLoiter">
 			<English>Moving to requested location to loiter.</English>
@@ -141,19 +149,23 @@
 		</Key>
 		<Key ID="STR_SSS_Support_FiringCoordinates">
 			<English>Firing %1 on map coordinates.</English>
+			<French>Tir de %1 à la position demandée.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_WillFireLaserTarget">
 			<English>Will fire %1 at laser target.</English>
+			<French>Tir de %1 sur la position pointée au laser.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_WillFireSmoke">
 			<English>Will fire %1 at %2 smoke.</English>
+			<French>Tir de %1 sur la fumigène %2.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_WillFireIRStrobe">
 			<English>Will fire %1 at IR strobe.</English>
+			<French>Tir de %1 sur la strobe IR.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_NoSignalFoundReadyForNewRequests">
 			<English>No suitable signal was found. Ready for new requests in %1s.</English>
-			<French>Aucun signal approprié n'a été trouvé. Disponible pour une nouvelle demande dans %1 s.</French>
+			<French>Aucun signal approprié n'a été trouvé. Disponible pour une nouvelle mission dans %1 s.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_InvalidLogisticsList">
 			<English>Invalid logistics list</English>
@@ -181,6 +193,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_HeadingToPickupLocationPrepareSignal">
 			<English>Heading to pickup location. Prepare to signal on arrival.</English>
+			<French>En route vers la position de ramassage. Préparez un signal pour notre arrivée.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_HeadingToLZ">
 			<English>Heading to the LZ.</English>
@@ -188,6 +201,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_LandedAtLocation">
 			<English>Landed at location. Ready for further tasking.</English>
+			<French>Posé à la position demandée. Disponible pour une nouvelle mission.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_MovingLocationFastrope">
 			<English>Moving to location to fastrope from %1m.</English>
@@ -223,7 +237,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_LoadDetached">
 			<English>Load detached. Ready for further tasking.</English>
-			<French>Charge détachée. Disponible pour une nouvelle tâche.</French>
+			<French>Charge détachée. Disponible pour une nouvelle mission.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_MovingToLocationForParadrop">
 			<English>Moving to location for paradrop. Get ready...</English>
@@ -243,15 +257,19 @@
 		</Key>
 		<Key ID="STR_SSS_Support_ArrivedAtPickupDestinationWaitSmoke">
 			<English>Arrived at pickup destination. Pop smoke to confirm landing position.</English>
+			<French>Arrivé à la position de ramassage. Confirmez la position d'atterrissage avec une fumigène.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_DisregardingSignalRequireNewSmoke">
 			<English>Disregarding that signal. Pop a new smoke to confirm landing position.</English>
+			<French>Fumigène non prise en compte. Confirmez la position d'atterrissage avec une nouvelle fumigène.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_ArrivedAtPickupDestinationWaitIR">
 			<English>Arrived at pickup destination. Deploy IR signal to confirm landing position.</English>
+			<French>Arrivé à la position de ramassage. Confirmez la position d'atterrissage avec un signal infrarouge.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_DisregardingSignalRequireNewIR">
 			<English>Disregarding that signal. Deploy a new IR signal to confirm landing position.</English>
+			<French>Signal infrarouge non pris en compte. Confirmez la position d'atterrissage avec un nouveau signal infrarouge.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_SignalSeenSmoke">
 			<English>a %1 smoke</English>
@@ -259,7 +277,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_SignalSeenIR">
 			<English>an IR signal</English>
-			<French>un signal IR</French>
+			<French>un signal infrarouge</French>
 		</Key>
 		<Key ID="STR_SSS_Support_WeSeeSignalConfirm">
 			<English>We see %1. Do you confirm?</English>
@@ -271,7 +289,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_TouchdownLoadUp">
 			<English>Touchdown. Load up!</English>
-			<French>Atterrissage. Embarquez !</French>
+			<French>Posé. Embarquez !</French>
 		</Key>
 	</Package>
 </Project>
