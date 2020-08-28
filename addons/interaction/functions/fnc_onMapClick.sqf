@@ -14,7 +14,7 @@ private _approval = if (_approvalReturn isEqualType true) then {
 	_approvalReturn
 } else {
 	_approvalReturn params [["_bool",false,[false]],["_reason","",[""]]];
-	_denialText = _denialText + _reason;
+	_denialText = _denialText + " " + _reason;
 	_bool
 };
 
@@ -52,7 +52,7 @@ switch (_entity getVariable "SSS_supportType") do {
 			};
 		};
 		
-		[localize LSTRING(FireMissionParameters) + mapGridPosition _position,[
+		[localize LSTRING(FireMissionParameters) + " - " + mapGridPosition _position,[
 			["SLIDER",localize LSTRING(Rounds),[[1,_entity getVariable "SSS_maxRounds",0],1]],
 			["SLIDER",localize LSTRING(RandomDispersionRadius),[[0,250,0],0]],
 			["SLIDER",[localize LSTRING(CoordinationAmount),localize LSTRING(RequestFireFromSimilarArtillery)],[[0,count _nearbyArtillery,0],0],true,{},count _nearbyArtillery > 0]
@@ -172,7 +172,7 @@ switch (_entity getVariable "SSS_supportType") do {
 			};
 		};
 
-		[localize LSTRING(CASParameters) + mapGridPosition _position,[
+		[localize LSTRING(CASParameters) + " - " + mapGridPosition _position,[
 			["COMBOBOX",[localize LSTRING(ApproachFrom),localize LSTRING(OrangeMeansApproachBlocked)],[_bearingList,0],false],
 			["COMBOBOX",localize LSTRING(MapPositionOrOtherSignal),[[
 				[localize LSTRING(MapPosition),"",ICON_MAP],
