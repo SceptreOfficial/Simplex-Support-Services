@@ -99,19 +99,19 @@
 		</Key>
 		<Key ID="STR_SSS_Support_GunshipOnTheWay">
 			<English>Gunship is on the way and will notify on arrival.</English>
-			<French>La canonnière volante est en route et vous préviendra à son arrivée.</French>
+			<French>Le gunship est en route et vous préviendra à son arrivée.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_GunshipInRequestedArea">
 			<English>Gunship is in the requested area. Connect via support menu</English>
-			<French>La canonnière volante est dans la zone demandée. Connectez-vous via le menu de support.</French>
+			<French>Le gunship est dans la zone demandée. Connectez-vous via le menu de support.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_GunshipDestroyed">
 			<English>Gunship has been destroyed.</English>
-			<French>La canonnière volante a été détruite.</French>
+			<French>Le gunship a été détruite.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_GunshipIsLeaving">
 			<English>Gunship is leaving the area. Support will be available again in %1s.</English>
-			<French>La canonnière volante quitte la zone. Elle sera de nouveau disponible dans %1 s.</French>
+			<French>Le gunship quitte la zone. Elle sera de nouveau disponible dans %1 s.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_ReturningToBase">
 			<English>Returning to base.</English>
@@ -139,9 +139,11 @@
 		</Key>
 		<Key ID="STR_SSS_Support_MovingToRequestLocationLoiter">
 			<English>Moving to requested location to loiter.</English>
+			<French>En route vers la position pour se mettre en vol d'attente.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_DestinationReachedLoitering">
 			<English>Destination reached. Loitering until further tasking.</English>
+			<French>Destination atteinte. Vol en attente jusqu'à la prochaine mission.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_MoveFromETA">
 			<English>%1 from %2. ETA 45s. %3</English>
