@@ -284,5 +284,5 @@
 	params ["_entity"]; \
 	private _vehicle = _entity getVariable "SSS_vehicle"; \
 	{[_x,"NoVoice"] remoteExecCall ["setSpeaker",0]} forEach PRIMARY_CREW(_vehicle); \
-	NOTIFY_LOCAL(_entity,"We'll be quiet."); \
+	NOTIFY_LOCAL(_entity,localize "STR_SSS_Main_BeQuiet"); \
 }

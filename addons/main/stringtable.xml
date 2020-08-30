@@ -161,5 +161,9 @@
 			<English>NOT READY. Ready in %1.</English>
 			<French>INDISPONIBLE. Disponible dans %1.</French>
 		</Key>
+		<Key ID="STR_SSS_Main_BeQuiet">
+			<English>We'll be quiet.</English>
+			<French>Nous serons silencieux.</French>
+		</Key>
 	</Package>
 </Project>
