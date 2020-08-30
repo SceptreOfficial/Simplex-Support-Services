@@ -16,7 +16,7 @@
 			["EDITBOX",[localize LSTRING(RespawnTimeName),localize LSTRING(RespawnTimeDescription)],str DEFAULT_RESPAWN_TIME],
 			["EDITBOX",[localize LSTRING(CooldownName),localize LSTRING(CooldownDescription)],str DEFAULT_COOLDOWN_ARTILLERY_MIN],
 			["EDITBOX",[localize LSTRING(RoundCooldownName),localize LSTRING(RoundCooldownDescription)],str DEFAULT_COOLDOWN_ARTILLERY_ROUND],
-			["EDITBOX",[localize LSTRING(MaxRoundsName),localize LSTRING(MaxRoundsDescription)]str DEFAULT_ARTILLERY_MAX_ROUNDS],
+			["EDITBOX",[localize LSTRING(MaxRoundsName),localize LSTRING(MaxRoundsDescription)],str DEFAULT_ARTILLERY_MAX_ROUNDS],
 			["EDITBOX",[localize LSTRING(CoordinationDistanceName),localize LSTRING(CoordinationDistanceDescription)],str DEFAULT_ARTILLERY_COORDINATION_DISTANCE],
 			["EDITBOX",[localize LSTRING(CustomInitName),localize LSTRING(CustomInitDescription)],""],
 			["EDITBOX",[localize LSTRING(AccessItemsName),localize LSTRING(AccessItemsDescription)],"itemMap"],

@@ -115,7 +115,7 @@ class CfgVehicles {
 			};
 			class Cooldown {
 				displayName = CSTRING(CooldownName);
-				description = CSTRING(CooldownCASDroneDescription);
+				description = CSTRING(CooldownCASDescription);
 				typeName = "STRING";
 				defaultValue = DEFAULT_COOLDOWN_DRONES;
 			};
@@ -440,15 +440,15 @@ class CfgVehicles {
 		class Arguments {
 			class Classname {
 				displayName = CSTRING(ClassnameName);
-				description = CSTRING(ClassnameLogisticsAidropDescription);
+				description = CSTRING(ClassnameLogisticsAirdropDescription);
 				typeName = "STRING";
 				defaultValue = "B_T_VTOL_01_vehicle_F";
 			};
 			class Callsign {
 				displayName = CSTRING(CallsignName);
-				description = CSTRING(CallsignLogisticsAidropDescription);
+				description = CSTRING(CallsignDescription);
 				typeName = "STRING";
-				description = CSTRING(CallsignLogisticsAirdropDefaultValue);
+				defaultValue = CSTRING(CallsignLogisticsAirdropDefaultValue);
 			};
 			class SpawnPosition {
 				displayName = CSTRING(SpawnPositionName);
