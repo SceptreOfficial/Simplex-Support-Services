@@ -23,7 +23,7 @@
 		</Key>
 		<Key ID="STR_SSS_Interaction_GunshipNotInArea">
 			<English>Not in the requested area yet. Gunship is on the way and will notify on arrival.</English>
-			<French>Pas encore dans la zone demandée. Le gunship est sur la route et vous préviendra de son arrivée.</French>
+			<French>Pas encore dans la zone demandée. Le gunship est en route et vous préviendra de son arrivée.</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_CurrentlyOccupied">
 			<English>Currently occupied by another player</English>
@@ -34,8 +34,8 @@
 			<French>Pas de véhicule disponible actuellement. Un véhicule de remplacement est en route.</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_ConnectViaUAVTerminal">
-			<English>Connect via UAV Terminal</English>
-			<French>Se connecter via un terminal UAV</French>
+			<English>Connect via UAV Terminal.</English>
+			<French>Utilisez un terminal drone pour vous connecter au drone.</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_RTB">
 			<English>RTB</English>
@@ -90,8 +90,8 @@
 			<French>Statut: Opérationnel</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_LocationGridAndStatus">
-			<English>Location: Grid %1<br />%2</English>
-			<French>Position: Grille %1<br />%2</French>
+			<English>Location: Grid %1&lt;br /&gt;%2</English>
+			<French>Position: %1&lt;br /&gt;%2</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_ConfirmSignal">
 			<English>Confirm Signal</English>
@@ -198,8 +198,8 @@
 			<French>Sélectionnez une position</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_PositionOutOfRangeColored">
-			<English><t color='#f4ca00'>Position out of range.</t> Unable to fulfill request.</English>
-			<French><t color='#f4ca00'>Position hors de portée.</t> Impossible de répondre à la demande.</French>
+			<English>&lt;t color='#f4ca00'&gt;Position out of range.&lt;/t&gt; Unable to fulfill request.</English>
+			<French>&lt;t color='#f4ca00'&gt;Position hors de portée.&lt;/t&gt; Impossible de répondre à la demande.</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_PositionOutOfRange">
 			<English>Position out of range. Unable to fulfill request.</English>
@@ -219,7 +219,7 @@
 		</Key>
 		<Key ID="STR_SSS_Interaction_CoordinationAmount">
 			<English>Coordination amount</English>
-			<French>Quantité à coordonner</French>
+			<French>Artilleries proches à coordonner</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_RequestFireFromSimilarArtillery">
 			<English>Request fire mission from similar nearby artillery</English>
@@ -241,7 +241,7 @@
 			<English>Clockwise</English>
 			<French>Sens horaire</French>
 		</Key>
-		<Key ID="STR_SSS_Interaction_ConterClockwise">
+		<Key ID="STR_SSS_Interaction_CounterClockwise">
 			<English>Counter-Clockwise</English>
 			<French>Sens anti-horaire</French>
 		</Key>
