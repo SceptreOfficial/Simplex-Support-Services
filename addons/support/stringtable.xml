@@ -23,11 +23,11 @@
 		</Key>
 		<Key ID="STR_SSS_Support_InvalidCASGunshipClassname">
 			<English>Invalid CAS Gunship classname: %1</English>
-			<French>Classname de cannonière volante invalide : %1</French>
+			<French>Classname du gunship invalide : %1</French>
 		</Key>
 		<Key ID="STR_SSS_Support_InvalidCASGunshipTurretPath">
 			<English>Invalid CAS Gunship turret path: %1</English>
-			<French>Classname de tourelle de cannonière volante invalide : %1</French>
+			<French>Classname de tourelle du gunship invalide : %1</French>
 		</Key>
 		<Key ID="STR_SSS_Support_InvalidCASPlaneClassname">
 			<English>Invalid CAS Plane classname: %1</English>
@@ -83,19 +83,19 @@
 		</Key>
 		<Key ID="STR_SSS_Support_UAVOnTheWay">
 			<English>UAV is on the way and will notify on arrival.</English>
-			<French>L'UAV est en route et vous préviendra de son arrivée.</French>
+			<French>Le drone est en route et vous préviendra de son arrivée.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_UAVInRequestedArea">
 			<English>UAV is in the requested area. Connect via UAV Terminal.</English>
-			<French>L'UAV est dans la zone demandée. Utilisez un terminal UAV pour vous y connecter.</French>
+			<French>Le drone est dans la zone demandée. Utilisez un terminal drone pour vous y connecter.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_DroneDestroyed">
 			<English>Drone has been destroyed.</English>
 			<French>Le drone a été détruit.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_UAVIsLeaving">
-			<English>UAV is leaving the area. Support will be available again in %1s.</English>
-			<French>L'UAV quitte la zone. Ce support sera de nouveau disponible dans %1 s.</French>
+			<English>UAV is leaving the area. Support will be available again in %1.</English>
+			<French>Le drone quitte la zone. Ce support sera de nouveau disponible dans %1.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_GunshipOnTheWay">
 			<English>Gunship is on the way and will notify on arrival.</English>
@@ -110,12 +110,12 @@
 			<French>Le gunship a été détruite.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_GunshipIsLeaving">
-			<English>Gunship is leaving the area. Support will be available again in %1s.</English>
-			<French>Le gunship quitte la zone. Elle sera de nouveau disponible dans %1 s.</French>
+			<English>Gunship is leaving the area. Support will be available again in %1.</English>
+			<French>Le gunship quitte la zone. Il sera de nouveau disponible dans %1.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_ReturningToBase">
 			<English>Returning to base.</English>
-			<French>Retour à la base.</French>
+			<French>En route vers la base.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_ArrivedAtBase">
 			<English>Arrived at base. Ready for further tasking.</English>
@@ -123,7 +123,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_HeadingToLocationToProvideCAS">
 			<English>Heading to location to provide CAS.</English>
-			<French>Support CAS en route vers la position.</French>
+			<French>Hélicoptère en route vers la position à la recherche de cibles.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_SearchAndDestroyComplete">
 			<English>Search and Destroy Complete.</English>
@@ -166,8 +166,8 @@
 			<French>Tir de %1 sur la strobe IR.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_NoSignalFoundReadyForNewRequests">
-			<English>No suitable signal was found. Ready for new requests in %1s.</English>
-			<French>Aucun signal approprié n'a été trouvé. Disponible pour une nouvelle mission dans %1 s.</French>
+			<English>No suitable signal was found. Ready for new requests in %1.</English>
+			<French>Aucun signal approprié n'a été trouvé. Disponible pour une nouvelle mission dans %1.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_InvalidLogisticsList">
 			<English>Invalid logistics list</English>
@@ -227,7 +227,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_SlingLoadingObject">
 			<English>Sling loading object...</English>
-			<French>Chargement sous élingue...</French>
+			<French>Chargement sous élingue en cours...</French>
 		</Key>
 		<Key ID="STR_SSS_Support_ObjectSlingLoaded">
 			<English>Object sling loaded.</English>
@@ -287,7 +287,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_SignalConfirmedClearLZ">
 			<English>Signal confirmed. Clear the LZ.</English>
-			<French>Signal confirmé. Nettoyez la zone d'atterrissage.</French>
+			<French>Signal confirmé. Dégagez la zone d'atterrissage.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_TouchdownLoadUp">
 			<English>Touchdown. Load up!</English>

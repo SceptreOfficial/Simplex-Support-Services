@@ -104,7 +104,7 @@ NOTIFY(_entity,FORMAT_2(localize LSTRING(AirdropInboundETA),_objText,_ETA));
 
 				_vehicle flyInHeight ((_entity getVariable "SSS_flyingHeight") * 2);
 
-				NOTIFY(_entity,FORMAT_1(localize LSTRING(ObjectDropped),_objText);
+				NOTIFY(_entity,FORMAT_1(localize LSTRING(ObjectDropped),_objText));
 				["SSS_requestCompleted",[_entity,[_objects]]] call CBA_fnc_globalEvent;
 			};
 

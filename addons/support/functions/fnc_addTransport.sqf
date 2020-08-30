@@ -113,7 +113,7 @@ switch (true) do {
 	case (_vehicle isKindOf "Ship") : {
 		BASE_TRAITS(_entity,typeOf _vehicle,_callsign,_side,ICON_BOAT,_customInit,"Transport","transportMaritime",_accessItems,_accessCondition,_requestCondition);
 		PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
-		CREATE_TASK_MARKER(_entity,_callsign,"mil_end",localize LSTRING(SeaTransport);
+		CREATE_TASK_MARKER(_entity,_callsign,"mil_end",localize LSTRING(SeaTransport));
 
 		// Specifics
 		_entity setVariable ["SSS_awayFromBase",false,true];
