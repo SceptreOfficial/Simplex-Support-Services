@@ -25,5 +25,21 @@
 			<English>Selection submitted</English>
 			<French>Sélection validée</French>
 		</Key>
+		<Key ID="STR_SSS_Common_TimeDays">
+			<English>days</English>
+			<French>jours</French>
+		</Key>
+		<Key ID="STR_SSS_Common_TimeHours">
+			<English>hours</English>
+			<French>heures</French>
+		</Key>
+		<Key ID="STR_SSS_Common_TimeMinutes">
+			<English>minutes</English>
+			<French>minutes</French>
+		</Key>
+		<Key ID="STR_SSS_Common_TimeSeconds">
+			<English>seconds</English>
+			<French>secondes</French>
+		</Key>
 	</Package>
 </Project>
