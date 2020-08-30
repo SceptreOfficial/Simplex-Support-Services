@@ -153,5 +153,13 @@
 			<English>Personal</English>
 			<French>Personnel</French>
 		</Key>
+		<Key ID="STR_SSS_Main_MacroNotifyReadyColored">
+			<English>&lt;t color='#f4ca00'&gt;NOT READY.&lt;/t&gt; Ready in %1.</English>
+			<French>&lt;t color='#f4ca00'&gt;INDISPONIBLE.&lt;/t&gt; Disponible dans %1.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_MacroNotifyReady">
+			<English>NOT READY. Ready in %1.</English>
+			<French>INDISPONIBLE. Disponible dans %1.</French>
+		</Key>
 	</Package>
 </Project>
