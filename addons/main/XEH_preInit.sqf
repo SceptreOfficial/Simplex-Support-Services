@@ -3,18 +3,22 @@ ADDON = false;
 #include "XEH_PREP.hpp"
 
 // Admin
-["SSS_setting_adminFullAccess","CHECKBOX",
-	["Give admins access to all supports","Admins will be able to use every support available"],
-	["Simplex Support Services","Admin"],
+[
+	"SSS_setting_adminFullAccess",
+	"CHECKBOX",
+	[LSTRING(Setting_AdminFullAccess_DisplayName), LSTRING(Setting_AdminFullAccess_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryAdmin)],
 	false, // _valueInfo
 	false, // _isGlobal
 	{}, //_script
 	false // _needRestart
 ] call CBA_fnc_addSetting;
 
-["SSS_setting_adminLimitSide","CHECKBOX",
-	["Limit admin access to side","Limit the admin access to the current side of the admin"],
-	["Simplex Support Services","Admin"],
+[
+	"SSS_setting_adminLimitSide",
+	"CHECKBOX",
+	[LSTRING(Setting_AdminLimitSide_DisplayName), LSTRING(Setting_AdminLimitSide_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryAdmin)],
 	false,
 	false,
 	{},
@@ -22,63 +26,77 @@ ADDON = false;
 ] call CBA_fnc_addSetting;
 
 // Core
-["SSS_setting_GiveUAVTerminal","CHECKBOX",
-	["Give UAV Terminal on drone request","Gives CAS Drone requesters a UAV terminal if they don't have one"],
-	["Simplex Support Services","Core"],
+[
+	"SSS_setting_GiveUAVTerminal",
+	"CHECKBOX",
+	[LSTRING(Setting_GiveUAVTerminal_DisplayName), LSTRING(Setting_GiveUAVTerminal_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryCore)],
 	true,
 	true,
 	{},
 	false
 ] call CBA_fnc_addSetting;
 
-["SSS_setting_directActionRequirement","CHECKBOX",
-	["Require access item/condition for direct action","When disabled, anyone can interact directly with transports or logistics booths"],
-	["Simplex Support Services","Core"],
+[
+	"SSS_setting_directActionRequirement",
+	"CHECKBOX",
+	[LSTRING(Setting_DirectActionRequirement_DisplayName), LSTRING(Setting_DirectActionRequirement_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryCore)],
 	false,
 	true,
 	{},
 	false
 ] call CBA_fnc_addSetting;
 
-["SSS_setting_removeSupportOnVehicleDeletion","CHECKBOX",
-	["Remove support on vehicle deletion","If disabled, any physical support vehicles capable of respawning will simply respawn"],
-	["Simplex Support Services","Core"],
+[
+	"SSS_setting_removeSupportOnVehicleDeletion",
+	"CHECKBOX",
+	[LSTRING(Setting_RemoveSupportOnVehicleDeletion_DisplayName), LSTRING(Setting_RemoveSupportOnVehicleDeletion_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryCore)],
 	true,
 	true,
 	{},
 	false
 ] call CBA_fnc_addSetting;
 
-["SSS_setting_deleteVehicleOnEntityRemoval","CHECKBOX",
-	["Delete vehicle on entity removal","When a support entity is deleted/removed, its physical vehicle will be deleted"],
-	["Simplex Support Services","Core"],
+[
+	"SSS_setting_deleteVehicleOnEntityRemoval",
+	"CHECKBOX",
+	[LSTRING(Setting_DeleteVehicleOnEntityRemoval_DisplayName), LSTRING(Setting_DeleteVehicleOnEntityRemoval_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryCore)],
 	false,
 	true,
 	{},
 	false
 ] call CBA_fnc_addSetting;
 
-["SSS_setting_cleanupCrew","CHECKBOX",
-	["Delete old vehicle crew on respawn","When a vehicle is no longer usable, the crew will de-spawn instead of leaving the vehicle"],
-	["Simplex Support Services","Core"],
+[
+	"SSS_setting_cleanupCrew",
+	"CHECKBOX",
+	[LSTRING(Setting_CleanupCrew_DisplayName), LSTRING(Setting_CleanupCrew_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryCore)],
 	true,
 	true,
 	{},
 	false
 ] call CBA_fnc_addSetting;
 
-["SSS_setting_resetVehicleOnRTB","CHECKBOX",
-	["Reset vehicle on RTB","When a vehicle arrives back at base, it is repaired, fuel is refilled, and ammo is restored"],
-	["Simplex Support Services","Core"],
+[
+	"SSS_setting_resetVehicleOnRTB",
+	"CHECKBOX",
+	[LSTRING(Setting_ResetVehicleOnRTB_DisplayName), LSTRING(Setting_ResetVehicleOnRTB_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryCore)],
 	true,
 	true,
 	{},
 	false
 ] call CBA_fnc_addSetting;
 
-["SSS_setting_restoreCrewOnRTB","CHECKBOX",
-	["Restore vehicle crew on RTB","Restores health to all crew and revives any dead crew when a vehicle returns to base"],
-	["Simplex Support Services","Core"],
+[
+	"SSS_setting_restoreCrewOnRTB",
+	"CHECKBOX",
+	[LSTRING(Setting_RestoreCrewOnRTB_DisplayName), LSTRING(Setting_RestoreCrewOnRTB_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryCore)],
 	true,
 	true,
 	{},
@@ -86,18 +104,22 @@ ADDON = false;
 ] call CBA_fnc_addSetting;
 
 // Sling Loading
-["SSS_setting_slingLoadWhitelist","EDITBOX",
-	["Sling load whitelist","Only these classnames will be searched for at sling load request locations"],
-	["Simplex Support Services","Sling Loading"],
+[
+	"SSS_setting_slingLoadWhitelist",
+	"EDITBOX",
+	[LSTRING(Setting_SlingLoadWhitelist_DisplayName), LSTRING(Setting_SlingLoadWhitelist_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategorySlingLoading)],
 	"",
 	true,
 	{missionNamespace setVariable["SSS_slingLoadWhitelist",(([_this] call CBA_fnc_removeWhitespace) splitString ",") apply {toLower _x},true]},
 	false
 ] call CBA_fnc_addSetting;
 
-["SSS_setting_slingLoadSearchRadius","SLIDER",
-	["Sling load search radius","Determines how far from the request position to search for objects"],
-	["Simplex Support Services","Sling Loading"],
+[
+	"SSS_setting_slingLoadSearchRadius",
+	"SLIDER",
+	[LSTRING(Setting_SlingLoadSearchRadius_DisplayName), LSTRING(Setting_SlingLoadSearchRadius_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategorySlingLoading)],
 	[10,200,100,0],
 	true,
 	{},
@@ -105,36 +127,44 @@ ADDON = false;
 ] call CBA_fnc_addSetting;
 
 // Milsim mode
-["SSS_setting_milsimModeArtillery","CHECKBOX",
-	["Enable milsim mode - Artillery","Require map grid coordinates on requests"],
-	["Simplex Support Services","Milsim Mode"],
+[
+	"SSS_setting_milsimModeArtillery",
+	"CHECKBOX",
+	[LSTRING(Setting_MilsimModeArtillery_DisplayName), LSTRING(Setting_MilsimModeArtillery_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryMilsimMode)],
 	false,
 	true,
 	{},
 	false
 ] call CBA_fnc_addSetting;
 
-["SSS_setting_milsimModeCAS","CHECKBOX",
-	["Enable milsim mode - CAS","Require map grid coordinates on requests"],
-	["Simplex Support Services","Milsim Mode"],
+[
+	"SSS_setting_milsimModeCAS",
+	"CHECKBOX",
+	[LSTRING(Setting_MilsimModeCAS_DisplayName), LSTRING(Setting_MilsimModeCAS_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryMilsimMode)],
 	false,
 	true,
 	{},
 	false
 ] call CBA_fnc_addSetting;
 
-["SSS_setting_milsimModeTransport","CHECKBOX",
-	["Enable milsim mode - Transport","Require map grid coordinates on requests"],
-	["Simplex Support Services","Milsim Mode"],
+[
+	"SSS_setting_milsimModeTransport",
+	"CHECKBOX",
+	[LSTRING(Setting_MilsimModeTransport_DisplayName), LSTRING(Setting_MilsimModeTransport_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryMilsimMode)],
 	false,
 	true,
 	{},
 	false
 ] call CBA_fnc_addSetting;
 
-["SSS_setting_milsimModeLogistics","CHECKBOX",
-	["Enable milsim mode - Logistics","Require map grid coordinates on requests"],
-	["Simplex Support Services","Milsim Mode"],
+[
+	"SSS_setting_milsimModeLogistics",
+	"CHECKBOX",
+	[LSTRING(Setting_MilsimModeLogistics_DisplayName), LSTRING(Setting_MilsimModeLogistics_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryMilsimMode)],
 	false,
 	true,
 	{},
@@ -142,9 +172,11 @@ ADDON = false;
 ] call CBA_fnc_addSetting;
 
 // Personal
-["SSS_setting_useChatNotifications","CHECKBOX",
-	["Use chat notifications","Disables custom notification system"],
-	["Simplex Support Services","Personal"],
+[
+	"SSS_setting_useChatNotifications",
+	"CHECKBOX",
+	[LSTRING(Setting_UseChatNotifications_DisplayName), LSTRING(Setting_UseChatNotifications_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryPersonal)],
 	false,
 	false,
 	{},
