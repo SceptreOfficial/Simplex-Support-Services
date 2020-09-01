@@ -3,6 +3,7 @@
 params [
 	["_vehicle",objNull,[objNull]],
 	["_callsign","",[""]],
+	["_ammunitionSet",[],[[]]],
 	["_respawnTime",DEFAULT_RESPAWN_TIME,[0]],
 	["_cooldownDefault",[DEFAULT_COOLDOWN_ARTILLERY_MIN,DEFAULT_COOLDOWN_ARTILLERY_ROUND],[[]],2],
 	["_maxRounds",DEFAULT_ARTILLERY_MAX_ROUNDS,[0]],
@@ -54,6 +55,23 @@ if (!isServer) exitWith {
 	objNull
 };
 
+// Verify and compile ammunitions
+if (_ammunitionSet isEqualTo []) then {
+	_ammunitionSet = if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") then {
+		["magazine_Missiles_Cruise_01_x18","magazine_Missiles_Cruise_01_Cluster_x18"]
+	} else {
+		getArtilleryAmmo [_vehicle]
+	};
+};
+
+private _cfgMagazines = configFile >> "CfgMagazines";
+{
+	if (!isClass (_cfgMagazines >> _x)) exitWith {
+		SSS_ERROR_1("Invalid magazine class: %1",_x);
+	};
+} forEach _ammunitionSet;
+
+
 // Basic setup
 private _entity = true call CBA_fnc_createNamespace;
 private _group = group _vehicle;
@@ -69,6 +87,7 @@ PHYSICAL_TRAITS(_entity,_vehicle,_group,getPosASL _vehicle,_respawnTime);
 CREATE_TASK_MARKER(_entity,_callsign,"mil_warning","Artillery");
 
 // Specifics
+_entity setVariable ["SSS_ammunitions",_ammunitionSet,true];
 _entity setVariable ["SSS_cooldown",0,true];
 _entity setVariable ["SSS_cooldownDefault",_cooldownDefault,true];
 _entity setVariable ["SSS_maxRounds",_maxRounds,true];

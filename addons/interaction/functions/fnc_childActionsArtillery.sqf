@@ -19,14 +19,8 @@ private _actions = [];
 				_actionData set [5,{
 					params ["_target","_player","_entity"];
 
-					private _vehicle = _entity getVariable "SSS_vehicle";
 					private _cfgMagazines = configFile >> "CfgMagazines";
 					private _actions = [];
-					private _magazines = if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") then {
-						["magazine_Missiles_Cruise_01_x18","magazine_Missiles_Cruise_01_Cluster_x18"]
-					} else {
-						getArtilleryAmmo [_vehicle]
-					};
 
 					{
 						private _magazineName = getText (_cfgMagazines >> _x >> "displayName");
@@ -35,7 +29,7 @@ private _actions = [];
 						},{true},{},[_entity,_x]] call ace_interact_menu_fnc_createAction;
 
 						_actions pushBack [_action,[],_target];
-					} forEach _magazines;
+					} forEach (_entity getVariable "SSS_ammunitions");
 
 					_actions
 				}];

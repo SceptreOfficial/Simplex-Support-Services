@@ -8,11 +8,13 @@
 		if (!local _logic) exitWith {};
 
 		private _object = attachedTo _logic;
+		private _ammunitionSet = str [];
 
 		if (!alive _object || !(_object isKindOf "AllVehicles")) exitWith {};
 
 		["Add Artillery",[
 			["EDITBOX","Callsign",getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")],
+			["EDITBOX",["Ammuniton set","Array of ammunition classnames. Empty array for vehicle defaults"],_ammunitionSet],
 			["EDITBOX","Respawn time",str DEFAULT_RESPAWN_TIME],
 			["EDITBOX","Cooldown",str DEFAULT_COOLDOWN_ARTILLERY_MIN],
 			["EDITBOX","Extra cooldown time per round",str DEFAULT_COOLDOWN_ARTILLERY_ROUND],
@@ -24,11 +26,12 @@
 			["EDITBOX",["Request approval condition","Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>"],"true"]
 		],{
 			params ["_values","_object"];
-			_values params ["_callsign","_respawnTime","_cooldown","_roundCooldown","_maxRounds","_coordinationDistance","_customInit","_accessItems","_accessCondition","_requestCondition"];
+			_values params ["_callsign","_ammunitionSet","_respawnTime","_cooldown","_roundCooldown","_maxRounds","_coordinationDistance","_customInit","_accessItems","_accessCondition","_requestCondition"];
 
 			[
 				_object,
 				_callsign,
+				parseSimpleArray (if (_ammunitionSet isEqualTo "") then {"[]"} else {_ammunitionSet}),
 				parseNumber _respawnTime,
 				[parseNumber _cooldown,parseNumber _roundCooldown],
 				parseNumber _maxRounds,
@@ -49,6 +52,7 @@
 				[
 					_x,
 					_logic getVariable ["Callsign",""],
+					parseSimpleArray (if (_logic getVariable ["AmmunitionSet","[]"] isEqualTo "") then {"[]"} else {_logic getVariable ["AmmunitionSet","[]"]}),
 					parseNumber (_logic getVariable ["RespawnTime",str DEFAULT_RESPAWN_TIME]),
 					[
 						parseNumber (_logic getVariable ["Cooldown",str DEFAULT_COOLDOWN_ARTILLERY_ROUND]),
