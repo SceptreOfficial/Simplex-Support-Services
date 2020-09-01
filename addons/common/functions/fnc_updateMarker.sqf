@@ -1,5 +1,8 @@
 #include "script_component.hpp"
 
+// Don't update a marker if option is enabled
+if (SSS_setting_milsimHideMarkers) exitWith {};
+
 if (!isServer) exitWith {
 	_this remoteExecCall [QFUNC(updateMarker),2];
 };
