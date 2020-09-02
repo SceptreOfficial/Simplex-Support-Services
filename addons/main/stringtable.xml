@@ -125,6 +125,14 @@
 			<English>Require map grid coordinates on requests</English>
 			<French>La position doit être désignée par des coordonnées et non plus en sélectionnant un point sur la carte.</French>
 		</Key>
+		<Key ID="STR_SSS_Main_Setting_MilsimHideMarkers_DisplayName">
+			<English>Enable milsim mode - Hide markers</English>
+			<French>Mode milsim - Masquer les marqueurs</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_MilsimHideMarkers_Description">
+			<English>Hide markers of supports on map</English>
+			<French>Masquer les marqueurs des supports sur la carte.</French>
+		</Key>
 		<Key ID="STR_SSS_Main_Setting_UseChatNotifications_DisplayName">
 			<English>Use chat notifications</English>
 			<French>Utiliser le chat pour les notifications</French>

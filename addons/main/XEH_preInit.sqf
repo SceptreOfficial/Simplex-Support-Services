@@ -171,6 +171,17 @@ ADDON = false;
 	false
 ] call CBA_fnc_addSetting;
 
+[
+	"SSS_setting_milsimHideMarkers",
+	"CHECKBOX",
+	[LSTRING(Setting_MilsimHideMarkers_DisplayName), LSTRING(Setting_MilsimHideMarkers_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryMilsimMode)],
+	false,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
 // Personal
 [
 	"SSS_setting_useChatNotifications",
