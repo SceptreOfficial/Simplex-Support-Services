@@ -1,9 +1,9 @@
 #include "script_component.hpp"
 
 #define LASER_TYPE ["LaserTargetE","LaserTargetW"] select (side _vehicle getFriend west > 0.6)
-#define SMOKE_COLORS ["white","black","red","orange","yellow","green","blue","purple"]
+#define SMOKE_COLORS [LELSTRING(Main,SmokeColorWhite),LELSTRING(Main,SmokeColorBlack),LELSTRING(Main,SmokeColorRed),LELSTRING(Main,SmokeColorOrange),LELSTRING(Main,SmokeColorYellow),LELSTRING(Main,SmokeColorGreen),LELSTRING(Main,SmokeColorBlue),LELSTRING(Main,SmokeColorPurple)]
 #define SEARCH_RADIUS 350
-#define DIRECTIONS ["N","NE","E","SE","S","SW","W","NW"]
+#define DIRECTIONS [LELSTRING(Main,DirectionN),LELSTRING(Main,DirectionNE),LELSTRING(Main,DirectionE),LELSTRING(Main,DirectionSE),LELSTRING(Main,DirectionS),LELSTRING(Main,DirectionSW),LELSTRING(Main,DirectionW),LELSTRING(Main,DirectionNW)]
 
 params ["_entity","_selectedWeapon","_position","_approachDirection","_signalSelection","_smokeColorSelection"];
 _selectedWeapon params ["_weapon","_magazine"];
@@ -26,7 +26,7 @@ if ((_entity getVariable "SSS_cooldown") > 0) exitWith {
 private _message = format ["%1 from %2. ETA 45s. %3",mapGridPosition _position,DIRECTIONS # _approachDirection,switch (_signalSelection) do {
 	case 0 : {format ["Firing %1 on map coordinates.",getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]};
 	case 1 : {format ["Will fire %1 at laser target.",getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]};
-	case 2 : {format ["Will fire %1 at %2 smoke.",getText (configFile >> "CfgMagazines" >> _magazine >> "displayName"),SMOKE_COLORS # _smokeColorSelection]};
+	case 2 : {format ["Will fire %1 at %2 smoke.",getText (configFile >> "CfgMagazines" >> _magazine >> "displayName"),toLower (SMOKE_COLORS # _smokeColorSelection)]};
 	case 3 : {format ["Will fire %1 at IR strobe.",getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]};
 }];
 
