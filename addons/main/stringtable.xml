@@ -173,5 +173,69 @@
 			<English>We'll be quiet.</English>
 			<French>Nous serons silencieux.</French>
 		</Key>
+		<Key ID="STR_SSS_Main_SmokeColorWhite">
+			<English>White</English>
+			<French>Blanche</French>
+		</Key>
+		<Key ID="STR_SSS_Main_SmokeColorBlack">
+			<English>Black</English>
+			<French>Noire</French>
+		</Key>
+		<Key ID="STR_SSS_Main_SmokeColorRed">
+			<English>Red</English>
+			<French>Rouge</French>
+		</Key>
+		<Key ID="STR_SSS_Main_SmokeColorOrange">
+			<English>Orange</English>
+			<French>Orange</French>
+		</Key>
+		<Key ID="STR_SSS_Main_SmokeColorYellow">
+			<English>Yellow</English>
+			<French>Jaune</French>
+		</Key>
+		<Key ID="STR_SSS_Main_SmokeColorGreen">
+			<English>Green</English>
+			<French>Verte</French>
+		</Key>
+		<Key ID="STR_SSS_Main_SmokeColorBlue">
+			<English>Blue</English>
+			<French>Bleue</French>
+		</Key>
+		<Key ID="STR_SSS_Main_SmokeColorPurple">
+			<English>Purple</English>
+			<French>Violette</French>
+		</Key>
+		<Key ID="STR_SSS_Main_DirectionN">
+			<English>N</English>
+			<French>N</French>
+		</Key>
+		<Key ID="STR_SSS_Main_DirectionNE">
+			<English>NE</English>
+			<French>NE</French>
+		</Key>
+		<Key ID="STR_SSS_Main_DirectionE">
+			<English>E</English>
+			<French>E</French>
+		</Key>
+		<Key ID="STR_SSS_Main_DirectionSE">
+			<English>SE</English>
+			<French>SE</French>
+		</Key>
+		<Key ID="STR_SSS_Main_DirectionS">
+			<English>S</English>
+			<French>S</French>
+		</Key>
+		<Key ID="STR_SSS_Main_DirectionSW">
+			<English>SW</English>
+			<French>SO</French>
+		</Key>
+		<Key ID="STR_SSS_Main_DirectionW">
+			<English>W</English>
+			<French>O</French>
+		</Key>
+		<Key ID="STR_SSS_Main_DirectionNW">
+			<English>NW</English>
+			<French>NO</French>
+		</Key>
 	</Package>
 </Project>
