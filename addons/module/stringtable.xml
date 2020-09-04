@@ -71,7 +71,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_AccessItemsDescription">
 			<English>Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)</English>
-			<French>Liste des objets nécessaire à l'utilisation du support.\nSéparer les objets par des virgules.\nExemple : itemMap, itemRadio.</French>
+			<French>Liste des objets nécessaires à l'utilisation du support.\nSéparer les objets par des virgules.\nExemple : itemMap, itemRadio.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_AccessConditionName">
 			<English>Access condition</English>
