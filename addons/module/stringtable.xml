@@ -135,7 +135,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_TurretPathDescription">
 			<English>Turret path to gunner. Example: [1]</English>
-			<French>Identifiant de la tourelle utilisée par le tireur.\nExemple : [1].</French>
+			<French>Identifiant de la tourelle utilisée par le tireur.\nExemple : [1]</French>
 		</Key>
 		<Key ID="STR_SSS_Module_AddCASHelicopter">
 			<English>Add CAS Helicopter</English>
