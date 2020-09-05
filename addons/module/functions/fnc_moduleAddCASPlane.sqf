@@ -37,7 +37,7 @@
 			[
 				_classname,
 				_callsign,
-				parseSimpleArray _weaponSet,
+				parseSimpleArray (if (_weaponSet isEqualTo "") then {"[]"} else {_weaponSet}),
 				parseNumber _cooldown,
 				_customInit,
 				[west,east,independent] # _sideSelection,
@@ -54,7 +54,7 @@
 		[
 			_logic getVariable ["Classname",""],
 			_logic getVariable ["Callsign",""],
-			parseSimpleArray (_logic getVariable ["WeaponSet","[]"]),
+			parseSimpleArray (if (_logic getVariable ["WeaponSet","[]"] isEqualTo "") then {"[]"} else {_logic getVariable ["WeaponSet","[]"]}),
 			parseNumber (_logic getVariable ["Cooldown",str DEFAULT_COOLDOWN_PLANES]),
 			_logic getVariable ["CustomInit",""],
 			[west,east,independent] # (_logic getVariable ["Side",0]),

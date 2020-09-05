@@ -46,7 +46,7 @@ private _signalType = if (daytime > _sunrise && daytime < _sunset) then {
 	_entity setVariable ["SSS_needConfirmation",true,true];
 
 	private _signalSeen = if (_signalType == "SmokeShell") then {
-		format ["a %1 smoke",_signal call EFUNC(common,getSmokeColor)]
+		format ["a %1 smoke",toLower (_signal call EFUNC(common,getSmokeColor))]
 	} else {
 		"an IR signal"
 	};

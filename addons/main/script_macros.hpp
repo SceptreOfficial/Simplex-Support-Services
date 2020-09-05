@@ -271,11 +271,11 @@
 	} forEach ([] call _listFnc)
 
 #define NOTIFY_LOCAL_NOT_READY_COOLDOWN(ENTITY) \
-	private _string = ["<t color='#f4ca00'>NOT READY.</t> Ready in %1.","NOT READY. Ready in %1."] select SSS_setting_useChatNotifications; \
+	private _string = [localize "STR_SSS_Main_MacroNotifyReadyColored",localize "STR_SSS_Main_MacroNotifyReady"] select SSS_setting_useChatNotifications; \
 	NOTIFY_LOCAL_1(ENTITY,_string,PROPER_COOLDOWN(ENTITY))
 
 #define NOTIFY_NOT_READY_COOLDOWN(ENTITY) \
-	private _string = ["<t color='#f4ca00'>NOT READY.</t> Ready in %1.","NOT READY. Ready in %1."] select SSS_setting_useChatNotifications; \
+	private _string = [localize "STR_SSS_Main_MacroNotifyReadyColored",localize "STR_SSS_Main_MacroNotifyReady"] select SSS_setting_useChatNotifications; \
 	NOTIFY_1(ENTITY,_string,PROPER_COOLDOWN(ENTITY))
 
 #define STR_TO_ARRAY_LOWER(STRING) (([STRING] call CBA_fnc_removeWhitespace) splitString ",") apply {toLower _x}
@@ -284,5 +284,5 @@
 	params ["_entity"]; \
 	private _vehicle = _entity getVariable "SSS_vehicle"; \
 	{[_x,"NoVoice"] remoteExecCall ["setSpeaker",0]} forEach PRIMARY_CREW(_vehicle); \
-	NOTIFY_LOCAL(_entity,"We'll be quiet."); \
+	NOTIFY_LOCAL(_entity,localize "STR_SSS_Main_BeQuiet"); \
 }

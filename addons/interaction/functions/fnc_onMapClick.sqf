@@ -185,7 +185,7 @@ switch (_entity getVariable "SSS_supportType") do {
 		// Get directions not blocked by terrain
 		_position set [2,1];
 		private _positionASL = AGLtoASL _position;
-		private _bearingList = [[0,"N"],[45,"NE"],[90,"E"],[135,"SE"],[180,"S"],[225,"SW"],[270,"W"],[315,"NW"]] apply {
+		private _bearingList = [[0,LELSTRING(Main,DirectionN)],[45,LELSTRING(Main,DirectionNE)],[90,LELSTRING(Main,DirectionE)],[135,LELSTRING(Main,DirectionSE)],[180,LELSTRING(Main,DirectionS)],[225,LELSTRING(Main,DirectionSW)],[270,LELSTRING(Main,DirectionW)],[315,LELSTRING(Main,DirectionNW)]] apply {
 			private _testPos = AGLtoASL (_position getPos [600,_x # 0]);
 			_testPos set [2,_positionASL # 2 + 350];
 			if (terrainIntersectASL [_positionASL,_testPos]) then {
@@ -211,13 +211,14 @@ switch (_entity getVariable "SSS_supportType") do {
 				};
 			}],
 			["COMBOBOX","Smoke Color",[[
-				"White","Black",
-				["Red","","",[0.9,0,0,1]],
-				["Orange","","",[0.85,0.4,0,1]],
-				["Yellow","","",[0.85,0.85,0,1]],
-				["Green","","",[0,0.8,0,1]],
-				["Blue","","",[0,0,1,1]],
-				["Purple","","",[0.75,0.15,0.75,1]]
+				LELSTRING(Main,SmokeColorWhite),
+				LELSTRING(Main,SmokeColorBlack),
+				[LELSTRING(Main,SmokeColorRed),"","",[0.9,0,0,1]],
+				[LELSTRING(Main,SmokeColorOrange),"","",[0.85,0.4,0,1]],
+				[LELSTRING(Main,SmokeColorYellow),"","",[0.85,0.85,0,1]],
+				[LELSTRING(Main,SmokeColorGreen),"","",[0,0.8,0,1]],
+				[LELSTRING(Main,SmokeColorBlue),"","",[0,0,1,1]],
+				[LELSTRING(Main,SmokeColorPurple),"","",[0.75,0.15,0.75,1]]
 			],0],false,{},{false}]
 		],{
 			params ["_values","_args"];

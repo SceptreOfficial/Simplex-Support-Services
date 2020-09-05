@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="SSS">
+	<Package name="Main">
+		<Key ID="STR_SSS_Main_SimplexSupportServices">
+			<English>Simplex Support Services</English>
+			<French>Simplex Support Services</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_AdminFullAccess_DisplayName">
+			<English>Give admin access to all supports</English>
+			<French>L'administrateur a accès à tous les supports</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_AdminFullAccess_Description">
+			<English>Admin will be able to use every support available</English>
+			<French>L'administrateur peut utiliser l'intégralité des supports disponibles.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_AdminLimitSide_DisplayName">
+			<English>Limit admin access to side</English>
+			<French>Limiter l'administrateur à son propre camp</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_AdminLimitSide_Description">
+			<English>Limit the admin access to the current side of the admin</English>
+			<French>L'administrateur ne peut se servir que des supports de son propre camp.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_GiveUAVTerminal_DisplayName">
+			<English>Give UAV Terminal on drone request</English>
+			<French>Fournir un terminal pour les demandes de drone</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_GiveUAVTerminal_Description">
+			<English>Gives CAS Drone requesters a UAV terminal if they don't have one</English>
+			<French>Fournit un terminal pour les demandes de drone, si le joueur n'en est pas déjà équipé.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_DirectActionRequirement_DisplayName">
+			<English>Require access item/condition for direct action</English>
+			<French>Restreindre l'interaction de proximité</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_DirectActionRequirement_Description">
+			<English>When disabled, anyone can interact directly with transports or logistics booths</English>
+			<French>L'interaction de proximité n'est possible que si le joueur est en possession d'un objet spécifique, ou sous toute autre condition préalablement configurée.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_RemoveSupportOnVehicleDeletion_DisplayName">
+			<English>Remove support on vehicle deletion</English>
+			<French>Désactiver la réapparition des véhicules supprimés</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_RemoveSupportOnVehicleDeletion_Description">
+			<English>If disabled, any physical support vehicles capable of respawning will simply respawn</English>
+			<French>Les véhicules ayant été supprimés ne réapparaîtront pas, même s'ils ont été configurés pour le faire.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_DeleteVehicleOnEntityRemoval_DisplayName">
+			<English>Delete vehicle on entity removal</English>
+			<French>Supprimer le véhicule si l'entité l'est aussi</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_DeleteVehicleOnEntityRemoval_Description">
+			<English>When a support entity is deleted/removed, its physical vehicle will be deleted</English>
+			<French>Quand une entité de support est supprimée, son véhicule l'est aussi.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_CleanupCrew_DisplayName">
+			<English>Delete old vehicle crew on respawn</English>
+			<French>Supprimer l'équipage des véhicules hors d'usage</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_CleanupCrew_Description">
+			<English>When a vehicle is no longer usable, the crew will de-spawn instead of leaving the vehicle</English>
+			<French>Lorsqu'un véhicule réapparait, l'équipage du véhicule hors d'usage ne sortira plus, et sera supprimé.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_ResetVehicleOnRTB_DisplayName">
+			<English>Reset vehicle on RTB</English>
+			<French>Réinitialiser les véhicules de retour à la base</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_ResetVehicleOnRTB_Description">
+			<English>When a vehicle arrives back at base, it is repaired, fuel is refilled, and ammo is restored</English>
+			<French>Les véhicules de retour à leur base sont réparés, réapprovisionnés et réarmés.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_RestoreCrewOnRTB_DisplayName">
+			<English>Restore vehicle crew on RTB</English>
+			<French>Réinitialiser l'équipage après un retour sur base</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_RestoreCrewOnRTB_Description">
+			<English>Restores health to all crew and revives any dead crew when a vehicle returns to base</English>
+			<French>Réinitialise l'équipage des véhicules après retour à la base.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_SlingLoadWhitelist_DisplayName">
+			<English>Sling load whitelist</English>
+			<French>Liste blanche du matériel héliportable</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_SlingLoadWhitelist_Description">
+			<English>Only these classnames will be searched for at sling load request locations</English>
+			<French>Limite le matériel héliportable à ces seuls classnames.\nLaisser le champ vide pour permettre le transport de tous les équipements héliportables.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_SlingLoadSearchRadius_DisplayName">
+			<English>Sling load search radius</English>
+			<French>Rayon de recherche de matériel héliportable</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_SlingLoadSearchRadius_Description">
+			<English>Determines how far from the request position to search for objects</English>
+			<French>Définit le rayon, en mètres, au-delà duquel l'hélicoptère ne sera plus en mesure de trouver du matériel à transporter.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_MilsimModeArtillery_DisplayName">
+			<English>Enable milsim mode - Artillery</English>
+			<French>Mode milsim - Artillerie</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_MilsimModeArtillery_Description">
+			<English>Require map grid coordinates on requests</English>
+			<French>Les cibles doivent être désignées par des coordonnées et non plus en sélectionnant un point sur la carte.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_MilsimModeCAS_DisplayName">
+			<English>Enable milsim mode - CAS</English>
+			<French>Mode milsim - CAS</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_MilsimModeCAS_Description">
+			<English>Require map grid coordinates on requests</English>
+			<French>Les cibles doivent être désignées par des coordonnées et non plus en sélectionnant un point sur la carte.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_MilsimModeTransport_DisplayName">
+			<English>Enable milsim mode - Transport</English>
+			<French>Mode milsim - Transport</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_MilsimModeTransport_Description">
+			<English>Require map grid coordinates on requests</English>
+			<French>La destination doit être désignée par des coordonnées et non plus en sélectionnant un point sur la carte.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_MilsimModeLogistics_DisplayName">
+			<English>Enable milsim mode - Logistics</English>
+			<French>Mode milsim - Logistique</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_MilsimModeLogistics_Description">
+			<English>Require map grid coordinates on requests</English>
+			<French>La position doit être désignée par des coordonnées et non plus en sélectionnant un point sur la carte.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_MilsimHideMarkers_DisplayName">
+			<English>Enable milsim mode - Hide markers</English>
+			<French>Mode milsim - Masquer les marqueurs</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_MilsimHideMarkers_Description">
+			<English>Hide markers of supports on map</English>
+			<French>Masquer les marqueurs des supports sur la carte.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_UseChatNotifications_DisplayName">
+			<English>Use chat notifications</English>
+			<French>Utiliser le chat pour les notifications</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_UseChatNotifications_Description">
+			<English>Disables custom notification system</English>
+			<French>Désactive le système de notification personnalisé.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_CategoryAdmin">
+			<English>Admin</English>
+			<French>Administration</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_CategoryCore">
+			<English>Core</English>
+			<French>Divers</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_CategorySlingLoading">
+			<English>Sling Loading</English>
+			<French>Charge sous élingue</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_CategoryMilsimMode">
+			<English>Milsim Mode</English>
+			<French>Mode Milsim</French>
+		</Key>
+		<Key ID="STR_SSS_Main_Setting_CategoryPersonal">
+			<English>Personal</English>
+			<French>Personnel</French>
+		</Key>
+		<Key ID="STR_SSS_Main_MacroNotifyReadyColored">
+			<English>&lt;t color='#f4ca00'&gt;NOT READY.&lt;/t&gt; Ready in %1.</English>
+			<French>&lt;t color='#f4ca00'&gt;INDISPONIBLE.&lt;/t&gt; Disponible dans %1.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_MacroNotifyReady">
+			<English>NOT READY. Ready in %1.</English>
+			<French>INDISPONIBLE. Disponible dans %1.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_BeQuiet">
+			<English>We'll be quiet.</English>
+			<French>Nous serons silencieux.</French>
+		</Key>
+		<Key ID="STR_SSS_Main_SmokeColorWhite">
+			<English>White</English>
+			<French>Blanche</French>
+		</Key>
+		<Key ID="STR_SSS_Main_SmokeColorBlack">
+			<English>Black</English>
+			<French>Noire</French>
+		</Key>
+		<Key ID="STR_SSS_Main_SmokeColorRed">
+			<English>Red</English>
+			<French>Rouge</French>
+		</Key>
+		<Key ID="STR_SSS_Main_SmokeColorOrange">
+			<English>Orange</English>
+			<French>Orange</French>
+		</Key>
+		<Key ID="STR_SSS_Main_SmokeColorYellow">
+			<English>Yellow</English>
+			<French>Jaune</French>
+		</Key>
+		<Key ID="STR_SSS_Main_SmokeColorGreen">
+			<English>Green</English>
+			<French>Verte</French>
+		</Key>
+		<Key ID="STR_SSS_Main_SmokeColorBlue">
+			<English>Blue</English>
+			<French>Bleue</French>
+		</Key>
+		<Key ID="STR_SSS_Main_SmokeColorPurple">
+			<English>Purple</English>
+			<French>Violette</French>
+		</Key>
+		<Key ID="STR_SSS_Main_DirectionN">
+			<English>N</English>
+			<French>N</French>
+		</Key>
+		<Key ID="STR_SSS_Main_DirectionNE">
+			<English>NE</English>
+			<French>NE</French>
+		</Key>
+		<Key ID="STR_SSS_Main_DirectionE">
+			<English>E</English>
+			<French>E</French>
+		</Key>
+		<Key ID="STR_SSS_Main_DirectionSE">
+			<English>SE</English>
+			<French>SE</French>
+		</Key>
+		<Key ID="STR_SSS_Main_DirectionS">
+			<English>S</English>
+			<French>S</French>
+		</Key>
+		<Key ID="STR_SSS_Main_DirectionSW">
+			<English>SW</English>
+			<French>SO</French>
+		</Key>
+		<Key ID="STR_SSS_Main_DirectionW">
+			<English>W</English>
+			<French>O</French>
+		</Key>
+		<Key ID="STR_SSS_Main_DirectionNW">
+			<English>NW</English>
+			<French>NO</French>
+		</Key>
+	</Package>
+</Project>
