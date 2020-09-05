@@ -37,9 +37,11 @@ _vehicle setCombatMode "BLUE";
 	_x disableAI "AUTOTARGET";
 } forEach crew _vehicle;
 _vehicle lockDriver true;
+
 _vehicle setVariable ["SSS_parentEntity",_entity,true];
 _entity setVariable ["SSS_vehicle",_vehicle,true];
 _group setVariable ["SSS_protectWaypoints",true,true];
+_group setVariable ["acex_headless_blacklist",true,true];
 
 // Add 40mm to the primary gunner on blackfish
 if (typeOf _vehicle == "B_T_VTOL_01_armed_F") then {
