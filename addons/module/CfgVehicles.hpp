@@ -36,6 +36,12 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "";
 			};
+			class AmmunitionSet {
+				displayName = "Ammunition set";
+				description = "Array of ammunition classnames. Empty array for vehicle defaults";
+				typeName = "STRING";
+				defaultValue = "";
+			};
 			class RespawnTime {
 				displayName = "Respawn time";
 				description = "-1 will disable respawn";
