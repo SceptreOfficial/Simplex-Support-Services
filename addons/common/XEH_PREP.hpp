@@ -14,5 +14,6 @@ PREP(properTime);
 PREP(resetOnRTB);
 PREP(respawn);
 PREP(sortBy);
+PREP(stopVehicle);
 PREP(updateMarker);
 PREP(zeusSelection);
