@@ -35,7 +35,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_RoundCooldownName">
 			<English>Extra cooldown time per round</English>
-			<French>Délai supplémentaire par tirs</French>
+			<French>Délai supplémentaire par tir</French>
 		</Key>
 		<Key ID="STR_SSS_Module_RoundCooldownDescription">
 			<English>Additional time incremented per round fired</English>
@@ -195,7 +195,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_FlyingHeightDescription">
 			<English>AGL altitude in meters</English>
-			<French>Altitude de vol au-dessus du sol, en mètres.</French>
+			<French>Hauteur de vol, au-dessus du sol, en mètres.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_ListFunctionName">
 			<English>List function</English>
