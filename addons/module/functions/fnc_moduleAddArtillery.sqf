@@ -31,7 +31,7 @@
 			[
 				_object,
 				_callsign,
-				parseSimpleArray (if (_ammunitionSet isEqualTo "") then {"[]"} else {_ammunitionSet}),
+				_ammunitionSet call EFUNC(common,parseSimpleArray),
 				parseNumber _respawnTime,
 				[parseNumber _cooldown,parseNumber _roundCooldown],
 				parseNumber _maxRounds,
@@ -52,7 +52,7 @@
 				[
 					_x,
 					_logic getVariable ["Callsign",""],
-					parseSimpleArray (if (_logic getVariable ["AmmunitionSet","[]"] isEqualTo "") then {"[]"} else {_logic getVariable ["AmmunitionSet","[]"]}),
+					(_logic getVariable ["AmmunitionSet","[]"]) call EFUNC(common,parseSimpleArray),
 					parseNumber (_logic getVariable ["RespawnTime",str DEFAULT_RESPAWN_TIME]),
 					[
 						parseNumber (_logic getVariable ["Cooldown",str DEFAULT_COOLDOWN_ARTILLERY_ROUND]),
