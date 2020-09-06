@@ -15,7 +15,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_CallsignDescription">
 			<English>Display name</English>
-			<French>Nom qui affiché dans l'interface pour désigner ce support. Laisser vide pour utiliser le nom par défaut du véhicule.</French>
+			<French>Nom affiché dans l'interface pour désigner ce support.\nLaisser le champ vide pour utiliser le nom par défaut du véhicule.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_RespawnTimeName">
 			<English>Respawn time</English>
@@ -23,7 +23,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_RespawnTimeDescription">
 			<English>-1 will disable respawn</English>
-			<French>Configure le délai de réapparition du support. Mettre "-1" pour désactiver la réapparition.</French>
+			<French>Délai avant la réapparition du support.\nMettre "-1" pour désactiver la réapparition.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CooldownName">
 			<English>Cooldown</English>
@@ -31,63 +31,63 @@
 		</Key>
 		<Key ID="STR_SSS_Module_CooldownDescription">
 			<English>Minimum time between requests</English>
-			<French>Délai d'attente minimum, en secondes, entre les demandes.</French>
+			<French>Délai d'attente minimal entre deux demandes, en secondes.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_RoundCooldownName">
 			<English>Extra cooldown time per round</English>
-			<French>Délai d'attente entre les tirs.</French>
+			<French>Délai supplémentaire par tir</French>
 		</Key>
 		<Key ID="STR_SSS_Module_RoundCooldownDescription">
 			<English>Additional time incremented per round fired</English>
-			<French>Délai d'attente, en secondes, entre chaque tir.</French>
+			<French>Attente supplémentaire, additionnée au délai d'attente ci-dessus après chaque tir effectué.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_MaxRoundsName">
 			<English>Maximum rounds per request</English>
-			<French>Tirs maximums par demande</French>
+			<French>Tirs (maximum) par demande</French>
 		</Key>
 		<Key ID="STR_SSS_Module_MaxRoundsDescription">
 			<English>Max amount/slider range for requests</English>
-			<French>Nombre maximal de tirs autorisés par demande.</French>
+			<French>Nombre maximal de tirs pouvant être effectués pour chaque demande d'artillerie.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CoordinationDistanceName">
 			<English>Maximum coordination distance</English>
 			<French>Distance maximale de coordination</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CoordinationDistanceDescription">
-			<English>Set what ""nearby"" really means for artillery coordination</English>
-			<French>Définit la distance de recherche des artilleries à proximité lors d'un tir coordonné.</French>
+			<English>Set what "nearby" really means for artillery coordination</English>
+			<French>Distance à laquelle cette pièce d'artillerie répond aux demandes de coordination des autres unités du même type.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CustomInitName">
 			<English>Custom init code</English>
-			<English>Code d'initialisation personnalisée</English>
+			<English>Code d'initialisation personnalisé</English>
 		</Key>
 		<Key ID="STR_SSS_Module_CustomInitDescription">
 			<English>Code executed when vehicle is added or respawned (Vehicle = _this).</English>
-			<French>Code exécuté quand un véhicule est ajouté ou créé (Vehicle = _this).</French>
+			<French>Code exécuté lorsqu'un véhicule est ajouté ou créé.\n(Véhicule = _this).</French>
 		</Key>
 		<Key ID="STR_SSS_Module_AccessItemsName">
 			<English>Access items</English>
-			<French>Objets d'accès</French>
+			<French>Objets requis</French>
 		</Key>
 		<Key ID="STR_SSS_Module_AccessItemsDescription">
 			<English>Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)</English>
-			<French>Liste des objets permettant d'utiliser le support.\nSéparez les objets avec des virgules (exemple : itemMap,itemRadio).</French>
+			<French>Liste des objets nécessaires à l'utilisation du support.\nSéparer les objets par des virgules.\nExemple : itemMap, itemRadio.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_AccessConditionName">
 			<English>Access condition</English>
-			<French>Condition d'accès</French>
+			<French>Condition requise</French>
 		</Key>
 		<Key ID="STR_SSS_Module_AccessConditionDescription">
-			<English>Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];</English>
-			<French>Code exécuté chez le client qui a fait la demande et qui doit retourner true pour que le support soit accessible. \n\nExemple d'utilisation : \n\nCondition d'accès : \n    player getVariable [""canUseSSS"",false] \n Initialisation du joueur : \n    this setVariable [""canUseSSS"",true,true];</French>
+			<English>Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable ["canUseSSS",false] \nPlayer init: \n    this setVariable ["canUseSSS",true,true];</English>
+			<French>Code exécuté chez le client voulant effectuer la demande.\nLe support ne sera visible dans le menu que si la valeur retournée est "true".\n\nExemple d'utilisation :\n\nCondition d'accès :\n    player getVariable ["canUseSSS", false]\n\nInitialisation du joueur :\n    this setVariable ["canUseSSS", true, true];</French>
 		</Key>
 		<Key ID="STR_SSS_Module_RequestApprovalConditionName">
 			<English>Request approval condition</English>
-			<French>Condition de demande</French>
+			<French>Condition d'approbation</French>
 		</Key>
 		<Key ID="STR_SSS_Module_RequestApprovalConditionDescription">
 			<English>Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position &lt;ARRAY&gt; \n\nAccepted return values: \n0: Approval &lt;BOOL&gt; \n1: Denial reason &lt;STRING&gt;</English>
-			<French>Code exécuté chez le client qui a fait la demande et qui doit retourner true pour que les demandes soients acceptées.\n\nArguments : \n0 : Position &lt;ARRAY&gt; \n\nValeurs de retour : \n0 : Acceptation &lt;BOOL&gt; \n1 : Raison de l'annulation &lt;STRING&gt;</French>
+			<French>Code exécuté chez le client effectuant la demande.\nLes demandes ne seront acceptées que si la valeur retournée est "true".\n\nArguments :\n0 : Position &lt;ARRAY&gt;\n\nValeurs de retour :\n0 : Acceptation &lt;BOOL&gt;\n1 : Raison de l'annulation &lt;STRING&gt;</French>
 		</Key>
 		<Key ID="STR_SSS_Module_AddCASDrone">
 			<English>Add CAS Drone</English>
@@ -103,15 +103,15 @@
 		</Key>
 		<Key ID="STR_SSS_Module_CooldownCASDescription">
 			<English>Time between requests (after loiter is finished)</English>
-			<French>Délai entre les requêtes (après que le vol en attente soit terminé).</French>
+			<French>Délai minimal entre deux appels de drone (une fois le vol en attente terminé).\nValeur exprimée en secondes.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_LoiterTimeName">
 			<English>Loiter time</English>
-			<French>Durée de vol en attente</French>
+			<French>Durée du vol d'attente</French>
 		</Key>
 		<Key ID="STR_SSS_Module_LoiterTimeDescription">
 			<English>How long aircraft will loiter in the area</English>
-			<French>Durée pendant laquelle le véhicule aérien survolera la zone.</French>
+			<French>Durée pendant laquelle le véhicule aérien survolera la zone cible.\nValeur exprimée en secondes.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_SideName">
 			<English>Side</English>
@@ -119,7 +119,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_SideDescription">
 			<English>Support side</English>
-			<French>Camp qui pourra utiliser le support.</French>
+			<French>Camp auquel appartient le support.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_AddCASGunship">
 			<English>Add CAS Gunship</English>
@@ -135,7 +135,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_TurretPathDescription">
 			<English>Turret path to gunner. Example: [1]</English>
-			<French>Identifiant de la tourelle utilisée par le tireur. Exemple : [1]</French>
+			<French>Identifiant de la tourelle utilisée par le tireur.\nExemple : [1]</French>
 		</Key>
 		<Key ID="STR_SSS_Module_AddCASHelicopter">
 			<English>Add CAS Helicopter</English>
@@ -154,8 +154,8 @@
 			<French>Configuration des armes</French>
 		</Key>
 		<Key ID="STR_SSS_Module_WeaponSetDescription">
-			<English>Array of weapon classnames or array of [weapon,magazine] arrays. Empty array for vehicle defaults.</English>
-			<French>Liste de classname d'armes ou liste de couples arme/munition (format [weapon,magazine]). Laisser vide pour utiliser la dotation par défaut du véhicule.</French>
+			<English>Array of weapon classnames or array of [weapon,magazine] arrays. Empty array for vehicle defaults. \n\nExample array: \n[["weapon_GBU12Launcher", "magazine_Bomb_GBU12_x1"], "Gatling_30mm_Plane_CAS_01_F", "Bomb_04_Plane_CAS_01_F"]</English>
+			<French>Tableau des classnames d'armes ou des couples [arme,munition].\nLaisser vide pour utiliser la dotation par défaut du véhicule.\n\nExemple :\n[["weapon_GBU12Launcher", "magazine_Bomb_GBU12_x1"], "Gatling_30mm_Plane_CAS_01_F", "Bomb_04_Plane_CAS_01_F"]</French>
 		</Key>
 		<Key ID="STR_SSS_Module_AddTransport">
 			<English>Add Transport</English>
@@ -163,7 +163,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_AddLogisticsAirdrop">
 			<English>Add Logistics Airdrop</English>
-			<French>Ajouter un parachutage logistique</French>
+			<French>Ajouter un paralargage logistique</French>
 		</Key>
 		<Key ID="STR_SSS_Module_ClassnameLogisticsAirdropDescription">
 			<English>Classname of air vehicle</English>
@@ -171,7 +171,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_CallsignLogisticsAirdropDefaultValue">
 			<English>Logistics Airdrop</English>
-			<French>Parachutage Logistique</French>
+			<French>Paralargage logistique</French>
 		</Key>
 		<Key ID="STR_SSS_Module_SpawnPositionName">
 			<English>Fixed spawn position</English>
@@ -179,7 +179,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_SpawnPositionDescription">
 			<English>In format [x,y] or [x,y,z]. Leave empty to generate random position from request location.</English>
-			<French>Format [x,y] ou [x,y,z]. Laissez vide pour générer une position aléatoire à partir de la position de la demande.</French>
+			<French>Format [x,y] ou [x,y,z].\nLaisser vide pour générer une position aléatoire à partir de la position du demandeur.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_SpawnDelayName">
 			<English>Spawn delay</English>
@@ -187,7 +187,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_SpawnDelayDescription">
 			<English>Time before air vehicle is spawned after request is submitted</English>
-			<French>Durée en secondes après la demande avant que le véhicule aérien n'apparaisse.</French>
+			<French>Temps nécessaire pour que le véhicule apparaisse une fois la demande de support effectuée.\nValeur exprimée en secondes.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_FlyingHeightName">
 			<English>Flying height</English>
@@ -195,15 +195,15 @@
 		</Key>
 		<Key ID="STR_SSS_Module_FlyingHeightDescription">
 			<English>AGL altitude in meters</English>
-			<French>Altitude de vol au-dessus du sol en mètres.</French>
+			<French>Hauteur de vol, au-dessus du sol, en mètres.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_ListFunctionName">
 			<English>List function</English>
-			<French>Objets demandables</French>
+			<French>Équipement disponible</French>
 		</Key>
 		<Key ID="STR_SSS_Module_ListFunctionDescription">
-			<English>Code that must return an array of items that can be requested. \n\nSupported list item arguments: \n0: Classname &lt;STRING&gt; \n1: Custom name &lt;STRING&gt; \n2: Custom icon &lt;STRING&gt; \n3: Init code &lt;CODE&gt; \n\nExample array: \n[""Box_NATO_Wps_F"",[""Box_NATO_Equip_F"",""Equipment"","""",{systemChat ""dress up time""}]]</English>
-			<French>Code qui doit retourner une liste d'objets pouvant être demandés.\n\nListe des arguments supportés : \n0: Classname &lt;STRING&gt; \n1 : Nom personnalisé &lt;STRING&gt; \n2 : Icône personnalisé &lt;STRING&gt; \n3 : Code d'initialisation &lt;CODE&gt; \n\nExemple : \n[""Box_NATO_Wps_F"",[""Box_NATO_Equip_F"",""Equipment"","""",{systemChat ""dress up time""}]]</French>
+			<English>Code that must return an array of items that can be requested. \n\nSupported list item arguments: \n0: Classname &lt;STRING&gt; \n1: Custom name &lt;STRING&gt; \n2: Custom icon &lt;STRING&gt; \n3: Init code &lt;CODE&gt; \n\nExample array: \n["Box_NATO_Wps_F",["Box_NATO_Equip_F",Equipment","",{systemChat "dress up time"}]]</English>
+			<French>Code qui doit retourner un tableau des objets pouvant être fournis.\n\nListe des arguments supportés :\n0 : Classname &lt;STRING&gt;\n1 : Nom personnalisé &lt;STRING&gt;\n2 : Icône personnalisée &lt;STRING&gt;\n3 : Code d'initialisation &lt;CODE&gt;\n\nExemple :\n["Box_NATO_Wps_F", ["Box_NATO_Equip_F", "Équipement", "", {systemChat "Il est temps de s'équiper !"}]]</French>
 		</Key>
 		<Key ID="STR_SSS_Module_UniversalInitCodeName">
 			<English>Universal init code</English>
@@ -211,7 +211,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_UniversalInitCodeDescription">
 			<English>Code executed when any requested object is spawned (Object = _this).</English>
-			<French>Code exécuté lorsqu'un objet demandé est généré (Object = _this).</French>
+			<French>Code exécuté lorsqu'un objet demandé est généré (Objet = _this).</French>
 		</Key>
 		<Key ID="STR_SSS_Module_MaxAmountName">
 			<English>Maximum amount input</English>
@@ -219,7 +219,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_MaxAmountDescription">
 			<English>Maximum number of items that can be spawned per request.</English>
-			<French>Nombre maximal d'objets pouvant être créés par demande.</French>
+			<French>Nombre maximal d'objets pouvant être largués lors du paralargage.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_LandingSignalName">
 			<English>Landing signal</English>
@@ -227,7 +227,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_LandingSignalDescription">
 			<English>Color of signal when item lands, or none for no signal.\nSmoke used during daytime, chemlights used at night.</English>
-			<French>Couleur du signal à utiliser pour désigner la position d'atterrisage.\nFumigènes utilisées pendant la journée, bâtons lumineux utilisées la nuit.</French>
+			<French>Couleur du signal à utiliser pour désigner la position d'atterrisage.\nGrenades fumigènes utilisées de jour, bâtons lumineux utilisés de nuit.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_LandingSignalNone">
 			<English>None</English>
@@ -267,27 +267,27 @@
 		</Key>
 		<Key ID="STR_SSS_Module_ZeusCASDroneAdded">
 			<English>CAS Drone added</English>
-			<French>Drone pour support CAS ajouté</French>
+			<French>Support CAS - drone ajouté</French>
 		</Key>
 		<Key ID="STR_SSS_Module_ZeusCASGunshipAdded">
 			<English>CAS Gunship added</English>
-			<French>Gunship pour support CAS ajouté</French>
+			<French>Support CAS - Gunship ajouté</French>
 		</Key>
 		<Key ID="STR_SSS_Module_ZeusCASHelicopterAdded">
 			<English>CAS Helicopter added</English>
-			<French>Hélicoptère pour support CAS ajouté</French>
+			<French>Support CAS - Hélicoptère ajouté</French>
 		</Key>
 		<Key ID="STR_SSS_Module_ZeusCASPlaneAdded">
 			<English>CAS Plane added</English>
-			<French>Avion pour support CAS ajouté</French>
+			<French>Support CAS - Avion ajouté</French>
 		</Key>
 		<Key ID="STR_SSS_Module_ZeusLogisticsAirdropAdded">
 			<English>Logistics airdrop added</English>
-			<French>Parachutage logistique ajouté</French>
+			<French>Logistique - Paralargage ajouté</French>
 		</Key>
 		<Key ID="STR_SSS_Module_ZeusLogisticsStationAdded">
 			<English>Logistics station added</English>
-			<French>Station logistique ajoutée</French>
+			<French>Logistique - station ajoutée</French>
 		</Key>
 		<Key ID="STR_SSS_Module_ZeusAirTransportAdded">
 			<English>Air Transport added</English>
@@ -307,7 +307,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_ZeusNoSupportsExist">
 			<English>No supports exist</English>
-			<French>Aucun support n'existe</French>
+			<French>Aucun support existant</French>
 		</Key>
 		<Key ID="STR_SSS_Module_SelectSupportsToRemove">
 			<English>Select supports to be removed</English>
