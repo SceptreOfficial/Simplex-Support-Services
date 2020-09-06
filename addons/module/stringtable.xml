@@ -55,7 +55,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_CoordinationDistanceDescription">
 			<English>Set what "nearby" really means for artillery coordination</English>
-			<French>Distance à laquelle les autres pièces d'artilleries sont suffisamment proches de celle-ci pour pouvoir coordonner leurs tirs.</French>
+			<French>Distance à laquelle cette pièce d'artillerie répond aux demandes de coordination des autres unités du même type.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CustomInitName">
 			<English>Custom init code</English>
