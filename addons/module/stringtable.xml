@@ -55,7 +55,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_CoordinationDistanceDescription">
 			<English>Set what "nearby" really means for artillery coordination</English>
-			<French>Définit la distance à laquelle deux artilleries sont considérées comme étant "proches" l'une de l'autre.</French>
+			<French>Distance à laquelle les autres pièces d'artilleries sont suffisamment proches de celle-ci pour pouvoir coordonner leurs tirs.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CustomInitName">
 			<English>Custom init code</English>
@@ -79,7 +79,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_AccessConditionDescription">
 			<English>Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable ["canUseSSS",false] \nPlayer init: \n    this setVariable ["canUseSSS",true,true];</English>
-			<French>Code exécuté chez le client voulant effectuer la demande.\nLe support ne sera disponible que si la valeur retournée est "true".\n\nExemple d'utilisation :\n\nCondition d'accès :\n    player getVariable ["canUseSSS", false]\n\nInitialisation du joueur :\n    this setVariable ["canUseSSS", true, true];</French>
+			<French>Code exécuté chez le client voulant effectuer la demande.\nLe support ne sera visible dans le menu que si la valeur retournée est "true".\n\nExemple d'utilisation :\n\nCondition d'accès :\n    player getVariable ["canUseSSS", false]\n\nInitialisation du joueur :\n    this setVariable ["canUseSSS", true, true];</French>
 		</Key>
 		<Key ID="STR_SSS_Module_RequestApprovalConditionName">
 			<English>Request approval condition</English>
@@ -107,7 +107,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_LoiterTimeName">
 			<English>Loiter time</English>
-			<French>Durée du vol en attente</French>
+			<French>Durée du vol d'attente</French>
 		</Key>
 		<Key ID="STR_SSS_Module_LoiterTimeDescription">
 			<English>How long aircraft will loiter in the area</English>
