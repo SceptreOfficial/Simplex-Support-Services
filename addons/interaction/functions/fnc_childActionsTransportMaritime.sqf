@@ -15,7 +15,7 @@ params ["_target","_player","_entity"];
 		_this call FUNC(selectPosition);
 	},{true},{},[_entity,"MOVE_ENG_OFF"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_ImmediateStop","Immediate Stop",ICON_STOP_VEHICLE,{
+	[["SSS_ImmediateStop","Stop",ICON_STOP_VEHICLE,{
 		(_this # 2) call EFUNC(common,stopVehicle);
 	},{(_this # 2) getVariable "SSS_onTask"},{},_entity] call ace_interact_menu_fnc_createAction,[],_target],
 

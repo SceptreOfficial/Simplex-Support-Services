@@ -12,7 +12,9 @@ private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
  
 INTERRUPT(_entity,_vehicle);
 
-// Stop the vehicle and delete all waypoints
+// Clean waypoints
+[_vehicle] call FUNC(clearWaypoints);
+// Use CBA function to neatly stop the vehicle
 [_vehicle] call CBA_fnc_clearWaypoints;
 
 // Update SSS variables
