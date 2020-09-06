@@ -17,6 +17,14 @@
 			<English>Display name</English>
 			<French>Nom affiché dans l'interface pour désigner ce support.\nLaisser le champ vide pour utiliser le nom par défaut du véhicule.</French>
 		</Key>
+		<Key ID="STR_SSS_Module_AmmunitionSetName">
+			<English>Ammuniton set</English>
+			<French>Configuration des munitions</French>
+		</Key>
+		<Key ID="STR_SSS_Module_AmmunitionSetDescription">
+			<English>Array of ammunition classnames. Empty array for vehicle defaults</English>
+			<French>Tableau des classnames de munitions.\nLaisser vide pour utiliser la dotation par défaut du véhicule.</French>
+		</Key>
 		<Key ID="STR_SSS_Module_RespawnTimeName">
 			<English>Respawn time</English>
 			<French>Délai de réapparition</French>
@@ -56,6 +64,26 @@
 		<Key ID="STR_SSS_Module_CoordinationDistanceDescription">
 			<English>Set what "nearby" really means for artillery coordination</English>
 			<French>Distance à laquelle cette pièce d'artillerie répond aux demandes de coordination des autres unités du même type.</French>
+		</Key>
+		<Key ID="STR_SSS_Module_CoordinationTypeName">
+			<English>Coordinate with</English>
+			<French>Coordonner avec</French>
+		</Key>
+		<Key ID="STR_SSS_Module_CoordinationTypeDescription">
+			<English>Set what kind of artillery to coordinate with</English>
+			<French>Type d'artillerie à coordonner avec cette artillerie.</French>
+		</Key>
+		<Key ID="STR_SSS_Module_CoordinationTypeSupport">
+			<English>Support entities only (requires access)</English>
+			<French>Artilleries configurées en support uniquement (requiert l'accès)</French>
+		</Key>
+		<Key ID="STR_SSS_Module_CoordinationTypeNonSupport">
+			<English>Non-support entities only</English>
+			<French>Artilleries non configurées comme support uniquement</French>
+		</Key>
+		<Key ID="STR_SSS_Module_CoordinationTypeAll">
+			<English>Any nearby batteries (supports require access)</English>
+			<French>Toutes les artilleries (supports requièrent l'accès)</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CustomInitName">
 			<English>Custom init code</English>

@@ -7,15 +7,15 @@
 	if (!isNull (findDisplay 312)) then {
 		if (!local _logic) exitWith {};
 
-		[localize LSTRING(AddLogisticsStation),[
-			["EDITBOX",localize LSTRING(SpawnDirectionName),"0"],
-			["EDITBOX",[localize LSTRING(CallsignName),localize LSTRING(CallsignDescription)],localize LSTRING(CallsignAddLogisticsStationDefaultValue)],
-			["EDITBOX",[localize LSTRING(ListFunctionName),localize LSTRING(ListFunctionDescription)],"[]"],
-			["EDITBOX",[localize LSTRING(UniversalInitCodeName),localize LSTRING(UniversalInitCodeDescription)],""],
-			["COMBOBOX",[localize LSTRING(SideName),localize LSTRING(SideDescription)],[["BLUFOR","OPFOR","Independent"],0]],
-			["EDITBOX",[localize LSTRING(AccessItemsName),localize LSTRING(AccessItemsDescription)],"itemMap"],
-			["EDITBOX",[localize LSTRING(AccessConditionName),localize LSTRING(AccessConditionDescription)],"true"],
-			["EDITBOX",[localize LSTRING(RequestApprovalConditionName),localize LSTRING(RequestApprovalConditionDescription)],"true"]
+		[LLSTRING(AddLogisticsStation),[
+			["EDITBOX",LLSTRING(SpawnDirectionName),"0"],
+			["EDITBOX",[LLSTRING(CallsignName),LLSTRING(CallsignDescription)],LLSTRING(CallsignAddLogisticsStationDefaultValue)],
+			["EDITBOX",[LLSTRING(ListFunctionName),LLSTRING(ListFunctionDescription)],"[]"],
+			["EDITBOX",[LLSTRING(UniversalInitCodeName),LLSTRING(UniversalInitCodeDescription)],""],
+			["COMBOBOX",[LLSTRING(SideName),LLSTRING(SideDescription)],[["BLUFOR","OPFOR","Independent"],0]],
+			["EDITBOX",[LLSTRING(AccessItemsName),LLSTRING(AccessItemsDescription)],"itemMap"],
+			["EDITBOX",[LLSTRING(AccessConditionName),LLSTRING(AccessConditionDescription)],"true"],
+			["EDITBOX",[LLSTRING(RequestApprovalConditionName),LLSTRING(RequestApprovalConditionDescription)],"true"]
 		],{
 			params ["_values","_spawnPosASL"];
 			_values params ["_spawnDir","_callsign","_listFnc","_universalInitFnc","_sideSelection","_accessItems","_accessCondition","_requestCondition"];
@@ -32,7 +32,7 @@
 				_requestCondition
 			] call EFUNC(support,addLogisticsStation);
 
-			ZEUS_MESSAGE(localize LSTRING(ZeusLogisticsStationAdded));
+			ZEUS_MESSAGE(LLSTRING(ZeusLogisticsStationAdded));
 		},{},getPosASL _logic] call EFUNC(CDS,dialog);
 	} else {
 		if (!isServer) exitWith {};

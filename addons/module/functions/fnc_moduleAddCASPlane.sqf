@@ -20,16 +20,16 @@
 			});
 		};
 
-		[localize LSTRING(AddCASPlane),[
-			["EDITBOX",[localize LSTRING(ClassnameName),localize LSTRING(ClassnameCASPlaneDescription)],_classname],
-			["EDITBOX",[localize LSTRING(CallsignName),localize LSTRING(CallsignDescription)],_callsign],
-			["EDITBOX",[localize LSTRING(WeaponSetName),localize LSTRING(WeaponSetDescription)],_weaponSet],
-			["EDITBOX",[localize LSTRING(CooldownName),localize LSTRING(CooldownCASDescription)],str DEFAULT_COOLDOWN_PLANES],
-			["EDITBOX",[localize LSTRING(CustomInitName),localize LSTRING(CustomInitDescription)],""],
-			["COMBOBOX",[localize LSTRING(SideName),localize LSTRING(SideDescription)],[["BLUFOR","OPFOR","Independent"],0]],
-			["EDITBOX",[localize LSTRING(AccessItemsName),localize LSTRING(AccessItemsDescription)],"itemMap"],
-			["EDITBOX",[localize LSTRING(AccessConditionName),localize LSTRING(AccessConditionDescription)],"true"],
-			["EDITBOX",[localize LSTRING(RequestApprovalConditionName),localize LSTRING(RequestApprovalConditionDescription)],"true"]
+		[LLSTRING(AddCASPlane),[
+			["EDITBOX",[LLSTRING(ClassnameName),LLSTRING(ClassnameCASPlaneDescription)],_classname],
+			["EDITBOX",[LLSTRING(CallsignName),LLSTRING(CallsignDescription)],_callsign],
+			["EDITBOX",[LLSTRING(WeaponSetName),LLSTRING(WeaponSetDescription)],_weaponSet],
+			["EDITBOX",[LLSTRING(CooldownName),LLSTRING(CooldownCASDescription)],str DEFAULT_COOLDOWN_PLANES],
+			["EDITBOX",[LLSTRING(CustomInitName),LLSTRING(CustomInitDescription)],""],
+			["COMBOBOX",[LLSTRING(SideName),LLSTRING(SideDescription)],[["BLUFOR","OPFOR","Independent"],0]],
+			["EDITBOX",[LLSTRING(AccessItemsName),LLSTRING(AccessItemsDescription)],"itemMap"],
+			["EDITBOX",[LLSTRING(AccessConditionName),LLSTRING(AccessConditionDescription)],"true"],
+			["EDITBOX",[LLSTRING(RequestApprovalConditionName),LLSTRING(RequestApprovalConditionDescription)],"true"]
 		],{
 			params ["_values"];
 			_values params ["_classname","_callsign","_weaponSet","_cooldown","_customInit","_sideSelection","_accessItems","_accessCondition","_requestCondition"];
@@ -46,7 +46,7 @@
 				_requestCondition
 			] call EFUNC(support,addCASPlane);
 
-			ZEUS_MESSAGE(localize LSTRING(ZeusCASPlaneAdded));
+			ZEUS_MESSAGE(LLSTRING(ZeusCASPlaneAdded));
 		}] call EFUNC(CDS,dialog);
 	} else {
 		if (!isServer) exitWith {};

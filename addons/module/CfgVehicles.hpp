@@ -37,8 +37,8 @@ class CfgVehicles {
 				defaultValue = "";
 			};
 			class AmmunitionSet {
-				displayName = "Ammunition set";
-				description = "Array of ammunition classnames. Empty array for vehicle defaults";
+				displayName = CSTRING(AmmunitionSetName);
+				description = CSTRING(AmmunitionSetDescription);
 				typeName = "STRING";
 				defaultValue = "";
 			};
@@ -73,21 +73,21 @@ class CfgVehicles {
 				defaultValue = DEFAULT_ARTILLERY_COORDINATION_DISTANCE;
 			};
 			class CoordinationType {
-				displayName = "Coordinate with";
-				description = "Set what kind of artillery to coordinate with";
+				displayName = CSTRING(CoordinationTypeName);
+				description = CSTRING(CoordinationTypeDescription);
 				typeName = "NUMBER";
 				class values {
 					class SupportsOnly {
-						name = "Support entities only (requires access)";
+						name = CSTRING(CoordinationTypeSupport);
 						value = 0;
 					};
 					class NonSupportsOnly {
-						name = "Non-support entities only";
+						name = CSTRING(CoordinationTypeNonSupport);
 						value = 1;
 					};
 					class Anything {
 						default = 1;
-						name = "Any nearby batteries (supports require access)";
+						name = CSTRING(CoordinationTypeAll);
 						value = 2;
 					};
 				};

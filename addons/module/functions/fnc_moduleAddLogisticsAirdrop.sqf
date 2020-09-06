@@ -14,22 +14,22 @@
 			_classname = typeOf _object;
 		};
 
-		[localize LSTRING(AddLogisticsAirdrop),[
-			["EDITBOX",localize LSTRING(ClassnameName),_classname],
-			["EDITBOX",[localize LSTRING(CallsignName),localize LSTRING(CallsignDescription)],localize LSTRING(CallsignLogisticsAirdropDefaultValue)],
-			["EDITBOX",[localize LSTRING(SpawnPositionName),localize LSTRING(SpawnPositionDescription)],""],
-			["EDITBOX",[localize LSTRING(SpawnDelayName),localize LSTRING(SpawnDelayDescription)],str DEFAULT_LOGISTICS_AIRDROP_SPAWN_DELAY],
-			["EDITBOX",[localize LSTRING(FlyingHeightName),localize LSTRING(FlyingHeightDescription)],str DEFAULT_LOGISTICS_AIRDROP_FLYING_HEIGHT],
-			["EDITBOX",[localize LSTRING(ListFunctionName),localize LSTRING(ListFunctionDescription)],"[]"],
-			["EDITBOX",[localize LSTRING(UniversalInitCodeName),localize LSTRING(UniversalInitCodeDescription)],""],
-			["EDITBOX",[localize LSTRING(MaxAmountName),localize LSTRING(MaxAmountDescription)],"1"],
-			["COMBOBOX",[localize LSTRING(LandingSignalName),localize LSTRING(LandingSignalDescription)],[[localize LSTRING(LandingSignalNone),localize LSTRING(LandingSignalYellow),localize LSTRING(LandingSignalGreen),localize LSTRING(LandingSignalRed),localize LSTRING(LandingSignalBlue)],1]],
-			["EDITBOX",[localize LSTRING(CooldownName),localize LSTRING(CooldownDescription)],str DEFAULT_COOLDOWN_LOGISTICS_AIRDROP],
-			["EDITBOX",[localize LSTRING(CustomInitName),localize LSTRING(CustomInitDescription)],""],
-			["COMBOBOX",[localize LSTRING(SideName),localize LSTRING(SideDescription)],[["BLUFOR","OPFOR","Independent"],0]],
-			["EDITBOX",[localize LSTRING(AccessItemsName),localize LSTRING(AccessItemsDescription)],"itemMap"],
-			["EDITBOX",[localize LSTRING(AccessConditionName),localize LSTRING(AccessConditionDescription)],"true"],
-			["EDITBOX",[localize LSTRING(RequestApprovalConditionName),localize LSTRING(RequestApprovalConditionDescription)],"true"]
+		[LLSTRING(AddLogisticsAirdrop),[
+			["EDITBOX",LLSTRING(ClassnameName),_classname],
+			["EDITBOX",[LLSTRING(CallsignName),LLSTRING(CallsignDescription)],LLSTRING(CallsignLogisticsAirdropDefaultValue)],
+			["EDITBOX",[LLSTRING(SpawnPositionName),LLSTRING(SpawnPositionDescription)],""],
+			["EDITBOX",[LLSTRING(SpawnDelayName),LLSTRING(SpawnDelayDescription)],str DEFAULT_LOGISTICS_AIRDROP_SPAWN_DELAY],
+			["EDITBOX",[LLSTRING(FlyingHeightName),LLSTRING(FlyingHeightDescription)],str DEFAULT_LOGISTICS_AIRDROP_FLYING_HEIGHT],
+			["EDITBOX",[LLSTRING(ListFunctionName),LLSTRING(ListFunctionDescription)],"[]"],
+			["EDITBOX",[LLSTRING(UniversalInitCodeName),LLSTRING(UniversalInitCodeDescription)],""],
+			["EDITBOX",[LLSTRING(MaxAmountName),LLSTRING(MaxAmountDescription)],"1"],
+			["COMBOBOX",[LLSTRING(LandingSignalName),LLSTRING(LandingSignalDescription)],[[LLSTRING(LandingSignalNone),LLSTRING(LandingSignalYellow),LLSTRING(LandingSignalGreen),LLSTRING(LandingSignalRed),LLSTRING(LandingSignalBlue)],1]],
+			["EDITBOX",[LLSTRING(CooldownName),LLSTRING(CooldownDescription)],str DEFAULT_COOLDOWN_LOGISTICS_AIRDROP],
+			["EDITBOX",[LLSTRING(CustomInitName),LLSTRING(CustomInitDescription)],""],
+			["COMBOBOX",[LLSTRING(SideName),LLSTRING(SideDescription)],[["BLUFOR","OPFOR","Independent"],0]],
+			["EDITBOX",[LLSTRING(AccessItemsName),LLSTRING(AccessItemsDescription)],"itemMap"],
+			["EDITBOX",[LLSTRING(AccessConditionName),LLSTRING(AccessConditionDescription)],"true"],
+			["EDITBOX",[LLSTRING(RequestApprovalConditionName),LLSTRING(RequestApprovalConditionDescription)],"true"]
 		],{
 			(_this # 0) params [
 				"_classname","_callsign","_spawnPosition","_spawnDelay",
@@ -60,7 +60,7 @@
 				_requestCondition
 			] call EFUNC(support,addLogisticsAirdrop);
 
-			ZEUS_MESSAGE(localize LSTRING(ZeusLogisticsAirdropAdded));
+			ZEUS_MESSAGE(LLSTRING(ZeusLogisticsAirdropAdded));
 		}] call EFUNC(CDS,dialog);
 	} else {
 		if (!isServer) exitWith {};

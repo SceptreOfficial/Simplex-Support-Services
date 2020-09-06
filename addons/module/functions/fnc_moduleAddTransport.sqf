@@ -11,13 +11,13 @@
 
 		if (!alive _object || _object isKindOf "CAManBase" || _object isKindOf "Logic") exitWith {};
 
-		[localize LSTRING(AddTransport),[
-			["EDITBOX",[localize LSTRING(CallsignName),localize LSTRING(CallsignDescription)],getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")],
-			["EDITBOX",[localize LSTRING(RespawnTimeName),localize LSTRING(RespawnTimeDescription)],str DEFAULT_RESPAWN_TIME],
-			["EDITBOX",[localize LSTRING(CustomInitName),localize LSTRING(CustomInitDescription)],""],
-			["EDITBOX",[localize LSTRING(AccessItemsName),localize LSTRING(AccessItemsDescription)],"itemMap"],
-			["EDITBOX",[localize LSTRING(AccessConditionName),localize LSTRING(AccessConditionDescription)],"true"],
-			["EDITBOX",[localize LSTRING(RequestApprovalConditionName),localize LSTRING(RequestApprovalConditionDescription)],"true"]
+		[LLSTRING(AddTransport),[
+			["EDITBOX",[LLSTRING(CallsignName),LLSTRING(CallsignDescription)],getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")],
+			["EDITBOX",[LLSTRING(RespawnTimeName),LLSTRING(RespawnTimeDescription)],str DEFAULT_RESPAWN_TIME],
+			["EDITBOX",[LLSTRING(CustomInitName),LLSTRING(CustomInitDescription)],""],
+			["EDITBOX",[LLSTRING(AccessItemsName),LLSTRING(AccessItemsDescription)],"itemMap"],
+			["EDITBOX",[LLSTRING(AccessConditionName),LLSTRING(AccessConditionDescription)],"true"],
+			["EDITBOX",[LLSTRING(RequestApprovalConditionName),LLSTRING(RequestApprovalConditionDescription)],"true"]
 		],{
 			params ["_values","_object"];
 			_values params ["_callsign","_respawnTime","_customInit","_accessItems","_accessCondition","_requestCondition"];
@@ -34,9 +34,9 @@
 
 			switch (true) do {
 				case (_object isKindOf "Plane");
-				case (_object isKindOf "Helicopter") : {ZEUS_MESSAGE(localize LSTRING(ZeusAirTransportAdded));};
-				case (_object isKindOf "Ship") : {ZEUS_MESSAGE(localize LSTRING(ZeusSeaTransportAdded));};
-				case (_object isKindOf "LandVehicle") : {ZEUS_MESSAGE(localize LSTRING(ZeusLandTransportAdded));};
+				case (_object isKindOf "Helicopter") : {ZEUS_MESSAGE(LLSTRING(ZeusAirTransportAdded));};
+				case (_object isKindOf "Ship") : {ZEUS_MESSAGE(LLSTRING(ZeusSeaTransportAdded));};
+				case (_object isKindOf "LandVehicle") : {ZEUS_MESSAGE(LLSTRING(ZeusLandTransportAdded));};
 			};
 		},{},_object] call EFUNC(CDS,dialog);
 	} else {

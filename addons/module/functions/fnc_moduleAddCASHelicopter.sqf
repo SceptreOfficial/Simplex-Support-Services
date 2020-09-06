@@ -11,13 +11,13 @@
 
 		if (!alive _object || !(_object isKindOf "Helicopter")) exitWith {};
 
-		[localize LSTRING(AddCASHelicopter),[
-			["EDITBOX",[localize LSTRING(CallsignName),localize LSTRING(CallsignDescription)],getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")],
-			["EDITBOX",[localize LSTRING(RespawnTimeName),localize LSTRING(RespawnTimeDescription)],str DEFAULT_RESPAWN_TIME],
-			["EDITBOX",[localize LSTRING(CustomInitName),localize LSTRING(CustomInitDescription)],""],
-			["EDITBOX",[localize LSTRING(AccessItemsName),localize LSTRING(AccessItemsDescription)],"itemMap"],
-			["EDITBOX",[localize LSTRING(AccessConditionName),localize LSTRING(AccessConditionDescription)],"true"],
-			["EDITBOX",[localize LSTRING(RequestApprovalConditionName),localize LSTRING(RequestApprovalConditionDescription)],"true"]
+		[LLSTRING(AddCASHelicopter),[
+			["EDITBOX",[LLSTRING(CallsignName),LLSTRING(CallsignDescription)],getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")],
+			["EDITBOX",[LLSTRING(RespawnTimeName),LLSTRING(RespawnTimeDescription)],str DEFAULT_RESPAWN_TIME],
+			["EDITBOX",[LLSTRING(CustomInitName),LLSTRING(CustomInitDescription)],""],
+			["EDITBOX",[LLSTRING(AccessItemsName),LLSTRING(AccessItemsDescription)],"itemMap"],
+			["EDITBOX",[LLSTRING(AccessConditionName),LLSTRING(AccessConditionDescription)],"true"],
+			["EDITBOX",[LLSTRING(RequestApprovalConditionName),LLSTRING(RequestApprovalConditionDescription)],"true"]
 		],{
 			params ["_values","_object"];
 			_values params ["_callsign","_respawnTime","_customInit","_accessItems","_accessCondition","_requestCondition"];
@@ -32,7 +32,7 @@
 				_requestCondition
 			] call EFUNC(support,addCASHelicopter);
 
-			ZEUS_MESSAGE(localize LSTRING(ZeusCASHelicopterAdded));
+			ZEUS_MESSAGE(LLSTRING(ZeusCASHelicopterAdded));
 		},{},_object] call EFUNC(CDS,dialog);
 	} else {
 		if (!isServer) exitWith {};

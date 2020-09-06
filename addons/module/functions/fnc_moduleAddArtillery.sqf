@@ -12,22 +12,22 @@
 
 		if (!alive _object || !(_object isKindOf "AllVehicles")) exitWith {};
 
-		[localize LSTRING(AddArtillery),[
-			["EDITBOX",[localize LSTRING(CallsignName),localize LSTRING(CallsignDescription)],getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")],
-			["EDITBOX",["Ammuniton set","Array of ammunition classnames. Empty array for vehicle defaults"],_ammunitionSet],
-			["EDITBOX",[localize LSTRING(RespawnTimeName),localize LSTRING(RespawnTimeDescription)],str DEFAULT_RESPAWN_TIME],
-			["EDITBOX",[localize LSTRING(CooldownName),localize LSTRING(CooldownDescription)],str DEFAULT_COOLDOWN_ARTILLERY_MIN],
-			["EDITBOX",[localize LSTRING(RoundCooldownName),localize LSTRING(RoundCooldownDescription)],str DEFAULT_COOLDOWN_ARTILLERY_ROUND],
-			["EDITBOX",[localize LSTRING(MaxRoundsName),localize LSTRING(MaxRoundsDescription)],str DEFAULT_ARTILLERY_MAX_ROUNDS],
-			["EDITBOX",[localize LSTRING(CoordinationDistanceName),localize LSTRING(CoordinationDistanceDescription)],str DEFAULT_ARTILLERY_COORDINATION_DISTANCE],
-			["COMBOBOX",["Coordinate with","Set what kind of artillery to coordinate with"],[["Support entities only (requires access)","Non-support entities only","Any nearby batteries (supports require access)"],0]],
-			["EDITBOX",[localize LSTRING(CustomInitName),localize LSTRING(CustomInitDescription)],""],
-			["EDITBOX",[localize LSTRING(AccessItemsName),localize LSTRING(AccessItemsDescription)],"itemMap"],
-			["EDITBOX",[localize LSTRING(AccessConditionName),localize LSTRING(AccessConditionDescription)],"true"],
-			["EDITBOX",[localize LSTRING(RequestApprovalConditionName),localize LSTRING(RequestApprovalConditionDescription)],"true"]
+		[LLSTRING(AddArtillery),[
+			["EDITBOX",[LLSTRING(CallsignName),LLSTRING(CallsignDescription)],getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")],
+			["EDITBOX",[LLSTRING(AmmunitionSetName),LLSTRING(AmmunitionSetDescription)],_ammunitionSet],
+			["EDITBOX",[LLSTRING(RespawnTimeName),LLSTRING(RespawnTimeDescription)],str DEFAULT_RESPAWN_TIME],
+			["EDITBOX",[LLSTRING(CooldownName),LLSTRING(CooldownDescription)],str DEFAULT_COOLDOWN_ARTILLERY_MIN],
+			["EDITBOX",[LLSTRING(RoundCooldownName),LLSTRING(RoundCooldownDescription)],str DEFAULT_COOLDOWN_ARTILLERY_ROUND],
+			["EDITBOX",[LLSTRING(MaxRoundsName),LLSTRING(MaxRoundsDescription)],str DEFAULT_ARTILLERY_MAX_ROUNDS],
+			["EDITBOX",[LLSTRING(CoordinationDistanceName),LLSTRING(CoordinationDistanceDescription)],str DEFAULT_ARTILLERY_COORDINATION_DISTANCE],
+			["COMBOBOX",[LLSTRING(CoordinationWithName),LLSTRING(CoordinationWithDescription)],[[LLSTRING(CoordinationWithSupport),LLSTRING(CoordinationWithNonSupport),LLSTRING(CoordinationWithAll)],0]],
+			["EDITBOX",[LLSTRING(CustomInitName),LLSTRING(CustomInitDescription)],""],
+			["EDITBOX",[LLSTRING(AccessItemsName),LLSTRING(AccessItemsDescription)],"itemMap"],
+			["EDITBOX",[LLSTRING(AccessConditionName),LLSTRING(AccessConditionDescription)],"true"],
+			["EDITBOX",[LLSTRING(RequestApprovalConditionName),LLSTRING(RequestApprovalConditionDescription)],"true"]
 		],{
 			params ["_values","_object"];
-			_values params ["_callsign","_ammunitionSet","_respawnTime","_cooldown","_roundCooldown","_maxRounds","_coordinationDistance","_customInit","_accessItems","_accessCondition","_requestCondition"];
+			_values params ["_callsign","_ammunitionSet","_respawnTime","_cooldown","_roundCooldown","_maxRounds","_coordinationDistance","_coordinationType","_customInit","_accessItems","_accessCondition","_requestCondition"];
 
 			[
 				_object,
@@ -44,7 +44,7 @@
 				_requestCondition
 			] call EFUNC(support,addArtillery);
 
-			ZEUS_MESSAGE(localize LSTRING(ZeusArtilleryAdded));
+			ZEUS_MESSAGE(LLSTRING(ZeusArtilleryAdded));
 		},{},_object] call EFUNC(CDS,dialog);
 	} else {
 		if (!isServer) exitWith {};

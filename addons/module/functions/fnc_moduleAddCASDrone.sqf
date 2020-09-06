@@ -16,16 +16,16 @@
 			_callsign = getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName");
 		};
 
-		[localize LSTRING(AddCASDrone),[
-			["EDITBOX",[localize LSTRING(ClassnameName),localize LSTRING(ClassnameCASDroneDescription)],_classname],
-			["EDITBOX",[localize LSTRING(CallsignName),localize LSTRING(CallsignDescription)],_callsign],
-			["EDITBOX",[localize LSTRING(CooldownName),localize LSTRING(CooldownCASDescription)],str DEFAULT_COOLDOWN_DRONES],
-			["EDITBOX",[localize LSTRING(LoiterTimeName),localize LSTRING(LoiterTimeDescription)],str DEFAULT_LOITER_TIME_DRONES],
-			["EDITBOX",[localize LSTRING(CustomInitName),localize LSTRING(CustomInitDescription)],""],
-			["COMBOBOX",[localize LSTRING(SideName),localize LSTRING(SideDescription)],[["BLUFOR","OPFOR","Independent"],0]],
-			["EDITBOX",[localize LSTRING(AccessItemsName),localize LSTRING(AccessItemsDescription)],"itemMap"],
-			["EDITBOX",[localize LSTRING(AccessConditionName),localize LSTRING(AccessConditionDescription)],"true"],
-			["EDITBOX",[localize LSTRING(RequestApprovalConditionName),localize LSTRING(RequestApprovalConditionDescription)],"true"]
+		[LLSTRING(AddCASDrone),[
+			["EDITBOX",[LLSTRING(ClassnameName),LLSTRING(ClassnameCASDroneDescription)],_classname],
+			["EDITBOX",[LLSTRING(CallsignName),LLSTRING(CallsignDescription)],_callsign],
+			["EDITBOX",[LLSTRING(CooldownName),LLSTRING(CooldownCASDescription)],str DEFAULT_COOLDOWN_DRONES],
+			["EDITBOX",[LLSTRING(LoiterTimeName),LLSTRING(LoiterTimeDescription)],str DEFAULT_LOITER_TIME_DRONES],
+			["EDITBOX",[LLSTRING(CustomInitName),LLSTRING(CustomInitDescription)],""],
+			["COMBOBOX",[LLSTRING(SideName),LLSTRING(SideDescription)],[["BLUFOR","OPFOR","Independent"],0]],
+			["EDITBOX",[LLSTRING(AccessItemsName),LLSTRING(AccessItemsDescription)],"itemMap"],
+			["EDITBOX",[LLSTRING(AccessConditionName),LLSTRING(AccessConditionDescription)],"true"],
+			["EDITBOX",[LLSTRING(RequestApprovalConditionName),LLSTRING(RequestApprovalConditionDescription)],"true"]
 		],{
 			params ["_values"];
 			_values params ["_classname","_callsign","_cooldown","_loiterTime","_customInit","_sideSelection","_accessItems","_accessCondition","_requestCondition"];
@@ -42,7 +42,7 @@
 				_requestCondition
 			] call EFUNC(support,addCASDrone);
 
-			ZEUS_MESSAGE(localize LSTRING(ZeusCASDroneAdded));
+			ZEUS_MESSAGE(LLSTRING(ZeusCASDroneAdded));
 		}] call EFUNC(CDS,dialog);
 	} else {
 		if (!isServer) exitWith {};

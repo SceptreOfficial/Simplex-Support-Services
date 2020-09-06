@@ -23,7 +23,7 @@ switch (_entity getVariable "SSS_supportType") do {
 			[_vehicle,_lightsOn] remoteExecCall ["setPilotLight",_vehicle];
 			[_vehicle,_collisionLightsOn] remoteExecCall ["setCollisionLight",_vehicle];
 
-			NOTIFY(_entity,localize LSTRING(RogerThat));
+			NOTIFY(_entity,LLSTRING(RogerThat));
 		};
 	};
 
@@ -62,7 +62,7 @@ switch (_entity getVariable "SSS_supportType") do {
 				} forEach PRIMARY_CREW(_vehicle);
 			};
 
-			NOTIFY(_entity,localize LSTRING(RogerThat));
+			NOTIFY(_entity,LLSTRING(RogerThat));
 		};
 	};
 
@@ -98,7 +98,7 @@ switch (_entity getVariable "SSS_supportType") do {
 				} forEach PRIMARY_CREW(_vehicle);
 			};
 
-			NOTIFY(_entity,localize LSTRING(RogerThat));
+			NOTIFY(_entity,LLSTRING(RogerThat));
 		};
 	};
 
@@ -135,7 +135,7 @@ switch (_entity getVariable "SSS_supportType") do {
 				} forEach PRIMARY_CREW(_vehicle);
 			};
 
-			NOTIFY(_entity,localize LSTRING(RogerThat));
+			NOTIFY(_entity,LLSTRING(RogerThat));
 		};
 	};
 
@@ -175,7 +175,7 @@ switch (_entity getVariable "SSS_supportType") do {
 				} forEach PRIMARY_CREW(_vehicle);
 			};
 
-			NOTIFY(_entity,localize LSTRING(RogerThat));
+			NOTIFY(_entity,LLSTRING(RogerThat));
 		};
 	};
 };
