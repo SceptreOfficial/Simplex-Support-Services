@@ -10,14 +10,14 @@ private _rgbDistances = [];
 	_x params ["_name","_RGB"];
 	_rgbDistances pushBack [_smokeColor distance _RGB,_name];
 } forEach [
-	["white",[1,1,1]],
-	["black",[0,0,0]],
-	["red",[0.8438,0.1383,0.1353]],
-	["orange",[0.6697,0.2275,0.10053]],
-	["yellow",[0.9883,0.8606,0.0719]],
-	["green",[0.2125,0.6258,0.4891]],
-	["blue",[0.1183,0.1867,1]],
-	["purple",[0.4341,0.1388,0.4144]]
+	[LELSTRING(Main,SmokeColorWhite),[1,1,1]],
+	[LELSTRING(Main,SmokeColorBlack),[0,0,0]],
+	[LELSTRING(Main,SmokeColorRed),[0.8438,0.1383,0.1353]],
+	[LELSTRING(Main,SmokeColorOrange),[0.6697,0.2275,0.10053]],
+	[LELSTRING(Main,SmokeColorYellow),[0.9883,0.8606,0.0719]],
+	[LELSTRING(Main,SmokeColorGreen),[0.2125,0.6258,0.4891]],
+	[LELSTRING(Main,SmokeColorBlue),[0.1183,0.1867,1]],
+	[LELSTRING(Main,SmokeColorPurple),[0.4341,0.1388,0.4144]]
 ];
 _rgbDistances sort true;
 

@@ -16,7 +16,7 @@ if (missionNamespace getVariable format ["SSS_setting_milsimMode%1",_entity getV
 			[{titleFadeOut 0.5},[],1] call CBA_fnc_waitAndExecute;
 		};
 		
-		private _position = _grid call CBA_fnc_mapGridToPos;
+		private _position = [_grid, true] call CBA_fnc_mapGridToPos;
 		
 		[_player,_entity,_request,_position] call FUNC(onMapClick);
 	},{REQUEST_CANCELLED;},[_player,_entity,_request]] call EFUNC(CDS,dialog);

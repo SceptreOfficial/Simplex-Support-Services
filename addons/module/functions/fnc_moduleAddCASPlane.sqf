@@ -37,7 +37,7 @@
 			[
 				_classname,
 				_callsign,
-				parseSimpleArray _weaponSet,
+				_weaponSet call EFUNC(common,parseSimpleArray),
 				parseNumber _cooldown,
 				_customInit,
 				[west,east,independent] # _sideSelection,
@@ -54,7 +54,7 @@
 		[
 			_logic getVariable ["Classname",""],
 			_logic getVariable ["Callsign",""],
-			parseSimpleArray (_logic getVariable ["WeaponSet","[]"]),
+			(_logic getVariable ["WeaponSet","[]"]) call EFUNC(common,parseSimpleArray),
 			parseNumber (_logic getVariable ["Cooldown",str DEFAULT_COOLDOWN_PLANES]),
 			_logic getVariable ["CustomInit",""],
 			[west,east,independent] # (_logic getVariable ["Side",0]),

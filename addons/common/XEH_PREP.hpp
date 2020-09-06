@@ -10,6 +10,7 @@ PREP(deletedVehicle);
 PREP(getSmokeColor);
 PREP(notification);
 PREP(notify);
+PREP(parseSimpleArray);
 PREP(properTime);
 PREP(resetOnRTB);
 PREP(respawn);
