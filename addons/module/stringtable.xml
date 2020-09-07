@@ -75,15 +75,15 @@
 		</Key>
 		<Key ID="STR_SSS_Module_CoordinationTypeSupport">
 			<English>Support entities only (requires access)</English>
-			<French>Artilleries configurées en support uniquement (requiert l'accès)</French>
+			<French>Uniquement les artilleries configurées en support (accès requis)</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CoordinationTypeNonSupport">
 			<English>Non-support entities only</English>
-			<French>Artilleries non configurées comme support uniquement</French>
+			<French>Uniquement les artilleries non configurées comme support</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CoordinationTypeAll">
 			<English>Any nearby batteries (supports require access)</English>
-			<French>Toutes les artilleries (supports requièrent l'accès)</French>
+			<French>Toutes les artilleries (accès requis pour les supports)</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CustomInitName">
 			<English>Custom init code</English>
