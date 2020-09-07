@@ -62,7 +62,7 @@ switch (_entity getVariable "SSS_supportType") do {
 					};
 
 					_request in _magazines && _vehicle != _otherVehicle &&
-					{_vehicle distance2D _otherVehicle < (_x getVariable "SSS_coordinationDistance")} &&
+					{_vehicle distance2D _otherVehicle < (_entity getVariable "SSS_coordinationDistance")} &&
 					{(_x getVariable "SSS_cooldown") isEqualTo 0}
 				} else {
 					false
