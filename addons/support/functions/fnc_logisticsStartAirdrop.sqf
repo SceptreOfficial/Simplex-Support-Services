@@ -52,9 +52,11 @@ NOTIFY(_entity,FORMAT_2(localize LSTRING(AirdropInboundETA),_objText,_ETA));
 		_x disableAI "AUTOTARGET";
 	} forEach crew _vehicle;
 	_vehicle lockDriver true;
+
 	_vehicle setVariable ["SSS_parentEntity",_entity,true];
 	_entity setVariable ["SSS_vehicle",_vehicle,true];
 	_group setVariable ["SSS_protectWaypoints",true,true];
+	_group setVariable ["acex_headless_blacklist",true,true];
 
 	_vehicle setVariable ["SSS_WPDone",false];
 	private _WP = _group addWaypoint [_position,0];

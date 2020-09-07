@@ -65,6 +65,7 @@ _vehicle setPos _startPos;
 _vehicle setVariable ["SSS_parentEntity",_entity,true];
 _entity setVariable ["SSS_vehicle",_vehicle,true];
 _group setVariable ["SSS_protectWaypoints",true,true];
+_group setVariable ["acex_headless_blacklist",true,true];
 
 // Clear all weapons and add selected weapon
 {_vehicle removeMagazine _x} forEach magazines _vehicle;
