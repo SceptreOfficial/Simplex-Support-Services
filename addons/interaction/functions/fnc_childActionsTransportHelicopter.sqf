@@ -99,7 +99,7 @@ params ["_target","_player","_entity"];
 		private _entity = _this # 2;
 
 		["Change Behavior",[
-			["SLIDER",localize LSTRING(FlyingHeight),[[40,2000,0],_entity getVariable "SSS_flyingHeight"]],
+			["SLIDER",localize LSTRING(FlyingHeight),[[0,2000,0],_entity getVariable "SSS_flyingHeight"]],
 			["COMBOBOX",localize LSTRING(SpeedMode),[[localize LSTRING(Limited),localize LSTRING(Normal),localize LSTRING(Full)],_entity getVariable "SSS_speedMode"]],
 			["COMBOBOX",localize LSTRING(CombatMode),[[localize LSTRING(FireAtWill),localize LSTRING(HoldFire)],_entity getVariable "SSS_combatMode"]],
 			["CHECKBOX",localize LSTRING(Headlight),_entity getVariable "SSS_lightsOn"],

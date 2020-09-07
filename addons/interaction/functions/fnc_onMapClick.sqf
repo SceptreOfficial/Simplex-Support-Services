@@ -33,29 +33,47 @@ switch (_entity getVariable "SSS_supportType") do {
 			NOTIFY_LOCAL(_entity,_string);
 		};
 
-		private _nearbyArtillery = ([_player,"artillery"] call FUNC(availableEntities)) select {
-			private _otherVehicle = _x getVariable ["SSS_vehicle",objNull];
+		private _coordinationType = _entity getVariable ["SSS_coordinationType",0];
+		private _nearbyArtillery = [];
 
-			if (alive _otherVehicle) then {
-				private _magazines = if (_otherVehicle isKindOf "B_Ship_MRLS_01_base_F") then {
-					["magazine_Missiles_Cruise_01_x18","magazine_Missiles_Cruise_01_Cluster_x18"]
-				} else {
-					getArtilleryAmmo [_otherVehicle]
+		if (_coordinationType in [1,2]) then {
+			_nearbyArtillery append ((_vehicle nearEntities (_entity getVariable "SSS_coordinationDistance")) select {
+				if (!alive _x || {_x isKindOf "CAManBase"} || {!isNil {_x getVariable "SSS_parentEntity"}}) then {false} else {
+					private _magazines = if (_x isKindOf "B_Ship_MRLS_01_base_F") then {
+						["magazine_Missiles_Cruise_01_x18","magazine_Missiles_Cruise_01_Cluster_x18"]
+					} else {
+						getArtilleryAmmo [_x]
+					};
+
+					_request in _magazines && unitReady _x && _vehicle != _x
 				};
+			});
+		};
 
-				_request in _magazines && {
-				_vehicle != _otherVehicle && {
-				_vehicle distance2D _otherVehicle < (_x getVariable "SSS_coordinationDistance") && {
-				(_x getVariable "SSS_cooldown") isEqualTo 0}}}
-			} else {
-				false
-			};
+		if (_coordinationType in [0,2]) then {
+			_nearbyArtillery append (([_player,"artillery"] call FUNC(availableEntities)) select {
+				private _otherVehicle = _x getVariable ["SSS_vehicle",objNull];
+
+				if (alive _otherVehicle) then {
+					private _magazines = if (_otherVehicle isKindOf "B_Ship_MRLS_01_base_F") then {
+						["magazine_Missiles_Cruise_01_x18","magazine_Missiles_Cruise_01_Cluster_x18"]
+					} else {
+						getArtilleryAmmo [_otherVehicle]
+					};
+
+					_request in _magazines && _vehicle != _otherVehicle &&
+					{_vehicle distance2D _otherVehicle < (_x getVariable "SSS_coordinationDistance")} &&
+					{(_x getVariable "SSS_cooldown") isEqualTo 0}
+				} else {
+					false
+				};
+			});
 		};
 		
 		[localize LSTRING(FireMissionParameters) + " - " + mapGridPosition _position,[
 			["SLIDER",localize LSTRING(Rounds),[[1,_entity getVariable "SSS_maxRounds",0],1]],
 			["SLIDER",localize LSTRING(RandomDispersionRadius),[[0,250,0],0]],
-			["SLIDER",[localize LSTRING(CoordinationAmount),localize LSTRING(RequestFireFromSimilarArtillery)],[[0,count _nearbyArtillery,0],0],true,{},count _nearbyArtillery > 0]
+			["SLIDER",[localize LSTRING(CoordinationAmount),localize LSTRING(RequestFireFromSimilarArtillery)],[[0,count _nearbyArtillery,0],0],true,{},!(_nearbyArtillery isEqualTo [])]
 		],{
 			params ["_values","_args"];
 			_values params ["_rounds","_dispersion","_coordinateCount"];
@@ -68,14 +86,28 @@ switch (_entity getVariable "SSS_supportType") do {
 			};
 
 			if (_coordinateCount > 0) then {
-				_nearbyArtillery = _nearbyArtillery select {!isNull _x && {(_x getVariable "SSS_cooldown") isEqualTo 0}};
-				for "_i" from 0 to (_coordinateCount - 1) do {
-					private _extraEntity = _nearbyArtillery # _i;
-					private _extraVehicle = _extraEntity getVariable ["SSS_vehicle",objNull];
-					if (alive _extraVehicle) then {
-						[_extraEntity,_request,_position,_rounds,_dispersion] remoteExecCall [QEFUNC(support,requestArtillery),_extraVehicle];
+				_nearbyArtillery = _nearbyArtillery select {
+					if (!alive _x) then {false} else {
+						if (isNil {_x getVariable "SSS_vehicle"}) then {true} else {
+							(_x getVariable "SSS_cooldown") isEqualTo 0 && {alive (_x getVariable ["SSS_vehicle",objNull])}
+						};
 					};
 				};
+
+				{
+					private _extraVehicle = _x getVariable ["SSS_vehicle",objNull];
+
+					if (isNull _extraVehicle) then {
+						// Non-support
+						[_x,_request,_position,_rounds,_dispersion] remoteExecCall [QEFUNC(support,requestArtilleryNonSupport),_x];
+					} else {
+						// Support
+						[_x,_request,_position,_rounds,_dispersion] remoteExecCall [QEFUNC(support,requestArtillery),_extraVehicle];
+					};
+
+					_coordinateCount = _coordinateCount - 1;
+					if (_coordinateCount <= 0) exitWith {};
+				} forEach _nearbyArtillery;
 			};
 		},{REQUEST_CANCELLED;},[_entity,_request,_position,_nearbyArtillery]] call EFUNC(CDS,dialog);
 	};

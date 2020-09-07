@@ -23,7 +23,7 @@ params ["_target","_player","_entity"];
 		private _entity = _this # 2;
 
 		[localize LSTRING(ChangeBehavior),[
-			["SLIDER",localize LSTRING(FlyingHeight),[[40,2000,0],_entity getVariable "SSS_flyingHeight"]],
+			["SLIDER",localize LSTRING(FlyingHeight),[[0,2000,0],_entity getVariable "SSS_flyingHeight"]],
 			["CHECKBOX",localize LSTRING(Headlight),_entity getVariable "SSS_lightsOn"],
 			["CHECKBOX",localize LSTRING(CollisionLights),_entity getVariable "SSS_collisionLightsOn"]
 		],{

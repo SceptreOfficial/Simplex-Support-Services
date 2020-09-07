@@ -84,6 +84,7 @@ publicVariable "SSS_entities";
 
 // Commission vehicle
 [_entity,_vehicle] call EFUNC(common,commission);
+(group driver _vehicle) setVariable ["acex_headless_blacklist",true,true];
 
 // Execute custom code
 _vehicle call _customInit;

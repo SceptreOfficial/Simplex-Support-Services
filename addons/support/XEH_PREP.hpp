@@ -8,6 +8,7 @@ PREP(addLogisticsStation);
 PREP(addTransport);
 PREP(logisticsStartAirdrop);
 PREP(requestArtillery);
+PREP(requestArtilleryNonSupport);
 PREP(requestCASDrone);
 PREP(requestCASGunship);
 PREP(requestCASHelicopter);
