@@ -1,1 +1,1 @@
-#include "\z\SSS\addons\interaction\script_component.hpp"
+#include "\z\sss\addons\interaction\script_component.hpp"
