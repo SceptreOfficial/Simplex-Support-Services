@@ -1,1 +1,1 @@
-#include "\z\SSS\addons\CDS\script_component.hpp"
+#include "\z\sss\addons\cds\script_component.hpp"
