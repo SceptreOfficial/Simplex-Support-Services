@@ -19,11 +19,11 @@
 		</Key>
 		<Key ID="STR_SSS_Module_AmmunitionSetName">
 			<English>Ammuniton set</English>
-			<French>Configuration des munitions</French>
+			<French>Munitions</French>
 		</Key>
 		<Key ID="STR_SSS_Module_AmmunitionSetDescription">
 			<English>Array of ammunition classnames. Empty array for vehicle defaults</English>
-			<French>Tableau des classnames de munitions.\nLaisser vide pour utiliser la dotation par défaut du véhicule.</French>
+			<French>Tableau contenant les classnames des munitions disponibles.\nLaisser vide pour utiliser la dotation par défaut du véhicule.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_RespawnTimeName">
 			<English>Respawn time</English>
@@ -63,23 +63,23 @@
 		</Key>
 		<Key ID="STR_SSS_Module_CoordinationDistanceDescription">
 			<English>Set what "nearby" really means for artillery coordination</English>
-			<French>Distance à laquelle cette pièce d'artillerie répond aux demandes de coordination des autres unités du même type.</French>
+			<French>Définit la distance maximale à laquelle les autres unités d'artillerie identiques doivent se trouver pour pouvoir coordonner leurs frappes.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CoordinationTypeName">
 			<English>Coordinate with</English>
-			<French>Coordonner avec</French>
+			<French>Coordination possible avec</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CoordinationTypeDescription">
 			<English>Set what kind of artillery to coordinate with</English>
-			<French>Type d'artillerie à coordonner avec cette artillerie.</French>
+			<French>Sélection des artilleries pouvant se coordonner.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CoordinationTypeSupport">
 			<English>Support entities only (requires access)</English>
-			<French>Uniquement les artilleries configurées en support (accès requis)</French>
+			<French>Les autres artilleries de support (accès requis)</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CoordinationTypeNonSupport">
 			<English>Non-support entities only</English>
-			<French>Uniquement les artilleries non configurées comme support</French>
+			<French>Les artilleries n'étant pas configurées comme support</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CoordinationTypeAll">
 			<English>Any nearby batteries (supports require access)</English>
