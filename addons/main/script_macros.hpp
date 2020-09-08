@@ -107,6 +107,7 @@
 #define ICON_SITREP "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\intel_ca.paa"
 #define ICON_SLINGLOAD "z\SSS\addons\main\ui\icons\slingLoad.paa"
 #define ICON_SMOKE "z\SSS\addons\main\ui\icons\smoke.paa"
+#define ICON_STOP_VEHICLE "z\SSS\addons\main\ui\icons\stop_vehicle.paa"
 #define ICON_STROBE "z\SSS\addons\main\ui\icons\strobe.paa"
 #define ICON_SUPPORT_SERVICES "z\SSS\addons\main\ui\icons\sss.paa"
 #define ICON_TARGET "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\target_ca.paa"

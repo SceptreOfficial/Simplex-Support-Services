@@ -41,5 +41,9 @@
 			<English>seconds</English>
 			<French>secondes</French>
 		</Key>
+		<Key ID="STR_SSS_Common_NotifyStopVehicle">
+			<English>Current request cancelled. Stop the vehicle.</English>
+			<French>Mission annulée. Arrêt immédiat du véhicule.</French>
+		</Key>
 	</Package>
 </Project>
