@@ -73,7 +73,7 @@ switch (toUpper _request) do {
 			[_vehicle,_position,0,"MOVE","","","","",WP_DONE] call EFUNC(common,addWaypoint);
 
 			[{WAIT_UNTIL_WPDONE},{
-				params ["_entity","_vehicle"];
+				params ["_entity","_vehicle", "_engineOn"];
 
 				if (CANCEL_CONDITION) exitWith {
 					CANCEL_ORDER(_entity);
