@@ -4,10 +4,10 @@ params ["_entity"];
 if (isNull _entity) exitWith {};
 
 private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
-private _message = format [LLSTRING(LocationGrid) + "<br />%2",mapGridPosition _vehicle,switch true do {
-	case (!canMove _vehicle) : {LLSTRING(StatusDisabled)};
-	case (damage _vehicle > 0) : {LLSTRING(StatusDamaged)};
-	default {LLSTRING(StatusGreen)};
+private _message = format [LLSTRING(Sitrep_LocationGrid) + "<br />%2",mapGridPosition _vehicle,switch true do {
+	case (!canMove _vehicle) : {LLSTRING(Sitrep_StatusDisabled)};
+	case (damage _vehicle > 0) : {LLSTRING(Sitrep_StatusDamaged)};
+	default {LLSTRING(Sitrep_StatusGreen)};
 }];
 
 NOTIFY_LOCAL(_entity,_message);
