@@ -34,39 +34,7 @@ params ["_target","_player","_entity"];
 		},{},_entity] call EFUNC(CDS,dialog);
 	},{true},{},_entity] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_SITREP",LLSTRING(SITREP),ICON_SITREP,{
-		private _entity = _this # 2;
-		private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
-		private _message = format [LLSTRING(LocationGridAndStatus),mapGridPosition _vehicle,switch true do {
-			case (!canMove _vehicle) : {LLSTRING(StatusDisabled)};
-			case (damage _vehicle > 0) : {LLSTRING(StatusDamaged)};
-			default {LLSTRING(StatusGreen)};
-		}];
-
-		NOTIFY_LOCAL(_entity,_message);
-
-		private _marker = createMarkerLocal [format ["SSS_%1$%2$%3",_vehicle,CBA_missionTime,random 1],getPos _vehicle];
-		_marker setMarkerShapeLocal "ICON";
-		_marker setMarkerTypeLocal "mil_box";
-		_marker setMarkerColorLocal "ColorGrey";
-		_marker setMarkerTextLocal (_entity getVariable "SSS_callsign");
-		_marker setMarkerAlphaLocal 1;
-		
-		[{
-			params ["_args","_PFHID"];
-			_args params ["_vehicle","_marker"];
-
-			private _alpha = markerAlpha _marker - 0.005;
-			_marker setMarkerAlphaLocal _alpha;
-
-			if (alive _vehicle) then {
-				_marker setMarkerPosLocal getPosVisual _vehicle;
-			};
-
-			if (_alpha <= 0) then {
-				_PFHID call CBA_fnc_removePerFrameHandler;
-				deleteMarkerLocal _marker;
-			};
-		},0.1,[_vehicle,_marker]] call CBA_fnc_addPerFrameHandler;
+	[["SSS_SITREP","SITREP",ICON_SITREP,{
+		(_this # 2) call EFUNC(common,sitrep);
 	},{true},{},_entity] call ace_interact_menu_fnc_createAction,[],_target]
 ]

@@ -6,8 +6,8 @@
 			<French>Bien reçu ! C'est parti !</French>
 		</Key>
 		<Key ID="STR_SSS_Common_VehicleReplacementETA">
-			<English>Vehicle destroyed. A replacement vehicle will arrive in %1 seconds.</English>
-			<French>Véhicule détruit. Un véhicule de remplacement arrivera dans %1 secondes.</French>
+			<English>Vehicle destroyed. A replacement vehicle will arrive in %1.</English>
+			<French>Véhicule détruit. Un véhicule de remplacement arrivera dans %1.</French>
 		</Key>
 		<Key ID="STR_SSS_Common_VehicleReplacementArrived">
 			<English>Replacement vehicle has arrived.</English>
@@ -40,6 +40,26 @@
 		<Key ID="STR_SSS_Common_TimeSeconds">
 			<English>seconds</English>
 			<French>secondes</French>
+		</Key>
+		<Key ID="STR_SSS_Common_NotifyStopVehicle">
+			<English>Current request cancelled. Stop the vehicle.</English>
+			<French>Mission annulée. Arrêt immédiat du véhicule.</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Sitrep_LocationGrid">
+			<English>Location: Grid %1</English>
+			<French>Position: %1</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Sitrep_StatusDisabled">
+			<English>Status: Disabled</English>
+			<French>Statut: Désactivé</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Sitrep_StatusDamaged">
+			<English>Status: Damaged</English>
+			<French>Statut: Endommagé</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Sitrep_StatusGreen">
+			<English>Status: Green</English>
+			<French>Statut: Opérationnel</French>
 		</Key>
 	</Package>
 </Project>
