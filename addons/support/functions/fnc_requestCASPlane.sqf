@@ -20,14 +20,14 @@ if ((_entity getVariable "SSS_cooldown") > 0) exitWith {
 
 ["SSS_requestSubmitted",[_entity,[_selectedWeapon,_position,_approachDirection,_signalSelection,_smokeColorSelection]]] call CBA_fnc_globalEvent;
 
-[_entity,_entity getVariable "SSS_cooldownDefault",localize LSTRING(RearmedAndReady)] call EFUNC(common,cooldown);
+[_entity,_entity getVariable "SSS_cooldownDefault",LLSTRING(RearmedAndReady)] call EFUNC(common,cooldown);
 
 // Notify
-private _message = format [localize LSTRING(MoveFromETA),mapGridPosition _position,DIRECTIONS # _approachDirection,switch (_signalSelection) do {
-	case 0 : {format [localize LSTRING(FiringCoordinates),getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]};
-	case 1 : {format [localize LSTRING(WillFireLaserTarget),getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]};
-	case 2 : {format [localize LSTRING(WillFireSmoke),getText (configFile >> "CfgMagazines" >> _magazine >> "displayName"),toLower (SMOKE_COLORS # _smokeColorSelection)]};
-	case 3 : {format [localize LSTRING(WillFireIRStrobe),getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]};
+private _message = format [LLSTRING(MoveFromETA),mapGridPosition _position,DIRECTIONS # _approachDirection,switch (_signalSelection) do {
+	case 0 : {format [LLSTRING(FiringCoordinates),getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]};
+	case 1 : {format [LLSTRING(WillFireLaserTarget),getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]};
+	case 2 : {format [LLSTRING(WillFireSmoke),getText (configFile >> "CfgMagazines" >> _magazine >> "displayName"),toLower (SMOKE_COLORS # _smokeColorSelection)]};
+	case 3 : {format [LLSTRING(WillFireIRStrobe),getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]};
 }];
 
 NOTIFY(_entity,_message);
@@ -165,7 +165,7 @@ private _offset = switch (_weaponType) do {
 		if (!isNull _entity && !(_vehicle getVariable ["SSS_signalFound",false])) then {
 			private _cooldown = (_entity getVariable "SSS_cooldown") min ((_entity getVariable "SSS_cooldownDefault") * 0.25);
 			_entity setVariable ["SSS_cooldown",_cooldown,true];
-			NOTIFY_1(_entity,localize LSTRING(NoSignalFoundReadyForNewRequests),PROPER_COOLDOWN(_entity));
+			NOTIFY_1(_entity,LLSTRING(NoSignalFoundReadyForNewRequests),PROPER_COOLDOWN(_entity));
 		};
 
 		// Delete targets

@@ -94,10 +94,10 @@ _vehicle setVariable ["SSS_fastropeUnits",nil];
 			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
 
 			if (_doFastrope) then {
-				NOTIFY(_entity,localize LSTRING(FastropingAtLocation));
+				NOTIFY(_entity,LLSTRING(FastropingAtLocation));
 				[_entity,_vehicle] call FUNC(transportFastrope);
 			} else {
-				NOTIFY(_entity,localize LSTRING(HoveringAtLocation));
+				NOTIFY(_entity,LLSTRING(HoveringAtLocation));
 				["SSS_requestCompleted",[_entity,["HOVER",false]]] call CBA_fnc_globalEvent;
 			};
 		};

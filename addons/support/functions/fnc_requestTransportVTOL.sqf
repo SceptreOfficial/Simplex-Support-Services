@@ -35,7 +35,7 @@ switch (toUpper _request) do {
 			// Begin order
 			_entity setVariable ["SSS_onTask",true,true];
 			[_entity,true,_position] call EFUNC(common,updateMarker);
-			NOTIFY(_entity,localize LSTRING(ReturningToBase));
+			NOTIFY(_entity,LLSTRING(ReturningToBase));
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
@@ -64,7 +64,7 @@ switch (toUpper _request) do {
 						deleteVehicle _pad;
 					};
 
-					END_ORDER(_entity,localize LSTRING(ArrivedAtBase));
+					END_ORDER(_entity,LLSTRING(ArrivedAtBase));
 					_entity setVariable ["SSS_awayFromBase",false,true];
 					_vehicle engineOn false;
 					_vehicle doFollow _vehicle;
@@ -84,7 +84,7 @@ switch (toUpper _request) do {
 		[{!((_this # 0) getVariable "SSS_onTask")},{
 			params ["_entity","_vehicle","_position"];
 
-			BEGIN_ORDER(_entity,_position,localize LSTRING(HeadingToPickupLocationPrepareSignal));
+			BEGIN_ORDER(_entity,_position,LLSTRING(HeadingToPickupLocationPrepareSignal));
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
@@ -144,7 +144,7 @@ switch (toUpper _request) do {
 				_nearestPads # 0
 			};
 
-			BEGIN_ORDER(_entity,_position,localize LSTRING(HeadingToLZ));
+			BEGIN_ORDER(_entity,_position,LLSTRING(HeadingToLZ));
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
@@ -177,7 +177,7 @@ switch (toUpper _request) do {
 						};
 					};
 
-					END_ORDER(_entity,localize LSTRING(LandedAtLocation));
+					END_ORDER(_entity,LLSTRING(LandedAtLocation));
 
 					private _requestName = if (_engineOn) then {
 						group _vehicle setBehaviour "AWARE"; // VTOLs ignore engineOn command otherwise
@@ -213,7 +213,7 @@ switch (toUpper _request) do {
 		[{!((_this # 0) getVariable "SSS_onTask")},{
 			params ["_entity","_vehicle","_position"];
 
-			BEGIN_ORDER(_entity,_position,localize LSTRING(MovingToRequestLocation));
+			BEGIN_ORDER(_entity,_position,LLSTRING(MovingToRequestLocation));
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
@@ -226,7 +226,7 @@ switch (toUpper _request) do {
 					CANCEL_ORDER(_entity);
 				};
 
-				END_ORDER(_entity,localize LSTRING(DestinationReached));
+				END_ORDER(_entity,LLSTRING(DestinationReached));
 
 				["SSS_requestCompleted",[_entity,["MOVE"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle]] call CBA_fnc_waitUntilAndExecute;
@@ -241,7 +241,7 @@ switch (toUpper _request) do {
 		[{!((_this # 0) getVariable "SSS_onTask")},{
 			params ["_entity","_vehicle","_position","_jumpDelay","_AIOpeningHeight"];
 
-			BEGIN_ORDER(_entity,_position,localize LSTRING(MovingToLocationForParadrop));
+			BEGIN_ORDER(_entity,_position,LLSTRING(MovingToLocationForParadrop));
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
@@ -259,7 +259,7 @@ switch (toUpper _request) do {
 
 				[_entity,_vehicle,_jumpDelay,_AIOpeningHeight] call FUNC(transportParadrop);
 
-				END_ORDER(_entity,localize LSTRING(GoGoGo));
+				END_ORDER(_entity,LLSTRING(GoGoGo));
 
 				["SSS_requestCompleted",[_entity,["PARADROP"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle,_position,_jumpDelay,_AIOpeningHeight]] call CBA_fnc_waitUntilAndExecute;
@@ -274,7 +274,7 @@ switch (toUpper _request) do {
 		[{!((_this # 0) getVariable "SSS_onTask")},{
 			params ["_entity","_vehicle","_position","_loiterRadius","_loiterDirection"];
 
-			BEGIN_ORDER(_entity,_position,localize LSTRING(MovingToRequestLocationLoiter));
+			BEGIN_ORDER(_entity,_position,LLSTRING(MovingToRequestLocationLoiter));
 
 			private _prepDist = [100,_loiterRadius + 100] select (_vehicle distance2D _position > (_loiterRadius + 100));
 			_vehicle setVariable ["SSS_WPDone",false];
@@ -298,7 +298,7 @@ switch (toUpper _request) do {
 
 				// End order without removing marker
 				_entity setVariable ["SSS_onTask",false,true];
-				NOTIFY(_entity,localize LSTRING(DestinationReachedLoitering));
+				NOTIFY(_entity,LLSTRING(DestinationReachedLoitering));
 
 				["SSS_requestCompleted",[_entity,["LOITER"]]] call CBA_fnc_globalEvent;
 			},[_entity,_vehicle,_position,_loiterRadius,_loiterDirection]] call CBA_fnc_waitUntilAndExecute;

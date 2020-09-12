@@ -12,17 +12,17 @@ if (_firstCall) then {
 
 private _signalType = if (daytime > _sunrise && daytime < _sunset) then {
 	if (_firstCall) then {
-		NOTIFY(_entity,localize LSTRING(ArrivedAtPickupDestinationWaitSmoke));
+		NOTIFY(_entity,LLSTRING(ArrivedAtPickupDestinationWaitSmoke));
 	} else {
-		NOTIFY(_entity,localize LSTRING(DisregardingSignalRequireNewSmoke));
+		NOTIFY(_entity,LLSTRING(DisregardingSignalRequireNewSmoke));
 	};
 
 	"SmokeShell"
 } else {
 	if (_firstCall) then {
-		NOTIFY(_entity,localize LSTRING(ArrivedAtPickupDestinationWaitIR));
+		NOTIFY(_entity,LLSTRING(ArrivedAtPickupDestinationWaitIR));
 	} else {
-		NOTIFY(_entity,localize LSTRING(DisregardingSignalRequireNewIR));
+		NOTIFY(_entity,LLSTRING(DisregardingSignalRequireNewIR));
 	};
 
 	"IRStrobeBase"
@@ -46,12 +46,12 @@ private _signalType = if (daytime > _sunrise && daytime < _sunset) then {
 	_entity setVariable ["SSS_needConfirmation",true,true];
 
 	private _signalSeen = if (_signalType == "SmokeShell") then {
-		format [localize LSTRING(SignalSeenSmoke),toLower (_signal call EFUNC(common,getSmokeColor))]
+		format [LLSTRING(SignalSeenSmoke),toLower (_signal call EFUNC(common,getSmokeColor))]
 	} else {
-		localize LSTRING(SignalSeenIR)
+		LLSTRING(SignalSeenIR)
 	};
 
-	NOTIFY_1(_entity,localize LSTRING(WeSeeSignalConfirm),_signalSeen);
+	NOTIFY_1(_entity,LLSTRING(WeSeeSignalConfirm),_signalSeen);
 
 	private _signalPos = getPos _signal;
 	_signalPos set [2,0];
@@ -76,7 +76,7 @@ private _signalType = if (daytime > _sunrise && daytime < _sunset) then {
 		};
 
 		// Signal approved
-		NOTIFY(_entity,localize LSTRING(SignalConfirmedClearLZ));
+		NOTIFY(_entity,LLSTRING(SignalConfirmedClearLZ));
 		_entity setVariable ["SSS_deniedSignals",[],true];
 
 		if (!isNull _signal) then {
@@ -112,7 +112,7 @@ private _signalType = if (daytime > _sunrise && daytime < _sunset) then {
 					deleteVehicle _pad;
 				};
 
-				END_ORDER(_entity,localize LSTRING(TouchdownLoadUp));
+				END_ORDER(_entity,LLSTRING(TouchdownLoadUp));
 
 				[{deleteVehicle _this},_pad,5] call CBA_fnc_waitAndExecute;
 

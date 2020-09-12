@@ -14,7 +14,7 @@ if ((_entity getVariable "SSS_cooldown") > 0) exitWith {
 
 ["SSS_requestSubmitted",[_entity,[_position,_loiterDirection,_loiterRadius,_loiterAltitude]]] call CBA_fnc_globalEvent;
 
-NOTIFY(_entity,localize LSTRING(UAVOnTheWay));
+NOTIFY(_entity,LLSTRING(UAVOnTheWay));
 
 // Update task marker
 [_entity,true,_position] call EFUNC(common,updateMarker);
@@ -70,7 +70,7 @@ _vehicle flyInHeightASL [_altitudeASL,_altitudeASL,_altitudeASL];
 	if (!alive _vehicle) exitwith {
 		_entity setVariable ["SSS_active",false,true];
 		[_entity,false] call EFUNC(common,updateMarker);
-		[_entity,_entity getVariable "SSS_cooldownDefault",localize LSTRING(RearmedAndReady)] call EFUNC(common,cooldown);
+		[_entity,_entity getVariable "SSS_cooldownDefault",LLSTRING(RearmedAndReady)] call EFUNC(common,cooldown);
 	};
 
 	// Unlock control
@@ -84,7 +84,7 @@ _vehicle flyInHeightASL [_altitudeASL,_altitudeASL,_altitudeASL];
 	_WP setWaypointLoiterRadius _loiterRadius;
 	_vehicle flyInHeightASL [_altitudeASL,_altitudeASL,_altitudeASL];
 
-	NOTIFY(_entity,localize LSTRING(UAVInRequestedArea));
+	NOTIFY(_entity,LLSTRING(UAVInRequestedArea));
 
 	_entity setVariable ["SSS_loitering",true,true];
 
@@ -104,9 +104,9 @@ _vehicle flyInHeightASL [_altitudeASL,_altitudeASL,_altitudeASL];
 
 		[_entity,false] call EFUNC(common,updateMarker);
 
-		[_entity,_entity getVariable "SSS_cooldownDefault",localize LSTRING(RearmedAndReady)] call EFUNC(common,cooldown);
+		[_entity,_entity getVariable "SSS_cooldownDefault",LLSTRING(RearmedAndReady)] call EFUNC(common,cooldown);
 
-		NOTIFY(_entity,localize LSTRING(DroneDestroyed));
+		NOTIFY(_entity,LLSTRING(DroneDestroyed));
 	},_this,_entity getVariable "SSS_loiterTime",{
 		params ["_entity","_vehicle","_altitudeASL","_position","_loiterDirection","_loiterRadius","_loiterAltitude","_startPosition"];
 
@@ -141,9 +141,9 @@ _vehicle flyInHeightASL [_altitudeASL,_altitudeASL,_altitudeASL];
 
 		[_entity,false] call EFUNC(common,updateMarker);
 
-		[_entity,_entity getVariable "SSS_cooldownDefault",localize LSTRING(RearmedAndReady)] call EFUNC(common,cooldown);
+		[_entity,_entity getVariable "SSS_cooldownDefault",LLSTRING(RearmedAndReady)] call EFUNC(common,cooldown);
 
-		NOTIFY_1(_entity,localize LSTRING(UAVIsLeaving),PROPER_COOLDOWN(_entity));
+		NOTIFY_1(_entity,LLSTRING(UAVIsLeaving),PROPER_COOLDOWN(_entity));
 
 		["SSS_requestCompleted",[_entity]] call CBA_fnc_globalEvent;
 	}] call CBA_fnc_waitUntilAndExecute;

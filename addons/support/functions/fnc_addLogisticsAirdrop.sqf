@@ -20,12 +20,12 @@ params [
 
 // Validation
 if (_classname isEqualTo "" || !(_classname isKindOf "Air")) exitWith {
-	SSS_ERROR_1(localize LSTRING(InvalidLogisticsAirdropClassname),_classname);
+	SSS_ERROR_1(LLSTRING(InvalidLogisticsAirdropClassname),_classname);
 	objNull
 };
 
 if (_callsign isEqualTo "") then {
-	_callsign = localize LSTRING(DefaultCallsignLogisticsAirdrop);
+	_callsign = LLSTRING(DefaultCallsignLogisticsAirdrop);
 };
 
 if !(_spawnPosition isEqualTo []) then {

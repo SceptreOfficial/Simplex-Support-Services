@@ -19,7 +19,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_InvalidCASDroneClassname">
 			<English>Invalid CAS Drone classname: %1</English>
-			<French>Classname de drone CAS invalide : %1</French>
+			<French>Classname du drone CAS invalide : %1</French>
 		</Key>
 		<Key ID="STR_SSS_Support_InvalidCASGunshipClassname">
 			<English>Invalid CAS Gunship classname: %1</English>
@@ -35,7 +35,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_InvalidLogisticsAirdropClassname">
 			<English>Invalid Logistics Airdrop classname: %1</English>
-			<French>Classname de parachutage logistique invalide : %1</French>
+			<French>Classname du parachutage logistique invalide : %1</French>
 		</Key>
 		<Key ID="STR_SSS_Support_DefaultCallsignLogisticsAirdrop">
 			<English>Logistics Airdrop</English>
@@ -79,7 +79,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_SplashOver">
 			<English>Splash - over.</English>
-			<French>Impact. Terminé.</French>
+			<French>Arrivée.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_UAVOnTheWay">
 			<English>UAV is on the way and will notify on arrival.</English>
@@ -107,7 +107,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_GunshipDestroyed">
 			<English>Gunship has been destroyed.</English>
-			<French>Le gunship a été détruite.</French>
+			<French>Le gunship a été détruit.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_GunshipIsLeaving">
 			<English>Gunship is leaving the area. Support will be available again in %1.</English>
@@ -127,7 +127,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_SearchAndDestroyComplete">
 			<English>Search and Destroy Complete.</English>
-			<French>Recherche et destruction terminées.</French>
+			<French>Mission de recherche et destruction terminée.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_MovingToRequestLocation">
 			<English>Moving to requested location.</English>
@@ -143,7 +143,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_DestinationReachedLoitering">
 			<English>Destination reached. Loitering until further tasking.</English>
-			<French>Destination atteinte. Vol en attente jusqu'à la prochaine mission.</French>
+			<French>Destination atteinte. Vol d'attente jusqu'à la prochaine mission.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_MoveFromETA">
 			<English>%1 from %2. ETA 45s. %3</English>
@@ -179,7 +179,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_Find">
 			<English>Find</English>
-			<French>Trouver</French>
+			<French>Chercher</French>
 		</Key>
 		<Key ID="STR_SSS_Support_AvailableObjects">
 			<English>Available objects</English>
@@ -207,7 +207,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_MovingLocationFastrope">
 			<English>Moving to location to fastrope from %1m.</English>
-			<French>Déplacement vers la position pour l'aérocordage à %1 m.</French>
+			<French>Déplacement vers la position pour la descente en rappel à %1 m.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_MovingLocationHover">
 			<English>Moving to location to hover at %1m.</English>
@@ -251,7 +251,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_FastropingAtLocation">
 			<English>Fastroping at location.</English>
-			<French>Aérocordage sur position</French>
+			<French>Descente en rappel sur position</French>
 		</Key>
 		<Key ID="STR_SSS_Support_HoveringAtLocation">
 			<English>Hovering at location.</English>
@@ -263,7 +263,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_DisregardingSignalRequireNewSmoke">
 			<English>Disregarding that signal. Pop a new smoke to confirm landing position.</English>
-			<French>Fumigène non prise en compte. Confirmez la position d'atterrissage avec une nouvelle fumigène.</French>
+			<French>Fumigène ignorée. Confirmez la position d'atterrissage avec une nouvelle fumigène.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_ArrivedAtPickupDestinationWaitIR">
 			<English>Arrived at pickup destination. Deploy IR signal to confirm landing position.</English>
@@ -271,7 +271,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_DisregardingSignalRequireNewIR">
 			<English>Disregarding that signal. Deploy a new IR signal to confirm landing position.</English>
-			<French>Signal infrarouge non pris en compte. Confirmez la position d'atterrissage avec un nouveau signal infrarouge.</French>
+			<French>Signal infrarouge ignoré. Confirmez la position d'atterrissage avec un nouveau signal infrarouge.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_SignalSeenSmoke">
 			<English>a %1 smoke</English>
