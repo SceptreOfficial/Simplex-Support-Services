@@ -31,7 +31,7 @@ params ["_target","_player","_entity"];
 		},{},_entity] call EFUNC(CDS,dialog);
 	},{true},{},_entity] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_SITREP","SITREP",ICON_SITREP,{
+	[["SSS_SITREP",LLSTRING(SITREP),ICON_SITREP,{
 		(_this # 2) call EFUNC(common,sitrep);
 	},{true},{},_entity] call ace_interact_menu_fnc_createAction,[],_target]
 ]

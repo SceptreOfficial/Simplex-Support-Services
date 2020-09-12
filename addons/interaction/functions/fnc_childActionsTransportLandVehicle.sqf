@@ -23,7 +23,7 @@ params ["_target","_player","_entity"];
 		private _entity = _this # 2;
 
 		[LLSTRING(ChangeBehavior),[
-			["COMBOBOX",LLSTRING(SpeedMode),[[LLSTRING(Limited),LLSTRING(Normal),LLSTRING(Full)],_entity getVariable "SSS_speedMode"]],
+			["COMBOBOX",LLSTRING(SpeedMode),[[LLSTRING(SpeedLimited),LLSTRING(SpeedNormal),LLSTRING(SpeedFull)],_entity getVariable "SSS_speedMode"]],
 			["COMBOBOX",LLSTRING(CombatMode),[[LLSTRING(FireAtWill),LLSTRING(HoldFire)],_entity getVariable "SSS_combatMode"]],
 			["CHECKBOX",LLSTRING(Headlight),_entity getVariable "SSS_lightsOn"],
 			["BUTTON",LLSTRING(ShutUp),SHUP_UP_BUTTON_CODE]
@@ -32,7 +32,7 @@ params ["_target","_player","_entity"];
 		},{},_entity] call EFUNC(CDS,dialog);
 	},{true},{},_entity] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_SITREP","SITREP",ICON_SITREP,{
+	[["SSS_SITREP",LLSTRING(SITREP),ICON_SITREP,{
 		(_this # 2) call EFUNC(common,sitrep);
 	},{true},{},_entity] call ace_interact_menu_fnc_createAction,[],_target]
 ]

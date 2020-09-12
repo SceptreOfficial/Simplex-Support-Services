@@ -115,7 +115,7 @@
 		</Key>
 		<Key ID="STR_SSS_Interaction_HoverFastrope">
 			<English>Hover/Fastrope</English>
-			<French>Survol/Aérocordage</French>
+			<French>Survol/Descente en rappel</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_SlingLoad">
 			<English>Sling Load</English>
@@ -137,15 +137,15 @@
 			<English>Shut up!</English>
 			<French>Silence !</French>
 		</Key>
-		<Key ID="STR_SSS_Interaction_Limited">
+		<Key ID="STR_SSS_Interaction_SpeedLimited">
 			<English>LIMITED</English>
 			<French>LENTE</French>
 		</Key>
-		<Key ID="STR_SSS_Interaction_Normal">
+		<Key ID="STR_SSS_Interaction_SpeedNormal">
 			<English>NORMAL</English>
 			<French>NORMALE</French>
 		</Key>
-		<Key ID="STR_SSS_Interaction_Full">
+		<Key ID="STR_SSS_Interaction_SpeedFull">
 			<English>FULL</English>
 			<French>RAPIDE</French>
 		</Key>
@@ -231,7 +231,7 @@
 		</Key>
 		<Key ID="STR_SSS_Interaction_AltitudeAbovePosition">
 			<English>Altitude above position</English>
-			<French>Altitude de vol</French>
+			<French>Hauteur de vol au-dessus de la position</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_GunshipRequestParameters">
 			<English>Gunship Request Parameters</English>
@@ -251,7 +251,7 @@
 		</Key>
 		<Key ID="STR_SSS_Interaction_ApproachFrom">
 			<English>Approach from</English>
-			<French>Axe d'approche </French>
+			<French>Axe d'approche</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_OrangeMeansApproachBlocked">
 			<English>Orange means the approach is blocked</English>
@@ -291,7 +291,7 @@
 		</Key>
 		<Key ID="STR_SSS_Interaction_FastropeAtPosition">
 			<English>Fastrope at position</English>
-			<French>Aérocordage sur la position</French>
+			<French>Descente en rappel sur la position</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_ParadropParameters">
 			<English>Paradrop parameters</English>
@@ -307,7 +307,7 @@
 		</Key>
 		<Key ID="STR_SSS_Interaction_AIOpeningHeight">
 			<English>AI opening height</English>
-			<French>Hauteur d'ouverture des parachutes pour les IAs</French>
+			<French>Hauteur d'ouverture des IAs</French>
 		</Key>
 	</Package>
 </Project>
