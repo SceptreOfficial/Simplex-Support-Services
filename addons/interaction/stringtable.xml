@@ -55,7 +55,7 @@
 		</Key>
 		<Key ID="STR_SSS_Interaction_Loiter">
 			<English>Loiter</English>
-			<French>Vol en attente</French>
+			<French>Vol d'attente</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_ChangeBehavior">
 			<English>Change behavior</English>
@@ -63,7 +63,7 @@
 		</Key>
 		<Key ID="STR_SSS_Interaction_FlyingHeight">
 			<English>Flying height</English>
-			<French>Altitude de vol</French>
+			<French>Hauteur de vol</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_Headlight">
 			<English>Headlight</English>
@@ -151,7 +151,7 @@
 		</Key>
 		<Key ID="STR_SSS_Interaction_ShutUp">
 			<English>Shut up!</English>
-			<French>Ta gueule !</French>
+			<French>Silence !</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_Limited">
 			<English>LIMITED</English>
@@ -231,11 +231,11 @@
 		</Key>
 		<Key ID="STR_SSS_Interaction_LoiterDirection">
 			<English>Loiter direction</English>
-			<French>Direction du vol en attente</French>
+			<French>Direction du vol d'attente</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_LoiterRadius">
 			<English>Loiter radius</English>
-			<French>Rayon du vol en attente</French>
+			<French>Rayon du vol d'attente</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_Clockwise">
 			<English>Clockwise</English>
@@ -255,7 +255,7 @@
 		</Key>
 		<Key ID="STR_SSS_Interaction_LoiterParameters">
 			<English>Loiter parameters</English>
-			<French>Paramètres du vol en attente</French>
+			<French>Paramètres du vol d'attente</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_TerrainObstructingApproach">
 			<English>Terrain obstructing approach</English>
@@ -267,7 +267,7 @@
 		</Key>
 		<Key ID="STR_SSS_Interaction_ApproachFrom">
 			<English>Approach from</English>
-			<French>Axe d'approche depuis</French>
+			<French>Axe d'approche </French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_OrangeMeansApproachBlocked">
 			<English>Orange means the approach is blocked</English>
@@ -319,11 +319,11 @@
 		</Key>
 		<Key ID="STR_SSS_Interaction_SecondsBetweenJumps">
 			<English>Seconds between each unit jumping out</English>
-			<French>Délai en secondes entre les sauts de chaque unité</French>
+			<French>Délai en secondes entre les sauts de chaque unité.</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_AIOpeningHeight">
 			<English>AI opening height</English>
-			<French>Altitude d'ouverture des parachutes pour les IAs</French>
+			<French>Hauteur d'ouverture des parachutes pour les IAs</French>
 		</Key>
 	</Package>
 </Project>

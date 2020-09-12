@@ -3,7 +3,7 @@
 params ["_entity"];
 
 if !(_entity getVariable ["SSS_loitering",false]) exitWith {
-	NOTIFY_LOCAL(_entity,localize LSTRING(GunshipNotInArea));
+	NOTIFY_LOCAL(_entity,LLSTRING(GunshipNotInArea));
 };
 
 private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
@@ -15,7 +15,7 @@ private _gunner = _vehicle turretUnit (_entity getVariable ["SSS_turretPath",[1]
 if (!alive _gunner) exitWith {};
 
 if (!isNull (_gunner getVariable ["SSS_remoteController",objNull])) exitWith {
-	NOTIFY_LOCAL(_entity,localize LSTRING(CurrentlyOccupied));
+	NOTIFY_LOCAL(_entity,LLSTRING(CurrentlyOccupied));
 };
 
 _gunner setVariable ["SSS_remoteController",player,true];

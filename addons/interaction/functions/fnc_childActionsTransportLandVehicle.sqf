@@ -3,38 +3,38 @@
 params ["_target","_player","_entity"];
 
 [
-	[["SSS_RTB",localize LSTRING(RTB),ICON_HOME,{
+	[["SSS_RTB",LLSTRING(RTB),ICON_HOME,{
 		(_this # 2) call EFUNC(support,requestTransportLandVehicle);
 	},{(_this # 2 # 0) getVariable "SSS_awayFromBase"},{},[_entity,"RTB"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_Move",localize LSTRING(Move),ICON_MOVE,{
+	[["SSS_Move",LLSTRING(Move),ICON_MOVE,{
 		_this call FUNC(selectPosition);
 	},{true},{},[_entity,"MOVE"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_MoveEngOff",localize LSTRING(MoveEngineOff),ICON_MOVE_ENG_OFF,{
+	[["SSS_MoveEngOff",LLSTRING(MoveEngineOff),ICON_MOVE_ENG_OFF,{
 		_this call FUNC(selectPosition);
 	},{true},{},[_entity,"MOVE_ENG_OFF"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_Behavior",localize LSTRING(ChangeBehavior),ICON_GEAR,{
+	[["SSS_Behavior",LLSTRING(ChangeBehavior),ICON_GEAR,{
 		private _entity = _this # 2;
 
 		["Change Behavior",[
-			["COMBOBOX",localize LSTRING(SpeedMode),[[localize LSTRING(Limited),localize LSTRING(Normal),localize LSTRING(Full)],_entity getVariable "SSS_speedMode"]],
-			["COMBOBOX",localize LSTRING(CombatMode),[[localize LSTRING(FireAtWill),localize LSTRING(HoldFire)],_entity getVariable "SSS_combatMode"]],
-			["CHECKBOX",localize LSTRING(Headlight),_entity getVariable "SSS_lightsOn"],
-			["BUTTON",localize LSTRING(ShutUp),SHUP_UP_BUTTON_CODE]
+			["COMBOBOX",LLSTRING(SpeedMode),[[LLSTRING(Limited),LLSTRING(Normal),LLSTRING(Full)],_entity getVariable "SSS_speedMode"]],
+			["COMBOBOX",LLSTRING(CombatMode),[[LLSTRING(FireAtWill),LLSTRING(HoldFire)],_entity getVariable "SSS_combatMode"]],
+			["CHECKBOX",LLSTRING(Headlight),_entity getVariable "SSS_lightsOn"],
+			["BUTTON",LLSTRING(ShutUp),SHUP_UP_BUTTON_CODE]
 		],{
 			_this call EFUNC(common,changeBehavior);
 		},{},_entity] call EFUNC(CDS,dialog);
 	},{true},{},_entity] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_SITREP",localize LSTRING(SITREP),ICON_SITREP,{
+	[["SSS_SITREP",LLSTRING(SITREP),ICON_SITREP,{
 		private _entity = _this # 2;
 		private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
-		private _message = format [localize LSTRING(LocationGridAndStatus),mapGridPosition _vehicle,switch true do {
-			case (!canMove _vehicle) : {localize LSTRING(StatusDisabled)};
-			case (damage _vehicle > 0) : {localize LSTRING(StatusDamaged)};
-			default {localize LSTRING(StatusGreen)};
+		private _message = format [LLSTRING(LocationGridAndStatus),mapGridPosition _vehicle,switch true do {
+			case (!canMove _vehicle) : {LLSTRING(StatusDisabled)};
+			case (damage _vehicle > 0) : {LLSTRING(StatusDamaged)};
+			default {LLSTRING(StatusGreen)};
 		}];
 
 		NOTIFY_LOCAL(_entity,_message);
