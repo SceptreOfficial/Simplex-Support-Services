@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="SSS">
+	<Package name="Interaction">
+		<Key ID="STR_SSS_Interaction_SupportServices">
+			<English>Support Services</English>
+			<French>Services de support</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Artillery">
+			<English>Artillery</English>
+			<French>Artillerie</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_CAS">
+			<English>CAS</English>
+			<French>CAS</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Transport">
+			<English>Transport</English>
+			<French>Transport</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Logistics">
+			<English>Logistics</English>
+			<French>Logistique</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_GunshipNotInArea">
+			<English>Not in the requested area yet. Gunship is on the way and will notify on arrival.</English>
+			<French>Pas encore dans la zone demandée. Le gunship est en route et vous préviendra de son arrivée.</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_CurrentlyOccupied">
+			<English>Currently occupied by another player</English>
+			<French>Place occupée par un autre joueur</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_VehicleUnderReplacement">
+			<English>No vehicle available at this time. A replacement is on the way.</English>
+			<French>Pas de véhicule disponible actuellement. Un véhicule de remplacement est en route.</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_ConnectViaUAVTerminal">
+			<English>Connect via UAV Terminal.</English>
+			<French>Utilisez un terminal drone pour vous connecter au drone.</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_RTB">
+			<English>RTB</English>
+			<French>RTB</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SAD">
+			<English>SAD</English>
+			<French>Recherche et destruction</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Move">
+			<English>Move</English>
+			<French>Déplacement</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_MoveEngineOff">
+			<English>Move - Engine off</English>
+			<French>Déplacement - Moteur éteint</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Loiter">
+			<English>Loiter</English>
+			<French>Vol d'attente</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_ChangeBehavior">
+			<English>Change behavior</English>
+			<French>Modification du comportement</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_FlyingHeight">
+			<English>Flying height</English>
+			<French>Hauteur de vol</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Headlight">
+			<English>Headlight</English>
+			<French>Phares</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_CollisionLights">
+			<English>Collision lights</English>
+			<French>Feux de collision</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SITREP">
+			<English>SITREP</English>
+			<French>Rapport de situation</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_ConfirmSignal">
+			<English>Confirm Signal</English>
+			<French>Confirmer le signal</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SearchNewSignal">
+			<English>Search for new Signal</English>
+			<French>Chercher un nouveau signal</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SelectObjectSlingLoad">
+			<English>Select object to sling load</English>
+			<French>Sélectionner un objet à charger sous élingue</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_NoSlingLoadableObjects">
+			<English>No sling loadable objects nearby.</English>
+			<French>Aucun objet chargeable par élingue à proximité.</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SlingLoadableObjects">
+			<English>Sling loadable objects:</English>
+			<French>Objets chargeables par élingue :</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Unhook">
+			<English>Unhook</English>
+			<French>Détacher</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Pickup">
+			<English>Pickup</English>
+			<French>Ramasser</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Land">
+			<English>Land</English>
+			<French>Atterrir</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_LandEngineOff">
+			<English>Land - Engine Off</English>
+			<French>Atterrir - Moteur éteint</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_HoverFastrope">
+			<English>Hover/Fastrope</English>
+			<French>Survol/Descente en rappel</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SlingLoad">
+			<English>Sling Load</English>
+			<French>Chargement sous élingue</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Paradrop">
+			<English>Paradrop</English>
+			<French>Parachuter</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SpeedMode">
+			<English>Speed Mode</English>
+			<French>Vitesse</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_CombatMode">
+			<English>Combat Mode</English>
+			<French>Mode de combat</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_ShutUp">
+			<English>Shut up!</English>
+			<French>Silence !</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SpeedLimited">
+			<English>LIMITED</English>
+			<French>LENTE</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SpeedNormal">
+			<English>NORMAL</English>
+			<French>NORMALE</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SpeedFull">
+			<English>FULL</English>
+			<French>RAPIDE</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_FireAtWill">
+			<English>Fire At will</English>
+			<French>Feu à volonté</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_HoldFire">
+			<English>Hold Fire</English>
+			<French>Ne pas tirer</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_RequestDenied">
+			<English>Request denied.</English>
+			<French>Demande refusée.</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_MapGridPosition">
+			<English>Map grid position</English>
+			<French>Coordonnées sur carte</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Grid">
+			<English>Grid</English>
+			<French>Grille</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Support10DigitsRef">
+			<English>Supports up to a 10 digit grid reference</English>
+			<French>Supporte des coordonnées jusqu'à 10 chiffres</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_RequestCancelledNoGridInput">
+			<English>Request Cancelled - No grid input</English>
+			<French>Demande annulée - Pas de coordonnées fournies</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SelectPosition">
+			<English>Select Position</English>
+			<French>Sélectionnez une position</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_PositionOutOfRangeColored">
+			<English>&lt;t color='#f4ca00'&gt;Position out of range.&lt;/t&gt; Unable to fulfill request.</English>
+			<French>&lt;t color='#f4ca00'&gt;Position hors de portée.&lt;/t&gt; Impossible de répondre à la demande.</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_PositionOutOfRange">
+			<English>Position out of range. Unable to fulfill request.</English>
+			<French>Position hors de portée. Impossible de répondre à la demande.</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_FireMissionParameters">
+			<English>Fire Mission Parameters</English>
+			<French>Paramètres de la mission de tir</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Rounds">
+			<English>Rounds</English>
+			<French>Nombre de tirs</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_RandomDispersionRadius">
+			<English>Random dispersion radius</English>
+			<French>Rayon de dispersion</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_CoordinationAmount">
+			<English>Coordination amount</English>
+			<French>Artilleries proches à coordonner</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_RequestFireFromSimilarArtillery">
+			<English>Request fire mission from similar nearby artillery</English>
+			<French>Demande de mission de tir d'artilleries similaires à proximité</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_DroneRequestParameters">
+			<English>Drone Request Parameters</English>
+			<French>Paramètres de la demande de drone</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_LoiterDirection">
+			<English>Loiter direction</English>
+			<French>Direction du vol d'attente</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_LoiterRadius">
+			<English>Loiter radius</English>
+			<French>Rayon du vol d'attente</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_Clockwise">
+			<English>Clockwise</English>
+			<French>Sens horaire</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_CounterClockwise">
+			<English>Counter-Clockwise</English>
+			<French>Sens anti-horaire</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_AltitudeAbovePosition">
+			<English>Altitude above position</English>
+			<French>Hauteur de vol au-dessus de la position</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_GunshipRequestParameters">
+			<English>Gunship Request Parameters</English>
+			<French>Paramètres pour la demande de gunship</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_LoiterParameters">
+			<English>Loiter parameters</English>
+			<French>Paramètres du vol d'attente</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_TerrainObstructingApproach">
+			<English>Terrain obstructing approach</English>
+			<French>Axe d'approche obstrué par le terrain</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_CASParameters">
+			<English>CAS Parameters</English>
+			<French>Paramètres CAS</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_ApproachFrom">
+			<English>Approach from</English>
+			<French>Axe d'approche</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_OrangeMeansApproachBlocked">
+			<English>Orange means the approach is blocked</English>
+			<French>Les axes colorés oranges sont bloqués</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_MapPositionOrOtherSignal">
+			<English>Map position or other signal</English>
+			<French>Position sur carte ou un autre signal</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_MapPosition">
+			<English>Map Position</English>
+			<French>Position carte</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_LaserTarget">
+			<English>Laser Target</English>
+			<French>Ciblage laser</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SmokeSignal">
+			<English>Smoke Signal</English>
+			<French>Signal par fumigène</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_IRSignal">
+			<English>IR Signal</English>
+			<French>Signal infrarouge</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_HoverParameters">
+			<English>Hover parameters</English>
+			<French>Paramètes de survol</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_HoverHeight">
+			<English>Hover height</English>
+			<French>Altitude de survol</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_TerrainCollisionPossible">
+			<English>Terrain collision is possible if set too low for angle/environment</English>
+			<French>Des collisions avec le terrain sont possibles si le réglage est trop bas</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_FastropeAtPosition">
+			<English>Fastrope at position</English>
+			<French>Descente en rappel sur la position</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_ParadropParameters">
+			<English>Paradrop parameters</English>
+			<French>Paramètres de parachutage</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_JumpDelay">
+			<English>Jump delay</English>
+			<French>Délai de saut</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_SecondsBetweenJumps">
+			<English>Seconds between each unit jumping out</English>
+			<French>Délai en secondes entre les sauts de chaque unité.</French>
+		</Key>
+		<Key ID="STR_SSS_Interaction_AIOpeningHeight">
+			<English>AI opening height</English>
+			<French>Hauteur d'ouverture des IAs</French>
+		</Key>
+	</Package>
+</Project>

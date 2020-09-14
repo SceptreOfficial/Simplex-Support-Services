@@ -3,19 +3,19 @@
 params ["_target","_player","_entity"];
 
 [
-	[["SSS_SignalConfirm","Confirm Signal",ICON_LAND_GREEN,{
+	[["SSS_SignalConfirm",LLSTRING(ConfirmSignal),ICON_LAND_GREEN,{
 		private _entity = _this # 2;
 		_entity setVariable ["SSS_signalApproved",true,true];
 		_entity setVariable ["SSS_needConfirmation",false,true];
 	},{(_this # 2) getVariable "SSS_needConfirmation"},{},_entity] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_SignalDeny","Search for new Signal",ICON_SEARCH_YELLOW,{
+	[["SSS_SignalDeny",LLSTRING(SearchNewSignal),ICON_SEARCH_YELLOW,{
 		private _entity = _this # 2;
 		_entity setVariable ["SSS_signalApproved",false,true];
 		_entity setVariable ["SSS_needConfirmation",false,true];
 	},{(_this # 2) getVariable "SSS_needConfirmation"},{},_entity] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_SlingLoadSelect","Select object to sling load",[ICON_SLINGLOAD,HEX_GREEN],{
+	[["SSS_SlingLoadSelect",LLSTRING(SelectObjectSlingLoad),[ICON_SLINGLOAD,HEX_GREEN],{
 		params ["_target","_player","_entity"];
 
 		private _vehicle = _entity getVariable "SSS_vehicle";
@@ -25,7 +25,7 @@ params ["_target","_player","_entity"];
 		};
 
 		if (_objects isEqualTo []) exitWith {
-			NOTIFY_LOCAL(_entity,"No sling loadable objects nearby.");
+			NOTIFY_LOCAL(_entity,LLSTRING(NoSlingLoadableObjects));
 		};
 
 		private _cfgVehicles = configFile >> "CfgVehicles";
@@ -44,7 +44,7 @@ params ["_target","_player","_entity"];
 		} forEach _objects;
 
 		["Select object",[
-			["LISTNBOX","Sling loadable objects:",[_rows,0,12]]
+			["LISTNBOX",LLSTRING(SlingLoadableObjects),[_rows,0,12]]
 		],{
 			params ["_values","_args"];
 			_values params ["_index"];
@@ -55,94 +55,62 @@ params ["_target","_player","_entity"];
 		},{},[_entity,_objects]] call EFUNC(CDS,dialog);
 	},{(_this # 2) getVariable "SSS_slingLoadReady"},{},_entity] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_Unhook","Unhook",[ICON_SLINGLOAD,HEX_YELLOW],{
+	[["SSS_Unhook",LLSTRING(Unhook),[ICON_SLINGLOAD,HEX_YELLOW],{
 		_this call FUNC(selectPosition);
 	},{!isNull getSlingLoad (_this # 2 # 0 getVariable "SSS_vehicle")},{},[_entity,"UNHOOK"]] call ace_interact_menu_fnc_createAction,[],_target],
 	
-	[["SSS_RTB","RTB",ICON_HOME,{
+	[["SSS_RTB",LLSTRING(RTB),ICON_HOME,{
 		(_this # 2) call EFUNC(support,requestTransportHelicopter);
 	},{(_this # 2 # 0) getVariable "SSS_awayFromBase"},{},[_entity,"RTB"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_Pickup","Pickup",ICON_SMOKE,{
+	[["SSS_Pickup",LLSTRING(Pickup),ICON_SMOKE,{
 		_this call FUNC(selectPosition);
 	},{true},{},[_entity,"PICKUP"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_Land","Land",ICON_LAND,{
+	[["SSS_Land",LLSTRING(Land),ICON_LAND,{
 		_this call FUNC(selectPosition);
 	},{true},{},[_entity,"LAND"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_LandEngOff","Land - Engine Off",ICON_LAND_ENG_OFF,{
+	[["SSS_LandEngOff",LLSTRING(LandEngineOff),ICON_LAND_ENG_OFF,{
 		_this call FUNC(selectPosition);
 	},{true},{},[_entity,"LAND_ENG_OFF"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_Move","Move",ICON_MOVE,{
+	[["SSS_Move",LLSTRING(Move),ICON_MOVE,{
 		_this call FUNC(selectPosition);
 	},{true},{},[_entity,"MOVE"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_Hover","Hover/Fastrope",ICON_ROPE,{
+	[["SSS_Hover",LLSTRING(HoverFastrope),ICON_ROPE,{
 		_this call FUNC(selectPosition);
 	},{true},{},[_entity,"HOVER"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_Loiter","Loiter",ICON_LOITER,{
+	[["SSS_Loiter",LLSTRING(Loiter),ICON_LOITER,{
 		_this call FUNC(selectPosition);
 	},{true},{},[_entity,"LOITER"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_SlingLoad","Sling Load",ICON_SLINGLOAD,{
+	[["SSS_SlingLoad",LLSTRING(SlingLoad),ICON_SLINGLOAD,{
 		_this call FUNC(selectPosition);
 	},{true},{},[_entity,"SLINGLOAD"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_Paradrop","Paradrop",ICON_PARACHUTE,{
+	[["SSS_Paradrop",LLSTRING(Paradrop),ICON_PARACHUTE,{
 		_this call FUNC(selectPosition);
 	},{true},{},[_entity,"PARADROP"]] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_Behavior","Change Behavior",ICON_GEAR,{
+	[["SSS_Behavior",LLSTRING(ChangeBehavior),ICON_GEAR,{
 		private _entity = _this # 2;
 
 		["Change Behavior",[
-			["SLIDER","Flying height",[[0,2000,0],_entity getVariable "SSS_flyingHeight"]],
-			["COMBOBOX","Speed Mode",[["LIMITED","NORMAL","FULL"],_entity getVariable "SSS_speedMode"]],
-			["COMBOBOX","Combat Mode",[["Fire At will","Hold Fire"],_entity getVariable "SSS_combatMode"]],
-			["CHECKBOX","Headlight",_entity getVariable "SSS_lightsOn"],
-			["CHECKBOX","Collision lights",_entity getVariable "SSS_collisionLightsOn"],
-			["BUTTON","Shut up!",SHUP_UP_BUTTON_CODE]
+			["SLIDER",LLSTRING(FlyingHeight),[[0,2000,0],_entity getVariable "SSS_flyingHeight"]],
+			["COMBOBOX",LLSTRING(SpeedMode),[[LLSTRING(SpeedLimited),LLSTRING(SpeedNormal),LLSTRING(SpeedFull)],_entity getVariable "SSS_speedMode"]],
+			["COMBOBOX",LLSTRING(CombatMode),[[LLSTRING(FireAtWill),LLSTRING(HoldFire)],_entity getVariable "SSS_combatMode"]],
+			["CHECKBOX",LLSTRING(Headlight),_entity getVariable "SSS_lightsOn"],
+			["CHECKBOX",LLSTRING(CollisionLights),_entity getVariable "SSS_collisionLightsOn"],
+			["BUTTON",LLSTRING(ShutUp),SHUP_UP_BUTTON_CODE]
 		],{
 			_this call EFUNC(common,changeBehavior);
 		},{},_entity] call EFUNC(CDS,dialog);
 	},{true},{},_entity] call ace_interact_menu_fnc_createAction,[],_target],
 
-	[["SSS_SITREP","SITREP",ICON_SITREP,{
-		private _entity = _this # 2;
-		private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
-		private _message = format ["Location: Grid %1<br />%2",mapGridPosition _vehicle,switch true do {
-			case (!canMove _vehicle) : {"Status: Disabled"};
-			case (damage _vehicle > 0) : {"Status: Damaged"};
-			default {"Status: Green"};
-		}];
-
-		NOTIFY_LOCAL(_entity,_message);
-
-		private _marker = createMarkerLocal [format ["SSS_%1$%2$%3",_vehicle,CBA_missionTime,random 1],getPos _vehicle];
-		_marker setMarkerShapeLocal "ICON";
-		_marker setMarkerTypeLocal "mil_box";
-		_marker setMarkerColorLocal "ColorGrey";
-		_marker setMarkerTextLocal (_entity getVariable "SSS_callsign");
-		_marker setMarkerAlphaLocal 1;
-		
-		[{
-			params ["_args","_PFHID"];
-			_args params ["_vehicle","_marker"];
-
-			private _alpha = markerAlpha _marker - 0.005;
-			_marker setMarkerAlphaLocal _alpha;
-
-			if (alive _vehicle) then {
-				_marker setMarkerPosLocal getPosVisual _vehicle;
-			};
-
-			if (_alpha <= 0) then {
-				_PFHID call CBA_fnc_removePerFrameHandler;
-				deleteMarkerLocal _marker;
-			};
-		},0.1,[_vehicle,_marker]] call CBA_fnc_addPerFrameHandler;
+	[["SSS_SITREP",LLSTRING(SITREP),ICON_SITREP,{
+		(_this # 2) call EFUNC(common,sitrep);
 	},{true},{},_entity] call ace_interact_menu_fnc_createAction,[],_target]
 ]
