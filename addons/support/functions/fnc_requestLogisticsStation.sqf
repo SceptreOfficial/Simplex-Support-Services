@@ -66,7 +66,8 @@ if (_list isEqualTo []) exitWith {
 
 	_object setVariable ["SSS_requester",_player,true];
 
-	NOTIFY(_entity,FORMAT_1(LLSTRING(ObjectDelivered),_objText));
+	private _msg_code = {format [LLSTRING(ObjectDelivered),_this # 0]};
+	NOTIFY_1(_entity,_msg_code,_objText);
 	
 	["SSS_requestCompleted",[_entity,[_object]]] call CBA_fnc_globalEvent;
 

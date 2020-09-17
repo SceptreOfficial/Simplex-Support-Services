@@ -34,8 +34,8 @@ if (SSS_setting_cleanupCrew) then {
 	[PRIMARY_CREW(_vehicle),false] remoteExecCall ["orderGetIn",_vehicle];
 };
 
-private _message = format [localize LSTRING(VehicleReplacementETA),PROPER_TIME(_respawnTime)];
-NOTIFY(_entity,_message);
+private _message_code = {format [LLSTRING(VehicleReplacementETA),PROPER_TIME(_this # 0)]};
+NOTIFY_1(_entity,_message_code,_respawnTime);
 
 [{
 	params ["_entity"];
@@ -125,7 +125,7 @@ NOTIFY(_entity,_message);
 		};
 
 		_entity setVariable ["SSS_respawning",false,true];
-		NOTIFY(_entity,localize LSTRING(VehicleReplacementArrived));
+		NOTIFY(_entity,{LLSTRING(VehicleReplacementArrived)});
 
 		// Execute custom code
 		_vehicle call (_entity getVariable "SSS_customInit");

@@ -9,17 +9,18 @@ if (count _position isEqualTo 2) then {
 };
 
 private _approvalReturn = [_position] call (_entity getVariable ["SSS_requestCondition",{true}]);
-private _denialText = LLSTRING(RequestDenied);
+private _denialReason = "";
 private _approval = if (_approvalReturn isEqualType true) then {
 	_approvalReturn
 } else {
 	_approvalReturn params [["_bool",false,[false]],["_reason","",[""]]];
-	_denialText = _denialText + " " + _reason;
+	_denialReason = _reason;
 	_bool
 };
 
 if (!_approval) exitWith {
-	NOTIFY_LOCAL(_entity,_denialText);
+	private _denialText = {if ((_this # 0) != "") then {LLSTRING(RequestDenied) + " " + (_this # 0)} else {LLSTRING(RequestDenied)}};
+	NOTIFY_LOCAL_1(_entity,_denialText,_denialReason);
 };
 
 switch (_entity getVariable "SSS_supportType") do {
@@ -29,8 +30,8 @@ switch (_entity getVariable "SSS_supportType") do {
 		if (!alive _vehicle) exitWith {};
 
 		if (!(_vehicle isKindOf "B_Ship_MRLS_01_base_F") && {!(_position inRangeOfArtillery [[_vehicle],_request])}) exitWith {
-			private _string = [LLSTRING(PositionOutOfRangeColored),LLSTRING(PositionOutOfRange)] select SSS_setting_useChatNotifications;
-			NOTIFY_LOCAL(_entity,_string);
+			private _string_code = {[LLSTRING(PositionOutOfRangeColored),LLSTRING(PositionOutOfRange)] select SSS_setting_useChatNotifications};
+			NOTIFY_LOCAL(_entity,_string_code);
 		};
 
 		private _coordinationType = _entity getVariable ["SSS_coordinationType",0];

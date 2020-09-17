@@ -15,7 +15,7 @@ if ((_entity getVariable "SSS_cooldown") > 0) exitWith {
 
 ["SSS_requestSubmitted",[_entity,[_position,_objectData,_amount]]] call CBA_fnc_globalEvent;
 
-[_entity,_entity getVariable "SSS_cooldownDefault",LLSTRING(ReadyForNewRequests)] call EFUNC(common,cooldown);
+[_entity,_entity getVariable "SSS_cooldownDefault",{LLSTRING(ReadyForNewRequests)}] call EFUNC(common,cooldown);
 
 private _classname = _entity getVariable "SSS_classname";
 private _flyingHeight = _entity getVariable "SSS_flyingHeight";
@@ -28,8 +28,10 @@ if (_spawnPosition isEqualTo []) then {
 
 _spawnPosition set [2,_position # 2 + _flyingHeight];
 
-private _ETA = [_spawnDelay + ((_spawnPosition distance2D _position) / (getNumber (configFile >> "CfgVehicles" >> _classname >> "maxSpeed") / 3.6)),true] call EFUNC(common,properTime);
-NOTIFY(_entity,FORMAT_2(LLSTRING(AirdropInboundETA),_objText,_ETA));
+private _ETA = _spawnDelay + ((_spawnPosition distance2D _position) / (getNumber (configFile >> "CfgVehicles" >> _classname >> "maxSpeed") / 3.6));
+private _message = {format [LLSTRING(AirdropInboundETA),(_this # 0),[(_this # 1),true] call EFUNC(common,properTime)]};
+
+NOTIFY_2(_entity,_message,_objText,_ETA);
 
 // Update task marker
 [_entity,true,_position] call EFUNC(common,updateMarker);
@@ -106,7 +108,8 @@ NOTIFY(_entity,FORMAT_2(LLSTRING(AirdropInboundETA),_objText,_ETA));
 
 				_vehicle flyInHeight ((_entity getVariable "SSS_flyingHeight") * 2);
 
-				NOTIFY(_entity,FORMAT_1(LLSTRING(ObjectDropped),_objText));
+				private _msg_code = {format [LLSTRING(ObjectDropped),_this # 0]};
+				NOTIFY_1(_entity,_msg_code,_objText);
 				["SSS_requestCompleted",[_entity,[_objects]]] call CBA_fnc_globalEvent;
 			};
 

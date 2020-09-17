@@ -25,7 +25,7 @@ params ["_target","_player","_entity"];
 		};
 
 		if (_objects isEqualTo []) exitWith {
-			NOTIFY_LOCAL(_entity,LLSTRING(NoSlingLoadableObjects));
+			NOTIFY_LOCAL(_entity,{LLSTRING(NoSlingLoadableObjects)});
 		};
 
 		private _cfgVehicles = configFile >> "CfgVehicles";

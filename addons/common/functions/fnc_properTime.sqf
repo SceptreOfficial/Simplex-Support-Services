@@ -59,6 +59,6 @@ if (_hours >= 24) then {
 
 		_description pushBack format ["%1 %2",_amount,_name];
 	};
-} forEach [[_days,localize LSTRING(TimeDays)],[_hours,localize LSTRING(TimeHours)],[_minutes,localize LSTRING(TimeMinutes)],[_seconds,localize LSTRING(TimeSeconds)]];
+} forEach [[_days,LLSTRING(TimeDays)],[_hours,LLSTRING(TimeHours)],[_minutes,LLSTRING(TimeMinutes)],[_seconds,LLSTRING(TimeSeconds)]];
 
 _description joinString ", "

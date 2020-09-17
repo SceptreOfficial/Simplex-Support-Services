@@ -37,7 +37,7 @@ private _actions = [];
 		} else {
 			_actionData set [2,_entity getVariable "SSS_iconYellow"];
 			_actionData set [3,{
-				NOTIFY_LOCAL(_this # 2,LLSTRING(VehicleUnderReplacement));
+				NOTIFY_LOCAL(_this # 2,{LLSTRING(VehicleUnderReplacement)});
 			}];
 			_actionData set [5,{}];
 		};

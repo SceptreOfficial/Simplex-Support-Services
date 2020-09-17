@@ -237,5 +237,17 @@
 			<English>NW</English>
 			<French>NO</French>
 		</Key>
+		<Key ID="STR_SSS_Main_RequestCancelled">
+			<English>Request Cancelled</English>
+			<French>Demande annulée</French>
+		</Key>
+		<Key ID="STR_SSS_Main_ButtonConfirm">
+			<English>CONFIRM</English>
+			<French>VALIDER</French>
+		</Key>
+		<Key ID="STR_SSS_Main_ButtonCancel">
+			<English>CANCEL</English>
+			<French>ANNULER</French>
+		</Key>
 	</Package>
 </Project>

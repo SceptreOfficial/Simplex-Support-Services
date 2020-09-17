@@ -32,7 +32,7 @@ switch (toUpper _request) do {
 			// Begin order
 			_entity setVariable ["SSS_onTask",true,true];
 			[_entity,true,_position] call EFUNC(common,updateMarker);
-			NOTIFY(_entity,LLSTRING(ReturningToBase));
+			NOTIFY(_entity,{LLSTRING(ReturningToBase)});
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
@@ -45,7 +45,7 @@ switch (toUpper _request) do {
 					CANCEL_ORDER(_entity);
 				};
 
-				END_ORDER(_entity,LLSTRING(ArrivedAtBase));
+				END_ORDER(_entity,{LLSTRING(ArrivedAtBase)});
 				_entity setVariable ["SSS_awayFromBase",false,true];
 				_vehicle engineOn false;
 				_vehicle doFollow _vehicle;
@@ -66,7 +66,7 @@ switch (toUpper _request) do {
 		[{!((_this # 0) getVariable "SSS_onTask")},{
 			params ["_entity","_vehicle","_position","_engineOn"];
 
-			BEGIN_ORDER(_entity,_position,LLSTRING(MovingToRequestLocation));
+			BEGIN_ORDER(_entity,_position,{LLSTRING(MovingToRequestLocation)});
 
 			_vehicle setVariable ["SSS_WPDone",false];
 			[_entity,_vehicle] call EFUNC(common,clearWaypoints);
@@ -79,7 +79,7 @@ switch (toUpper _request) do {
 					CANCEL_ORDER(_entity);
 				};
 
-				END_ORDER(_entity,LLSTRING(DestinationReached));
+				END_ORDER(_entity,{LLSTRING(DestinationReached)});
 
 				private _requestName = if (_engineOn) then {
 					[{_this engineOn true},_vehicle,1] call CBA_fnc_waitAndExecute;

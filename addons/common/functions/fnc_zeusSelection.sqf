@@ -8,7 +8,7 @@ private _display = finddisplay IDD_RSCDISPLAYCURATOR;
 private _ctrlMessage = _display displayctrl IDC_RSCDISPLAYCURATOR_FEEDBACKMESSAGE;
 
 playSound "FD_Finish_F";
-_ctrlMessage ctrlSetText (localize LSTRING(Zeus_SelectUnits));
+_ctrlMessage ctrlSetText (LLSTRING(Zeus_SelectUnits));
 _ctrlMessage ctrlSetFade 1;
 _ctrlMessage ctrlCommit 0;
 _ctrlMessage ctrlSetFade 0;
@@ -23,7 +23,7 @@ _ctrlMessage ctrlCommit 0.1;
 		_display displayRemoveEventHandler ["KeyDown",_thisID];
 		_ctrlMessage ctrlSetFade 1;
 		_ctrlMessage ctrlCommit 0.5;
-		[objNull,localize LSTRING(Zeus_SelectCancelled)] call BIS_fnc_showCuratorFeedbackMessage;
+		[objNull,LLSTRING(Zeus_SelectCancelled)] call BIS_fnc_showCuratorFeedbackMessage;
 		true
 	};
 
@@ -32,7 +32,7 @@ _ctrlMessage ctrlCommit 0.1;
 		_display displayRemoveEventHandler ["KeyDown",_thisID];
 		_ctrlMessage ctrlSetFade 1;
 		_ctrlMessage ctrlCommit 0.5;
-		[objNull,localize LSTRING(Zeus_SelectSubmitted)] call BIS_fnc_showCuratorFeedbackMessage;
+		[objNull,LLSTRING(Zeus_SelectSubmitted)] call BIS_fnc_showCuratorFeedbackMessage;
 
 		[{
 			params ["_enterCode","_curatorSelected","_customArguments"];

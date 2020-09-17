@@ -20,17 +20,28 @@ if ((_entity getVariable "SSS_cooldown") > 0) exitWith {
 
 ["SSS_requestSubmitted",[_entity,[_selectedWeapon,_position,_approachDirection,_signalSelection,_smokeColorSelection]]] call CBA_fnc_globalEvent;
 
-[_entity,_entity getVariable "SSS_cooldownDefault",LLSTRING(RearmedAndReady)] call EFUNC(common,cooldown);
+[_entity,_entity getVariable "SSS_cooldownDefault",{LLSTRING(RearmedAndReady)}] call EFUNC(common,cooldown);
 
 // Notify
-private _message = format [LLSTRING(MoveFromETA),mapGridPosition _position,DIRECTIONS # _approachDirection,switch (_signalSelection) do {
+/*private _message = format [LLSTRING(MoveFromETA),mapGridPosition _position,DIRECTIONS # _approachDirection,switch (_signalSelection) do {
 	case 0 : {format [LLSTRING(FiringCoordinates),getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]};
 	case 1 : {format [LLSTRING(WillFireLaserTarget),getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]};
 	case 2 : {format [LLSTRING(WillFireSmoke),getText (configFile >> "CfgMagazines" >> _magazine >> "displayName"),toLower (SMOKE_COLORS # _smokeColorSelection)]};
 	case 3 : {format [LLSTRING(WillFireIRStrobe),getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]};
 }];
 
-NOTIFY(_entity,_message);
+NOTIFY(_entity,_message);*/
+
+private _msg_code = {
+	params ["_position","_approachDirection","_signalSelection","_smokeColorSelection"];
+	format [LLSTRING(MoveFromETA),mapGridPosition _position,DIRECTIONS # _approachDirection,switch (_signalSelection) do {
+		case 0 : {format [LLSTRING(FiringCoordinates),getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]};
+		case 1 : {format [LLSTRING(WillFireLaserTarget),getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]};
+		case 2 : {format [LLSTRING(WillFireSmoke),getText (configFile >> "CfgMagazines" >> _magazine >> "displayName"),toLower (SMOKE_COLORS # _smokeColorSelection)]};
+		case 3 : {format [LLSTRING(WillFireIRStrobe),getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]};
+	}]
+};
+NOTIFY_4(_entity,_msg_code,_position,_approachDirection,_signalSelection,_smokeColorSelection);
 
 // Update task martker
 [_entity,true,_position] call EFUNC(common,updateMarker);
@@ -165,7 +176,8 @@ private _offset = switch (_weaponType) do {
 		if (!isNull _entity && !(_vehicle getVariable ["SSS_signalFound",false])) then {
 			private _cooldown = (_entity getVariable "SSS_cooldown") min ((_entity getVariable "SSS_cooldownDefault") * 0.25);
 			_entity setVariable ["SSS_cooldown",_cooldown,true];
-			NOTIFY_1(_entity,LLSTRING(NoSignalFoundReadyForNewRequests),PROPER_COOLDOWN(_entity));
+			private _msg_code = {FORMAT_1(LLSTRING(NoSignalFoundReadyForNewRequests),PROPER_COOLDOWN(_this # 0))};
+			NOTIFY_1(_entity,_msg_code,_entity);
 		};
 
 		// Delete targets
