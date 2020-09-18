@@ -98,7 +98,7 @@ params ["_target","_player","_entity"];
 	[["SSS_Behavior",LLSTRING(ChangeBehavior),ICON_GEAR,{
 		private _entity = _this # 2;
 
-		["Change Behavior",[
+		[LLSTRING(ChangeBehavior),[
 			["SLIDER",LLSTRING(FlyingHeight),[[0,2000,0],_entity getVariable "SSS_flyingHeight"]],
 			["COMBOBOX",LLSTRING(SpeedMode),[[LLSTRING(SpeedLimited),LLSTRING(SpeedNormal),LLSTRING(SpeedFull)],_entity getVariable "SSS_speedMode"]],
 			["COMBOBOX",LLSTRING(CombatMode),[[LLSTRING(FireAtWill),LLSTRING(HoldFire)],_entity getVariable "SSS_combatMode"]],
