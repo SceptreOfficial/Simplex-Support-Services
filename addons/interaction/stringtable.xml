@@ -211,7 +211,7 @@
 		</Key>
 		<Key ID="STR_SSS_Interaction_RequestCancelledNoGridInput">
 			<English>Request Cancelled - No grid input</English>
-			<French>Ordre annulé - Aucunes coordonnées fournies.</French>
+			<French>Mission annulée - Aucunes coordonnées fournies.</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_SelectPosition">
 			<English>Select Position</English>
