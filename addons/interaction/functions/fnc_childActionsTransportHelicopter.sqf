@@ -43,7 +43,7 @@ params ["_target","_player","_entity"];
 			_rows pushBack [[_name,_icon],"","","",str (_x distance _position) + "m"];
 		} forEach _objects;
 
-		["Select object",[
+		[LLSTRING(SelectObject),[
 			["LISTNBOX",LLSTRING(SlingLoadableObjects),[_rows,0,12]]
 		],{
 			params ["_values","_args"];
