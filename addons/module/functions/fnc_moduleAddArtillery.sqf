@@ -27,7 +27,7 @@
 			["EDITBOX",["Request approval condition","Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>"],"true"]
 		],{
 			params ["_values","_object"];
-			_values params ["_callsign","_ammunitionSet","_respawnTime","_cooldown","_roundCooldown","_maxRounds","_coordinationDistance","_customInit","_accessItems","_accessCondition","_requestCondition"];
+			_values params ["_callsign","_ammunitionSet","_respawnTime","_cooldown","_roundCooldown","_maxRounds","_coordinationDistance","_coordinationType","_customInit","_accessItems","_accessCondition","_requestCondition"];
 
 			[
 				_object,
