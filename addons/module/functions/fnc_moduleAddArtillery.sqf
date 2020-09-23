@@ -20,7 +20,7 @@
 			["EDITBOX",[LLSTRING(RoundCooldownName),LLSTRING(RoundCooldownDescription)],str DEFAULT_COOLDOWN_ARTILLERY_ROUND],
 			["EDITBOX",[LLSTRING(MaxRoundsName),LLSTRING(MaxRoundsDescription)],str DEFAULT_ARTILLERY_MAX_ROUNDS],
 			["EDITBOX",[LLSTRING(CoordinationDistanceName),LLSTRING(CoordinationDistanceDescription)],str DEFAULT_ARTILLERY_COORDINATION_DISTANCE],
-			["COMBOBOX",[LLSTRING(CoordinationWithName),LLSTRING(CoordinationWithDescription)],[[LLSTRING(CoordinationWithSupport),LLSTRING(CoordinationWithNonSupport),LLSTRING(CoordinationWithAll)],0]],
+			["COMBOBOX",[LLSTRING(CoordinationTypeName),LLSTRING(CoordinationTypeDescription)],[[LLSTRING(CoordinationTypeSupport),LLSTRING(CoordinationTypeNonSupport),LLSTRING(CoordinationTypeAll)],0]],
 			["EDITBOX",[LLSTRING(CustomInitName),LLSTRING(CustomInitDescription)],""],
 			["EDITBOX",[LLSTRING(AccessItemsName),LLSTRING(AccessItemsDescription)],"itemMap"],
 			["EDITBOX",[LLSTRING(AccessConditionName),LLSTRING(AccessConditionDescription)],"true"],
