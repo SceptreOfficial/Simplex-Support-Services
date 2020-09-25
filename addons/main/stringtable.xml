@@ -171,39 +171,39 @@
 		</Key>
 		<Key ID="STR_SSS_Main_BeQuiet">
 			<English>We'll be quiet.</English>
-			<French>Nous serons silencieux.</French>
+			<French>Nous garderons le silence.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_SmokeColorWhite">
 			<English>White</English>
-			<French>Blanche</French>
+			<French>Fumée blanche</French>
 		</Key>
 		<Key ID="STR_SSS_Main_SmokeColorBlack">
 			<English>Black</English>
-			<French>Noire</French>
+			<French>Fumée noire</French>
 		</Key>
 		<Key ID="STR_SSS_Main_SmokeColorRed">
 			<English>Red</English>
-			<French>Rouge</French>
+			<French>Fumée rouge</French>
 		</Key>
 		<Key ID="STR_SSS_Main_SmokeColorOrange">
 			<English>Orange</English>
-			<French>Orange</French>
+			<French>Fumée orange</French>
 		</Key>
 		<Key ID="STR_SSS_Main_SmokeColorYellow">
 			<English>Yellow</English>
-			<French>Jaune</French>
+			<French>Fumée jaune</French>
 		</Key>
 		<Key ID="STR_SSS_Main_SmokeColorGreen">
 			<English>Green</English>
-			<French>Verte</French>
+			<French>Fumée verte</French>
 		</Key>
 		<Key ID="STR_SSS_Main_SmokeColorBlue">
 			<English>Blue</English>
-			<French>Bleue</French>
+			<French>Fumée bleue</French>
 		</Key>
 		<Key ID="STR_SSS_Main_SmokeColorPurple">
 			<English>Purple</English>
-			<French>Violette</French>
+			<French>Fumée violette</French>
 		</Key>
 		<Key ID="STR_SSS_Main_DirectionN">
 			<English>N</English>

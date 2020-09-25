@@ -43,7 +43,7 @@ private _msg_code = {
 };
 NOTIFY_4(_entity,_msg_code,_position,_approachDirection,_signalSelection,_smokeColorSelection);
 
-// Update task martker
+// Update task marker
 [_entity,true,_position] call EFUNC(common,updateMarker);
 
 // Define approach parameters
@@ -110,9 +110,9 @@ private _offset = switch (_weaponType) do {
 		[_PFHID] call CBA_fnc_removePerFrameHandler;
 
 		if (!alive _vehicle) exitwith {};
-		
+
 		_vehicle setVariable ["SSS_manualControlDone",true,true];
-		
+
 		// Return to origin and de-spawn
 		_vehicle setVariable ["SSS_WPDone",false];
 		private _WP = group _vehicle addWaypoint [_endPos,0];
@@ -162,7 +162,7 @@ private _offset = switch (_weaponType) do {
 
 	if (isNull _entity || !local _vehicle || !alive _vehicle || !alive driver _vehicle || {_vehicle getVariable ["SSS_fireProgress",3] <= 0 || _vehicle getVariable "SSS_manualControlDone"}) exitwith {
 		[_PFHID] call CBA_fnc_removePerFrameHandler;
-		
+
 		if (!isNull _entity) then {
 			[_entity,false] call EFUNC(common,updateMarker);
 			["SSS_requestCompleted",[_entity]] call CBA_fnc_globalEvent;
@@ -221,7 +221,7 @@ private _offset = switch (_weaponType) do {
 	// Fire on target
 	if (_distance < 1200 && _vehicle getVariable ["SSS_signalFound",false]) then {
 		private _laserTarget = _vehicle getVariable ["SSS_laserTarget",objNull];
-		
+
 		if (isNull _laserTarget) then {
 			_laserTarget = createVehicle [LASER_TYPE,_target,[],0,"NONE"];
 			_laserTarget attachTo [_target,[0,0,1]];
