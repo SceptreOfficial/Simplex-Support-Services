@@ -163,7 +163,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_WillFireSmoke">
 			<English>Will fire %1 at %2 smoke.</English>
-			<French>Tir de %1 sur %2.</French>
+			<French>Tir de %1 sur fumigène %2.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_WillFireIRStrobe">
 			<English>Will fire %1 at IR strobe.</English>
@@ -199,11 +199,11 @@
 		</Key>
 		<Key ID="STR_SSS_Support_ArrivedAtPickupDestinationWaitSmoke">
 			<English>Arrived at pickup destination. Pop smoke to confirm landing position.</English>
-			<French>Arrivé sur la zone de récupération. Déployez une fumigène sur la zone d'atterrissage.</French>
+			<French>Arrivé sur la zone de récupération. Déployez un fumigène sur la zone d'atterrissage.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_DisregardingSignalRequireNewSmoke">
 			<English>Disregarding that signal. Pop a new smoke to confirm landing position.</English>
-			<French>Signal ignoré. Redéployez une fumigène pour confirmer la position.</French>
+			<French>Signal ignoré. Redéployez un fumigène pour confirmer la position.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_ArrivedAtPickupDestinationWaitIR">
 			<English>Arrived at pickup destination. Deploy IR signal to confirm landing position.</English>
@@ -219,7 +219,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_SignalSeenSmoke">
 			<English>a %1 smoke</English>
-			<French>une %1</French>
+			<French>un fumigène %1</French>
 		</Key>
 		<Key ID="STR_SSS_Support_SignalSeenIR">
 			<English>an IR signal</English>
