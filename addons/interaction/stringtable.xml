@@ -23,7 +23,7 @@
 		</Key>
 		<Key ID="STR_SSS_Interaction_GunshipNotInArea">
 			<English>Not in the requested area yet. Gunship is on the way and will notify on arrival.</English>
-			<French>Pas encore sur zone. Le gunship est en route et vous préviendra une fois arrivé.</French>
+			<French>Pas encore sur zone. Le gunship est en route et vous contactera une fois arrivé.</French>
 		</Key>
 		<Key ID="STR_SSS_Interaction_CurrentlyOccupied">
 			<English>Currently occupied by another player</English>

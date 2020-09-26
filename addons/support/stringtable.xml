@@ -87,7 +87,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_UAVOnTheWay">
 			<English>UAV is on the way and will notify on arrival.</English>
-			<French>Le drone est en route et vous préviendra une fois sur zone.</French>
+			<French>Le drone est en route et vous contactera une fois sur zone.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_UAVInRequestedArea">
 			<English>UAV is in the requested area. Connect via UAV Terminal.</English>
@@ -103,7 +103,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_GunshipOnTheWay">
 			<English>Gunship is on the way and will notify on arrival.</English>
-			<French>Le gunship est en route et vous préviendra une fois sur zone.</French>
+			<French>Le gunship est en route et vous contactera une fois sur zone.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_GunshipInRequestedArea">
 			<English>Gunship is in the requested area. Connect via support menu</English>
