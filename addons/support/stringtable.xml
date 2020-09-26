@@ -63,7 +63,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_AirdropInboundETA">
 			<English>%1 airdrop inbound. ETA %2.</English>
-			<French>%1 : paralargage à l'arrivée. ETA %2.</French>
+			<French>Paralargage de %1 une fois sur zone. ETA %2.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_ObjectDropped">
 			<English>%1 dropped.</English>
@@ -87,7 +87,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_UAVOnTheWay">
 			<English>UAV is on the way and will notify on arrival.</English>
-			<French>Le drone est en route et vous préviendra à son arrivée sur zone.</French>
+			<French>Le drone est en route et vous préviendra une fois sur zone.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_UAVInRequestedArea">
 			<English>UAV is in the requested area. Connect via UAV Terminal.</English>
@@ -103,7 +103,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_GunshipOnTheWay">
 			<English>Gunship is on the way and will notify on arrival.</English>
-			<French>Le gunship est en route et vous préviendra à son arrivée sur zone.</French>
+			<French>Le gunship est en route et vous préviendra une fois sur zone.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_GunshipInRequestedArea">
 			<English>Gunship is in the requested area. Connect via support menu</English>
@@ -139,7 +139,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_DestinationReached">
 			<English>Destination reached. Ready for further tasking.</English>
-			<French>Destination atteinte. Prêt pour une nouvelle mission.</French>
+			<French>Arrivé à destination. Prêt pour une nouvelle mission.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_MovingToRequestLocationLoiter">
 			<English>Moving to requested location to loiter.</English>
@@ -147,7 +147,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_DestinationReachedLoitering">
 			<English>Destination reached. Loitering until further tasking.</English>
-			<French>Destination atteinte. Vol d'attente jusqu'à nouvel ordre.</French>
+			<French>Arrivé à destination. Vol d'attente jusqu'à nouvel ordre.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_MoveFromETA">
 			<English>%1 from %2. ETA 45s. %3</English>
@@ -155,7 +155,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_FiringCoordinates">
 			<English>Firing %1 on map coordinates.</English>
-			<French>Tir de %1 aux coordonnées demandée.</French>
+			<French>Tir de %1 aux coordonnées demandées.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_WillFireLaserTarget">
 			<English>Will fire %1 at laser target.</English>
@@ -247,7 +247,7 @@
 		</Key>
 		<Key ID="STR_SSS_Support_FastropingAtLocation">
 			<English>Fastroping at location.</English>
-			<French>Descente en rappel sur zone cible en cours.</French>
+			<French>Les troupes descendent en rappel sur la zone cible.</French>
 		</Key>
 		<Key ID="STR_SSS_Support_MovingLocationHover">
 			<English>Moving to location to hover at %1m.</English>
