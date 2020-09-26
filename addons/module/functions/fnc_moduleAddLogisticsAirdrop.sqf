@@ -14,22 +14,22 @@
 			_classname = typeOf _object;
 		};
 
-		["Add Logistics Airdrop",[
-			["EDITBOX","Classname",_classname],
-			["EDITBOX","Callsign","Logistics Airdrop"],
-			["EDITBOX",["Fixed spawn position","In format [x,y] or [x,y,z]. Leave empty to generate random position from request location."],""],
-			["EDITBOX",["Spawn delay","Time before air vehicle is spawned after request is submitted"],str DEFAULT_LOGISTICS_AIRDROP_SPAWN_DELAY],
-			["EDITBOX",["Flying height","AGL altitude in meters"],str DEFAULT_LOGISTICS_AIRDROP_FLYING_HEIGHT],
-			["EDITBOX",["List function","Code that must return an array of items that can be requested"],"[]"],
-			["EDITBOX",["Universal init code","Code executed when request object is spawned"],""],
-			["EDITBOX",["Maximum amount input","Maximum number of items that can be spawned per request"],"1"],
-			["COMBOBOX",["Landing signal","Color of signal when item lands, or none for no signal. \nSmoke used during daytime, chemlights used at night."],[["None","Yellow","Green","Red","Blue"],1]],
-			["EDITBOX","Cooldown",str DEFAULT_COOLDOWN_LOGISTICS_AIRDROP],
-			["EDITBOX",["Custom init code","Code executed when physical vehicle is spawned \n(Vehicle = _this)"],""],
-			["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
-			["EDITBOX",["Access items","Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)"],"itemMap"],
-			["EDITBOX",["Access condition","Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];"],"true"],
-			["EDITBOX",["Request approval condition","Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>"],"true"]
+		[LLSTRING(AddLogisticsAirdrop),[
+			["EDITBOX",LLSTRING(ClassnameName),_classname],
+			["EDITBOX",[LLSTRING(CallsignName),LLSTRING(CallsignDescription)],LLSTRING(CallsignLogisticsAirdropDefaultValue)],
+			["EDITBOX",[LLSTRING(SpawnPositionName),LLSTRING(SpawnPositionDescription)],""],
+			["EDITBOX",[LLSTRING(SpawnDelayName),LLSTRING(SpawnDelayDescription)],str DEFAULT_LOGISTICS_AIRDROP_SPAWN_DELAY],
+			["EDITBOX",[LLSTRING(FlyingHeightName),LLSTRING(FlyingHeightDescription)],str DEFAULT_LOGISTICS_AIRDROP_FLYING_HEIGHT],
+			["EDITBOX",[LLSTRING(ListFunctionName),LLSTRING(ListFunctionDescription)],"[]"],
+			["EDITBOX",[LLSTRING(UniversalInitCodeName),LLSTRING(UniversalInitCodeDescription)],""],
+			["EDITBOX",[LLSTRING(MaxAmountName),LLSTRING(MaxAmountDescription)],"1"],
+			["COMBOBOX",[LLSTRING(LandingSignalName),LLSTRING(LandingSignalDescription)],[[LLSTRING(LandingSignalNone),LLSTRING(LandingSignalYellow),LLSTRING(LandingSignalGreen),LLSTRING(LandingSignalRed),LLSTRING(LandingSignalBlue)],1]],
+			["EDITBOX",[LLSTRING(CooldownName),LLSTRING(CooldownDescription)],str DEFAULT_COOLDOWN_LOGISTICS_AIRDROP],
+			["EDITBOX",[LLSTRING(CustomInitName),LLSTRING(CustomInitDescription)],""],
+			["COMBOBOX",[LLSTRING(SideName),LLSTRING(SideDescription)],[["BLUFOR","OPFOR","Independent"],0]],
+			["EDITBOX",[LLSTRING(AccessItemsName),LLSTRING(AccessItemsDescription)],"itemMap"],
+			["EDITBOX",[LLSTRING(AccessConditionName),LLSTRING(AccessConditionDescription)],"true"],
+			["EDITBOX",[LLSTRING(RequestApprovalConditionName),LLSTRING(RequestApprovalConditionDescription)],"true"]
 		],{
 			(_this # 0) params [
 				"_classname","_callsign","_spawnPosition","_spawnDelay",
@@ -60,7 +60,7 @@
 				_requestCondition
 			] call EFUNC(support,addLogisticsAirdrop);
 
-			ZEUS_MESSAGE("Logistics airdrop added");
+			ZEUS_MESSAGE(LLSTRING(ZeusLogisticsAirdropAdded));
 		}] call EFUNC(CDS,dialog);
 	} else {
 		if (!isServer) exitWith {};

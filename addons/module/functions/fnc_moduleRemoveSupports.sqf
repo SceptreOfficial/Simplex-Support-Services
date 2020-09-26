@@ -9,7 +9,7 @@ if (!local _logic) exitWith {};
 deleteVehicle _logic;
 
 if (SSS_entities isEqualTo []) exitWith {
-	ZEUS_ERROR("No supports exist");
+	ZEUS_ERROR(LLSTRING(ZeusNoSupportsExist));
 };
 
 disableSerialization;
@@ -20,7 +20,7 @@ private _title = _display ctrlCreate ["RscText",-1];
 _title ctrlSetBackgroundColor TITLE_RGBA;
 _title ctrlSetPosition [0.1,0.08,0.8,0.075];
 _title ctrlCommit 0;
-_title ctrlSetText "Select supports to be removed";
+_title ctrlSetText LLSTRING(SelectSupportsToRemove);
 
 private _BG = _display ctrlCreate ["RscText",-1];
 _BG ctrlSetBackgroundColor BG_RGBA;
@@ -88,5 +88,5 @@ _confirm ctrlSetText LELSTRING(Main,ButtonConfirm);
 	{deleteVehicle _x} forEach _entities;
 
 	_display closeDisplay 0;
-	ZEUS_MESSAGE("Supports removed");
+	ZEUS_MESSAGE(LLSTRING(ZeusSupportsRemoved));
 },[_display,_data]] call CBA_fnc_addBISEventHandler;

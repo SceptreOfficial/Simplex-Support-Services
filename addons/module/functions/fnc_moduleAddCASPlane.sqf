@@ -20,16 +20,16 @@
 			});
 		};
 
-		["Add CAS Plane",[
-			["EDITBOX","Classname",_classname],
-			["EDITBOX","Callsign",_callsign],
-			["EDITBOX",["Weapon set","Array of weapon classnames or array of [weapon,magazine] arrays. Empty array for vehicle defaults"],_weaponSet],
-			["EDITBOX","Cooldown",str DEFAULT_COOLDOWN_PLANES],
-			["EDITBOX",["Custom init code","Code executed when physical vehicle is spawned (vehicle = _this)"],""],
-			["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
-			["EDITBOX",["Access items","Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)"],"itemMap"],
-			["EDITBOX",["Access condition","Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];"],"true"],
-			["EDITBOX",["Request approval condition","Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>"],"true"]
+		[LLSTRING(AddCASPlane),[
+			["EDITBOX",[LLSTRING(ClassnameName),LLSTRING(ClassnameCASPlaneDescription)],_classname],
+			["EDITBOX",[LLSTRING(CallsignName),LLSTRING(CallsignDescription)],_callsign],
+			["EDITBOX",[LLSTRING(WeaponSetName),LLSTRING(WeaponSetDescription)],_weaponSet],
+			["EDITBOX",[LLSTRING(CooldownName),LLSTRING(CooldownCASDescription)],str DEFAULT_COOLDOWN_PLANES],
+			["EDITBOX",[LLSTRING(CustomInitName),LLSTRING(CustomInitDescription)],""],
+			["COMBOBOX",[LLSTRING(SideName),LLSTRING(SideDescription)],[["BLUFOR","OPFOR","Independent"],0]],
+			["EDITBOX",[LLSTRING(AccessItemsName),LLSTRING(AccessItemsDescription)],"itemMap"],
+			["EDITBOX",[LLSTRING(AccessConditionName),LLSTRING(AccessConditionDescription)],"true"],
+			["EDITBOX",[LLSTRING(RequestApprovalConditionName),LLSTRING(RequestApprovalConditionDescription)],"true"]
 		],{
 			params ["_values"];
 			_values params ["_classname","_callsign","_weaponSet","_cooldown","_customInit","_sideSelection","_accessItems","_accessCondition","_requestCondition"];
@@ -46,7 +46,7 @@
 				_requestCondition
 			] call EFUNC(support,addCASPlane);
 
-			ZEUS_MESSAGE("CAS Plane added");
+			ZEUS_MESSAGE(LLSTRING(ZeusCASPlaneAdded));
 		}] call EFUNC(CDS,dialog);
 	} else {
 		if (!isServer) exitWith {};

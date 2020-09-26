@@ -16,17 +16,17 @@
 			_callsign = getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName");
 		};
 
-		["Add CAS Gunship",[
-			["EDITBOX","Classname",_classname],
-			["EDITBOX",["Turret path","Turret path to gunner"],"[1]"],
-			["EDITBOX","Callsign",_callsign],
-			["EDITBOX","Cooldown",str DEFAULT_COOLDOWN_GUNSHIPS],
-			["EDITBOX","Loiter time",str DEFAULT_LOITER_TIME_GUNSHIPS],
-			["EDITBOX",["Custom init code","Code executed when physical vehicle is spawned (vehicle = _this)"],""],
-			["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
-			["EDITBOX",["Access items","Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)"],"itemMap"],
-			["EDITBOX",["Access condition","Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];"],"true"],
-			["EDITBOX",["Request approval condition","Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>"],"true"]
+		[LLSTRING(AddCASGunship),[
+			["EDITBOX",[LLSTRING(ClassnameName),LLSTRING(ClassnameCASGunshipDescription)],_classname],
+			["EDITBOX",[LLSTRING(TurretPathName),LLSTRING(TurretPathDescription)],"[1]"],
+			["EDITBOX",[LLSTRING(CallsignName),LLSTRING(CallsignDescription)],_callsign],
+			["EDITBOX",[LLSTRING(CooldownName),LLSTRING(CooldownCASDescription)],str DEFAULT_COOLDOWN_GUNSHIPS],
+			["EDITBOX",[LLSTRING(LoiterTimeName),LLSTRING(LoiterTimeDescription)],str DEFAULT_LOITER_TIME_GUNSHIPS],
+			["EDITBOX",[LLSTRING(CustomInitName),LLSTRING(CustomInitDescription)],""],
+			["COMBOBOX",[LLSTRING(SideName),LLSTRING(SideDescription)],[["BLUFOR","OPFOR","Independent"],0]],
+			["EDITBOX",[LLSTRING(AccessItemsName),LLSTRING(AccessItemsDescription)],"itemMap"],
+			["EDITBOX",[LLSTRING(AccessConditionName),LLSTRING(AccessConditionDescription)],"true"],
+			["EDITBOX",[LLSTRING(RequestApprovalConditionName),LLSTRING(RequestApprovalConditionDescription)],"true"]
 		],{
 			params ["_values"];
 			_values params ["_classname","_turretPath","_callsign","_cooldown","_loiterTime","_customInit","_sideSelection","_accessItems","_accessCondition","_requestCondition"];
@@ -44,7 +44,7 @@
 				_requestCondition
 			] call EFUNC(support,addCASGunship);
 
-			ZEUS_MESSAGE("CAS Gunship added");
+			ZEUS_MESSAGE(LLSTRING(ZeusCASGunshipAdded));
 		}] call EFUNC(CDS,dialog);
 	} else {
 		if (!isServer) exitWith {};
