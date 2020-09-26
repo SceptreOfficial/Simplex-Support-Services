@@ -23,7 +23,7 @@ class CfgVehicles {
 	};
 
 	class GVAR(AddArtillery) : GVAR(Base) {
-		displayName = "Add Artillery";
+		displayName = CSTRING(AddArtillery);
 		icon = ICON_ARTILLERY;
 		function = QFUNC(moduleAddArtillery);
 		scope = 2;
@@ -31,88 +31,88 @@ class CfgVehicles {
 
 		class Arguments {
 			class Callsign {
-				displayName = "Callsign";
-				description = "Display name";
+				displayName = CSTRING(CallsignName);
+				description = CSTRING(CallsignDescription);
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class AmmunitionSet {
-				displayName = "Ammunition set";
-				description = "Array of ammunition classnames. Empty array for vehicle defaults";
+				displayName = CSTRING(AmmunitionSetName);
+				description = CSTRING(AmmunitionSetDescription);
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class RespawnTime {
-				displayName = "Respawn time";
-				description = "-1 will disable respawn";
+				displayName = CSTRING(RespawnTimeName);
+				description = CSTRING(RespawnTimeDescription);
 				typeName = "STRING";
 				defaultValue = DEFAULT_RESPAWN_TIME;
 			};
 			class Cooldown {
-				displayName = "Cooldown";
-				description = "Minimum time between requests";
+				displayName = CSTRING(CooldownName);
+				description = CSTRING(CooldownDescription);
 				typeName = "STRING";
 				defaultValue = DEFAULT_COOLDOWN_ARTILLERY_MIN;
 			};
 			class RoundCooldown {
-				displayName = "Extra cooldown time per round";
-				description = "Additional time incremented per round fired";
+				displayName = CSTRING(RoundCooldownName);
+				description = CSTRING(RoundCooldownDescription);
 				typeName = "STRING";
 				defaultValue = DEFAULT_COOLDOWN_ARTILLERY_ROUND;
 			};
 			class MaxRounds {
-				displayName = "Maximum rounds per request";
-				description = "Max amount/slider range for requests";
+				displayName = CSTRING(MaxRoundsName);
+				description = CSTRING(MaxRoundsDescription);
 				typeName = "STRING";
 				defaultValue = DEFAULT_ARTILLERY_MAX_ROUNDS;
 			};
 			class CoordinationDistance {
-				displayName = "Maximum coordination distance";
-				description = "Set what ""nearby"" really means for artillery coordination";
+				displayName = CSTRING(CoordinationDistanceName);
+				description = CSTRING(CoordinationDistanceDescription);
 				typeName = "STRING";
 				defaultValue = DEFAULT_ARTILLERY_COORDINATION_DISTANCE;
 			};
 			class CoordinationType {
-				displayName = "Coordinate with";
-				description = "Set what kind of artillery to coordinate with";
+				displayName = CSTRING(CoordinationTypeName);
+				description = CSTRING(CoordinationTypeDescription);
 				typeName = "NUMBER";
 				class values {
 					class SupportsOnly {
-						name = "Support entities only (requires access)";
+						name = CSTRING(CoordinationTypeSupport);
 						value = 0;
 					};
 					class NonSupportsOnly {
-						name = "Non-support entities only";
+						name = CSTRING(CoordinationTypeNonSupport);
 						value = 1;
 					};
 					class Anything {
 						default = 1;
-						name = "Any nearby batteries (supports require access)";
+						name = CSTRING(CoordinationTypeAll);
 						value = 2;
 					};
 				};
 			};
 			class CustomInit {
-				displayName = "Custom init code";
-				description = "Code executed when vehicle is added & respawned. \n(Vehicle = _this)";
+				displayName = CSTRING(CustomInitName);
+				description = CSTRING(CustomInitDescription);
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class AccessItems {
-				displayName = "Access items";
-				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
+				displayName = CSTRING(AccessItemsName);
+				description = CSTRING(AccessItemsDescription);
 				typeName = "STRING";
 				defaultValue = "itemMap";
 			};
 			class AccessCondition {
-				displayName = "Access condition";
-				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
+				displayName = CSTRING(AccessConditionName);
+				description = CSTRING(AccessConditionDescription);
 				typeName = "STRING";
 				defaultValue = "true";
 			};
 			class RequestApprovalCondition {
-				displayName = "Request approval condition";
-				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				displayName = CSTRING(RequestApprovalConditionName);
+				description = CSTRING(RequestApprovalConditionDescription);
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -120,7 +120,7 @@ class CfgVehicles {
 	};
 
 	class GVAR(AddCASDrone) : GVAR(Base) {
-		displayName = "Add CAS Drone";
+		displayName = CSTRING(AddCASDrone);
 		icon = ICON_DRONE;
 		function = QFUNC(moduleAddCASDrone);
 		scope = 2;
@@ -128,38 +128,38 @@ class CfgVehicles {
 
 		class Arguments {
 			class Classname {
-				displayName = "Classname";
-				description = "Classname of drone vehicle";
+				displayName = CSTRING(ClassnameName);
+				description = CSTRING(ClassnameCASDroneDescription);
 				typeName = "STRING";
 				defaultValue = "B_UAV_02_F";
 			};
 			class Callsign {
-				displayName = "Callsign";
-				description = "Display name";
+				displayName = CSTRING(CallsignName);
+				description = CSTRING(CallsignDescription);
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class Cooldown {
-				displayName = "Cooldown";
-				description = "Time between requests (after loiter is finished)";
+				displayName = CSTRING(CooldownName);
+				description = CSTRING(CooldownCASDescription);
 				typeName = "STRING";
 				defaultValue = DEFAULT_COOLDOWN_DRONES;
 			};
 			class LoiterTime {
-				displayName = "Loiter time";
-				description = "How long aircraft will loiter in the area";
+				displayName = CSTRING(LoiterTimeName);
+				description = CSTRING(LoiterTimeDescription);
 				typeName = "STRING";
 				defaultValue = DEFAULT_LOITER_TIME_DRONES;
 			};
 			class CustomInit {
-				displayName = "Custom init code";
-				description = "Code executed when physical vehicle is spawned. \n(Vehicle = _this)";
+				displayName = CSTRING(CustomInitName);
+				description = CSTRING(CustomInitDescription);
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class Side {
-				displayName = "Side";
-				description = "Support side";
+				displayName = CSTRING(SideName);
+				description = CSTRING(SideDescription);
 				typeName = "NUMBER";
 				class values {
 					class BLUFOR {
@@ -178,20 +178,20 @@ class CfgVehicles {
 				};
 			};
 			class AccessItems {
-				displayName = "Access items";
-				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
+				displayName = CSTRING(AccessItemsName);
+				description = CSTRING(AccessItemsDescription);
 				typeName = "STRING";
 				defaultValue = "itemMap";
 			};
 			class AccessCondition {
-				displayName = "Access condition";
-				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
+				displayName = CSTRING(AccessConditionName);
+				description = CSTRING(AccessConditionDescription);
 				typeName = "STRING";
 				defaultValue = "true";
 			};
 			class RequestApprovalCondition {
-				displayName = "Request approval condition";
-				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				displayName = CSTRING(RequestApprovalConditionName);
+				description = CSTRING(RequestApprovalConditionDescription);
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -199,7 +199,7 @@ class CfgVehicles {
 	};
 
 	class GVAR(AddCASGunship) : GVAR(Base) {
-		displayName = "Add CAS Gunship";
+		displayName = CSTRING(AddCASGunship);
 		icon = ICON_GUNSHIP;
 		function = QFUNC(moduleAddCASGunship);
 		scope = 2;
@@ -207,44 +207,44 @@ class CfgVehicles {
 
 		class Arguments {
 			class Classname {
-				displayName = "Classname";
-				description = "Classname of gunship vehicle";
+				displayName = CSTRING(ClassnameName);
+				description = CSTRING(ClassnameCASGunshipDescription);
 				typeName = "STRING";
 				defaultValue = "B_T_VTOL_01_armed_F";
 			};
 			class TurretPath {
-				displayName = "TurretPath";
-				description = "Turret path to gunner";
+				displayName = CSTRING(TurretPathName);
+				description = CSTRING(TurretPathDescription);
 				typeName = "STRING";
 				defaultValue = "[1]";
 			};
 			class Callsign {
-				displayName = "Callsign";
-				description = "Display name";
+				displayName = CSTRING(CallsignName);
+				description = CSTRING(CallsignDescription);
 				typeName = "STRING";
 				defaultValue = "Blackfish";
 			};
 			class Cooldown {
-				displayName = "Cooldown";
-				description = "Time between requests (after loiter is finished)";
+				displayName = CSTRING(CooldownName);
+				description = CSTRING(CooldownCASDescription);
 				typeName = "STRING";
 				defaultValue = DEFAULT_COOLDOWN_GUNSHIPS;
 			};
 			class LoiterTime {
-				displayName = "Loiter time";
-				description = "How long aircraft will loiter in the area";
+				displayName = CSTRING(LoiterTimeName);
+				description = CSTRING(LoiterTimeDescription);
 				typeName = "STRING";
 				defaultValue = DEFAULT_LOITER_TIME_GUNSHIPS;
 			};
 			class CustomInit {
-				displayName = "Custom init code";
-				description = "Code executed when physical vehicle is spawned. \n(Vehicle = _this)";
+				displayName = CSTRING(CustomInitName);
+				description = CSTRING(CustomInitDescription);
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class Side {
-				displayName = "Side";
-				description = "Support side";
+				displayName = CSTRING(SideName);
+				description = CSTRING(SideDescription);
 				typeName = "NUMBER";
 				class values {
 					class BLUFOR {
@@ -263,20 +263,20 @@ class CfgVehicles {
 				};
 			};
 			class AccessItems {
-				displayName = "Access items";
-				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
+				displayName = CSTRING(AccessItemsName);
+				description = CSTRING(AccessItemsDescription);
 				typeName = "STRING";
 				defaultValue = "itemMap";
 			};
 			class AccessCondition {
-				displayName = "Access condition";
-				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
+				displayName = CSTRING(AccessConditionName);
+				description = CSTRING(AccessConditionDescription);
 				typeName = "STRING";
 				defaultValue = "true";
 			};
 			class RequestApprovalCondition {
-				displayName = "Request approval condition";
-				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				displayName = CSTRING(RequestApprovalConditionName);
+				description = CSTRING(RequestApprovalConditionDescription);
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -284,7 +284,7 @@ class CfgVehicles {
 	};
 
 	class GVAR(AddCASHeli) : GVAR(Base) {
-		displayName = "Add CAS Helicopter";
+		displayName = CSTRING(AddCASHelicopter);
 		icon = ICON_HELI;
 		function = QFUNC(moduleAddCASHelicopter);
 		scope = 2;
@@ -292,38 +292,38 @@ class CfgVehicles {
 
 		class Arguments {
 			class Callsign {
-				displayName = "Callsign";
-				description = "Display name";
+				displayName = CSTRING(CallsignName);
+				description = CSTRING(CallsignDescription);
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class RespawnTime {
-				displayName = "Respawn time";
-				description = "-1 will disable respawn";
+				displayName = CSTRING(RespawnTimeName);
+				description = CSTRING(RespawnTimeDescription);
 				typeName = "STRING";
 				defaultValue = DEFAULT_RESPAWN_TIME;
 			};
 			class CustomInit {
-				displayName = "Custom init code";
-				description = "Code executed when vehicle is added & respawned. \n(Vehicle = _this)";
+				displayName = CSTRING(CustomInitName);
+				description = CSTRING(CustomInitDescription);
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class AccessItems {
-				displayName = "Access items";
-				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
+				displayName = CSTRING(AccessItemsName);
+				description = CSTRING(AccessItemsDescription);
 				typeName = "STRING";
 				defaultValue = "itemMap";
 			};
 			class AccessCondition {
-				displayName = "Access condition";
-				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
+				displayName = CSTRING(AccessConditionName);
+				description = CSTRING(AccessConditionDescription);
 				typeName = "STRING";
 				defaultValue = "true";
 			};
 			class RequestApprovalCondition {
-				displayName = "Request approval condition";
-				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				displayName = CSTRING(RequestApprovalConditionName);
+				description = CSTRING(RequestApprovalConditionDescription);
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -331,7 +331,7 @@ class CfgVehicles {
 	};
 
 	class GVAR(AddCASPlane) : GVAR(Base) {
-		displayName = "Add CAS Plane";
+		displayName = CSTRING(AddCASPlane);
 		icon = ICON_PLANE;
 		function = QFUNC(moduleAddCASPlane);
 		scope = 2;
@@ -339,38 +339,38 @@ class CfgVehicles {
 
 		class Arguments {
 			class Classname {
-				displayName = "Classname";
-				description = "Classname of plane vehicle";
+				displayName = CSTRING(ClassnameName);
+				description = CSTRING(ClassnameCASPlaneDescription);
 				typeName = "STRING";
 				defaultValue = "B_Plane_CAS_01_F";
 			};
 			class Callsign {
-				displayName = "Callsign";
-				description = "Display name";
+				displayName = CSTRING(CallsignName);
+				description = CSTRING(CallsignDescription);
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class WeaponSet {
-				displayName = "Weapon set";
-				description = "Array of weapon classnames or array of [weapon,magazine] arrays. Empty array for vehicle defaults";
+				displayName = CSTRING(WeaponSetName);
+				description = CSTRING(WeaponSetDescription);
 				typeName = "STRING";
 				defaultValue = "[""Gatling_30mm_Plane_CAS_01_F"",""Rocket_04_HE_Plane_CAS_01_F"",""Bomb_04_Plane_CAS_01_F""]";
 			};
 			class Cooldown {
-				displayName = "Cooldown";
-				description = "Time between requests";
+				displayName = CSTRING(CooldownName);
+				description = CSTRING(CooldownDescription);
 				typeName = "STRING";
 				defaultValue = DEFAULT_COOLDOWN_PLANES;
 			};
 			class CustomInit {
-				displayName = "Custom init code";
-				description = "Code executed when physical vehicle is spawned. \n(Vehicle = _this)";
+				displayName = CSTRING(CustomInitName);
+				description = CSTRING(CustomInitDescription);
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class Side {
-				displayName = "Side";
-				description = "Support side";
+				displayName = CSTRING(SideName);
+				description = CSTRING(SideDescription);
 				typeName = "NUMBER";
 				class values {
 					class BLUFOR {
@@ -389,20 +389,20 @@ class CfgVehicles {
 				};
 			};
 			class AccessItems {
-				displayName = "Access items";
-				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
+				displayName = CSTRING(AccessItemsName);
+				description = CSTRING(AccessItemsDescription);
 				typeName = "STRING";
 				defaultValue = "itemMap";
 			};
 			class AccessCondition {
-				displayName = "Access condition";
-				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
+				displayName = CSTRING(AccessConditionName);
+				description = CSTRING(AccessConditionDescription);
 				typeName = "STRING";
 				defaultValue = "true";
 			};
 			class RequestApprovalCondition {
-				displayName = "Request approval condition";
-				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				displayName = CSTRING(RequestApprovalConditionName);
+				description = CSTRING(RequestApprovalConditionDescription);
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -410,7 +410,7 @@ class CfgVehicles {
 	};
 
 	class GVAR(AddTransport) : GVAR(Base) {
-		displayName = "Add Transport";
+		displayName = CSTRING(AddTransport);
 		icon = ICON_TRANSPORT;
 		function = QFUNC(moduleAddTransport);
 		scope = 2;
@@ -418,38 +418,38 @@ class CfgVehicles {
 
 		class Arguments {
 			class Callsign {
-				displayName = "Callsign";
-				description = "Display name";
+				displayName = CSTRING(CallsignName);
+				description = CSTRING(CallsignDescription);
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class RespawnTime {
-				displayName = "Respawn time";
-				description = "-1 will disable respawn";
+				displayName = CSTRING(RespawnTimeName);
+				description = CSTRING(RespawnTimeDescription);
 				typeName = "STRING";
 				defaultValue = DEFAULT_RESPAWN_TIME;
 			};
 			class CustomInit {
-				displayName = "Custom init code";
-				description = "Code executed when vehicle is added & respawned. \n(Vehicle = _this)";
+				displayName = CSTRING(CustomInitName);
+				description = CSTRING(CustomInitDescription);
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class AccessItems {
-				displayName = "Access items";
-				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
+				displayName = CSTRING(AccessItemsName);
+				description = CSTRING(AccessItemsDescription);
 				typeName = "STRING";
 				defaultValue = "itemMap";
 			};
 			class AccessCondition {
-				displayName = "Access condition";
-				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
+				displayName = CSTRING(AccessConditionName);
+				description = CSTRING(AccessConditionDescription);
 				typeName = "STRING";
 				defaultValue = "true";
 			};
 			class RequestApprovalCondition {
-				displayName = "Request approval condition";
-				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				displayName = CSTRING(RequestApprovalConditionName);
+				description = CSTRING(RequestApprovalConditionDescription);
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -457,7 +457,7 @@ class CfgVehicles {
 	};
 
 	class GVAR(AddLogisticsAirdrop) : GVAR(Base) {
-		displayName = "Add Logistics Airdrop";
+		displayName = CSTRING(AddLogisticsAirdrop);
 		icon = ICON_PARACHUTE;
 		function = QFUNC(moduleAddLogisticsAirdrop);
 		scope = 2;
@@ -465,96 +465,96 @@ class CfgVehicles {
 
 		class Arguments {
 			class Classname {
-				displayName = "Classname";
-				description = "Classname of air vehicle";
+				displayName = CSTRING(ClassnameName);
+				description = CSTRING(ClassnameLogisticsAirdropDescription);
 				typeName = "STRING";
 				defaultValue = "B_T_VTOL_01_vehicle_F";
 			};
 			class Callsign {
-				displayName = "Callsign";
-				description = "Display name";
+				displayName = CSTRING(CallsignName);
+				description = CSTRING(CallsignDescription);
 				typeName = "STRING";
-				defaultValue = "Logistics Airdrop";
+				defaultValue = CSTRING(CallsignLogisticsAirdropDefaultValue);
 			};
 			class SpawnPosition {
-				displayName = "Fixed spawn position";
-				description = "In format [x,y] or [x,y,z]. Leave empty to generate random position from request location.";
+				displayName = CSTRING(SpawnPositionName);
+				description = CSTRING(SpawnPositionDescription);
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class SpawnDelay {
-				displayName = "Spawn delay";
-				description = "Time before air vehicle is spawned after request is submitted";
+				displayName = CSTRING(SpawnDelayName);
+				description = CSTRING(SpawnDelayDescription);
 				typeName = "STRING";
 				defaultValue = DEFAULT_LOGISTICS_AIRDROP_SPAWN_DELAY;
 			};
 			class FlyingHeight {
-				displayName = "Flying height";
-				description = "AGL altitude in meters";
+				displayName = CSTRING(FlyingHeightName);
+				description = CSTRING(FlyingHeightDescription);
 				typeName = "STRING";
 				defaultValue = DEFAULT_LOGISTICS_AIRDROP_FLYING_HEIGHT;
 			};
 			class ListFunction {
-				displayName = "List function";
-				description = "Code that must return an array of items that can be requested. \n\nSupported list item arguments: \n0: Classname <STRING> \n1: Custom name <STRING> \n2: Custom icon <STRING> \n3: Init code <CODE> \n\nExample array: \n[""Box_NATO_Wps_F"",[""Box_NATO_Equip_F"",""Equipment"","""",{systemChat ""dress up time""}]]";
+				displayName = CSTRING(ListFunctionName);
+				description = CSTRING(ListFunctionDescription);
 				typeName = "STRING";
 				defaultValue = "[]";
 			};
 			class UniversalInitCode {
-				displayName = "Universal init code";
-				description = "Code executed when any requested object is spawned. \n(Object = _this)";
+				displayName = CSTRING(UniversalInitCodeName);
+				description = CSTRING(UniversalInitCodeDescription);
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class MaxAmount {
-				displayName = "Maximum amount input";
-				description = "Maximum number of items that can be spawned per request.";
+				displayName = CSTRING(MaxAmountName);
+				description = CSTRING(MaxAmountDescription);
 				typeName = "STRING";
 				defaultValue = "1";
 			};
 			class LandingSignal {
-				displayName = "Landing signal";
-				description = "Color of signal when item lands, or none for no signal. \nSmoke used during daytime, chemlights used at night.";
+				displayName = CSTRING(LandingSignalName);
+				description = CSTRING(LandingSignalDescription);
 				typeName = "NUMBER";
 				class values {
 					class None {
-						name = "None";
+						name = CSTRING(LandingSignalNone);
 						value = 0;
 					};
 					class Yellow {
 						default = 1;
-						name = "Yellow";
+						name = CSTRING(LandingSignalYellow);
 						value = 1;
 					};
 					class Green {
-						name = "Green";
+						name = CSTRING(LandingSignalGreen);
 						value = 2;
 					};
 					class Red {
-						name = "Red";
+						name = CSTRING(LandingSignalRed);
 						value = 3;
 					};
 					class Blue {
-						name = "Blue";
+						name = CSTRING(LandingSignalBlue);
 						value = 4;
 					};
 				};
 			};
 			class Cooldown {
-				displayName = "Cooldown";
-				description = "Time between requests";
+				displayName = CSTRING(CooldownName);
+				description = CSTRING(CooldownDescription);
 				typeName = "STRING";
 				defaultValue = DEFAULT_COOLDOWN_LOGISTICS_AIRDROP;
 			};
 			class CustomInit {
-				displayName = "Custom init code";
-				description = "Code executed when air vehicle is spawned. \n(Vehicle = _this)";
+				displayName = CSTRING(CustomInitName);
+				description = CSTRING(CustomInitDescription);
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class Side {
-				displayName = "Side";
-				description = "Support side";
+				displayName = CSTRING(SideName);
+				description = CSTRING(SideDescription);
 				typeName = "NUMBER";
 				class values {
 					class BLUFOR {
@@ -573,20 +573,20 @@ class CfgVehicles {
 				};
 			};
 			class AccessItems {
-				displayName = "Access items";
-				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
+				displayName = CSTRING(AccessItemsName);
+				description = CSTRING(AccessItemsDescription);
 				typeName = "STRING";
 				defaultValue = "itemMap";
 			};
 			class AccessCondition {
-				displayName = "Access condition";
-				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
+				displayName = CSTRING(AccessConditionName);
+				description = CSTRING(AccessConditionDescription);
 				typeName = "STRING";
 				defaultValue = "true";
 			};
 			class RequestApprovalCondition {
-				displayName = "Request approval condition";
-				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				displayName = CSTRING(RequestApprovalConditionName);
+				description = CSTRING(RequestApprovalConditionDescription);
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -594,7 +594,7 @@ class CfgVehicles {
 	};
 
 	class GVAR(AddLogisticsStation) : GVAR(Base) {
-		displayName = "Add Logistics Station";
+		displayName = CSTRING(AddLogisticsStation);
 		icon = ICON_BOX;
 		function = QFUNC(moduleAddLogisticsStation);
 		scope = 2;
@@ -602,26 +602,26 @@ class CfgVehicles {
 
 		class Arguments {
 			class Callsign {
-				displayName = "Callsign";
-				description = "Display name";
+				displayName = CSTRING(CallsignName);
+				description = CSTRING(CallsignDescription);
 				typeName = "STRING";
-				defaultValue = "Logistics Station";
+				defaultValue = CSTRING(CallsignAddLogisticsStationDefaultValue);
 			};
 			class ListFunction {
-				displayName = "List function";
-				description = "Code that must return an array of items that can be requested. \n\nSupported list item arguments: \n0: Classname <STRING> \n1: Custom name <STRING> \n2: Custom icon <STRING> \n3: Init code <CODE> \n\nExample array: \n[""Box_NATO_Wps_F"",[""Box_NATO_Equip_F"",""Equipment"","""",{systemChat ""dress up time""}]]";
+				displayName = CSTRING(ListFunctionName);
+				description = CSTRING(ListFunctionDescription);
 				typeName = "STRING";
 				defaultValue = "[]";
 			};
 			class UniversalInitCode {
-				displayName = "Universal init code";
-				description = "Code executed when any requested object is spawned \n(Object = _this)";
+				displayName = CSTRING(UniversalInitCodeName);
+				description = CSTRING(UniversalInitCodeDescription);
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class Side {
-				displayName = "Side";
-				description = "Support side";
+				displayName = CSTRING(SideName);
+				description = CSTRING(SideDescription);
 				typeName = "NUMBER";
 				class values {
 					class BLUFOR {
@@ -640,20 +640,20 @@ class CfgVehicles {
 				};
 			};
 			class AccessItems {
-				displayName = "Access items";
-				description = "Item classes that permit usage of support. \nSeparate with commas (eg. itemMap,itemRadio)";
+				displayName = CSTRING(AccessItemsName);
+				description = CSTRING(AccessItemsDescription);
 				typeName = "STRING";
 				defaultValue = "itemMap";
 			};
 			class AccessCondition {
-				displayName = "Access condition";
-				description = "Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];";
+				displayName = CSTRING(AccessConditionName);
+				description = CSTRING(AccessConditionDescription);
 				typeName = "STRING";
 				defaultValue = "true";
 			};
 			class RequestApprovalCondition {
-				displayName = "Request approval condition";
-				description = "Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>";
+				displayName = CSTRING(RequestApprovalConditionName);
+				description = CSTRING(RequestApprovalConditionDescription);
 				typeName = "STRING";
 				defaultValue = "true";
 			};
@@ -661,7 +661,7 @@ class CfgVehicles {
 	};
 
 	class GVAR(RemoveSupports) : GVAR(Base) {
-		displayName = "Remove Supports";
+		displayName = CSTRING(RemoveSupports);
 		icon = ICON_TRASH;
 		function = QFUNC(moduleRemoveSupports);
 		scopeCurator = 2;

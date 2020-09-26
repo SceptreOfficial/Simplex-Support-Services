@@ -7,15 +7,15 @@
 	if (!isNull (findDisplay 312)) then {
 		if (!local _logic) exitWith {};
 
-		["Add Logistics Station",[
-			["EDITBOX","Spawn direction","0"],
-			["EDITBOX","Callsign","Logistics Station"],
-			["EDITBOX",["List function","Code that must return an array of items that can be requested"],"[]"],
-			["EDITBOX",["Universal init code","Code executed when request object is spawned"],""],
-			["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
-			["EDITBOX",["Access items","Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)"],"itemMap"],
-			["EDITBOX",["Access condition","Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];"],"true"],
-			["EDITBOX",["Request approval condition","Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>"],"true"]
+		[LLSTRING(AddLogisticsStation),[
+			["EDITBOX",LLSTRING(SpawnDirectionName),"0"],
+			["EDITBOX",[LLSTRING(CallsignName),LLSTRING(CallsignDescription)],LLSTRING(CallsignAddLogisticsStationDefaultValue)],
+			["EDITBOX",[LLSTRING(ListFunctionName),LLSTRING(ListFunctionDescription)],"[]"],
+			["EDITBOX",[LLSTRING(UniversalInitCodeName),LLSTRING(UniversalInitCodeDescription)],""],
+			["COMBOBOX",[LLSTRING(SideName),LLSTRING(SideDescription)],[["BLUFOR","OPFOR","Independent"],0]],
+			["EDITBOX",[LLSTRING(AccessItemsName),LLSTRING(AccessItemsDescription)],"itemMap"],
+			["EDITBOX",[LLSTRING(AccessConditionName),LLSTRING(AccessConditionDescription)],"true"],
+			["EDITBOX",[LLSTRING(RequestApprovalConditionName),LLSTRING(RequestApprovalConditionDescription)],"true"]
 		],{
 			params ["_values","_spawnPosASL"];
 			_values params ["_spawnDir","_callsign","_listFnc","_universalInitFnc","_sideSelection","_accessItems","_accessCondition","_requestCondition"];
@@ -32,7 +32,7 @@
 				_requestCondition
 			] call EFUNC(support,addLogisticsStation);
 
-			ZEUS_MESSAGE("Logistics station added");
+			ZEUS_MESSAGE(LLSTRING(ZeusLogisticsStationAdded));
 		},{},getPosASL _logic] call EFUNC(CDS,dialog);
 	} else {
 		if (!isServer) exitWith {};

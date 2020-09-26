@@ -16,16 +16,16 @@
 			_callsign = getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName");
 		};
 
-		["Add CAS Drone",[
-			["EDITBOX","Classname",_classname],
-			["EDITBOX","Callsign",_callsign],
-			["EDITBOX","Cooldown",str DEFAULT_COOLDOWN_DRONES],
-			["EDITBOX","Loiter time",str DEFAULT_LOITER_TIME_DRONES],
-			["EDITBOX",["Custom init code","Code executed when physical vehicle is spawned (vehicle = _this)"],""],
-			["COMBOBOX","Side",[["BLUFOR","OPFOR","Independent"],0]],
-			["EDITBOX",["Access items","Item classes that permit usage of support. \nSeparate with commas (eg. itemRadio,itemMap)"],"itemMap"],
-			["EDITBOX",["Access condition","Code evaluated on a requester's client that must return true for the support to be accessible. \n\nUsage example: \n\nAccess condition: \n    player getVariable [""canUseSSS"",false] \nPlayer init: \n    this setVariable [""canUseSSS"",true,true];"],"true"],
-			["EDITBOX",["Request approval condition","Code evaluated on a requester's client that must return true for requests to be fulfilled. \n\nPassed arguments: \n0: Position <ARRAY> \n\nAccepted return values: \n0: Approval <BOOL> \n1: Denial reason <STRING>"],"true"]
+		[LLSTRING(AddCASDrone),[
+			["EDITBOX",[LLSTRING(ClassnameName),LLSTRING(ClassnameCASDroneDescription)],_classname],
+			["EDITBOX",[LLSTRING(CallsignName),LLSTRING(CallsignDescription)],_callsign],
+			["EDITBOX",[LLSTRING(CooldownName),LLSTRING(CooldownCASDescription)],str DEFAULT_COOLDOWN_DRONES],
+			["EDITBOX",[LLSTRING(LoiterTimeName),LLSTRING(LoiterTimeDescription)],str DEFAULT_LOITER_TIME_DRONES],
+			["EDITBOX",[LLSTRING(CustomInitName),LLSTRING(CustomInitDescription)],""],
+			["COMBOBOX",[LLSTRING(SideName),LLSTRING(SideDescription)],[["BLUFOR","OPFOR","Independent"],0]],
+			["EDITBOX",[LLSTRING(AccessItemsName),LLSTRING(AccessItemsDescription)],"itemMap"],
+			["EDITBOX",[LLSTRING(AccessConditionName),LLSTRING(AccessConditionDescription)],"true"],
+			["EDITBOX",[LLSTRING(RequestApprovalConditionName),LLSTRING(RequestApprovalConditionDescription)],"true"]
 		],{
 			params ["_values"];
 			_values params ["_classname","_callsign","_cooldown","_loiterTime","_customInit","_sideSelection","_accessItems","_accessCondition","_requestCondition"];
@@ -42,7 +42,7 @@
 				_requestCondition
 			] call EFUNC(support,addCASDrone);
 
-			ZEUS_MESSAGE("CAS Drone added");
+			ZEUS_MESSAGE(LLSTRING(ZeusCASDroneAdded));
 		}] call EFUNC(CDS,dialog);
 	} else {
 		if (!isServer) exitWith {};
