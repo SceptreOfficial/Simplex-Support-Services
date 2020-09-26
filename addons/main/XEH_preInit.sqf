@@ -179,7 +179,7 @@ ADDON = false;
 	false,
 	true,
 	{},
-	false
+	true
 ] call CBA_fnc_addSetting;
 
 // Personal

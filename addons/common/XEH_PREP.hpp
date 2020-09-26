@@ -14,6 +14,7 @@ PREP(parseSimpleArray);
 PREP(properTime);
 PREP(resetOnRTB);
 PREP(respawn);
+PREP(sitrep);
 PREP(sortBy);
 PREP(stopVehicle);
 PREP(updateMarker);

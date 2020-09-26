@@ -131,7 +131,7 @@
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_MilsimHideMarkers_Description">
 			<English>Hide markers of supports on map</English>
-			<French>Masquer les marqueurs des supports sur la carte.</French>
+			<French>Les marqueurs des supports n'apparaissent plus sur la carte.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_Setting_UseChatNotifications_DisplayName">
 			<English>Use chat notifications</English>
