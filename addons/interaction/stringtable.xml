@@ -309,5 +309,9 @@
 			<English>Fastrope at position</English>
 			<French>Descente en rappel</French>
 		</Key>
+		<Key ID="STR_SSS_Interaction_SmokeColor">
+			<English>Smoke Color</English>
+			<French>Couleur du signal fumigène</French>
+		</Key>
 	</Package>
 </Project>
