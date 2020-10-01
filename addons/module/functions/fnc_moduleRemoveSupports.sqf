@@ -66,14 +66,14 @@ private _cancel = _display ctrlCreate ["RscButton",-1];
 _cancel ctrlSetBackgroundColor [0,0,0,1];
 _cancel ctrlSetPosition [0.1,0.865,0.25,0.05];
 _cancel ctrlCommit 0;
-_cancel ctrlSetText LLSTRING(CANCEL);
+_cancel ctrlSetText LELSTRING(Main,ButtonCancel);
 [_cancel,"ButtonClick",{_thisArgs closeDisplay 0;},_display] call CBA_fnc_addBISEventHandler;;
 
 private _confirm = _display ctrlCreate ["RscButton",-1];
 _confirm ctrlSetBackgroundColor [0,0,0,1];
 _confirm ctrlSetPosition [0.65,0.865,0.25,0.05];
 _confirm ctrlCommit 0;
-_confirm ctrlSetText LLSTRING(CONFIRM);
+_confirm ctrlSetText LELSTRING(Main,ButtonConfirm);
 [_confirm,"ButtonClick",{
 	_thisArgs params ["_display","_data"];
 

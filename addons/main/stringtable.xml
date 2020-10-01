@@ -171,15 +171,15 @@
 		</Key>
 		<Key ID="STR_SSS_Main_BeQuiet">
 			<English>We'll be quiet.</English>
-			<French>Nous serons silencieux.</French>
+			<French>Nous resterons silencieux.</French>
 		</Key>
 		<Key ID="STR_SSS_Main_SmokeColorWhite">
 			<English>White</English>
-			<French>Blanche</French>
+			<French>Blanc</French>
 		</Key>
 		<Key ID="STR_SSS_Main_SmokeColorBlack">
 			<English>Black</English>
-			<French>Noire</French>
+			<French>Noir</French>
 		</Key>
 		<Key ID="STR_SSS_Main_SmokeColorRed">
 			<English>Red</English>
@@ -195,15 +195,15 @@
 		</Key>
 		<Key ID="STR_SSS_Main_SmokeColorGreen">
 			<English>Green</English>
-			<French>Verte</French>
+			<French>Vert</French>
 		</Key>
 		<Key ID="STR_SSS_Main_SmokeColorBlue">
 			<English>Blue</English>
-			<French>Bleue</French>
+			<French>Bleu</French>
 		</Key>
 		<Key ID="STR_SSS_Main_SmokeColorPurple">
 			<English>Purple</English>
-			<French>Violette</French>
+			<French>Violet</French>
 		</Key>
 		<Key ID="STR_SSS_Main_DirectionN">
 			<English>N</English>
@@ -236,6 +236,18 @@
 		<Key ID="STR_SSS_Main_DirectionNW">
 			<English>NW</English>
 			<French>NO</French>
+		</Key>
+		<Key ID="STR_SSS_Main_RequestCancelled">
+			<English>Request Cancelled</English>
+			<French>Demande annulée</French>
+		</Key>
+		<Key ID="STR_SSS_Main_ButtonConfirm">
+			<English>CONFIRM</English>
+			<French>VALIDER</French>
+		</Key>
+		<Key ID="STR_SSS_Main_ButtonCancel">
+			<English>CANCEL</English>
+			<French>ANNULER</French>
 		</Key>
 	</Package>
 </Project>

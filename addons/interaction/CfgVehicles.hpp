@@ -3,7 +3,7 @@ class CfgVehicles {
 	class CAManBase: Man {
 		class ACE_SelfActions {
 			class SSS_main {
-				displayName = "Support Services";
+				displayName = CSTRING(SupportServices);
 				icon = ICON_SUPPORT_SERVICES;
 				condition = "true";
 				statement = "";
@@ -11,7 +11,7 @@ class CfgVehicles {
 				showDisabled = 0;
 
 				class SSS_artillery {
-					displayName = "Artillery";
+					displayName = CSTRING(Artillery);
 					icon = ICON_ARTILLERY;
 					condition = "SSS_showArtillery";
 					statement = "";
@@ -21,7 +21,7 @@ class CfgVehicles {
 				};
 
 				class SSS_CAS {
-					displayName = "CAS";
+					displayName = CSTRING(CAS);
 					icon = ICON_CAS;
 					condition = "SSS_showCAS";
 					statement = "";
@@ -31,7 +31,7 @@ class CfgVehicles {
 				};
 
 				class SSS_transport {
-					displayName = "Transport";
+					displayName = CSTRING(Transport);
 					icon = ICON_TRANSPORT;
 					condition = "SSS_showTransport";
 					statement = "";
@@ -41,7 +41,7 @@ class CfgVehicles {
 				};
 
 				class SSS_logistics {
-					displayName = "Logistics";
+					displayName = CSTRING(Logistics);
 					icon = ICON_BOX;
 					condition = "SSS_showLogistics";
 					statement = "";

@@ -59,11 +59,11 @@
 		</Key>
 		<Key ID="STR_SSS_Module_CoordinationDistanceName">
 			<English>Maximum coordination distance</English>
-			<French>Distance maximale de coordination</French>
+			<French>Distance max. de coordination</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CoordinationDistanceDescription">
 			<English>Set what "nearby" really means for artillery coordination</English>
-			<French>Définit la distance maximale à laquelle les autres unités d'artillerie identiques doivent se trouver pour pouvoir coordonner leurs frappes.</French>
+			<French>Définit le rayon dans lequel les autres unités d'artillerie identiques doivent se trouver pour pouvoir coordonner leurs frappes.\nValeur exprimée en mètres.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CoordinationTypeName">
 			<English>Coordinate with</English>
@@ -131,7 +131,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_CooldownCASDescription">
 			<English>Time between requests (after loiter is finished)</English>
-			<French>Délai minimal entre deux appels de drone (une fois le vol en attente terminé).\nValeur exprimée en secondes.</French>
+			<French>Délai minimal entre deux appels de drone (une fois le vol d'attente terminé).\nValeur exprimée en secondes.</French>
 		</Key>
 		<Key ID="STR_SSS_Module_LoiterTimeName">
 			<English>Loiter time</English>

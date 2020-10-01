@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="SSS">
+	<Package name="Support">
+		<Key ID="STR_SSS_Support_VehicleAlreadyASupport">
+			<English>Vehicle is already a support: %1 (%2)</English>
+			<French>Ce véhicule est déjà un support : %1 (%2)</French>
+		</Key>
+		<Key ID="STR_SSS_Support_NoPlayersAllowed">
+			<English>No players allowed: %1 (%2)</English>
+			<French>Les joueurs ne sont pas autorisés : %1 (%2)</French>
+		</Key>
+		<Key ID="STR_SSS_Support_NoGunnerInVehicle">
+			<English>No gunner in vehicle: %1 (%2)</English>
+			<French>Aucun tireur à bord du véhicule : %1 (%2)</French>
+		</Key>
+		<Key ID="STR_SSS_Support_NoDriverInVehicle">
+			<English>No driver in vehicle: %1 (%2)</English>
+			<French>Pas de conducteur à bord du véhicule : %1 (%2)</French>
+		</Key>
+		<Key ID="STR_SSS_Support_InvalidCASDroneClassname">
+			<English>Invalid CAS Drone classname: %1</English>
+			<French>Classname du drone CAS invalide : %1</French>
+		</Key>
+		<Key ID="STR_SSS_Support_InvalidCASGunshipClassname">
+			<English>Invalid CAS Gunship classname: %1</English>
+			<French>Classname du gunship invalide : %1</French>
+		</Key>
+		<Key ID="STR_SSS_Support_InvalidCASGunshipTurretPath">
+			<English>Invalid CAS Gunship turret path: %1</English>
+			<French>Classname de la tourelle du gunship invalide : %1</French>
+		</Key>
+		<Key ID="STR_SSS_Support_InvalidCASPlaneClassname">
+			<English>Invalid CAS Plane classname: %1</English>
+			<French>Classname de l'avion CAS invalide : %1</French>
+		</Key>
+		<Key ID="STR_SSS_Support_InvalidLogisticsAirdropClassname">
+			<English>Invalid Logistics Airdrop classname: %1</English>
+			<French>Classname du véhicule de paralargage logistique invalide : %1</French>
+		</Key>
+		<Key ID="STR_SSS_Support_InvalidLogisticsList">
+			<English>Invalid logistics list</English>
+			<French>Logistique : tableau d'équipement invalide</French>
+		</Key>
+		<Key ID="STR_SSS_Support_DefaultCallsignLogisticsAirdrop">
+			<English>Logistics Airdrop</English>
+			<French>Paralargage logistique</French>
+		</Key>
+		<Key ID="STR_SSS_Support_DefaultCallsignLogisticsStation">
+			<English>Logistics Station</English>
+			<French>Station logistique</French>
+		</Key>
+		<Key ID="STR_SSS_Support_AirTransport">
+			<English>Air Transport</English>
+			<French>Transport aérien</French>
+		</Key>
+		<Key ID="STR_SSS_Support_SeaTransport">
+			<English>Sea Transport</English>
+			<French>Transport maritime</French>
+		</Key>
+		<Key ID="STR_SSS_Support_LandTransport">
+			<English>Land Transport</English>
+			<French>Transport terrestre</French>
+		</Key>
+		<Key ID="STR_SSS_Support_AirdropInboundETA">
+			<English>%1 airdrop inbound. ETA %2.</English>
+			<French>Paralargage de %1 une fois sur zone. ETA %2.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_ObjectDropped">
+			<English>%1 dropped.</English>
+			<French>%1 largué(s).</French>
+		</Key>
+		<Key ID="STR_SSS_Support_ReadyForNewRequests">
+			<English>Ready for new requests.</English>
+			<French>Disponible pour une nouvelle mission logistique.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_FireMissionConfirmed">
+			<English>Fire mission on %1 confirmed. %2 rounds - ETA %3.</English>
+			<French>Mission de tir sur %1 confirmée. %2 tir(s). ETA %3.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_SplashOver">
+			<English>Splash - over.</English>
+			<French>Arrivée ! Terminé.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_RearmedAndReady">
+			<English>Rearmed and ready for further tasking.</English>
+			<French>Réarmé et opérationnel pour une nouvelle mission.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_UAVOnTheWay">
+			<English>UAV is on the way and will notify on arrival.</English>
+			<French>Le drone est en route et vous contactera une fois sur zone.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_UAVInRequestedArea">
+			<English>UAV is in the requested area. Connect via UAV Terminal.</English>
+			<French>Drone arrivé sur zone. Utilisez un terminal drone pour vous y connecter.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_DroneDestroyed">
+			<English>Drone has been destroyed.</English>
+			<French>Le drone a été détruit.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_UAVIsLeaving">
+			<English>UAV is leaving the area. Support will be available again in %1.</English>
+			<French>Le drone quitte la zone. Il sera de nouveau disponible dans %1.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_GunshipOnTheWay">
+			<English>Gunship is on the way and will notify on arrival.</English>
+			<French>Le gunship est en route et vous contactera une fois sur zone.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_GunshipInRequestedArea">
+			<English>Gunship is in the requested area. Connect via support menu</English>
+			<French>Gunship arrivé sur zone. Utilisez le menu de support pour vous y connecter.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_GunshipDestroyed">
+			<English>Gunship has been destroyed.</English>
+			<French>Le gunship a été détruit.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_GunshipIsLeaving">
+			<English>Gunship is leaving the area. Support will be available again in %1.</English>
+			<French>Le gunship quitte la zone. Il sera à nouveau disponible dans %1.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_ReturningToBase">
+			<English>Returning to base.</English>
+			<French>Nous retournons à la base.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_ArrivedAtBase">
+			<English>Arrived at base. Ready for further tasking.</English>
+			<French>De retour à la base. Prêt pour une nouvelle mission.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_HeadingToLocationToProvideCAS">
+			<English>Heading to location to provide CAS.</English>
+			<French>Déplacement vers la position pour recherche et destruction.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_SearchAndDestroyComplete">
+			<English>Search and Destroy Complete.</English>
+			<French>Mission de recherche et destruction terminée.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_MovingToRequestLocation">
+			<English>Moving to requested location.</English>
+			<French>Déplacement vers la position désignée.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_DestinationReached">
+			<English>Destination reached. Ready for further tasking.</English>
+			<French>Arrivé à destination. Prêt pour une nouvelle mission.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_MovingToRequestLocationLoiter">
+			<English>Moving to requested location to loiter.</English>
+			<French>Vol vers la position d'attente.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_DestinationReachedLoitering">
+			<English>Destination reached. Loitering until further tasking.</English>
+			<French>Arrivé à destination. Vol d'attente jusqu'à nouvel ordre.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_MoveFromETA">
+			<English>%1 from %2. ETA 45s. %3</English>
+			<French>%1, approche %2. ETA 45 s. %3</French>
+		</Key>
+		<Key ID="STR_SSS_Support_FiringCoordinates">
+			<English>Firing %1 on map coordinates.</English>
+			<French>Tir de %1 aux coordonnées demandées.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_WillFireLaserTarget">
+			<English>Will fire %1 at laser target.</English>
+			<French>Tir de %1 sur cible marquée au laser.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_WillFireSmoke">
+			<English>Will fire %1 at %2 smoke.</English>
+			<French>Tir de %1 sur fumigène %2.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_WillFireIRStrobe">
+			<English>Will fire %1 at IR strobe.</English>
+			<French>Tir de %1 sur balise IR.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_NoSignalFoundReadyForNewRequests">
+			<English>No suitable signal was found. Ready for new requests in %1.</English>
+			<French>Signal définit introuvable ! Prêt pour une nouvelle mission dans %1.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_SelectObject">
+			<English>Select object</English>
+			<French>Sélectionnez un objet</French>
+		</Key>
+		<Key ID="STR_SSS_Support_Find">
+			<English>Find</English>
+			<French>Recherche</French>
+		</Key>
+		<Key ID="STR_SSS_Support_AvailableObjects">
+			<English>Available objects</English>
+			<French>Équipement disponible</French>
+		</Key>
+		<Key ID="STR_SSS_Support_Amount">
+			<English>Amount</English>
+			<French>Quantité</French>
+		</Key>
+		<Key ID="STR_SSS_Support_ObjectDelivered">
+			<English>%1 delivered.</English>
+			<French>%1 livré(e).</French>
+		</Key>
+		<Key ID="STR_SSS_Support_HeadingToPickupLocationPrepareSignal">
+			<English>Heading to pickup location. Prepare to signal on arrival.</English>
+			<French>Vol vers la zone de récupération. Préparez un signal pour notre arrivée.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_ArrivedAtPickupDestinationWaitSmoke">
+			<English>Arrived at pickup destination. Pop smoke to confirm landing position.</English>
+			<French>Arrivé sur la zone de récupération. Déployez un fumigène sur la zone d'atterrissage.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_DisregardingSignalRequireNewSmoke">
+			<English>Disregarding that signal. Pop a new smoke to confirm landing position.</English>
+			<French>Signal ignoré. Redéployez un fumigène pour confirmer la position.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_ArrivedAtPickupDestinationWaitIR">
+			<English>Arrived at pickup destination. Deploy IR signal to confirm landing position.</English>
+			<French>Arrivé sur la zone de récupération. Déployez une balise IR sur la zone d'atterrissage.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_DisregardingSignalRequireNewIR">
+			<English>Disregarding that signal. Deploy a new IR signal to confirm landing position.</English>
+			<French>Signal ignoré. Redéployez une balise IR pour confirmer la position.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_WeSeeSignalConfirm">
+			<English>We see %1. Do you confirm?</English>
+			<French>Nous voyons %1. Vous confirmez ?</French>
+		</Key>
+		<Key ID="STR_SSS_Support_SignalSeenSmoke">
+			<English>a %1 smoke</English>
+			<French>un fumigène %1</French>
+		</Key>
+		<Key ID="STR_SSS_Support_SignalSeenIR">
+			<English>an IR signal</English>
+			<French>une balise infrarouge</French>
+		</Key>
+		<Key ID="STR_SSS_Support_SignalConfirmedClearLZ">
+			<English>Signal confirmed. Clear the LZ.</English>
+			<French>Signal confirmé. Dégagez la zone d'atterrissage.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_TouchdownLoadUp">
+			<English>Touchdown. Load up!</English>
+			<French>Véhicule au sol. Embarquez !</French>
+		</Key>
+		<Key ID="STR_SSS_Support_HeadingToLZ">
+			<English>Heading to the LZ.</English>
+			<French>Vol vers la zone d'atterrissage.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_LandedAtLocation">
+			<English>Landed at location. Ready for further tasking.</English>
+			<French>Atterrissage effectué. Disponible pour une nouvelle mission.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_MovingLocationFastrope">
+			<English>Moving to location to fastrope from %1m.</English>
+			<French>Déplacement sur zone pour descente en rappel. Hauteur : %1 m.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_FastropingAtLocation">
+			<English>Fastroping at location.</English>
+			<French>Les troupes descendent en rappel sur la zone cible.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_MovingLocationHover">
+			<English>Moving to location to hover at %1m.</English>
+			<French>Déplacement sur zone pour vol stationnaire. Hauteur : %1 m.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_HoveringAtLocation">
+			<English>Hovering at location.</English>
+			<French>Vol stationnaire sur la position.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_MovingToSlingLoadingArea">
+			<English>Moving to sling loading area.</English>
+			<French>Déplacement vers la zone de chargement.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_ArrivedAtSlingLoadLocation">
+			<English>Arrived at sling load location. Please confirm object to attach.</English>
+			<French>Arrivé sur zone pour le chargement sous élingue. Veuillez confirmer l'objet à charger.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_SlingLoadCancelled">
+			<English>Sling Load cancelled. No object selected.</English>
+			<French>Chargement sous élingue annulé. Aucun objet sélectionné.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_SlingLoadingObject">
+			<English>Sling loading object...</English>
+			<French>Attache de l'élingue en cours...</French>
+		</Key>
+		<Key ID="STR_SSS_Support_ObjectSlingLoaded">
+			<English>Object sling loaded.</English>
+			<French>Chargement sous élingue effectué.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_MovingToPositionToDetach">
+			<English>Moving to position to detach.</English>
+			<French>Déplacement vers la zone de dépôt.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_LoadDetached">
+			<English>Load detached. Ready for further tasking.</English>
+			<French>Charge déposée. Disponible pour une nouvelle mission.</French>
+		</Key>
+		<Key ID="STR_SSS_Support_MovingToLocationForParadrop">
+			<English>Moving to location for paradrop. Get ready...</English>
+			<French>Déplacement vers la zone de parachutage. Tenez-vous prêts...</French>
+		</Key>
+		<Key ID="STR_SSS_Support_GoGoGo">
+			<English>Go! Go! Go!</English>
+			<French>Go ! Go ! Go !</French>
+		</Key>
+	</Package>
+</Project>

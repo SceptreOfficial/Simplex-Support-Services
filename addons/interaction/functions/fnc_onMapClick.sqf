@@ -9,17 +9,18 @@ if (count _position isEqualTo 2) then {
 };
 
 private _approvalReturn = [_position] call (_entity getVariable ["SSS_requestCondition",{true}]);
-private _denialText = "Request denied. ";
+private _denialReason = "";
 private _approval = if (_approvalReturn isEqualType true) then {
 	_approvalReturn
 } else {
 	_approvalReturn params [["_bool",false,[false]],["_reason","",[""]]];
-	_denialText = _denialText + _reason;
+	_denialReason = _reason;
 	_bool
 };
 
 if (!_approval) exitWith {
-	NOTIFY_LOCAL(_entity,_denialText);
+	private _denialText = {if ((_this # 0) != "") then {LLSTRING(RequestDenied) + " " + (_this # 0)} else {LLSTRING(RequestDenied)}};
+	NOTIFY_LOCAL_1(_entity,_denialText,_denialReason);
 };
 
 switch (_entity getVariable "SSS_supportType") do {
@@ -29,8 +30,8 @@ switch (_entity getVariable "SSS_supportType") do {
 		if (!alive _vehicle) exitWith {};
 
 		if (!(_vehicle isKindOf "B_Ship_MRLS_01_base_F") && {!(_position inRangeOfArtillery [[_vehicle],_request])}) exitWith {
-			private _string = ["<t color='#f4ca00'>Position out of range.</t> Unable to fulfill request.","Position out of range. Unable to fulfill request."] select SSS_setting_useChatNotifications;
-			NOTIFY_LOCAL(_entity,_string);
+			private _string_code = {[LLSTRING(PositionOutOfRangeColored),LLSTRING(PositionOutOfRange)] select SSS_setting_useChatNotifications};
+			NOTIFY_LOCAL(_entity,_string_code);
 		};
 
 		private _coordinationType = _entity getVariable ["SSS_coordinationType",0];
@@ -70,10 +71,10 @@ switch (_entity getVariable "SSS_supportType") do {
 			});
 		};
 		
-		["Fire Mission Parameters - " + mapGridPosition _position,[
-			["SLIDER","Rounds",[[1,_entity getVariable "SSS_maxRounds",0],1]],
-			["SLIDER","Random dispersion radius",[[0,250,0],0]],
-			["SLIDER",["Coordination amount","Request fire mission from similar nearby artillery"],[[0,count _nearbyArtillery,0],0],true,{},!(_nearbyArtillery isEqualTo [])]
+		[LLSTRING(FireMissionParameters) + " - " + mapGridPosition _position,[
+			["SLIDER",LLSTRING(Rounds),[[1,_entity getVariable "SSS_maxRounds",0],1]],
+			["SLIDER",LLSTRING(RandomDispersionRadius),[[0,250,0],0]],
+			["SLIDER",[LLSTRING(CoordinationAmount),LLSTRING(RequestFireFromSimilarArtillery)],[[0,count _nearbyArtillery,0],0],true,{},!(_nearbyArtillery isEqualTo [])]
 		],{
 			params ["_values","_args"];
 			_values params ["_rounds","_dispersion","_coordinateCount"];
@@ -126,10 +127,10 @@ switch (_entity getVariable "SSS_supportType") do {
 			};
 		};
 
-		["Drone Request Parameters",[
-			["COMBOBOX","Loiter direction",[[["Clockwise","",ICON_CLOCKWISE],["Counter-Clockwise","",ICON_COUNTER_CLOCKWISE]],0]],
-			["SLIDER","Loiter radius",[[800,2500,0],1000]],
-			["SLIDER","Altitude above position",[[600,2500,0],1000]]
+		[LLSTRING(DroneRequestParameters),[
+			["COMBOBOX",LLSTRING(LoiterDirection),[[[LLSTRING(Clockwise),"",ICON_CLOCKWISE],[LLSTRING(CounterClockwise),"",ICON_COUNTER_CLOCKWISE]],0]],
+			["SLIDER",LLSTRING(LoiterRadius),[[800,2500,0],1000]],
+			["SLIDER",LLSTRING(AltitudeAbovePosition),[[600,2500,0],1000]]
 		],{
 			params ["_values","_args"];
 			_values params ["_loiterDirection","_loiterRadius","_loiterAltitude"];
@@ -140,9 +141,9 @@ switch (_entity getVariable "SSS_supportType") do {
 	};
 
 	case "CASGunship" : {
-		["Gunship Request Parameters",[
-			["SLIDER","Loiter radius",[[800,2500,0],1000]],
-			["SLIDER","Altitude above position",[[600,2500,0],1000]]
+		[LLSTRING(GunshipRequestParameters),[
+			["SLIDER",LLSTRING(LoiterRadius),[[800,2500,0],1000]],
+			["SLIDER",LLSTRING(AltitudeAbovePosition),[[600,2500,0],1000]]
 		],{
 			params ["_values","_args"];
 			_values params ["_loiterRadius","_loiterAltitude"];
@@ -160,9 +161,9 @@ switch (_entity getVariable "SSS_supportType") do {
 		switch (_request) do {
 			case "LOITER";
 			case 3 : {
-				["Loiter parameters",[
-					["SLIDER","Loiter radius",[[150,1500,0],200]],
-					["COMBOBOX","Loiter direction",[[["Clockwise","",ICON_CLOCKWISE],["Counter-Clockwise","",ICON_COUNTER_CLOCKWISE]],0]]
+				[LLSTRING(LoiterParameters),[
+					["SLIDER",LLSTRING(LoiterRadius),[[150,1500,0],200]],
+					["COMBOBOX",LLSTRING(LoiterDirection),[[[LLSTRING(Clockwise),"",ICON_CLOCKWISE],[LLSTRING(CounterClockwise),"",ICON_COUNTER_CLOCKWISE]],0]]
 				],{
 					params ["_values","_args"];
 					_args params ["_entity","_request","_position"];
@@ -185,23 +186,32 @@ switch (_entity getVariable "SSS_supportType") do {
 		// Get directions not blocked by terrain
 		_position set [2,1];
 		private _positionASL = AGLtoASL _position;
-		private _bearingList = [[0,LELSTRING(Main,DirectionN)],[45,LELSTRING(Main,DirectionNE)],[90,LELSTRING(Main,DirectionE)],[135,LELSTRING(Main,DirectionSE)],[180,LELSTRING(Main,DirectionS)],[225,LELSTRING(Main,DirectionSW)],[270,LELSTRING(Main,DirectionW)],[315,LELSTRING(Main,DirectionNW)]] apply {
+		private _bearingList = [
+			[0,LELSTRING(Main,DirectionN)],
+			[45,LELSTRING(Main,DirectionNE)],
+			[90,LELSTRING(Main,DirectionE)],
+			[135,LELSTRING(Main,DirectionSE)],
+			[180,LELSTRING(Main,DirectionS)],
+			[225,LELSTRING(Main,DirectionSW)],
+			[270,LELSTRING(Main,DirectionW)],
+			[315,LELSTRING(Main,DirectionNW)]
+		] apply {
 			private _testPos = AGLtoASL (_position getPos [600,_x # 0]);
 			_testPos set [2,_positionASL # 2 + 350];
 			if (terrainIntersectASL [_positionASL,_testPos]) then {
-				[_x # 1,"Terrain obstructing approach","",RGBA_ORANGE]
+				[_x # 1,LLSTRING(TerrainObstructingApproach),"",RGBA_ORANGE]
 			} else {
 				[_x # 1]
 			};
 		};
 
-		["CAS Parameters - " + mapGridPosition _position,[
-			["COMBOBOX",["Approach from","Orange means the approach is blocked"],[_bearingList,0],false],
-			["COMBOBOX","Map position or other signal",[[
-				["Map Position","",ICON_MAP],
-				["Laser Target","",ICON_TARGET],
-				["Smoke Signal","",ICON_SMOKE],
-				["IR Signal","",ICON_STROBE]
+		[LLSTRING(CASParameters) + " - " + mapGridPosition _position,[
+			["COMBOBOX",[LLSTRING(ApproachFrom),LLSTRING(OrangeMeansApproachBlocked)],[_bearingList,0],false],
+			["COMBOBOX",LLSTRING(MapPositionOrOtherSignal),[[
+				[LLSTRING(MapPosition),"",ICON_MAP],
+				[LLSTRING(LaserTarget),"",ICON_TARGET],
+				[LLSTRING(SmokeSignal),"",ICON_SMOKE],
+				[LLSTRING(IRSignal),"",ICON_STROBE]
 			],0],false,{
 				params ["_currentValue","_args","_ctrl"];
 				if (_currentValue isEqualTo 2) then {
@@ -210,7 +220,7 @@ switch (_entity getVariable "SSS_supportType") do {
 					[2,{false}] call EFUNC(CDS,setEnableCondition);
 				};
 			}],
-			["COMBOBOX","Smoke Color",[[
+			["COMBOBOX",LLSTRING(SmokeColor),[[
 				LELSTRING(Main,SmokeColorWhite),
 				LELSTRING(Main,SmokeColorBlack),
 				[LELSTRING(Main,SmokeColorRed),"","",[0.9,0,0,1]],
@@ -235,9 +245,9 @@ switch (_entity getVariable "SSS_supportType") do {
 		switch (_request) do {
 			case "HOVER";
 			case 5 : {
-				["Hover parameters",[
-					["SLIDER",["Hover height","Terrain collision is possible if set too low for angle/enviroment"],[[1,2000,0],15],false],
-					["CHECKBOX","Fastrope at position",true,false]
+				[LLSTRING(HoverParameters),[
+					["SLIDER",[LLSTRING(HoverHeight),LLSTRING(TerrainCollisionPossible)],[[1,2000,0],15],false],
+					["CHECKBOX",LLSTRING(FastropeAtPosition),true,false]
 				],{
 					params ["_values","_args"];
 					_args params ["_entity","_request","_position"];
@@ -252,9 +262,9 @@ switch (_entity getVariable "SSS_supportType") do {
 
 			case "LOITER";
 			case 6 : {
-				["Loiter parameters",[
-					["SLIDER","Loiter radius",[[150,1500,0],200]],
-					["COMBOBOX","Loiter direction",[[["Clockwise","",ICON_CLOCKWISE],["Counter-Clockwise","",ICON_COUNTER_CLOCKWISE]],0]]
+				[LLSTRING(LoiterParameters),[
+					["SLIDER",LLSTRING(LoiterRadius),[[150,1500,0],200]],
+					["COMBOBOX",LLSTRING(LoiterDirection),[[[LLSTRING(Clockwise),"",ICON_CLOCKWISE],[LLSTRING(CounterClockwise),"",ICON_COUNTER_CLOCKWISE]],0]]
 				],{
 					params ["_values","_args"];
 					_args params ["_entity","_request","_position"];
@@ -268,9 +278,9 @@ switch (_entity getVariable "SSS_supportType") do {
 			};
 
 			case "PARADROP" : {
-				["Paradrop parameters",[
-					["SLIDER",["Jump delay","Seconds between each unit jumping out"],[[0,5,1],1]],
-					["SLIDER","AI opening height",[[100,2000,0],200]]
+				[LLSTRING(ParadropParameters),[
+					["SLIDER",[LLSTRING(JumpDelay),LLSTRING(SecondsBetweenJumps)],[[0,5,1],1]],
+					["SLIDER",LLSTRING(AIOpeningHeight),[[100,2000,0],200]]
 				],{
 					params ["_values","_args"];
 					_args params ["_entity","_request","_position"];
@@ -313,9 +323,9 @@ switch (_entity getVariable "SSS_supportType") do {
 		switch (_request) do {
 			case "PARADROP";
 			case 2 : {
-				["Paradrop parameters",[
-					["SLIDER",["Jump delay","Seconds between each unit jumping out"],[[0,5,1],1]],
-					["SLIDER","AI opening height",[[100,2000,0],200]]
+				[LLSTRING(ParadropParameters),[
+					["SLIDER",[LLSTRING(JumpDelay),LLSTRING(SecondsBetweenJumps)],[[0,5,1],1]],
+					["SLIDER",LLSTRING(AIOpeningHeight),[[100,2000,0],200]]
 				],{
 					params ["_values","_args"];
 					_args params ["_entity","_request","_position"];
@@ -330,9 +340,9 @@ switch (_entity getVariable "SSS_supportType") do {
 
 			case "LOITER";
 			case 3 : {
-				["Loiter parameters",[
-					["SLIDER","Loiter radius",[[500,1500,0],500]],
-					["COMBOBOX","Loiter direction",[[["Clockwise","",ICON_CLOCKWISE],["Counter-Clockwise","",ICON_COUNTER_CLOCKWISE]],0]]
+				[LLSTRING(LoiterParameters),[
+					["SLIDER",LLSTRING(LoiterRadius),[[500,1500,0],500]],
+					["COMBOBOX",LLSTRING(LoiterDirection),[[[LLSTRING(Clockwise),"",ICON_CLOCKWISE],[LLSTRING(CounterClockwise),"",ICON_COUNTER_CLOCKWISE]],0]]
 				],{
 					params ["_values","_args"];
 					_args params ["_entity","_request","_position"];
@@ -359,9 +369,9 @@ switch (_entity getVariable "SSS_supportType") do {
 		switch (_request) do {
 			case "PARADROP";
 			case 5 : {
-				["Paradrop parameters",[
-					["SLIDER",["Jump delay","Seconds between each unit jumping out"],[[0,5,1],1]],
-					["SLIDER","AI opening height",[[100,2000,0],200]]
+				[LLSTRING(ParadropParameters),[
+					["SLIDER",[LLSTRING(JumpDelay),LLSTRING(SecondsBetweenJumps)],[[0,5,1],1]],
+					["SLIDER",LLSTRING(AIOpeningHeight),[[100,2000,0],200]]
 				],{
 					params ["_values","_args"];
 					_args params ["_entity","_request","_position"];
@@ -376,9 +386,9 @@ switch (_entity getVariable "SSS_supportType") do {
 
 			case "LOITER";
 			case 6 : {
-				["Loiter parameters",[
-					["SLIDER","Loiter radius",[[500,1500,0],500]],
-					["COMBOBOX","Loiter direction",[[["Clockwise","",ICON_CLOCKWISE],["Counter-Clockwise","",ICON_COUNTER_CLOCKWISE]],0]]
+				[LLSTRING(LoiterParameters),[
+					["SLIDER",LLSTRING(LoiterRadius),[[500,1500,0],500]],
+					["COMBOBOX",LLSTRING(LoiterDirection),[[[LLSTRING(Clockwise),"",ICON_CLOCKWISE],[LLSTRING(CounterClockwise),"",ICON_COUNTER_CLOCKWISE]],0]]
 				],{
 					params ["_values","_args"];
 					_args params ["_entity","_request","_position"];

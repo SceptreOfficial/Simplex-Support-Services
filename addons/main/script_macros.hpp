@@ -43,17 +43,17 @@
 #define SSS_WARNING_5(MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5) 		SSS_ERROR(FORMAT_5(MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5))
 
 #define NOTIFY_LOCAL(ENTITY,MESSAGE) 								[ENTITY,MESSAGE] call EFUNC(common,notify)
-#define NOTIFY_LOCAL_1(ENTITY,MESSAGE,ARG1) 					 	NOTIFY_LOCAL(ENTITY,FORMAT_1(MESSAGE,ARG1))
-#define NOTIFY_LOCAL_2(ENTITY,MESSAGE,ARG1,ARG2) 			 		NOTIFY_LOCAL(ENTITY,FORMAT_2(MESSAGE,ARG1,ARG2))
-#define NOTIFY_LOCAL_3(ENTITY,MESSAGE,ARG1,ARG2,ARG3) 		 		NOTIFY_LOCAL(ENTITY,FORMAT_3(MESSAGE,ARG1,ARG2,ARG3))
-#define NOTIFY_LOCAL_4(ENTITY,MESSAGE,ARG1,ARG2,ARG3,ARG4) 			NOTIFY_LOCAL(ENTITY,FORMAT_4(MESSAGE,ARG1,ARG2,ARG3,ARG4))
-#define NOTIFY_LOCAL_5(ENTITY,MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5) 	NOTIFY_LOCAL(ENTITY,FORMAT_5(MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5))
+#define NOTIFY_LOCAL_1(ENTITY,MESSAGE,ARG1) 					 	[ENTITY,MESSAGE,[ARG1]] call EFUNC(common,notify)
+#define NOTIFY_LOCAL_2(ENTITY,MESSAGE,ARG1,ARG2) 			 		[ENTITY,MESSAGE,[ARG1,ARG2]] call EFUNC(common,notify)
+#define NOTIFY_LOCAL_3(ENTITY,MESSAGE,ARG1,ARG2,ARG3) 		 		[ENTITY,MESSAGE,[ARG1,ARG2,ARG3]] call EFUNC(common,notify)
+#define NOTIFY_LOCAL_4(ENTITY,MESSAGE,ARG1,ARG2,ARG3,ARG4) 			[ENTITY,MESSAGE,[ARG1,ARG2,ARG3,ARG4]] call EFUNC(common,notify)
+#define NOTIFY_LOCAL_5(ENTITY,MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5) 	[ENTITY,MESSAGE,[ARG1,ARG2,ARG3,ARG4,ARG5]] call EFUNC(common,notify)
 #define NOTIFY(ENTITY,MESSAGE) 										[ENTITY,MESSAGE] remoteExecCall [QEFUNC(common,notify),0]
-#define NOTIFY_1(ENTITY,MESSAGE,ARG1) 								NOTIFY(ENTITY,FORMAT_1(MESSAGE,ARG1))
-#define NOTIFY_2(ENTITY,MESSAGE,ARG1,ARG2) 							NOTIFY(ENTITY,FORMAT_2(MESSAGE,ARG1,ARG2))
-#define NOTIFY_3(ENTITY,MESSAGE,ARG1,ARG2,ARG3) 					NOTIFY(ENTITY,FORMAT_3(MESSAGE,ARG1,ARG2,ARG3))
-#define NOTIFY_4(ENTITY,MESSAGE,ARG1,ARG2,ARG3,ARG4) 				NOTIFY(ENTITY,FORMAT_4(MESSAGE,ARG1,ARG2,ARG3,ARG4))
-#define NOTIFY_5(ENTITY,MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5) 			NOTIFY(ENTITY,FORMAT_5(MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5))
+#define NOTIFY_1(ENTITY,MESSAGE,ARG1) 								[ENTITY,MESSAGE,[ARG1]] remoteExecCall [QEFUNC(common,notify),0]
+#define NOTIFY_2(ENTITY,MESSAGE,ARG1,ARG2) 							[ENTITY,MESSAGE,[ARG1,ARG2]] remoteExecCall [QEFUNC(common,notify),0]
+#define NOTIFY_3(ENTITY,MESSAGE,ARG1,ARG2,ARG3) 					[ENTITY,MESSAGE,[ARG1,ARG2,ARG3]] remoteExecCall [QEFUNC(common,notify),0]
+#define NOTIFY_4(ENTITY,MESSAGE,ARG1,ARG2,ARG3,ARG4) 				[ENTITY,MESSAGE,[ARG1,ARG2,ARG3,ARG4]] remoteExecCall [QEFUNC(common,notify),0]
+#define NOTIFY_5(ENTITY,MESSAGE,ARG1,ARG2,ARG3,ARG4,ARG5) 			[ENTITY,MESSAGE,[ARG1,ARG2,ARG3,ARG4,ARG5]] remoteExecCall [QEFUNC(common,notify),0]
 
 #define ZEUS_MESSAGE(MESSAGE) [objNull,MESSAGE] call BIS_fnc_showCuratorFeedbackMessage
 #define ZEUS_ERROR(MESSAGE) \
@@ -179,6 +179,12 @@
 	[ENTITY,true,POS] call EFUNC(common,updateMarker); \
 	NOTIFY(ENTITY,MESSAGE)
 
+#define BEGIN_ORDER_1(ENTITY,POS,MESSAGE,ARG1) \
+	ENTITY setVariable ["SSS_onTask",true,true]; \
+	ENTITY setVariable ["SSS_awayFromBase",true,true]; \
+	[ENTITY,true,POS] call EFUNC(common,updateMarker); \
+	NOTIFY_1(ENTITY,MESSAGE,ARG1)
+
 #define END_ORDER(ENTITY,MESSAGE) \
 	ENTITY setVariable ["SSS_onTask",false,true]; \
 	[ENTITY,false] call EFUNC(common,updateMarker); \
@@ -215,7 +221,7 @@
 	isNull _entity || {_entity getVariable "SSS_interrupt" || {!alive _vehicle || !alive driver _vehicle || {(getPos _vehicle) select 2 < 1 && (vectorMagnitude velocityModelSpace _vehicle) < 10}}}
 
 #define REQUEST_CANCELLED \
-	titleText ["Request Cancelled","PLAIN",0.5]; \
+	titleText [localize "STR_SSS_Main_RequestCancelled","PLAIN",0.5]; \
 	[{titleFadeOut 0.5},[],1] call CBA_fnc_waitAndExecute
 
 #define PLANE_TAKEOFF(VEH) \
@@ -272,12 +278,12 @@
 	} forEach ([] call _listFnc)
 
 #define NOTIFY_LOCAL_NOT_READY_COOLDOWN(ENTITY) \
-	private _string = [localize "STR_SSS_Main_MacroNotifyReadyColored",localize "STR_SSS_Main_MacroNotifyReady"] select SSS_setting_useChatNotifications; \
-	NOTIFY_LOCAL_1(ENTITY,_string,PROPER_COOLDOWN(ENTITY))
+	private _string_code = {format [[localize "STR_SSS_Main_MacroNotifyReadyColored",localize "STR_SSS_Main_MacroNotifyReady"] select SSS_setting_useChatNotifications,PROPER_COOLDOWN(_this # 0)]}; \
+	NOTIFY_LOCAL_1(ENTITY,_string_code,ENTITY)
 
 #define NOTIFY_NOT_READY_COOLDOWN(ENTITY) \
-	private _string = [localize "STR_SSS_Main_MacroNotifyReadyColored",localize "STR_SSS_Main_MacroNotifyReady"] select SSS_setting_useChatNotifications; \
-	NOTIFY_1(ENTITY,_string,PROPER_COOLDOWN(ENTITY))
+	private _string_code = {format [[localize "STR_SSS_Main_MacroNotifyReadyColored",localize "STR_SSS_Main_MacroNotifyReady"] select SSS_setting_useChatNotifications,PROPER_COOLDOWN(_this # 0)]}; \
+	NOTIFY_1(ENTITY,_string_code,ENTITY)
 
 #define STR_TO_ARRAY_LOWER(STRING) (([STRING] call CBA_fnc_removeWhitespace) splitString ",") apply {toLower _x}
 
@@ -285,5 +291,5 @@
 	params ["_entity"]; \
 	private _vehicle = _entity getVariable "SSS_vehicle"; \
 	{[_x,"NoVoice"] remoteExecCall ["setSpeaker",0]} forEach PRIMARY_CREW(_vehicle); \
-	NOTIFY_LOCAL(_entity,localize "STR_SSS_Main_BeQuiet"); \
+	NOTIFY_LOCAL(_entity,{localize "STR_SSS_Main_BeQuiet"}); \
 }

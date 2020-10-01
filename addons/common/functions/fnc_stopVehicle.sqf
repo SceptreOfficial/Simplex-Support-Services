@@ -21,4 +21,4 @@ INTERRUPT(_entity,_vehicle);
 _vehicle setVariable ["SSS_WPDone",true,true];
 
 // Finalize order and notify
-END_ORDER(_entity,LLSTRING(NotifyStopVehicle));
+END_ORDER(_entity,{LLSTRING(NotifyStopVehicle)});

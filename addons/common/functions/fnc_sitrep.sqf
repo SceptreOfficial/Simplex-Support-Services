@@ -4,13 +4,13 @@ params ["_entity"];
 if (isNull _entity) exitWith {};
 
 private _vehicle = _entity getVariable ["SSS_vehicle",objNull];
-private _message = format [LLSTRING(Sitrep_LocationGrid) + "<br />%2",mapGridPosition _vehicle,switch true do {
-	case (!canMove _vehicle) : {LLSTRING(Sitrep_StatusDisabled)};
-	case (damage _vehicle > 0) : {LLSTRING(Sitrep_StatusDamaged)};
+private _message_code = {format [LLSTRING(Sitrep_LocationGrid) + "<br />%2",mapGridPosition (_this # 0),switch true do {
+	case (!canMove (_this # 0)) : {LLSTRING(Sitrep_StatusDisabled)};
+	case (damage (_this # 0) > 0) : {LLSTRING(Sitrep_StatusDamaged)};
 	default {LLSTRING(Sitrep_StatusGreen)};
-}];
+}]};
 
-NOTIFY_LOCAL(_entity,_message);
+NOTIFY_LOCAL_1(_entity,_message_code,_vehicle);
 
 // Manage marker on map - Don't update a marker if option is enabled
 if (SSS_setting_milsimHideMarkers) exitWith {};

@@ -7,11 +7,11 @@ if (isNull _entity) exitWith {};
 COMPILE_LOGISTICS_LISTS;
 
 if (_list isEqualTo []) exitWith {
-	SSS_ERROR("Invalid logistics list");
+	SSS_ERROR(LLSTRING(InvalidLogisticsList));
 };
 
-["Select object",[
-	["EDITBOX","Find","",true,{
+[LLSTRING(SelectObject),[
+	["EDITBOX",LLSTRING(Find),"",true,{
 		params ["_value","_args"];
 		
 		private _searchList = _args # 3;
@@ -36,7 +36,7 @@ if (_list isEqualTo []) exitWith {
 			_listbox lnbSetCurSelRow _result;
 		};
 	}],
-	["LISTNBOX","Available objects",[_beautifiedList,0,10]]
+	["LISTNBOX",LLSTRING(AvailableObjects),[_beautifiedList,0,10]]
 ],{
 	params ["_values","_args"];
 	_values params ["_find","_selection"];
@@ -66,7 +66,8 @@ if (_list isEqualTo []) exitWith {
 
 	_object setVariable ["SSS_requester",_player,true];
 
-	NOTIFY(_entity,_objText + " delivered.");
+	private _msg_code = {format [LLSTRING(ObjectDelivered),_this # 0]};
+	NOTIFY_1(_entity,_msg_code,_objText);
 	
 	["SSS_requestCompleted",[_entity,[_object]]] call CBA_fnc_globalEvent;
 
