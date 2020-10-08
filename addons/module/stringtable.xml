@@ -87,7 +87,7 @@
 		</Key>
 		<Key ID="STR_SSS_Module_CustomInitName">
 			<English>Custom init code</English>
-			<English>Code d'initialisation personnalisé</English>
+			<French>Code d'initialisation personnalisé</French>
 		</Key>
 		<Key ID="STR_SSS_Module_CustomInitDescription">
 			<English>Code executed when vehicle is added or respawned (Vehicle = _this).</English>
