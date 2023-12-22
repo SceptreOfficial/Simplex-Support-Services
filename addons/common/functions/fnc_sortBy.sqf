@@ -1,8 +1,8 @@
 #include "script_component.hpp"
 
-params [["_array",[],[[]]],["_order",true,[true]],["_primaryValueFnc",{},[{}]],["_secondaryValueFnc",{},[{}]]];
+params ["_array",["_order",true],["_primaryValueFnc",{}],["_secondaryValueFnc",{}]];
 
-if (_array isEqualTo []) exitWith {};
+if (_array isEqualTo []) exitWith {[]};
 
 if (_primaryValueFnc isEqualTo {}) exitWith {
 	_array sort _order;

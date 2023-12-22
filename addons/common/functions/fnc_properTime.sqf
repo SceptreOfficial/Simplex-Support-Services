@@ -5,60 +5,33 @@
 
 	Parameters:
 	0: Seconds <SCALAR>
-	1: Generalized rounding <BOOL>
+	1: Generalized rounding, true for 15s <BOOL | SCALAR>
 
 	Returns:
 	Time description <STRING>
 */
-params [["_time",0,[0]],["_round",false,[false]]];
+params [["_time",0,[0]],["_round",false,[false,0]]];
 
+_round = if (_round isEqualType 0) then {
+	0 max _round
+} else {
+	[1,15] select _round	
+};
+
+_time = round (0 max round _time / _round) * _round;
+
+private _minutes = floor (_time / 60);
 private _description = [];
-private _seconds = round _time;
-private _minutes = 0;
-private _hours = 0;
-private _days = 0;
-
-if (_seconds >= 60) then {
-	_minutes = floor (_seconds / 60);
-	_seconds = _seconds - (_minutes * 60);
-};
-
-if (_round) then {
-	private _distances = [abs (0 - _seconds),abs (15 - _seconds),abs (30 - _seconds),abs (45 - _seconds),abs (60 - _seconds)];
-	_seconds = [0,15,30,45,60] select (_distances find selectMin _distances);
-
-	if (_seconds isEqualTo 60) then {
-		_seconds = 0;
-		_minutes = _minutes + 1;
-	};
-
-	if (_minutes isEqualTo 0 && _seconds isEqualTo 0) then {
-		_seconds = round _time;
-	};
-};
-
-if (_minutes >= 60) then {
-	_hours = floor (_minutes / 60);
-	_minutes = _minutes - (_hours * 60);
-};
-
-if (_hours >= 24) then {
-	_days = floor (_hours / 24);
-	_hours = _hours - (_days * 24);
-};
 
 {
-	_x params ["_amount","_name"];
-	if (_amount != 0) then {
-		if (_amount isEqualTo 1) then {
-			// Trim "s"
-			_name = toArray _name;
-			_name deleteAt (count _name - 1);
-			_name = toString _name;
+	if (_x != 0) then {
+		switch _forEachIndex do {
+			case 0 : {_description pushBack format ["%1 %2",_x,[LLSTRING(Day),LLSTRING(DayPlural)] select (_x > 1)]};
+			case 1 : {_description pushBack format ["%1 %2",_x,[LLSTRING(Hour),LLSTRING(HourPlural)] select (_x > 1)]};
+			case 2 : {_description pushBack format ["%1 %2",_x,[LLSTRING(Minute),LLSTRING(MinutePlural)] select (_x > 1)]};
+			case 3 : {_description pushBack format ["%1 %2",_x,[LLSTRING(Second),LLSTRING(SecondPlural)] select (_x > 1)]};
 		};
-
-		_description pushBack format ["%1 %2",_amount,_name];
 	};
-} forEach [[_days,"days"],[_hours,"hours"],[_minutes,"minutes"],[_seconds,"seconds"]];
+} forEach [floor (_minutes / 60 / 24),floor (_minutes / 60) % 24,_minutes % 60,_time % 60];
 
 _description joinString ", "

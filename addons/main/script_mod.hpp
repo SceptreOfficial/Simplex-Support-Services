@@ -1,9 +1,8 @@
 #define MAINPREFIX z
-#define PREFIX SSS
+#define PREFIX sss
 
 #include "script_version.hpp"
 
-#define VERSION MAJOR.MINOR.PATCH.BUILD
+#define VERSION MAJOR.MINOR
 #define VERSION_AR MAJOR,MINOR,PATCH,BUILD
-
-#define REQUIRED_VERSION 1.92
+#define REQUIRED_VERSION 2.14

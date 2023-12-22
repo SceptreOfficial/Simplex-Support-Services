@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="SSS">
+	<Package name="Main">
+		<Key ID="STR_SSS_main_SimplexSupportServices">
+			<English>Simplex Support Services</English>
+			<French>Simplex Support Services</French>
+		</Key>
+		<Key ID="STR_SSS_main_SSS">
+			<English>Simplex Support Services</English>
+			<French>Simplex Support Services</French>
+		</Key>		
+	</Package>
+</Project>

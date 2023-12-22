@@ -1,157 +1,77 @@
 #include "script_component.hpp"
-#define CHANGE_COMBAT_MODE \
-		if ((_entity getVariable ["SSS_combatMode",1]) isEqualTo 0) then { \
-			_group setCombatMode "YELLOW"; \
-			_group enableAttack true; \
-			{ \
-				_x enableAI "TARGET"; \
-				_x enableAI "AUTOTARGET"; \
-			} forEach PRIMARY_CREW(_vehicle); \
-		} else { \
-			_group setCombatMode "BLUE"; \
-			_group enableAttack false; \
-			{ \
-				_x disableAI "TARGET"; \
-				_x disableAI "AUTOTARGET"; \
-			} forEach PRIMARY_CREW(_vehicle); \
-		}
 
-params [["_entity",objNull,[objNull]],["_vehicle",objNull,[objNull]]];
+params [["_vehicle",objNull,[objNull]],["_entity",objNull,[objNull]],["_respawnable",true,[false]]];
 
-if (isNull _entity || isNull _vehicle) exitWith {};
+if (isNull _entity || isNull _vehicle) exitWith {
+	ERROR("Null commission");
+};
 
 if (!local _vehicle) exitWith {
-	_this remoteExecCall [QFUNC(commission),_vehicle];
+	[QGVAR(execute),[_this,QFUNC(commission)],_vehicle] call CBA_fnc_targetEvent;
 };
 
 _vehicle setDamage 0;
 _vehicle setFuel 1;
-_vehicle setVehicleAmmo 1;
 _vehicle lockDriver true;
 _vehicle allowFleeing 0;
 
-{
-	_x setSkill 1;
-	_x allowFleeing 0;
-	_x disableAI "SUPPRESSION";
-	_x disableAI "COVER";
-} forEach PRIMARY_CREW(_vehicle);
+[{
+	{
+		_x setSkill 1;
+		_x allowFleeing 0;
+		_x disableAI "COVER";
+		_x disableAI "SUPPRESSION";
+		//_x disableAI "FSM";
+		//_x disableAI "LIGHTS";
+		//_x disableAI "AUTOCOMBAT";
 
-private _group = group _vehicle;
+		// AI mod compat
+		_x setVariable ["lambs_danger_disableAI",true,true];
+	} forEach PRIMARY_CREW(_this);
+},_vehicle,3] call CBA_fnc_waitAndExecute;
 
-switch (_entity getVariable "SSS_supportType") do {
-	case "artillery" : {
-		{_x disableAI "PATH"} forEach PRIMARY_CREW(_vehicle);
-		_vehicle lockTurret [[0],true];
-		_vehicle lockCargo true;
+private _group = _entity getVariable [QPVAR(group),grpNull];
 
-		_group enableAttack true;
-		_group setBehaviour "COMBAT";
+if (isNull _group) then {
+	_group = group _vehicle;
+} else {
+	if !(_vehicle in assignedVehicles _group) then {
+		_group addVehicle _vehicle;
 	};
-
-	case "CASHelicopter" : {
-		{
-			_x disableAI "LIGHTS";
-			_x disableAI "AUTOCOMBAT";
-		} forEach PRIMARY_CREW(_vehicle);
-		_vehicle lockTurret [[0],true];
-		_vehicle lockCargo true;
-		_vehicle lock true;
-
-		_vehicle flyInHeight (_entity getVariable ["SSS_flyingHeight",180]);
-		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
-		_vehicle setCollisionLight (_entity getVariable ["SSS_collisionLightsOn",true]);
-
-		_group enableAttack true;
-
-		// FRIES makes AI pilots a nightmare
-		private _fries = _vehicle getVariable ["ace_fastroping_FRIES",objnull];
-		if (!isNull _fries) then {
-			deleteVehicle _fries;
-		};
-	};
-
-	case "transportHelicopter" : {
-		{
-			_x disableAI "LIGHTS";
-			_x disableAI "AUTOCOMBAT";
-		} forEach PRIMARY_CREW(_vehicle);
-
-		_vehicle flyInHeight (_entity getVariable ["SSS_flyingHeight",180]);
-		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
-		_vehicle setCollisionLight (_entity getVariable ["SSS_collisionLightsOn",true]);
-
-		_group setBehaviour "CARELESS";
-		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",1]));
 	
-		CHANGE_COMBAT_MODE;
-
-		// FRIES makes AI pilots a nightmare
-		private _fries = _vehicle getVariable ["ace_fastroping_FRIES",objnull];
-		if (!isNull _fries) then {
-			deleteVehicle _fries;
-		};
-	};
-
-	case "transportLandVehicle" : {
-		{_x disableAI "LIGHTS"} forEach PRIMARY_CREW(_vehicle);
-
-		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
-
-		//_group setBehaviour "SAFE";
-		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",2]));
-	
-		CHANGE_COMBAT_MODE;
-	};
-
-	case "transportMaritime" : {
-		{
-			_x disableAI "LIGHTS";
-			_x disableAI "AUTOCOMBAT";
-		} forEach PRIMARY_CREW(_vehicle);
-
-		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
-		_vehicle setCollisionLight (_entity getVariable ["SSS_collisionLightsOn",true]);
-
-		_group setBehaviour "CARELESS";
-		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",2]));
-	
-		CHANGE_COMBAT_MODE;
-	};
-
-	case "transportPlane" : {
-		{
-			_x disableAI "LIGHTS";
-			_x disableAI "AUTOCOMBAT";
-		} forEach PRIMARY_CREW(_vehicle);
-
-		_vehicle flyInHeight (_entity getVariable ["SSS_flyingHeight",500]);
-		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
-		_vehicle setCollisionLight (_entity getVariable ["SSS_collisionLightsOn",true]);
-
-		_group setBehaviour "CARELESS";
-		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",1]));
-	
-		CHANGE_COMBAT_MODE;
-	};
-
-	case "transportVTOL" : {
-		{
-			_x disableAI "LIGHTS";
-			_x disableAI "AUTOCOMBAT";
-		} forEach PRIMARY_CREW(_vehicle);
-
-		_vehicle flyInHeight (_entity getVariable ["SSS_flyingHeight",250]);
-		_vehicle setPilotLight (_entity getVariable ["SSS_lightsOn",true]);
-		_vehicle setCollisionLight (_entity getVariable ["SSS_collisionLightsOn",true]);
-
-		_group setBehaviour "CARELESS";
-		_group setSpeedMode (["LIMITED","NORMAL","FULL"] select (_entity getVariable ["SSS_speedMode",1]));
-	
-		CHANGE_COMBAT_MODE;
-	};
+	PRIMARY_CREW(_vehicle) joinSilent _group;
 };
 
-private _ID = ["SSS_commissioned",_vehicle] call CBA_fnc_globalEventJIP;
-[_ID,_vehicle] call CBA_fnc_removeGlobalEventJIP;
-_vehicle setVariable ["SSS_commissionedEventID",_ID,true];
+_vehicle setVariable [QPVAR(entity),_entity,true];
+
+// ACEX Headless balance compat
+_group setVariable ["acex_headless_blacklist",true,true];
+
+// AI mod compat
+_group setVariable ["Vcm_Disable",true,true];
+_group setVariable ["lambs_danger_disableGroupAI",true,true];
+
+_vehicle call (_entity getVariable QPVAR(vehicleInit));
+
+if (_respawnable) then {
+	[QEGVAR(common,addEventHandler),[_vehicle,"GetOut",FUNC(reentry)]] call CBA_fnc_serverEvent;
+	[QEGVAR(common,addEventHandler),[_vehicle,"SeatSwitched",FUNC(reentry)]] call CBA_fnc_serverEvent;
+
+	private _primaryCrew = PRIMARY_CREW(_vehicle);
+	
+	_vehicle setVariable [QPVAR(crew),_primaryCrew,true];
+	_vehicle setVariable [QPVAR(crewCache),createHashMapFromArray (_primaryCrew apply {[
+		[assignedVehicleRole _x param [0,""],_vehicle unitTurret _x],
+		_x
+	]}),true];
+
+	_entity setVariable [QPVAR(vehicleCustomization),_vehicle call BIS_fnc_getVehicleCustomization,true];
+	_entity setVariable [QPVAR(crewConfig),_primaryCrew apply {[
+		_vehicle unitTurret _x,
+		_vehicle getCargoIndex _x,
+		typeOf _x,
+		getUnitLoadout _x
+	]},true];
+};
+
+[QPVAR(vehicleCommissioned),[_entity,_vehicle]] call CBA_fnc_globalEvent;

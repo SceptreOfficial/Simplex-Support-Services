@@ -1,0 +1,217 @@
+//---------------------------------------------//
+// Admin
+
+[
+	QPVAR(setting_adminAccess),
+	"CHECKBOX",
+	[LSTRING(Setting_adminAccess_DisplayName), LSTRING(Setting_adminAccess_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryAdmin)],
+	true,
+	false,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QPVAR(setting_adminLimitSide),
+	"CHECKBOX",
+	[LSTRING(Setting_AdminLimitSide_DisplayName), LSTRING(Setting_AdminLimitSide_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryAdmin)],
+	false,
+	false,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+//---------------------------------------------//
+// Core
+
+[
+	QPVAR(setting_GiveUAVTerminal),
+	"CHECKBOX",
+	[LSTRING(Setting_GiveUAVTerminal_DisplayName), LSTRING(Setting_GiveUAVTerminal_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryCore)],
+	true,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QPVAR(setting_directActionRequirement),
+	"CHECKBOX",
+	[LSTRING(Setting_DirectActionRequirement_DisplayName), LSTRING(Setting_DirectActionRequirement_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryCore)],
+	false,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QPVAR(setting_removeSupportOnVehicleDeletion),
+	"CHECKBOX",
+	[LSTRING(Setting_RemoveSupportOnVehicleDeletion_DisplayName), LSTRING(Setting_RemoveSupportOnVehicleDeletion_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryCore)],
+	true,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QPVAR(setting_deleteVehicleOnEntityRemoval),
+	"CHECKBOX",
+	[LSTRING(Setting_DeleteVehicleOnEntityRemoval_DisplayName), LSTRING(Setting_DeleteVehicleOnEntityRemoval_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryCore)],
+	false,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QPVAR(setting_cleanupCrew),
+	"CHECKBOX",
+	[LSTRING(Setting_CleanupCrew_DisplayName), LSTRING(Setting_CleanupCrew_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryCore)],
+	true,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QPVAR(setting_resetVehicleOnRTB),
+	"CHECKBOX",
+	[LSTRING(Setting_ResetVehicleOnRTB_DisplayName), LSTRING(Setting_ResetVehicleOnRTB_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryCore)],
+	true,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QPVAR(setting_restoreCrewOnRTB),
+	"CHECKBOX",
+	[LSTRING(Setting_RestoreCrewOnRTB_DisplayName), LSTRING(Setting_RestoreCrewOnRTB_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryCore)],
+	true,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+//---------------------------------------------//
+// Development
+
+[
+	QPVAR(debug),
+	"CHECKBOX",
+	[LSTRING(Setting_Debug_DisplayName), LSTRING(Setting_Debug_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryDevelopment)],
+	false,
+	false,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+//---------------------------------------------//
+// Milsim mode
+
+[
+	QPVAR(setting_milsimModeArtillery),
+	"CHECKBOX",
+	[LSTRING(Setting_MilsimModeArtillery_DisplayName), LSTRING(Setting_MilsimModeArtillery_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryMilsimMode)],
+	false,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QPVAR(setting_milsimModeCAS),
+	"CHECKBOX",
+	[LSTRING(Setting_MilsimModeCAS_DisplayName), LSTRING(Setting_MilsimModeCAS_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryMilsimMode)],
+	false,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QPVAR(setting_milsimModeTransport),
+	"CHECKBOX",
+	[LSTRING(Setting_MilsimModeTransport_DisplayName), LSTRING(Setting_MilsimModeTransport_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryMilsimMode)],
+	false,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QPVAR(setting_milsimModeLogistics),
+	"CHECKBOX",
+	[LSTRING(Setting_MilsimModeLogistics_DisplayName), LSTRING(Setting_MilsimModeLogistics_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryMilsimMode)],
+	false,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QPVAR(setting_milsimHideMarkers),
+	"CHECKBOX",
+	[LSTRING(Setting_MilsimHideMarkers_DisplayName), LSTRING(Setting_MilsimHideMarkers_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryMilsimMode)],
+	false,
+	true,
+	{},
+	true
+] call CBA_fnc_addSetting;
+
+//---------------------------------------------//
+// Personal
+
+[
+	QOPTION(notificationStyle),
+	"LIST",
+	[LSTRING(notificationStyleName),LSTRING(notificationStyleInfo)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategoryPersonal)],
+	[[0,1],[LSTRING(notificationStylePopup),LSTRING(notificationStyleChat)],0],
+	false,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+//---------------------------------------------//
+// Sling Loading
+
+[
+	QPVAR(setting_slingLoadWhitelist),
+	"EDITBOX",
+	[LSTRING(Setting_SlingLoadWhitelist_DisplayName), LSTRING(Setting_SlingLoadWhitelist_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategorySlingLoading)],
+	"",
+	true,
+	{missionNamespace setVariable[QPVAR(slingLoadWhitelist),(([_this] call CBA_fnc_removeWhitespace) splitString ",") apply {toLower _x},true]},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QPVAR(setting_slingLoadSearchRadius),
+	"SLIDER",
+	[LSTRING(Setting_SlingLoadSearchRadius_DisplayName), LSTRING(Setting_SlingLoadSearchRadius_Description)],
+	[LSTRING(SimplexSupportServices),LSTRING(Setting_CategorySlingLoading)],
+	[10,200,100,0],
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+//---------------------------------------------//

@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="SSS">
+	<Package name="Artillery">
+		<Key ID="STR_SSS_Artillery_Service">
+			<English>Artillery</English>
+		</Key>
+		<!-- Modules -->
+		<Key ID="STR_SSS_Artillery_ModuleAdd_name">
+			<English>Artillery</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_ModuleAdd_info">
+			<English>Sync artillery vehicles to add</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Ammunition_name">
+			<English>Ammuniton</English>
+			<French>Munitions</French>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Ammunition_info">
+			<English>Ammunition configuration array. Leave empty for vehicle defaults.\n\nArray item arguments:\n0: Magazine class\n1: Round limit</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_RoundCooldown_name">
+			<English>Round cooldown</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_RoundCooldown_info">
+			<English>Additional time incremented per round fired</English>
+			<French>Attente supplémentaire, additionnée au délai d'attente ci-dessus après chaque tir effectué.</French>
+		</Key>
+		<Key ID="STR_SSS_Artillery_MaxLoops_name">
+			<English>Max loops</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_MaxLoops_info">
+			<English>How many times a plan can be looped</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_MaxLoopDelay_name">
+			<English>Max loop delay</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_MaxLoopDelay_info">
+			<English>How much time should pass between loops</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_MaxTasks_name">
+			<English>Max tasks</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_MaxTasks_info">
+			<English>Limits the amount of tasks that can be planned (-1 for no limit)</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_SheafTypes_name">
+			<English>Sheaf types</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_SheafTypes_info">
+			<English>Set what sheaf options are available</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_MaxRounds_name">
+			<English>Max rounds</English>
+			<French>Tirs (maximum) par demande</French>
+		</Key>
+		<Key ID="STR_SSS_Artillery_MaxRounds_info">
+			<English>Limits the round count slider</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_MaxExecutionDelay_name">
+			<English>Max execution delay</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_MaxExecutionDelay_info">
+			<English>Limits the execution delay slider</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_MaxFiringDelay_name">
+			<English>Max firing delay</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_MaxFiringDelay_info">
+			<English>Limits the firing delay slider</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_CoordinationDistance_name">
+			<English>Maximum coordination distance</English>
+			<French>Distance max. de coordination</French>
+		</Key>
+		<Key ID="STR_SSS_Artillery_CoordinationDistance_info">
+			<English>How far to search for batteries that can coordinate on fire missions</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_CoordinationType_name">
+			<English>Coordinate with</English>
+			<French>Coordination possible avec</French>
+		</Key>
+		<Key ID="STR_SSS_Artillery_CoordinationType_info">
+			<English>Set what kind of artillery to coordinate with</English>
+			<French>Sélection des artilleries pouvant se coordonner.</French>
+		</Key>
+		<Key ID="STR_SSS_Artillery_CoordinationTypeSupport">
+			<English>Support entities only (requires access)</English>
+			<French>Les autres artilleries de support (accès requis)</French>
+		</Key>
+		<Key ID="STR_SSS_Artillery_CoordinationTypeNonSupport">
+			<English>Non-support entities only</English>
+			<French>Les artilleries n'étant pas configurées comme support</French>
+		</Key>
+		<Key ID="STR_SSS_Artillery_CoordinationTypeAll">
+			<English>Any nearby batteries (supports require access)</English>
+			<French>Toutes les artilleries (accès requis pour les supports)</French>
+		</Key>
+		<Key ID="STR_SSS_Artillery_IconSelection_name">
+			<English>Icon</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_IconSelection_info">
+			<English>Assign custom icon type (in case automatic detection fails for modded vehicles)</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Automatic">
+			<English>Automatic</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Mortar">
+			<English>Mortar</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Howitzer">
+			<English>Howitzer</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_SelfPropelled">
+			<English>Self-Propelled</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_MRLS">
+			<English>MRLS</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_MRLSTruck">
+			<English>MRLS Truck</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Missile">
+			<English>Missile</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_ExecutionDelay_name">
+			<English>Initial execution delay</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_ExecutionDelay_info">
+			<English>Random time between requesting a fire mission and it being received/executed</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_FiringDelay_name">
+			<English>Minimum firing delay</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_FiringDelay_info">
+			<English>Random time between firing each round</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_VelocityOverride_name">
+			<English>Projectile velocity</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_VelocityOverride_info">
+			<English>Override velocity to bypass fixed ranges in ammo config. \nThis can reduce ETA and remove possible ranging deadzones. \nRecommended for creeping barrages.</English>
+		</Key>
+		<!-- Interaction -->
+		<Key ID="STR_SSS_Artillery_Ammunition">
+			<English>Ammunition</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_StrikePlan">
+			<English>Strike plan</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Rounds">
+			<English>Rounds</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Coordination">
+			<English>Coordination</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_ExecutionDelay">
+			<English>Execution delay</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_FiringDelay">
+			<English>Firing delay</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_MixedAmmo">
+			<English>[Mixed]</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Type">
+			<English>Type</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_AddTask">
+			<English>Add task</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_RemoveTask">
+			<English>Remove task</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_ClearTasks">
+			<English>Clear all tasks</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Loop">
+			<English>Loop</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Loop_info">
+			<English>How many times to loop fire mission (-1 for indefinite) and the delay betwen each loop</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Sheaf">
+			<English>Sheaf</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Converged">
+			<English>Converged</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Parallel">
+			<English>Parallel</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Box">
+			<English>Box</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Creeping">
+			<English>Creeping</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Validation">
+			<English>Validation</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Dispersion">
+			<English>Dispersion</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Abort">
+			<English>Abort active request</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_SheafParameters">
+			<English>Sheaf parameters</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_TaskLimitReached">
+			<English>Task limit reached</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Grid">
+			<English>Grid</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_unavailable">
+			<English>UNAVAILABLE</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_readyToFire">
+			<English>READY TO FIRE</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_invalidRange">
+			<English>INVALID RANGE</English>
+		</Key>
+		<!-- Settings -->
+		<Key ID="STR_SSS_Artillery_manualInput_name">
+			<English>Require manual input</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_manualInput_info">
+			<English>Require players to manually input grid coordinates</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_visualAids_name">
+			<English>Visual aids</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_visualAids_info">
+			<English>Show visual aids for request planning on the map</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_taskMarkers_name">
+			<English>Task markers</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_taskMarkers_info">
+			<English>Create map markers on task locations</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_rangeIndicators_name">
+			<English>Range indicators</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_rangeIndicators_info">
+			<English>Create min/max range indicators on the map</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_relocateCooldown_name">
+			<English>Cooldown after relocation</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_relocateCooldown_info">
+			<English>Execute a cooldown after relocation completes.</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_remoteControl_name">
+			<English>Remote control</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_remoteControl_info">
+			<English>Allows remote controlling a gunner</English>
+		</Key>
+		<!-- Notifications -->
+		<Key ID="STR_SSS_Artillery_NoGunnerInVehicle">
+			<English>No gunner in vehicle: %1: %2</English>
+			<French>Aucun tireur à bord du véhicule : %1 : %2</French>
+		</Key>
+		<Key ID="STR_SSS_Artillery_DifferentVehicleType">
+			<English>Different vehicle type: %1: %2 - Expected: %3</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_InvalidMagazineClass">
+			<English>Invalid magazine class: %1</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_RequestSubmitted">
+			<English>Instructions received. Beginning fire mission...</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_RequestCompleted">
+			<English>Fire mission complete</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_LoopsLeft">
+			<English>Fire mission complete and will loop %1 more time(s)</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_EndlessLoops">
+			<English>Fire mission complete and will loop until aborted</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_InitStrike">
+			<English>Initiating strike at grid %1. ETA: %2</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_StrikeInbound">
+			<English>Artillery strike inbound</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Splash">
+			<English>Splash at grid %1 - Over.</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Default">
+			<English>Default</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_Override">
+			<English>Override</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_statusFireMission">
+			<English>EXECUTING FIRE MISSION</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_statusRelocate">
+			<English>RELOCATING</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_notifyRelocate">
+			<English>Relocating to %1 E %2 N.</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_notifyRelocateAbort">
+			<English>Relocation aborted.</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_notifyRelocateComplete">
+			<English>Relocation complete.</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_notifyAbort">
+			<English>Request aborted.</English>
+		</Key>
+		<Key ID="STR_SSS_Artillery_notifyCooldownComplete">
+			<English>Rearmed and ready for further tasking.</English>
+		</Key>
+		<Key ID="STR_SSS_ARTILLERY_fireMission">
+			<English>FIRE MISSION</English>
+		</Key>
+		<Key ID="STR_SSS_ARTILLERY_relocation">
+			<English>RELOCATION</English>
+		</Key>
+		<Key ID="STR_SSS_ARTILLERY_noRecipientsAvailable">
+			<English>No recipients available.</English>
+		</Key>
+		<Key ID="STR_sss_artillery_clearAll">
+			<English>CLEAR ALL</English>
+		</Key>
+		<Key ID="STR_sss_artillery_loopCount">
+			<English>Loop count</English>
+		</Key>
+		<Key ID="STR_sss_artillery_loopDelay">
+			<English>Loop delay</English>
+		</Key>
+		<Key ID="STR_sss_artillery_eta">
+			<English>ETA</English>
+		</Key>
+		<Key ID="STR_sss_artillery_sheafType">
+			<English>Sheaf type</English>
+		</Key>
+		<Key ID="STR_sss_artillery_widthAcronym">
+			<English>W</English>
+		</Key>
+		<Key ID="STR_sss_artillery_heightAcronym">
+			<English>H</English>
+		</Key>
+		<Key ID="STR_sss_artillery_angle">
+			<English>Angle</English>
+		</Key>
+	</Package>
+</Project>

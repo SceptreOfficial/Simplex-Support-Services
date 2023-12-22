@@ -1,27 +1,34 @@
 #include "script_component.hpp"
 
-if (!isServer) exitWith {
-	_this remoteExecCall [QFUNC(updateMarker),2];
-};
+if (canSuspend) exitWith {[FUNC(updateMarker),_this] call CBA_fnc_directCall};
+if (!isServer) exitWith {[QGVAR(updateMarker),_this] call CBA_fnc_serverEvent};
 
-params ["_entity","_activateMarker",["_position",[0,0,0]]];
+params ["_entity",["_position",[0,0,0]],"_message"];
 
 if (isNull _entity) exitWith {};
 
-private _marker = _entity getVariable "SSS_marker";
-private _side = _entity getVariable "SSS_side";
+private _marker = _entity getVariable [QPVAR(marker),""];
 
-if (_activateMarker) then {
-	[[_entity,_marker,_side,_position],{
-		params ["_entity","_marker","_side","_position"];
+if (_position isEqualType objNull) then {
+	_position = getPosASL _position;
+};
 
-		if (side group player == _side) then {
-			_marker setMarkerPosLocal _position;
-			_marker setMarkerAlphaLocal 0.8;
-		} else {
-			_marker setMarkerAlphaLocal 0;
-		};
-	}] remoteExecCall ["call",0];
-} else {
+if (_marker isEqualTo "" && _position isEqualTo [0,0,0]) exitWith {};
+
+if (_marker isEqualTo "") then {
+	_marker = createMarker [GEN_STR(_entity),_position];
+	_marker setMarkerShape "ICON";
+	_marker setMarkerType "mil_end_noShadow";
+	_marker setMarkerColor "ColorBlue";
+	_marker setMarkerSize [0.8,0.8];
+	_marker setMarkerAlpha 0;
+	_entity setVariable [QPVAR(marker),_marker];
+};
+
+if (_position isEqualTo [0,0,0]) exitWith {
 	_marker setMarkerAlpha 0;
 };
+
+_marker setMarkerPos _position;
+
+[QGVAR(markerUpdate),[_entity,_marker,_message],_marker] call CBA_fnc_globalEventJIP;
