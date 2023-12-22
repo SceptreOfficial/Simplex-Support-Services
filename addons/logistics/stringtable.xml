@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="SSS">
+	<Package name="Logistics">
+		<Key ID="STR_SSS_Logistics_Service">
+			<English>Logistics</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_moduleAddAirdrop_name">
+			<English>Logistics Airdrop</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_moduleAddSlingload_name">
+			<English>Logistics Slingload</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_moduleAddStation_name">
+			<English>Logistics Station</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_moduleReferenceArea_name">
+			<English>Logistics Reference Area</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_moduleReferenceArea_info">
+			<English>Designate an area that will populate synced logistics support list(s)</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_manualInput_name">
+			<English>Require manual input</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_manualInput_info">
+			<English>Require players to manually input grid coordinates</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_visualAids_name">
+			<English>Visual aids</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_visualAids_info">
+			<English>Show visual aids for request planning on the map</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_taskMarkers_name">
+			<English>Task markers</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_taskMarkers_info">
+			<English>Create map markers on task locations</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_Altitude_name">
+			<English>Altitude</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_Altitude_info">
+			<English>Flying height</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_VirtualRunway_name">
+			<English>Virtual runway</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_VirtualRunway_info">
+			<English>Aircraft will spawn at this position.\n[0,0,0] will spawn at a random position.</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_SpawnDistance_name">
+			<English>Spawn distance</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_SpawnDistance_info">
+			<English>If virtual runway is undefined, the aircraft will spawn this far away from the target</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_SpawnDelay_name">
+			<English>Spawn delay</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_SpawnDelay_info">
+			<English>Aircraft will spawn after specified random duration. Use to simulate takeoff or flight delays.</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_Capacity_name">
+			<English>Capacity</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_Capacity_info">
+			<English>Determines how many items may be requested depending on their load (default item load is 1).</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_ListFunction_name">
+			<English>List function</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_ListFunction_info">
+			<English>Code that must return an array of items that can be requested.\n\nCategory arguments:\n0: Name (must be prefixed with #) [STRING]\n1: Child items [ARRAY]\n\nItem arguments:\n0: Class or array of classes [STRING | ARRAY]\n1: Formatting (name, icon, tooltip, info) [STRING | ARRAY]\n2: Init [CODE]\n3: Extra arguments [ANY]\n4: Load [NUMBER]\n5: Request limit [NUMBER]\n6: Quantity available [NUMBER]</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_ItemInit_name">
+			<English>Item init</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_ItemInit_info">
+			<English>Code ran for every item spawned.\n'_this' refers to the object. '_thisArgs' refers to any extra arguments passed with the item.</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_AircraftClass_name">
+			<English>Aircraft class</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_AircraftClass_info">
+			<English>Class name of the aircraft which will deliver the cargo.</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_Fulfillment_name">
+			<English>Fulfillment</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_Fulfillment_info">
+			<English>Restrict items to the physical capacity of a single helicopter or send as many helicopters as needed to fulfill the request</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_OpenAltitudeAI_name">
+			<English>Parachute altitude: AI</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_OpenAltitudeAI_info">
+			<English>Height when parachutes are deployed for infantry. -1 for immediate.</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_OpenAltitudeObjects_name">
+			<English>Parachute altitude: Objects</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_OpenAltitudeObjects_info">
+			<English>Height when parachutes are deployed for objects. -1 for immediate.</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_ItemCooldown_name">
+			<English>Item cooldown</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_ItemCooldown_info">
+			<English>Additional time incremented per object loaded.</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_cooldownTrigger_name">
+			<English>Cooldown trigger</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_cooldownTrigger_info">
+			<English>When the cooldown process will commence</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_Submission">
+			<English>Submission</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_Completion">
+			<English>Completion</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_Single">
+			<English>Single</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_Multiple">
+			<English>Multiple</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_statusAirdropInbound">
+			<English>MOVING TO DROP LOCATION</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_statusAirdropDropping">
+			<English>DROPPING CARGO</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_statusAirdropComplete">
+			<English>RETURNING TO BASE</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_statusAirdropAbort">
+			<English>ABORTING</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_notifyAirdropInbound">
+			<English>Cargo inbound to %1. ETA %2</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_notifyAirdropDropping">
+			<English>Dropping cargo...</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_notifyAirdropComplete">
+			<English>Request complete. Returning to base.</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_notifyAirdropAbort">
+			<English>Request aborted.</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_notifyAirdropKilled">
+			<English>Aircraft was destroyed and was unable to fulfill your request</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_notifyStationSpawned">
+			<English>%1 has arrived at %2</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_notifyCooldownComplete">
+			<English>Refueled and ready for further tasking.</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_notifyStationCooldownComplete">
+			<English>Restocked and ready for use.</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_direction_name">
+			<English>Direction</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_direction_info">
+			<English>Objects will face this direction on spawn</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_behavior_name">
+			<English>Behavior</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_behavior_info">
+			<English>Determine how objects are handled</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_initiate_name">
+			<English>Initiate</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_initiate_info">
+			<English>List is updated upon init, then objects are deleted</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_monitor_name">
+			<English>Monitor</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_monitor_info">
+			<English>List is perpetually updated with objects that are in the area</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_category_name">
+			<English>Category</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_category_info">
+			<English>Name of the category that the items listed under. Leave empty for no category.</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_infantry_name">
+			<English>Infantry referencing</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_infantry_info">
+			<English>Determines how infantry is referenced in the area</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_filter_name">
+			<English>Filter</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_filter_info">
+			<English>Exclusionary condition to filter out objects in the area.\n'_x' refers to the current iterated object.</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_loadEval_name">
+			<English>Load evaluation</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_loadEval_info">
+			<English>Code to evaluate an item's load from the area.\n'_x' refers to the object.</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_individuals">
+			<English>Individual units</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_groups">
+			<English>Groups</English>
+		</Key>
+		<Key ID="STR_sss_logistics_availableItems">
+			<English>Available items</English>
+		</Key>
+		<Key ID="STR_sss_logistics_itemInfo">
+			<English>Item info</English>
+		</Key>
+		<Key ID="STR_sss_logistics_requestedItems">
+			<English>Requested items</English>
+		</Key>
+		<Key ID="STR_sss_logistics_landingSignals">
+			<English>Landing signals</English>
+		</Key>
+		<Key ID="STR_sss_logistics_aiHandling">
+			<English>AI Handling</English>
+		</Key>
+		<Key ID="STR_sss_logistics_joinRequesterGroup">
+			<English>Join requester group</English>
+		</Key>
+		<Key ID="STR_sss_logistics_createStandaloneGroups">
+			<English>Create standalone group(s)</English>
+		</Key>
+		<Key ID="STR_sss_logistics_load">
+			<English>Load</English>
+		</Key>
+		<Key ID="STR_sss_logistics_requestLimit">
+			<English>Request limit</English>
+		</Key>
+		<Key ID="STR_sss_logistics_quantity">
+			<English>Quantity</English>
+		</Key>
+		<Key ID="STR_sss_logistics_group">
+			<English>Group</English>
+		</Key>
+	</Package>
+</Project>

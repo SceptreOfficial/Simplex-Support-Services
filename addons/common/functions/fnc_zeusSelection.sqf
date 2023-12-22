@@ -2,43 +2,31 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
 disableSerialization;
-params ["_enterCode",["_customArguments",[]]];
+params [["_enterCode",{},[{}]],["_customArguments",[]],["_message",LLSTRING(zeusSelectionItems),[""]]];
 
-private _display = finddisplay IDD_RSCDISPLAYCURATOR;
-private _ctrlMessage = _display displayctrl IDC_RSCDISPLAYCURATOR_FEEDBACKMESSAGE;
+[_message,"FD_Finish_F"] call FUNC(zeusMessage);
 
-playSound "FD_Finish_F";
-_ctrlMessage ctrlSetText "SELECT UNITS - PRESS ENTER TO SUBMIT";
-_ctrlMessage ctrlSetFade 1;
-_ctrlMessage ctrlCommit 0;
-_ctrlMessage ctrlSetFade 0;
-_ctrlMessage ctrlCommit 0.1;
-
-[_display,"KeyDown",{
+[findDisplay IDD_RSCDISPLAYCURATOR,"KeyDown",{
 	params ["_display","_key"];
-	_thisArgs params ["_ctrlMessage","_enterCode","_customArguments"];
+	_thisArgs params ["_enterCode","_customArguments"];
 
 	//Escape
 	if (_key == 0x01) exitWith {
-		_display displayRemoveEventHandler ["KeyDown",_thisID];
-		_ctrlMessage ctrlSetFade 1;
-		_ctrlMessage ctrlCommit 0.5;
-		[objNull,"Selection cancelled"] call BIS_fnc_showCuratorFeedbackMessage;
+		_display displayRemoveEventHandler [_thisType,_thisID];
+		[LLSTRING(zeusSelectionCancelled)] call FUNC(zeusMessage);
 		true
 	};
 
 	//Enter
 	if (_key == 0x1C) exitWith {
-		_display displayRemoveEventHandler ["KeyDown",_thisID];
-		_ctrlMessage ctrlSetFade 1;
-		_ctrlMessage ctrlCommit 0.5;
-		[objNull,"Selection submitted"] call BIS_fnc_showCuratorFeedbackMessage;
+		_display displayRemoveEventHandler [_thisType,_thisID];
+		[LLSTRING(zeusSelectionSubmitted)] call FUNC(zeusMessage);
 
-		[{
-			params ["_enterCode","_curatorSelected","_customArguments"];
-			[_curatorSelected,_customArguments] call _enterCode;
-		},[_enterCode,curatorSelected,_customArguments]] call CBA_fnc_execNextFrame;
+		// _curatorSelected params ["_objects","_groups","_waypoints","_markers"];
+		[_enterCode,[curatorSelected,_customArguments]] call CBA_fnc_execNextFrame;
+		
 		true
 	};
+
 	false
-},[_ctrlMessage,_enterCode,_customArguments]] call CBA_fnc_addBISEventHandler;
+},[_enterCode,_customArguments]] call CBA_fnc_addBISEventHandler;

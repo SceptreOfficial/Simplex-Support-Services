@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="SSS">
+	<Package name="Transport">
+		<Key ID="STR_SSS_Transport_Service">
+			<English>Transport</English>
+		</Key>
+		<!-- Modules -->
+		<Key ID="STR_SSS_Transport_ModuleAddBoat_name">
+			<English>Transport Boat</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_ModuleAddBoat_info">
+			<English>Sync boat to add</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_ModuleAddHelicopter_name">
+			<English>Transport Helicopter</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_ModuleAddHelicopter_info">
+			<English>Sync helicopter to add</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_ModuleAddLand_name">
+			<English>Transport Land Vehicle</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_ModuleAddLand_info">
+			<English>Sync vehicle to add</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_ModuleAddPlane_name">
+			<English>Transport Plane</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_ModuleAddPlane_info">
+			<English>Sync plane to add</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_ModuleAddVTOL_name">
+			<English>Transport VTOL</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_ModuleAddVTOL_info">
+			<English>Sync VTOL to add</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_Cooldown_name">
+			<English>Cooldown</English>
+			<French>Délai d'attente</French>
+		</Key>
+		<Key ID="STR_SSS_Transport_Cooldown_info">
+			<English>Minimum time between requests</English>
+			<French>Délai d'attente minimal entre deux demandes, en secondes.</French>
+		</Key>
+		<Key ID="STR_SSS_Transport_MaxTasks_name">
+			<English>Max tasks</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_MaxTasks_info">
+			<English>Limits the amount of tasks that can be planned (-1 for no limit)</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_MaxTimeout_name">
+			<English>Max timeout</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_MaxTimeout_info">
+			<English>Maximum amount of time a waypoint can be suspended after completion</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_VirtualRunway_name">
+			<English>Virtual runway</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_VirtualRunway_info">
+			<English>Aircraft will be teleported to/from this position for takeoff/landing.\n[0,0,0] will use the nearest physical runway.</English>
+		</Key>
+		<!-- Interaction -->
+		<Key ID="STR_SSS_Transport_TaskLimitReached">
+			<English>Task limit reached</English>
+		</Key>
+		<!-- Settings -->
+		<Key ID="STR_SSS_Transport_manualInput_name">
+			<English>Require manual input</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_manualInput_info">
+			<English>Require players to manually input grid coordinates</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_visualAids_name">
+			<English>Visual aids</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_visualAids_info">
+			<English>Show visual aids for request planning on the map</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_taskMarkers_name">
+			<English>Task markers</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_taskMarkers_info">
+			<English>Create map markers on task locations</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_holdTimeoutStr_name">
+			<English>Hold timeout</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_holdTimeoutStr_info">
+			<English>A 'hold' waypoint will auto-complete after this amount of time (-1 for indefinite)</English>
+		</Key>
+		<!-- Notifications -->
+		<Key ID="STR_SSS_Transport_RequestSubmitted">
+			<English>Request received.</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_RequestComplete">
+			<English>Request complete.</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_NoDriverInVehicle">
+			<English>No driver in vehicle: %1: %2</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_RTB">
+			<English>Return to base</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_Move">
+			<English>Move</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_Follow">
+			<English>Follow</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_Hold">
+			<English>Hold</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_Land">
+			<English>Land</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_LandSignal">
+			<English>Land signal</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_Hover">
+			<English>Hover</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_Helocast">
+			<English>Helocast</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_Loiter">
+			<English>Loiter</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_Fastrope">
+			<English>Fastrope</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_SlingloadPickup">
+			<English>Slingload Pickup</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_SlingloadDropoff">
+			<English>Slingload Dropoff</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_Unload">
+			<English>Unload</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_Paradrop">
+			<English>Paradrop</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_SAD">
+			<English>Seek and destroy</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_Strafe">
+			<English>Strafe</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_Fire">
+			<English>Fire at target</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_Relocate">
+			<English>Relocate</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_Path">
+			<English>Path</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_TaskTypes_name">
+			<English>Task types</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_TaskTypes_info">
+			<English>Waypoints available for use</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_AltitudeLimits_name">
+			<English>Altitude limits</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_AltitudeLimits_info">
+			<English>Minumum and maximum flying heights ATL/ASL</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusRTB">
+			<English>RTB</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusMove">
+			<English>MOVE</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusFollow">
+			<English>FOLLOW</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusHold">
+			<English>HOLD</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusLand">
+			<English>LAND</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusLandSignal">
+			<English>LAND SIGNAL</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusHover">
+			<English>HOVER</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusHelocast">
+			<English>HELOCAST</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusLoiter">
+			<English>LOITER</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusFastrope">
+			<English>FASTROPE</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusSlingloadPickup">
+			<English>SLINGLOAD PICKUP</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusSlingloadDropoff">
+			<English>SLINGLOAD DROPOFF</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusUnload">
+			<English>UNLOAD</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusParadrop">
+			<English>PARADROP</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusSAD">
+			<English>SEEK AND DESTROY</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusStrafe">
+			<English>STRAFE</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusFire">
+			<English>FIRE</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusRelocate">
+			<English>RELOCATE</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_statusPath">
+			<English>PATH</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyRTB">
+			<English>Returning to base</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyMove">
+			<English>Moving to %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyFollow">
+			<English>Following %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyHold">
+			<English>Moving to hold at %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyLand">
+			<English>Landing at %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyLandSignal">
+			<English>Moving to signal area %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyHover">
+			<English>Moving to hover position %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyHelocast">
+			<English>Moving to helocast position %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyLoiter">
+			<English>Moving to loiter area %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyFastrope">
+			<English>Moving to fastrope position %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifySlingloadPickup">
+			<English>Moving to slingload cargo area %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifySlingloadDropoff">
+			<English>Delivering slingload cargo at %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyUnload">
+			<English>Unloading at %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyParadrop">
+			<English>Paradropping at %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifySAD">
+			<English>Moving to secure target area %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyStrafe">
+			<English>Performing strafe run at %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyFire">
+			<English>Firing at %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyRelocate">
+			<English>Relocating to %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyPath">
+			<English>Following designated path at %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyWaiting">
+			<English>Waiting for %1</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyContinueSearch">
+			<English>Roger; continuing search...</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyWaypointsComplete">
+			<English>Tasking complete.</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyRelocateFailed">
+			<English>Relocation failed.</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyRelocateComplete">
+			<English>Relocation completed.</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyHolding">
+			<English>Holding at location until further notice.</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyLookForLandSignal">
+			<English>Looking for landing signal...</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyLandSignalFound">
+			<English>%1 found. Please confirm...</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyLandSignalConfirm">
+			<English>Please confirm a landing signal...</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyLoiterTime">
+			<English>Loitering for %1.</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyAbort">
+			<English>Request aborted.</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyLoiterIndefinite">
+			<English>Loitering indefinitely.</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifySlingloadTarget">
+			<English>Please confirm slingload target.</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_notifyAppend">
+			<English>Additional tasks received.</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_guiConfirmSignal">
+			<English>%1 found at %2 E %3 N</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_guiConfirmContinueSearch">
+			<English>Continue search</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_guiConfirmApproveSignal">
+			<English>Approve signal</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_stopFollowing">
+			<English>Stop following</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_stopHolding">
+			<English>Stop holding</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_slingloadTarget">
+			<English>Slingload target</English>
+		</Key>
+		<Key ID="STR_SSS_transport_slingloadMassOverride_name">
+			<English>Slingload mass override</English>
+		</Key>
+		<Key ID="STR_SSS_transport_slingloadMassOverride_info">
+			<English>Ignore vanilla mass limits</English>
+		</Key>
+		<Key ID="STR_SSS_transport_RTBReset_name">
+			<English>RTB: Reset vehicle</English>
+		</Key>
+		<Key ID="STR_SSS_transport_RTBReset_info">
+			<English>Restores vehicle health and ammo after RTB</English>
+		</Key>
+		<Key ID="STR_SSS_transport_RTBRestoreCrew_name">
+			<English>RTB: Restore crew</English>
+		</Key>
+		<Key ID="STR_SSS_transport_RTBRestoreCrew_info">
+			<English>Restores crew after RTB</English>
+		</Key>
+		<Key ID="STR_SSS_transport_RemoteControl_name">
+			<English>Remote control</English>
+		</Key>
+		<Key ID="STR_SSS_transport_RemoteControl_info">
+			<English>Allows remote controlling vehicle slots</English>
+		</Key>
+		<Key ID="STR_sss_transport_planner">
+			<English>PLANNER</English>
+		</Key>
+		<Key ID="STR_sss_transport_confirmations">
+			<English>CONFIRMATIONS</English>
+		</Key>
+		<Key ID="STR_sss_transport_waypoints">
+			<English>Waypoints</English>
+		</Key>
+		<Key ID="STR_sss_transport_append">
+			<English>APPEND</English>
+		</Key>
+		<Key ID="STR_sss_transport_overwrite">
+			<English>OVERWRITE</English>
+		</Key>
+		<Key ID="STR_sss_transport_task">
+			<English>Task</English>
+		</Key>
+		<Key ID="STR_sss_transport_timeout">
+			<English>Timeout</English>
+		</Key>
+		<Key ID="STR_sss_transport_speedLimit">
+			<English>Speed limit</English>
+		</Key>
+		<Key ID="STR_sss_transport_combatMode">
+			<English>Combat mode</English>
+		</Key>
+		<Key ID="STR_sss_transport_combatModeBlue">
+			<English>Blue</English>
+		</Key>
+		<Key ID="STR_sss_transport_combatModeBlueTooltip">
+			<English>Never fire.</English>
+		</Key>
+		<Key ID="STR_sss_transport_combatModeGreen">
+			<English>Green</English>
+		</Key>
+		<Key ID="STR_sss_transport_combatModeGreenTooltip">
+			<English>Do not fire unless fired upon.</English>
+		</Key>
+		<Key ID="STR_sss_transport_combatModeWhite">
+			<English>White</English>
+		</Key>
+		<Key ID="STR_sss_transport_combatModeWhiteTooltip">
+			<English>Do not fire unless fired upon. Pursue targets.</English>
+		</Key>
+		<Key ID="STR_sss_transport_combatModeYellow">
+			<English>Yellow</English>
+		</Key>
+		<Key ID="STR_sss_transport_combatModeYellowTooltip">
+			<English>Fire at will.</English>
+		</Key>
+		<Key ID="STR_sss_transport_combatModeRed">
+			<English>Red</English>
+		</Key>
+		<Key ID="STR_sss_transport_combatModeRedTooltip">
+			<English>Fire at will. Pursue targets.</English>
+		</Key>
+		<Key ID="STR_sss_transport_lights">
+			<English>Lights</English>
+		</Key>
+		<Key ID="STR_sss_transport_collisionLights">
+			<English>Collision lights</English>
+		</Key>
+		<Key ID="STR_sss_transport_altitudeATL">
+			<English>Altitude ATL</English>
+		</Key>
+		<Key ID="STR_sss_transport_altitudeASL">
+			<English>Altitude ASL</English>
+		</Key>
+		<Key ID="STR_sss_transport_target">
+			<English>Target</English>
+		</Key>
+		<Key ID="STR_sss_transport_engine">
+			<English>Engine</English>
+		</Key>
+		<Key ID="STR_sss_transport_finalAzimuth">
+			<English>Final azimuth</English>
+		</Key>
+		<Key ID="STR_sss_transport_approach">
+			<English>Approach</English>
+		</Key>
+		<Key ID="STR_sss_transport_signalType">
+			<English>Signal type</English>
+		</Key>
+		<Key ID="STR_sss_transport_searchRadius">
+			<English>Search radius</English>
+		</Key>
+		<Key ID="STR_sss_transport_searchTimeout">
+			<English>Search timeout</English>
+		</Key>
+		<Key ID="STR_sss_transport_hoverHeight">
+			<English>Hover height</English>
+		</Key>
+		<Key ID="STR_sss_transport_ejections">
+			<English>Ejections</English>
+		</Key>
+		<Key ID="STR_sss_transport_allPlayers">
+			<English>All players</English>
+		</Key>
+		<Key ID="STR_sss_transport_allAI">
+			<English>All AI</English>
+		</Key>
+		<Key ID="STR_sss_transport_allCargo">
+			<English>All cargo</English>
+		</Key>
+		<Key ID="STR_sss_transport_radius">
+			<English>Radius</English>
+		</Key>
+		<Key ID="STR_sss_transport_slingloadInfo">
+			<English>(Slingload target is selected on arrival)</English>
+		</Key>
+		<Key ID="STR_sss_transport_parachuteDeployHeight">
+			<English>Parachute deploy height</English>
+		</Key>
+		<Key ID="STR_sss_transport_ejectionDelay">
+			<English>Ejection delay</English>
+		</Key>
+		<Key ID="STR_sss_transport_direction">
+			<English>Direction</English>
+		</Key>
+		<Key ID="STR_sss_transport_hoverSpeed">
+			<English>Hover speed</English>
+		</Key>
+		<Key ID="STR_sss_transport_targetTooltip">
+			<English>500m search radius</English>
+		</Key>
+		<Key ID="STR_sss_transport_targetMap">
+			<English>Map position</English>
+		</Key>
+		<Key ID="STR_sss_transport_targetLaser">
+			<English>Laser designator</English>
+		</Key>
+		<Key ID="STR_sss_transport_targetSmoke">
+			<English>Smoke</English>
+		</Key>
+		<Key ID="STR_sss_transport_targetIRStrobe">
+			<English>IR Strobe</English>
+		</Key>
+		<Key ID="STR_sss_transport_targetFlare">
+			<English>Flare</English>
+		</Key>
+		<Key ID="STR_sss_transport_linearSpread">
+			<English>Linear spread</English>
+		</Key>
+		<Key ID="STR_sss_transport_primaryWeapon">
+			<English>Primary weapon</English>
+		</Key>
+		<Key ID="STR_sss_transport_primaryRateControl">
+			<English>Primary rate control</English>
+		</Key>
+		<Key ID="STR_sss_transport_secondaryWeapon">
+			<English>Secondary weapon</English>
+		</Key>
+		<Key ID="STR_sss_transport_secondaryRateControl">
+			<English>Secondary rate control</English>
+		</Key>
+		<Key ID="STR_sss_transport_weapon">
+			<English>Weapon</English>
+		</Key>
+		<Key ID="STR_sss_transport_totalDuration">
+			<English>Total duration</English>
+		</Key>
+		<Key ID="STR_sss_transport_burstDuration">
+			<English>Burst duration</English>
+		</Key>
+		<Key ID="STR_sss_transport_burstInterval">
+			<English>Burst interval</English>
+		</Key>
+		<Key ID="STR_sss_transport_spread">
+			<English>Spread</English>
+		</Key>
+	</Package>
+</Project>

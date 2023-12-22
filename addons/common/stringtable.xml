@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="SSS">
+	<Package name="Common">
+		<Key ID="STR_SSS_Common_Remove">
+			<English>Remove</English>
+		</Key>
+		<Key ID="STR_SSS_Common_AuthorizedPlayers">
+			<English>Authorized players</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Entities">
+			<English>Entities</English>
+		</Key>
+		<Key ID="STR_SSS_Common_SupportAdded">
+			<English>Support added</English>
+		</Key>
+		<Key ID="STR_SSS_Common_LogicAND">
+			<English>AND</English>
+		</Key>
+		<Key ID="STR_SSS_Common_LogicOR">
+			<English>OR</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Min">
+			<English>Min</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Max">
+			<English>Max</English>
+		</Key>
+		<Key ID="STR_SSS_Common_AuthAttribute">
+			<English>SSS - Restrict Access</English>
+		</Key>
+		<Key ID="STR_SSS_Common_moduleRestrictAccess_name">
+			<English>Restrict Access</English>
+		</Key>
+		<Key ID="STR_SSS_Common_moduleRestrictAccess_info">
+			<English>Restricts access to specified units. Sync supports and units you wish to authorize with eachother to this module.</English>
+		</Key>
+		<Key ID="STR_SSS_Common_moduleTerminal_name">
+			<English>Terminal</English>
+		</Key>
+		<Key ID="STR_SSS_Common_moduleTerminal_info">
+			<English>Adds terminal access to synced objects for available synced entities</English>
+		</Key>
+		<Key ID="STR_SSS_Common_ApplyRestrictions">
+			<English>Apply restrictions</English>
+		</Key>
+		<Key ID="STR_SSS_Common_moduleManage_name">
+			<English>Manage</English>
+		</Key>
+		<Key ID="STR_SSS_Common_moduleManage_info">
+			<English>Manage supports</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Service">
+			<English>Service</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Support">
+			<English>Support</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Instructions">
+			<English>INSTRUCTIONS</English>
+		</Key>
+		<Key ID="STR_SSS_Common_CeasedExistence">
+			<English>Support no longer exists</English>
+		</Key>
+		<Key ID="STR_SSS_Common_LostAuthorization">
+			<English>No longer authorized to use support</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Easting">
+			<English>E</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Northing">
+			<English>N</English>
+		</Key>
+		<Key ID="STR_SSS_Common_ETA">
+			<English>ETA</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Width">
+			<English>Width</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Height">
+			<English>Height</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Angle">
+			<English>Angle</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Callsign_name">
+			<English>Callsign</English>
+			<French>Indicatif</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Callsign_info">
+			<English>Display name</English>
+			<French>Nom affiché dans l'interface pour désigner ce support.\nLaisser le champ vide pour utiliser le nom par défaut du véhicule.</French>
+		</Key>
+		<Key ID="STR_SSS_Common_RespawnDelay_name">
+			<English>Respawn time</English>
+			<French>Délai de réapparition</French>
+		</Key>
+		<Key ID="STR_SSS_Common_RespawnDelay_info">
+			<English>-1 will disable respawn</English>
+			<French>Délai avant la réapparition du support.\nMettre "-1" pour désactiver la réapparition.</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Relocation_name">
+			<English>Relocation</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Relocation_info">
+			<English>Allow changing the base/respawn position of the support entity</English>
+		</Key>
+		<Key ID="STR_SSS_Common_RelocationDelay_name">
+			<English>Relocation delay</English>
+		</Key>
+		<Key ID="STR_SSS_Common_RelocationDelay_info">
+			<English>Time it takes to "set up" the new base location</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Allow">
+			<English>Allow</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Deny">
+			<English>Deny</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Enable">
+			<English>Enable</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Disable">
+			<English>Disable</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Side_name">
+			<English>Side</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Side_info">
+			<English>Determines player side availability and AI hostility</English>
+		</Key>
+		<Key ID="STR_SSS_Common_SideWest">
+			<English>BLUFOR</English>
+		</Key>
+		<Key ID="STR_SSS_Common_SideEast">
+			<English>OPFOR</English>
+		</Key>
+		<Key ID="STR_SSS_Common_SideGuer">
+			<English>Independent</English>
+		</Key>
+		<Key ID="STR_SSS_Common_Cooldown_name">
+			<English>Cooldown</English>
+			<French>Délai d'attente</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Cooldown_info">
+			<English>Minimum time between requests</English>
+			<French>Délai d'attente minimal entre deux demandes, en secondes.</French>
+		</Key>
+		<Key ID="STR_SSS_Common_VehicleInit_name">
+			<English>Vehicle init</English>
+		</Key>
+		<Key ID="STR_SSS_Common_VehicleInit_info">
+			<English>Code executed when a support vehicle is commissioned or respawned (vehicle = _this).</English>
+		</Key>
+		<Key ID="STR_SSS_Common_RemoteAccess_name">
+			<English>Remote access</English>
+		</Key>
+		<Key ID="STR_SSS_Common_RemoteAccess_info">
+			<English>Allow players to access this support remotely.</English>
+		</Key>
+		<Key ID="STR_SSS_Common_AccessItems_name">
+			<English>Access items</English>
+			<French>Objets requis</French>
+		</Key>
+		<Key ID="STR_SSS_Common_AccessItems_info">
+			<English>Item classes that permit usage of support.</English>
+			<French>Liste des objets nécessaires à l'utilisation du support.</French>
+		</Key>
+		<Key ID="STR_SSS_Common_AccessItemsLogic_name">
+			<English>Access items logic</English>
+		</Key>
+		<Key ID="STR_SSS_Common_AccessItemsLogic_info">
+			<English>Check if all items must be present or at least one</English>
+		</Key>
+		<Key ID="STR_SSS_Common_AccessCondition_name">
+			<English>Access condition</English>
+			<French>Condition requise</French>
+		</Key>
+		<Key ID="STR_SSS_Common_AccessCondition_info">
+			<English>Code evaluated on player machines that must return true for the support to be accessible.</English>
+		</Key>
+		<Key ID="STR_SSS_Common_RequestCondition_name">
+			<English>Request approval condition</English>
+			<French>Condition d'approbation</French>
+		</Key>
+		<Key ID="STR_SSS_Common_RequestCondition_info">
+			<English>Code evaluated on the requester's machine that allows requests to be called.\n\nArguments:\n0: Player [OBJECT]\n1: Entity namespace [OBJECT]\n2: Request data [ARRAY]</English>
+		</Key>
+		<Key ID="STR_SSS_Common_NotReady">
+			<English>Not ready for new requests. Ready in %1.</English>
+		</Key>
+		<Key ID="STR_SSS_Common_NotReadyColored">
+			<English>&lt;t color='#f4ca00'&gt;NOT READY.&lt;/t&gt; Ready in %1.</English>
+		</Key>
+		<Key ID="STR_SSS_Common_RogerThat">
+			<English>Roger that. Changing it up.</English>
+			<French>Bien reçu ! C'est parti !</French>
+		</Key>
+		<Key ID="STR_SSS_Common_VehicleReplacementETA">
+			<English>Vehicle destroyed. A replacement vehicle will arrive in %1.</English>
+			<French>Véhicule détruit. Un véhicule de remplacement arrivera dans %1.</French>
+		</Key>
+		<Key ID="STR_SSS_Common_VehicleReplacementArrived">
+			<English>Replacement vehicle has arrived.</English>
+			<French>Le véhicule de remplacement est arrivé.</French>
+		</Key>
+		<Key ID="STR_SSS_Common_ZeusSelectUnits">
+			<English>SELECT UNITS - PRESS ENTER TO SUBMIT</English>
+			<French>SÉLECTIONNEZ LES UNITÉS - APPUYEZ SUR ENTRER POUR VALIDER</French>
+		</Key>
+		<Key ID="STR_SSS_Common_ZeusSelectCancelled">
+			<English>Selection cancelled</English>
+			<French>Sélection annulée</French>
+		</Key>
+		<Key ID="STR_SSS_Common_ZeusSelectSubmitted">
+			<English>Selection submitted</English>
+			<French>Sélection validée</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Day">
+			<English>day</English>
+			<French>jour</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Hour">
+			<English>hour</English>
+			<French>heure</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Minute">
+			<English>minute</English>
+			<French>minute</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Second">
+			<English>second</English>
+			<French>seconde</French>
+		</Key>
+		<Key ID="STR_SSS_Common_DayPlural">
+			<English>days</English>
+			<French>jours</French>
+		</Key>
+		<Key ID="STR_SSS_Common_HourPlural">
+			<English>hours</English>
+			<French>heures</French>
+		</Key>
+		<Key ID="STR_SSS_Common_MinutePlural">
+			<English>minutes</English>
+			<French>minutes</French>
+		</Key>
+		<Key ID="STR_SSS_Common_SecondPlural">
+			<English>seconds</English>
+			<French>secondes</French>
+		</Key>
+		<Key ID="STR_SSS_Common_NotifyStopVehicle">
+			<English>Current request cancelled. Stop the vehicle.</English>
+			<French>Mission annulée. Arrêt immédiat du véhicule.</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Sitrep_LocationGrid">
+			<English>Location: Grid %1</English>
+			<French>Position : %1</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Sitrep_StatusDisabled">
+			<English>Status: Disabled</English>
+			<French>Statut : Désactivé</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Sitrep_StatusDamaged">
+			<English>Status: Damaged</English>
+			<French>Statut : Endommagé</French>
+		</Key>
+		<Key ID="STR_SSS_Common_Sitrep_StatusGreen">
+			<English>Status: Green</English>
+			<French>Statut : Opérationnel</French>
+		</Key>
+		<Key ID="STR_SSS_Common_VehicleNotAlive">
+			<English>Vehicle is not alive: %1: %2</English>
+		</Key>
+		<Key ID="STR_SSS_Common_VehicleAlreadyASupport">
+			<English>Vehicle is already a support: %1: %2</English>
+		</Key>
+		<Key ID="STR_SSS_Common_NoPlayersAllowed">
+			<English>No players allowed: %1: %2</English>
+		</Key>
+		<Key ID="STR_SSS_Common_statusCooldown">
+			<English>COOLDOWN</English>
+		</Key>
+		<Key ID="STR_SSS_Common_statusBusy">
+			<English>BUSY</English>
+		</Key>
+		<Key ID="STR_SSS_Common_statusIdle">
+			<English>IDLE</English>
+		</Key>
+		<Key ID="STR_SSS_Common_statusIdleAwayFromBase">
+			<English>IDLE - AWAY FROM BASE</English>
+		</Key>
+		<Key ID="STR_SSS_Common_statusIdleAtBase">
+			<English>IDLE - AT BASE</English>
+		</Key>
+		<Key ID="STR_SSS_Common_statusRespawn">
+			<English>RESPAWNING</English>
+		</Key>
+		<Key ID="STR_SSS_Common_IRStrobe">
+			<English>IR strobe</English>
+		</Key>
+		<Key ID="STR_SSS_common_SmokeWhite">
+			<English>White smoke</English>
+		</Key>
+		<Key ID="STR_SSS_common_SmokeBlack">
+			<English>Black smoke</English>
+		</Key>
+		<Key ID="STR_SSS_common_SmokeRed">
+			<English>Red smoke</English>
+		</Key>
+		<Key ID="STR_SSS_common_SmokeOrange">
+			<English>Orange smoke</English>
+		</Key>
+		<Key ID="STR_SSS_common_SmokeYellow">
+			<English>Yellow smoke</English>
+		</Key>
+		<Key ID="STR_SSS_common_SmokeGreen">
+			<English>Green smoke</English>
+		</Key>
+		<Key ID="STR_SSS_common_SmokeBlue">
+			<English>Blue smoke</English>
+		</Key>
+		<Key ID="STR_SSS_common_SmokePurple">
+			<English>Purple smoke</English>
+		</Key>
+		<Key ID="STR_SSS_common_flareWhite">
+			<English>White flare</English>
+		</Key>
+		<Key ID="STR_SSS_common_flareBlack">
+			<English>Black flare</English>
+		</Key>
+		<Key ID="STR_SSS_common_flareRed">
+			<English>Red flare</English>
+		</Key>
+		<Key ID="STR_SSS_common_flareOrange">
+			<English>Orange flare</English>
+		</Key>
+		<Key ID="STR_SSS_common_flareYellow">
+			<English>Yellow flare</English>
+		</Key>
+		<Key ID="STR_SSS_common_flareGreen">
+			<English>Green flare</English>
+		</Key>
+		<Key ID="STR_SSS_common_flareBlue">
+			<English>Blue flare</English>
+		</Key>
+		<Key ID="STR_SSS_common_flarePurple">
+			<English>Purple flare</English>
+		</Key>
+		<Key ID="STR_SSS_common_white">
+			<English>White</English>
+		</Key>
+		<Key ID="STR_SSS_common_black">
+			<English>Black</English>
+		</Key>
+		<Key ID="STR_SSS_common_red">
+			<English>Red</English>
+		</Key>
+		<Key ID="STR_SSS_common_orange">
+			<English>Orange</English>
+		</Key>
+		<Key ID="STR_SSS_common_yellow">
+			<English>Yellow</English>
+		</Key>
+		<Key ID="STR_SSS_common_green">
+			<English>Green</English>
+		</Key>
+		<Key ID="STR_SSS_common_blue">
+			<English>Blue</English>
+		</Key>
+		<Key ID="STR_SSS_common_purple">
+			<English>Purple</English>
+		</Key>
+		<Key ID="STR_SSS_common_any">
+			<English>Any</English>
+		</Key>
+		<Key ID="STR_SSS_common_NA">
+			<English>N/A</English>
+		</Key>
+		<Key ID="STR_SSS_common_gridFormat">
+			<English>%1 E %2 N</English>
+		</Key>
+		<Key ID="STR_SSS_common_guiTitle">
+			<English>SIMPLEX SUPPORT SERVICES</English>
+		</Key>
+		<Key ID="STR_SSS_common_guiClose">
+			<English>CLOSE</English>
+		</Key>
+		<Key ID="STR_SSS_common_guiConfirm">
+			<English>CONFIRM</English>
+		</Key>
+		<Key ID="STR_SSS_common_guiService">
+			<English>Service</English>
+		</Key>
+		<Key ID="STR_SSS_common_guiEntity">
+			<English>Entity</English>
+		</Key>
+		<Key ID="STR_SSS_common_guiStatus">
+			<English>Status</English>
+		</Key>
+		<Key ID="STR_SSS_common_guiAbort">
+			<English>ABORT</English>
+		</Key>
+		<Key ID="STR_SSS_common_guiInstructions">
+			<English>INSTRUCTIONS</English>
+		</Key>
+		<!-- Setting categories -->
+		<Key ID="STR_SSS_common_CategoryAdmin">
+			<English>Admin</English>
+			<French>Administration</French>
+		</Key>
+		<Key ID="STR_SSS_common_CategoryCore">
+			<English>Core</English>
+			<French>Divers</French>
+		</Key>
+		<Key ID="STR_SSS_common_CategoryPreferences">
+			<English>Preferences</English>
+		</Key>
+		<Key ID="STR_SSS_common_CategoryInputAndIndicators">
+			<English>Input and Indicators</English>
+		</Key>
+		<Key ID="STR_SSS_common_CategoryDebug">
+			<English>Debug</English>
+		</Key>
+		<Key ID="STR_SSS_common_vanilla">
+			<English>Vanilla</English>
+		</Key>
+		<Key ID="STR_SSS_common_scripted">
+			<English>Scripted</English>
+		</Key>
+		<!-- Settings -->
+		<Key ID="STR_SSS_common_adminAccess_name">
+			<English>Admin access</English>
+		</Key>
+		<Key ID="STR_SSS_common_adminAccess_info">
+			<English>Give admins access to all supports</English>
+		</Key>
+		<Key ID="STR_SSS_common_adminSide_name">
+			<English>Admin access side</English>
+		</Key>
+		<Key ID="STR_SSS_common_adminSide_info">
+			<English>Only shows supports that share the same side as the admin</English>
+		</Key>
+		<Key ID="STR_SSS_common_cleanupCrew_name">
+			<English>Delete old vehicle crew on respawn</English>
+			<French>Supprimer l'équipage des véhicules hors d'usage</French>
+		</Key>
+		<Key ID="STR_SSS_common_cleanupCrew_info">
+			<English>When a vehicle is decommissioned, the crew will be deleted instead of leaving the vehicle</English>
+		</Key>
+		<Key ID="STR_SSS_common_removeEntityOnVehicleDeletion_name">
+			<English>Remove support on vehicle deletion</English>
+		</Key>
+		<Key ID="STR_SSS_common_removeEntityOnVehicleDeletion_info">
+			<English>Removes the support entity when the physical vehicle is deleted</English>
+		</Key>
+		<Key ID="STR_SSS_common_deleteVehicleOnEntityRemoval_name">
+			<English>Delete vehicle(s) on entity removal</English>
+		</Key>
+		<Key ID="STR_SSS_common_deleteVehicleOnEntityRemoval_info">
+			<English>Deletes commissioned vehicles when a support entity is removed</English>
+		</Key>
+		<Key ID="STR_SSS_common_respawnType_name">
+			<English>Respawn type</English>
+		</Key>
+		<Key ID="STR_SSS_common_respawnType_info">
+			<English>The method vehicles will be created</English>
+		</Key>
+		<Key ID="STR_SSS_common_notifyScope_name">
+			<English>Notification scope</English>
+		</Key>
+		<Key ID="STR_SSS_common_notifyScope_info">
+			<English>Set who will receive support updates</English>
+		</Key>
+		<Key ID="STR_SSS_common_markerScope_name">
+			<English>Marker scope</English>
+		</Key>
+		<Key ID="STR_SSS_common_markerScope_info">
+			<English>Set who can see support task markers</English>
+		</Key>
+		<Key ID="STR_SSS_common_notificationStyle_name">
+			<English>Notification style</English>
+		</Key>
+		<Key ID="STR_SSS_common_notificationStyle_info">
+			<English>Choose how messages will appear</English>
+		</Key>
+		<Key ID="STR_SSS_common_notificationStylePopup">
+			<English>Stacked popup</English>
+		</Key>
+		<Key ID="STR_SSS_common_notificationStyleChat">
+			<English>System chat</English>
+		</Key>
+		<Key ID="STR_SSS_common_none">
+			<English>None</English>
+		</Key>
+		<Key ID="STR_SSS_common_requester">
+			<English>Requester</English>
+		</Key>
+		<Key ID="STR_SSS_common_access">
+			<English>Access</English>
+		</Key>
+		<Key ID="STR_SSS_common_side">
+			<English>Side</English>
+		</Key>
+		<Key ID="STR_SSS_common_closeOnConfirm_name">
+			<English>Close GUI when confirmed</English>
+		</Key>
+		<Key ID="STR_SSS_common_closeOnConfirm_info">
+			<English>Closes the GUI when the confirm button is used</English>
+		</Key>
+		<Key ID="STR_SSS_common_autoParachute_name">
+			<English>Automatic parachute</English>
+		</Key>
+		<Key ID="STR_SSS_common_autoParachute_info">
+			<English>Opens parachute automatically when ejected via paradrop request</English>
+		</Key>
+		<Key ID="STR_SSS_common_terminalRequireAuth_name">
+			<English>Terminals: Require authentication</English>
+		</Key>
+		<Key ID="STR_SSS_common_terminalRequireAuth_info">
+			<English>Require players to have explicit authorization to interact with a support's terminals</English>
+		</Key>
+		<Key ID="STR_SSS_common_terminalRequireItems_name">
+			<English>Terminals: Require access items</English>
+		</Key>
+		<Key ID="STR_SSS_common_terminalRequireItems_info">
+			<English>Require players to have defined access items to interact with a support's terminals</English>
+		</Key>
+		<Key ID="STR_SSS_common_terminalActions_name">
+			<English>Terminals: Interaction types</English>
+		</Key>
+		<Key ID="STR_SSS_common_terminalActions_info">
+			<English>Determines which kind of actions are created for terminals</English>
+		</Key>
+		<Key ID="STR_SSS_common_both">
+			<English>Both</English>
+		</Key>
+		<Key ID="STR_SSS_common_scrollMenu">
+			<English>Vanilla scroll menu</English>
+		</Key>
+		<Key ID="STR_SSS_common_ACEinteract">
+			<English>ACE interact menu</English>
+		</Key>
+		<Key ID="STR_SSS_common_debug_name">
+			<English>Debug: General</English>
+		</Key>
+		<Key ID="STR_SSS_common_debug_info">
+			<English>Display general debug information</English>
+		</Key>
+		<Key ID="STR_SSS_common_debugPerf_name">
+			<English>Debug: Performance</English>
+		</Key>
+		<Key ID="STR_SSS_common_debugPerf_info">
+			<English>Display function performance</English>
+		</Key>
+		<Key ID="STR_SSS_common_autoTerminals_name">
+			<English>Auto terminals</English>
+		</Key>
+		<Key ID="STR_SSS_common_autoTerminals_info">
+			<English>Automatically create terminal interactions on support vehicles</English>
+		</Key>
+		<Key ID="STR_SSS_COMMON_grid">
+			<English>Grid</English>
+		</Key>
+		<Key ID="STR_SSS_COMMON_remoteControl">
+			<English>REMOTE CONTROL</English>
+		</Key>
+		<Key ID="STR_SSS_COMMON_zeusInvalidSelection">
+			<English>INVALID SELECTION</English>
+		</Key>
+		<Key ID="STR_sss_common_dirAuto">
+			<English>AUTO</English>
+		</Key>
+		<Key ID="STR_sss_common_dirN">
+			<English>N</English>
+		</Key>
+		<Key ID="STR_sss_common_dirNE">
+			<English>NE</English>
+		</Key>
+		<Key ID="STR_sss_common_dirE">
+			<English>E</English>
+		</Key>
+		<Key ID="STR_sss_common_dirSE">
+			<English>SE</English>
+		</Key>
+		<Key ID="STR_sss_common_dirS">
+			<English>S</English>
+		</Key>
+		<Key ID="STR_sss_common_dirSW">
+			<English>SW</English>
+		</Key>
+		<Key ID="STR_sss_common_dirW">
+			<English>W</English>
+		</Key>
+		<Key ID="STR_sss_common_dirNW">
+			<English>NW</English>
+		</Key>
+		<Key ID="STR_sss_common_secondAcronym">
+			<English>s</English>
+		</Key>
+		<Key ID="STR_sss_common_off">
+			<English>OFF</English>
+		</Key>
+		<Key ID="STR_sss_common_on">
+			<English>ON</English>
+		</Key>
+		<Key ID="STR_sss_common_meterAcronym">
+			<English>m</English>
+		</Key>
+		<Key ID="STR_sss_common_kmh">
+			<English>km/h</English>
+		</Key>
+		<Key ID="STR_sss_common_chemlightBlue">
+			<English>Blue chemlight</English>
+		</Key>
+		<Key ID="STR_sss_common_chemlightGreen">
+			<English>Green chemlight</English>
+		</Key>
+		<Key ID="STR_sss_common_chemlightRed">
+			<English>Red chemlight</English>
+		</Key>
+		<Key ID="STR_sss_common_chemlightYellow">
+			<English>Yellow chemlight</English>
+		</Key>
+		<Key ID="STR_sss_common_recipientUnavailable">
+			<English>Recipient unavailable.</English>
+		</Key>
+		<Key ID="STR_sss_common_strafeFinalApproach">
+			<English>On final approach to target. Be ready...</English>
+		</Key>
+		<Key ID="STR_sss_common_strafeFiring">
+			<English>Firing on target.</English>
+		</Key>
+		<Key ID="STR_sss_common_strafeNoTarget">
+			<English>No suitable target found. Airstrike aborted.</English>
+		</Key>
+	</Package>
+</Project>

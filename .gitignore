@@ -1,4 +1,5 @@
 @*
+*.exe
 *.zip
 *.pbo
 *.biprivatekey
@@ -6,3 +7,7 @@
 releases/
 Thumbs.db
 desktop.ini
+releases/*
+keys/*
+.hemttout/*
+.hemttout/

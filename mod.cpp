@@ -1,12 +1,12 @@
 name = "Simplex Support Services";
-dir = "@SSS";
+dir = "@Simplex-Support-Services";
 author = "Simplex Team";
 description = "Simplex Support Services";
 overview = "Simplex Support Services is a fully automated, on-call support service system.";
-picture = "sss.paa";
-overviewPicture = "sss.paa";
-logo = "sss.paa";
-logoOver = "sss.paa";
+picture = "assets\sss.paa";
+overviewPicture = "assets\sss.paa";
+logo = "assets\sss.paa";
+logoOver = "assets\sss.paa";
 actionName = "Website";
 action = "https://github.com/SceptreOfficial/Simplex-Support-Services";
 tooltip = "Simplex Support Services";
