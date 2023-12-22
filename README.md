@@ -4,7 +4,7 @@
 
 <p align="center">
 	<strong>Simplex Support Services</strong><br />
-	<sup><strong>A support system for Arma 3.</strong></sup>
+	<sup><strong>AI support system for Arma 3</strong></sup>
 </p>
 
 <p align="center">
