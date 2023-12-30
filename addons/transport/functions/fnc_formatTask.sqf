@@ -60,7 +60,14 @@ _taskArgs append (switch _task do {
 
 		["pylonConfig","spread","target"]
 	};
-	case "FIRE" : {["weapon","duration","burstDuration","burstInterval","spread"]};
+	case "FIRE" : {
+		_item set ["burst",[
+			_item getOrDefault ["burstDuration",3],
+			_item getOrDefault ["burstInterval",2]
+		]];
+
+		["weapon","duration","burst","spread"]
+	};
 	case "RELOCATE" : {[]};
 	default {[]};
 } apply {_item getOrDefault [_x,nil]});
