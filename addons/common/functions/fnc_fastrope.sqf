@@ -69,12 +69,12 @@ private _lines = _sources apply {
 	//private _anchor = "Land_Battery_F" createVehicle [0,0,0];
 	private _anchor = "Land_WaterBottle_01_cap_F" createVehicle [0,0,0];
 	_anchor allowDamage false;
-	_anchor setPosASL (_vehicle modelToWorldVisualWorld _x vectorAdd [0,0,-_length / 2]);
+	_anchor setPosASL (_vehicle modelToWorldVisualWorld _x vectorAdd [0,0,-_length]);
 	_anchor enableRopeAttach true;
-	[{_this setVelocity [0,0,-1]},_anchor] call CBA_fnc_execNextFrame;
+	//[{_this setVelocity [0,0,-1]},_anchor,2] call CBA_fnc_execNextFrame;
 
 	private _rope = ropeCreate [_hook,[0,0,0],_anchor,[0,0,0],8];// 8
-	ropeUnwind [_rope,9.5,_length,false];// 20
+	//ropeUnwind [_rope,9.5,_length,false];// 20
 
 	//private _helper = "Sign_Sphere25cm_F" createVehicle [0,0,0];
 	//_helper setPosWorld getPosWorld _hook;
