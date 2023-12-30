@@ -124,3 +124,8 @@ if (isServer) then {
 	if (_weapon isEqualTo "") then {_weapon = currentMuzzle gunner _unit};
 	_unit setAmmo [_weapon,_count];
 }] call CBA_fnc_addEventHandler;
+
+[QGVAR(disableUAVConnectability),{
+	params ["_uav"];
+	player disableUAVConnectability [_uav,true];
+}] call CBA_fnc_addEventHandler;

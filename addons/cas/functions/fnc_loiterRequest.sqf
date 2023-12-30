@@ -54,6 +54,11 @@ _endPos set [2,_altitude];
 	private _group = _side createVehicleCrew _vehicle;
 	_group deleteGroupWhenEmpty true;
 
+	[
+		[QEGVAR(common,disableUAVConnectability),_vehicle] call CBA_fnc_globalEventJIP,
+		_vehicle
+	] call CBA_fnc_removeGlobalEventJIP;
+
 	_vehicle lockDriver true;
 	_group allowFleeing 0;
 	_group setBehaviour "CARELESS";
