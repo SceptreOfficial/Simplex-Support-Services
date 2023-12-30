@@ -50,13 +50,32 @@ _endPos set [2,_altitude];
 	private _interval1 = _request getOrDefault ["interval1",0];
 	private _interval2 = _request getOrDefault ["interval2",0];
 
+	private _pylonConfig = [
+		[_pylon1,[_quantity1,_distribution1],_interval1],
+		[_pylon2,[_quantity2,_distribution2],_interval2]
+	];
+
 	private _vehicle = createVehicle [_class,_startPos,[],0,"FLY"];
+
+	[_vehicle,_entity getVariable [QPVAR(pylons),[]]] call EFUNC(common,setPylons);
+
+	[
+		_vehicle,
+		_pylonConfig,
+		_entity getVariable [QPVAR(infiniteAmmo),false],
+		AGLtoASL _startPos # 2,
+		[_aimRange,-1] select (_aimRange < 600)
+	] call EFUNC(common,strafeDistance) params ["","","_prepDist"];
+
+	if (_vehicle distance2D _posASL < _prepDist) then {
+		_startPos = _posASL getPos [_prepDist,_ingress];
+		_startPos set [2,_altitude];
+	};
+
 	_vehicle setDir (_ingress - 180);
 	_vehicle setPos _startPos;
 	_vehicle setVectorUp [0,0,1];
 	_vehicle setVelocityModelSpace [0,_speed * 0.8,0];
-
-	[_vehicle,_entity getVariable [QPVAR(pylons),[]]] call EFUNC(common,setPylons);
 
 	private _side = _entity getVariable [QPVAR(side),sideEmpty];
 	private _group = _side createVehicleCrew _vehicle;
@@ -108,10 +127,7 @@ _endPos set [2,_altitude];
 	[
 		_vehicle,
 		_posASL,
-		[
-			[_pylon1,[_quantity1,_distribution1],_interval1],
-			[_pylon2,[_quantity2,_distribution2],_interval2]
-		],
+		_pylonConfig,
 		_entity getVariable [QPVAR(infiniteAmmo),false],
 		_spread,
 		_ingress,

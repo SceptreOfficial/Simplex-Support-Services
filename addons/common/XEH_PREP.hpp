@@ -98,6 +98,7 @@ PREP(status);
 PREP(stopVehicle);
 PREP(strafe);
 PREP(strafeCleanup);
+PREP(strafeDistance);
 PREP(strafeSim);
 PREP(strafeUpdate);
 PREP(surfacePosASL);
