@@ -29,11 +29,7 @@ private _weapon = _request getOrDefault ["weapon",[]];
 private _duration = _request getOrDefault ["duration",3];
 private _interval = _request getOrDefault ["interval",-1];
 
-private _target = if (_radius < 300) then {
-	[ATLtoASL (_posASL getPos [600,getDir _vehicle]),side group _vehicle,_search,800] call EFUNC(common,targetSearch);
-} else {
-	[_posASL,side group _vehicle,_search,_radius * 0.6] call EFUNC(common,targetSearch);
-};
+private _target = [_posASL,side group _vehicle,_search,_radius * 0.75,_entity getVariable QPVAR(friendlyRange)] call EFUNC(common,targetSearch);
 
 if (_target in [objNull,[0,0,0]]) exitWith {};
 
