@@ -125,6 +125,11 @@ if (isServer) then {
 	_unit setAmmo [_weapon,_count];
 }] call CBA_fnc_addEventHandler;
 
+[QGVAR(moveOut),{
+	params ["_unit"];
+	moveOut _unit;
+}] call CBA_fnc_addEventHandler;
+
 [QGVAR(disableUAVConnectability),{
 	params ["_uav"];
 	player disableUAVConnectability [_uav,true];

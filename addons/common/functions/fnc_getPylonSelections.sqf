@@ -65,7 +65,7 @@ private _formatPylons = [];
 	_formatPylons pushBackUnique [
 		[_weapon,_magazine,_turret],
 		getText (_cfgWeapons >> _weapon >> "displayName"),
-		getText (_cfgMagazines >> _magazine >> "displayName"), //displayNameShort
+		getText (_cfgMagazines >> _magazine >> "displayName"),
 		_turretName
 	];
 } forEach _pylons;
