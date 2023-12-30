@@ -225,7 +225,7 @@ switch _task do {
 		_controls append [_ctrlText,_ctrl];
 
 		// Search radius slider
-		_controls append ([_groupHeight,LLSTRING(searchRadius),[50,600,0],350,"searchRadius",LELSTRING(common,meterAcronym)] call FUNC(gui_slider));
+		_controls append ([_groupHeight,LLSTRING(searchRadius),[50,800,0],500,"searchRadius",LELSTRING(common,meterAcronym)] call FUNC(gui_slider));
 		_groupHeight = _groupHeight + 1;
 
 		// Search timeout slider

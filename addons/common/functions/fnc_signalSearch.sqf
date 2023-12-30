@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params [["_type","",[""]],["_position",[0,0,0],[[],objNull]],["_searchRadius",350,[0]],["_ignore",[]]];
+params [["_type","",[""]],["_position",[0,0,0],[[],objNull]],["_searchRadius",500,[0]],["_ignore",[]]];
 
 if !(_ignore isEqualType []) then {_ignore = [_ignore]};
 
