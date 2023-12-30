@@ -63,8 +63,8 @@ _vehicle setVariable [QGVAR(paradropEnd),false,true];
 		params ["_item","_vehicle","_openAltitude"];
 
 		if (_item isKindOf "CAManBase") then {
-			[QEGVAR(common,orderGetIn),[[_item],false],_item] call CBA_fnc_targetEvent;
-			[QEGVAR(common,unassignVehicle),_item,_item] call CBA_fnc_targetEvent;
+			unassignVehicle _item;
+			[_item] orderGetIn false;
 			moveOut _item;
 			_item setVelocity (velocity _vehicle vectorMultiply 0.9);
 			[_item,_openAltitude] call EFUNC(common,paradropUnit);

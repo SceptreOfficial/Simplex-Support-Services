@@ -55,8 +55,8 @@ _vehicle setVariable [QGVAR(unloadEnd),false,true];
 		params ["_item","_vehicle"];
 
 		if (_item isKindOf "CAManBase") then {
-			[QEGVAR(common,orderGetIn),[[_item],false],_item] call CBA_fnc_targetEvent;
-			[QEGVAR(common,unassignVehicle),_item,_item] call CBA_fnc_targetEvent;
+			unassignVehicle _item;
+			[_item] orderGetIn false;
 			moveOut _item;
 		} else {
 			objNull setVehicleCargo _item;
