@@ -37,6 +37,11 @@ if !(_class isKindOf "Air") exitWith {
 	objNull
 };
 
+if (_class call BIS_fnc_allTurrets isEqualTo []) exitWith {
+	ERROR_1("CAS Loiter: Invalid class (no turrets available): %1",_class);
+	objNull
+};
+
 // Defaults
 if (_side isEqualTo sideEmpty) then {_side = west};
 if (_callsign isEqualTo "") then {_callsign = getText (configFile >> "CfgVehicles" >> _class >> "displayName")};
