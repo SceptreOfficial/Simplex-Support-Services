@@ -27,6 +27,7 @@ _ctrlMap ctrlAddEventHandler ["Draw",{
 	private _ingress = GVAR(request) getOrDefault ["ingress",-1];
 	private _egress = GVAR(request) getOrDefault ["egress",-1];
 	private _radius = GVAR(request) getOrDefault ["radius",_radiusMin max LOITER_RADIUS_DEFAULT min _radiusMax];
+	private _type = GVAR(request) getOrDefault ["type","CIRCLE_L"];
 	
 	private _start1 = _ctrlMap getVariable QGVAR(drawStart1);
 	private _start2 = _ctrlMap getVariable QGVAR(drawStart2);
@@ -36,7 +37,10 @@ _ctrlMap ctrlAddEventHandler ["Draw",{
 	if (_prg1 >= 1) then {_ctrlMap setVariable [QGVAR(drawStart1),CBA_missionTime]};
 	if (_prg2 >= 1) then {_ctrlMap setVariable [QGVAR(drawStart2),CBA_missionTime]};
 
-	_ctrlMap drawEllipse [_center,_radius,_radius,0,RGBA_BLUE,""];
+	if (_type != "HOVER") then {
+		_ctrlMap drawEllipse [_center,_radius,_radius,0,RGBA_BLUE,""];
+	};
+
 	_radius = _radius max 300;
 
 	private _vehicle = _entity getVariable [QPVAR(vehicle),objNull];

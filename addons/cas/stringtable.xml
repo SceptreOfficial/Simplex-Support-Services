@@ -316,8 +316,8 @@
 		<Key ID="STR_sss_cas_radius">
 			<English>Radius</English>
 		</Key>
-		<Key ID="STR_sss_cas_direction">
-			<English>Direction</English>
+		<Key ID="STR_sss_cas_loiterType">
+			<English>Loiter type</English>
 		</Key>
 		<Key ID="STR_sss_cas_burstDuration">
 			<English>Burst duration</English>

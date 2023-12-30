@@ -40,7 +40,7 @@ _endPos set [2,_altitude];
 [{
 	params ["_player","_entity","_request","_class","_posASL","_altitude","_radius","_ingress","_speed","_startPos","_endPos"];
 
-	private _direction = _request getOrDefault ["direction","CIRCLE_L"];
+	private _type = _request getOrDefault ["type","CIRCLE_L"];
 
 	private _vehicle = createVehicle [_class,_startPos,[],0,"FLY"];
 	_vehicle setDir (_ingress - 180);
@@ -71,22 +71,27 @@ _endPos set [2,_altitude];
 		_vehicle addEventHandler ["Fired",{(_this # 0) setVehicleAmmo 1}];
 	};
 
-	private _dirOffset = [10,-10] param [["CIRCLE","CIRCLE_L"] find _direction,0];
-	private _wp1 = _group addWaypoint [_posASL getPos [_radius + 500,_ingress + _dirOffset],0];
-	_wp1 setWaypointType "MOVE";
-	_wp1 setWaypointDescription QGVAR(loiterIngress);
-
 	private _altitudeASL = _posASL # 2 + _altitude;
 	_vehicle flyInHeightASL [_altitudeASL,_altitudeASL,_altitudeASL];
 
-	if (_radius < 300) then {
-		private _wp2 = _group addWaypoint [ASLToAGL _posASL,0];
+	if (_type == "HOVER") then {
+		private _wp1 = _group addWaypoint [_posASL getPos [_radius - 100,_ingress],0];
+		_wp1 setWaypointType "MOVE";
+		_wp1 setWaypointDescription QGVAR(loiterIngress);
+
+		private _wp2 = _group addWaypoint [_posASL getPos [_radius - 200,_ingress],0];
 		_wp2 setWaypointType "MOVE";
 		_wp2 setWaypointDescription QGVAR(loiter);
 	} else {
+		private _dirOffset = [10,-10] param [["CIRCLE","CIRCLE_L"] find _type,1];
+		
+		private _wp1 = _group addWaypoint [_posASL getPos [_radius + 500,_ingress + _dirOffset],0];
+		_wp1 setWaypointType "MOVE";
+		_wp1 setWaypointDescription QGVAR(loiterIngress);
+
 		private _wp2 = _group addWaypoint [ASLToAGL _posASL,0];
 		_wp2 setWaypointType "LOITER";
-		_wp2 setWaypointLoiterType _direction;
+		_wp2 setWaypointLoiterType _type;
 		_wp2 setWaypointLoiterRadius _radius;
 		_wp2 setWaypointLoiterAltitude _altitude;
 		//_wp2 setWaypointSpeed "LIMITED";

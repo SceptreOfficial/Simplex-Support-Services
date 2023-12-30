@@ -371,21 +371,27 @@ class GVAR(guiLoiter) {
 					w = QUOTE(CTRL_W(2));
 					h = QUOTE(CTRL_H(1));
 				};
-				class GVAR(directionText) : EGVAR(sdf,Text) {
+				class GVAR(typeText) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(0));
 					y = QUOTE(CTRL_Y(3));
 					w = QUOTE(CTRL_W(7));
 					h = QUOTE(CTRL_H(1));
-					text = CSTRING(direction);
+					text = CSTRING(loiterType);
 				};
-				class GVAR(direction) : EGVAR(sdf,ToolboxLoiter) {
-					idc = IDC_DIRECTION;
+				class GVAR(type) : EGVAR(sdf,ToolboxLoiter) {
+					idc = IDC_TYPE;
 					x = QUOTE(CTRL_X(7));
 					y = QUOTE(CTRL_Y(3));
 					w = QUOTE(CTRL_W(13));
 					h = QUOTE(CTRL_H(1));
-					onToolBoxSelChanged = QUOTE(call FUNC(guiLoiter_direction));
+					onToolBoxSelChanged = QUOTE(call FUNC(guiLoiter_type));
+				};
+				class GVAR(typeAlt) : GVAR(type) {
+					idc = IDC_TYPE_ALT;
+					columns = 3;
+					strings[] = {ICON_CLOCKWISE,ICON_COUNTER_CLOCKWISE,ICON_HOVER};
+					values[] = {0,1,2};
 				};
 				class GVAR(ingressText) : EGVAR(sdf,Text) {
 					idc = -1;

@@ -16,9 +16,19 @@ private _posASL = GVAR(request) getOrDefault ["posASL",call FUNC(gui_getPos)];
 (CTRL(IDC_GRID_N)) ctrlSetText _northing;
 [_display displayCtrl IDC_MAP,[[[_posASL]],[],[],0]] call EFUNC(sdf,setValueData);
 
-// Direction
-private _ctrlDirection = CTRL(IDC_DIRECTION);
-_ctrlDirection lbSetCurSel (["CIRCLE","CIRCLE_L"] find (GVAR(request) getOrDefault ["direction","CIRCLE_L"]));
+// Type
+private _ctrlType = CTRL(IDC_TYPE);
+private _ctrlTypeAlt = CTRL(IDC_TYPE_ALT);
+
+if (_entity getVariable [QPVAR(class),""] isKindOf "Helicopter") then {
+	_ctrlType ctrlShow false;
+	_ctrlTypeAlt ctrlShow true;
+	_ctrlTypeAlt lbSetCurSel (["CIRCLE","CIRCLE_L","HOVER"] find (GVAR(request) getOrDefault ["type","CIRCLE_L"]));
+} else {
+	_ctrlTypeAlt ctrlShow false;
+	_ctrlType ctrlShow true;
+	_ctrlType lbSetCurSel (["CIRCLE","CIRCLE_L"] find (GVAR(request) getOrDefault ["type","CIRCLE_L"]));
+};
 
 // Sliders
 _entity getVariable QPVAR(guiLimits) params ["_altitudeMin","_altitudeMax","_radiusMin","_radiusMax"];

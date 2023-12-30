@@ -51,7 +51,8 @@
 #define IDC_SECONDARY_INTERVAL 			350
 #define IDC_RADIUS 						360
 #define IDC_RADIUS_EDIT 				370
-#define IDC_DIRECTION 					380
+#define IDC_TYPE 						380
+#define IDC_TYPE_ALT 					381
 #define IDC_WEAPON 						390
 #define IDC_REMOTE_CONTROL_SELECT 		400
 #define IDC_REMOTE_CONTROL 				410
