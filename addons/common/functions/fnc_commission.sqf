@@ -44,8 +44,14 @@ if (isNull _group) then {
 
 _vehicle setVariable [QPVAR(entity),_entity,true];
 
-// ACEX Headless balance compat
+// ACEX headless compat
 _group setVariable ["acex_headless_blacklist",true,true];
+
+// ALIVE headless compat
+{_x setVariable ["alive_ignore_hc",true,true]} forEach PRIMARY_CREW(_vehicle);
+
+// ZHC headless compat
+_group setVariable ["zhc_offload_blacklisted",true,true];
 
 // AI mod compat
 _group setVariable ["Vcm_Disable",true,true];
