@@ -29,6 +29,11 @@ if (_vehicle isEqualTypeAny ["",configNull]) exitWith {
 		{
 			private _weapon = _x;
 
+			if (_weapon == "SEARCHLIGHT" && {[_weapon,"FakeMagazine",_turret] call _filter}) then {
+				_pylons pushBack [_weapon,"FakeMagazine",_turret];
+				continue;
+			};
+
 			if (_ignoredWeapons findIf {_weapon isKindOf [_x,_cfgWeapons]} > -1) then {continue};
 			
 			if (getNumber (_cfgWeapons >> _weapon >> "laser") == 1 ||
@@ -38,14 +43,16 @@ if (_vehicle isEqualTypeAny ["",configNull]) exitWith {
 			private _compatMags = compatibleMagazines _weapon;
 			
 			{
-				if (!(_x in _compatMags) || {
-					private _simulation = getText (_cfgAmmo >> getText (_cfgMagazines >> _x >> "ammo") >> "simulation");
+				private _magazine = _x;
+
+				if (!(_magazine in _compatMags) || {
+					private _simulation = getText (_cfgAmmo >> getText (_cfgMagazines >> _magazine >> "ammo") >> "simulation");
 
 					_simulation == "shotCM" || _simulation == "laserDesignate"
 				}) then {continue};
 
-				if ([_weapon,_x,_turret] call _filter) then {
-					_pylons pushBack [_weapon,_x,_turret];
+				if ([_weapon,_magazine,_turret] call _filter) then {
+					_pylons pushBack [_weapon,_magazine,_turret];
 				};
 			} forEach _magazines;
 		} forEach _weapons;
@@ -118,6 +125,11 @@ private _realPylons = [];
 
 	{
 		private _weapon = _x;
+
+		if (_weapon == "SEARCHLIGHT" && {[_weapon,"FakeMagazine",_turret] call _filter}) then {
+			_pylons pushBack [_weapon,"FakeMagazine",_turret];
+			continue;
+		};
 
 		if (_ignoredWeapons findIf {_weapon isKindOf [_x,_cfgWeapons]} > -1) then {continue};
 
