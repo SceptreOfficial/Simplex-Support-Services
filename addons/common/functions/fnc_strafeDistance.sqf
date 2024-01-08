@@ -44,10 +44,11 @@ private _totalDuration = 0;
 } forEach _pylonConfig;
 
 private _maxSpeed = getNumber (configOf _vehicle >> "maxSpeed") / 3.6;
-private _minSpeed = [getNumber (configOf _vehicle >> "stallSpeed") * 1.2 / 3.6,_maxSpeed / 3] select (_vehicle isKindOf "Helicopter");
+private _minSpeed = [getNumber (configOf _vehicle >> "stallSpeed") * 1.1 / 3.6,28 min (_maxSpeed / 3)] select (_vehicle isKindOf "Helicopter");
+private _speed = (_maxSpeed * 0.6) min 160 max _minSpeed;
 private _hBuffer = _altitude / 2;//getPosASL _vehicle # 2 / 2;
-private _minDist = (_aimRange * 0.8) max (_maxSpeed * (_totalDuration + 0.5) + _hBuffer);
-private _simDist = _aimRange max (_maxSpeed * (_totalDuration + 3) + _hBuffer);
-private _prepDist = (_aimRange + 800) max (_maxSpeed * (_totalDuration + 15) + _hBuffer);
+private _minDist = (_aimRange * 0.8) max (_speed * (_totalDuration + 0.5) + _hBuffer);
+private _simDist = _aimRange max (_speed * (_totalDuration + 3) + _hBuffer);
+private _prepDist = (_aimRange + 800) max (_maxSpeed * (_totalDuration + 6) + _hBuffer);// TODO: was 12, re-evaluate ETA and test vanilla aircraft
 
 [_minDist,_simDist,_prepDist]

@@ -56,6 +56,9 @@ private _dirDiff = (_strafeDir - _dir) call CBA_fnc_simplifyAngle;
 _dirDiff = [_dirDiff,_dirDiff - 360] select (_dirDiff > 180);
 _dir = _dir + (-_rate max _dirDiff min _rate);
 
+// Abort if turned around
+//if (abs _dirDiff > 90) exitWith {_abort = true};
+
 private _bankDiff = (-80 max (_dirDiff * 3) min 80) - _bank;
 _bank = _bank + (-_rate max _bankDiff min _rate);
 
@@ -86,6 +89,8 @@ if (_distance > (0.9 * (_ammoSpeed * sqrt (2 * _G * (_velPos # 2 - _targetASL # 
 	if (abs _dirDiff < 2 && abs _pitchDiff < 2 && _fireStart == 0) then {
 		_thisArgs set [INDEX_FIRE_START,CBA_missionTime + 3.2];
 		[QGVAR(strafeFireReady),[_vehicle,CBA_missionTime + 3.2]] call CBA_fnc_localEvent;
+
+		_vehicle lockCameraTo [_vehicle getVariable [QGVAR(targetDummy),objNull],_turrets param [_weaponIndex,[]],false];
 	};
 };
 

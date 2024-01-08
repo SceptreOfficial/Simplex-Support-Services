@@ -114,11 +114,13 @@ private _EHID = _vehicle addEventHandler ["Fired",FUNC(fired)];
 _vehicle setVariable [QGVAR(firedEHID),_EHID];
 
 private _maxSpeed = getNumber (configOf _vehicle >> "maxSpeed") / 3.6;
-private _minSpeed = [getNumber (configOf _vehicle >> "stallSpeed") * 1.2 / 3.6,_maxSpeed / 3] select (_vehicle isKindOf "Helicopter");
+private _minSpeed = [getNumber (configOf _vehicle >> "stallSpeed") * 1.1 / 3.6,28 min (_maxSpeed / 3)] select (_vehicle isKindOf "Helicopter");
+private _speed = (_maxSpeed * 0.6) min 160 max _minSpeed;
+
 private _hBuffer = getPosASL _vehicle # 2 / 2;
-private _minDist = (_aimRange * 0.8) max (_maxSpeed * (_totalDuration + 0.5) + _hBuffer);
-private _simDist = _aimRange max (_maxSpeed * (_totalDuration + 3) + _hBuffer);
-private _prepDist = (_aimRange + 800) max (_maxSpeed * (_totalDuration + 15) + _hBuffer);
+private _minDist = (_aimRange * 0.8) max (_speed * (_totalDuration + 0.5) + _hBuffer);
+private _simDist = _aimRange max (_speed * (_totalDuration + 3) + _hBuffer);
+private _prepDist = (_aimRange + 800) max (_maxSpeed * (_totalDuration + 6) + _hBuffer);// TODO: was 12, re-evaluate ETA and test vanilla aircraft
 private _altitudeASL = if (_target isEqualType objNull) then {
 	getPosASL _target # 2 + _altitude
 } else {
@@ -150,7 +152,7 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 
 // Begin approach
 [{
-	_this # 0 params ["_vehicle","_target","_ingress","_minDist","_simDist","_prepDist","_moveTick","","_minKMH","_maxKMH","_randomAngle"];
+	_this # 0 params ["_vehicle","_target","_ingress","_minDist","_simDist","_prepDist","_moveTick","","_minKMH","_KMH","_randomAngle"];
 
 	private _relDir = ((_vehicle getDir _target) - getDir _vehicle) call CBA_fnc_simplifyAngle;
 	_relDir = [_relDir,_relDir - 360] select (_relDir > 180);
@@ -165,9 +167,9 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 			if !(_vehicle getVariable [QGVAR(strafeApproach),false]) then {
 				_vehicle setVariable [QGVAR(strafeApproach),true,true];
 				[QGVAR(strafeApproach),[_vehicle]] call CBA_fnc_localEvent;
+				[QGVAR(limitSpeed),[_vehicle,_KMH]] call CBA_fnc_localEvent;
 			};
 
-			[QGVAR(limitSpeed),[_vehicle,(_maxKMH * 0.7) min ([600,300] select (_vehicle isKindOf "Helicopter"))]] call CBA_fnc_localEvent;
 			_target getPos [0,_ingress]
 		} else {
 			_target getPos [_prepDist * 1.4,_ingress]
@@ -267,7 +269,7 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 		CBA_missionTime,
 		0,
 		_turrets,
-		[200,40] select (_vehicle isKindOf "Helicopter")
+		30//[200,40] select (_vehicle isKindOf "Helicopter")
 	]];
 
 	_vehicle setVariable [QGVAR(strafeSimEHID),_ID];
@@ -283,7 +285,7 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 	0,
 	_target getPos [0,0],
 	_minSpeed * 3.6,
-	_maxSpeed * 3.6,
+	_speed * 3.6,
 	selectRandom [45,-45]
 ],[
 	_vehicle,
