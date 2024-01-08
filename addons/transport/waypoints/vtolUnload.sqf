@@ -62,35 +62,11 @@ private _ejections = _group getVariable [_ejectionsID,[]];
 _ejections append ([[],getVehicleCargo _vehicle] select _allCargo);
 _ejections append (SECONDARY_CREW(_vehicle) select {(_allPlayers && isPlayer _x) || (_allAI && !isPlayer _x)});
 
-_vehicle setVariable [QGVAR(unloadEnd),false,true];
-
-[{
-	params ["_args","_PFHID"];
-	_args params ["_entity","_vehicle","_ejections"];
-
-	if (!alive _vehicle || _ejections isEqualTo []) exitWith {
-		_vehicle setVariable [QGVAR(unloadEnd),true,true];
-		_PFHID call CBA_fnc_removePerFrameHandler;
-	};
-
-	private _item = _ejections deleteAt 0;
-
-	[QEGVAR(common,execute),[[_item,_vehicle],{
-		params ["_item","_vehicle"];
-
-		if (_item isKindOf "CAManBase") then {
-			unassignVehicle _item;
-			[_item] orderGetIn false;
-			moveOut _item;
-		} else {
-			objNull setVehicleCargo _item;
-		};
-	}],_item] call CBA_fnc_targetEvent;
-},UNLOAD_DELAY,[_entity,_vehicle,_ejections]] call CBA_fnc_addPerFrameHandler;
+[_vehicle,_ejections] call EFUNC(common,unloadTransport);
 
 waitUntil {
 	sleep 0.2;
-	_vehicle getVariable [QGVAR(unloadEnd),false]
+	_vehicle getVariable [QEGVAR(common,unloadEnd),false]
 };
 
 _group setVariable [_ejectionsID,nil,true];
