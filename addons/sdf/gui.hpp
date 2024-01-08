@@ -173,7 +173,7 @@ class GVAR(ToolboxLoiter): GVAR(Toolbox) {
 	style = "0x02 + 0x30 + 0x800";
 	columns = 2;
 	rows = 1;
-	strings[] = {ICON_CLOCKWISE,ICON_COUNTER_CLOCKWISE};
+	strings[] = {"\A3\3DEN\Data\Attributes\LoiterDirection\cw_ca.paa","\A3\3DEN\Data\Attributes\LoiterDirection\ccw_ca.paa"};
 	values[] = {0,1};
 };
 
