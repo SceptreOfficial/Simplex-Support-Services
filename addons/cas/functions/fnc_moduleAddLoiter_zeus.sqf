@@ -12,7 +12,7 @@ private _pylons = [];
 
 if (_vehicle isKindOf "Air") then {
 	_class = typeOf _vehicle;
-	_pylons = _vehicle call EFUNC(common,getPylons);
+	_pylons = [_vehicle,{_turret isNotEqualTo [-1]}] call EFUNC(common,getPylons);
 };
 
 [LLSTRING(moduleAddLoiter_name),[

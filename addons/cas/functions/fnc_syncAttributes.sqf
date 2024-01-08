@@ -6,9 +6,7 @@ if !(typeOf _logic in [QGVAR(moduleAddBombing),QGVAR(moduleAddLoiter),QGVAR(modu
 
 private _class = _logic get3DENAttribute QGVAR(AircraftClass);
 private _pylons = _logic get3DENAttribute QGVAR(Pylons);
-//private _filter = [{},{
-//	getNumber (_cfgMagazines >> _this # 1 >> "initSpeed") == 0
-//}] select (_logic isKindOf QGVAR(moduleAddBombing));
+private _filter = [nil,{_turret isNotEqualTo [-1]}] select (_logic isKindOf QGVAR(moduleAddLoiter));
 
 {
 	_x params ["_connection","_vehicle"];
@@ -16,7 +14,7 @@ private _pylons = _logic get3DENAttribute QGVAR(Pylons);
 	if (_connection != "Sync" || {!(_vehicle isKindOf "Air")}) then {continue};
 	
 	_class = typeOf	_vehicle;
-	_pylons = str (_vehicle call EFUNC(common,getPylons));
+	_pylons = str ([_vehicle,_filter] call EFUNC(common,getPylons));
 
 	if (_vehicle getVariable [QGVAR(edenEH),false]) exitWith {};
 	_vehicle setVariable [QGVAR(edenEH),true];

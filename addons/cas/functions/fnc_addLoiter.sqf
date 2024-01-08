@@ -67,7 +67,7 @@ private _entity = [
 if (isNull _entity) exitWith {objNull};
 
 if (_pylons isEqualTo []) then {
-	_pylons = _class call EFUNC(common,getPylons);
+	_pylons = [_class,{_turret isNotEqualTo [-1]}] call EFUNC(common,getPylons);
 };
 
 // Extras

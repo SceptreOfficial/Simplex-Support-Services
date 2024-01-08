@@ -16,7 +16,7 @@ if (!local _logic) exitWith {};
 
 		if (!isNull _vehicle) then {
 			if (_class isEqualTo "") then {_class = typeOf _vehicle};
-			if (_pylons isEqualTo []) then {_pylons = _vehicle call EFUNC(common,getPylons)};
+			if (_pylons isEqualTo []) then {_pylons = [_vehicle,{_turret isNotEqualTo [-1]}] call EFUNC(common,getPylons)};
 		};
 
 		private _entity = [
