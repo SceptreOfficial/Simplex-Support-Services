@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params [["_cfg",configNull],["_pylons",[]]];
+params [["_cfg",configNull],["_pylons",[]],["_defaultTurret",[-1],[[]]]];
 
 if (_pylons isEqualTo []) then {
 	_pylons = _cfg call FUNC(getPylons);
@@ -40,7 +40,7 @@ private _formatPylons = [];
 	//if (_canLock && _airLock) then {continue};
 
 	if (_turret isEqualTo []) then {
-		_turret = [-1];
+		_turret = _defaultTurret;
 	};
 
 	private _turretName = if (_turret isEqualTo [-1]) then {
