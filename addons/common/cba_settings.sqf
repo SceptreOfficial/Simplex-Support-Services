@@ -188,15 +188,4 @@
 	false
 ] call CBA_fnc_addSetting;
 
-[
-	QOPTION(debugDraw),
-	"CHECKBOX",
-	DESC(debugDraw),
-	[ELSTRING(main,PREFIX),LSTRING(CategoryDebug)],
-	false,
-	true,
-	{},
-	false
-] call CBA_fnc_addSetting;
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////

@@ -37,18 +37,16 @@ _turrets select {
 		abs _relDir <= abs (_minTurn - _maxTurn) / 2
 	}};
 
-	if (OPTION(debugDraw)) then {
-		private _p1 = _vehicle modelToWorldVisualWorld (_source vectorAdd ([sin _minTurn,cos _minTurn,tan _minElev] vectorMultiply 1000));
-		private _p2 = _vehicle modelToWorldVisualWorld (_source vectorAdd ([sin _minTurn,cos _minTurn,tan _maxElev] vectorMultiply 1000));
-		private _p3 = _vehicle modelToWorldVisualWorld (_source vectorAdd ([sin _maxTurn,cos _maxTurn,tan _minElev] vectorMultiply 1000));
-		private _p4 = _vehicle modelToWorldVisualWorld (_source vectorAdd ([sin _maxTurn,cos _maxTurn,tan _maxElev] vectorMultiply 1000));
-		private _sourceAGL = ASLtoAGL (_vehicle modelToWorldVisualWorld _source);
-		[{drawLine3D _this},{},[_sourceAGL,ASLToAGL _p1,[0,0,1,1]],3] call CBA_fnc_waitUntilAndExecute;
-		[{drawLine3D _this},{},[_sourceAGL,ASLToAGL _p2,[0,0,1,1]],3] call CBA_fnc_waitUntilAndExecute;
-		[{drawLine3D _this},{},[_sourceAGL,ASLToAGL _p3,[0,0,1,1]],3] call CBA_fnc_waitUntilAndExecute;
-		[{drawLine3D _this},{},[_sourceAGL,ASLToAGL _p4,[0,0,1,1]],3] call CBA_fnc_waitUntilAndExecute;
-		[{drawLine3D _this},{},[_sourceAGL,ASLToAGL _targetASL,[[1,0,0,1],[0,1,0,1]] select _inView],3] call CBA_fnc_waitUntilAndExecute;
-	};
+	//private _p1 = _vehicle modelToWorldVisualWorld (_source vectorAdd ([sin _minTurn,cos _minTurn,tan _minElev] vectorMultiply 1000));
+	//private _p2 = _vehicle modelToWorldVisualWorld (_source vectorAdd ([sin _minTurn,cos _minTurn,tan _maxElev] vectorMultiply 1000));
+	//private _p3 = _vehicle modelToWorldVisualWorld (_source vectorAdd ([sin _maxTurn,cos _maxTurn,tan _minElev] vectorMultiply 1000));
+	//private _p4 = _vehicle modelToWorldVisualWorld (_source vectorAdd ([sin _maxTurn,cos _maxTurn,tan _maxElev] vectorMultiply 1000));
+	//private _sourceAGL = ASLtoAGL (_vehicle modelToWorldVisualWorld _source);
+	//[{drawLine3D _this},{},[_sourceAGL,ASLToAGL _p1,[0,0,1,1]],3] call CBA_fnc_waitUntilAndExecute;
+	//[{drawLine3D _this},{},[_sourceAGL,ASLToAGL _p2,[0,0,1,1]],3] call CBA_fnc_waitUntilAndExecute;
+	//[{drawLine3D _this},{},[_sourceAGL,ASLToAGL _p3,[0,0,1,1]],3] call CBA_fnc_waitUntilAndExecute;
+	//[{drawLine3D _this},{},[_sourceAGL,ASLToAGL _p4,[0,0,1,1]],3] call CBA_fnc_waitUntilAndExecute;
+	//[{drawLine3D _this},{},[_sourceAGL,ASLToAGL _targetASL,[[1,0,0,1],[0,1,0,1]] select _inView],3] call CBA_fnc_waitUntilAndExecute;
 
 	_inView
 }
