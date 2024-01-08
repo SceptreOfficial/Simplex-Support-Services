@@ -184,8 +184,7 @@
 			<French>Objets requis</French>
 		</Key>
 		<Key ID="STR_SSS_Common_AccessItems_info">
-			<English>Item classes that permit usage of support.</English>
-			<French>Liste des objets nécessaires à l'utilisation du support.</French>
+			<English>Item classes that permit usage of support.\nExample:\nitemMap,itemRadio</English>
 		</Key>
 		<Key ID="STR_SSS_Common_AccessItemsLogic_name">
 			<English>Access items logic</English>
