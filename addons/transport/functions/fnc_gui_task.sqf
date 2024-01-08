@@ -247,7 +247,7 @@ switch _task do {
 	};
 	case "FASTROPE" : {
 		// Hover height slider
-		_controls append ([_groupHeight,LLSTRING(hoverHeight),[10,30,0],18,"hoverHeight",LELSTRING(common,meterAcronym)] call FUNC(gui_slider));
+		_controls append ([_groupHeight,LLSTRING(hoverHeight),[10,30,0],15,"hoverHeight",LELSTRING(common,meterAcronym)] call FUNC(gui_slider));
 		_groupHeight = _groupHeight + 1;
 
 		// Final azimuth slider

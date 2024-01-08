@@ -7,7 +7,7 @@ params [
 	"_attachedObject",
 	["_behaviors",[]],
 	["_timeout",0],
-	["_hoverHeight",18],
+	["_hoverHeight",15],
 	["_endDir",-1],
 	["_approach",150],
 	["_ejectTypes",[true,true]],
