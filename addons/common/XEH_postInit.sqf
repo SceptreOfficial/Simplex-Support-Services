@@ -27,7 +27,7 @@ GVAR(manageCache) = createHashMap;
 	LELSTRING(main,sss),
 	ICON_SSS,
 	{[] call FUNC(openGUI)},
-	{true}
+	{(_this # 1) call FUNC(entitiesAvailable)}
 ] call ace_interact_menu_fnc_createAction,true] call ace_interact_menu_fnc_addActionToClass;
 
 private _serviceData = configProperties [configFile >> QPVAR(services),"isClass _x"] apply {[

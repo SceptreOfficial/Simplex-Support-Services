@@ -13,6 +13,7 @@ PREP(cooldown);
 PREP(decommission);
 PREP(deletedVehicle);
 PREP(drawShape3D);
+PREP(entitiesAvailable);
 PREP(fastrope);
 PREP(fastropeUnitLocal);
 PREP(findEntity);
