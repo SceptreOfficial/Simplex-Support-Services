@@ -50,6 +50,9 @@ _endPos set [2,_altitude];
 
 	[_vehicle,_entity getVariable [QPVAR(pylons),[]]] call EFUNC(common,setPylons);
 
+	// Some init scripts override loadouts.
+	[EFUNC(common,setPylons),[_vehicle,_entity getVariable [QPVAR(pylons),[]]],3] call CBA_fnc_waitAndExecute;
+
 	private _side = _entity getVariable [QPVAR(side),sideEmpty];
 	private _group = _side createVehicleCrew _vehicle;
 	_group deleteGroupWhenEmpty true;

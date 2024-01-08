@@ -59,6 +59,9 @@ _endPos set [2,_altitude];
 
 	[_vehicle,_entity getVariable [QPVAR(pylons),[]]] call EFUNC(common,setPylons);
 
+	// Some init scripts override loadouts.
+	[EFUNC(common,setPylons),[_vehicle,_entity getVariable [QPVAR(pylons),[]]],3] call CBA_fnc_waitAndExecute;
+
 	[
 		_vehicle,
 		_pylonConfig,
