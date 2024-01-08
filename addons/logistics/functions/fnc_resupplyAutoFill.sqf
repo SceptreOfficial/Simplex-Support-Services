@@ -1,4 +1,5 @@
 #include "script_component.hpp"
+#define MVAR(N,D) missionNamespace getVariable [N,D]
 
 params [
 	["_units",[],[[],objNull,grpNull,sideUnknown]],
@@ -13,28 +14,28 @@ params [
 ];
 
 _magazineCount params [
-	["_magazineCount",missionNamespace getVariable [QGVAR(autoFillMagazineCount),20],[0]],
-	["_magazinesMultiply",missionNamespace getVariable [QGVAR(autoFillMagazineMultiply),false],[false]]
+	["_magazineCount",MVAR(QGVAR(autoFillMagazineCount),20),[0]],
+	["_magazinesMultiply",MVAR(QGVAR(autoFillMagazineMultiply),false),[false]]
 ];
 _underbarrelCount params [
-	["_underbarrelCount",missionNamespace getVariable [QGVAR(autoFillUnderbarrelCount),10],[0]],
-	["_underbarrelMultiply",missionNamespace getVariable [QGVAR(autoFillUnderbarrelMultiply),false],[false]]
+	["_underbarrelCount",MVAR(QGVAR(autoFillUnderbarrelCount),10),[0]],
+	["_underbarrelMultiply",MVAR(QGVAR(autoFillUnderbarrelMultiply),false),[false]]
 ];
 _rocketCount params [
-	["_rocketCount",missionNamespace getVariable [QGVAR(autoFillRocketCount),10],[0]],
-	["_rocketsMultiply",missionNamespace getVariable [QGVAR(autoFillRocketMultiply),false],[false]]
+	["_rocketCount",MVAR(QGVAR(autoFillRocketCount),10),[0]],
+	["_rocketsMultiply",MVAR(QGVAR(autoFillRocketMultiply),false),[false]]
 ];
 _throwableCount params [
-	["_throwableCount",missionNamespace getVariable [QGVAR(autoFillThrowableCount),10],[0]],
-	["_throwablesMultiply",missionNamespace getVariable [QGVAR(autoFillThrowableMultiply),false],[false]]
+	["_throwableCount",MVAR(QGVAR(autoFillThrowableCount),10),[0]],
+	["_throwablesMultiply",MVAR(QGVAR(autoFillThrowableMultiply),false),[false]]
 ];
 _placeableCount params [
-	["_placeableCount",missionNamespace getVariable [QGVAR(autoFillPlaceableCount),10],[0]],
-	["_placeablesMultiply",missionNamespace getVariable [QGVAR(autoFillPlaceableMultiply),false],[false]]
+	["_placeableCount",MVAR(QGVAR(autoFillPlaceableCount),10),[0]],
+	["_placeablesMultiply",MVAR(QGVAR(autoFillPlaceableMultiply),false),[false]]
 ];
 _medicalCount params [
-	["_medicalCount",missionNamespace getVariable [QGVAR(autoFillMedicalCount),20],[0]],
-	["_medicalMultiply",missionNamespace getVariable [QGVAR(autoFillMedicalMultiply),false],[false]]
+	["_medicalCount",MVAR(QGVAR(autoFillMedicalCount),20),[0]],
+	["_medicalMultiply",MVAR(QGVAR(autoFillMedicalMultiply),false),[false]]
 ];
 
 if (isNil QGVAR(medicalDefaults)) then {
@@ -192,8 +193,8 @@ private _cargo = [];
 {_cargo pushBack [_x,[_placeableCount,_placeableCount * _y] select _placeablesMultiply]} forEach _placeables;
 
 private _unitCount = count _units;
+
 {_cargo pushBack [_x,[_medicalCount,_medicalCount * _unitCount] select _medicalMultiply]} forEach _medical;
 
-_cargo
-
 //[_magazines,_underbarrel,_rockets,_throwables,_placeables,_medical]
+_cargo
