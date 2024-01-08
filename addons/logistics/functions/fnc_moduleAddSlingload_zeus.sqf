@@ -3,7 +3,7 @@
 params ["_class"];
 
 if (_class isEqualTo "") then {
-	_class = "B_T_VTOL_01_vehicle_F";
+	_class = "B_Heli_Transport_03_F";
 };
 
 [LLSTRING(ModuleAddSlingload_name),[
@@ -20,8 +20,6 @@ if (_class isEqualTo "") then {
 	["ARRAY",DESC(virtualRunway),[["X","Y","Z"],[0,0,0]]],
 	["EDITBOX",DESC(spawnDistance),6000],
 	["ARRAY",DESC(spawnDelay),[[LELSTRING(common,Min),LELSTRING(common,Max)],[0,0]]],
-	["EDITBOX",DESC(openAltitudeAI),200],
-	["EDITBOX",DESC(openAltitudeObjects),-1],
 	["EDITBOX",DESC(capacity),10],
 	["EDITBOX",DESC(listFunction),"[]"],
 	["EDITBOX",DESC(itemInit),""],
@@ -43,8 +41,6 @@ if (_class isEqualTo "") then {
 		"_virtualRunway",
 		"_spawnDistance",
 		"_spawnDelay",
-		"_openAltitudeAI",
-		"_openAltitudeObjects",
 		"_capacity",
 		"_listFunction",
 		"_itemInit",
@@ -66,8 +62,6 @@ if (_class isEqualTo "") then {
 		_virtualRunway,
 		parseNumber _spawnDistance,
 		_spawnDelay,
-		parseNumber _openAltitudeAI,
-		parseNumber _openAltitudeObjects,
 		parseNumber _capacity,
 		[],
 		_listFunction,
@@ -78,7 +72,7 @@ if (_class isEqualTo "") then {
 		_accessItemsLogic,
 		_accessCondition,
 		_requestCondition
-	] call FUNC(addAirdrop);
+	] call FUNC(addSlingload);
 
 	ZEUS_MESSAGE(LELSTRING(common,SupportAdded));
 }] call EFUNC(sdf,dialog);
