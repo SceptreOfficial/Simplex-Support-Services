@@ -39,54 +39,51 @@ if (GVAR(autoTerminals)) then {
 	[_vehicle,_entity] call EFUNC(common,terminal);
 };
 
-[{
-	params ["_vehicle","_entity"];
+switch (_entity getVariable QPVAR(supportType)) do {
+	case "HELICOPTER" : {
+		[FUNC(changeBehavior),[_entity,[
+			["combatMode","YELLOW"],
+			["lights",true],
+			["collisionLights",true],
+			["altitudeATL",100],
+			["altitudeASL",100]
+		]],1] call CBA_fnc_waitAndExecute;
 
-	switch (_entity getVariable QPVAR(supportType)) do {
-		case "HELICOPTER" : {
-			[_entity,[
-				["combatMode","YELLOW"],
-				["lights",true],
-				["collisionLights",true],
-				["altitudeATL",100],
-				["altitudeASL",100]
-			]] call FUNC(changeBehavior);
-
-			deleteVehicle (_vehicle getVariable ["ace_fastroping_FRIES",objnull]);
-		};
-		case "VTOL" : {
-			[_entity,[
-				["combatMode","YELLOW"],
-				["lights",true],
-				["collisionLights",true],
-				["altitudeATL",500],
-				["altitudeASL",500]
-			]] call FUNC(changeBehavior);
-		};
-		case "PLANE" : {
-			[_entity,[
-				["combatMode","YELLOW"],
-				["lights",true],
-				["collisionLights",true],
-				["altitudeATL",1000],
-				["altitudeASL",1000]
-			]] call FUNC(changeBehavior);
-
-			_vehicle setFuel 0;
-		};
-		case "LAND" : {
-			[_entity,[
-				["combatMode","YELLOW"],
-				["lights",true],
-				["collisionLights",true]
-			]] call FUNC(changeBehavior);
-		};
-		case "BOAT" : {
-			[_entity,[
-				["combatMode","YELLOW"],
-				["lights",true],
-				["collisionLights",true]
-			]] call FUNC(changeBehavior);
-		};
+		deleteVehicle (_vehicle getVariable ["ace_fastroping_FRIES",objnull]);
 	};
-},_this,3] call CBA_fnc_waitAndExecute;
+	case "VTOL" : {
+		[FUNC(changeBehavior),[_entity,[
+			["combatMode","YELLOW"],
+			["lights",true],
+			["collisionLights",true],
+			["altitudeATL",500],
+			["altitudeASL",500]
+		]],1] call CBA_fnc_waitAndExecute;
+	};
+	case "PLANE" : {
+		[FUNC(changeBehavior),[_entity,[
+			["combatMode","YELLOW"],
+			["lights",true],
+			["collisionLights",true],
+			["altitudeATL",1000],
+			["altitudeASL",1000]
+		]],1] call CBA_fnc_waitAndExecute;
+
+		_vehicle setFuel 0;
+	};
+	case "LAND" : {
+		[FUNC(changeBehavior),[_entity,[
+			["combatMode","YELLOW"],
+			["lights",true],
+			["collisionLights",true]
+		]],1] call CBA_fnc_waitAndExecute;
+	};
+	case "BOAT" : {
+		[FUNC(changeBehavior),[_entity,[
+			["combatMode","YELLOW"],
+			["lights",true],
+			["collisionLights",true]
+		]],1] call CBA_fnc_waitAndExecute;
+	};
+};
+

@@ -59,7 +59,7 @@ if (GVAR(autoTerminals)) then {
 
 // Vehicle specifics
 [{
-	params ["_vehicle","_entity"];
+	params ["_entity","_vehicle"];
 
 	[QEGVAR(common,enableAIFeature),[_vehicle,["PATH",(_entity getVariable [QPVAR(task),""]) == "RELOCATE"]]] call CBA_fnc_localEvent;
 	[QEGVAR(common,enableAIFeature),[_vehicle,["TARGET",false]]] call CBA_fnc_localEvent;
@@ -69,7 +69,7 @@ if (GVAR(autoTerminals)) then {
 	_vehicle lockTurret [[0],true];
 	_vehicle lockCargo true;
 	_vehicle setVariable [QGVAR(velocityOverride),_entity getVariable QPVAR(velocityOverride),true];
-},_this,3] call CBA_fnc_waitAndExecute;
+},_this,1] call CBA_fnc_waitAndExecute;
 
 _vehicle setVariable [QGVAR(formOffset),getPosASL _vehicle vectorDiff (_entity getVariable QPVAR(formCenter))];
 
