@@ -252,7 +252,7 @@ class RemoteAccess : Checkbox {\
 class AccessItems : Edit {\
 	EATTRIBUTE(common,AccessItems);\
 	typeName = "STRING";\
-	defaultValue = "'itemMap'";\
+	defaultValue = "''";\
 };\
 class AccessItemsLogic : Default {\
 	EATTRIBUTE(common,AccessItemsLogic);\

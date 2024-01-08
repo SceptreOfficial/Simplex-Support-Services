@@ -19,7 +19,7 @@ if (!local _logic) exitWith {};
 			_logic getVariable ["ListFunction",""],
 			_logic getVariable ["ItemInit",""],
 			_logic getVariable ["RemoteAccess",true],
-			[_logic getVariable ["AccessItems","itemMap"]] call EFUNC(common,parseList),
+			[_logic getVariable ["AccessItems",""]] call EFUNC(common,parseList),
 			_logic getVariable ["AccessItemsLogic",0] isEqualTo 1,
 			_logic getVariable ["AccessCondition","true"],
 			_logic getVariable ["RequestCondition","true"],

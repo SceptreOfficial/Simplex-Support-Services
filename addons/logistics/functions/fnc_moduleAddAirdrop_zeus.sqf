@@ -27,7 +27,7 @@ if (_class isEqualTo "") then {
 	["EDITBOX",DESC(itemInit),""],
 	["EDITBOX",EDESC(common,vehicleInit),""],
 	["CHECKBOX",EDESC(common,remoteAccess),true],
-	["EDITBOX",EDESC(common,accessItems),"itemMap"],
+	["EDITBOX",EDESC(common,accessItems),""],
 	["TOOLBOX",EDESC(common,accessItemsLogic),[[LELSTRING(common,LogicAND),LELSTRING(common,LogicOR)],0,[false,true]]],
 	["EDITBOX",EDESC(common,accessCondition),"true"],
 	["EDITBOX",EDESC(common,requestCondition),"true"]
