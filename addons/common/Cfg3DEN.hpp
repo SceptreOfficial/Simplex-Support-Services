@@ -216,7 +216,7 @@ class Cfg3DEN {
 	class Object {
 		class AttributeCategories {
 			class PVAR(attributes) {
-				displayName = CSTRING(AuthAttribute);
+				displayName = "";//CSTRING(AuthAttribute);
 				collapsed = 1;
 				class Attributes {
 					class PVAR(key) {
@@ -227,7 +227,7 @@ class Cfg3DEN {
 						expression = QUOTE(if (_value isNotEqualTo '') then {_this setVariable [ARR_3('%s',_value,true)]};);
 						typeName = "STRING";
 						defaultValue = "''";
-						condition = "objectControllable";
+						condition = "0";
 					};
 				};
 			};
