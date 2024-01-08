@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params ["_group","_wpPos","_attachedObject"];
+params ["_group","_wpPos","_attachedObject",["_fastrope",true]];
 
 private _vehicle = vehicle leader _group;
 
@@ -80,23 +80,49 @@ if (alive _object) then {
 private _ejections = SECONDARY_CREW(_vehicle);
 
 if (_ejections isNotEqualTo []) then {
-	[
-		_vehicle,
-		[_vehicle,ATLtoASL (_posASL getPos [0.6 * sizeOf typeOf _object,random 360]),"FASTROPE",18] call EFUNC(common,surfacePosASL),
-		[-1],
-		(getPos _vehicle # 2) max 50,
-		400,
-		nil,
-		[EFUNC(common,pilotHelicopterHover),[true,_ejections]]
-	] call EFUNC(common,pilotHelicopter);
+	if (_entity getVariable QPVAR(unloadAltitude) > 0) then {
+		[
+			_vehicle,
+			[_vehicle,ATLtoASL (_posASL getPos [sizeOf typeOf _object,random 360]),"FASTROPE",_entity getVariable QPVAR(unloadAltitude)] call EFUNC(common,surfacePosASL),
+			[-1],
+			(getPos _vehicle # 2) max 50,
+			400,
+			nil,
+			[EFUNC(common,pilotHelicopterHover),[true,_ejections]]
+		] call EFUNC(common,pilotHelicopter);
 
-	_vehicle setVariable [QPVAR(fastropeDone),false,true];
+		_vehicle setVariable [QPVAR(fastropeDone),false,true];
 
-	waitUntil {
-		sleep 0.5;
-		_vehicle getVariable [QPVAR(fastropeDone),false] ||
-		!(_vehicle getVariable [QEGVAR(common,pilotHelicopter),false]) ||
-		_vehicle getVariable [QEGVAR(common,pilotHelicopterCompleted),false]
+		waitUntil {
+			sleep 0.5;
+			_vehicle getVariable [QPVAR(fastropeDone),false] ||
+			!(_vehicle getVariable [QEGVAR(common,pilotHelicopter),false]) ||
+			_vehicle getVariable [QEGVAR(common,pilotHelicopterCompleted),false]
+		};
+	} else {
+		[
+			_vehicle,
+			[_vehicle,ATLtoASL (_posASL getPos [sizeOf typeOf _object,random 360]),"LAND"] call EFUNC(common,surfacePosASL),
+			[-1],
+			(getPos _vehicle # 2) max 50,
+			100,
+			nil,
+			[EFUNC(common,pilotHelicopterLand),[-1,true]]
+		] call EFUNC(common,pilotHelicopter);
+
+		waitUntil {
+			sleep 0.5;
+			isTouchingGround _vehicle ||
+			!(_vehicle getVariable [QEGVAR(common,pilotHelicopter),false]) ||
+			_vehicle getVariable [QEGVAR(common,pilotHelicopterCompleted),false]
+		};
+
+		[_vehicle,_ejections] call EFUNC(common,unloadTransport);
+
+		waitUntil {
+			sleep 0.2;
+			_vehicle getVariable [QEGVAR(common,unloadEnd),false]
+		};
 	};
 
 	[_vehicle,[0,0,0]] call EFUNC(common,pilotHelicopter);

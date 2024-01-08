@@ -112,6 +112,7 @@ PREP(turretsInView);
 PREP(turretSource);
 PREP(turretWeapons);
 PREP(uniqueUnitItems);
+PREP(unloadTransport);
 PREP(updateMarker);
 PREP(validateVehicle);
 PREP(worldToModel);

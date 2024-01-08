@@ -11,6 +11,7 @@ params [
 	["_callsign","",[""]],
 	["_cooldowns",[60,10],[[]],2],
 	["_altitude",500,[0]],
+	["_unloadAltitude",18,[0]],
 	["_virtualRunway",[0,0,0],[[]],3],
 	["_spawnDistance",6000,[0]],
 	["_spawnDelay",[0,0],[[]],2],
@@ -65,6 +66,7 @@ _entity setVariable [QPVAR(cooldown),_cooldowns # 0,true];
 _entity setVariable [QPVAR(itemCooldown),_cooldowns # 1,true];
 _entity setVariable [QPVAR(cooldownTimer),0,true];
 _entity setVariable [QPVAR(altitude),_altitude,true];
+_entity setVariable [QPVAR(unloadAltitude),_unloadAltitude,true];
 _entity setVariable [QPVAR(virtualRunway),_virtualRunway,true];
 _entity setVariable [QPVAR(spawnDistance),_spawnDistance,true];
 _entity setVariable [QPVAR(spawnDelay),_spawnDelay,true];

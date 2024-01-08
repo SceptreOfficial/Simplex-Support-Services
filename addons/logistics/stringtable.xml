@@ -43,6 +43,12 @@
 		<Key ID="STR_SSS_Logistics_Altitude_info">
 			<English>Flying height</English>
 		</Key>
+		<Key ID="STR_SSS_Logistics_UnloadAltitude_name">
+			<English>Infantry unload height</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_UnloadAltitude_info">
+			<English>If set to 0, helicopter will land to unload.</English>
+		</Key>
 		<Key ID="STR_SSS_Logistics_VirtualRunway_name">
 			<English>Virtual runway</English>
 		</Key>

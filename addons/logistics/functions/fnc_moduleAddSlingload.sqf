@@ -15,6 +15,7 @@ if (!local _logic) exitWith {};
 			_logic getVariable ["Callsign",""],
 			[_logic getVariable ["Cooldown",60],_logic getVariable ["ItemCooldown",10]],
 			_logic getVariable ["Altitude",500],
+			_logic getVariable ["UnloadAltitude",18],
 			_logic getVariable ["VirtualRunway",[0,0,0]],
 			_logic getVariable ["SpawnDistance",6000],
 			_logic getVariable ["SpawnDelay",[0,0]],

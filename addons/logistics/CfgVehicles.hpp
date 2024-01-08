@@ -198,6 +198,11 @@ class CfgVehicles {
 				typeName = "NUMBER";
 				defaultValue = 500;
 			};
+			class UnloadAltitude : Edit {
+				ATTRIBUTE(UnloadAltitude);
+				typeName = "NUMBER";
+				defaultValue = 15;
+			};
 			class VirtualRunway : Default {
 				ATTRIBUTE(VirtualRunway);
 				typeName = "ARRAY";
