@@ -242,6 +242,7 @@ FUNC(logRequestData) = {
 	diag_log text ("    Service: " + (_entity getVariable QPVAR(service)));
 	diag_log text ("    Type: " + (_entity getVariable QPVAR(supportType)));
 	diag_log text ("    Callsign: " + (_entity getVariable QPVAR(callsign)));
+	diag_log text ("    Class: " + (_entity getVariable QPVAR(class)));
 	diag_log text ("    Parameters: " + str _this);
 };
 

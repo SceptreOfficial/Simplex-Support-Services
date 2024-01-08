@@ -20,7 +20,7 @@ if (_simulation isEqualTo "shotshell") then {
 private _distance = _sourceASL distance2D _targetASL;
 
 if (_distance < 200) exitWith {
-	DEBUG("getAimSim: Target close; aiming directly.");
+	//DEBUG("getAimSim: Target close; aiming directly.");
 	_targetASL vectorDiff _sourceASL
 };
 
@@ -28,7 +28,7 @@ if (_distance < 200) exitWith {
 private _maxRange = _initSpeed^2 / GRAVITY;
 
 if (_distance >= _maxRange / log _maxRange) exitWith {
-	DEBUG("getAimSim: Out of range.");
+	LOG_3("getAimSim: Out of range: %1 -> %2: %3",_sourceASL,_targetASL,_ammoData);
 	_targetASL vectorDiff _sourceASL
 };
 

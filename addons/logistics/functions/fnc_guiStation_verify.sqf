@@ -23,6 +23,7 @@ if (_itemKey isEqualTo "" || _entity getVariable [QPVAR(busy),false]) exitWith {
 private _item = GVAR(list) param [parseNumber _itemKey,[]];
 private _count = _entity getVariable [_item # 6,-1];
 private _request = +GVAR(request);
+
 _request set ["selection",[_item]];
 
 _ctrlConfirm ctrlEnable (_count != 0 && {+[_player,_entity,_request] call (_entity getVariable QPVAR(requestCondition))});

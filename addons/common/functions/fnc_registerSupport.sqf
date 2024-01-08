@@ -117,6 +117,6 @@ publicVariable QGVAR(services);
 
 // Support registered event executed next frame to ensure extra variables are added from specific services fnc
 [{[QPVAR(supportRegistered),_this] call CBA_fnc_globalEvent},[_entity,_service,_supportType,_callsign]] call CBA_fnc_execNextFrame;
-DEBUG_3("%1:%2 Registered: '%3'",_service,_supportType,_callsign);
+DEBUG_4("%1:%2 Registered: '%3' - '%4'",_service,_supportType,_callsign,_class);
 
 _entity

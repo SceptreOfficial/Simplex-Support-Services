@@ -7,15 +7,15 @@
 	Authorization check order:
 		1: Entity exists
 		2: Entity and player share the same side
-		3: Remote access is enabled for the entity or the entity is being interacted with directly
+		3: Remote access is enabled for the entity or the entity is being interacted with directly/terminal
 		4: Player's unique key is in entity's key authorization list (may be ignored for direct access)
 		5: Custom access condition code returns true
-		6: Player possesses an 'access item' (may be ignored for direct access)
+		6: Player possesses an 'access item' (may be ignored for direct access/terminal)
 
 	Parameters:
 	0: Player <OBJECT>
 	1: Support entity <OBJECT>
-	2: Direct access (used via interaction) <BOOL>
+	2: Terminal access (used via interaction) <BOOL>
 
 	Returns:
 	Authorization validity <BOOL>

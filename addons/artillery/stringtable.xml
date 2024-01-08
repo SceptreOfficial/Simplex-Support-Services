@@ -166,13 +166,13 @@
 			<English>Type</English>
 		</Key>
 		<Key ID="STR_SSS_Artillery_AddTask">
-			<English>Add task</English>
+			<English>ADD TASK</English>
 		</Key>
 		<Key ID="STR_SSS_Artillery_RemoveTask">
-			<English>Remove task</English>
+			<English>REMOVE TASK</English>
 		</Key>
-		<Key ID="STR_SSS_Artillery_ClearTasks">
-			<English>Clear all tasks</English>
+		<Key ID="STR_sss_Artillery_ClearAll">
+			<English>CLEAR ALL</English>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Loop">
 			<English>Loop</English>
@@ -184,16 +184,16 @@
 			<English>Sheaf</English>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Converged">
-			<English>Converged</English>
+			<English>CONVERGED</English>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Parallel">
-			<English>Parallel</English>
+			<English>PARALLEL</English>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Box">
-			<English>Box</English>
+			<English>BOX</English>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Creeping">
-			<English>Creeping</English>
+			<English>CREEPING</English>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Validation">
 			<English>Validation</English>
@@ -326,9 +326,6 @@
 		</Key>
 		<Key ID="STR_SSS_ARTILLERY_noRecipientsAvailable">
 			<English>No recipients available.</English>
-		</Key>
-		<Key ID="STR_sss_artillery_clearAll">
-			<English>CLEAR ALL</English>
 		</Key>
 		<Key ID="STR_sss_artillery_loopCount">
 			<English>Loop count</English>

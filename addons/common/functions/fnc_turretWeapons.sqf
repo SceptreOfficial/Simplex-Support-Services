@@ -48,7 +48,7 @@ private _return = [];
 	if (_weapons isEqualTo []) then {continue};
 
 	if (_returnTurretsOnly) then {
-		_return pushBack _x
+		_return pushBack _x;
 	} else {
 		_return pushBack [_x,_weapons,_magazines];
 	};
