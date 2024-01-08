@@ -136,8 +136,8 @@ private _fnc_reset = {
 	_vehicle setVariable [QGVAR(targetDummy),nil,true];
 
 	_unit setVariable [QGVAR(firing),nil,true];
-
 	[{deleteVehicle _this},_dummy,10] call CBA_fnc_waitAndExecute;
+	if (_unit getVariable [QGVAR(searchlight),false]) exitWith {};
 	[{(_this # 0) lockCameraTo (_this # 1)},[_vehicle,[objNull,_turret,true]],1] call CBA_fnc_waitAndExecute;
 };
 

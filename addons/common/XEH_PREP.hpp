@@ -82,6 +82,7 @@ PREP(reset);
 PREP(respawn);
 PREP(restoreCrew);
 PREP(rotateVector2D);
+PREP(searchlight);
 PREP(setElevationOffset);
 PREP(setPylons);
 PREP(setStatus);

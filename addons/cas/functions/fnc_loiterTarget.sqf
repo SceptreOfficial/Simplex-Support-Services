@@ -8,12 +8,16 @@ if (!alive _vehicle || isNull _entity) exitWith {
 };
 
 private _request = _entity getVariable [QPVAR(request),createHashMap];
-
 private _search = _request getOrDefault ["target",""];
 (_search splitString ":") params [["_type",""],["_typeDetail",""]];
+_request getOrDefault ["weapon",[]] params ["_weapon","_magazine","_turret"];
 
 if (_type in ["","NONE"]) exitWith {
 	_vehicle setVariable [QGVAR(loiterTargetTick),-1];
+
+	if (_weapon == "SEARCHLIGHT") then {
+		[_vehicle,_turret,objNull,false] call EFUNC(common,searchlight);
+	};
 };
 
 private _targetTick = _vehicle getVariable [QGVAR(loiterTargetTick),-1];
@@ -25,7 +29,7 @@ private _posASL = _request getOrDefault ["posASL",[0,0,0]];
 private _radius = _request getOrDefault ["radius",_radiusMin max LOITER_RADIUS_DEFAULT min _radiusMax];
 private _search = _request getOrDefault ["target",""];
 private _spread = _request getOrDefault ["spread",0];
-private _weapon = _request getOrDefault ["weapon",[]];
+
 private _duration = _request getOrDefault ["duration",3];
 private _interval = _request getOrDefault ["interval",-1];
 
@@ -33,7 +37,9 @@ private _target = [_posASL,side group _vehicle,_search,_radius * 0.75,_entity ge
 
 if (_target in [objNull,[0,0,0]]) exitWith {};
 
-_weapon params ["_weapon","_magazine","_turret"];
+if (_weapon == "SEARCHLIGHT") exitWith {
+	[_vehicle,_turret,_target] call EFUNC(common,searchlight);
+};
 
 private _validTurrets = [_vehicle,_target,[_vehicle,[],true,true,[_weapon,_magazine],true] call EFUNC(common,turretWeapons)] call EFUNC(common,turretsInView);
 

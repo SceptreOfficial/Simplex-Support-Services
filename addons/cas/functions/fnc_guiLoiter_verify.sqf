@@ -65,6 +65,14 @@ if (_enableIngressEgress) then {
 	}];
 };
 
+private _isWeapon = GVAR(request) getOrDefault ["weapon",[]] param [0,""] != "SEARCHLIGHT";
+{(_ctrlGroup controlsGroupCtrl _x) ctrlEnable _isWeapon} forEach [
+	IDC_BURST_DURATION,
+	IDC_BURST_DURATION_EDIT,
+	IDC_BURST_INTERVAL,
+	IDC_BURST_INTERVAL_EDIT
+];
+
 if (_enableIngressEgress || _entity getVariable [QPVAR(repositioning),true]) then {
 	(_ctrlGroup controlsGroupCtrl IDC_GRID_E) ctrlEnable true;
 	(_ctrlGroup controlsGroupCtrl IDC_GRID_N) ctrlEnable true;
