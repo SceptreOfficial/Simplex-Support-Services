@@ -73,7 +73,7 @@ private _lines = _sources apply {
 	_anchor enableRopeAttach true;
 	//[{_this setVelocity [0,0,-1]},_anchor,2] call CBA_fnc_execNextFrame;
 
-	private _rope = ropeCreate [_hook,[0,0,0],_anchor,[0,0,0],8];// 8
+	private _rope = ropeCreate [_hook,[0,0,0],_anchor,[0,0,0],_length];// 8
 	//ropeUnwind [_rope,9.5,_length,false];// 20
 
 	//private _helper = "Sign_Sphere25cm_F" createVehicle [0,0,0];
