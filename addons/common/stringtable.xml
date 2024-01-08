@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="SSS">
 	<Package name="Common">
+		<Key ID="STR_sss_common_zeusSelectionItems">
+			<English>SELECT ITEMS, THEN PRESS ENTER</English>
+		</Key>
+		<Key ID="STR_sss_common_zeusSelectionUnits">
+			<English>SELECT UNITS, THEN PRESS ENTER</English>
+		</Key>
+		<Key ID="STR_sss_common_zeusSelectionObjects">
+			<English>SELECT OBJECTS, THEN PRESS ENTER</English>
+		</Key>
+		<Key ID="STR_sss_common_zeusSelectionVehicles">
+			<English>SELECT VEHICLES, THEN PRESS ENTER</English>
+		</Key>
+		<Key ID="STR_sss_common_zeusSelectionCancelled">
+			<English>SELECTION CANCELLED</English>
+		</Key>
+		<Key ID="STR_sss_common_zeusSelectionSubmitted">
+			<English>SELECTION SUBMITTED</English>
+		</Key>
+		<Key ID="STR_sss_common_zeusNothingSelected">
+			<English>NOTHING SELECTED</English>
+		</Key>
+		
 		<Key ID="STR_SSS_Common_Remove">
 			<English>Remove</English>
 		</Key>
