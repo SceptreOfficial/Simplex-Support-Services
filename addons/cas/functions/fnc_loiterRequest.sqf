@@ -104,6 +104,7 @@ _endPos set [2,_altitude];
 	};
 
 	_group setVariable [QGVAR(loiterVehicle),_vehicle,true];
+	_group setVariable [QGVAR(loiterType),_type,true];
 	_group addEventHandler ["WaypointComplete",{
 		params ["_group","_waypointIndex"];
 
@@ -112,7 +113,12 @@ _endPos set [2,_altitude];
 		if (!alive _vehicle) exitWith {};
 
 		if (waypointDescription _this == QGVAR(loiterIngress)) then {
-			NOTIFY(_vehicle,LSTRING(notifyLoiter));
+			if (_group getVariable [QGVAR(loiterType),""] == "HOVER") then {
+				NOTIFY(_vehicle,LSTRING(notifyLoiterHover));
+			} else {
+				NOTIFY(_vehicle,LSTRING(notifyLoiter));
+			};
+
 			[_vehicle,true,"LOITER",[LSTRING(statusLoiter),RGBA_YELLOW]] call EFUNC(common,setStatus);
 			_vehicle setVariable [QGVAR(loiterTargetTick),CBA_missionTime + 10,true];
 		};

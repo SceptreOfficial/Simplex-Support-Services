@@ -190,6 +190,9 @@
 		<Key ID="STR_SSS_CAS_notifyLoiter">
 			<English>Loitering at location...</English>
 		</Key>
+		<Key ID="STR_SSS_CAS_notifyLoiterHover">
+			<English>Hovering at location...</English>
+		</Key>
 		<Key ID="STR_SSS_CAS_notifyLoiterTimeoutWarning">
 			<English>Leaving the area in 1 minute.</English>
 		</Key>

@@ -8,8 +8,7 @@ private _altitude = _request getOrDefault ["altitude",_altitudeMin max LOITER_AL
 private _radius = _request getOrDefault ["radius",_radiusMin max LOITER_RADIUS_DEFAULT min _radiusMax];
 private _type = _request getOrDefault ["type","CIRCLE_L"];
 
-[_entity,true,"LOITER",[LSTRING(statusLoiterIngress),RGBA_YELLOW]] call EFUNC(common,setStatus);
-
+//[_entity,true,"LOITER",[LSTRING(statusLoiter),RGBA_YELLOW]] call EFUNC(common,setStatus);
 NOTIFY_1(_entity,LSTRING(notifyLoiterUpdate),_posASL call EFUNC(common,formatGrid));
 
 private _vehicle = _entity getVariable [QPVAR(vehicle),objNull];
