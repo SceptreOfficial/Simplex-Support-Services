@@ -265,5 +265,11 @@
 		<Key ID="STR_SSS_Logistics_areaCleared">
 			<English>Area cleared.</English>
 		</Key>
+		<Key ID="STR_SSS_Logistics_clearAreaRestriction_name">
+			<English>Clear area restriction</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_clearAreaRestriction_info">
+			<English>Only remove objects spawned with the Logistics service</English>
+		</Key>
 	</Package>
 </Project>

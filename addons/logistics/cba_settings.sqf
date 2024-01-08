@@ -43,3 +43,14 @@
 	{},
 	true
 ] call CBA_fnc_addSetting;
+
+[
+	QGVAR(clearAreaRestriction),
+	"CHECKBOX",
+	DESC(clearAreaRestriction),
+	[ELSTRING(main,PREFIX),LSTRING(Service)],
+	true,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
