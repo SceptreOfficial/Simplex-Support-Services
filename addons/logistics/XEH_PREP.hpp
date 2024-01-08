@@ -28,6 +28,7 @@ PREP(gui_preview);
 PREP(gui_signals);
 PREP(gui_verify);
 PREP(guiStation);
+PREP(guiStation_clearArea);
 PREP(guiStation_entity);
 PREP(guiStation_select);
 PREP(guiStation_verify);

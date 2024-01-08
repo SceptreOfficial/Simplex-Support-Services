@@ -9,6 +9,8 @@ private _ctrlItems = _ctrlItemsGroup controlsGroupCtrl IDC_ITEMS;
 
 [_ctrlItems,_entity] call FUNC(compileList);
 
+(_ctrlItemsGroup controlsGroupCtrl IDC_CLEAR_AREA) ctrlShow (_entity getVariable [QPVAR(clearingRadius),0] > 0);
+
 _entity getVariable [QGVAR(cache),[]] params [["_cacheList",[]],["_cacheRequest",createHashMap]];
 GVAR(request) = +_cacheRequest;
 GVAR(request) set ["selection",[]];

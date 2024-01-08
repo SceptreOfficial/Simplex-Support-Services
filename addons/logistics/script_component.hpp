@@ -47,3 +47,4 @@
 #define IDC_OBJECT_LIMIT_ICON 		350
 #define IDC_CREW_LIMIT 				360
 #define IDC_CREW_LIMIT_ICON 		370
+#define IDC_CLEAR_AREA 				380

@@ -517,6 +517,16 @@ class GVAR(guiStation) {
 							tooltips[] = {"",""};
 							onToolboxSelChanged = QUOTE(call FUNC(gui_aiHandling));
 						};
+						class GVAR(clearArea) : EGVAR(sdf,ButtonSimple) {
+							idc = IDC_CLEAR_AREA;
+							x = QUOTE(CTRL_X(0));
+							y = QUOTE(CTRL_Y(15));
+							w = QUOTE(CTRL_W(20));
+							h = QUOTE(CTRL_H(1));
+							text = "CLEAR AREA";
+							tooltip = "Removes vehicles near spawn point";
+							onButtonClick = QUOTE(call FUNC(guiStation_clearArea));
+						};
 					};
 				};
 			};

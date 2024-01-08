@@ -250,5 +250,14 @@
 		<Key ID="STR_sss_logistics_group">
 			<English>Group</English>
 		</Key>
+		<Key ID="STR_SSS_Logistics_clearingRadius_name">
+			<English>Clearing radius</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_clearingRadius_info">
+			<English>Allows players to clear obstructions around spawn position</English>
+		</Key>
+		<Key ID="STR_SSS_Logistics_areaCleared">
+			<English>Area cleared.</English>
+		</Key>
 	</Package>
 </Project>

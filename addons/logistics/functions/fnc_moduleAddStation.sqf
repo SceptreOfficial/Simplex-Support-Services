@@ -15,6 +15,7 @@ if (!local _logic) exitWith {};
 			[west,east,independent] # (_logic getVariable ["Side",0]),
 			_logic getVariable ["Callsign",""],
 			_logic getVariable ["Cooldown",0],
+			_logic getVariable ["ClearingRadius",0],
 			synchronizedObjects _logic select {_x isKindOf QGVAR(moduleReferenceArea)},
 			_logic getVariable ["ListFunction",""],
 			_logic getVariable ["ItemInit",""],

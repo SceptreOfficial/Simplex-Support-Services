@@ -11,6 +11,7 @@ params [
 	["_side",sideEmpty,[sideEmpty]],
 	["_callsign","",[""]],
 	["_cooldown",0,[0]],
+	["_clearingRadius",0,[0]],
 	["_referenceAreas",[],[[]]],
 	["_listFunction",{},["",{}]],
 	["_itemInit",{},["",{}]],
@@ -54,6 +55,7 @@ _entity setVariable [QPVAR(base),_posASL,true];
 _entity setVariable [QPVAR(baseDir),_dir,true];
 _entity setVariable [QPVAR(cooldown),_cooldown,true];
 _entity setVariable [QPVAR(cooldownTimer),0,true];
+_entity setVariable [QPVAR(clearingRadius),_clearingRadius,true];
 _entity setVariable [QPVAR(referenceAreas),_referenceAreas,true];
 _entity setVariable [QPVAR(listFunction),_listFunction,true];
 _entity setVariable [QPVAR(itemInit),_itemInit,true];

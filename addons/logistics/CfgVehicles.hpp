@@ -306,6 +306,11 @@ class CfgVehicles {
 				typeName = "NUMBER";
 				defaultValue = 0;
 			};
+			class ClearingRadius : Edit {
+				ATTRIBUTE(ClearingRadius);
+				typeName = "NUMBER";
+				defaultValue = 0;
+			};
 			class ListFunction : Default {
 				ATTRIBUTE(ListFunction);
 				typeName = "STRING";
