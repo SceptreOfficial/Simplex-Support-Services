@@ -28,7 +28,7 @@ GVAR(taskNames) = createHashMapFromArray [
 GVAR(taskIcons) = createHashMapFromArray [
 	["RTB",ICON_HOME],
 	["MOVE",ICON_MOVE],
-	["PATH",ICON_SITREP],
+	["PATH",ICON_INTEL],
 	["FOLLOW",ICON_FOLLOW],
 	["HOLD",ICON_WAIT],
 	["LAND",ICON_LAND],

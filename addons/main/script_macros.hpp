@@ -124,6 +124,7 @@
 #define ICON_HOME_PATHING QPATHTOEF(common,icons\home_pathing.paa)
 #define ICON_HOWITZER QPATHTOEF(common,icons\howitzer.paa)
 #define ICON_INFINITE QPATHTOEF(common,icons\infinite.paa)
+#define ICON_INTEL "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\intel_ca.paa"
 #define ICON_KILL "\a3\Ui_f\data\IGUI\Cfg\simpleTasks\types\kill_ca.paa"
 #define ICON_LAND QPATHTOEF(common,icons\land.paa)
 #define ICON_LAND_ENG_OFF QPATHTOEF(common,icons\land_eng_off.paa)
@@ -148,7 +149,6 @@
 #define ICON_ROPE QPATHTOEF(common,icons\rope.paa)
 #define ICON_SEARCH "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\search_ca.paa"
 #define ICON_SELF_PROPELLED QPATHTOEF(common,icons\self_propelled.paa)
-#define ICON_SITREP "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\intel_ca.paa"
 #define ICON_SLINGLOAD QPATHTOEF(common,icons\slingLoad.paa)
 #define ICON_SLINGLOAD_DROPOFF QPATHTOEF(common,icons\slingload_dropoff.paa)
 #define ICON_SLINGLOAD_PICKUP QPATHTOEF(common,icons\slingload_pickup.paa)

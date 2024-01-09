@@ -90,7 +90,6 @@ PREP(signalColor);
 PREP(signalDescription);
 PREP(signalIcon);
 PREP(signalSearch);
-PREP(sitrep);
 PREP(sizeOf);
 PREP(slingload);
 PREP(slingloadDropoff);

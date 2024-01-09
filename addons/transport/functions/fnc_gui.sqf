@@ -13,7 +13,7 @@ private _ctrlPlanHeader = _ctrlGroup controlsGroupCtrl IDC_PLAN_GROUP controlsGr
 _ctrlPlanHeader ctrlEnable false;
 _ctrlPlanHeader lnbAddRow [];
 {_ctrlPlanHeader lnbSetPicture [[0,_forEachIndex],_x]} forEach [
-	ICON_SITREP,
+	ICON_INTEL,
 	ICON_MAP,
 	ICON_WAIT_GEAR
 ];

@@ -272,22 +272,6 @@
 			<English>Current request cancelled. Stop the vehicle.</English>
 			<French>Mission annulée. Arrêt immédiat du véhicule.</French>
 		</Key>
-		<Key ID="STR_SSS_Common_Sitrep_LocationGrid">
-			<English>Location: Grid %1</English>
-			<French>Position : %1</French>
-		</Key>
-		<Key ID="STR_SSS_Common_Sitrep_StatusDisabled">
-			<English>Status: Disabled</English>
-			<French>Statut : Désactivé</French>
-		</Key>
-		<Key ID="STR_SSS_Common_Sitrep_StatusDamaged">
-			<English>Status: Damaged</English>
-			<French>Statut : Endommagé</French>
-		</Key>
-		<Key ID="STR_SSS_Common_Sitrep_StatusGreen">
-			<English>Status: Green</English>
-			<French>Statut : Opérationnel</French>
-		</Key>
 		<Key ID="STR_SSS_Common_VehicleNotAlive">
 			<English>Vehicle is not alive: %1: %2</English>
 		</Key>

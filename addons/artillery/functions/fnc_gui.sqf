@@ -14,7 +14,7 @@ _ctrlPlanHeader ctrlEnable false;
 _ctrlPlanHeader lnbAddRow [];
 {_ctrlPlanHeader lnbSetPicture [[0,_forEachIndex],_x]} forEach [
 	ICON_TARGET,
-	ICON_SITREP,
+	ICON_INTEL,
 	ICON_DESTROY,
 	ICON_HASH,
 	ICON_WAIT_GEAR,
