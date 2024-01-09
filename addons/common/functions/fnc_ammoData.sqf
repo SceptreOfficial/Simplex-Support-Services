@@ -42,6 +42,6 @@ private _ammoData = [
 	getNumber (_ammoCfg >> "laserLock") > 0
 ];
 
-LOG_3("%1:%2 ammo data requested: %3",_weapon,_magazine,_ammoData);
+DEBUG_3("%1:%2 ammo data requested: %3",_weapon,_magazine,_ammoData);
 
 _ammoData

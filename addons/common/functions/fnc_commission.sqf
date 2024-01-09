@@ -3,7 +3,7 @@
 params [["_vehicle",objNull,[objNull]],["_entity",objNull,[objNull]],["_respawnable",true,[false]]];
 
 if (isNull _entity || isNull _vehicle) exitWith {
-	ERROR("Null commission");
+	LOG_ERROR("Null commission");
 };
 
 if (!local _vehicle) exitWith {

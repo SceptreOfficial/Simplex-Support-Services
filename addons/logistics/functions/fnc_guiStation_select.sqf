@@ -15,7 +15,7 @@ if (_itemKey isEqualTo "") exitWith {};
 private _item = GVAR(list) param [parseNumber _itemKey,[]];
 
 if (_item isEqualTo []) exitWith {
-	ERROR("No item data");
+	LOG_ERROR("No item data");
 };
 
 GVAR(request) set ["selection",_path];

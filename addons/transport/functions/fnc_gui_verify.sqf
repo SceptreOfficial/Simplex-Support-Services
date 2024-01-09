@@ -3,8 +3,6 @@
 
 if ([QSERVICE,QGVAR(gui)] call EFUNC(common,gui_verify)) exitWith {};
 
-PERFORMANCE_TRACKING_INIT
-
 private _display = uiNamespace getVariable QEGVAR(sdf,display);
 private _player = call CBA_fnc_currentUnit;
 private _entity = PVAR(guiEntity);
@@ -37,8 +35,6 @@ if (_vehicle getVariable [QGVAR(hold),""] isNotEqualTo "" ||
 		_ctrlGroup setVariable [QGVAR(tip),_ctrlTip];
 	},[_display,_ctrlGroup]] call CBA_fnc_execNextFrame;
 };
-
-PERFORMANCE_TRACKING_END
 
 if (GVAR(plan) isEqualTo [] || {GVAR(guiTab) == 1 && GVAR(confirmation) isEqualTo []}) exitWith {
 	_ctrlConfirm ctrlEnable false;

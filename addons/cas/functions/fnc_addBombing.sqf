@@ -30,7 +30,7 @@ params [
 
 // Validation
 if !(_class isKindOf "Air") exitWith {
-	ERROR_2(LLSTRING(InvalidClass),_callsign,_class);
+	LOG_ERROR_2(LLSTRING(InvalidClass),_callsign,_class);
 	objNull
 };
 

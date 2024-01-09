@@ -1,7 +1,5 @@
 #include "script_component.hpp"
 
-PERFORMANCE_TRACKING_INIT
-
 params ["_vehicle","_turret","_target","_ammoData",["_spread",0],["_velocityStep",0],["_aimOffset",0]];
 
 private _sourceASL = [_vehicle,_turret] call FUNC(turretSource);
@@ -20,7 +18,5 @@ if (_spread > 0) then {
 if (terrainIntersectASL [_sourceASL,_targetASL] && {terrainIntersectASL [_sourceASL,_targetASL vectorAdd [0,0,25]]}) exitWith {
 	_targetASL vectorAdd [0,0,_aimOffset] 
 };
-
-PERFORMANCE_TRACKING_END
 
 _sourceASL vectorAdd ([_ammoData,_sourceASL,_sourceVelocity,_targetASL,[2.5,4] select (_vehicle isKindOf "Air")] call FUNC(getAimSim)) vectorAdd [0,0,_aimOffset];

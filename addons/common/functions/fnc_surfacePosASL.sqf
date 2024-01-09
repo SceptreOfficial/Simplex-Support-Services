@@ -38,7 +38,7 @@ switch (toUpper _procedure) do {
 		_posASL vectorAdd [0,0,_hoverHeight]
 	};
 	default {
-		WARNING_1("Invalid procedure: %1",_procedure);
+		LOG_WARNING_1("Invalid procedure: %1",_procedure);
 		_posASL
 	};
 };

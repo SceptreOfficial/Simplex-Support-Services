@@ -58,7 +58,7 @@ if (_gunEnd isEqualTo _gunBeg) then {
         _gunBeg = _vehicle selectionPosition getText (_vehicleConfig >> "uavCameraGunnerDir");
         _gunEnd = _vehicle selectionPosition getText (_vehicleConfig >> "uavCameraGunnerPos");
     } else {
-        WARNING_2("Vehicle %1 has invalid gun configs on turret %2",configName _vehicleConfig,_turret);
+        LOG_WARNING_2("Vehicle %1 has invalid gun configs on turret %2",configName _vehicleConfig,_turret);
     };
 };
 

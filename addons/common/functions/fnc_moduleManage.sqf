@@ -16,7 +16,7 @@ deleteVehicle _logic;
 	};
 
 	if (_service isEqualTo "") exitWith {
-		LOG_FULL("NO SERVICES AVAILABLE");
+		systemChat LLSTRING(noServices);
 	};
 
 	private _entities = (GVAR(services) get _service) apply {[_x getVariable QPVAR(callsign),_x]};

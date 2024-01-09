@@ -6,7 +6,7 @@ params [["_vehicle",objNull],["_unit",objNull],["_turret",[]],["_camera",""]];
 _unit = effectiveCommander _unit;
 
 if (!alive _vehicle || !alive _unit || !(_unit in _vehicle) || _unit call FUNC(isRemoteControlled)) exitWith {
-	WARNING(LLSTRING(recipientUnavailable));
+	LOG_WARNING(LLSTRING(recipientUnavailable));
 	false
 };
 
@@ -17,7 +17,7 @@ missionNamespace setVariable ["bis_fnc_moduleRemoteControl_unit",_unit];
 
 if (!local _unit) then {
 	//[QGVAR(remoteControlTransfer),[_unit,clientOwner]] call CBA_fnc_serverEvent;
-	LOG_FULL("Allow time for locality to transfer to gain full control...");
+	systemChat LLSTRING(remoteControlWarning);
 };
 
 [{
@@ -83,7 +83,7 @@ if (!local _unit) then {
 			[QGVAR(remoteControlEnd),[player,_unit]] call CBA_fnc_globalEvent;
 		},_this] call CBA_fnc_waitUntilAndExecute;
 	},_this,10,{
-		ERROR("Remote control failed!");
+		LOG_ERROR("Remote control failed!");
 
 		params ["_vehicle","_unit","_turret","_camera"];
 

@@ -15,7 +15,7 @@ private _index = _vehicles findIf {
 };
 
 if (_index == -1) exitWith {
-	WARNING(LLSTRING(noRecipientsAvailable));
+	LOG_WARNING(LLSTRING(noRecipientsAvailable));
 };
 
 private _vehicle = _vehicles # _index;

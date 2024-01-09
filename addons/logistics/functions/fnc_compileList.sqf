@@ -5,8 +5,6 @@ params ["_ctrlItems","_entity"];
 GVAR(list) = [];
 tvClear _ctrlItems;
 
-PERFORMANCE_TRACKING_INIT
-
 {
 	_x call FUNC(reference) params ["_category","_list"];
 
@@ -68,7 +66,7 @@ private _fnc_recursive = {
 
 		{
 			if (!isClass (_cfgVehicles >> _x)) then {
-				WARNING_1("Undefined class in logistics list: %1",_x);
+				LOG_WARNING_1("Undefined class in logistics list: %1",_x);
 			} else {
 				_valid pushBack _x;
 			};
@@ -81,7 +79,7 @@ private _fnc_recursive = {
 		private _cfg = _cfgVehicles >> _class;
 	
 		if (!isClass _cfg) then {
-			WARNING_1("Undefined class in logistics list: %1",_class);
+			LOG_WARNING_1("Undefined class in logistics list: %1",_class);
 			continue;
 		};
 
@@ -118,12 +116,10 @@ if (isNil {_entity getVariable QGVAR(possessedList)}) then {
 	_fnc_recursive forEach (_entity getVariable QGVAR(possessedList));
 };
 
-PERFORMANCE_TRACKING_END
-
 _ctrlItems tvSetCurSel [0];
 
 if (GVAR(list) isEqualTo []) then {
-	WARNING_1("No valid items in list for ""%1""",_entity getVariable QPVAR(callsign));
+	LOG_WARNING_1("No valid items in list for ""%1""",_entity getVariable QPVAR(callsign));
 };
 
 if (_possess) then {

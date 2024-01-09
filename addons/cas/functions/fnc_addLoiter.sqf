@@ -33,12 +33,12 @@ params [
 
 // Validation
 if !(_class isKindOf "Air") exitWith {
-	ERROR_2(LLSTRING(InvalidClass),_callsign,_class);
+	LOG_ERROR_2(LLSTRING(InvalidClass),_callsign,_class);
 	objNull
 };
 
 if (_class call BIS_fnc_allTurrets isEqualTo []) exitWith {
-	ERROR_1("CAS Loiter: Invalid class (no turrets available): %1",_class);
+	LOG_ERROR_1("CAS Loiter: Invalid class (no turrets available): %1",_class);
 	objNull
 };
 

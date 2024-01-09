@@ -40,8 +40,6 @@ if (_object isEqualType "") then {
 
 if (isNil "_min") exitWith {[[],[]]};
 
-PERFORMANCE_TRACKING_INIT
-
 private _objectRadius = ((_min distance2D [0,0,0]) + (_max distance2D [0,0,0])) / 2;
 private _objectHeight = abs (_max # 2 - _min # 2);
 private _angleStep = ANGLE_STEP_SIZE_COEF / _objectRadius;
@@ -120,8 +118,6 @@ while {
 
 	_searchRadius < _maxSearchRadius
 } do {};
-
-PERFORMANCE_TRACKING_END
 
 if (_safePos isNotEqualTo []) then {
 	DEBUG("Placement search successful");

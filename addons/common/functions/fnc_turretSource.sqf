@@ -24,7 +24,7 @@ if (_gunEnd isEqualto "") then {
 			_cache set [_turret,getText (_cfg >> "gunEnd")];
 			_vehicle setVariable [QGVAR(turretSources),_cache];
 		} else {
-			WARNING_2("Vehicle %1 has invalid gun configs on turret %2",configName _vehicleConfig,_turret);
+			LOG_WARNING_2("Vehicle %1 has invalid gun configs on turret %2",configName _vehicleConfig,_turret);
 		};
 	} else {
 		_cache set [_turret,getText (_cfg >> "gunEnd")];

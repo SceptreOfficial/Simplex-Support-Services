@@ -637,5 +637,11 @@
 		<Key ID="STR_sss_common_strafeNoTarget">
 			<English>No suitable target found. Airstrike aborted.</English>
 		</Key>
+		<Key ID="STR_sss_common_noServices">
+			<English>SSS: NO SERVICES AVAILABLE</English>
+		</Key>
+		<Key ID="STR_sss_common_remoteControlWarning">
+			<English>Allow time for locality to transfer for full control...</English>
+		</Key>
 	</Package>
 </Project>

@@ -127,7 +127,7 @@ if (_execDelay > 0) then {
 					if ([_vehicle,[AGLtoASL (_vehicle getPos _distDir),_area # 1,_area # 2,0,false],_validMags,_rounds,_firingDelay] call FUNC(fire)) then {
 						_active pushBack _vehicle;
 					} else {
-						WARNING("vehicle cannot fire");
+						LOG_WARNING("vehicle cannot fire");
 					};
 				} forEach ([_vehicles,_validRounds] call _fnc_shareRounds);
 			} forEach ([_entity] + _coordinated);
@@ -145,7 +145,7 @@ if (_execDelay > 0) then {
 					if ([_vehicle,_area,_validMags,_rounds,_firingDelay] call FUNC(fire)) then {
 						_active pushBack _vehicle;
 					} else {
-						WARNING("vehicle cannot fire");
+						LOG_WARNING("vehicle cannot fire");
 					};
 				} forEach ([_vehicles,_validRounds] call _fnc_shareRounds);
 			} forEach ([_entity] + _coordinated);
@@ -180,7 +180,7 @@ if (_execDelay > 0) then {
 					if ([_vehicle,[[_laneCenter,_width / _totalVehicles,_height,_angle,_isRect],true,true],_validMags,_rounds,_firingDelay] call FUNC(fire)) then {
 						_active pushBack _vehicle;
 					} else {
-						WARNING("vehicle cannot fire");
+						LOG_WARNING("vehicle cannot fire");
 					};
 
 					_laneCenter = AGLtoASL (_laneCenter getPos [_laneWidth,_angle + 90]);

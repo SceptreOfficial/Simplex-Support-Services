@@ -3,7 +3,7 @@
 params ["_vehicle"];
 
 if (true) exitWith {
-	ERROR("Zeus module still in development");
+	LOG_ERROR("Zeus module still in development");
 	playSound QPVAR(failure);
 };
 

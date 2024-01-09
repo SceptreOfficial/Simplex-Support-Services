@@ -32,7 +32,7 @@ if (_vehicle getVariable [QGVAR(carpetBombing),false]) exitWith {
 if (_endPos in [[0,0,0],objNull]) exitWith {};
 
 if (!alive _vehicle || !canMove _vehicle || {!(_vehicle isKindOf "Air")}) exitWith {
-	ERROR_F("Invalid vehicle");
+	LOG_ERROR("Invalid vehicle");
 };
 
 _vehicle setVariable [QGVAR(carpetBombing),true,true];

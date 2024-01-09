@@ -28,7 +28,7 @@ if (!isNull (uiNamespace getVariable [QEGVAR(sdf,display),displayNull])) exitWit
 	};
 
 	if (_service isEqualTo "") exitWith {
-		LOG_FULL("NO SERVICES AVAILABLE");
+		systemChat LLSTRING(noServices);
 	};
 
 	if (isNull _entity) then {
@@ -53,10 +53,8 @@ if (!isNull (uiNamespace getVariable [QEGVAR(sdf,display),displayNull])) exitWit
 	};
 	
 	//if (createDialog (getText (configfile >> QPVAR(services) >> _service >> "gui"))) then {
-	PERFORMANCE_TRACKING_INIT
 
 	if (createDialog (_entity getVariable QPVAR(gui))) then {
 		[QPVAR(guiOpen),[_service,_entity]] call CBA_fnc_localEvent;
-		PERFORMANCE_TRACKING_END
 	};
 },_this] call CBA_fnc_execNextFrame;

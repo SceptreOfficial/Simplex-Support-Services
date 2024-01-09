@@ -45,7 +45,7 @@ private _vehicle = _battery # 0;
 
 {
 	if (!alive gunner _x) then {
-		ERROR_2(LLSTRING(NoGunnerInVehicle),_callsign,_x)
+		LOG_ERROR_2(LLSTRING(NoGunnerInVehicle),_callsign,_x)
 	};
 } forEach _battery;
 
@@ -71,7 +71,7 @@ private _cfgMagazines = configFile >> "CfgMagazines";
 	if (isClass (_cfgMagazines >> _class)) then {
 		_revisedAmmunition pushBack [_class,_roundLimit];
 	} else {
-		ERROR_1(LLSTRING(InvalidMagazineClass),_class);
+		LOG_ERROR_1(LLSTRING(InvalidMagazineClass),_class);
 	};
 } forEach _ammunition;
 
@@ -97,7 +97,7 @@ if (_icon isEqualTo "") then {
 _sheafTypes = SHEAF_TYPES arrayIntersect (_sheafTypes apply {toUpper _x});
 
 if (_sheafTypes isEqualTo []) exitWith {
-	ERROR("NO VALID SHEAF TYPES");
+	LOG_ERROR("NO VALID SHEAF TYPES");
 	objNull
 };
 

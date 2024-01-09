@@ -2,8 +2,6 @@
 
 if ([QSERVICE,QGVAR(gui)] call EFUNC(common,gui_verify)) exitWith {};
 
-PERFORMANCE_TRACKING_INIT
-
 private _display = uiNamespace getVariable QEGVAR(sdf,display);
 private _player = call CBA_fnc_currentUnit;
 private _entity = PVAR(guiEntity);
@@ -229,8 +227,6 @@ GVAR(coordinated) = _nearbyBatteries arrayIntersect GVAR(coordinated);
 	_ctrlCoordination lnbSetPictureColorSelected [_cell1,RGBA_RED];
 	_ctrlCoordination lnbSetTooltip [_cell1,LLSTRING(invalidRange)];
 } forEach _nearbyBatteries;
-
-PERFORMANCE_TRACKING_END
 
 _ctrlConfirm ctrlEnable (
 	_valid && !_busy &&

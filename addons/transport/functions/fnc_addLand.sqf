@@ -25,7 +25,7 @@ params [
 
 // Validation
 if (!alive driver _vehicle) exitWith {
-	ERROR_2(LLSTRING(NoDriverInVehicle),_callsign,_vehicle);
+	LOG_ERROR_2(LLSTRING(NoDriverInVehicle),_callsign,_vehicle);
 	objNull
 };
 
@@ -38,7 +38,7 @@ if (_callsign isEqualTo "") then {_callsign = getText (configOf _vehicle >> "dis
 _taskTypes = LAND_TASK_TYPES arrayIntersect (_taskTypes apply {toUpper _x});
 
 if (_taskTypes isEqualTo []) exitWith {
-	ERROR("NO VALID TASK TYPES");
+	LOG_ERROR("NO VALID TASK TYPES");
 	objNull
 };
 

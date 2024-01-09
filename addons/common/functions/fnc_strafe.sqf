@@ -35,7 +35,7 @@ if (_vehicle getVariable [QGVAR(strafe),false]) exitWith {
 if (_target in [[0,0,0],objNull]) exitWith {};
 
 if (!alive _vehicle || !canMove _vehicle || {!(_vehicle isKindOf "Air")}) exitWith {
-	ERROR_F("Invalid vehicle");
+	LOG_ERROR("Invalid vehicle");
 };
 
 if (_ingress < 0) then {_ingress = _target getDir _vehicle};
@@ -221,7 +221,7 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 	
 	if (!isNil {_vehicle getVariable QGVAR(strafeSimEHID)}) exitWith {
 		false call FUNC(strafeCleanup);
-		ERROR_F("Invalid vehicle");
+		LOG_ERROR("Invalid vehicle");
 	};
 
 	if !(_vehicle getVariable [QGVAR(strafeApproach),false]) then {

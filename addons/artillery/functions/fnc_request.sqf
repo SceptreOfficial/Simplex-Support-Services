@@ -16,7 +16,7 @@ switch _task do {
 		];
 
 		if !(_posASL isEqualTypeParams [0,0,0]) exitWith {
-			ERROR("INVALID POSITION");
+			LOG_ERROR("INVALID POSITION");
 		};
 
 		[QGVAR(relocate),[_player,_entity,_posASL]] call CBA_fnc_serverEvent;
@@ -32,7 +32,7 @@ switch _task do {
 		if (_plan isEqualTo [] ||
 			{_plan findIf {!(_x isEqualTypeParams [[[0,0,0],0,0,0,true],"",[],1,0,0])} > -1}
 		) exitWith {
-			ERROR("INVALID PLAN");
+			LOG_ERROR("INVALID PLAN");
 		};
 
 		[QGVAR(fireMission),[_player,_entity,_plan,_loops,_loopDelay,_coordinated]] call CBA_fnc_serverEvent;

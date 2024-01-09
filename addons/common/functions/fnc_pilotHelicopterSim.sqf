@@ -79,7 +79,7 @@ _vehicle setVelocityTransformation [_pos,_pos,_velocity,_velocity,_dir,_dir,_up,
 _vehicle setVelocity _velocity;
 
 if (_delta >= 0.5 && {!isNull (_vehicle getVariable [QGVAR(slingloadCargo),objNull])}) then {
-	LOG("Frame drop detected. Moving slingloaded cargo.");
+	LOG_WARNING("Frame drop detected. Moving slingloaded cargo.");
 	_vehicle setVariable [QGVAR(frameDrop),true,true];
 	[FUNC(slingload),[_vehicle,_vehicle getVariable QGVAR(slingloadCargo),true,true]] call CBA_fnc_execNextFrame;
 };

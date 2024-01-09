@@ -2,7 +2,7 @@
 
 params ["_completed"];
 
-LOG_1("Shot counts: %1",_vehicle getVariable QGVAR(firedCounts));
+DEBUG_1("Shot counts: %1",_vehicle getVariable QGVAR(firedCounts));
 _vehicle setVariable [QGVAR(firedCounts),nil,true];
 
 removeMissionEventHandler ["EachFrame",_vehicle getVariable [QGVAR(strafeSimEHID),-1]];

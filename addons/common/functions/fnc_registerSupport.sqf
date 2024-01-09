@@ -24,7 +24,7 @@ _supportType = toUpper _supportType;
 private _entities = GVAR(services) get _service;
 
 if (isNil "_entities") exitWith {
-	ERROR_1("Service not found: %1",_service);
+	LOG_ERROR_1("Service not found: %1",_service);
 	objNull
 };
 
@@ -42,7 +42,7 @@ if (_physicalProperties isNotEqualTo []) then {
 
 	if (_vehicle isEqualType objNull) then {
 		if ([_vehicle,_callsign] call FUNC(validateVehicle)) exitWith {
-			ERROR_3("%1: Invalid vehicle: %2 (%3)",_service,_vehicle,_callsign);
+			LOG_ERROR_3("%1: Invalid vehicle: %2 (%3)",_service,_vehicle,_callsign);
 			_exit = true;
 		};
 		
@@ -64,7 +64,7 @@ if (_physicalProperties isNotEqualTo []) then {
 		} forEach _vehicle;
 
 		if (_vehicles isEqualTo []) exitWith {
-			ERROR_3("%1: No valid vehicle found: %2 (%3)",_service,_vehicle,_callsign);
+			LOG_ERROR_3("%1: No valid vehicle found: %2 (%3)",_service,_vehicle,_callsign);
 			_exit = true;
 		};
 
@@ -117,6 +117,6 @@ publicVariable QGVAR(services);
 
 // Support registered event executed next frame to ensure extra variables are added from specific services fnc
 [{[QPVAR(supportRegistered),_this] call CBA_fnc_globalEvent},[_entity,_service,_supportType,_callsign]] call CBA_fnc_execNextFrame;
-DEBUG_4("%1:%2 Registered: '%3' - '%4'",_service,_supportType,_callsign,_class);
+DEBUG_4("%1:%2 '%3' (%4)",_service,_supportType,_callsign,_class);
 
 _entity

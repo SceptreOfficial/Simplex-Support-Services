@@ -23,14 +23,14 @@ _ctrlEntity ctrlAddEventHandler ["LBSelChanged",{
 	params ["_ctrlEntity","_lbCurSel"];
 
 	if (_lbCurSel < 0) exitWith {
-		ERROR("No longer exists");
+		LOG_ERROR("No longer exists");
 	};
 
 	private _entities = _ctrlEntity getVariable [QEGVAR(common,entities),[objNull]];
 	private _entity = _entities select _lbCurSel;
 
 	if (isNil "_entity" || isNull _entity || isNil {_entity getVariable QPVAR(service)}) exitWith {
-		ERROR("No longer exists");
+		LOG_ERROR("No longer exists");
 	};
 
 	private _oldEntity = PVAR(guiEntity);

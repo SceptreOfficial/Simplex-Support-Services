@@ -121,7 +121,7 @@ if (_fireStart > 0 && _fireStart <= CBA_missionTime && _triggerTick <= CBA_missi
 	_thisArgs set [INDEX_TRIGGER_TICK,_intervals # _weaponIndex + CBA_missionTime];
 
 	//[QGVAR(strafeFireTrigger),[_vehicle,_weapon,(CBA_missionTime - _fireStart) / _duration]] call CBA_fnc_localEvent;
-	//LOG_4("Strafe trigger pull - %3 (%4/1) %1:%2",_muzzle,_firemode,CBA_missionTime,(CBA_missionTime - _fireStart) / (_durations param [_weaponIndex,1]));
+	//DEBUG_4("Strafe trigger pull - %3 (%4/1) %1:%2",_muzzle,_firemode,CBA_missionTime,(CBA_missionTime - _fireStart) / (_durations param [_weaponIndex,1]));
 };
 
 if (_abort) then {true call FUNC(strafeCleanup)};

@@ -1,8 +1,6 @@
 #include "script_component.hpp"
 //#define HELPER_TIMEOUT 5
 
-PERFORMANCE_TRACKING_INIT
-
 params ["_ammoData","_sourceASL","_sourceVelocity","_targetASL",["_tolerance",3],["_maxIterations",10]];
 _ammoData params ["_initSpeed","_airFriction","_timeToLive","_simStep","_simulation"];
 
@@ -28,7 +26,7 @@ if (_distance < 200) exitWith {
 private _maxRange = _initSpeed^2 / GRAVITY;
 
 if (_distance >= _maxRange / log _maxRange) exitWith {
-	LOG_3("getAimSim: Out of range: %1 -> %2: %3",_sourceASL,_targetASL,_ammoData);
+	DEBUG_3("getAimSim: Out of range: %1 -> %2: %3",_sourceASL,_targetASL,_ammoData);
 	_targetASL vectorDiff _sourceASL
 };
 
@@ -102,8 +100,6 @@ while {
 
 	_targetASL vectorDistance _simASL > _tolerance && _deltaEval
 } do {};
-
-PERFORMANCE_TRACKING_END
 
 #ifdef HELPER_TIMEOUT
 DEBUG_2("getAimSim: Iterations: %1. Final distance: %2",_iterations,_targetASL vectorDistance _simASL);

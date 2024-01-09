@@ -66,7 +66,7 @@ if (_weapon isEqualTo "") then {
 	_weapon = _vehicle currentWeaponTurret _turret;
 };
 
-LOG_3("fireAtTarget: %1 %2 %3",_target,_weapon,_turret);
+DEBUG_3("fireAtTarget: %1 %2 %3",_target,_weapon,_turret);
 
 // Get weapon info
 weaponState [_vehicle,_turret,_weapon] params ["","_muzzle","_firemode","_loadedMag"];

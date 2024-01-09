@@ -234,7 +234,6 @@ GVAR(slingLoadConditions) = [];
 [QGVAR(zeusDisplayUnload),{false call FUNC(drawShape3D)}] call CBA_fnc_addEventHandler;
 
 // DEBUG
-#ifdef EARLY_ACCESS
 FUNC(logRequestData) = {
 	params ["_player","_entity","_request","_event"];
 	
@@ -265,7 +264,6 @@ FUNC(cam) = {
 	GVAR(cam) camCommit 0;
 	switchCamera GVAR(cam);
 };
-#endif
 
 // STRAFE
 #include "strafeElevationOffsets.sqf"
@@ -292,7 +290,7 @@ GVAR(ignoredWeapons) = ["rhs_weap_fcs"];
 // REMOTE CONTROL
 [QGVAR(remoteControlTransferred),{
 	params ["_unit","_elapsedTime"];
-	LOG_FULL_1("Locality transferred. [%1s]",_elapsedTime);
+	DEBUG_1("Locality transferred. [%1s]",_elapsedTime);
 }] call CBA_fnc_addEventHandler;
 
 ADDON = true;

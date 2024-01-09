@@ -9,7 +9,7 @@ private _itemKey = _ctrlSelection lnbData [_index,0];
 private _item = GVAR(list) param [parseNumber _itemKey,[]];
 
 if (_item isEqualTo []) exitWith {
-	ERROR("No item data");
+	LOG_ERROR("No item data");
 };
 
 _item params ["_class","_formatting","_init","_thisArgs","_load","_requestLimit","_quantity"];
