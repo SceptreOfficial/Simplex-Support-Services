@@ -245,7 +245,6 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 	} forEach getPylonMagazines _vehicle;
 
 	// Begin simulation
-	if (OPTION(debug)) then {setAccTime 1};
 	private _ID = addMissionEventHandler ["EachFrame",{call FUNC(strafeSim)},[
 		_vehicle,
 		_target,
