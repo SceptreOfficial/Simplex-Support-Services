@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params ["_vehicle","_ejections",["_interval",0.8]];
+params ["_vehicle","_ejections",["_interval",OPTION(ejectInterval)]];
 
 _vehicle setVariable [QGVAR(unloadEnd),false,true];
 

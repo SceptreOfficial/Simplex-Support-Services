@@ -643,5 +643,11 @@
 		<Key ID="STR_sss_common_remoteControlWarning">
 			<English>Allow time for locality to transfer for full control...</English>
 		</Key>
+		<Key ID="STR_SSS_common_ejectInterval_name">
+			<English>Ejection interval</English>
+		</Key>
+		<Key ID="STR_SSS_common_ejectInterval_info">
+			<English>Default interval used when unloading infantry and cargo</English>
+		</Key>
 	</Package>
 </Project>

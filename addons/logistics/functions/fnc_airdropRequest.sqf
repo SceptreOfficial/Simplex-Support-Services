@@ -12,7 +12,7 @@ private _aiHandling = _request getOrDefault ["aiHandling",0];
 private _spawnDistance = _entity getVariable [QPVAR(spawnDistance),6000];
 private _speed = getNumber (configFile >> "CfgVehicles" >> _entity getVariable [QPVAR(class),""] >> "maxSpeed");
 private _itemCount = count flatten (_selection apply {_x # 0});
-private _offset = _speed * 0.35 * (_itemCount / 2 max 1) * (_entity getVariable [QPVAR(ejectDelay),0.8]);
+private _offset = _speed * 0.35 * (_itemCount / 2 max 1) * (_entity getVariable [QPVAR(ejectInterval),OPTION(ejectInterval)]);
 
 if (_offset > _spawnDistance / 2) then {
 	_spawnDistance = _spawnDistance + _offset;

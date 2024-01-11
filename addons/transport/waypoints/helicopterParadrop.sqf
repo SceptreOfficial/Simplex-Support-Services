@@ -7,10 +7,10 @@ params [
 	"_attachedObject",
 	["_behaviors",[]],
 	["_timeout",0],
-	["_openAltitude",150],
-	["_ejectDelay",1],
 	["_ejectTypes",[]],
-	["_ejectionsID",""]
+	["_ejectionsID",""],
+	["_ejectInterval",OPTION(ejectInterval)],
+	["_openAltitude",150]
 ];
 
 private _entity = _group getVariable [QPVAR(entity),objNull];
@@ -83,7 +83,7 @@ _vehicle setVariable [QGVAR(paradropEnd),false,true];
 			//},[_item,_vehicle]] call CBA_fnc_execNextFrame;
 		};
 	}],_item] call CBA_fnc_targetEvent;
-},_ejectDelay,[_entity,_vehicle,_ejections,_openAltitude]] call CBA_fnc_addPerFrameHandler;
+},_ejectInterval,[_entity,_vehicle,_ejections,_openAltitude]] call CBA_fnc_addPerFrameHandler;
 
 _moveTick = 0;
 

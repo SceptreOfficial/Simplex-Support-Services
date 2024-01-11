@@ -481,8 +481,8 @@
 		<Key ID="STR_sss_transport_parachuteDeployHeight">
 			<English>Parachute deploy height</English>
 		</Key>
-		<Key ID="STR_sss_transport_ejectionDelay">
-			<English>Ejection delay</English>
+		<Key ID="STR_sss_transport_ejectInterval">
+			<English>Ejection interval</English>
 		</Key>
 		<Key ID="STR_sss_transport_direction">
 			<English>Direction</English>

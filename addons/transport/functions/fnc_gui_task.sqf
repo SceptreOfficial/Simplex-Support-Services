@@ -554,16 +554,12 @@ switch _task do {
 
 		_groupHeight = _groupHeight + 4;
 		_controls append [_ctrlText,_ctrlCBText1,_ctrlCBText2,_ctrlCBText3,_ctrlCB1,_ctrlCB2,_ctrlCB3,_ctrlBG,_ctrlList,_ctrlOverlay];
+
+		// Ejection interval
+		_controls append ([_groupHeight,LLSTRING(ejectInterval),[0,5,1],OPTION(ejectInterval),"ejectInterval",LELSTRING(common,secondAcronym)] call FUNC(gui_slider));
+		_groupHeight = _groupHeight + 1;
 	};
 	case "PARADROP" : {
-		// Open altitude
-		_controls append ([_groupHeight,LLSTRING(parachuteDeployHeight),[50,2000,0],150,"openAltitude",LELSTRING(common,meterAcronym)] call FUNC(gui_slider));
-		_groupHeight = _groupHeight + 1;
-
-		// Ejection delay
-		_controls append ([_groupHeight,LLSTRING(ejectionDelay),[0.2,10,1],1,"ejectDelay",LELSTRING(common,secondAcronym)] call FUNC(gui_slider));
-		_groupHeight = _groupHeight + 1;
-
 		// Ejections
 		private _ctrlText = _display ctrlCreate [QEGVAR(sdf,Text),-1,_ctrlTaskGroup];
 		_ctrlText ctrlSetPosition [CTRL_X(0),CTRL_Y(_groupHeight),CTRL_W(7),CTRL_H(5)];
@@ -695,6 +691,14 @@ switch _task do {
 
 		_groupHeight = _groupHeight + 4;
 		_controls append [_ctrlText,_ctrlCBText1,_ctrlCBText2,_ctrlCBText3,_ctrlCB1,_ctrlCB2,_ctrlCB3,_ctrlBG,_ctrlList,_ctrlOverlay];
+
+		// Ejection interval
+		_controls append ([_groupHeight,LLSTRING(ejectInterval),[0,5,1],OPTION(ejectInterval),"ejectInterval",LELSTRING(common,secondAcronym)] call FUNC(gui_slider));
+		_groupHeight = _groupHeight + 1;
+
+		// Open altitude
+		_controls append ([_groupHeight,LLSTRING(parachuteDeployHeight),[50,2000,0],150,"openAltitude",LELSTRING(common,meterAcronym)] call FUNC(gui_slider));
+		_groupHeight = _groupHeight + 1;
 	};
 	case "SAD" : {};
 	case "STRAFE" : {

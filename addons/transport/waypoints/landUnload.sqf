@@ -8,7 +8,8 @@ params [
 	["_behaviors",[]],
 	["_timeout",0],
 	["_ejectTypes",[]],
-	["_ejectionsID",""]
+	["_ejectionsID",""],
+	["_ejectInterval",OPTION(ejectInterval)]
 ];
 
 private _entity = _group getVariable [QPVAR(entity),objNull];
@@ -38,7 +39,7 @@ private _ejections = _group getVariable [_ejectionsID,[]];
 _ejections append ([[],getVehicleCargo _vehicle] select _allCargo);
 _ejections append (SECONDARY_CREW(_vehicle) select {(_allPlayers && isPlayer _x) || (_allAI && !isPlayer _x)});
 
-[_vehicle,_ejections] call EFUNC(common,unloadTransport);
+[_vehicle,_ejections,_ejectInterval] call EFUNC(common,unloadTransport);
 
 waitUntil {
 	sleep WAYPOINT_SLEEP;
