@@ -37,6 +37,11 @@ private _endHeight = getPosASL _hook # 2 - _length - 0.3;
 	_unit switchMove "";
 	_unit setVectorUp [0,0,1];
 	_unit setVariable [QPVAR(fastroping),nil,true];
+	
+	// Tell AI to make room
+	if (!isPlayer _unit) then {
+		[{(_this # 0) doMove (_this # 1)},[_unit,_vehicle getPos [sizeOf typeOf _vehicle / 2,random 360]],2] call CBA_fnc_execAfterNFrames;
+	};
 
 	// mod compat
 	if (!isNil "WMO_noRoadway") then {WMO_noRoadway deleteAt (WMO_noRoadway find _vehicle)};
