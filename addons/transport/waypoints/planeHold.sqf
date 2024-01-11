@@ -35,7 +35,7 @@ waitUntil {
 		};
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	if (unitReady _vehicle && isNil {_vehicle getVariable QGVAR(hold)}) then {
 		_vehicle setVariable [QGVAR(hold),LSTRING(stopHolding),true];

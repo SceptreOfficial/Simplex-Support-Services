@@ -170,6 +170,7 @@
 #define GRAVITY 9.8066
 #define HELO_PILOT_DISTANCE 650
 #define VTOL_PILOT_DISTANCE 800
+#define WAYPOINT_SLEEP 0.5
 
 // Command macros
 #define IMG_STR(PATH) (format ["<img image='%1'/>",PATH])

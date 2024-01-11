@@ -26,7 +26,7 @@ waitUntil {
 		_vehicle doMove _wpPos;
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	unitReady _vehicle
 };
@@ -35,7 +35,7 @@ waitUntil {
 private _relocationTick = (_entity getVariable [QPVAR(relocation),[false,60]]) # 1 + CBA_missionTime;
 
 waitUntil {
-	sleep 0.5;
+	sleep WAYPOINT_SLEEP;
 	!alive _vehicle || !unitReady _vehicle || CBA_missionTime >= _relocationTick
 };
 

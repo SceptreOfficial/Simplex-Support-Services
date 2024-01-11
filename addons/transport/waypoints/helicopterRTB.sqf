@@ -31,7 +31,7 @@ waitUntil {
 		};
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	!isTouchingGround _vehicle && _vehicle distance2D _posAGL < HELO_PILOT_DISTANCE
 };
@@ -51,7 +51,7 @@ if (driver _vehicle call EFUNC(common,isRemoteControlled)) exitWith {true};
 ] call EFUNC(common,pilotHelicopter);
 
 waitUntil {
-	sleep 0.5;
+	sleep WAYPOINT_SLEEP;
 	isTouchingGround _vehicle ||
 	!(_vehicle getVariable [QEGVAR(common,pilotHelicopter),false]) ||
 	_vehicle getVariable [QEGVAR(common,pilotHelicopterCompleted),false]

@@ -25,7 +25,7 @@ waitUntil {
 		_vehicle doMove _wpPos;
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	unitReady _vehicle || _vehicle distance2D _wpPos < _radius + 400
 };

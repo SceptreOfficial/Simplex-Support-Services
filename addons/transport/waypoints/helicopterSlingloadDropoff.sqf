@@ -29,7 +29,7 @@ waitUntil {
 		};
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	!isTouchingGround _vehicle && _vehicle distance2D _wpPos < HELO_PILOT_DISTANCE
 };
@@ -43,7 +43,7 @@ _posASL = ATLToASL _posASL;
 [_vehicle,_posASL] call EFUNC(common,slingloadDropoff);
 
 waitUntil {
-	sleep 0.5;
+	sleep WAYPOINT_SLEEP;
 	isNull (_vehicle getVariable [QEGVAR(common,slingloadCargo),objNull]) ||
 	!(_vehicle getVariable [QEGVAR(common,pilotHelicopter),false]) ||
 	_vehicle getVariable [QEGVAR(common,pilotHelicopterCompleted),false]

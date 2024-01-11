@@ -49,7 +49,7 @@ waitUntil {
 		};
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	!alive _attachedObject || _condition
 };

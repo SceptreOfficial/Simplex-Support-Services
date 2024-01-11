@@ -31,12 +31,12 @@ waitUntil {
 		{
 			doStop _x;
 			[QEGVAR(common,enableAIFeature),[_x,["PATH",true]],_x] call CBA_fnc_targetEvent;
-			sleep 0.1;
+			sleep WAYPOINT_SLEEP;
 			_x doMove (_wpPos vectorAdd (_x getVariable [QGVAR(formOffset),[0,0,0]]));
 		} forEach (_entity getVariable QPVAR(vehicles));
 	};
 
-	sleep 0.5;
+	sleep WAYPOINT_SLEEP;
 
 	isNull _entity || {CBA_missionTime >= _relocationTick && _vehiclesReady}
 };

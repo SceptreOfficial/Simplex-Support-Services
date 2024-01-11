@@ -37,7 +37,7 @@ waitUntil {
 		};
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	!isTouchingGround _vehicle && _vehicle distance2D _wpPos < VTOL_PILOT_DISTANCE
 };
@@ -65,7 +65,7 @@ if (_ejections isEqualTo []) exitWith {
 _vehicle setVariable [QPVAR(fastropeDone),false,true];
 
 waitUntil {
-	sleep 0.5;
+	sleep WAYPOINT_SLEEP;
 	_vehicle getVariable [QPVAR(fastropeDone),false] ||
 	!(_vehicle getVariable [QEGVAR(common,pilotHelicopter),false]) ||
 	_vehicle getVariable [QEGVAR(common,pilotHelicopterCompleted),false]

@@ -36,7 +36,7 @@ waitUntil {
 		_vehicle doMove _posAGL;
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	!isTouchingGround _vehicle && unitReady _vehicle
 };
@@ -45,7 +45,7 @@ if (_virtualRunway isEqualTo [0,0,0]) then {
 	_vehicle action ["Land",_vehicle];
 
 	waitUntil {
-		sleep 0.5;
+		sleep WAYPOINT_SLEEP;
 		isTouchingGround _vehicle && speed _vehicle < 30
 	};
 } else {

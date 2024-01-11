@@ -24,7 +24,7 @@ _vehicle setDriveOnPath _points;
 //private _lastPos = [_pX,_pY,_pZ];
 
 waitUntil {
-	sleep 0.3;
+	sleep WAYPOINT_SLEEP;
 	!alive _vehicle || !canMove _vehicle || _vehicle distance _wpPos < 8
 };
 

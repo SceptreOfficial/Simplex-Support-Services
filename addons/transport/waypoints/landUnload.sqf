@@ -27,7 +27,7 @@ waitUntil {
 		_vehicle doMove _wpPos;
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	unitReady _vehicle
 };
@@ -41,7 +41,7 @@ _ejections append (SECONDARY_CREW(_vehicle) select {(_allPlayers && isPlayer _x)
 [_vehicle,_ejections] call EFUNC(common,unloadTransport);
 
 waitUntil {
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 	_vehicle getVariable [QEGVAR(common,unloadEnd),false]
 };
 

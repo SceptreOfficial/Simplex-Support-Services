@@ -34,7 +34,7 @@ waitUntil {
 		_vehicle doMove _wpPos;
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	!isTouchingGround _vehicle && unitReady _vehicle
 };
@@ -92,7 +92,7 @@ waitUntil {
 		_vehicle doMove (_vehicle getRelPos [6000,0]);
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	_vehicle getVariable [QGVAR(paradropEnd),false]
 };

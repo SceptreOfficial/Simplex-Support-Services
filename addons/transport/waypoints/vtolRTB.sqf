@@ -34,7 +34,7 @@ waitUntil {
 		};
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	!isTouchingGround _vehicle && _vehicle distance2D _posAGL < VTOL_PILOT_DISTANCE
 };
@@ -52,7 +52,7 @@ waitUntil {
 ] call EFUNC(common,pilotHelicopter);
 
 waitUntil {
-	sleep 0.5;
+	sleep WAYPOINT_SLEEP;
 	isTouchingGround _vehicle ||
 	!(_vehicle getVariable [QEGVAR(common,pilotHelicopter),false]) ||
 	_vehicle getVariable [QEGVAR(common,pilotHelicopterCompleted),false]
