@@ -29,7 +29,7 @@ if (!local _logic) exitWith {};
 
 		[_logic,_entity] call EFUNC(common,addTerminals);
 	} else {
-		[_logic] call FUNC(moduleAddStation_zeus);
+		[getPosASL _logic] call FUNC(moduleAddStation_zeus);
 	};
 
 	deleteVehicle _logic;

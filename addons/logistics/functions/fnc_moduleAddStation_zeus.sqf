@@ -10,7 +10,7 @@ params ["_posASL"];
 		[LELSTRING(common,SideGuer),"",ICON_GUER]
 	],west,[west,east,independent]]],
 	["EDITBOX",EDESC(common,callsign),""],
-	["EDITBOX",EDESC(common,cooldown),60],
+	["EDITBOX",EDESC(common,cooldown),0],
 	["EDITBOX",DESC(clearingRadius),0],
 	["EDITBOX",DESC(listFunction),"[]"],
 	["EDITBOX",DESC(itemInit),""],
