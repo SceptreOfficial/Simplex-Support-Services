@@ -319,7 +319,7 @@
 		</Key>
 		<Key ID="STR_sss_logistics_joinRequesterGroup">
 			<English>Join requester group</English>
-			<French>Rejoindre grp du demandeurs</French>
+			<French>Rejoindre grp du demandeur</French>
 		</Key>
 		<Key ID="STR_sss_logistics_createStandaloneGroups">
 			<English>Create standalone group(s)</English>
