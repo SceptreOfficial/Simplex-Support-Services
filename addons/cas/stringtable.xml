@@ -399,7 +399,7 @@
 		</Key>
 		<Key ID="STR_sss_cas_primaryRateControl">
 			<English>Primary rate control</English>
-			<French>Contrôle de la cadence de tir d'arme primaire</French>
+			<French>Mode de tir (nbr/temps)</French>
 		</Key>
 		<Key ID="STR_sss_cas_distribution">
 			<English>Distribution</English>
@@ -407,7 +407,7 @@
 		</Key>
 		<Key ID="STR_sss_cas_triggerInterval">
 			<English>Trigger interval</English>
-			<French>Intervalle de déclenchement</French>
+			<French>Intervalle de tir</French>
 		</Key>
 		<Key ID="STR_sss_cas_secondaryWeapon">
 			<English>Secondary weapon</English>
@@ -415,7 +415,7 @@
 		</Key>
 		<Key ID="STR_sss_cas_secondaryRateControl">
 			<English>Secondary rate control</English>
-			<French>Contrôle de la cadence de tir d'arme secondaire</French>
+			<French>Mode de tir (nbr/temps)</French>
 		</Key>
 		<Key ID="STR_sss_cas_none">
 			<English>[NONE]</English>
