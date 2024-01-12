@@ -227,11 +227,11 @@
 		</Key>
 		<Key ID="STR_SSS_CAS_statusLoiterIngress">
 			<English>INGRESS</English>
-			<French>ENTRÉE</French>
+			<French>EN APPROCHE</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusLoiterEgress">
 			<English>EGRESS</English>
-			<French>SORTIE</French>
+			<French>EN SORTIE</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusLoiterAbort">
 			<English>ABORT</English>
