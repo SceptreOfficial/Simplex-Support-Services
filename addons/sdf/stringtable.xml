@@ -10,11 +10,14 @@
 	</Key>
 	<Key ID="STR_SSS_SDF_mapTooltip">
 		<English>Rotate: CTRL\nResize: ALT</English>
+		<French>Rotation: CTRL\nRedimensionnement: ALT</French>
 	</Key>
 	<Key ID="STR_SSS_SDF_mapTooltipSpecial">
 		<English>Rotate: CTRL\nResize: ALT\n%1: SHIFT</English>
+		<French>Rotation: CTRL\nRedimensionner: ALT\n%1: MAJ</French>
 	</Key>
 	<Key ID="STR_SSS_SDF_special">
 		<English>Special</English>
+		<French>Special</French>
 	</Key>
 </Project>
