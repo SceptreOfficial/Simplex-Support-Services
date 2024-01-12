@@ -636,7 +636,7 @@
 		<Key ID="STR_sss_transport_parachuteDeployHeight">
 			<English>Parachute deploy height</English>
 			<French>Altitude de déploiement du parachute</French>
-    </Key>
+		</Key>
 		<Key ID="STR_sss_transport_ejectInterval">
 			<English>Ejection interval</English>
 			<French>Intervalle d'éjection</French>
