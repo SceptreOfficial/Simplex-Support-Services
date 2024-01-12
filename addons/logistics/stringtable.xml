@@ -3,273 +3,363 @@
 	<Package name="Logistics">
 		<Key ID="STR_SSS_Logistics_Service">
 			<English>Logistics</English>
+			<French>Logistique</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_moduleAddAirdrop_name">
 			<English>Logistics Airdrop</English>
+			<French>Largage logistique</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_moduleAddSlingload_name">
 			<English>Logistics Slingload</English>
+			<French>Logistique Slingload</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_moduleAddStation_name">
 			<English>Logistics Station</English>
+			<French>Station Logistique</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_moduleReferenceArea_name">
 			<English>Logistics Reference Area</English>
+			<French>Zone de référence logistique</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_moduleReferenceArea_info">
 			<English>Designate an area that will populate synced logistics support list(s)</English>
+			<French>Désignez une zone qui remplira la ou les listes de support logistique synchronisées</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_manualInput_name">
 			<English>Require manual input</English>
+			<French>Exiger une saisie manuelle</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_manualInput_info">
 			<English>Require players to manually input grid coordinates</English>
+			<French>Demander aux joueurs de saisir manuellement les coordonnées de la grille</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_visualAids_name">
 			<English>Visual aids</English>
+			<French>Aides visuelles</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_visualAids_info">
 			<English>Show visual aids for request planning on the map</English>
+			<French>Afficher des aides visuelles pour la planification des demandes sur la carte</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_taskMarkers_name">
 			<English>Task markers</English>
+			<French>Marqueurs de tâches</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_taskMarkers_info">
 			<English>Create map markers on task locations</English>
+			<French>Créer des marqueurs de carte sur les emplacements des tâches</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_Altitude_name">
 			<English>Altitude</English>
+			<French>Altitude</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_Altitude_info">
 			<English>Flying height</English>
+			<French>Altitude de vol</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_UnloadAltitude_name">
 			<English>Infantry unload height</English>
+			<French>Altitude de déchargement de l'infanterie</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_UnloadAltitude_info">
 			<English>If set to 0, helicopter will land to unload.</English>
+			<French>S'il est réglé sur 0, l'hélicoptère atterrira pour décharger.</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_VirtualRunway_name">
 			<English>Virtual runway</English>
+			<French>Piste virtuelle</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_VirtualRunway_info">
 			<English>Aircraft will spawn at this position.\n[0,0,0] will spawn at a random position.</English>
+			<French>L'avion apparaîtra à cette position.\n[0,0,0] fera l'apparaître à une position aléatoire.</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_SpawnDistance_name">
 			<English>Spawn distance</English>
+			<French>Distance d'apparition</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_SpawnDistance_info">
 			<English>If virtual runway is undefined, the aircraft will spawn this far away from the target</English>
+			<French>Si la piste virtuelle n'est pas définie, l'avion apparaîtra loin de la cible</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_SpawnDelay_name">
 			<English>Spawn delay</English>
+			<French>Délai d'apparition</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_SpawnDelay_info">
 			<English>Aircraft will spawn after specified random duration. Use to simulate takeoff or flight delays.</English>
+			<French>Les avions apparaîtront après une durée aléatoire spécifiée. À utiliser pour simuler des retards de décollage ou de vol.</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_Capacity_name">
 			<English>Capacity</English>
+			<French>Capacité</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_Capacity_info">
 			<English>Determines how many items may be requested depending on their load (default item load is 1).</English>
+			<French>Détermine le nombre d'éléments pouvant être demandés en fonction de leur charge (la charge d'élément par défaut est 1).</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_ListFunction_name">
 			<English>List function</English>
+			<French>Liste de fonctions</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_ListFunction_info">
 			<English>Code that must return an array of items that can be requested.\n\nCategory arguments:\n0: Name (must be prefixed with #) [STRING]\n1: Child items [ARRAY]\n\nItem arguments:\n0: Class or array of classes [STRING | ARRAY]\n1: Formatting (name, icon, tooltip, info) [STRING | ARRAY]\n2: Init [CODE]\n3: Extra arguments [ANY]\n4: Load [NUMBER]\n5: Request limit [NUMBER]\n6: Quantity available [NUMBER]</English>
+			<French>Code qui doit renvoyer un tableau d'éléments pouvant être demandés.\n\nCategory arguments:\n0: Name (must be prefixed with #) [STRING]\n1: Child items [ARRAY]\n\nItem arguments:\n0: Class or array of classes [STRING | ARRAY]\n1: Formatting (name, icon, tooltip, info) [STRING | ARRAY]\n2: Init [CODE]\n3: Extra arguments [ANY]\n4: Load [NUMBER]\n5: Request limit [NUMBER]\n6: Quantity available [NUMBER]</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_ItemInit_name">
 			<English>Item init</English>
+			<French>Objet init</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_ItemInit_info">
 			<English>Code ran for every item spawned.\n'_this' refers to the object. '_thisArgs' refers to any extra arguments passed with the item.</English>
+			<French>Le code a été exécuté pour chaque élément généré.\n'_this' fait référence à l'objet. '_thisArgs' fait référence à tous les arguments supplémentaires transmis avec l'élément.</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_AircraftClass_name">
 			<English>Aircraft class</English>
+			<French>Avion Class</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_AircraftClass_info">
 			<English>Class name of the aircraft which will deliver the cargo.</English>
+			<French>Nom de classe de l'avion qui livrera la cargaison.</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_Fulfillment_name">
 			<English>Fulfillment</English>
+			<French>Remplissage</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_Fulfillment_info">
 			<English>Restrict items to the physical capacity of a single helicopter or send as many helicopters as needed to fulfill the request</English>
+			<French>Limiter les articles à la capacité physique d'un seul hélicoptère ou envoyer autant d'hélicoptères que nécessaire pour répondre à la demande</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_OpenAltitudeAI_name">
 			<English>Parachute altitude: AI</English>
+			<French>Altitude de parachutage : IA</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_OpenAltitudeAI_info">
 			<English>Height when parachutes are deployed for infantry. -1 for immediate.</English>
+			<French>Altitude de déploiement de parachutes pour l'infanterie. -1 pour immédiat.</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_OpenAltitudeObjects_name">
 			<English>Parachute altitude: Objects</English>
+			<French>Altitude du parachutage : Objets</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_OpenAltitudeObjects_info">
 			<English>Height when parachutes are deployed for objects. -1 for immediate.</English>
+			<French>Altitude de déploiement de parachutes pour des objets. -1 pour immédiat.</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_ItemCooldown_name">
 			<English>Item cooldown</English>
+			<French>Temps d'attente de recharge d'objet</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_ItemCooldown_info">
 			<English>Additional time incremented per object loaded.</English>
+			<French>Temps supplémentaire incrémenté par objet chargé.</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_cooldownTrigger_name">
 			<English>Cooldown trigger</English>
+			<French>Déclencheur de temps d'attente</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_cooldownTrigger_info">
 			<English>When the cooldown process will commence</English>
+			<French>Quand le processus de refroidissement commencera</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_Submission">
 			<English>Submission</English>
+			<French>Soumission</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_Completion">
 			<English>Completion</English>
+			<French>Achèvement</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_Single">
 			<English>Single</English>
+			<French>Simple</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_Multiple">
 			<English>Multiple</English>
+			<French>Multiple</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_statusAirdropInbound">
 			<English>MOVING TO DROP LOCATION</English>
+			<French>DÉPLACEMENT À L'EMPLACEMENT DE LARGAGE</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_statusAirdropDropping">
 			<English>DROPPING CARGO</English>
+			<French>LARGAGE D'UNE CARGAISON</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_statusAirdropComplete">
 			<English>RETURNING TO BASE</English>
+			<French>RETOURNE À LA BASE</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_statusAirdropAbort">
 			<English>ABORTING</English>
+			<French>ANNULATION</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_notifyAirdropInbound">
 			<English>Cargo inbound to %1. ETA %2</English>
+			<French>Cargaison en chemin vers %1. ETA %2</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_notifyAirdropDropping">
 			<English>Dropping cargo...</English>
+			<French>Largage d'une cargaison...</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_notifyAirdropComplete">
 			<English>Request complete. Returning to base.</English>
+			<French>Demande terminée. Retour à la base.</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_notifyAirdropAbort">
 			<English>Request aborted.</English>
+			<French>Demande annulée.</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_notifyAirdropKilled">
 			<English>Aircraft was destroyed and was unable to fulfill your request</English>
+			<French>L'avion a été détruit et n'a pas pu répondre à votre demande</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_notifyStationSpawned">
 			<English>%1 has arrived at %2</English>
+			<French>%1 est arrivé à %2</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_notifyCooldownComplete">
 			<English>Refueled and ready for further tasking.</English>
+			<French>Ravitaillé et prêt pour d’autres tâches.</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_notifyStationCooldownComplete">
 			<English>Restocked and ready for use.</English>
+			<French>Réapprovisionné et prêt à l'emploi.</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_direction_name">
 			<English>Direction</English>
+			<French>Direction</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_direction_info">
 			<English>Objects will face this direction on spawn</English>
+			<French>Les objets feront face à cette direction lors de leur apparition</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_behavior_name">
 			<English>Behavior</English>
+			<French>Comportement</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_behavior_info">
 			<English>Determine how objects are handled</English>
+			<French>Déterminer comment les objets sont gérés</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_initiate_name">
 			<English>Initiate</English>
+			<French>Init</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_initiate_info">
 			<English>List is updated upon init, then objects are deleted</English>
+			<French>La liste est mise à jour au démarrage, puis les objets sont supprimés</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_monitor_name">
 			<English>Monitor</English>
+			<French>Monitor</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_monitor_info">
 			<English>List is perpetually updated with objects that are in the area</English>
+			<French>La liste est perpétuellement mise à jour avec les objets qui se trouvent dans la zone</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_category_name">
 			<English>Category</English>
+			<French>Catégorie</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_category_info">
 			<English>Name of the category that the items listed under. Leave empty for no category.</English>
+			<French>Nom de la catégorie sous laquelle les éléments sont répertoriés. Laisser vide pour aucune catégorie.</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_infantry_name">
 			<English>Infantry referencing</English>
+			<French>Référencement d'infanterie</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_infantry_info">
 			<English>Determines how infantry is referenced in the area</English>
+			<French>Détermine comment l'infanterie est référencée dans la zone</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_filter_name">
 			<English>Filter</English>
+			<French>Filtre</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_filter_info">
 			<English>Exclusionary condition to filter out objects in the area.\n'_x' refers to the current iterated object.</English>
+			<French>Condition d'exclusion pour filtrer les objets dans la zone.\n'_x' fait référence à l'objet itéré actuel.</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_loadEval_name">
 			<English>Load evaluation</English>
+			<French>Évaluation du chargement</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_loadEval_info">
 			<English>Code to evaluate an item's load from the area.\n'_x' refers to the object.</English>
+			<French>Code pour évaluer la charge d'un élément à partir de la zone.\n'_x' fait référence à l'objet.</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_individuals">
 			<English>Individual units</English>
+			<French>Unités individuelles</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_groups">
 			<English>Groups</English>
+			<French>Groupes</French>
 		</Key>
 		<Key ID="STR_sss_logistics_availableItems">
 			<English>Available items</English>
+			<French>Articles disponibles</French>
 		</Key>
 		<Key ID="STR_sss_logistics_itemInfo">
 			<English>Item info</English>
+			<French>Informations sur l'article</French>
 		</Key>
 		<Key ID="STR_sss_logistics_requestedItems">
 			<English>Requested items</English>
+			<French>Articles demandés</French>
 		</Key>
 		<Key ID="STR_sss_logistics_landingSignals">
 			<English>Landing signals</English>
+			<French>Signaux d'atterrissage</French>
 		</Key>
 		<Key ID="STR_sss_logistics_aiHandling">
 			<English>AI Handling</English>
+			<French>Gestion de l'IA</French>
 		</Key>
 		<Key ID="STR_sss_logistics_joinRequesterGroup">
 			<English>Join requester group</English>
+			<French>Rejoindre grp du demandeur</French>
 		</Key>
 		<Key ID="STR_sss_logistics_createStandaloneGroups">
 			<English>Create standalone group(s)</English>
+			<French>Créer des grps autonomes</French>
 		</Key>
 		<Key ID="STR_sss_logistics_load">
 			<English>Load</English>
+			<French>Quantité</French>
 		</Key>
 		<Key ID="STR_sss_logistics_requestLimit">
 			<English>Request limit</English>
+			<French>Limite de demande</French>
 		</Key>
 		<Key ID="STR_sss_logistics_quantity">
 			<English>Quantity</English>
+			<French>Disponible</French>
 		</Key>
 		<Key ID="STR_sss_logistics_group">
 			<English>Group</English>
+			<French>Groupe</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_clearingRadius_name">
 			<English>Clearing radius</English>
+			<French>Rayon de dégagement</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_clearingRadius_info">
 			<English>Allows players to clear obstructions around spawn position</English>
+			<French>Permet aux joueurs de dégager les obstacles autour de la position d'apparition</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_areaCleared">
 			<English>Area cleared.</English>
+			<French>Zone dégagée.</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_clearAreaRestriction_name">
 			<English>Clear area restriction</English>
+			<French>Effacer la restriction de zone</French>
 		</Key>
 		<Key ID="STR_SSS_Logistics_clearAreaRestriction_info">
 			<English>Only remove objects spawned with the Logistics service</English>
+			<French>Supprimez uniquement les objets générés avec le service Logistique</French>
 		</Key>
 	</Package>
 </Project>
