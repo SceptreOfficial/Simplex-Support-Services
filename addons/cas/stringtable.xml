@@ -3,345 +3,459 @@
 	<Package name="CAS">
 		<Key ID="STR_SSS_CAS_Service">
 			<English>CAS</English>
+			<French>CAS</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_moduleAddBombing_name">
 			<English>CAS Bombing</English>
+			<French>CAS Bombardement</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_moduleAddBombing_info">
 			<English></English>
+			<French></French>
 		</Key>
 		<Key ID="STR_SSS_CAS_moduleAddLoiter_name">
 			<English>CAS Loiter</English>
+			<French>CAS Vol en attente</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_moduleAddLoiter_info">
 			<English></English>
+			<French></French>
 		</Key>
 		<Key ID="STR_SSS_CAS_moduleAddStrafe_name">
 			<English>CAS Strafe</English>
+			<French>CAS Attaque</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_moduleAddStrafe_info">
 			<English></English>
+			<French></French>
 		</Key>
 		<Key ID="STR_SSS_CAS_manualInput_name">
 			<English>Require manual input</English>
+			<French>Exige une saisie manuelle</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_manualInput_info">
 			<English>Require players to manually input grid coordinates</English>
+			<French>Demander aux joueurs de saisir manuellement les coordonnées de la grille</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_visualAids_name">
 			<English>Visual aids</English>
+			<French>Aides visuelles</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_visualAids_info">
 			<English>Show visual aids for request planning on the map</English>
+			<French>Afficher des aides visuelles pour la planification des demandes sur la carte</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_taskMarkers_name">
 			<English>Task markers</English>
+			<French>Marqueurs de tâches</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_taskMarkers_info">
 			<English>Create map markers on task locations</English>
+			<French>Créer des marqueurs de carte sur les emplacements des tâches</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_Altitude_name">
 			<English>Altitude</English>
+			<French>Altitude</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_Altitude_info">
 			<English>Flying height</English>
+			<French>Altitude de vol</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_VirtualRunway_name">
 			<English>Virtual runway</English>
+			<French>Piste virtuelle</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_VirtualRunway_info">
 			<English>Aircraft will spawn at this position.\n[0,0,0] will spawn at random or other requested position.</English>
+			<French>L'avion apparaîtra à cette position.\n[0,0,0] fera apparaître au hasard ou à une autre position demandée.</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_SpawnDistance_name">
 			<English>Spawn distance</English>
+			<French>Distance d'apparition</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_SpawnDistance_info">
 			<English>If virtual runway is undefined, the aircraft will spawn this far away from the target</English>
+			<French>Si la piste virtuelle n'est pas définie, l'avion apparaîtra loin de la cible</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_SpawnDelay_name">
 			<English>Spawn delay</English>
+			<French>Délai d'apparition</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_SpawnDelay_info">
 			<English>Aircraft will spawn after specified random duration. Use to simulate takeoff or flight delays.</English>
+			<French>Les avions apparaîtront après une durée aléatoire spécifiée. À utiliser pour simuler des retards de décollage ou de vol.</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_AircraftClass_name">
 			<English>Aircraft class</English>
+			<French>Avion Classe</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_AircraftClass_info">
 			<English>Class name of the aircraft to use.\nSyncing a vehicle to the module will override this value.</English>
+			<French>Class Name de l'avion à utiliser.\nLa synchronisation d'un véhicule avec le module remplacera cette valeur.</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_Pylons_name">
 			<English>Pylons / Weapons</English>
+			<French>Point d'emport / Armes</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_Pylons_info">
 			<English>List available pylon magazines or define additional weapons. Leave empty for defaults.\nSyncing a vehicle to the module will override this value.\n\nPylon magazines are added in sequential order (reference hardpoint IDs).\nMagazine classes must have a pylon config.\n\nFor weapons that don't use pylon hardpoints, use the following arguments:\n0: Weapon class [STRING]\n1: Magazine class (optional) [STRING]</English>
+			<French>Répertoriez les point d'emports disponibles ou définissez des armes supplémentaires. Laissez vide pour les valeurs par défaut.\nLa synchronisation d'un véhicule avec le module remplacera cette valeur.\n\nLes point d'emports sont ajoutés dans un ordre séquentiel (ID de point d'attache de référence).\nLes chargeurs doivent avoir une configuration de point d'emports.\n\nPour les armes qui n'utilise pas de point d'emports, utiliser des points d'ancrage de point d'emports. Utilisez les arguments suivants:\n0: Weapon class [STRING]\n1: Magazine class (optional) [STRING]</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_BombTechnique_name">
 			<English>Bombing technique</English>
+			<French>Technique de bombardement</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_BombTechnique_info">
 			<English>Determines the flight behavior when dropping bombs</English>
+			<French>Détermine le comportement de vol lors du largage de bombes</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_Standard">
 			<English>Standard</English>
+			<French>Standard</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_Carpet">
 			<English>Carpet</English>
+			<French>Tapis</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_Dive">
 			<English>Dive</English>
+			<French>Plongeant</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_InfiniteAmmo_name">
 			<English>Infinite ammo</English>
+			<French>Munitions infinies</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_InfiniteAmmo_info">
 			<English>Aircraft won't consume ammunition while firing</English>
+			<French>Les avions ne consommeront pas de munitions lors du tir</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_TargetTypes_name">
 			<English>Target types</English>
+			<French>Types de cibles</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_TargetTypes_info">
 			<English>Available targeting options</English>
+			<French>Options de ciblage disponibles</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_EgressDespawn_name">
 			<English>Egress despawn</English>
+			<French>Point de sortie</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_EgressDespawn_info">
 			<English>Deletes aircraft at egress point. If disabled, aircraft returns to starting point or virtual runway to be deleted.</English>
+			<French>Supprime l'avion au point de sortie. S'il est désactivé, l'avion revient au point de départ ou à la piste virtuelle pour être supprimé.</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_DeleteSynced_name">
 			<English>Delete synced vehicle</English>
+			<French>Supprimer le véhicule synchronisé</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_DeleteSynced_info">
 			<English>If a vehicle is synced to the module, it will be deleted on init.</English>
+			<French>Si un véhicule est synchronisé avec le module, il sera supprimé lors de l'initialisation.</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_targetEnemies">
 			<English>Any enemy</English>
+			<French>N'importe quel ennemi</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_targetInfantry">
 			<English>Enemy infantry</English>
+			<French>Infanterie ennemie</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_targetVehicles">
 			<English>Enemy vehicles</English>
+			<French>Véhicules ennemis</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_targetMap">
 			<English>Map position</English>
+			<French>Position sur la carte</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_targetLaser">
 			<English>Laser designator</English>
+			<French>Désignateur laser</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_targetSmoke">
 			<English>Smoke</English>
+			<French>Fumigène</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_targetIR">
 			<English>IR</English>
+			<French>IR</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_targetFlare">
 			<English>Flare</English>
+			<French>Fusées éclairantes</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_targetVehicle">
 			<English>Vehicle</English>
+			<French>Véhicule</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusStrafe">
 			<English>STRAFE</English>
+			<French>ATTAQUE</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusStrafeIngress">
 			<English>INGRESS</English>
+			<French>EN APPROCHE</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusStrafeEgress">
 			<English>EGRESS</English>
+			<French>EN SORTIE</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusStrafeAbort">
 			<English>ABORT</English>
+			<French>ANNULÉ</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyStrafeInbound">
 			<English>Airstrike inbound to %1. ETA %2</English>
+			<French>Frappe aérienne en direction de %1. ETA %2</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyStrafeKilled">
 			<English>Aircraft was destroyed and was unable to fulfill your request</English>
+			<French>L'avion a été détruit et n'a pas pu répondre à votre demande</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyStrafeAbort">
 			<English>Request aborted.</English>
+			<French>Demande abandonnée.</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyStrafeComplete">
 			<English>Request complete. Returning to base.</English>
+			<French>Demande terminée. Retour à la base.</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusLoiter">
 			<English>LOITER</English>
+			<French>VOL EN ATTENTE</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusLoiterIngress">
 			<English>INGRESS</English>
+			<French>ENTRÉE</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusLoiterEgress">
 			<English>EGRESS</English>
+			<French>SORTIE</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusLoiterAbort">
 			<English>ABORT</English>
+			<French>ANNULÉ</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyLoiterInbound">
 			<English>Inbound to loiter at %1. ETA %2</English>
+			<French>En chemin pour un Vol en attente à %1. ETA %2</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyLoiterKilled">
 			<English>Aircraft was destroyed and was unable to fulfill your request</English>
+			<French>L'avion a été détruit et n'a pas pu répondre à votre demande</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyLoiterAbort">
 			<English>Request aborted.</English>
+			<French>Demande abandonnée.</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyLoiter">
 			<English>Loitering at location...</English>
+			<French>Vol en attente sur place...</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyLoiterHover">
 			<English>Hovering at location...</English>
+			<French>Survolant l'emplacement...</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyLoiterTimeoutWarning">
 			<English>Leaving the area in 1 minute.</English>
+			<French>Quitter la zone dans 1 minute.</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyLoiterTimeout">
 			<English>Returning to base.</English>
+			<French>Retourne à la base.</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyLoiterUpdate">
 			<English>Repositioning to %1</English>
+			<French>Repositionnement vers %1</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyCooldownComplete">
 			<English>Rearmed and ready for further tasking.</English>
+			<French>Réarmé et prêt pour d'autres tâches.</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_countermeasures_name">
 			<English>Countermeasures</English>
+			<French>Contre-mesures</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_countermeasures_info">
 			<English>Deploy countermeasures before and after firing</English>
+			<French>Déploie des contre-mesures avant et après le tir</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_Repositioning_name">
 			<English>Repositioning</English>
+			<French>Repositionnement</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_Repositioning_info">
 			<English>Allow moving the aircraft after being requested</English>
+			<French>Autoriser le déplacement de l'avion après avoir été demandé</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_Duration_name">
 			<English>Duration</English>
+			<French>Durée</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_Duration_info">
 			<English>Time the asset can stay in the area. -1 in any value will make duration indefinite which requires manually aborting the request</English>
+			<French>Durée pendant laquelle l’actif peut rester dans la zone. -1 dans n'importe quelle valeur rendra la durée indéfinie, ce qui nécessitera l'abandon manuel de la demande</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_RadiusLimits_name">
 			<English>Radius limits</English>
+			<French>Limites de rayon</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_RadiusLimits_info">
 			<English>Minimum and maximum loitering range</English>
+			<French>Portée de Vol en attente minimale et maximale</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_AltitudeLimits_name">
 			<English>Altitude limits</English>
+			<French>Limites d'altitude</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_AltitudeLimits_info">
 			<English>Minumum and maximum flying heights ATL/ASL</English>
+			<French>Hauteurs de vol minimales et maximales ATL/ASL</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_AutoTarget_name">
 			<English>Auto targeting</English>
+			<French>Ciblage automatique</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_AutoTarget_info">
 			<English>Aircraft will automatically engage known enemy targets</English>
+			<French>Les avions engageront automatiquement des cibles ennemies connues</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_FriendlyRange_name">
 			<English>Minimum friendly range</English>
+			<French>Portée minimale d'unités amicale</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_FriendlyRange_info">
 			<English>Aircraft will not freely engage enemies within this range to friendlies.\nMap, laser, and signal targets are excluded from this check.</English>
+			<French>Les avions n'engageront pas librement les ennemis dans cette portée avec des alliés.\nLes cibles cartographiques, laser et signalétique sont exclues de cette vérification.</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_RemoteControl_name">
 			<English>Remote control</English>
+			<French>Contrôle à distance</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_RemoteControl_info">
 			<English>Allows remote controlling vehicle slots</English>
+			<French>Permettre le contrôle à distance des emplacements des véhicules</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_MaxAircraft_name">
 			<English>Max aircraft </English>
+			<French>Avion maximum </French>
 		</Key>
 		<Key ID="STR_SSS_CAS_MaxAircraft_info">
 			<English>The most aircraft that can be spawned </English>
+			<French>Le plus grand nombre d'avions pouvant être générés </French>
 		</Key>
 		<Key ID="STR_SSS_CAS_MaxSpread_name">
 			<English>Max spread</English>
+			<French>Propagation maximale</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_MaxSpread_info">
 			<English>Limit for strike area dimensions</English>
+			<French>Limite des dimensions de la zone de frappe</French>
 		</Key>
 		<Key ID="STR_sss_cas_altitude">
 			<English>Altitude</English>
+			<French>Altitude</French>
 		</Key>
 		<Key ID="STR_sss_cas_firingRangeTooltip">
 			<English>Distance to aim and fire. Superceded by minimum ammo range.</English>
+			<French>Distance pour viser et tirer. Remplacé par la portée minimale des munitions.</French>
 		</Key>
 		<Key ID="STR_sss_cas_firingRange">
 			<English>Firing range</English>
+			<French>Portée de tir</French>
 		</Key>
 		<Key ID="STR_sss_cas_ingressAzimuth">
 			<English>Ingress azimuth</English>
+			<French>Azimut d'entrée</French>
 		</Key>
 		<Key ID="STR_sss_cas_egressAzimuth">
 			<English>Egress azimuth</English>
+			<French>Azimut de sortie</French>
 		</Key>
 		<Key ID="STR_sss_cas_target">
 			<English>Target</English>
+			<French>Cible</French>
 		</Key>
 		<Key ID="STR_sss_cas_targetTooltip">
 			<English>500m search radius</English>
+			<French>Rayon de recherche de 500 m</French>
 		</Key>
 		<Key ID="STR_sss_cas_linearSpread">
 			<English>Linear spread</English>
+			<French>Propagation linéaire</French>
 		</Key>
 		<Key ID="STR_sss_cas_spread">
 			<English>Spread</English>
+			<French>Propagation</French>
 		</Key>
 		<Key ID="STR_sss_cas_weapon">
 			<English>Weapon</English>
+			<French>Arme</French>
 		</Key>
 		<Key ID="STR_sss_cas_primaryWeapon">
 			<English>Primary weapon</English>
+			<French>Arme primaire</French>
 		</Key>
 		<Key ID="STR_sss_cas_primaryRateControl">
 			<English>Primary rate control</English>
+			<French>Contrôle de la cadence de tir d'arme primaire</French>
 		</Key>
 		<Key ID="STR_sss_cas_distribution">
 			<English>Distribution</English>
+			<French>Distribution</French>
 		</Key>
 		<Key ID="STR_sss_cas_triggerInterval">
 			<English>Trigger interval</English>
+			<French>Intervalle de déclenchement</French>
 		</Key>
 		<Key ID="STR_sss_cas_secondaryWeapon">
 			<English>Secondary weapon</English>
+			<French>Arme secondaire</French>
 		</Key>
 		<Key ID="STR_sss_cas_secondaryRateControl">
 			<English>Secondary rate control</English>
+			<French>Contrôle de la cadence de tir d'arme secondaire</French>
 		</Key>
 		<Key ID="STR_sss_cas_none">
 			<English>[NONE]</English>
+			<French>[AUCUN]</French>
 		</Key>
 		<Key ID="STR_sss_cas_radius">
 			<English>Radius</English>
+			<French>Rayon</French>
 		</Key>
 		<Key ID="STR_sss_cas_loiterType">
 			<English>Loiter type</English>
+			<French>Type de Vol en attente</French>
 		</Key>
 		<Key ID="STR_sss_cas_burstDuration">
 			<English>Burst duration</English>
+			<French>Durée de rafale</French>
 		</Key>
 		<Key ID="STR_sss_cas_burstCycleInterval">
 			<English>Burst cycle interval</English>
+			<French>Intervalle de cycle de rafale</French>
 		</Key>
 		<Key ID="STR_sss_cas_burstCycleIntervalTooltip">
 			<English>-1 to only fire once</English>
+			<French>-1 pour ne tirer qu'une seule fois</French>
 		</Key>
 		<Key ID="STR_sss_cas_remoteControlHeader">
 			<English>Remote control</English>
+			<French>Contrôle à distance</French>
 		</Key>
 		<Key ID="STR_sss_cas_turretSelection">
 			<English>Turret selection</English>
+			<French>Sélection de tourelle</French>
 		</Key>
 		<Key ID="STR_sss_cas_unavailable">
 			<English>Unavailable</English>
+			<French>Indisponible</French>
 		</Key>
 		<Key ID="STR_sss_cas_available">
 			<English>Available</English>
+			<French>Disponible</French>
 		</Key>
 	</Package>
 </Project>
