@@ -106,7 +106,7 @@ lbClear _ctrlRCSelect;
 
 	private _i = _ctrlRCSelect lbAdd _turretName;
 	_ctrlRCSelect lbSetTextRight [_i,str _turret];
-} forEach (_class call BIS_fnc_allTurrets);
+} forEach ([_class,true] call BIS_fnc_allTurrets);
 
 _ctrlRCSelect lbSetCurSel (_entity getVariable [QGVAR(rcIndex),0]);
 
