@@ -801,7 +801,7 @@
 		</Key>
 		<Key ID="STR_sss_common_strafeFinalApproach">
 			<English>On final approach to target. Be ready...</English>
-			<French>En approche finale de la cible.  Être prêt...</French>
+			<French>En approche finale de la cible. Soyez prêt...</French>
 		</Key>
 		<Key ID="STR_sss_common_strafeFiring">
 			<English>Firing on target.</English>
@@ -817,7 +817,7 @@
 		</Key>
 		<Key ID="STR_sss_common_remoteControlWarning">
 			<English>Allow time for locality to transfer for full control...</English>
-			<French>Laissez le temps à la localité de se transférer pour un contrôle total...</French>
+			<French>Laissez le temps au transfert de localisation pour un contrôle total...</French>
 		</Key>
 		<Key ID="STR_SSS_common_ejectInterval_name">
 			<English>Ejection interval</English>
