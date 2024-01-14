@@ -2,7 +2,8 @@
 
 params ["_vehicle"];
 
-if (!local _vehicle) exitWith {};
+if (!local _vehicle || {_vehicle getVariable [QGVAR(killed),false]}) exitWith {};
+_vehicle setVariable [QGVAR(killed),true,true];
 
 private _entity = _vehicle getVariable [QPVAR(entity),objNull];
 
