@@ -21,8 +21,6 @@ private _inScope = if (isNil {_entity getVariable QPVAR(notifyScope)}) then {
 
 if (!_inScope) exitWith {};
 
-_message = [_message,_args] call FUNC(parseMessage);
-
 if (OPTION(notificationStyle) isEqualTo 0) then {
 	private _color = switch (_entity getVariable QPVAR(side)) do {
 		case east : {"#800000"};
@@ -34,8 +32,8 @@ if (OPTION(notificationStyle) isEqualTo 0) then {
 
 	[
 		format ["<img image='%1'/><t color='%2'> %3</t>",_entity getVariable QPVAR(icon),_color,_entity getVariable QPVAR(callsign)],
-		_message
+		[_message,_args] call FUNC(parseMessage)
 	] call FUNC(popup);
 } else {
-	systemChat format ["%1: %2",_entity getVariable QPVAR(callsign),_message];
+	systemChat format ["%1: %2",_entity getVariable QPVAR(callsign),[_message,_args] call FUNC(parseMessage)];
 };
