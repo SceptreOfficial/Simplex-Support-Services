@@ -30,11 +30,22 @@ if (isNil {_cargo getVariable QGVAR(defaultMass)}) then {
 };
 
 if (_massOverride && _cargoMass > _maxMass * 0.75) then {
+	// Attempt to override mass
 	[QGVAR(execute),[[_cargo,_maxMass * 0.75],{
 		params ["_cargo","_mass"];
 		_cargo setMass _mass;
 	}],_cargo] call CBA_fnc_targetEvent;
 
+	[{
+		params ["_tick","_cargo"];
+		CBA_missionTime > _tick && local _cargo
+	},{
+		params ["","_cargo","_mass","_vehicle"];
+		if (_vehicle getVariable QGVAR(slingloadCargo) isNotEqualTo _cargo) exitWith {};
+		_cargo setMass _mass;
+	},[CBA_missionTime + 10,_cargo,_maxMass * 0.75,_vehicle],60] call CBA_fnc_waitUntilAndExecute;
+
+	// Reset mass to original value after detachment
 	[QGVAR(execute),[[_vehicle,_cargo],{
 		params ["_vehicle","_cargo"];
 
@@ -46,12 +57,6 @@ if (_massOverride && _cargoMass > _maxMass * 0.75) then {
 				[QGVAR(execute),[_thisArgs,{
 					_this setMass (_this getVariable [QGVAR(defaultMass),getMass _this]);
 				}],_thisArgs] call CBA_fnc_targetEvent;
-
-				//{ropeDestroy _x} forEach (_vehicle getVariable [QGVAR(slingloadRopes),[]]);
-				//_vehicle setVariable [QGVAR(slingloadRopeLength),nil,true];
-				//_vehicle setVariable [QGVAR(slingloadRopes),nil,true];
-				//_vehicle setVariable [QGVAR(slingloadCargo),nil,true];
-				//_vehicle setVariable [QGVAR(slingloadRopesLeft),nil];
 			};
 		},_cargo] call CBA_fnc_addBISEventHandler;
 	}]] call CBA_fnc_serverEvent;
