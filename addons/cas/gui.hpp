@@ -4,6 +4,7 @@ DECLARE_COMMON_GUI_CLASSES;
 class EGVAR(common,toggleDistribution);
 class EGVAR(common,toggleAzimuth);
 
+/*
 class GVAR(guiBombing) {
 	idd = -1;
 	movingEnable = 0;
@@ -271,6 +272,7 @@ class GVAR(guiBombing) {
 		};
 	};
 };
+*/
 
 class GVAR(guiLoiter) {
 	idd = -1;
@@ -393,10 +395,29 @@ class GVAR(guiLoiter) {
 					strings[] = {ICON_CLOCKWISE,ICON_COUNTER_CLOCKWISE,ICON_HOVER};
 					values[] = {0,1,2};
 				};
-				class GVAR(ingressText) : EGVAR(sdf,Text) {
+				class GVAR(speedModeText) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(0));
 					y = QUOTE(CTRL_Y(4));
+					w = QUOTE(CTRL_W(7));
+					h = QUOTE(CTRL_H(1));
+					text = CSTRING(speedMode);
+				};
+				class GVAR(speedMode) : EGVAR(sdf,Toolbox) {
+					idc = IDC_SPEED_MODE;
+					x = QUOTE(CTRL_X(7));
+					y = QUOTE(CTRL_Y(4));
+					w = QUOTE(CTRL_W(13));
+					h = QUOTE(CTRL_H(1));
+					columns = 2;
+					rows = 1;
+					strings[] = {CSTRING(limited),CSTRING(normal)};
+					onToolBoxSelChanged = QUOTE(call FUNC(gui_speedMode));
+				};
+				class GVAR(ingressText) : EGVAR(sdf,Text) {
+					idc = -1;
+					x = QUOTE(CTRL_X(0));
+					y = QUOTE(CTRL_Y(5));
 					w = QUOTE(CTRL_W(7));
 					h = QUOTE(CTRL_H(1));
 					text = CSTRING(ingressAzimuth);
@@ -404,7 +425,7 @@ class GVAR(guiLoiter) {
 				class GVAR(ingress) : EGVAR(sdf,Toolbox) {
 					idc = IDC_INGRESS;
 					x = QUOTE(CTRL_X(7));
-					y = QUOTE(CTRL_Y(4));
+					y = QUOTE(CTRL_Y(5));
 					w = QUOTE(CTRL_W(13));
 					h = QUOTE(CTRL_H(1));
 					columns = 9;
@@ -416,7 +437,7 @@ class GVAR(guiLoiter) {
 				class GVAR(ingressSlider) : EGVAR(sdf,Slider) {
 					idc = IDC_INGRESS_SLIDER;
 					x = QUOTE(CTRL_X(7));
-					y = QUOTE(CTRL_Y(4));
+					y = QUOTE(CTRL_Y(5));
 					w = QUOTE(CTRL_W(11));
 					h = QUOTE(CTRL_H(1));
 					tooltip = "~15°";
@@ -424,14 +445,14 @@ class GVAR(guiLoiter) {
 				class GVAR(ingressSliderEdit) : EGVAR(sdf,Editbox) {
 					idc = IDC_INGRESS_SLIDER_EDIT;
 					x = QUOTE(CTRL_X(18));
-					y = QUOTE(CTRL_Y(4));
+					y = QUOTE(CTRL_Y(5));
 					w = QUOTE(CTRL_W(2));
 					h = QUOTE(CTRL_H(1));
 				};
 				class GVAR(ingressToggle) : EGVAR(common,toggleAzimuth) {
 					idc = IDC_INGRESS_TOGGLE;
 					x = QUOTE(CTRL_X(6));
-					y = QUOTE(CTRL_Y(4));
+					y = QUOTE(CTRL_Y(5));
 					w = QUOTE(CTRL_W(1));
 					h = QUOTE(CTRL_H(1));
 					onCheckedChanged = QUOTE(call FUNC(gui_ingress));
@@ -439,7 +460,7 @@ class GVAR(guiLoiter) {
 				class GVAR(egressText) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(0));
-					y = QUOTE(CTRL_Y(5));
+					y = QUOTE(CTRL_Y(6));
 					w = QUOTE(CTRL_W(7));
 					h = QUOTE(CTRL_H(1));
 					text = CSTRING(egressAzimuth);
@@ -447,7 +468,7 @@ class GVAR(guiLoiter) {
 				class GVAR(egress) : GVAR(ingress) {
 					idc = IDC_EGRESS;
 					x = QUOTE(CTRL_X(7));
-					y = QUOTE(CTRL_Y(5));
+					y = QUOTE(CTRL_Y(6));
 					w = QUOTE(CTRL_W(13));
 					h = QUOTE(CTRL_H(1));
 					onToolBoxSelChanged = QUOTE(call FUNC(gui_egress));
@@ -455,7 +476,7 @@ class GVAR(guiLoiter) {
 				class GVAR(egressSlider) : EGVAR(sdf,Slider) {
 					idc = IDC_EGRESS_SLIDER;
 					x = QUOTE(CTRL_X(7));
-					y = QUOTE(CTRL_Y(5));
+					y = QUOTE(CTRL_Y(6));
 					w = QUOTE(CTRL_W(11));
 					h = QUOTE(CTRL_H(1));
 					tooltip = "~15°";
@@ -463,14 +484,14 @@ class GVAR(guiLoiter) {
 				class GVAR(egressSliderEdit) : EGVAR(sdf,Editbox) {
 					idc = IDC_EGRESS_SLIDER_EDIT;
 					x = QUOTE(CTRL_X(18));
-					y = QUOTE(CTRL_Y(5));
+					y = QUOTE(CTRL_Y(6));
 					w = QUOTE(CTRL_W(2));
 					h = QUOTE(CTRL_H(1));
 				};
 				class GVAR(egressToggle) : EGVAR(common,toggleAzimuth) {
 					idc = IDC_EGRESS_TOGGLE;
 					x = QUOTE(CTRL_X(6));
-					y = QUOTE(CTRL_Y(5));
+					y = QUOTE(CTRL_Y(6));
 					w = QUOTE(CTRL_W(1));
 					h = QUOTE(CTRL_H(1));
 					onCheckedChanged = QUOTE(call FUNC(gui_egress));
@@ -478,7 +499,7 @@ class GVAR(guiLoiter) {
 				class GVAR(targetText) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(0));
-					y = QUOTE(CTRL_Y(6));
+					y = QUOTE(CTRL_Y(7));
 					w = QUOTE(CTRL_W(7));
 					h = QUOTE(CTRL_H(1));
 					text = CSTRING(target);
@@ -487,7 +508,7 @@ class GVAR(guiLoiter) {
 				class GVAR(target) : EGVAR(sdf,Combobox) {
 					idc = IDC_TARGET;
 					x = QUOTE(CTRL_X(7));
-					y = QUOTE(CTRL_Y(6));
+					y = QUOTE(CTRL_Y(7));
 					w = QUOTE(CTRL_W(7));
 					h = QUOTE(CTRL_H(1));
 					onLBSelChanged = QUOTE(call FUNC(gui_target));
@@ -495,7 +516,7 @@ class GVAR(guiLoiter) {
 				class GVAR(targetDetail) : EGVAR(sdf,Combobox) {
 					idc = IDC_TARGET_DETAIL;
 					x = QUOTE(CTRL_X(14));
-					y = QUOTE(CTRL_Y(6));
+					y = QUOTE(CTRL_Y(7));
 					w = QUOTE(CTRL_W(6));
 					h = QUOTE(CTRL_H(1));
 					onLBSelChanged = QUOTE(call FUNC(gui_target));
@@ -557,19 +578,30 @@ class GVAR(guiLoiter) {
 						};
 					};
 				};
-				//class GVAR(applyTarget) : EGVAR(sdf,ButtonSimple) {
-				//	idc = IDC_APPLY_TARGET;
-				//	x = QUOTE(CTRL_X(5));
-				//	y = QUOTE(CTRL_Y(6.1));
-				//	w = QUOTE(CTRL_W(1.9));
-				//	h = QUOTE(CTRL_H(0.8));
-				//	text = "APPLY";
-				//	onButtonClick = QUOTE(call FUNC(guiLoiter_applyTarget));
-				//};
+				class GVAR(dangerCloseText) : EGVAR(sdf,Text) {
+					idc = -1;
+					x = QUOTE(CTRL_X(0));
+					y = QUOTE(CTRL_Y(8));
+					w = QUOTE(CTRL_W(7));
+					h = QUOTE(CTRL_H(1));
+					text = CSTRING(dangerClose);
+				};
+				class GVAR(dangerClose) : EGVAR(sdf,Toolbox) {
+					idc = IDC_DANGER_CLOSE;
+					x = QUOTE(CTRL_X(7));
+					y = QUOTE(CTRL_Y(8));
+					w = QUOTE(CTRL_W(13));
+					h = QUOTE(CTRL_H(1));
+					columns = 2;
+					rows = 1;
+					strings[] = {ECSTRING(common,enable),ECSTRING(common,disable)};
+					values[] = {1,0};
+					onToolBoxSelChanged = QUOTE(call FUNC(gui_dangerClose));
+				};
 				class GVAR(spreadText) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(0));
-					y = QUOTE(CTRL_Y(7));
+					y = QUOTE(CTRL_Y(9));
 					w = QUOTE(CTRL_W(7));
 					h = QUOTE(CTRL_H(1));
 					text = CSTRING(spread);
@@ -577,21 +609,21 @@ class GVAR(guiLoiter) {
 				class GVAR(spread) : EGVAR(sdf,Slider) {
 					idc = IDC_SPREAD;
 					x = QUOTE(CTRL_X(7));
-					y = QUOTE(CTRL_Y(7));
+					y = QUOTE(CTRL_Y(9));
 					w = QUOTE(CTRL_W(11));
 					h = QUOTE(CTRL_H(1));
 				};
 				class GVAR(spreadEdit) : EGVAR(sdf,Editbox) {
 					idc = IDC_SPREAD_EDIT;
 					x = QUOTE(CTRL_X(18));
-					y = QUOTE(CTRL_Y(7));
+					y = QUOTE(CTRL_Y(9));
 					w = QUOTE(CTRL_W(2));
 					h = QUOTE(CTRL_H(1));
 				};
 				class GVAR(weaponText) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(0));
-					y = QUOTE(CTRL_Y(8));
+					y = QUOTE(CTRL_Y(10));
 					w = QUOTE(CTRL_W(7));
 					h = QUOTE(CTRL_H(1));
 					text = CSTRING(weapon);
@@ -599,7 +631,7 @@ class GVAR(guiLoiter) {
 				class GVAR(weapon) : EGVAR(sdf,Combobox) {
 					idc = IDC_WEAPON;
 					x = QUOTE(CTRL_X(7));
-					y = QUOTE(CTRL_Y(8));
+					y = QUOTE(CTRL_Y(10));
 					w = QUOTE(CTRL_W(13));
 					h = QUOTE(CTRL_H(1));
 					onLBSelChanged = QUOTE(call FUNC(gui_weapon));
@@ -607,7 +639,7 @@ class GVAR(guiLoiter) {
 				class GVAR(burstDurationText) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(0));
-					y = QUOTE(CTRL_Y(9));
+					y = QUOTE(CTRL_Y(11));
 					w = QUOTE(CTRL_W(7));
 					h = QUOTE(CTRL_H(1));
 					text = CSTRING(burstDuration);
@@ -615,21 +647,21 @@ class GVAR(guiLoiter) {
 				class GVAR(burstDuration) : EGVAR(sdf,Slider) {
 					idc = IDC_BURST_DURATION;
 					x = QUOTE(CTRL_X(7));
-					y = QUOTE(CTRL_Y(9));
+					y = QUOTE(CTRL_Y(11));
 					w = QUOTE(CTRL_W(11));
 					h = QUOTE(CTRL_H(1));
 				};
 				class GVAR(burstDurationEdit) : EGVAR(sdf,Editbox) {
 					idc = IDC_BURST_DURATION_EDIT;
 					x = QUOTE(CTRL_X(18));
-					y = QUOTE(CTRL_Y(9));
+					y = QUOTE(CTRL_Y(11));
 					w = QUOTE(CTRL_W(2));
 					h = QUOTE(CTRL_H(1));
 				};
 				class GVAR(burstIntervalText) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(0));
-					y = QUOTE(CTRL_Y(10));
+					y = QUOTE(CTRL_Y(12));
 					w = QUOTE(CTRL_W(7));
 					h = QUOTE(CTRL_H(1));
 					text = CSTRING(burstCycleInterval);
@@ -638,21 +670,21 @@ class GVAR(guiLoiter) {
 				class GVAR(burstInterval) : EGVAR(sdf,Slider) {
 					idc = IDC_BURST_INTERVAL;
 					x = QUOTE(CTRL_X(7));
-					y = QUOTE(CTRL_Y(10));
+					y = QUOTE(CTRL_Y(12));
 					w = QUOTE(CTRL_W(11));
 					h = QUOTE(CTRL_H(1));
 				};
 				class GVAR(burstIntervalEdit) : EGVAR(sdf,Editbox) {
 					idc = IDC_BURST_INTERVAL_EDIT;
 					x = QUOTE(CTRL_X(18));
-					y = QUOTE(CTRL_Y(10));
+					y = QUOTE(CTRL_Y(12));
 					w = QUOTE(CTRL_W(2));
 					h = QUOTE(CTRL_H(1));
 				};
 				class GVAR(remoteControlHeader) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(0));
-					y = QUOTE(CTRL_Y(11));
+					y = QUOTE(CTRL_Y(13));
 					w = QUOTE(CTRL_W(20));
 					h = QUOTE(CTRL_H(1));
 					text = CSTRING(remoteControlHeader);
@@ -660,7 +692,7 @@ class GVAR(guiLoiter) {
 				class GVAR(remoteControlBG) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(0));
-					y = QUOTE(CTRL_Y_BUFFER(12));
+					y = QUOTE(CTRL_Y_BUFFER(14));
 					w = QUOTE(CTRL_W(20));
 					h = QUOTE(CTRL_H_BUFFER(1));
 					colorBackground[] = {1,1,1,0.2};
@@ -668,7 +700,7 @@ class GVAR(guiLoiter) {
 				class GVAR(remoteControlText) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(1));
-					y = QUOTE(CTRL_Y(12));
+					y = QUOTE(CTRL_Y(14));
 					w = QUOTE(CTRL_W(6));
 					h = QUOTE(CTRL_H(1));
 					text = CSTRING(turretSelection);
@@ -676,7 +708,7 @@ class GVAR(guiLoiter) {
 				class GVAR(remoteControlSelect) : EGVAR(sdf,Combobox) {
 					idc = IDC_REMOTE_CONTROL_SELECT;
 					x = QUOTE(CTRL_X(7));
-					y = QUOTE(CTRL_Y(12));
+					y = QUOTE(CTRL_Y(14));
 					w = QUOTE(CTRL_W(7));
 					h = QUOTE(CTRL_H(1));
 					onLBSelChanged = QUOTE(call FUNC(guiLoiter_remoteControlSelect));
@@ -684,7 +716,7 @@ class GVAR(guiLoiter) {
 				class GVAR(remoteControl) : EGVAR(sdf,ButtonSimple) {
 					idc = IDC_REMOTE_CONTROL;
 					x = QUOTE(CTRL_X(14));
-					y = QUOTE(CTRL_Y(12));
+					y = QUOTE(CTRL_Y(14));
 					w = QUOTE(CTRL_W(5));
 					h = QUOTE(CTRL_H(1));
 					text = ECSTRING(common,remoteControl);

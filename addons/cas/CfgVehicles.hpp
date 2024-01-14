@@ -278,7 +278,7 @@ class CfgVehicles {
 			class FriendlyRange : Edit {
 				ATTRIBUTE(FriendlyRange);
 				typeName = "NUMBER";
-				defaultValue = 200;
+				defaultValue = 50;
 			};
 			class TargetTypes : Default {
 				ATTRIBUTE(TargetTypes);

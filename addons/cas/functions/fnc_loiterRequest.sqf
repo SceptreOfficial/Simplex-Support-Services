@@ -102,7 +102,7 @@ _endPos set [2,_altitude];
 		_wp2 setWaypointLoiterType _type;
 		_wp2 setWaypointLoiterRadius _radius;
 		_wp2 setWaypointLoiterAltitude _altitude;
-		//_wp2 setWaypointSpeed "LIMITED";
+		_wp2 setWaypointSpeed (_request getOrDefault ["speedMode","NORMAL"]);
 		_wp2 setWaypointDescription QGVAR(loiter);
 	};
 

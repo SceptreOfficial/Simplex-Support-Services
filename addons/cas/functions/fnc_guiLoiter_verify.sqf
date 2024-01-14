@@ -73,6 +73,24 @@ private _isWeapon = GVAR(request) getOrDefault ["weapon",[]] param [0,""] != "SE
 	IDC_BURST_INTERVAL_EDIT
 ];
 
+private _ctrlDangerClose = _ctrlGroup controlsGroupCtrl IDC_DANGER_CLOSE;
+
+if (GVAR(request) getOrDefault ["target",""] in ["ENEMIES","INFANTRY","VEHICLES"]) then {
+	_ctrlDangerClose ctrlEnable true;
+	ctrlDelete (_ctrlDangerClose getVariable [QGVAR(cover),controlNull]);
+} else {
+	_ctrlDangerClose ctrlEnable false;
+	
+	if (!isNull (_ctrlDangerClose getVariable [QGVAR(cover),controlNull])) exitWith {};
+	
+	private _cover = _display ctrlCreate ["RscText",-1,_ctrlGroup];
+	_cover ctrlSetBackgroundColor [0,0,0,0.5];
+	_cover ctrlSetPosition ctrlPosition _ctrlDangerClose;
+	_cover ctrlCommit 0;
+	_ctrlDangerClose setVariable [QGVAR(cover),_cover];
+};
+
+
 if (_enableIngressEgress || _entity getVariable [QPVAR(repositioning),true]) then {
 	(_ctrlGroup controlsGroupCtrl IDC_GRID_E) ctrlEnable true;
 	(_ctrlGroup controlsGroupCtrl IDC_GRID_N) ctrlEnable true;

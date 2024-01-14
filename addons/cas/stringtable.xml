@@ -457,5 +457,25 @@
 			<English>Available</English>
 			<French>Disponible</French>
 		</Key>
+		<Key ID="STR_SSS_CAS_dangerClose">
+			<English>Danger close</English>
+			<French>Danger proche</French>
+		</Key>
+		<Key ID="STR_SSS_CAS_dangerCloseTooltip">
+			<English>Minimum friendly range: %1</English>
+			<French>Portée minimale d'unités amicale: %1</French>
+		</Key>
+		<Key ID="STR_SSS_CAS_speedMode">
+			<English>Speed</English>
+			<French>Vitesse</French>
+		</Key>
+		<Key ID="STR_SSS_CAS_limited">
+			<English>Limited</English>
+			<French>Limité</French>
+		</Key>
+		<Key ID="STR_SSS_CAS_normal">
+			<English>Normal</English>
+			<French>Normale</French>
+		</Key>
 	</Package>
 </Project>
