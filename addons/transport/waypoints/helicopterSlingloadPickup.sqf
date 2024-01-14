@@ -29,7 +29,7 @@ waitUntil {
 		};
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	!isTouchingGround _vehicle && unitReady _vehicle
 };
@@ -42,7 +42,7 @@ _vehicle setVariable [QGVAR(slingloadTarget),nil,true];
 NOTIFY(_entity,LSTRING(notifySlingloadTarget));
 
 waitUntil {
-	sleep 0.5;
+	sleep WAYPOINT_SLEEP;
 	!isNil {_vehicle getVariable QGVAR(slingloadTarget)}
 };
 
@@ -64,7 +64,7 @@ NOTIFY_1(_entity,_msg,_object);
 [_vehicle,_object,GVAR(slingloadMassOverride)] call EFUNC(common,slingloadPickup);
 
 waitUntil {
-	sleep 0.5;
+	sleep WAYPOINT_SLEEP;
 	!isNull (_vehicle getVariable [QEGVAR(common,slingloadCargo),objNull]) ||
 	!(_vehicle getVariable [QEGVAR(common,pilotHelicopter),false]) ||
 	_vehicle getVariable [QEGVAR(common,pilotHelicopterCompleted),false]

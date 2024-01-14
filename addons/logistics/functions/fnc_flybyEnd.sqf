@@ -25,6 +25,6 @@ switch (_entity getVariable QPVAR(supportType)) do {
 	default {};
 };
 
-if (!alive _vehicle) then {
+if (!alive _vehicle || {isTouchingGround _vehicle && !canMove _vehicle}) then {
 	NOTIFY(_entity,LSTRING(notifyAirdropKilled))
 };

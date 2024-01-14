@@ -26,7 +26,7 @@ waitUntil {
 		_vehicle doMove _posAGL;
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	unitReady _vehicle
 };

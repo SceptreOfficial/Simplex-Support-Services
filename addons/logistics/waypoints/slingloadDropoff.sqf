@@ -21,7 +21,7 @@ waitUntil {
 		};
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	!isTouchingGround _vehicle && _vehicle distance2D _wpPos < 800
 };
@@ -53,7 +53,7 @@ _vehicle setVariable [QGVAR(dropping),true,true];
 },_entity] call CBA_fnc_directCall;
 
 waitUntil {
-	sleep 0.5;
+	sleep WAYPOINT_SLEEP;
 	isNull (_vehicle getVariable [QEGVAR(common,slingloadCargo),objNull]) ||
 	!(_vehicle getVariable [QEGVAR(common,pilotHelicopter),false]) ||
 	_vehicle getVariable [QEGVAR(common,pilotHelicopterCompleted),false]
@@ -94,7 +94,7 @@ if (_ejections isNotEqualTo []) then {
 		_vehicle setVariable [QPVAR(fastropeDone),false,true];
 
 		waitUntil {
-			sleep 0.5;
+			sleep WAYPOINT_SLEEP;
 			_vehicle getVariable [QPVAR(fastropeDone),false] ||
 			!(_vehicle getVariable [QEGVAR(common,pilotHelicopter),false]) ||
 			_vehicle getVariable [QEGVAR(common,pilotHelicopterCompleted),false]
@@ -102,7 +102,7 @@ if (_ejections isNotEqualTo []) then {
 	} else {
 		[
 			_vehicle,
-			[_vehicle,ATLtoASL (_posASL getPos [sizeOf typeOf _object,random 360]),"LAND"] call EFUNC(common,surfacePosASL),
+			[_vehicle,ATLtoASL (_posASL getPos [sizeOf typeOf _object + sizeOf typeOf _vehicle,random 360]),"LAND"] call EFUNC(common,surfacePosASL),
 			[-1],
 			(getPos _vehicle # 2) max 50,
 			100,
@@ -111,7 +111,7 @@ if (_ejections isNotEqualTo []) then {
 		] call EFUNC(common,pilotHelicopter);
 
 		waitUntil {
-			sleep 0.5;
+			sleep WAYPOINT_SLEEP;
 			isTouchingGround _vehicle ||
 			!(_vehicle getVariable [QEGVAR(common,pilotHelicopter),false]) ||
 			_vehicle getVariable [QEGVAR(common,pilotHelicopterCompleted),false]
@@ -120,7 +120,7 @@ if (_ejections isNotEqualTo []) then {
 		[_vehicle,_ejections] call EFUNC(common,unloadTransport);
 
 		waitUntil {
-			sleep 0.2;
+			sleep WAYPOINT_SLEEP;
 			_vehicle getVariable [QEGVAR(common,unloadEnd),false]
 		};
 	};

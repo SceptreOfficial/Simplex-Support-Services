@@ -28,7 +28,7 @@ waitUntil {
 		_vehicle doMove _wpPos;
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	!isTouchingGround _vehicle && unitReady _vehicle
 };
@@ -36,7 +36,7 @@ waitUntil {
 _vehicle action ["Land",_vehicle];
 
 waitUntil {
-	sleep 0.5;
+	sleep WAYPOINT_SLEEP;
 	isTouchingGround _vehicle && speed _vehicle < 30
 };
 

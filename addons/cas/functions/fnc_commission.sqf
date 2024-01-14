@@ -20,3 +20,9 @@ _entity setVariable [QPVAR(vehicle),_vehicle,true];
 	[QEGVAR(common,addEventHandler),[_vehicle,"Killed",{call FUNC(killed)}]] call CBA_fnc_globalEventJIP,
 	_vehicle
 ] call CBA_fnc_removeGlobalEventJIP;
+
+[{
+	params ["_vehicle","_PFHID"];
+	if (!alive _vehicle) exitWith {_PFHID call CBA_fnc_removePerFrameHandler};
+	if (isTouchingGround _vehicle && {!canMove _vehicle}) then {_vehicle call FUNC(killed)};
+},10,_vehicle] call CBA_fnc_addPerFrameHandler;

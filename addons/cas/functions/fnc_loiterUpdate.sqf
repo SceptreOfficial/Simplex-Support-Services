@@ -40,6 +40,7 @@ if (_type == "HOVER") then {
 	_wp setWaypointLoiterType _type;
 	_wp setWaypointLoiterRadius _radius;
 	_wp setWaypointLoiterAltitude _altitude;
+	_wp setWaypointSpeed (_request getOrDefault ["speedMode","NORMAL"]);
 };
 
 _vehicle setVariable [QGVAR(loiterTargetTick),CBA_missionTime + 8,true];

@@ -35,7 +35,7 @@ private _target = [_attachedObject,ATLtoASL waypointPosition [_group,currentWayp
 sleep 2;
 
 waitUntil {
-	sleep 0.5;
+	sleep WAYPOINT_SLEEP;
 	!(_vehicle getVariable [QEGVAR(common,firing),false])
 };
 

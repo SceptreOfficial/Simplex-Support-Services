@@ -19,9 +19,9 @@ if (_vehicle isEqualTypeAny ["",configNull]) exitWith {
 		_vehicle
 	};
 	
-	private _gunnerCfg = "true" configClasses (_cfg >> "turrets");
-	private _gunnerIndex = _gunnerCfg findIf {getNumber (_x >> "primaryGunner") == 1};
-	_gunnerCfg = _gunnerCfg param [_gunnerIndex,configNull];
+	private _turrets = "true" configClasses (_cfg >> "turrets");
+	//private _gunnerIndex = _turrets findIf {getNumber (_x >> "primaryGunner") == 1};
+	//private _gunnerCfg = _turrets param [_gunnerIndex,configNull];
 
 	private _fnc_mainWeapons = {
 		params ["_weapons","_magazines","_turret"];
@@ -59,7 +59,8 @@ if (_vehicle isEqualTypeAny ["",configNull]) exitWith {
 	};
 
 	[getArray (_cfg >> "weapons"),getArray (_cfg >> "magazines"),[-1]] call _fnc_mainWeapons;
-	[getArray (_gunnerCfg >> "weapons"),getArray (_gunnerCfg >> "magazines"),[_gunnerIndex]] call _fnc_mainWeapons;
+	{[getArray (_x >> "weapons"),getArray (_x >> "magazines"),[_forEachIndex]] call _fnc_mainWeapons} forEach _turrets;
+	//[getArray (_gunnerCfg >> "weapons"),getArray (_gunnerCfg >> "magazines"),[_gunnerIndex]] call _fnc_mainWeapons;
 	
 	{
 		private _magazine = getText (_x >> "attachment");

@@ -111,4 +111,4 @@ group _vehicle setVariable [QGVAR(flybyHold),true,true];
 
 		_selection deleteAt 0;
 	};
-},_entity getVariable [QPVAR(ejectDelay),0.8],[_vehicle,_player,_entity,+_request,_startPosASL,grpNull]] call CBA_fnc_addPerFrameHandler;
+},_entity getVariable [QPVAR(ejectInterval),OPTION(ejectInterval)],[_vehicle,_player,_entity,+_request,_startPosASL,grpNull]] call CBA_fnc_addPerFrameHandler;

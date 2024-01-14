@@ -30,6 +30,9 @@ if (_entity getVariable [QPVAR(class),""] isKindOf "Helicopter") then {
 	_ctrlType lbSetCurSel (["CIRCLE","CIRCLE_L"] find (GVAR(request) getOrDefault ["type","CIRCLE_L"]));
 };
 
+// Speed mode
+CTRL(IDC_SPEED_MODE) lbSetCurSel (["LIMITED","NORMAL"] find (GVAR(request) getOrDefault ["speedMode","NORMAL"]));
+
 // Sliders
 _entity getVariable QPVAR(guiLimits) params ["_altitudeMin","_altitudeMax","_radiusMin","_radiusMax"];
 [CTRL(IDC_ALTITUDE),CTRL(IDC_ALTITUDE_EDIT),[_altitudeMin,_altitudeMax,0],"altitude",_altitudeMin max LOITER_ALTITUDE_DEFAULT min _altitudeMax,LELSTRING(common,meterAcronym)] call FUNC(gui_slider);
@@ -81,6 +84,13 @@ if (_weapon isEqualTo [] || {!(_weapon in _validPylons)}) then {
 	if (_weapon isEqualTo _pylon) then {_ctrlWeapon lbSetCurSel _i};
 } forEach _formatPylons;
 
+// Danger close
+private _ctrlDangerClose = CTRL(IDC_DANGER_CLOSE);
+_ctrlDangerClose lbSetCurSel parseNumber !(GVAR(request) getOrDefault ["dangerClose",false]);
+private _tooltip = format [LLSTRING(dangerCloseTooltip),_entity getVariable QPVAR(friendlyRange)];
+_ctrlDangerClose lbSetTooltip [0,_tooltip];
+_ctrlDangerClose lbSetTooltip [1,_tooltip];
+
 // Remote control
 GVAR(remoteControlTurrets) = [];
 private _class = _entity getVariable QPVAR(class);
@@ -106,7 +116,7 @@ lbClear _ctrlRCSelect;
 
 	private _i = _ctrlRCSelect lbAdd _turretName;
 	_ctrlRCSelect lbSetTextRight [_i,str _turret];
-} forEach (_class call BIS_fnc_allTurrets);
+} forEach ([_class,true] call BIS_fnc_allTurrets);
 
 _ctrlRCSelect lbSetCurSel (_entity getVariable [QGVAR(rcIndex),0]);
 

@@ -116,6 +116,17 @@
 	false
 ] call CBA_fnc_addSetting;
 
+[
+	QOPTION(ejectInterval),
+	"SLIDER",
+	DESC(ejectInterval),
+	[ELSTRING(main,PREFIX),LSTRING(CategoryCore)],
+	[0,5,0.5,1],
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
 //[
 //	QOPTION(respawnType),
 //	"LIST",

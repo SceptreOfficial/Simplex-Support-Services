@@ -29,11 +29,16 @@ private _posASL = _request getOrDefault ["posASL",[0,0,0]];
 private _radius = _request getOrDefault ["radius",_radiusMin max LOITER_RADIUS_DEFAULT min _radiusMax];
 private _search = _request getOrDefault ["target",""];
 private _spread = _request getOrDefault ["spread",0];
-
 private _duration = _request getOrDefault ["duration",3];
 private _interval = _request getOrDefault ["interval",-1];
 
-private _target = [_posASL,side group _vehicle,_search,_radius * 0.75,_entity getVariable QPVAR(friendlyRange)] call EFUNC(common,targetSearch);
+private _target = [
+	_posASL,
+	side group _vehicle,
+	_search,
+	_radius * 0.75,
+	[_entity getVariable QPVAR(friendlyRange),0] select (_request getOrDefault ["dangerClose",false])
+] call EFUNC(common,targetSearch);
 
 if (_target in [objNull,[0,0,0]]) exitWith {};
 

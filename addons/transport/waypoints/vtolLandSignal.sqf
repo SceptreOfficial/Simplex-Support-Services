@@ -36,7 +36,7 @@ waitUntil {
 		};
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	!isTouchingGround _vehicle && _vehicle distance2D _wpPos < _searchRadius + 400
 };

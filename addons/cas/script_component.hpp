@@ -66,3 +66,5 @@
 #define IDC_AIRCRAFT_EDIT 				490
 #define IDC_INTERVAL 					500
 #define IDC_INTERVAL_EDIT 				510
+#define IDC_DANGER_CLOSE 				520
+#define IDC_SPEED_MODE 					530

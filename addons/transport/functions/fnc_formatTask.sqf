@@ -33,14 +33,14 @@ _taskArgs append (switch _task do {
 		_group setVariable [_id,_item get "ejections"];
 		_item set ["ejectionsID",_id];
 
-		["ejectTypes","ejectionsID"]
+		["ejectTypes","ejectionsID","ejectInterval"]
 	};
 	case "PARADROP" : {
 		private _id = GEN_STR(_task);
 		_group setVariable [_id,_item get "ejections"];
 		_item set ["ejectionsID",_id];
 
-		["openAltitude","ejectDelay","ejectTypes","ejectionsID"]
+		["ejectTypes","ejectionsID","ejectInterval","openAltitude"]
 	};
 	case "SAD" : {[]};
 	case "STRAFE" : {		

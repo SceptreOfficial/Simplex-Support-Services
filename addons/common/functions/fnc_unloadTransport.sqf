@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params ["_vehicle","_ejections",["_interval",0.8]];
+params ["_vehicle","_ejections",["_interval",OPTION(ejectInterval)]];
 
 _vehicle setVariable [QGVAR(unloadEnd),false,true];
 
@@ -22,6 +22,11 @@ _vehicle setVariable [QGVAR(unloadEnd),false,true];
 			unassignVehicle _item;
 			[_item] orderGetIn false;
 			moveOut _item;
+
+			// Tell AI to make room
+			if (!isPlayer _item) then {
+				[{(_this # 0) doMove (_this # 1)},[_item,_vehicle getPos [sizeOf typeOf _vehicle / 2,random 360]],2] call CBA_fnc_execAfterNFrames;
+			};
 		} else {
 			objNull setVehicleCargo _item;
 		};

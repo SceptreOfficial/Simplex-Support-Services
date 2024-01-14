@@ -19,6 +19,7 @@ if (GVAR(taskMarkers)) then {
 
 _vehicle engineOn true;
 _vehicle doFollow _vehicle;
+_vehicle land "NONE";
 
 [{
 	params ["_vehicle"];

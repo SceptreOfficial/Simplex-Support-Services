@@ -32,7 +32,7 @@ waitUntil {
 		};
 	};
 
-	sleep 0.2;
+	sleep WAYPOINT_SLEEP;
 
 	!isTouchingGround _vehicle && unitReady _vehicle
 };

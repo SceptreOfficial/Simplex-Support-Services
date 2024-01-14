@@ -84,7 +84,7 @@ if (GVAR(cooldownTrigger) == "START") then {
 		
 		if (_offsetDir >= 360) then {
 			_offsetDir = _offsetDir call CBA_fnc_simplifyAngle;
-			_offsetDist = _offsetDist + 2 * ((_entity getVariable QPVAR(class)) call EFUNC(common,sizeOf));
+			_offsetDist = _offsetDist + 2.5 * ((_entity getVariable QPVAR(class)) call EFUNC(common,sizeOf));
 		};
 
 		_vehicle
