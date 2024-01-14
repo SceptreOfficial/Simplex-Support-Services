@@ -827,5 +827,9 @@
 			<English>Default interval used when unloading infantry and cargo</English>
 			<French>Intervalle par défaut utilisé lors du déchargement de l'infanterie et du fret</French>
 		</Key>
+		<Key ID="STR_SSS_common_invalidClass">
+			<English>'%1' Invalid class: %2</English>
+			<French>'%1' Classe invalide: %2</French>
+		</Key>
 	</Package>
 </Project>
