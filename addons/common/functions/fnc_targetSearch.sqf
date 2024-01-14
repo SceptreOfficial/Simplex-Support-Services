@@ -31,10 +31,14 @@ switch (_type) do {
 			default {_target nearEntities _radius};
 		});
 
-		_target = selectRandom (_enemies select {
-			_enemy = _x;
-			_friendlies findIf {_enemy distance _x < _friendlyRange} < 0
-		});
+		if (_friendlyRange > 0) then {
+			_target = selectRandom (_enemies select {
+				_enemy = _x;
+				_friendlies findIf {_enemy distance _x < _friendlyRange} < 0
+			})
+		} else {
+			_target = selectRandom _enemies;
+		};
 
 		if (isNil "_target") then {_target = objNull};
 	};
