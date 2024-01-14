@@ -102,7 +102,7 @@ if (_ejections isNotEqualTo []) then {
 	} else {
 		[
 			_vehicle,
-			[_vehicle,ATLtoASL (_posASL getPos [sizeOf typeOf _object,random 360]),"LAND"] call EFUNC(common,surfacePosASL),
+			[_vehicle,ATLtoASL (_posASL getPos [sizeOf typeOf _object + sizeOf typeOf _vehicle,random 360]),"LAND"] call EFUNC(common,surfacePosASL),
 			[-1],
 			(getPos _vehicle # 2) max 50,
 			100,
