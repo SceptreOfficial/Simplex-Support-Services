@@ -30,7 +30,7 @@ private _endHeight = getPosASL _hook # 2 - _length - 0.3;
 
 	_this set [3,CBA_missionTime];
 
-	!alive _unit || _height < 0.1 || isTouchingGround _unit
+	!alive _unit || _height < 0.1 || {isTouchingGround _unit && _unit getVariable [QPVAR(fastroping),false]}
 },{
 	params ["_unit","_vehicle"];
 
