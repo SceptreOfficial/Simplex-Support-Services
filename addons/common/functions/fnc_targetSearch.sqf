@@ -32,10 +32,10 @@ switch (_type) do {
 		});
 
 		if (_friendlyRange > 0) then {
-			_target = selectRandom (_enemies select {
+			_target = _enemies param [_enemies findIf {
 				_enemy = _x;
 				_friendlies findIf {_enemy distance _x < _friendlyRange} < 0
-			})
+			},objNull];
 		} else {
 			_target = selectRandom _enemies;
 		};
@@ -44,7 +44,13 @@ switch (_type) do {
 	};
 	case "LASER" : {
 		_target = selectRandom (_target nearEntities [["LaserTargetE","LaserTargetW"] select ([_friendlySide,west] call BIS_fnc_sideIsFriendly),_radius]);
-		if (isNil "_target") then {_target = objNull};
+		
+		if (isNil "_target") exitWith {_target = objNull};
+
+		if (_typeDetail == "MATCH") then {
+			private _objects = _target nearEntities 25;
+			_target = _objects param [_objects findIf {_side in [west,east,independent] && {[_friendlySide,side group _x] call BIS_fnc_sideIsEnemy}},objNull];
+		};
 	};
 	case "SMOKE";
 	case "IR";
@@ -52,10 +58,12 @@ switch (_type) do {
 		if (_typeDetail isEqualTo "") then {
 			_target = selectRandom ([_type,_target,_radius] call FUNC(signalSearch));
 		} else {
-			_target = selectRandom (([_type,_target,_radius] call FUNC(signalSearch)) select {_x call FUNC(signalColor) isEqualTo _typeDetail});
+			private _signals = [_type,_target,_radius] call FUNC(signalSearch);
+			_target = _signals param [_signals findIf {_x call FUNC(signalColor) isEqualTo _typeDetail},objNull];
 		};
 		
 		if (isNil "_target") exitWith {_target = objNull};
+		
 		_target = getPosASL _target;
 	};
 };
