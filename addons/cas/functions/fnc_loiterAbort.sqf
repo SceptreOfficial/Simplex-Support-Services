@@ -13,6 +13,7 @@ NOTIFY(_entity,LSTRING(notifyLoiterAbort));
 
 _vehicle getVariable [QGVAR(loiterData),[]] params ["_player","_entity","_request","_startPosASL","_endPos"];
 _vehicle setVariable [QGVAR(loiterData),nil,true];
+_vehicle setVariable [QGVAR(loiterTargetTick),-1,true];
 
 private _group = group _vehicle;
 
