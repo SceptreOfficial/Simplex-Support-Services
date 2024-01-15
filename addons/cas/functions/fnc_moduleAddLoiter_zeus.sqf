@@ -20,7 +20,7 @@ if (_vehicle isKindOf "Air") then {
 	["EDITBOX",EDESC(common,callsign),""],
 	["EDITBOX",EDESC(common,cooldown),60],
 	["ARRAY",DESC(virtualRunway),[["X","Y","Z"],[0,0,0]]],
-	["EDITBOX",DESC(spawnDistance),6000],
+	["EDITBOX",DESC(spawnDistance),8000],
 	["ARRAY",DESC(spawnDelay),[[LELSTRING(common,Min),LELSTRING(common,Max)],[0,0]]],
 	["ARRAY",DESC(AltitudeLimits),[[LELSTRING(common,Min),LELSTRING(common,Max)],[500,3000]]],
 	["ARRAY",DESC(RadiusLimits),[[LELSTRING(common,Min),LELSTRING(common,Max)],[300,2500]]],

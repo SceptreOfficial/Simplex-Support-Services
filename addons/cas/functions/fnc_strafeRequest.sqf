@@ -11,7 +11,7 @@ private _egress = _request getOrDefault ["egress",-1];
 
 [_entity,true,"INGRESS",[LSTRING(statusStrafeIngress),RGBA_YELLOW]] call EFUNC(common,setStatus);
 
-private _spawnDistance = _entity getVariable [QPVAR(spawnDistance),6000];
+private _spawnDistance = _entity getVariable [QPVAR(spawnDistance),8000];
 private _speed = (getNumber (configFile >> "CfgVehicles" >> _class >> "maxSpeed")) / 3.6;
 private _virtualRunway = _entity getVariable [QPVAR(virtualRunway),[0,0,0]];
 private _ETADistance = [_virtualRunway distance2D _posASL,_spawnDistance] select (_virtualRunway isEqualTo [0,0,0]);

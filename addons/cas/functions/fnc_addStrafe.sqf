@@ -11,7 +11,7 @@ params [
 	["_callsign","",[""]],
 	["_cooldowns",[60,0],[[]],2],
 	["_virtualRunway",[0,0,0],[[]],3],
-	["_spawnDistance",6000,[0]],
+	["_spawnDistance",8000,[0]],
 	["_spawnDelay",[0,0],[[]],2],
 	["_maxSpread",200,[0]],
 	["_pylons",[],[[]]],
