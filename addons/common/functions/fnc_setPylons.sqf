@@ -52,7 +52,7 @@ private _turretWeapons = [];
 		if (!isClass (_cfgMagazines >> _magazine)) then {continue};
 	};
 
-	if (_pylonIndex < _pylonsCount &&
+	if (_pylonIndex <= _pylonsCount &&
 		{getText (_cfgMagazines >> _magazine >> "pylonWeapon") == _weapon} &&
 		{_vehicle getCompatiblePylonMagazines _pylonIndex findIf {_x == _magazine} > -1}
 	) then {
