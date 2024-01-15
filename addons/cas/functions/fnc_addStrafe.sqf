@@ -17,6 +17,7 @@ params [
 	["_pylons",[],[[]]],
 	["_infiniteAmmo",false,[false]],
 	["_targetTypes",STRAFE_TARGETS,[[]]],
+	["_friendlyRange",50,[0]],
 	["_countermeasures",true,[false]],
 	["_vehicleInit",{},[{},""]],
 	["_remoteAccess",true,[false]],
@@ -71,6 +72,7 @@ _entity setVariable [QPVAR(spawnDelay),_spawnDelay,true];
 _entity setVariable [QPVAR(maxSpread),_maxSpread,true];
 _entity setVariable [QPVAR(pylons),_pylons,true];
 _entity setVariable [QPVAR(infiniteAmmo),_infiniteAmmo,true];
+_entity setVariable [QPVAR(friendlyRange),_friendlyRange,true];
 _entity setVariable [QPVAR(targetTypes),_targetTypes,true];
 _entity setVariable [QPVAR(countermeasures),_countermeasures,true];
 

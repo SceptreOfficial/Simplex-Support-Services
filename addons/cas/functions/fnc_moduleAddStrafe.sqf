@@ -31,6 +31,7 @@ if (!local _logic) exitWith {};
 			_pylons,
 			LVAR(InfiniteAmmo) == 0,
 			[STRAFE_TARGETS,LVAR(TargetTypes)] call EFUNC(common,parseCheckboxes),
+			LVAR(FriendlyRange),
 			LVAR(Countermeasures) == 0,
 			LVAR(VehicleInit),
 			LVAR(RemoteAccess),

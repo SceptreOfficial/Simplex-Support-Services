@@ -28,7 +28,6 @@ if (_vehicle isKindOf "Air") then {
 	["TOOLBOX",DESC(Repositioning),[[LELSTRING(common,enable),LELSTRING(common,disable)],0,[true,false]]],
 	["EDITBOX",DESC(pylons),str _pylons],
 	["TOOLBOX",DESC(infiniteAmmo),[[LELSTRING(common,enable),LELSTRING(common,disable)],1,[true,false]]],
-	["EDITBOX",DESC(FriendlyRange),200],
 	["LISTNBOXCB",DESC(targetTypes),[[
 		LLSTRING(targetMap),
 		LLSTRING(targetLaser),
@@ -39,6 +38,7 @@ if (_vehicle isKindOf "Air") then {
 		LLSTRING(targetInfantry),
 		LLSTRING(targetVehicles)
 	],true,5,LOITER_TARGETS]],
+	["EDITBOX",DESC(friendlyRange),50],
 	["EDITBOX",EDESC(common,vehicleInit),""],
 	["TOOLBOX",DESC(remoteControl),[[LELSTRING(common,enable),LELSTRING(common,disable)],0,[true,false]]],
 	["CHECKBOX",EDESC(common,remoteAccess),true],

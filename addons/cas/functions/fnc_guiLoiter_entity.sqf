@@ -62,6 +62,13 @@ lbClear _ctrlTarget;
 _ctrlTarget lbSetCurSel (_targetTypes find _type) max 0;
 _ctrlTargetDetail lbSetCurSel (["","WHITE","BLACK","RED","ORANGE","YELLOW","GREEN","BLUE","PURPLE"] find _typeDetail);
 
+// Danger close
+private _ctrlDangerClose = CTRL(IDC_DANGER_CLOSE);
+_ctrlDangerClose lbSetCurSel parseNumber !(GVAR(request) getOrDefault ["dangerClose",false]);
+private _tooltip = format [LLSTRING(dangerCloseTooltip),_entity getVariable QPVAR(friendlyRange)];
+_ctrlDangerClose lbSetTooltip [0,_tooltip];
+_ctrlDangerClose lbSetTooltip [1,_tooltip];
+
 // Weapons
 private _ctrlWeapon = CTRL(IDC_WEAPON);
 lbClear _ctrlWeapon;
@@ -83,13 +90,6 @@ if (_weapon isEqualTo [] || {!(_weapon in _validPylons)}) then {
 	_ctrlWeapon lbSetTooltip [_i,_turretName];
 	if (_weapon isEqualTo _pylon) then {_ctrlWeapon lbSetCurSel _i};
 } forEach _formatPylons;
-
-// Danger close
-private _ctrlDangerClose = CTRL(IDC_DANGER_CLOSE);
-_ctrlDangerClose lbSetCurSel parseNumber !(GVAR(request) getOrDefault ["dangerClose",false]);
-private _tooltip = format [LLSTRING(dangerCloseTooltip),_entity getVariable QPVAR(friendlyRange)];
-_ctrlDangerClose lbSetTooltip [0,_tooltip];
-_ctrlDangerClose lbSetTooltip [1,_tooltip];
 
 // Remote control
 GVAR(remoteControlTurrets) = [];

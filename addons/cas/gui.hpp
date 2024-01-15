@@ -991,10 +991,30 @@ class GVAR(guiStrafe) {
 						};
 					};
 				};
-				class GVAR(spreadText) : EGVAR(sdf,Text) {
+				class GVAR(dangerCloseText) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(0));
 					y = QUOTE(CTRL_Y(6));
+					w = QUOTE(CTRL_W(7));
+					h = QUOTE(CTRL_H(1));
+					text = CSTRING(dangerClose);
+				};
+				class GVAR(dangerClose) : EGVAR(sdf,Toolbox) {
+					idc = IDC_DANGER_CLOSE;
+					x = QUOTE(CTRL_X(7));
+					y = QUOTE(CTRL_Y(6));
+					w = QUOTE(CTRL_W(13));
+					h = QUOTE(CTRL_H(1));
+					columns = 2;
+					rows = 1;
+					strings[] = {ECSTRING(common,enable),ECSTRING(common,disable)};
+					values[] = {1,0};
+					onToolBoxSelChanged = QUOTE(call FUNC(gui_dangerClose));
+				};
+				class GVAR(spreadText) : EGVAR(sdf,Text) {
+					idc = -1;
+					x = QUOTE(CTRL_X(0));
+					y = QUOTE(CTRL_Y(7));
 					w = QUOTE(CTRL_W(7));
 					h = QUOTE(CTRL_H(1));
 					text = CSTRING(linearSpread);
@@ -1002,21 +1022,21 @@ class GVAR(guiStrafe) {
 				class GVAR(spread) : EGVAR(sdf,Slider) {
 					idc = IDC_SPREAD;
 					x = QUOTE(CTRL_X(7));
-					y = QUOTE(CTRL_Y(6));
+					y = QUOTE(CTRL_Y(7));
 					w = QUOTE(CTRL_W(11));
 					h = QUOTE(CTRL_H(1));
 				};
 				class GVAR(spreadEdit) : EGVAR(sdf,Editbox) {
 					idc = IDC_SPREAD_EDIT;
 					x = QUOTE(CTRL_X(18));
-					y = QUOTE(CTRL_Y(6));
+					y = QUOTE(CTRL_Y(7));
 					w = QUOTE(CTRL_W(2));
 					h = QUOTE(CTRL_H(1));
 				};
 				class GVAR(primaryText) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(0));
-					y = QUOTE(CTRL_Y(7));
+					y = QUOTE(CTRL_Y(8));
 					w = QUOTE(CTRL_W(7));
 					h = QUOTE(CTRL_H(1));
 					text = CSTRING(primaryWeapon);
@@ -1024,7 +1044,7 @@ class GVAR(guiStrafe) {
 				class GVAR(primary) : EGVAR(sdf,Combobox) {
 					idc = IDC_PRIMARY;
 					x = QUOTE(CTRL_X(7));
-					y = QUOTE(CTRL_Y(7));
+					y = QUOTE(CTRL_Y(8));
 					w = QUOTE(CTRL_W(13));
 					h = QUOTE(CTRL_H(1));
 					onLBSelChanged = QUOTE(call FUNC(guiStrafe_pylon));
@@ -1032,7 +1052,7 @@ class GVAR(guiStrafe) {
 				class GVAR(primaryRateText) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(0));
-					y = QUOTE(CTRL_Y(8));
+					y = QUOTE(CTRL_Y(9));
 					w = QUOTE(CTRL_W(7));
 					h = QUOTE(CTRL_H(1));
 					text = CSTRING(primaryRateControl);
@@ -1040,14 +1060,14 @@ class GVAR(guiStrafe) {
 				class GVAR(primaryDistributionBG) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(7));
-					y = QUOTE(CTRL_Y(8));
+					y = QUOTE(CTRL_Y(9));
 					w = QUOTE(CTRL_W(1));
 					h = QUOTE(CTRL_H(1));
 				};
 				class GVAR(primaryDistribution) : EGVAR(common,toggleDistribution) {
 					idc = IDC_PRIMARY_DISTRIBUTION;
 					x = QUOTE(CTRL_X(7));
-					y = QUOTE(CTRL_Y(8));
+					y = QUOTE(CTRL_Y(9));
 					w = QUOTE(CTRL_W(1));
 					h = QUOTE(CTRL_H(1));
 					onCheckedChanged = QUOTE(call FUNC(guiStrafe_distribution));
@@ -1056,21 +1076,21 @@ class GVAR(guiStrafe) {
 				class GVAR(primaryQuantity) : EGVAR(sdf,Editbox) {
 					idc = IDC_PRIMARY_QUANTITY;
 					x = QUOTE(CTRL_X(8));
-					y = QUOTE(CTRL_Y(8));
+					y = QUOTE(CTRL_Y(9));
 					w = QUOTE(CTRL_W(5.5));
 					h = QUOTE(CTRL_H(1));
 				};
 				class GVAR(primaryIntervalBG) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(13.5));
-					y = QUOTE(CTRL_Y(8));
+					y = QUOTE(CTRL_Y(9));
 					w = QUOTE(CTRL_W(1));
 					h = QUOTE(CTRL_H(1));
 				};
 				class GVAR(primaryIntervalIcon) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(13.55));
-					y = QUOTE(CTRL_Y(8.05));
+					y = QUOTE(CTRL_Y(9.05));
 					w = QUOTE(CTRL_W(0.9));
 					h = QUOTE(CTRL_H(0.9));
 					text = ICON_TRIGGER_INTERVAL;
@@ -1080,14 +1100,14 @@ class GVAR(guiStrafe) {
 				class GVAR(primaryInterval) : EGVAR(sdf,Editbox) {
 					idc = IDC_PRIMARY_INTERVAL;
 					x = QUOTE(CTRL_X(14.5));
-					y = QUOTE(CTRL_Y(8));
+					y = QUOTE(CTRL_Y(9));
 					w = QUOTE(CTRL_W(5.5));
 					h = QUOTE(CTRL_H(1));
 				};
 				class GVAR(secondaryText) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(0));
-					y = QUOTE(CTRL_Y(9));
+					y = QUOTE(CTRL_Y(10));
 					w = QUOTE(CTRL_W(7));
 					h = QUOTE(CTRL_H(1));
 					text = CSTRING(secondaryWeapon);
@@ -1095,7 +1115,7 @@ class GVAR(guiStrafe) {
 				class GVAR(secondary) : EGVAR(sdf,Combobox) {
 					idc = IDC_SECONDARY;
 					x = QUOTE(CTRL_X(7));
-					y = QUOTE(CTRL_Y(9));
+					y = QUOTE(CTRL_Y(10));
 					w = QUOTE(CTRL_W(13));
 					h = QUOTE(CTRL_H(1));
 					onLBSelChanged = QUOTE(call FUNC(guiStrafe_pylon));
@@ -1103,7 +1123,7 @@ class GVAR(guiStrafe) {
 				class GVAR(secondaryRateText) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(0));
-					y = QUOTE(CTRL_Y(10));
+					y = QUOTE(CTRL_Y(11));
 					w = QUOTE(CTRL_W(7));
 					h = QUOTE(CTRL_H(1));
 					text = CSTRING(secondaryRateControl);
@@ -1111,14 +1131,14 @@ class GVAR(guiStrafe) {
 				class GVAR(secondaryDistributionBG) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(7));
-					y = QUOTE(CTRL_Y(10));
+					y = QUOTE(CTRL_Y(11));
 					w = QUOTE(CTRL_W(1));
 					h = QUOTE(CTRL_H(1));
 				};
 				class GVAR(secondaryDistribution) : EGVAR(common,toggleDistribution) {
 					idc = IDC_SECONDARY_DISTRIBUTION;
 					x = QUOTE(CTRL_X(7));
-					y = QUOTE(CTRL_Y(10));
+					y = QUOTE(CTRL_Y(11));
 					w = QUOTE(CTRL_W(1));
 					h = QUOTE(CTRL_H(1));
 					onCheckedChanged = QUOTE(call FUNC(guiStrafe_distribution));
@@ -1127,21 +1147,21 @@ class GVAR(guiStrafe) {
 				class GVAR(secondaryQuantity) : EGVAR(sdf,Editbox) {
 					idc = IDC_SECONDARY_QUANTITY;
 					x = QUOTE(CTRL_X(8));
-					y = QUOTE(CTRL_Y(10));
+					y = QUOTE(CTRL_Y(11));
 					w = QUOTE(CTRL_W(5.5));
 					h = QUOTE(CTRL_H(1));
 				};
 				class GVAR(secondaryIntervalBG) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(13.5));
-					y = QUOTE(CTRL_Y(10));
+					y = QUOTE(CTRL_Y(11));
 					w = QUOTE(CTRL_W(1));
 					h = QUOTE(CTRL_H(1));
 				};
 				class GVAR(secondaryIntervalIcon) : EGVAR(sdf,Text) {
 					idc = -1;
 					x = QUOTE(CTRL_X(13.55));
-					y = QUOTE(CTRL_Y(10.05));
+					y = QUOTE(CTRL_Y(11.05));
 					w = QUOTE(CTRL_W(0.9));
 					h = QUOTE(CTRL_H(0.9));
 					text = ICON_TRIGGER_INTERVAL;
@@ -1151,7 +1171,7 @@ class GVAR(guiStrafe) {
 				class GVAR(secondaryInterval) : EGVAR(sdf,Editbox) {
 					idc = IDC_SECONDARY_INTERVAL;
 					x = QUOTE(CTRL_X(14.5));
-					y = QUOTE(CTRL_Y(10));
+					y = QUOTE(CTRL_Y(11));
 					w = QUOTE(CTRL_W(5.5));
 					h = QUOTE(CTRL_H(1));
 				};

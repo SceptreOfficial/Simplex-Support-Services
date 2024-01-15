@@ -35,6 +35,7 @@ if (_vehicle isKindOf "Air") then {
 		LLSTRING(targetInfantry),
 		LLSTRING(targetVehicles)
 	],true,5,STRAFE_TARGETS]],
+	["EDITBOX",DESC(friendlyRange),50],
 	["TOOLBOX",DESC(countermeasures),[[LELSTRING(common,enable),LELSTRING(common,disable)],0,[true,false]]],
 	["EDITBOX",EDESC(common,vehicleInit),""],
 	["CHECKBOX",EDESC(common,remoteAccess),true],
@@ -55,6 +56,7 @@ if (_vehicle isKindOf "Air") then {
 		"_maxSpread",
 		"_pylons",
 		"_infiniteAmmo",
+		"_friendlyRange",
 		"_targetTypes",
 		"_countermeasures",
 		"_vehicleInit",
@@ -77,6 +79,7 @@ if (_vehicle isKindOf "Air") then {
 		parseNumber _maxSpread,
 		_pylons call EFUNC(common,parseArray),
 		_infiniteAmmo,
+		parseNumber _friendlyRange,
 		_targetTypes,
 		_countermeasures,
 		_vehicleInit,

@@ -275,11 +275,6 @@ class CfgVehicles {
 					class Disable {name = ECSTRING(common,disable);};
 				};
 			};
-			class FriendlyRange : Edit {
-				ATTRIBUTE(FriendlyRange);
-				typeName = "NUMBER";
-				defaultValue = 50;
-			};
 			class TargetTypes : Default {
 				ATTRIBUTE(TargetTypes);
 				typeName = "ARRAY";
@@ -318,6 +313,11 @@ class CfgVehicles {
 						value = 1;
 					};
 				};
+			};
+			class FriendlyRange : Edit {
+				ATTRIBUTE(FriendlyRange);
+				typeName = "NUMBER";
+				defaultValue = 50;
 			};
 			class VehicleInit : Default {
 				EATTRIBUTE(common,VehicleInit);
@@ -476,6 +476,11 @@ class CfgVehicles {
 						value = 1;
 					};
 				};
+			};
+			class FriendlyRange : Edit {
+				ATTRIBUTE(FriendlyRange);
+				typeName = "NUMBER";
+				defaultValue = 50;
 			};
 			class Countermeasures : Default {
 				ATTRIBUTE(Countermeasures);

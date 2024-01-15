@@ -55,6 +55,13 @@ lbClear _ctrlTarget;
 _ctrlTarget lbSetCurSel (_targetTypes find _type) max 0;
 _ctrlTargetDetail lbSetCurSel (["","WHITE","BLACK","RED","ORANGE","YELLOW","GREEN","BLUE","PURPLE"] find _typeDetail);
 
+// Danger close
+private _ctrlDangerClose = CTRL(IDC_DANGER_CLOSE);
+_ctrlDangerClose lbSetCurSel parseNumber !(GVAR(request) getOrDefault ["dangerClose",false]);
+private _tooltip = format [LLSTRING(dangerCloseTooltip),_entity getVariable QPVAR(friendlyRange)];
+_ctrlDangerClose lbSetTooltip [0,_tooltip];
+_ctrlDangerClose lbSetTooltip [1,_tooltip];
+
 // Distribution toggles
 private _ctrlDistribution1 = CTRL(IDC_PRIMARY_DISTRIBUTION);
 _ctrlDistribution1 cbSetChecked (GVAR(request) getOrDefault ["distribution1",false]);

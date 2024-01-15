@@ -10,7 +10,7 @@ params [
 	["_infiniteAmmo",true,[false]],
 	["_spread",0,[0]],
 	["_ingress",-1,[0]],
-	["_search","",[""]],
+	["_search","",["",[]]],
 	["_altitude",500,[0]],
 	["_aimRange",-1,[0]]
 ];
@@ -229,7 +229,8 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 		[QGVAR(strafeApproach),[_vehicle]] call CBA_fnc_localEvent;
 	};
 
-	_target = [_target,side group _vehicle,_search] call FUNC(targetSearch);
+	_search params ["_search","_searchRadius","_friendlyRange"];
+	_target = [_target,side group _vehicle,_search,_searchRadius,_friendlyRange] call FUNC(targetSearch);
 
 	if (_target isEqualType objNull && {isNull _target}) exitWith {
 		NOTIFY(_vehicle,LSTRING(strafeNoTarget));
