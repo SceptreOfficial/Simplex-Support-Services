@@ -18,7 +18,8 @@ _vehicle setVariable [QGVAR(bombMagazines),nil,true];
 _vehicle setVariable [QGVAR(relativeVelocity),nil,true];
 
 // Remove targeting dummy (for missile locks)
-[{deleteVehicle _this},_vehicle getVariable [QGVAR(targetDummy),objNull],10] call CBA_fnc_waitAndExecute;
+[{{deleteVehicle _x} forEach _this},_vehicle getVariable QGVAR(dummies),20] call CBA_fnc_waitAndExecute;
+_vehicle setVariable [QGVAR(dummies),nil,true];
 
 // Reset pylon bays
 {

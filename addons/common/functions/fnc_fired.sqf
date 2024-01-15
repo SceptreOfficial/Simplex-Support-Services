@@ -14,14 +14,12 @@ if (_magazine in (_vehicle getVariable [QGVAR(bombMagazines),[]])) exitWith {
 };
 
 // Missile lock
-private _dummy = _vehicle getVariable [QGVAR(targetDummy),objNull];
+_vehicle getVariable [QGVAR(dummies),[]] params [["_laserDummy",objNull],"_targetDummy"];
 
-if (!isNull _dummy) then {
-	_projectile setMissileTargetPos getPosATL _dummy;
-	_projectile setMissileTarget _dummy;
-	//if (getNumber (configFile >> "CfgAmmo" >> _ammo >> "manualControl") > 0) then {
-	//	_projectile setMissileTargetPos getPosATL _dummy;
-	//} else {
-	//	_projectile setMissileTarget _dummy;
-	//};
+if (isNull _laserDummy) exitWith {};
+
+_projectile setMissileTargetPos getPosATL _laserDummy;
+
+if !(_projectile setMissileTarget _laserDummy) then {
+	_projectile setMissileTarget _targetDummy;
 };

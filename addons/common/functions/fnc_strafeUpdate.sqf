@@ -4,7 +4,7 @@
 #define INDEX_ROTATIONS 17
 #define INDEX_PATH 18
 
-_ammoData # _weaponIndex params ["_initSpeed","_airFriction","_timeToLive","_simStep","_simulation","_canLock","_sensorLock","_airLock","_laserLock"];
+_ammoData # _weaponIndex params ["_initSpeed","_airFriction","_timeToLive","_simStep","_simulation","_canLock","_sensorLock","_airLock"];
 _relVel params ["_xRelVel","_yRelVel","_zRelVel"];
 _rotations params ["_dir","_pitch","_bank"];
 
@@ -27,24 +27,23 @@ if (_fireStart > 0) then {
 	_targetASL = _strafeStart getPos [0 max (_spread * 2 * ((CBA_missionTime - _fireStart + 1) / (_durations param [_weaponIndex,1]))) min (_spread * 2),_strafeDir];
 	_targetASL set [2,_strafeStart # 2];
 
-	private _dummy = _vehicle getVariable [QGVAR(targetDummy),objNull];
+	_vehicle getVariable [QGVAR(dummies),[]] params [["_laserDummy",objNull],"_targetDummy"];
 
-	if (isNull _dummy) then {
-		if (_laserLock) then {
-			_dummy = (["LaserTargetE","LaserTargetW"] select ([side group _vehicle,west] call BIS_fnc_sideIsFriendly)) createVehicle [0,0,0];
-		} else {
-			_dummy = (createGroup [sideLogic,true]) createUnit ["Logic",[0,0,0],[],0,"CAN_COLLIDE"];
-		};
-
-		_vehicle setVariable [QGVAR(targetDummy),_dummy];
+	if (isNull _laserDummy) then {
+		_laserDummy = (["LaserTargetE","LaserTargetW"] select ([side group _vehicle,west] call BIS_fnc_sideIsFriendly)) createVehicle [0,0,0];
+		_targetDummy = (createGroup [sideLogic,true]) createUnit ["Logic",[0,0,0],[],0,"CAN_COLLIDE"];
+		
+		_vehicle setVariable [QGVAR(dummies),[_laserDummy,_targetDummy]];
 
 		if (_target isEqualType objNull) then {
-			_dummy attachTo [_target,[0,0,0.1]];
+			_laserDummy attachTo [_target,[0,0,0.1]];
+			_targetDummy attachTo [_target,[0,0,0.1]];
 		};
 	};
 
 	if (_target isEqualType []) then {
-		_dummy setPosASL _targetASL;
+		_laserDummy setPosASL _targetASL;
+		_targetDummy setPosASL _targetASL;
 	};
 } else {
 	_targetASL = _strafeStart;
@@ -90,7 +89,7 @@ if (_distance > (0.9 * (_ammoSpeed * sqrt (2 * _G * (_velPos # 2 - _targetASL # 
 		_thisArgs set [INDEX_FIRE_START,CBA_missionTime + 3.2];
 		[QGVAR(strafeFireReady),[_vehicle,CBA_missionTime + 3.2]] call CBA_fnc_localEvent;
 
-		_vehicle lockCameraTo [_vehicle getVariable [QGVAR(targetDummy),objNull],_turrets param [_weaponIndex,[]],false];
+		_vehicle lockCameraTo [_vehicle getVariable [QGVAR(dummies),[]] param [0,objNull],_turrets param [_weaponIndex,[]],false];
 	};
 };
 

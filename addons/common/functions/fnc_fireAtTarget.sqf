@@ -82,19 +82,18 @@ if (_ammoData # 4 in ["shotmissile","shotrocket"]) then {
 	_triggerDelay = _triggerDelay max 5;
 };
 
-// Create target dummy for missiles
-private _dummy = if (_ammoData # 8) then {
-	(["LaserTargetE","LaserTargetW"] select ([side group _vehicle,west] call BIS_fnc_sideIsFriendly)) createVehicle [0,0,0];
-} else {
-	(createGroup [sideLogic,true]) createUnit ["Logic",[0,0,0],[],0,"CAN_COLLIDE"];
-};
+// Target dummies for missiles
+private _dummies = [
+	(["LaserTargetE","LaserTargetW"] select ([side group _vehicle,west] call BIS_fnc_sideIsFriendly)) createVehicle [0,0,0],
+	(createGroup [sideLogic,true]) createUnit ["Logic",[0,0,0],[],0,"CAN_COLLIDE"]
+];
 
-_vehicle setVariable [QGVAR(targetDummy),_dummy,true];
+_vehicle setVariable [QGVAR(dummies),_dummies,true];
 
 if (_target isEqualType objNull) then {
-	_dummy attachTo [_target,[0,0,0.1]];
+	{_x attachTo [_target,[0,0,0.1]]} forEach _dummies;
 } else {
-	_dummy setPosASL (_targetASL vectorAdd [0,0,0.1]);
+	{_x setPosASL (_targetASL vectorAdd [0,0,0.1])} forEach _dummies;
 };
 
 // Setup
@@ -125,7 +124,7 @@ private _fnc_reset = {
 		"_unit",
 		"",
 		"",
-		"_dummy"
+		"_dummies"
 	];
 
 	_vehicle removeEventHandler ["Fired",_vehicle getVariable [QGVAR(firedEHID),-1]];
@@ -133,10 +132,10 @@ private _fnc_reset = {
 
 	_vehicle setVariable [QGVAR(abortFiring),nil];
 	_vehicle setVariable [QGVAR(firing),nil,true];
-	_vehicle setVariable [QGVAR(targetDummy),nil,true];
+	_vehicle setVariable [QGVAR(dummies),nil,true];
 
 	_unit setVariable [QGVAR(firing),nil,true];
-	[{deleteVehicle _this},_dummy,10] call CBA_fnc_waitAndExecute;
+	[{{deleteVehicle _x} forEach _this},_dummies,20] call CBA_fnc_waitAndExecute;
 	if (_unit getVariable [QGVAR(searchlight),false]) exitWith {};
 	[{(_this # 0) lockCameraTo (_this # 1)},[_vehicle,[objNull,_turret,true]],1] call CBA_fnc_waitAndExecute;
 };
@@ -165,7 +164,7 @@ private _fnc_reset = {
 	_unit,
 	_ammoData,
 	_triggerDelay,
-	_dummy,
+	_dummies,
 	0,// _startTime
 	0,// _totalTime
 	0,// _aimTick
