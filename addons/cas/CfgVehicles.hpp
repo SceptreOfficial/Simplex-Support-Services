@@ -285,18 +285,6 @@ class CfgVehicles {
 				typeName = "ARRAY";
 				control = QPVAR(checkboxes);
 				class Values {
-					class Enemies {
-						name = CSTRING(targetEnemies);
-						value = 1;
-					};
-					class Infantry {
-						name = CSTRING(targetInfantry);
-						value = 1;
-					};
-					class Vehicles {
-						name = CSTRING(targetVehicles);
-						value = 1;
-					};
 					class Map {
 						name = CSTRING(targetMap);
 						value = 1;
@@ -315,6 +303,18 @@ class CfgVehicles {
 					};
 					class Flare {
 						name = CSTRING(targetFlare);
+						value = 1;
+					};
+					class Enemies {
+						name = CSTRING(targetEnemies);
+						value = 1;
+					};
+					class Infantry {
+						name = CSTRING(targetInfantry);
+						value = 1;
+					};
+					class Vehicles {
+						name = CSTRING(targetVehicles);
 						value = 1;
 					};
 				};
@@ -461,6 +461,18 @@ class CfgVehicles {
 					};
 					class Flare {
 						name = CSTRING(targetFlare);
+						value = 1;
+					};
+					class Enemies {
+						name = CSTRING(targetEnemies);
+						value = 1;
+					};
+					class Infantry {
+						name = CSTRING(targetInfantry);
+						value = 1;
+					};
+					class Vehicles {
+						name = CSTRING(targetVehicles);
 						value = 1;
 					};
 				};
