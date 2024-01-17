@@ -77,7 +77,7 @@ if (_distance > (0.9 * (_ammoSpeed * sqrt (2 * _G * (_velPos # 2 - _targetASL # 
 
 		_elevOffset + _elevation - _pitch
 	} else {
-		private _aim = [[_ammoSpeed,_airFriction,_timeToLive,_simStep,_simulation],_velPos,[0,0,0],_targetASL,linearConversion [6000,2500,_distance,7,3.5,true]] call FUNC(getAimSim);
+		private _aim = [[_ammoSpeed,_airFriction,_timeToLive,_simStep,_simulation],_velPos,[0,0,0],_targetASL,linearConversion [6000,2000,_distance,7,3.5,true]] call FUNC(getAimSim);
 		_aim = [_aim,(_aim # 0) atan2 (_aim # 1)] call FUNC(rotateVector2D);
 
 		_elevOffset + ((_aim # 2) atan2 (_aim # 1)) - _pitch

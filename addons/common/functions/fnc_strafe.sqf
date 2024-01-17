@@ -39,7 +39,7 @@ if (!alive _vehicle || !canMove _vehicle || {!(_vehicle isKindOf "Air")}) exitWi
 };
 
 if (_ingress < 0) then {_ingress = _target getDir _vehicle};
-if (_aimRange < 0) then {_aimRange = [2600,1000] select (_vehicle isKindOf "Helicopter")};
+if (_aimRange < 0) then {_aimRange = [2000,1000] select (_vehicle isKindOf "Helicopter")};
 _aimRange = _aimRange max 600;
 
 private _weapons = [];
@@ -115,12 +115,12 @@ _vehicle setVariable [QGVAR(firedEHID),_EHID];
 
 private _maxSpeed = getNumber (configOf _vehicle >> "maxSpeed") / 3.6;
 private _minSpeed = [getNumber (configOf _vehicle >> "stallSpeed") * 1.1 / 3.6,28 min (_maxSpeed / 3)] select (_vehicle isKindOf "Helicopter");
-private _speed = (_maxSpeed * 0.6) min 160 max _minSpeed;
+private _speed = (_maxSpeed / 2) min 160 max _minSpeed;
 
 private _hBuffer = getPosASL _vehicle # 2 / 2;
 private _minDist = (_aimRange * 0.8) max (_speed * (_totalDuration + 0.5) + _hBuffer);
 private _simDist = _aimRange max (_speed * (_totalDuration + 3) + _hBuffer);
-private _prepDist = (_aimRange + 800) max (_maxSpeed * (_totalDuration + 6) + _hBuffer);// TODO: was 12, re-evaluate ETA and test vanilla aircraft
+private _prepDist = (_aimRange + 800) max (_maxSpeed * (_totalDuration + 8) + _hBuffer);
 private _altitudeASL = if (_target isEqualType objNull) then {
 	getPosASL _target # 2 + _altitude
 } else {

@@ -5,7 +5,7 @@ params ["_player","_entity","_request"];
 private _class = _entity getVariable [QPVAR(class),""];
 private _posASL = _request getOrDefault ["posASL",[0,0,0]];
 private _altitude = _request getOrDefault ["altitude",[2000,500] select (_class isKindOf "Helicopter")];
-private _aimRange = _request getOrDefault ["range",[2600,1000] select (_class isKindOf "Helicopter")];
+private _aimRange = _request getOrDefault ["range",[2000,1000] select (_class isKindOf "Helicopter")];
 private _ingress = _request getOrDefault ["ingress",-1];
 private _egress = _request getOrDefault ["egress",-1];
 
