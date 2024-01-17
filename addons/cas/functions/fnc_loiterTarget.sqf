@@ -36,7 +36,7 @@ private _target = [
 	_posASL,
 	side group _vehicle,
 	_search,
-	_radius * 0.75,
+	_request getOrDefault ["searchRadius",_radiusMin max 900 min _radiusMax],
 	[_entity getVariable QPVAR(friendlyRange),0] select (_request getOrDefault ["dangerClose",false])
 ] call EFUNC(common,targetSearch);
 

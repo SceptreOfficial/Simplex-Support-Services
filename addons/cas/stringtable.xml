@@ -153,42 +153,6 @@
 			<English>If a vehicle is synced to the module, it will be deleted on init.</English>
 			<French>Si un véhicule est synchronisé avec le module, il sera supprimé lors de l'initialisation.</French>
 		</Key>
-		<Key ID="STR_SSS_CAS_targetEnemies">
-			<English>Any enemy</English>
-			<French>N'importe quel ennemi</French>
-		</Key>
-		<Key ID="STR_SSS_CAS_targetInfantry">
-			<English>Enemy infantry</English>
-			<French>Infanterie ennemie</French>
-		</Key>
-		<Key ID="STR_SSS_CAS_targetVehicles">
-			<English>Enemy vehicles</English>
-			<French>Véhicules ennemis</French>
-		</Key>
-		<Key ID="STR_SSS_CAS_targetMap">
-			<English>Map position</English>
-			<French>Position sur la carte</French>
-		</Key>
-		<Key ID="STR_SSS_CAS_targetLaser">
-			<English>Laser designator</English>
-			<French>Désignateur laser</French>
-		</Key>
-		<Key ID="STR_SSS_CAS_targetSmoke">
-			<English>Smoke</English>
-			<French>Fumigène</French>
-		</Key>
-		<Key ID="STR_SSS_CAS_targetIR">
-			<English>IR</English>
-			<French>IR</French>
-		</Key>
-		<Key ID="STR_SSS_CAS_targetFlare">
-			<English>Flare</English>
-			<French>Fusées éclairantes</French>
-		</Key>
-		<Key ID="STR_SSS_CAS_targetVehicle">
-			<English>Vehicle</English>
-			<French>Véhicule</French>
-		</Key>
 		<Key ID="STR_SSS_CAS_statusStrafe">
 			<English>STRAFE</English>
 			<French>ATTAQUE</French>
@@ -326,8 +290,8 @@
 			<French>Portée minimale d'unités amicale</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_FriendlyRange_info">
-			<English>Aircraft will not freely engage enemies within this range to friendlies.\nMap, laser, and signal targets are excluded from this check.</English>
-			<French>Les avions n'engageront pas librement les ennemis dans cette portée avec des alliés.\nLes cibles cartographiques, laser et signalétique sont exclues de cette vérification.</French>
+			<English>Aircraft will not freely engage enemies within this range to friendlies.\nMap targets are excluded from this check.</English>
+			<French>Les avions n'engageront pas librement les ennemis dans cette portée avec des alliés.\nLes cibles cartographiques sont exclues de cette vérification.</French>
 		</Key>
 		<Key ID="STR_SSS_CAS_RemoteControl_name">
 			<English>Remote control</English>
@@ -377,10 +341,6 @@
 			<English>Target</English>
 			<French>Cible</French>
 		</Key>
-		<Key ID="STR_sss_cas_targetTooltip">
-			<English>500m search radius</English>
-			<French>Rayon de recherche de 500 m</French>
-		</Key>
 		<Key ID="STR_sss_cas_linearSpread">
 			<English>Linear spread</English>
 			<French>Propagation linéaire</French>
@@ -424,6 +384,10 @@
 		<Key ID="STR_sss_cas_radius">
 			<English>Radius</English>
 			<French>Rayon</French>
+		</Key>
+		<Key ID="STR_sss_cas_searchRadius">
+			<English>Search radius</English>
+			<French>Rayon de recherche</French>
 		</Key>
 		<Key ID="STR_sss_cas_loiterType">
 			<English>Loiter type</English>

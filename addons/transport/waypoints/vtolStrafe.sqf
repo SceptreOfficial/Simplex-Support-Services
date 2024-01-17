@@ -10,6 +10,7 @@ params [
 	["_pylonConfig",[]],
 	["_spread",0],
 	["_search",""],
+	["_searchRadius",500],
 	["_aimRange",-1]
 ];
 
@@ -43,7 +44,7 @@ waitUntil {
 	_entity getVariable [QPVAR(infiniteStrafeAmmo),false],
 	_spread,
 	-1,
-	_search,
+	[_search,_searchRadius,_entity getVariable [QPVAR(friendlyRange),0]],
 	800 max (_entity getVariable [QPVAR(altitudeATL),500]),
 	_aimRange
 ] call EFUNC(common,strafe);

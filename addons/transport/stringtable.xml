@@ -649,30 +649,6 @@
 			<English>Hover speed</English>
 			<French>Vitesse de stationnaire</French>
 		</Key>
-		<Key ID="STR_sss_transport_targetTooltip">
-			<English>500m search radius</English>
-			<French>Rayon de recherche de 500 m</French>
-		</Key>
-		<Key ID="STR_sss_transport_targetMap">
-			<English>Map position</English>
-			<French>Position sur la carte</French>
-		</Key>
-		<Key ID="STR_sss_transport_targetLaser">
-			<English>Laser designator</English>
-			<French>Désignateur laser</French>
-		</Key>
-		<Key ID="STR_sss_transport_targetSmoke">
-			<English>Smoke</English>
-			<French>Fumigène</French>
-		</Key>
-		<Key ID="STR_sss_transport_targetIRStrobe">
-			<English>IR Strobe</English>
-			<French>IR Stroboscopique</French>
-		</Key>
-		<Key ID="STR_sss_transport_targetFlare">
-			<English>Flare</English>
-			<French>Fusée</French>
-		</Key>
 		<Key ID="STR_sss_transport_linearSpread">
 			<English>Linear spread</English>
 			<French>Propagation linéaire</French>
@@ -712,6 +688,12 @@
 		<Key ID="STR_sss_transport_spread">
 			<English>Spread</English>
 			<French>Propagation</French>
+		</Key>
+		<Key ID="STR_SSS_Transport_maxSearchRadiusStr_name">
+			<English>Max search radius</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_maxSearchRadiusStr_info">
+			<English>Maximum value for search radius sliders</English>
 		</Key>
 	</Package>
 </Project>

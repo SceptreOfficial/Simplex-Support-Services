@@ -9,7 +9,7 @@ params [
 	["_timeout",0],
 	["_engine",true],
 	["_signalType","ANY"],
-	["_searchRadius",350],
+	["_searchRadius",500],
 	["_searchTimeout",300]
 ];
 

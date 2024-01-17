@@ -270,11 +270,6 @@ FUNC(cam) = {
 
 GVAR(ignoredWeapons) = ["rhs_weap_fcs"];
 
-[QGVAR(strafeApproach),{
-	params ["_vehicle"];
-	NOTIFY(_vehicle,LSTRING(strafeFinalApproach));
-}] call CBA_fnc_addEventHandler;
-
 [QGVAR(strafeFireReady),{
 	params ["_vehicle","_fireStart"];
 	if !(_vehicle getVariable [QGVAR(strafeCountermeasures),true]) exitWith {};
@@ -286,6 +281,30 @@ GVAR(ignoredWeapons) = ["rhs_weap_fcs"];
 	if (!_completed || !(_vehicle getVariable [QGVAR(strafeCountermeasures),true])) exitWith {};
 	[_vehicle,1.5,0.1] call FUNC(fireCountermeasures);
 }] call CBA_fnc_addEventHandler;
+
+GVAR(targetFormatting) = createHashMapFromArray [
+	["",[LLSTRING(na),"\a3\ui_f_curator\data\default_ca.paa"]],
+	["MAP",[LLSTRING(targetMap),ICON_MAP]],
+	["LASER",[LLSTRING(targetLaser),ICON_LASER]],
+	["SMOKE",[LLSTRING(targetSmoke),ICON_SMOKE]],
+	["IR",[LLSTRING(targetIR),ICON_IR]],
+	["FLARE",[LLSTRING(targetFlare),ICON_FLARE]],
+	["ENEMIES",[LLSTRING(targetEnemies),ICON_KILL]],
+	["INFANTRY",[LLSTRING(targetInfantry),ICON_KILL]],
+	["VEHICLES",[LLSTRING(targetVehicles),ICON_KILL]]
+];
+
+GVAR(colorFormatting) = [
+	["",LLSTRING(any),ICON_GEAR,[1,1,1,1]],
+	["WHITE",LLSTRING(white),ICON_SEARCH,[1,1,1,1]],
+	["BLACK",LLSTRING(black),ICON_SEARCH,[0.1,0.1,0.1,1]],
+	["RED",LLSTRING(red),ICON_SEARCH,[0.8438,0.1383,0.1353,1]],
+	["ORANGE",LLSTRING(orange),ICON_SEARCH,[0.6697,0.2275,0.10053,1]],
+	["YELLOW",LLSTRING(yellow),ICON_SEARCH,[0.9883,0.8606,0.0719,1]],
+	["GREEN",LLSTRING(green),ICON_SEARCH,[0.2125,0.6258,0.4891,1]],
+	["BLUE",LLSTRING(blue),ICON_SEARCH,[0.1183,0.1867,1,1]],
+	["PURPLE",LLSTRING(purple),ICON_SEARCH,[0.4341,0.1388,0.4144,1]]
+];
 
 // REMOTE CONTROL
 [QGVAR(remoteControlTransferred),{

@@ -95,7 +95,8 @@
 #define ICON_KILL "\a3\Ui_f\data\IGUI\Cfg\simpleTasks\types\kill_ca.paa"
 #define ICON_LAND QPATHTOEF(common,icons\land.paa)
 #define ICON_LAND_ENG_OFF QPATHTOEF(common,icons\land_eng_off.paa)
-#define ICON_LASER "\a3\ui_f\data\igui\rsccustominfo\sensors\targets\lasertarget_ca.paa"
+#define ICON_LASER  QPATHTOEF(common,icons\laser.paa)
+#define ICON_LASER_MATCH  QPATHTOEF(common,icons\laser_match.paa)
 #define ICON_LINK QPATHTOEF(common,icons\link.paa)
 #define ICON_LOCK QPATHTOEF(common,icons\lock.paa)
 #define ICON_LOITER QPATHTOEF(common,icons\loiter.paa)

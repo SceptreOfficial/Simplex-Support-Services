@@ -4,19 +4,6 @@ ADDON = false;
 #include "\a3\3den\ui\resincl.inc"
 #include "cba_settings.sqf"
 
-GVAR(targetFormatting) = createHashMapFromArray [
-	["",["NONE","\a3\ui_f_curator\data\default_ca.paa"]],
-	["MAP",[LLSTRING(targetMap),ICON_MAP]],
-	["LASER",[LLSTRING(targetLaser),ICON_LASER]],
-	["SMOKE",[LLSTRING(targetSmoke),ICON_SMOKE]],
-	["IR",[LLSTRING(targetIR),ICON_IR]],
-	["FLARE",[LLSTRING(targetFlare),ICON_FLARE]],
-	["VEHICLE",[LLSTRING(targetVehicle),ICON_CAR]],
-	["ENEMIES",[LLSTRING(targetEnemies),ICON_KILL]],
-	["INFANTRY",[LLSTRING(targetInfantry),ICON_KILL]],
-	["VEHICLES",[LLSTRING(targetVehicles),ICON_KILL]]
-];
-
 if (isServer && is3DEN) then {
 	//[QEGVAR(common,ConnectionChanged3DEN),FUNC(syncAttributes)] call CBA_fnc_addEventHandler;
 

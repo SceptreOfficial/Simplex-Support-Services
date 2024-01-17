@@ -58,7 +58,7 @@ _taskArgs append (switch _task do {
 			[_pylon2,[_quantity2,_distribution2],_interval2]
 		]];
 
-		["pylonConfig","spread","target"]
+		["pylonConfig","spread","target","searchRadius"]
 	};
 	case "FIRE" : {
 		_item set ["burst",[

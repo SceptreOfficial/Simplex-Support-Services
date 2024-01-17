@@ -107,33 +107,6 @@ class CfgVehicles {
 					class Disable {name = ECSTRING(common,disable);};
 				};
 			};
-			//class TargetTypes : Default {
-			//	ATTRIBUTE(TargetTypes);
-			//	typeName = "ARRAY";
-			//	control = QPVAR(checkboxes);
-			//	class Values {
-			//		class Map {
-			//			name = CSTRING(targetMap);
-			//			value = 1;
-			//		};
-			//		class Laser {
-			//			name = CSTRING(targetLaser);
-			//			value = 1;
-			//		};
-			//		class Smoke {
-			//			name = CSTRING(targetSmoke);
-			//			value = 1;
-			//		};
-			//		class IR {
-			//			name = CSTRING(targetIR);
-			//			value = 1;
-			//		};
-			//		class Flare {
-			//			name = CSTRING(targetFlare);
-			//			value = 1;
-			//		};
-			//	};
-			//};
 			//class Countermeasures : Default {
 			//	ATTRIBUTE(Countermeasures);
 			//	typeName = "NUMBER";
@@ -281,35 +254,35 @@ class CfgVehicles {
 				control = QPVAR(checkboxes);
 				class Values {
 					class Map {
-						name = CSTRING(targetMap);
+						name = ECSTRING(common,targetMap);
 						value = 1;
 					};
 					class Laser {
-						name = CSTRING(targetLaser);
+						name = ECSTRING(common,targetLaser);
 						value = 1;
 					};
 					class Smoke {
-						name = CSTRING(targetSmoke);
+						name = ECSTRING(common,targetSmoke);
 						value = 1;
 					};
 					class IR {
-						name = CSTRING(targetIR);
+						name = ECSTRING(common,targetIR);
 						value = 1;
 					};
 					class Flare {
-						name = CSTRING(targetFlare);
+						name = ECSTRING(common,targetFlare);
 						value = 1;
 					};
 					class Enemies {
-						name = CSTRING(targetEnemies);
+						name = ECSTRING(common,targetEnemies);
 						value = 1;
 					};
 					class Infantry {
-						name = CSTRING(targetInfantry);
+						name = ECSTRING(common,targetInfantry);
 						value = 1;
 					};
 					class Vehicles {
-						name = CSTRING(targetVehicles);
+						name = ECSTRING(common,targetVehicles);
 						value = 1;
 					};
 				};
@@ -444,35 +417,35 @@ class CfgVehicles {
 				control = QPVAR(checkboxes);
 				class Values {
 					class Map {
-						name = CSTRING(targetMap);
+						name = ECSTRING(common,targetMap);
 						value = 1;
 					};
 					class Laser {
-						name = CSTRING(targetLaser);
+						name = ECSTRING(common,targetLaser);
 						value = 1;
 					};
 					class Smoke {
-						name = CSTRING(targetSmoke);
+						name = ECSTRING(common,targetSmoke);
 						value = 1;
 					};
 					class IR {
-						name = CSTRING(targetIR);
+						name = ECSTRING(common,targetIR);
 						value = 1;
 					};
 					class Flare {
-						name = CSTRING(targetFlare);
+						name = ECSTRING(common,targetFlare);
 						value = 1;
 					};
 					class Enemies {
-						name = CSTRING(targetEnemies);
+						name = ECSTRING(common,targetEnemies);
 						value = 1;
 					};
 					class Infantry {
-						name = CSTRING(targetInfantry);
+						name = ECSTRING(common,targetInfantry);
 						value = 1;
 					};
 					class Vehicles {
-						name = CSTRING(targetVehicles);
+						name = ECSTRING(common,targetVehicles);
 						value = 1;
 					};
 				};

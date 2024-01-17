@@ -134,7 +134,7 @@ _endPos set [2,_altitude];
 		_entity getVariable [QPVAR(infiniteAmmo),false],
 		_spread,
 		_ingress,
-		[_search,nil,[_entity getVariable QPVAR(friendlyRange),0] select (_request getOrDefault ["dangerClose",false])],
+		[_search,_request getOrDefault ["searchRadius",500],[_entity getVariable QPVAR(friendlyRange),0] select (_request getOrDefault ["dangerClose",false])],
 		_altitude,
 		[_aimRange,-1] select (_aimRange < 600)
 	] call EFUNC(common,strafe);

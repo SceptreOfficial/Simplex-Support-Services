@@ -89,6 +89,7 @@ private _dummies = [
 ];
 
 _vehicle setVariable [QGVAR(dummies),_dummies,true];
+{_x setVariable [QGVAR(isDummy),true,true]} forEach _dummies;
 
 if (_target isEqualType objNull) then {
 	{_x attachTo [_target,[0,0,0.1]]} forEach _dummies;

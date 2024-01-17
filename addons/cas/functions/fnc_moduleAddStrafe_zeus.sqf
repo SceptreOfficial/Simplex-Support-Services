@@ -26,14 +26,14 @@ if (_vehicle isKindOf "Air") then {
 	["EDITBOX",DESC(pylons),str _pylons],
 	["TOOLBOX",DESC(infiniteAmmo),[[LELSTRING(common,enable),LELSTRING(common,disable)],1,[true,false]]],
 	["LISTNBOXCB",DESC(targetTypes),[[
-		LLSTRING(targetMap),
-		LLSTRING(targetLaser),
-		LLSTRING(targetSmoke),
-		LLSTRING(targetIR),
-		LLSTRING(targetFlare),
-		LLSTRING(targetEnemies),
-		LLSTRING(targetInfantry),
-		LLSTRING(targetVehicles)
+		LELSTRING(common,targetMap),
+		LELSTRING(common,targetLaser),
+		LELSTRING(common,targetSmoke),
+		LELSTRING(common,targetIR),
+		LELSTRING(common,targetFlare),
+		LELSTRING(common,targetEnemies),
+		LELSTRING(common,targetInfantry),
+		LELSTRING(common,targetVehicles)
 	],true,5,STRAFE_TARGETS]],
 	["EDITBOX",DESC(friendlyRange),50],
 	["TOOLBOX",DESC(countermeasures),[[LELSTRING(common,enable),LELSTRING(common,disable)],0,[true,false]]],

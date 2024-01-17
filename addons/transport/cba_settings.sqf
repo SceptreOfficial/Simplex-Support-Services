@@ -87,3 +87,14 @@
 	{},
 	false
 ] call CBA_fnc_addSetting;
+
+[
+	QGVAR(maxSearchRadiusStr),
+	"EDITBOX",
+	DESC(maxSearchRadiusStr),
+	[ELSTRING(main,PREFIX),LSTRING(Service)],
+	"1000",
+	true,
+	{GVAR(maxSearchRadius) = parseNumber _this},
+	false
+] call CBA_fnc_addSetting;

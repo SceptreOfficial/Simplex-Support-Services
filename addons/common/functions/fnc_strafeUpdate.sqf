@@ -34,6 +34,8 @@ if (_fireStart > 0) then {
 		_targetDummy = (createGroup [sideLogic,true]) createUnit ["Logic",[0,0,0],[],0,"CAN_COLLIDE"];
 		
 		_vehicle setVariable [QGVAR(dummies),[_laserDummy,_targetDummy]];
+		_laserDummy setVariable [QGVAR(isDummy),true,true];
+		_targetDummy setVariable [QGVAR(isDummy),true,true];
 
 		if (_target isEqualType objNull) then {
 			_laserDummy attachTo [_target,[0,0,0.1]];
