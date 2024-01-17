@@ -97,8 +97,14 @@
 			<French>Aides visuelles</French>
 		</Key>
 		<Key ID="STR_SSS_Transport_visualAids_info">
-			<English>Show visual aids for request planning on the map</English>
+			<English>Show visual aids for request planning</English>
 			<French>Afficher des aides visuelles pour la planification des demandes sur la carte</French>
+		</Key>
+		<Key ID="STR_SSS_Transport_visualAidsLive_name">
+			<English>Visual aids: Live tracking</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_visualAidsLive_info">
+			<English>Show current support position and any other relevant info</English>
 		</Key>
 		<Key ID="STR_SSS_Transport_taskMarkers_name">
 			<English>Task markers</English>

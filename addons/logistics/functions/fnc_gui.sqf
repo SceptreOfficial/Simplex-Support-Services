@@ -17,9 +17,17 @@ _ctrlMap setVariable [QEGVAR(sdf,skip),true];
 _ctrlMap ctrlAddEventHandler ["Draw",{
 	params ["_ctrlMap"];
 
-	if (!GVAR(visualAids)) exitWith {};
-
 	private _entity = PVAR(guiEntity);
+
+	if (GVAR(visualAidsLive)) then {
+		{
+			if (alive _x) then {
+				_ctrlMap drawIcon [ICON_MOVE,RGBA_BLUE,getPos _x,10,10,0,""];
+			};
+		} forEach ((_entity getVariable [QPVAR(vehicles),[]]) + [_entity getVariable [QPVAR(vehicle),objNull]]);
+	};
+
+	if (!GVAR(visualAids)) exitWith {};
 
 	if (_entity getVariable QPVAR(supportType) != "STATION") then {
 		if (_entity getVariable [QPVAR(virtualRunway),[0,0,0]] isNotEqualTo [0,0,0]) then {

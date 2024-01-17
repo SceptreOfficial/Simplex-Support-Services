@@ -19,9 +19,18 @@ _ctrlMap setVariable [QGVAR(drawStart2),CBA_missionTime];
 _ctrlMap ctrlAddEventHandler ["Draw",{
 	params ["_ctrlMap"];
 
+	private _entity = PVAR(guiEntity);
+
+	if (GVAR(visualAidsLive)) then {
+		private _vehicle = _entity getVariable [QPVAR(vehicle),objNull];
+
+		if (alive _vehicle) then {
+			_ctrlMap drawIcon [ICON_MOVE,RGBA_BLUE,getPos _vehicle,10,10,0,""];
+		};
+	};
+
 	if (!GVAR(visualAids)) exitWith {};
 
-	private _entity = PVAR(guiEntity);
 	_entity getVariable QPVAR(guiLimits) params ["_altitudeMin","_altitudeMax","_radiusMin","_radiusMax"];
 	private _center = GVAR(request) getOrDefault ["posASL",[0,0,0]];
 	private _ingress = GVAR(request) getOrDefault ["ingress",-1];
@@ -42,12 +51,6 @@ _ctrlMap ctrlAddEventHandler ["Draw",{
 	};
 
 	_radius = _radius max 300;
-
-	private _vehicle = _entity getVariable [QPVAR(vehicle),objNull];
-
-	if (alive _vehicle) then {
-		_ctrlMap drawIcon [ICON_MOVE,RGBA_BLUE,getPos _vehicle,10,10,0,""];
-	};
 
 	#define CSIZE _radius
 	#define TSIZE 20

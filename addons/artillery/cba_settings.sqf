@@ -22,6 +22,17 @@
 	false
 ] call CBA_fnc_addSetting;
 
+//[
+//	QGVAR(visualAidsLive),
+//	"CHECKBOX",
+//	DESC(visualAidsLive),
+//	[ELSTRING(main,PREFIX),LSTRING(Service)],
+//	true,
+//	true,
+//	{},
+//	false
+//] call CBA_fnc_addSetting;
+
 [
 	QGVAR(taskMarkers),
 	"CHECKBOX",
