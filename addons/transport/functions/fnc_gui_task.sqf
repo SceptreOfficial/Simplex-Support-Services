@@ -74,6 +74,34 @@ switch _task do {
 		// Some sort of point planner?
 	};
 	case "FOLLOW" : {
+		// Search radius modifier
+		private _ctrlText = _display ctrlCreate [QEGVAR(sdf,Text),-1,_ctrlTaskGroup];
+		_ctrlText ctrlSetPosition [CTRL_X(0),CTRL_Y(_groupHeight),CTRL_W(7),CTRL_H(1)];
+		_ctrlText ctrlCommit 0;
+		_ctrlText ctrlSetText LLSTRING(searchRadius);
+
+		private _ctrlSlider = _display ctrlCreate [QEGVAR(sdf,Slider),-1,_ctrlTaskGroup];
+		_ctrlSlider ctrlSetPosition [CTRL_X(7),CTRL_Y(_groupHeight),CTRL_W(11),CTRL_H(1)];
+		_ctrlSlider ctrlCommit 0;
+
+		private _ctrlEdit = _display ctrlCreate [QEGVAR(sdf,SliderEdit),-1,_ctrlTaskGroup];
+		_ctrlEdit ctrlSetPosition [CTRL_X(18),CTRL_Y(_groupHeight),CTRL_W(2),CTRL_H(1)];
+		_ctrlEdit ctrlCommit 0;
+
+		[_ctrlSlider,_ctrlEdit,[1,GVAR(maxSearchRadius),0],GVAR(plan) # GVAR(planIndex) getOrDefault ["searchRadius",500],{
+			params ["_ctrlSlider","_value"];
+			GVAR(plan) # GVAR(planIndex) set ["searchRadius",_value];
+			
+			if (CBA_missionTime < _ctrlSlider getVariable [QGVAR(updateTick),0]) exitWith {};
+			_ctrlSlider setVariable [QGVAR(updateTick),CBA_missionTime + 0.05];
+			
+			(ctrlParent _ctrlSlider) getVariable [QGVAR(followListUpdate),[]] params ["_ctrlList","_fnc"];
+			_ctrlList call _fnc;
+		},LELSTRING(common,meterAcronym)] call EFUNC(sdf,manageSlider);
+
+		_controls append [_ctrlText,_ctrlSlider,_ctrlEdit];
+		_groupHeight = _groupHeight + 1;
+
 		// Friendly vehicle & unit selection
 		private _ctrlText = _display ctrlCreate [QEGVAR(sdf,Text),-1,_ctrlTaskGroup];
 		_ctrlText ctrlSetPosition [CTRL_X(0),CTRL_Y(_groupHeight),CTRL_W(7),CTRL_H(5)];
@@ -105,15 +133,15 @@ switch _task do {
 			private _index = -1;
 
 			lnbClear _ctrlList;
-
-			private _pos = ASLtoATL (GVAR(plan) # GVAR(planIndex) get "posASL");
+			
+			private _pos = ASLtoAGL (GVAR(plan) # GVAR(planIndex) get "posASL");
+			private _radius = GVAR(plan) # GVAR(planIndex) getOrDefault ["searchRadius",500 min GVAR(maxSearchRadius)];
 
 			{
 				if (alive _x &&
 					_vehicle != _x &&
 					{[_side,side _x] call BIS_fnc_sideIsFriendly} &&
-					{!(_x isKindOf "Animal")} &&
-					{_x distance2D _pos < 150}
+					{!(_x isKindOf "Animal")}
 				) then {
 					private _row = _ctrlList lnbAddRow ["",getText (configOf _x >> "displayName"),groupID group _x];
 					_ctrlList lnbSetTextRight [[_row,1],["",name _x] select (_x isKindOf "CAManBase")];
@@ -122,7 +150,7 @@ switch _task do {
 
 					if (_x == _selected) then {_index = _row};
 				};
-			} forEach (_pos nearEntities 500);
+			} forEach (_pos nearEntities _radius);
 
 			_ctrlList lnbSetCurSelRow _index;
 		}];
@@ -225,7 +253,7 @@ switch _task do {
 		_controls append [_ctrlText,_ctrl];
 
 		// Search radius slider
-		_controls append ([_groupHeight,LLSTRING(searchRadius),[50,800,0],500,"searchRadius",LELSTRING(common,meterAcronym)] call FUNC(gui_slider));
+		_controls append ([_groupHeight,LLSTRING(searchRadius),[1,GVAR(maxSearchRadius),0],500,"searchRadius",LELSTRING(common,meterAcronym)] call FUNC(gui_slider));
 		_groupHeight = _groupHeight + 1;
 
 		// Search timeout slider
@@ -412,6 +440,10 @@ switch _task do {
 		_groupHeight = _groupHeight + 1;
 	};
 	case "SLINGLOADPICKUP" : {
+		// Search radius slider
+		_controls append ([_groupHeight,LLSTRING(searchRadius),[1,GVAR(maxSearchRadius),0],500,"searchRadius",LELSTRING(common,meterAcronym)] call FUNC(gui_slider));
+		_groupHeight = _groupHeight + 1;
+
 		// Friendly vehicle & unit selection
 		private _ctrlText = _display ctrlCreate [QEGVAR(sdf,TextCentered),-1,_ctrlTaskGroup];
 		_ctrlText ctrlSetPosition [CTRL_X(0),CTRL_Y(_groupHeight),CTRL_W(20),CTRL_H(1)];
@@ -711,73 +743,45 @@ switch _task do {
 		private _ctrlTarget = _display ctrlCreate [QEGVAR(sdf,Combobox),-1,_ctrlTaskGroup];
 		_ctrlTarget ctrlSetPosition [CTRL_X(7),CTRL_Y(_groupHeight),CTRL_W(7),CTRL_H(1)];
 		_ctrlTarget ctrlCommit 0;
-		_ctrlTarget ctrlSetTooltip LLSTRING(targetTooltip);
 
 		private _ctrlTargetDetail = _display ctrlCreate [QEGVAR(sdf,Combobox),-1,_ctrlTaskGroup];
 		_ctrlTargetDetail ctrlSetPosition [CTRL_X(14),CTRL_Y(_groupHeight),CTRL_W(6),CTRL_H(1)];
 		_ctrlTargetDetail ctrlCommit 0;
 
-		{
-			_ctrlTarget lbAdd (_x # 0);
-			_ctrlTarget lbSetPicture [_forEachIndex,_x # 1];
-			_ctrlTarget lbSetData [_forEachIndex,_x # 2];
-		} forEach [
-			[LLSTRING(targetMap),ICON_MAP,"MAP"],
-			[LLSTRING(targetLaser),ICON_LASER,"LASER"],
-			[LLSTRING(targetSmoke),ICON_SMOKE,"SMOKE"],
-			[LLSTRING(targetIRStrobe),ICON_IR,"IR"],
-			[LLSTRING(targetFlare),ICON_FLARE,"FLARE"]
-		];
+		_ctrlTarget setVariable [QGVAR(ctrls),[_ctrlTarget,_ctrlTargetDetail]];
+		_ctrlTargetDetail setVariable [QGVAR(ctrls),[_ctrlTarget,_ctrlTargetDetail]];
+		[_ctrlTarget,"LBSelChanged",FUNC(gui_target)] call CBA_fnc_addBISEventHandler;
+		[_ctrlTargetDetail,"LBSelChanged",FUNC(gui_target)] call CBA_fnc_addBISEventHandler;
+
+		private _targetTypes = PVAR(guiEntity) getVariable [QPVAR(targetTypes),["MAP","LASER","SMOKE","IR","FLARE","ENEMIES","INFANTRY","VEHICLES"]];
 
 		{
-			_ctrlTargetDetail lbAdd (_x # 0);
-			_ctrlTargetDetail lbSetPicture [_forEachIndex,_x # 1];
-			_ctrlTargetDetail lbSetPictureColor [_forEachIndex,_x # 2];
-			_ctrlTargetDetail lbSetData [_forEachIndex,_x # 3];
-		} forEach [
-			[LELSTRING(common,any),ICON_GEAR,[1,1,1,1],""],
-			[LELSTRING(common,white),ICON_SEARCH,[1,1,1,1],"WHITE"],
-			[LELSTRING(common,black),ICON_SEARCH,[0.1,0.1,0.1,1],"BLACK"],
-			[LELSTRING(common,red),ICON_SEARCH,[0.8438,0.1383,0.1353,1],"RED"],
-			[LELSTRING(common,orange),ICON_SEARCH,[0.6697,0.2275,0.10053,1],"ORANGE"],
-			[LELSTRING(common,yellow),ICON_SEARCH,[0.9883,0.8606,0.0719,1],"YELLOW"],
-			[LELSTRING(common,green),ICON_SEARCH,[0.2125,0.6258,0.4891,1],"GREEN"],
-			[LELSTRING(common,blue),ICON_SEARCH,[0.1183,0.1867,1,1],"BLUE"],
-			[LELSTRING(common,purple),ICON_SEARCH,[0.4341,0.1388,0.4144,1],"PURPLE"]
-		];
-		
-		[_ctrlTarget,"LBSelChanged",{
-			params ["_ctrlTarget","_index"];
-
-			private _type = _ctrlTarget lbData _index;
-
-			if (_type in ["SMOKE","FLARE"]) then {
-				GVAR(plan) # GVAR(planIndex) set ["target",_type + ":" + (_thisArgs lbData lbCurSel _thisArgs)];
-				_thisArgs ctrlEnable true;
-			} else {
-				GVAR(plan) # GVAR(planIndex) set ["target",_type];
-				_thisArgs ctrlEnable false;
-			};
-
-			call FUNC(gui_verify);
-		},_ctrlTargetDetail] call CBA_fnc_addBISEventHandler;
-
-		[_ctrlTargetDetail,"LBSelChanged",{
-			params ["_ctrlTargetDetail","_index"];
-
-			private _type = _thisArgs lbData lbCurSel _thisArgs;
-			GVAR(plan) # GVAR(planIndex) set ["target",_type + ":" + (_ctrlTargetDetail lbData _index)];
-
-			call FUNC(gui_verify);
-		},_ctrlTarget] call CBA_fnc_addBISEventHandler;
+			EGVAR(common,targetFormatting) get _x params ["_name","_icon"];
+			private _i = _ctrlTarget lbAdd _name;
+			_ctrlTarget lbSetPicture [_i,_icon];
+			_ctrlTarget lbSetData [_i,_x];
+		} forEach _targetTypes;
 
 		((_item getOrDefault ["target","MAP"]) splitString ":") params ["_type",["_typeDetail",""]];
-
-		_ctrlTargetDetail lbSetCurSel (["","WHITE","BLACK","RED","ORANGE","YELLOW","GREEN","BLUE","PURPLE"] find _typeDetail);
-		_ctrlTarget lbSetCurSel (["MAP","LASER","SMOKE","IR","FLARE"] find _type);
+		_ctrlTarget lbSetCurSel (_targetTypes find _type) max 0;
+		_ctrlTargetDetail lbSetCurSel ((switch _type do {
+			case "LASER" : {["","MATCH"]};
+			case "SMOKE";
+			case "FLARE" : {["","WHITE","BLACK","RED","ORANGE","YELLOW","GREEN","BLUE","PURPLE"]};
+			case "VEHICLES" : {["","TRACKED","WHEELED"]};
+			default {[""]};
+		}) find _typeDetail);
 
 		_groupHeight = _groupHeight + 1;
 		_controls append [_ctrlText,_ctrlTarget,_ctrlTargetDetail];
+
+		// Search radius slider
+		private _ctrls =  [_groupHeight,LLSTRING(searchRadius),[1,GVAR(maxSearchRadius),0],500,"searchRadius",LELSTRING(common,meterAcronym)] call FUNC(gui_slider);
+		_ctrlTarget setVariable [QGVAR(searchRadiusCtrls),_ctrls];
+		_ctrlTargetDetail setVariable [QGVAR(searchRadiusCtrls),_ctrls];
+
+		_controls append _ctrls;
+		_groupHeight = _groupHeight + 1;
 
 		// Linear spread slider
 		_controls append ([_groupHeight,LLSTRING(linearSpread),[0,150,0],0,"spread",LELSTRING(common,meterAcronym)] call FUNC(gui_slider));

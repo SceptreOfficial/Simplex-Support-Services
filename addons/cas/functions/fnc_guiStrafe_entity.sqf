@@ -19,8 +19,9 @@ private _posASL = GVAR(request) getOrDefault ["posASL",call FUNC(gui_getPos)];
 // Sliders
 private _isHelicopter = _entity getVariable [QPVAR(class),""] isKindOf "Helicopter";
 [CTRL(IDC_ALTITUDE),CTRL(IDC_ALTITUDE_EDIT),[[800,300] select _isHelicopter,6000,0],"altitude",[2000,500] select _isHelicopter,LELSTRING(common,meterAcronym)] call FUNC(gui_slider);
-[CTRL(IDC_RANGE),CTRL(IDC_RANGE_EDIT),[600,[3500,2500] select _isHelicopter,0],"range",[2600,1000] select _isHelicopter,LELSTRING(common,meterAcronym)] call FUNC(gui_slider);
+[CTRL(IDC_RANGE),CTRL(IDC_RANGE_EDIT),[600,[3500,2500] select _isHelicopter,0],"range",[2000,1000] select _isHelicopter,LELSTRING(common,meterAcronym)] call FUNC(gui_slider);
 [CTRL(IDC_SPREAD),CTRL(IDC_SPREAD_EDIT),[0,_entity getVariable QPVAR(maxSpread),0],"spread",0,LELSTRING(common,meterAcronym)] call FUNC(gui_slider);
+[CTRL(IDC_SEARCH_RADIUS),CTRL(IDC_SEARCH_RADIUS_EDIT),[1,1000,0],"searchRadius",500,LELSTRING(common,meterAcronym)] call FUNC(gui_slider);
 
 // Intervals
 [CTRL(IDC_PRIMARY_INTERVAL),GVAR(request) getOrDefault ["interval1",0],{
@@ -40,20 +41,32 @@ private _isHelicopter = _entity getVariable [QPVAR(class),""] isKindOf "Helicopt
 
 // Target search
 private _ctrlTarget = CTRL(IDC_TARGET);
-private _ctrlTargetDetail = CTRL(IDC_TARGET_DETAIL);
 private _targetTypes = _entity getVariable [QPVAR(targetTypes),[]];
 lbClear _ctrlTarget;
 
 {
-	GVAR(targetFormatting) get _x params ["_name","_icon"];
+	EGVAR(common,targetFormatting) get _x params ["_name","_icon"];
 	private _i = _ctrlTarget lbAdd _name;
-	_ctrlTarget lbSetData [_i,_x];
 	_ctrlTarget lbSetPicture [_i,_icon];
+	_ctrlTarget lbSetData [_i,_x];
 } forEach _targetTypes;
 
 ((GVAR(request) getOrDefault ["target",""]) splitString ":") params [["_type",""],["_typeDetail",""]];
 _ctrlTarget lbSetCurSel (_targetTypes find _type) max 0;
-_ctrlTargetDetail lbSetCurSel (["","WHITE","BLACK","RED","ORANGE","YELLOW","GREEN","BLUE","PURPLE"] find _typeDetail);
+CTRL(IDC_TARGET_DETAIL) lbSetCurSel ((switch _type do {
+	case "LASER" : {["","MATCH"]};
+	case "SMOKE";
+	case "FLARE" : {["","WHITE","BLACK","RED","ORANGE","YELLOW","GREEN","BLUE","PURPLE"]};
+	case "VEHICLES" : {["","TRACKED","WHEELED"]};
+	default {[""]};
+}) find _typeDetail);
+
+// Danger close
+private _ctrlDangerClose = CTRL(IDC_DANGER_CLOSE);
+_ctrlDangerClose lbSetCurSel parseNumber !(GVAR(request) getOrDefault ["dangerClose",false]);
+private _tooltip = format [LLSTRING(dangerCloseTooltip),_entity getVariable QPVAR(friendlyRange)];
+_ctrlDangerClose lbSetTooltip [0,_tooltip];
+_ctrlDangerClose lbSetTooltip [1,_tooltip];
 
 // Distribution toggles
 private _ctrlDistribution1 = CTRL(IDC_PRIMARY_DISTRIBUTION);

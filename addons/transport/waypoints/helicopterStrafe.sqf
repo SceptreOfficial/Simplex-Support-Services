@@ -10,6 +10,7 @@ params [
 	["_pylonConfig",[]],
 	["_spread",0],
 	["_search",""],
+	["_searchRadius",500],
 	["_aimRange",-1]
 ];
 
@@ -24,10 +25,10 @@ private _moveTick = 0;
 
 waitUntil {
 	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 3;
+		_moveTick = CBA_missionTime + 10;
 
 		if (isTouchingGround _vehicle) then {
-			_vehicle doMove (_vehicle getPos [200,getDir _vehicle]);
+			_vehicle doMove (_vehicle getPos [200,_vehicle getDir _wpPos]);
 		};
 	};
 
@@ -45,7 +46,7 @@ if (driver _vehicle call EFUNC(common,isRemoteControlled)) exitWith {true};
 	_entity getVariable [QPVAR(infiniteStrafeAmmo),false],
 	_spread,
 	-1,
-	_search,
+	[_search,_searchRadius,_entity getVariable [QPVAR(friendlyRange),0]],
 	300 max (_entity getVariable [QPVAR(altitudeATL),500]),
 	_aimRange
 ] call EFUNC(common,strafe);

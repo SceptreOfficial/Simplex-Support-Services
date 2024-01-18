@@ -7,7 +7,7 @@ if !(_vehicle getVariable [QGVAR(pilotHelicopterReached),false]) then {
 	_vehicle flyInHeight 0;
 	_vehicle action ["LandGear",_vehicle];
 
-	if (_vehicle isKindOf "VTOL_base_F") then {
+	if (_vehicle isKindOf "VTOL_base_F" || _vehicle getVariable [QPVAR(vtol),false]) then {
 		private _posASL = +_endASL;
 		private _ix = lineIntersectsSurfaces [_endASL,_endASL vectorAdd [0,0,-10],_vehicle,objNull,true,1,"GEOM","FIRE"];
 		if (_ix isNotEqualTo []) then {_posASL = _ix # 0 # 0};
@@ -33,7 +33,7 @@ private _holdProgress = if (_hold >= 0) then {
 if (abs _pitch > 30 || abs _bank > 30 || _holdProgress > 1 || _vehicle distance2D _endASL > 20) exitWith {true};
 
 private _vel = velocity _vehicle;
-	
+
 if (isTouchingGround _vehicle) then {
 	if (_engine && !isEngineOn _vehicle) then {_vehicle engineOn true};
 	if (!_engine && isEngineOn _vehicle) then {_vehicle engineOn false};

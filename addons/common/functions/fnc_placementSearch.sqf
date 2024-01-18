@@ -80,7 +80,7 @@ while {
 		};
 	};
 	
-	if (_safe && {(ASLtoAGL _searchPos) nearEntities _objectRadius isEqualTo []}) then {
+	if (_safe && {ASLtoAGL _searchPos nearEntities _objectRadius isEqualTo []}) then {
 		_angle = 0;
 		
 		for "_height" from 0.05 to _objectHeight step 0.005 do {

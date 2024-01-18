@@ -84,7 +84,7 @@ class CfgVehicles {
 			class SpawnDistance : Edit {
 				ATTRIBUTE(SpawnDistance);
 				typeName = "NUMBER";
-				defaultValue = 6000;
+				defaultValue = 8000;
 			};
 			class SpawnDelay : Default {
 				ATTRIBUTE(SpawnDelay);
@@ -212,7 +212,7 @@ class CfgVehicles {
 			class SpawnDistance : Edit {
 				ATTRIBUTE(SpawnDistance);
 				typeName = "NUMBER";
-				defaultValue = 6000;
+				defaultValue = 8000;
 			};
 			class SpawnDelay : Default {
 				ATTRIBUTE(SpawnDelay);

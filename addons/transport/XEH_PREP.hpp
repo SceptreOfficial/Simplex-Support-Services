@@ -27,6 +27,7 @@ PREP(gui_removeTask);
 PREP(gui_rtb);
 PREP(gui_slider);
 PREP(gui_tabs);
+PREP(gui_target);
 PREP(gui_task);
 PREP(gui_verify);
 PREP(landedStop);

@@ -115,7 +115,7 @@ if (_fireStart > 0 && _fireStart <= CBA_missionTime && _triggerTick <= CBA_missi
 		_vehicle setVehicleAmmo 1;
 	};
 
-	_vehicle lockCameraTo [_vehicle getVariable [QGVAR(targetDummy),objNull],_turret,false];
+	_vehicle lockCameraTo [_vehicle getVariable [QGVAR(dummies),[]] param [0,objNull],_turret,false];
 	_vehicle setWeaponReloadingTime [_unit,_muzzle,0];
 	_unit forceWeaponFire [_muzzle,_firemode];
 	_thisArgs set [INDEX_TRIGGER_TICK,_intervals # _weaponIndex + CBA_missionTime];

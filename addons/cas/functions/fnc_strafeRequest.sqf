@@ -5,13 +5,13 @@ params ["_player","_entity","_request"];
 private _class = _entity getVariable [QPVAR(class),""];
 private _posASL = _request getOrDefault ["posASL",[0,0,0]];
 private _altitude = _request getOrDefault ["altitude",[2000,500] select (_class isKindOf "Helicopter")];
-private _aimRange = _request getOrDefault ["range",[2600,1000] select (_class isKindOf "Helicopter")];
+private _aimRange = _request getOrDefault ["range",[2000,1000] select (_class isKindOf "Helicopter")];
 private _ingress = _request getOrDefault ["ingress",-1];
 private _egress = _request getOrDefault ["egress",-1];
 
 [_entity,true,"INGRESS",[LSTRING(statusStrafeIngress),RGBA_YELLOW]] call EFUNC(common,setStatus);
 
-private _spawnDistance = _entity getVariable [QPVAR(spawnDistance),6000];
+private _spawnDistance = _entity getVariable [QPVAR(spawnDistance),8000];
 private _speed = (getNumber (configFile >> "CfgVehicles" >> _class >> "maxSpeed")) / 3.6;
 private _virtualRunway = _entity getVariable [QPVAR(virtualRunway),[0,0,0]];
 private _ETADistance = [_virtualRunway distance2D _posASL,_spawnDistance] select (_virtualRunway isEqualTo [0,0,0]);
@@ -134,7 +134,7 @@ _endPos set [2,_altitude];
 		_entity getVariable [QPVAR(infiniteAmmo),false],
 		_spread,
 		_ingress,
-		_search,
+		[_search,_request getOrDefault ["searchRadius",500],[_entity getVariable QPVAR(friendlyRange),0] select (_request getOrDefault ["dangerClose",false])],
 		_altitude,
 		[_aimRange,-1] select (_aimRange < 600)
 	] call EFUNC(common,strafe);

@@ -24,7 +24,7 @@ private _liftoff = false;
 
 waitUntil {
 	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 10;
+		_moveTick = CBA_missionTime + VTOL_MOVE_TICK;
 
 		if (isTouchingGround _vehicle) then {
 			if (_liftoff) exitWith {};
@@ -45,7 +45,7 @@ waitUntil {
 	[_vehicle,ATLtoASL waypointPosition [_group,currentWaypoint _group],"LAND"] call EFUNC(common,surfacePosASL),
 	[-1],
 	(getPos _vehicle # 2) max 150,
-	100,
+	150,
 	nil,
 	[EFUNC(common,pilotHelicopterLand),[-1,true]]
 ] call EFUNC(common,pilotHelicopter);

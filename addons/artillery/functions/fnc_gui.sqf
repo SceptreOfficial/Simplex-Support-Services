@@ -30,7 +30,7 @@ _ctrlMap setVariable [QEGVAR(sdf,skip),true];
 
 _ctrlMap ctrlAddEventHandler ["Draw",{ // Range circles
 	params ["_ctrlMap"];
-
+	
 	if (GVAR(visualAids)) then {
 		private _pos = (PVAR(guiEntity) getVariable QPVAR(vehicles)) call EFUNC(common,positionAvg);
 		private _icon = PVAR(guiEntity) getVariable QPVAR(icon);

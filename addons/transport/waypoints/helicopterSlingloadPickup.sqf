@@ -6,7 +6,8 @@ params [
 	"_wpPos",
 	"_attachedObject",
 	["_behaviors",[]],
-	["_timeout",0]
+	["_timeout",0],
+	["_searchRadius",500]
 ];
 
 private _entity = _group getVariable [QPVAR(entity),objNull];
@@ -20,10 +21,10 @@ private _moveTick = 0;
 
 waitUntil {
 	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 3;
+		_moveTick = CBA_missionTime + 10;
 
 		if (isTouchingGround _vehicle && _vehicle distance2D _wpPos < 200) then {
-			_vehicle doMove (_vehicle getPos [200,getDir _vehicle]);
+			_vehicle doMove (_vehicle getPos [200,_vehicle getDir _wpPos]);
 		} else {
 			_vehicle doMove _wpPos;
 		};
@@ -38,6 +39,7 @@ if (driver _vehicle call EFUNC(common,isRemoteControlled)) exitWith {true};
 
 _vehicle setVariable [QGVAR(slingloadPos),waypointPosition [_group,currentWaypoint _group],true];
 _vehicle setVariable [QGVAR(slingloadTarget),nil,true];
+_vehicle setVariable [QGVAR(searchRadius),_searchRadius,true];
 
 NOTIFY(_entity,LSTRING(notifySlingloadTarget));
 

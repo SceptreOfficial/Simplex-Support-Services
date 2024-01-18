@@ -17,7 +17,7 @@ if (!local _logic) exitWith {};
 			_logic getVariable ["Altitude",500],
 			_logic getVariable ["UnloadAltitude",15],
 			_logic getVariable ["VirtualRunway",[0,0,0]],
-			_logic getVariable ["SpawnDistance",6000],
+			_logic getVariable ["SpawnDistance",8000],
 			_logic getVariable ["SpawnDelay",[0,0]],
 			_logic getVariable ["Capacity",10],
 			["SINGLE","MULTI"] param [_logic getVariable ["Fulfillment",0],"MULTI"],

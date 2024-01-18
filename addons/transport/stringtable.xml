@@ -97,8 +97,14 @@
 			<French>Aides visuelles</French>
 		</Key>
 		<Key ID="STR_SSS_Transport_visualAids_info">
-			<English>Show visual aids for request planning on the map</English>
+			<English>Show visual aids for request planning</English>
 			<French>Afficher des aides visuelles pour la planification des demandes sur la carte</French>
+		</Key>
+		<Key ID="STR_SSS_Transport_visualAidsLive_name">
+			<English>Visual aids: Live tracking</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_visualAidsLive_info">
+			<English>Show current support position and any other relevant info</English>
 		</Key>
 		<Key ID="STR_SSS_Transport_taskMarkers_name">
 			<English>Task markers</English>
@@ -649,30 +655,6 @@
 			<English>Hover speed</English>
 			<French>Vitesse de stationnaire</French>
 		</Key>
-		<Key ID="STR_sss_transport_targetTooltip">
-			<English>500m search radius</English>
-			<French>Rayon de recherche de 500 m</French>
-		</Key>
-		<Key ID="STR_sss_transport_targetMap">
-			<English>Map position</English>
-			<French>Position sur la carte</French>
-		</Key>
-		<Key ID="STR_sss_transport_targetLaser">
-			<English>Laser designator</English>
-			<French>Désignateur laser</French>
-		</Key>
-		<Key ID="STR_sss_transport_targetSmoke">
-			<English>Smoke</English>
-			<French>Fumigène</French>
-		</Key>
-		<Key ID="STR_sss_transport_targetIRStrobe">
-			<English>IR Strobe</English>
-			<French>IR Stroboscopique</French>
-		</Key>
-		<Key ID="STR_sss_transport_targetFlare">
-			<English>Flare</English>
-			<French>Fusée</French>
-		</Key>
 		<Key ID="STR_sss_transport_linearSpread">
 			<English>Linear spread</English>
 			<French>Propagation linéaire</French>
@@ -712,6 +694,12 @@
 		<Key ID="STR_sss_transport_spread">
 			<English>Spread</English>
 			<French>Propagation</French>
+		</Key>
+		<Key ID="STR_SSS_Transport_maxSearchRadiusStr_name">
+			<English>Max search radius</English>
+		</Key>
+		<Key ID="STR_SSS_Transport_maxSearchRadiusStr_info">
+			<English>Maximum value for search radius sliders</English>
 		</Key>
 	</Package>
 </Project>

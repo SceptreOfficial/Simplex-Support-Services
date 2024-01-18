@@ -19,7 +19,7 @@ if (_class isEqualTo "") then {
 	["EDITBOX",DESC(altitude),500],
 	["EDITBOX",DESC(unloadAltitude),15],
 	["ARRAY",DESC(virtualRunway),[["X","Y","Z"],[0,0,0]]],
-	["EDITBOX",DESC(spawnDistance),6000],
+	["EDITBOX",DESC(spawnDistance),8000],
 	["ARRAY",DESC(spawnDelay),[[LELSTRING(common,Min),LELSTRING(common,Max)],[0,0]]],
 	["EDITBOX",DESC(capacity),10],
 	["EDITBOX",DESC(listFunction),"[]"],

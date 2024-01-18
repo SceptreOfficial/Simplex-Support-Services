@@ -13,6 +13,12 @@ if (!local _vehicle || _entity getVariable QPVAR(service) != QSERVICE) exitWith 
 	_vehicle
 ] call CBA_fnc_removeGlobalEventJIP;
 
+[{
+	params ["_vehicle","_PFHID"];
+	if (!alive _vehicle) exitWith {_PFHID call CBA_fnc_removePerFrameHandler};
+	if (isTouchingGround _vehicle && {!canMove _vehicle} && {fuel _vehicle > 0}) then {_vehicle call EFUNC(common,respawn)};
+},10,_vehicle] call CBA_fnc_addPerFrameHandler;
+
 private _driver = driver _vehicle;
 _driver setVariable [QPVAR(assignedVehicle),_vehicle,true];
 
@@ -59,6 +65,8 @@ switch (_entity getVariable QPVAR(supportType)) do {
 			["altitudeATL",500],
 			["altitudeASL",500]
 		]],1] call CBA_fnc_waitAndExecute;
+
+		_vehicle setVariable [QPVAR(vtol),true,true];
 	};
 	case "PLANE" : {
 		[FUNC(changeBehavior),[_entity,[

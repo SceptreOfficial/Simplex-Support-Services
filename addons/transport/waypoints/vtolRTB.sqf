@@ -23,7 +23,7 @@ private _posAGL = ASLToAGL _posASL;
 
 waitUntil {
 	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 10;
+		_moveTick = CBA_missionTime + VTOL_MOVE_TICK;
 
 		if (isTouchingGround _vehicle) then {
 			if (_liftoff) exitWith {};

@@ -26,7 +26,7 @@ _taskArgs append (switch _task do {
 	};
 	case "HELOCAST" : {["hoverHeight","hoverSpeed","endDir","approach"]};
 	case "LOITER" : {["loiterType","loiterRadius"]};
-	case "SLINGLOADPICKUP" : {[]};
+	case "SLINGLOADPICKUP" : {["searchRadius"]};
 	case "SLINGLOADDROPOFF" : {[]};
 	case "UNLOAD" : {
 		private _id = GEN_STR(_task);
@@ -58,7 +58,7 @@ _taskArgs append (switch _task do {
 			[_pylon2,[_quantity2,_distribution2],_interval2]
 		]];
 
-		["pylonConfig","spread","target"]
+		["pylonConfig","spread","target","searchRadius"]
 	};
 	case "FIRE" : {
 		_item set ["burst",[

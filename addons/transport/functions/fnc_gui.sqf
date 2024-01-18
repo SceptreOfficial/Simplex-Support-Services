@@ -29,11 +29,16 @@ _ctrlMap setVariable [QEGVAR(sdf,skip),true];
 _ctrlMap ctrlAddEventHandler ["Draw",{
 	params ["_ctrlMap"];
 
+	private "_last";
+
+	if (GVAR(visualAidsLive)) then {
+		_last = getPos (PVAR(guiEntity) getVariable QPVAR(vehicle));
+		_ctrlMap drawIcon [PVAR(guiEntity) getVariable QPVAR(icon),RGBA_BLUE,_last,20,20,0,PVAR(guiEntity) getVariable QPVAR(callsign)];
+	} else {
+		_last = GVAR(plan) param [0,createHashMap] get "posASL";
+	};
+	
 	if (!GVAR(visualAids)) exitWith {};
-
-	private _last = getPos (PVAR(guiEntity) getVariable QPVAR(vehicle));
-
-	_ctrlMap drawIcon [PVAR(guiEntity) getVariable QPVAR(icon),RGBA_BLUE,_last,20,20,0,PVAR(guiEntity) getVariable QPVAR(callsign)];
 
 	{
 		private _posASL = _x get "posASL";

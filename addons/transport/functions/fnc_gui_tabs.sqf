@@ -113,7 +113,7 @@ switch true do {
 		} forEach ([
 			_vehicle getVariable [QGVAR(signalType),""],
 			waypointPosition [_group,currentWaypoint _group],
-			_vehicle getVariable [QGVAR(searchRadius),350]
+			_vehicle getVariable [QGVAR(searchRadius),500]
 		] call EFUNC(common,signalSearch));
 
 		{
@@ -219,7 +219,7 @@ switch true do {
 				_ctrl setVariable [str _row,_x];
 				_objects pushBack _x;
 			};
-		} forEach (nearestObjects [_slingloadPos,[],100]);
+		} forEach (nearestObjects [_slingloadPos,[],_vehicle getVariable [QGVAR(searchRadius),500]]);
 
 		[_ctrl,"LBSelChanged",{
 			params ["_ctrl","_index"];

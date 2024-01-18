@@ -10,7 +10,7 @@ params [
 	["_infiniteAmmo",true,[false]],
 	["_spread",0,[0]],
 	["_ingress",-1,[0]],
-	["_search","",[""]],
+	["_search","",["",[]]],
 	["_altitude",500,[0]],
 	["_aimRange",-1,[0]]
 ];
@@ -39,7 +39,7 @@ if (!alive _vehicle || !canMove _vehicle || {!(_vehicle isKindOf "Air")}) exitWi
 };
 
 if (_ingress < 0) then {_ingress = _target getDir _vehicle};
-if (_aimRange < 0) then {_aimRange = [2600,1000] select (_vehicle isKindOf "Helicopter")};
+if (_aimRange < 0) then {_aimRange = [2000,1000] select (_vehicle isKindOf "Helicopter")};
 _aimRange = _aimRange max 600;
 
 private _weapons = [];
@@ -115,12 +115,12 @@ _vehicle setVariable [QGVAR(firedEHID),_EHID];
 
 private _maxSpeed = getNumber (configOf _vehicle >> "maxSpeed") / 3.6;
 private _minSpeed = [getNumber (configOf _vehicle >> "stallSpeed") * 1.1 / 3.6,28 min (_maxSpeed / 3)] select (_vehicle isKindOf "Helicopter");
-private _speed = (_maxSpeed * 0.6) min 160 max _minSpeed;
+private _speed = (_maxSpeed / 2) min 160 max _minSpeed;
 
 private _hBuffer = getPosASL _vehicle # 2 / 2;
 private _minDist = (_aimRange * 0.8) max (_speed * (_totalDuration + 0.5) + _hBuffer);
 private _simDist = _aimRange max (_speed * (_totalDuration + 3) + _hBuffer);
-private _prepDist = (_aimRange + 800) max (_maxSpeed * (_totalDuration + 6) + _hBuffer);// TODO: was 12, re-evaluate ETA and test vanilla aircraft
+private _prepDist = (_aimRange + 800) max (_maxSpeed * (_totalDuration + 8) + _hBuffer);
 private _altitudeASL = if (_target isEqualType objNull) then {
 	getPosASL _target # 2 + _altitude
 } else {
@@ -135,6 +135,7 @@ _vehicle setVariable [QGVAR(strafeHeightATL),getPos _vehicle # 2,true];
 _vehicle setVariable [QGVAR(strafeHeightASL),getPosASL _vehicle # 2,true];
 _vehicle setVariable [QGVAR(strafeApproach),nil,true];
 _vehicle setVariable [QGVAR(firedCounts),nil];
+_vehicle setVariable [QGVAR(strafeTarget),nil];
 
 // Disable AI targeting
 private _units = PRIMARY_CREW(_vehicle);
@@ -152,7 +153,20 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 
 // Begin approach
 [{
-	_this # 0 params ["_vehicle","_target","_ingress","_minDist","_simDist","_prepDist","_moveTick","","_minKMH","_KMH","_randomAngle"];
+	_this # 0 params [
+		"_vehicle",
+		"_target",
+		"_ingress",
+		"_minDist",
+		"_simDist",
+		"_prepDist",
+		"_moveTick",
+		"_minKMH",
+		"_KMH",
+		"_randomAngle",
+		"_search",
+		"_searchTick"
+	];
 
 	private _relDir = ((_vehicle getDir _target) - getDir _vehicle) call CBA_fnc_simplifyAngle;
 	_relDir = [_relDir,_relDir - 360] select (_relDir > 180);
@@ -164,10 +178,22 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 
 	private _movePos = if (_distance > _simDist && _distance < _prepDist) then {
 		if (_goodApproach && _goodAim) then {
+			if (CBA_missionTime > _searchTick && isNil {_vehicle getVariable QGVAR(strafeTarget)}) then {
+				_this # 0 set [11,CBA_missionTime + 1];
+				_search params ["_search","_searchRadius","_friendlyRange"];
+				private _target = [_target,side group _vehicle,_search,_searchRadius,_friendlyRange] call FUNC(targetSearch);
+				if (_target isEqualType objNull && {isNull _target}) exitWith {};
+				NOTIFY(_vehicle,LSTRING(strafeTargetAcquired));
+				_vehicle setVariable [QGVAR(strafeTarget),_target];
+			};
+
 			if !(_vehicle getVariable [QGVAR(strafeApproach),false]) then {
 				_vehicle setVariable [QGVAR(strafeApproach),true,true];
-				[QGVAR(strafeApproach),[_vehicle]] call CBA_fnc_localEvent;
 				[QGVAR(limitSpeed),[_vehicle,_KMH]] call CBA_fnc_localEvent;
+				
+				if (isNil {_vehicle getVariable QGVAR(strafeTarget)}) then {
+					NOTIFY(_vehicle,LSTRING(strafeFinalApproach));
+				};
 			};
 
 			_target getPos [0,_ingress]
@@ -185,7 +211,7 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 	if (_distance <= _simDist && _distance >= _minDist && _goodApproach && _goodAim && speed _vehicle >= _minKMH) exitWith {true};
 
 	if (CBA_missionTime > _moveTick) then {
-		_this # 0 set [6,CBA_missionTime + 3];
+		_this # 0 set [6,CBA_missionTime + 5];
 		_vehicle doMove _movePos;
 	};
 
@@ -229,7 +255,14 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 		[QGVAR(strafeApproach),[_vehicle]] call CBA_fnc_localEvent;
 	};
 
-	_target = [_target,side group _vehicle,_search] call FUNC(targetSearch);
+	if (isNil {_vehicle getVariable QGVAR(strafeTarget)}) then {
+		_search params ["_search","_searchRadius","_friendlyRange"];
+		_target = [_target,side group _vehicle,_search,_searchRadius,_friendlyRange] call FUNC(targetSearch);
+		if (_target isEqualType objNull && {isNull _target}) exitWith {};
+		NOTIFY(_vehicle,LSTRING(strafeTargetAcquired));
+	} else {
+		_target = _vehicle getVariable QGVAR(strafeTarget);
+	};
 
 	if (_target isEqualType objNull && {isNull _target}) exitWith {
 		NOTIFY(_vehicle,LSTRING(strafeNoTarget));
@@ -282,10 +315,11 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 	_simDist,
 	_prepDist,
 	0,
-	_target getPos [0,0],
 	_minSpeed * 3.6,
 	_speed * 3.6,
-	selectRandom [45,-45]
+	selectRandom [45,-45],
+	_search,
+	0
 ],[
 	_vehicle,
 	_target,

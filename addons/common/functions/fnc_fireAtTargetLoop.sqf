@@ -14,7 +14,7 @@ params [
 	"_unit",
 	"_ammoData",
 	"_triggerDelay",
-	"_dummy",
+	"_dummies",
 	"_startTime",
 	"_totalTime",
 	"_aimTick",
@@ -59,9 +59,11 @@ if (_aimTick <= CBA_missionTime) then {
 	// Update target dummy if there's spread
 	if (_spread > 0) then {
 		if (_target isEqualType objNull) then {
-			_dummy attachTo [_target,(call CBA_fnc_randomVector3D) vectorMultiply random [0,_spread,0]];
+			private _pos = [_target,(call CBA_fnc_randomVector3D) vectorMultiply random [0,_spread,0]];
+			{_x attachTo _pos} forEach _dummies;
 		} else {
-			_dummy setPosASL (_target vectorAdd ((call CBA_fnc_randomVector3D) vectorMultiply random [0,_spread,0]));
+			private _pos = _target vectorAdd ((call CBA_fnc_randomVector3D) vectorMultiply random [0,_spread,0]);
+			{_x setPosASL _pos} forEach _dummies;
 		};
 	};
 

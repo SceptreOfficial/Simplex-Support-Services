@@ -23,6 +23,17 @@
 ] call CBA_fnc_addSetting;
 
 [
+	QGVAR(visualAidsLive),
+	"CHECKBOX",
+	DESC(visualAidsLive),
+	[ELSTRING(main,PREFIX),LSTRING(Service)],
+	true,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
 	QGVAR(taskMarkers),
 	"CHECKBOX",
 	DESC(taskMarkers),
@@ -85,5 +96,16 @@
 	true,
 	true,
 	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QGVAR(maxSearchRadiusStr),
+	"EDITBOX",
+	DESC(maxSearchRadiusStr),
+	[ELSTRING(main,PREFIX),LSTRING(Service)],
+	"1000",
+	true,
+	{GVAR(maxSearchRadius) = parseNumber _this},
 	false
 ] call CBA_fnc_addSetting;

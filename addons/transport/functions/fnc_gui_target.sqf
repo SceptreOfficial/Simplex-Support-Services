@@ -4,17 +4,16 @@ params ["_ctrl","_index"];
 
 private _display = ctrlParent _ctrl;
 private _ctrlGroup = ctrlParentControlsGroup _ctrl;
-private _ctrlTarget = _ctrlGroup controlsGroupCtrl IDC_TARGET;
-private _ctrlTargetDetail = _ctrlGroup controlsGroupCtrl IDC_TARGET_DETAIL;
+_ctrl getVariable QGVAR(ctrls) params ["_ctrlTarget","_ctrlTargetDetail"];
 
 private _type = _ctrlTarget lbData lbCurSel _ctrlTarget;
 private _detail = _ctrlTargetDetail lbData lbCurSel _ctrlTargetDetail;
 
 if (_ctrlTargetDetail == _ctrl) exitWith {
 	if (_detail isEqualTo "") then {
-		GVAR(request) set ["target",_type];
+		GVAR(plan) # GVAR(planIndex) set ["target",_type];
 	} else {
-		GVAR(request) set ["target",_type + ":" + _detail];
+		GVAR(plan) # GVAR(planIndex) set ["target",_type + ":" + _detail];
 	};
 };
 
@@ -67,32 +66,14 @@ switch _type do {
 	default {
 		//lbClear _ctrlTargetDetail;
 		_ctrlTargetDetail ctrlEnable false;
-		GVAR(request) set ["target",_type];
+		GVAR(plan) # GVAR(planIndex) set ["target",_type];
 	};
 };
 
-private _ctrlDangerClose = _ctrlGroup controlsGroupCtrl IDC_DANGER_CLOSE;
-
 if (_type in ["","MAP"]) then {
-	_ctrlDangerClose ctrlEnable false;
-	
-	if (!isNull (_ctrlDangerClose getVariable [QGVAR(cover),controlNull])) exitWith {};
-	
-	private _cover = _display ctrlCreate ["RscText",-1,_ctrlGroup];
-	_cover ctrlSetBackgroundColor [0,0,0,0.5];
-	_cover ctrlSetPosition ctrlPosition _ctrlDangerClose;
-	_cover ctrlCommit 0;
-	_ctrlDangerClose setVariable [QGVAR(cover),_cover];
-
-	(_ctrlGroup controlsGroupCtrl IDC_SEARCH_RADIUS) ctrlEnable false;
-	(_ctrlGroup controlsGroupCtrl IDC_SEARCH_RADIUS_EDIT) ctrlEnable false;
-
+	{_x ctrlEnable false} forEach (_ctrl getVariable QGVAR(searchRadiusCtrls));
 } else {
-	_ctrlDangerClose ctrlEnable true;
-	ctrlDelete (_ctrlDangerClose getVariable [QGVAR(cover),controlNull]);
-	
-	(_ctrlGroup controlsGroupCtrl IDC_SEARCH_RADIUS) ctrlEnable true;
-	(_ctrlGroup controlsGroupCtrl IDC_SEARCH_RADIUS_EDIT) ctrlEnable true;
+	{_x ctrlEnable true} forEach (_ctrl getVariable QGVAR(searchRadiusCtrls));
 };
 
 call FUNC(gui_verify);

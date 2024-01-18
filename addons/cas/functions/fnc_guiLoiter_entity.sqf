@@ -40,27 +40,40 @@ _entity getVariable QPVAR(guiLimits) params ["_altitudeMin","_altitudeMax","_rad
 [CTRL(IDC_SPREAD),CTRL(IDC_SPREAD_EDIT),[0,30,0],"spread",0,LELSTRING(common,meterAcronym)] call FUNC(gui_slider);
 [CTRL(IDC_BURST_DURATION),CTRL(IDC_BURST_DURATION_EDIT),[0.1,10,1],"duration",3,LELSTRING(common,secondAcronym)] call FUNC(gui_slider);
 [CTRL(IDC_BURST_INTERVAL),CTRL(IDC_BURST_INTERVAL_EDIT),[-1,30,0],"interval",-1,LELSTRING(common,secondAcronym)] call FUNC(gui_slider);
+[CTRL(IDC_SEARCH_RADIUS),CTRL(IDC_SEARCH_RADIUS_EDIT),[1,_radiusMax,0],"searchRadius",_radiusMin max 900 min _radiusMax,LELSTRING(common,meterAcronym)] call FUNC(gui_slider);
 
 // Ingress/Egress
 [_ctrlGroup,GVAR(request)] call FUNC(gui_initIngressEgress);
 
 // Target search
 private _ctrlTarget = CTRL(IDC_TARGET);
-private _ctrlTargetDetail = CTRL(IDC_TARGET_DETAIL);
 private _targetTypes = _entity getVariable [QPVAR(targetTypes),[]];
 _targetTypes insert [0,[""],true];
 lbClear _ctrlTarget;
 
 {
-	GVAR(targetFormatting) get _x params ["_name","_icon"];
+	EGVAR(common,targetFormatting) get _x params ["_name","_icon"];
 	private _i = _ctrlTarget lbAdd _name;
-	_ctrlTarget lbSetData [_i,_x];
 	_ctrlTarget lbSetPicture [_i,_icon];
+	_ctrlTarget lbSetData [_i,_x];
 } forEach _targetTypes;
 
 ((GVAR(request) getOrDefault ["target",""]) splitString ":") params [["_type",""],["_typeDetail",""]];
 _ctrlTarget lbSetCurSel (_targetTypes find _type) max 0;
-_ctrlTargetDetail lbSetCurSel (["","WHITE","BLACK","RED","ORANGE","YELLOW","GREEN","BLUE","PURPLE"] find _typeDetail);
+CTRL(IDC_TARGET_DETAIL) lbSetCurSel ((switch _type do {
+	case "LASER" : {["","MATCH"]};
+	case "SMOKE";
+	case "FLARE" : {["","WHITE","BLACK","RED","ORANGE","YELLOW","GREEN","BLUE","PURPLE"]};
+	case "VEHICLES" : {["","TRACKED","WHEELED"]};
+	default {[""]};
+}) find _typeDetail);
+
+// Danger close
+private _ctrlDangerClose = CTRL(IDC_DANGER_CLOSE);
+_ctrlDangerClose lbSetCurSel parseNumber !(GVAR(request) getOrDefault ["dangerClose",false]);
+private _tooltip = format [LLSTRING(dangerCloseTooltip),_entity getVariable QPVAR(friendlyRange)];
+_ctrlDangerClose lbSetTooltip [0,_tooltip];
+_ctrlDangerClose lbSetTooltip [1,_tooltip];
 
 // Weapons
 private _ctrlWeapon = CTRL(IDC_WEAPON);
@@ -83,13 +96,6 @@ if (_weapon isEqualTo [] || {!(_weapon in _validPylons)}) then {
 	_ctrlWeapon lbSetTooltip [_i,_turretName];
 	if (_weapon isEqualTo _pylon) then {_ctrlWeapon lbSetCurSel _i};
 } forEach _formatPylons;
-
-// Danger close
-private _ctrlDangerClose = CTRL(IDC_DANGER_CLOSE);
-_ctrlDangerClose lbSetCurSel parseNumber !(GVAR(request) getOrDefault ["dangerClose",false]);
-private _tooltip = format [LLSTRING(dangerCloseTooltip),_entity getVariable QPVAR(friendlyRange)];
-_ctrlDangerClose lbSetTooltip [0,_tooltip];
-_ctrlDangerClose lbSetTooltip [1,_tooltip];
 
 // Remote control
 GVAR(remoteControlTurrets) = [];
