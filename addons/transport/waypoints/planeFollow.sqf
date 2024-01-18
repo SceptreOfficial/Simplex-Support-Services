@@ -29,7 +29,7 @@ _vehicle setVariable [QGVAR(hold),LSTRING(stopFollowing),true];
 
 waitUntil {
 	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 3;
+		_moveTick = CBA_missionTime + 10;
 
 		if (isTouchingGround _vehicle && _vehicle distance2D _attachedObject < 200) then {
 			_vehicle doMove (_vehicle getPos [200,getDir _vehicle]);

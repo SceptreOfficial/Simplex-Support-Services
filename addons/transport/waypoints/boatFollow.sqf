@@ -25,7 +25,7 @@ _vehicle setVariable [QGVAR(hold),LSTRING(stopFollowing),true];
 
 waitUntil {
 	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 3;
+		_moveTick = CBA_missionTime + 10;
 
 		private _expectedPos = (expectedDestination _attachedObject) # 0;
 		private _pos = getPos _vehicle;

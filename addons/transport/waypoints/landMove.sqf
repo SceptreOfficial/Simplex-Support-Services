@@ -20,7 +20,7 @@ private _moveTick = 0;
 
 waitUntil {
 	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 3;
+		_moveTick = CBA_missionTime + 10;
 		_vehicle setDestination [_wpPos,"LEADER PLANNED",true];
 		_vehicle doMove _wpPos;
 	};

@@ -32,7 +32,7 @@ if (_vehicle distance2D _posASL > 30 && isTouchingGround _vehicle) then {
 
 waitUntil {
 	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 3;
+		_moveTick = CBA_missionTime + 10;
 		_vehicle doMove _posAGL;
 	};
 

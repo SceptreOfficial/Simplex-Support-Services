@@ -30,7 +30,7 @@ _wp setWaypointType "MOVE";
 
 waitUntil {
 	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 3;
+		_moveTick = CBA_missionTime + 10;
 		_vehicle doMove _wpPos;
 	};
 
