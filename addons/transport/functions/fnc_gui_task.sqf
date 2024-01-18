@@ -93,9 +93,9 @@ switch _task do {
 			GVAR(plan) # GVAR(planIndex) set ["searchRadius",_value];
 			
 			if (CBA_missionTime < _ctrlSlider getVariable [QGVAR(updateTick),0]) exitWith {};
-			_ctrlSlider setVariable [QGVAR(updateTick),CBA_missionTime + 0.5];
+			_ctrlSlider setVariable [QGVAR(updateTick),CBA_missionTime + 0.05];
 			
-			_display getVariable [QGVAR(followListUpdate),[]] params ["_ctrlList","_fnc"];
+			(ctrlParent _ctrlSlider) getVariable [QGVAR(followListUpdate),[]] params ["_ctrlList","_fnc"];
 			_ctrlList call _fnc;
 		},LELSTRING(common,meterAcronym)] call EFUNC(sdf,manageSlider);
 
@@ -133,15 +133,15 @@ switch _task do {
 			private _index = -1;
 
 			lnbClear _ctrlList;
-
-			private _pos = ASLtoATL (GVAR(plan) # GVAR(planIndex) get "posASL");
+			
+			private _pos = ASLtoAGL (GVAR(plan) # GVAR(planIndex) get "posASL");
+			private _radius = GVAR(plan) # GVAR(planIndex) getOrDefault ["searchRadius",500 min GVAR(maxSearchRadius)];
 
 			{
 				if (alive _x &&
 					_vehicle != _x &&
 					{[_side,side _x] call BIS_fnc_sideIsFriendly} &&
-					{!(_x isKindOf "Animal")} &&
-					{_x distance2D _pos < 150}
+					{!(_x isKindOf "Animal")}
 				) then {
 					private _row = _ctrlList lnbAddRow ["",getText (configOf _x >> "displayName"),groupID group _x];
 					_ctrlList lnbSetTextRight [[_row,1],["",name _x] select (_x isKindOf "CAManBase")];
@@ -150,7 +150,7 @@ switch _task do {
 
 					if (_x == _selected) then {_index = _row};
 				};
-			} forEach (_pos nearEntities (GVAR(plan) # GVAR(planIndex) getOrDefault ["searchRadius",500 min GVAR(maxSearchRadius)]));
+			} forEach (_pos nearEntities _radius);
 
 			_ctrlList lnbSetCurSelRow _index;
 		}];
