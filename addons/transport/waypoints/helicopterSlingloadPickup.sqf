@@ -6,7 +6,8 @@ params [
 	"_wpPos",
 	"_attachedObject",
 	["_behaviors",[]],
-	["_timeout",0]
+	["_timeout",0],
+	["_searchRadius",500]
 ];
 
 private _entity = _group getVariable [QPVAR(entity),objNull];
@@ -38,6 +39,7 @@ if (driver _vehicle call EFUNC(common,isRemoteControlled)) exitWith {true};
 
 _vehicle setVariable [QGVAR(slingloadPos),waypointPosition [_group,currentWaypoint _group],true];
 _vehicle setVariable [QGVAR(slingloadTarget),nil,true];
+_vehicle setVariable [QGVAR(searchRadius),_searchRadius,true];
 
 NOTIFY(_entity,LSTRING(notifySlingloadTarget));
 

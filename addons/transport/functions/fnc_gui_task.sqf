@@ -440,6 +440,10 @@ switch _task do {
 		_groupHeight = _groupHeight + 1;
 	};
 	case "SLINGLOADPICKUP" : {
+		// Search radius slider
+		_controls append ([_groupHeight,LLSTRING(searchRadius),[1,GVAR(maxSearchRadius),0],500,"searchRadius",LELSTRING(common,meterAcronym)] call FUNC(gui_slider));
+		_groupHeight = _groupHeight + 1;
+
 		// Friendly vehicle & unit selection
 		private _ctrlText = _display ctrlCreate [QEGVAR(sdf,TextCentered),-1,_ctrlTaskGroup];
 		_ctrlText ctrlSetPosition [CTRL_X(0),CTRL_Y(_groupHeight),CTRL_W(20),CTRL_H(1)];

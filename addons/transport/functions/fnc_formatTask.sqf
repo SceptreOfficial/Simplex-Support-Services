@@ -26,7 +26,7 @@ _taskArgs append (switch _task do {
 	};
 	case "HELOCAST" : {["hoverHeight","hoverSpeed","endDir","approach"]};
 	case "LOITER" : {["loiterType","loiterRadius"]};
-	case "SLINGLOADPICKUP" : {[]};
+	case "SLINGLOADPICKUP" : {["searchRadius"]};
 	case "SLINGLOADDROPOFF" : {[]};
 	case "UNLOAD" : {
 		private _id = GEN_STR(_task);
