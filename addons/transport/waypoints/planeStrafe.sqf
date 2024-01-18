@@ -32,7 +32,7 @@ waitUntil {
 		_moveTick = CBA_missionTime + 10;
 
 		if (isTouchingGround _vehicle) then {
-			_vehicle doMove (_vehicle getPos [200,getDir _vehicle]);
+			_vehicle doMove (_vehicle getPos [200,_vehicle getDir _wpPos]);
 		};
 	};
 

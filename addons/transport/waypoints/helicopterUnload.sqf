@@ -26,7 +26,7 @@ waitUntil {
 		_moveTick = CBA_missionTime + 10;
 
 		if (isTouchingGround _vehicle && _vehicle distance2D _wpPos < 200) then {
-			_vehicle doMove (_vehicle getPos [200,getDir _vehicle]);
+			_vehicle doMove (_vehicle getPos [200,_vehicle getDir _wpPos]);
 		} else {
 			_vehicle doMove _wpPos;
 		};
