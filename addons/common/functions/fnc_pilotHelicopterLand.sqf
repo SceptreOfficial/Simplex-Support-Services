@@ -33,7 +33,7 @@ private _holdProgress = if (_hold >= 0) then {
 if (abs _pitch > 30 || abs _bank > 30 || _holdProgress > 1 || _vehicle distance2D _endASL > 20) exitWith {true};
 
 private _vel = velocity _vehicle;
-	
+
 if (isTouchingGround _vehicle) then {
 	if (_engine && !isEngineOn _vehicle) then {_vehicle engineOn true};
 	if (!_engine && isEngineOn _vehicle) then {_vehicle engineOn false};
