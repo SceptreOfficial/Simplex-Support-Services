@@ -65,6 +65,8 @@ switch (_entity getVariable QPVAR(supportType)) do {
 			["altitudeATL",500],
 			["altitudeASL",500]
 		]],1] call CBA_fnc_waitAndExecute;
+
+		_vehicle setVariable [QPVAR(vtol),true,true];
 	};
 	case "PLANE" : {
 		[FUNC(changeBehavior),[_entity,[

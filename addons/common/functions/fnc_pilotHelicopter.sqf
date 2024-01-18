@@ -33,35 +33,24 @@ if (_vehicle getVariable [QGVAR(pilotHelicopter),false]) then {
 	_vehicle doFollow _vehicle;
 
 	// PUBLIC EVENT
-	[QGVAR(pilotHelicopterCancelled),[_vehicle]] call CBA_fnc_globalEvent;
+	[QGVAR(pilotHelicopterCancelled),[_vehicle]] call CBA_fnc_localEvent;
 };
 
 if (_endASL isEqualType objNull) then {_endASL = getPosASL _endASL};
 
 // Stop here if null pos
-if (_endASL isEqualTo [0,0,0]) exitWith {
-	_vehicle setVariable [QGVAR(pilotHelicopter),nil,true];
-};
+if (_endASL isEqualTo [0,0,0]) exitWith {_vehicle setVariable [QGVAR(pilotHelicopter),nil,true]};
 
-// Debug
-//private _perfStart = diag_tickTime;
+private _vtol = _vehicle isKindOf "VTOL_Base_F" || _vehicle getVariable [QPVAR(vtol),false];
 
 // Validate input
 _endRotation params [["_endDir",-1,[0]],["_endPitch",0,[0]],["_endBank",0,[0]]];
 _endRotation = [_endDir,-89.9 max _endPitch min 89.9,-179.9 max _endBank min 179.9];
 _complete params [["_completeCondition",{true},[{}]],["_completeArgs",[]]];
 _complete = [_completeCondition,_completeArgs];
-_altitude = _altitude max 10;
+_altitude = _altitude max ([10,115] select _vtol);
 _approachDistance = _approachDistance max 10;
-
-if (_vehicle isKindOf "VTOL_Base_F") then {
-	_altitude = _altitude max 115;
-	//_approachDistance = _approachDistance max ((_vehicle distance2D _endASL) - 100) min 600;
-};
-
-if (_endDir >= 0) then {
-	_endDir = _endDir call CBA_fnc_simplifyAngle;
-};
+if (_endDir >= 0) then {_endDir = _endDir call CBA_fnc_simplifyAngle};
 
 // Create a path to follow
 private _startASL = getPosASL _vehicle;
@@ -79,7 +68,7 @@ private _endZ = _endASL # 2;
 [
 	[1100,2.5,6,70,70,5.5,6.5,10,60],
 	[3200,3,12,40,40,4.5,4.5,1,30]
-] select (_vehicle isKindOf "VTOL_Base_F") params [
+] select _vtol params [
 	"_maxVelDist",
 	"_accelMin",
 	"_accelMax",
@@ -113,6 +102,9 @@ private [
 	"_yawLimit",
 	"_relDir"
 ];
+
+// Debug
+//private _perfStart = diag_tickTime;
 
 while {
 	// How fast should the helicopter go
@@ -233,4 +225,4 @@ private _EFID = addMissionEventHandler ["EachFrame",{call FUNC(pilotHelicopterSi
 _vehicle setVariable [QGVAR(pilotHelicopterEFID),_EFID];
 
 // PUBLIC EVENT
-[QGVAR(pilotHelicopterSim),[_vehicle,_endASL,_endRotation,_altitude,_approachDistance,_maxDropSpeed,_complete]] call CBA_fnc_globalEvent;
+[QGVAR(pilotHelicopterSim),_this] call CBA_fnc_localEvent;

@@ -36,7 +36,7 @@ if (!alive _vehicle ||
 	_vehicle doFollow _vehicle;
 
 	// PUBLIC EVENT
-	[QGVAR(pilotHelicopterCancelled),[_vehicle]] call CBA_fnc_globalEvent;
+	[QGVAR(pilotHelicopterCancelled),[_vehicle]] call CBA_fnc_localEvent;
 };
 
 private _progress = (CBA_missionTime - _startTime) / _controlTime;
@@ -57,7 +57,7 @@ if (_progress > 1) exitWith {
 		_vehicle doFollow _vehicle;
 
 		// PUBLIC EVENT
-		[QGVAR(pilotHelicopterCompleted),[_vehicle]] call CBA_fnc_globalEvent;
+		[QGVAR(pilotHelicopterCompleted),[_vehicle]] call CBA_fnc_localEvent;
 	};
 
 	if !(_vehicle getVariable [QGVAR(pilotHelicopterReached),false]) then {
@@ -65,7 +65,7 @@ if (_progress > 1) exitWith {
 		_vehicle setVariable [QGVAR(pilotHelicopterReached),true,true];
 
 		// PUBLIC EVENT
-		[QGVAR(pilotHelicopterReached),[_vehicle]] call CBA_fnc_globalEvent;
+		[QGVAR(pilotHelicopterReached),[_vehicle]] call CBA_fnc_localEvent;
 	};
 };
 
