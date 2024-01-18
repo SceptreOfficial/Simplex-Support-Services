@@ -9,20 +9,18 @@
 	_target = selectRandom CANDIDATES; \
 }
 
-params ["_target","_friendlySide","_search",["_radius",500],["_friendlyRange",0]];
+params ["_pos","_friendlySide","_search",["_radius",500],["_friendlyRange",0]];
 
 (_search splitString ":") params [["_type",""],["_typeDetail",""]];
 
-if (_type isEqualTo "MAP") exitWith {
-	if (_target isEqualType objNull) then {
-		getPosASL _target
-	} else {
-		_target
-	};
-};
+if (_pos isEqualType objNull) then {_pos = getPosASL _pos};
+
+if (_type isEqualTo "MAP") exitWith {_pos};
 
 private _enemies = [];
 private _friendlies = [];
+private _target = +_pos;
+_pos = ASLtoAGL _pos;
 
 switch _type do {
 	case "LASER" : {
@@ -46,7 +44,7 @@ switch _type do {
 			if (_x isKindOf _laserType && {!(_x getVariable [QGVAR(isDummy),false])}) then {
 				_lasers pushBack _x;
 			};
-		} forEach (_target nearEntities _radius);
+		} forEach (_pos nearEntities _radius);
 
 		if (_lasers isEqualTo []) exitWith {_target = objNull};
 
@@ -57,15 +55,17 @@ switch _type do {
 		_enemies = (_target nearEntities 25) arrayIntersect _enemies;
 
 		if (_enemies isEqualTo []) then {
+			// Use laser position if no enemies nearby
 			_target = getPosASL _target;
 		} else {
+			// Use nearest enemy
 			_target = [_target,_enemies] call FUNC(getNearest);
 		};
 	};
 	case "SMOKE";
 	case "IR";
 	case "FLARE" : {
-		private _signals = [_type,_target,_radius] call FUNC(signalSearch);
+		private _signals = [_type,_pos,_radius] call FUNC(signalSearch);
 
 		if !(_typeDetail in ["","ANY"]) then {
 			_signals = _signals select {_x call FUNC(signalColor) isEqualTo _typeDetail};
@@ -79,7 +79,7 @@ switch _type do {
 			) then {
 				_friendlies pushBack _x;
 			};
-		} forEach (_target nearEntities _radius);
+		} forEach (_pos nearEntities _radius);
 		
 		FRIENDLY_SEARCH(_signals);
 
@@ -115,14 +115,12 @@ switch _type do {
 					_enemies pushBack _x;
 				};
 			};
-		} forEach (_target nearEntities _radius);
+		} forEach (_pos nearEntities _radius);
 
 		if (_enemies isEqualTo []) exitWith {_target = objNull};
 
 		FRIENDLY_SEARCH(_enemies);
 	};
 };
-
-systemChat str [_search,_target];
 
 _target
