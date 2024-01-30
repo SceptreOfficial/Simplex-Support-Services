@@ -16,11 +16,6 @@ if (_battery isEqualTo []) exitWith {
 private _side = side group (_battery # 0);
 
 [localize LNAME(moduleAdd),[
-	["COMBOBOX",EDESC(common,side),[[
-		[LELSTRING(common,SideWest),"",ICON_WEST],
-		[LELSTRING(common,SideEast),"",ICON_EAST],
-		[LELSTRING(common,SideGuer),"",ICON_GUER]
-	],_side,[west,east,independent]]],
 	["EDITBOX",EDESC(common,callsign),""],
 	["EDITBOX",EDESC(common,respawnDelay),60],
 	["TOOLBOX",EDESC(common,relocation),[[LELSTRING(common,allow),LELSTRING(common,deny)],0,[true,false]]],
@@ -60,15 +55,10 @@ private _side = side group (_battery # 0);
 	["EDITBOX",DESC(maxFiringDelay),30],
 	["EDITBOX",EDESC(common,vehicleInit),""],
 	["TOOLBOX",DESC(remoteControl),[[LELSTRING(common,allow),LELSTRING(common,deny)],1,[true,false]]],
-	["CHECKBOX",EDESC(common,remoteAccess),true],
-	["EDITBOX",EDESC(common,accessItems),""],
-	["TOOLBOX",EDESC(common,accessItemsLogic),[[LELSTRING(common,LogicAND),LELSTRING(common,LogicOR)],0,[false,true]]],
-	["EDITBOX",EDESC(common,accessCondition),"true"],
-	["EDITBOX",EDESC(common,requestCondition),"true"]
+	FINAL_ATTRIBUTES_ZEUS
 ],{
 	params ["_values","_battery"];
 	_values params [
-		"_side",
 		"_callsign",
 		"_respawnDelay",
 		"_allowRelocation",
@@ -91,6 +81,7 @@ private _side = side group (_battery # 0);
 		"_maxFiringDelay",
 		"_vehicleInit",
 		"_remoteControl",
+		"_side",
 		"_remoteAccess",
 		"_accessItems",
 		"_accessItemsLogic",
@@ -101,7 +92,6 @@ private _side = side group (_battery # 0);
 
 	[
 		_battery,
-		_side,
 		_callsign,
 		parseNumber _respawnDelay,
 		[_allowRelocation,parseNumber _relocationDelay],
@@ -122,6 +112,7 @@ private _side = side group (_battery # 0);
 		parseNumber _maxFiringDelay,
 		_vehicleInit,
 		_remoteControl,
+		_side,
 		_remoteAccess,
 		_accessItems call EFUNC(common,parseList),
 		_accessItemsLogic,

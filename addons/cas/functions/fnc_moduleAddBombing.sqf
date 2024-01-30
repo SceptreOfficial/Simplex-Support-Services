@@ -21,7 +21,6 @@ if (!local _logic) exitWith {};
 
 		private _entity = [
 			_class,
-			[west,east,independent] param [LVAR(Side),west],
 			LVAR(Callsign),
 			[LVAR(Cooldown),0],
 			//LVAR(VirtualRunway),
@@ -34,6 +33,7 @@ if (!local _logic) exitWith {};
 			//[STRAFE_TARGETS,LVAR(TargetTypes)] call EFUNC(common,parseCheckboxes),
 			//LVAR(Countermeasures) == 0,
 			LVAR(VehicleInit),
+			[west,east,independent,civilian] param [LVAR(Side),west],
 			LVAR(RemoteAccess),
 			[LVAR(AccessItems)] call EFUNC(common,parseList),
 			LVAR(AccessItemsLogic) == 1,

@@ -70,6 +70,7 @@
 #define ICON_CAUTION "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\danger_ca.paa"
 #define ICON_CHECKED "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa"
 #define ICON_CHECKED2 "a3\3DEN\Data\Controls\ctrlCheckbox\textureChecked_ca.paa"
+#define ICON_CIV "\a3\3DEN\Data\Displays\Display3DEN\PanelRight\side_civ_ca.paa"
 #define ICON_CLOCKWISE "\A3\3DEN\Data\Attributes\LoiterDirection\cw_ca.paa"
 #define ICON_COMPOSITION "\a3\3DEN\Data\Displays\Display3DEN\panelright\side_custom_ca.paa"
 #define ICON_COUNTER_CLOCKWISE "\A3\3DEN\Data\Attributes\LoiterDirection\ccw_ca.paa"
@@ -199,6 +200,34 @@
 #define EATTRIBUTE(V1,V2) displayName = ECNAME(V1,V2); tooltip = ECINFO(V1,V2); property = QGVAR(V2)
 
 #define FINAL_ATTRIBUTES \
+class Side : Combo {\
+	EATTRIBUTE(common,Side);\
+	typeName = "NUMBER";\
+	defaultValue = 0;\
+	class Values {\
+		class West {\
+			name = ECSTRING(common,SideWest);\
+			value = 0;\
+			picture = ICON_WEST;\
+			default = 1;\
+		};\
+		class East {\
+			name = ECSTRING(common,SideEast);\
+			value = 1;\
+			picture = ICON_EAST;\
+		};\
+		class Guer {\
+			name = ECSTRING(common,SideGuer);\
+			value = 2;\
+			picture = ICON_GUER;\
+		};\
+		class Civ {\
+			name = ECSTRING(common,SideCiv);\
+			value = 3;\
+			picture = ICON_CIV;\
+		};\
+	};\
+};\
 class RemoteAccess : Checkbox {\
 	EATTRIBUTE(common,RemoteAccess);\
 	typeName = "BOOL";\
@@ -242,3 +271,17 @@ class PVAR(auth) : Default {\
 	control = QPVAR(hidden);\
 };\
 class ModuleDescription: ModuleDescription {}
+
+
+#define FINAL_ATTRIBUTES_ZEUS \
+["COMBOBOX",EDESC(common,side),[[\
+	[LELSTRING(common,SideWest),"",ICON_WEST],\
+	[LELSTRING(common,SideEast),"",ICON_EAST],\
+	[LELSTRING(common,SideGuer),"",ICON_GUER],\
+	[LELSTRING(common,SideCiv),"",ICON_CIV]\
+],_side,[west,east,independent,civilian]]],\
+["CHECKBOX",EDESC(common,remoteAccess),true],\
+["EDITBOX",EDESC(common,accessItems),""],\
+["TOOLBOX",EDESC(common,accessItemsLogic),[[LELSTRING(common,LogicAND),LELSTRING(common,LogicOR)],0,[false,true]]],\
+["EDITBOX",EDESC(common,accessCondition),"true"],\
+["EDITBOX",EDESC(common,requestCondition),"true"]

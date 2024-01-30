@@ -11,7 +11,6 @@ if (!local _logic) exitWith {};
 	if (isNull findDisplay IDD_RSCDISPLAYCURATOR) then { 
 		private _entity = [
 			_synced param [_synced findIf {alive _x && !(_x isKindOf "Logic")},objNull],
-			[west,east,independent] # (_logic getVariable ["Side",0]),
 			_logic getVariable ["Callsign",""],
 			_logic getVariable ["RespawnDelay",60],
 			[PLANE_TASK_TYPES,_logic getVariable "TaskTypes"] call EFUNC(common,parseCheckboxes),
@@ -20,6 +19,7 @@ if (!local _logic) exitWith {};
 			_logic getVariable ["MaxTasks",-1],
 			_logic getVariable ["MaxTimeout",300],
 			_logic getVariable ["VehicleInit",""],
+			[west,east,independent,civilian] # (_logic getVariable ["Side",0]),
 			_logic getVariable ["RemoteAccess",true],
 			[_logic getVariable ["AccessItems",""]] call EFUNC(common,parseList),
 			_logic getVariable ["AccessItemsLogic",0] isEqualTo 1,

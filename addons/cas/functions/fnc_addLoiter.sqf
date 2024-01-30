@@ -7,7 +7,6 @@ if (!isServer) exitWith {
 
 params [
 	["_class","",[""]],
-	["_side",sideEmpty,[sideEmpty]],
 	["_callsign","",[""]],
 	["_cooldowns",[60,0],[[]],2],
 	["_virtualRunway",[0,0,0],[[]],3],
@@ -23,6 +22,7 @@ params [
 	["_friendlyRange",50,[0]],
 	["_vehicleInit",{},[{},""]],
 	["_remoteControl",true,[false]],
+	["_side",sideEmpty,[sideEmpty]],
 	["_remoteAccess",true,[false]],
 	["_accessItems",[],[[]]],
 	["_accessItemsLogic",false,[false]],

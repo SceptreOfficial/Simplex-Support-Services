@@ -205,6 +205,9 @@
 			<English>Independent</English>
 			<French>Independent</French>
 		</Key>
+		<Key ID="STR_SSS_Common_SideCiv">
+			<English>Civilian</English>
+		</Key>
 		<Key ID="STR_SSS_Common_Cooldown_name">
 			<English>Cooldown</English>
 			<French>Délai d'attente</French>

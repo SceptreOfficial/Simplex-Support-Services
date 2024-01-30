@@ -16,11 +16,6 @@ if (_vehicles isEqualTo []) exitWith {
 private _side = side group (_vehicles # 0);
 
 [LLSTRING(ModuleAddPlane_name),[
-	["COMBOBOX",EDESC(common,side),[[
-		[LELSTRING(common,SideWest),"",ICON_WEST],
-		[LELSTRING(common,SideEast),"",ICON_EAST],
-		[LELSTRING(common,SideGuer),"",ICON_GUER]
-	],_side,[west,east,independent]]],
 	["EDITBOX",EDESC(common,callsign),""],
 	["EDITBOX",EDESC(common,respawnDelay),60],
 	["LISTNBOXCB",DESC(taskTypes),[PLANE_TASK_TYPES apply {GVAR(taskNames) get _x},true,5,PLANE_TASK_TYPES]],
@@ -29,15 +24,10 @@ private _side = side group (_vehicles # 0);
 	["EDITBOX",DESC(maxTasks),-1],
 	["EDITBOX",DESC(maxTimeout),300],
 	["EDITBOX",EDESC(common,vehicleInit),""],
-	["CHECKBOX",EDESC(common,remoteAccess),true],
-	["EDITBOX",EDESC(common,accessItems),""],
-	["TOOLBOX",EDESC(common,accessItemsLogic),[[LELSTRING(common,LogicAND),LELSTRING(common,LogicOR)],0,[false,true]]],
-	["EDITBOX",EDESC(common,accessCondition),"true"],
-	["EDITBOX",EDESC(common,requestCondition),"true"]
+	FINAL_ATTRIBUTES_ZEUS
 ],{
 	params ["_values","_vehicles"];
 	_values params [
-		"_side",
 		"_callsign",
 		"_respawnDelay",
 		"_taskTypes",
@@ -46,6 +36,7 @@ private _side = side group (_vehicles # 0);
 		"_maxTasks",
 		"_maxTimeout",
 		"_vehicleInit",
+		"_side",
 		"_remoteAccess",
 		"_accessItems",
 		"_accessItemsLogic",
@@ -57,7 +48,6 @@ private _side = side group (_vehicles # 0);
 	{
 		[
 			_x,
-			_side,
 			_callsign,
 			parseNumber _respawnDelay,
 			_taskTypes,
@@ -66,6 +56,7 @@ private _side = side group (_vehicles # 0);
 			parseNumber _maxTasks,
 			parseNumber _maxTimeout,
 			_vehicleInit,
+			_side,
 			_remoteAccess,
 			_accessItems call EFUNC(common,parseList),
 			_accessItemsLogic,

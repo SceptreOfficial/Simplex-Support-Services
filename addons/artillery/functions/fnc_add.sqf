@@ -7,7 +7,6 @@ if (!isServer) exitWith {
 
 params [
 	["_battery",objNull,[objNull,[]]],
-	["_side",sideEmpty,[sideEmpty]],
 	["_callsign","",[""]],
 	["_respawnDelay",60,[0]],
 	["_relocation",[true,60],[[]],2],
@@ -28,6 +27,7 @@ params [
 	["_maxFiringDelay",30,[0]],
 	["_vehicleInit",{},[{},""]],
 	["_remoteControl",false,[false]],
+	["_side",sideEmpty,[sideEmpty]],
 	["_remoteAccess",true,[false]],
 	["_accessItems",[],[[]]],
 	["_accessItemsLogic",false,[false]],
