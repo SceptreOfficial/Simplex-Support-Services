@@ -200,13 +200,20 @@
 #define ATTRIBUTE(V1) displayName = CNAME(V1); tooltip = CINFO(V1); property = QGVAR(V1)
 #define EATTRIBUTE(V1,V2) displayName = ECNAME(V1,V2); tooltip = ECINFO(V1,V2); property = QGVAR(V2)
 
+#define PROVIDER_CATEGORY \
+class ProviderCategory {\
+	data = "AttributeSystemSubcategory";\
+	control = "SubCategory";\
+	displayName = ECSTRING(common,providerDescription);\
+	description = "";\
+}
+
 #define FINAL_ATTRIBUTES \
 class AccessCategory {\
 	data = "AttributeSystemSubcategory";\
-	control = "SubCategoryNoHeader1";\
-	description = ECSTRING(common,accessDescription);\
-	displayName = "";\
-	tooltip = "";\
+	control = "SubCategory";\
+	displayName = ECSTRING(common,accessDescription);\
+	description = "";\
 };\
 class Side : Combo {\
 	EATTRIBUTE(common,Side);\

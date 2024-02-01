@@ -27,6 +27,7 @@ class CfgVehicles {
 		PVAR(entity) = 1;
 
 		class Attributes: AttributesBase {
+			PROVIDER_CATEGORY;
 			class AircraftClass : Edit {
 				ATTRIBUTE(AircraftClass);
 				typeName = "STRING";
@@ -123,11 +124,7 @@ class CfgVehicles {
 		PVAR(entity) = 1;
 
 		class Attributes: AttributesBase {
-			//class DeleteSynced : Checkbox {
-			//	ATTRIBUTE(DeleteSynced);
-			//	typeName = "BOOL";
-			//	defaultValue = "true";
-			//};
+			PROVIDER_CATEGORY;
 			class AircraftClass : Edit {
 				ATTRIBUTE(AircraftClass);
 				typeName = "STRING";
@@ -285,11 +282,7 @@ class CfgVehicles {
 		PVAR(entity) = 1;
 
 		class Attributes: AttributesBase {
-			//class DeleteSynced : Checkbox {
-			//	ATTRIBUTE(DeleteSynced);
-			//	typeName = "BOOL";
-			//	defaultValue = "true";
-			//};
+			PROVIDER_CATEGORY;
 			class AircraftClass : Edit {
 				ATTRIBUTE(AircraftClass);
 				typeName = "STRING";

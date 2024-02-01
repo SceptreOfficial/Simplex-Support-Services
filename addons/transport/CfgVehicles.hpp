@@ -27,6 +27,7 @@ class CfgVehicles {
 		PVAR(entity) = 1;
 
 		class Attributes: AttributesBase {
+			PROVIDER_CATEGORY;
 			class Callsign : Edit {
 				EATTRIBUTE(common,Callsign);
 				typeName = "STRING";
@@ -132,6 +133,7 @@ class CfgVehicles {
 		PVAR(entity) = 1;
 
 		class Attributes: AttributesBase {
+			PROVIDER_CATEGORY;
 			class Callsign : Edit {
 				EATTRIBUTE(common,Callsign);
 				typeName = "STRING";
@@ -279,6 +281,7 @@ class CfgVehicles {
 		PVAR(entity) = 1;
 
 		class Attributes: AttributesBase {
+			PROVIDER_CATEGORY;
 			class Callsign : Edit {
 				EATTRIBUTE(common,Callsign);
 				typeName = "STRING";
@@ -388,6 +391,7 @@ class CfgVehicles {
 		PVAR(entity) = 1;
 
 		class Attributes: AttributesBase {
+			PROVIDER_CATEGORY;
 			class Callsign : Edit {
 				EATTRIBUTE(common,Callsign);
 				typeName = "STRING";
@@ -498,6 +502,7 @@ class CfgVehicles {
 		PVAR(entity) = 1;
 
 		class Attributes: AttributesBase {
+			PROVIDER_CATEGORY;
 			class Callsign : Edit {
 				EATTRIBUTE(common,Callsign);
 				typeName = "STRING";

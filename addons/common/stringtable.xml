@@ -895,5 +895,8 @@
 		<Key ID="STR_SSS_common_accessDescription">
 			<English>Access Attributes</English>
 		</Key>
+		<Key ID="STR_SSS_common_providerDescription">
+			<English>Provider Attributes</English>
+		</Key>
 	</Package>
 </Project>
