@@ -160,7 +160,7 @@ private _fnc_sortMag = {
 		{
 			private _compatMags = compatibleMagazines (_x call BIS_fnc_baseWeapon);
 			if (_compatMags isEqualTo []) then {continue};
-			compatMags # 0 call _fnc_sortMag;
+			_compatMags # 0 call _fnc_sortMag;
 		} forEach (weapons _x arrayIntersect weapons _x);
 	} else {
 		{
