@@ -9,7 +9,7 @@ params [
 	["_battery",objNull,[objNull,[]]],
 	["_callsign","",[""]],
 	["_respawnDelay",60,[0]],
-	["_relocation",[true,60],[[]],2],
+	["_relocation",[true,60,60],[[]],3],
 	["_cooldowns",[60,10],[[]],2],
 	["_ammunition",[],[[]]],
 	["_velocityOverride",false,[false]],

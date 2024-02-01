@@ -169,6 +169,12 @@
 			<English>Time it takes to "set up" the new base location</English>
 			<French>Temps nécessaire pour "installer" le nouvel emplacement de base</French>
 		</Key>
+		<Key ID="STR_SSS_Common_RelocationSpeed_name">
+			<English>Relocation speed</English>
+		</Key>
+		<Key ID="STR_SSS_Common_RelocationSpeed_info">
+			<English>Simulated relocation speed in km/h</English>
+		</Key>
 		<Key ID="STR_SSS_Common_Allow">
 			<English>Allow</English>
 			<French>Autoriser</French>

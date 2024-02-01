@@ -36,7 +36,7 @@ private _entity = true call CBA_fnc_createNamespace;
 private _exit = false;
 
 if (_physicalProperties isNotEqualTo []) then {
-	_physicalProperties params [["_vehicle",objNull,[objNull,[]]],["_respawnDelay",120,[0]],["_relocation",[false,60],[[]],2]];
+	_physicalProperties params [["_vehicle",objNull,[objNull,[]]],["_respawnDelay",120,[0]],["_relocation",[false,60],[[]]]];
 
 	private _group = grpNull;
 

@@ -13,7 +13,7 @@ if (!local _logic) exitWith {};
 			_synced select {alive _x && !(_x isKindOf "Logic")},
 			_logic getVariable ["Callsign",""],
 			_logic getVariable ["RespawnDelay",60],
-			[_logic getVariable ["Relocation",0] == 0,_logic getVariable ["RelocationDelay",60]],
+			[_logic getVariable ["Relocation",0] == 0,_logic getVariable ["RelocationDelay",60],_logic getVariable ["RelocationSpeed",60]],
 			[_logic getVariable ["Cooldown",60],_logic getVariable ["RoundCooldown",10]],
 			[_logic getVariable ["Ammunition","[]"]] call EFUNC(common,parseArray),
 			_logic getVariable ["VelocityOverride",0] == 1,

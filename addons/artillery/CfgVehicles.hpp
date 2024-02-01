@@ -53,6 +53,11 @@ class CfgVehicles {
 				typeName = "NUMBER";
 				defaultValue = 60;
 			};
+			class RelocationSpeed : Edit {
+				EATTRIBUTE(common,RelocationSpeed);
+				typeName = "NUMBER";
+				defaultValue = 60;
+			};
 			class Cooldown : Edit {
 				EATTRIBUTE(common,Cooldown);
 				typeName = "NUMBER";

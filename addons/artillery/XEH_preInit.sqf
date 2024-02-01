@@ -103,10 +103,9 @@ if (isServer) then {
 		[_entity,true,"RELOCATE",[LSTRING(statusRelocate),RGBA_YELLOW]] call EFUNC(common,setStatus);
 
 		if (missionNamespace getVariable [QGVAR(relocationTeleport),true]) then {
-			private _relocationDelay = (_entity getVariable [QPVAR(relocation),[false,60]]) # 1;
+			(_entity getVariable [QPVAR(relocation),[false,60,60]]) params ["","_relocationDelay","_relocationSpeed"];
 			private _formCenter = _entity getVariable QPVAR(formCenter);
 			private _distance = _formCenter distance2D _posASL;
-			private _simSpeed = [18,2] select (_entity getVariable QPVAR(icon) in [ICON_HOWITZER,ICON_MORTAR]);
 			
 			[{
 				params ["_entity","_posASL","_relocationTick"];
@@ -150,7 +149,7 @@ if (isServer) then {
 				[QPVAR(requestCompleted),[_entity getVariable [QPVAR(requester),objNull],_entity,["RELOCATE",[_posASL]]]] call CBA_fnc_globalEvent;
 
 				NOTIFY(_entity,LSTRING(notifyRelocateComplete));
-			},[_entity,_posASL,CBA_missionTime + (_relocationDelay + (_distance / _simSpeed))]] call CBA_fnc_waitUntilAndExecute;
+			},[_entity,_posASL,CBA_missionTime + (_relocationDelay + (_distance / (_relocationSpeed / 3.6)))]] call CBA_fnc_waitUntilAndExecute;
 		} else {
 			{[QEGVAR(common,enableAIFeature),[_x,["PATH",true]],_x] call CBA_fnc_targetEvent} forEach (_entity getVariable QPVAR(vehicles));
 
