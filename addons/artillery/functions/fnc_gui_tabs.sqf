@@ -42,6 +42,8 @@ if (_planOpen) then {
 	} else {
 		[_ctrlMap,[],[_area],[],1,FUNC(gui_map)] call EFUNC(sdf,manageMap);
 	};
+
+	(_ctrlPlanGroup controlsGroupCtrl IDC_REMOTE_CONTROL) ctrlShow (PVAR(guiEntity) getVariable [QPVAR(remoteControl),false]);
 } else {	
 	[_ctrlMap,[[GVAR(relocatePosASL)]],[],[],0,FUNC(gui_relocateMap)] call EFUNC(sdf,manageMap);
 };
