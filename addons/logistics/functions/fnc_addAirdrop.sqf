@@ -7,7 +7,6 @@ if (!isServer) exitWith {
 
 params [
 	["_class","",[""]],
-	["_side",sideEmpty,[sideEmpty]],
 	["_callsign","",[""]],
 	["_cooldowns",[60,10],[[]],2],
 	["_altitude",500,[0]],
@@ -21,6 +20,7 @@ params [
 	["_listFunction",{},["",{}]],
 	["_itemInit",{},["",{}]],
 	["_vehicleInit",{},[{},""]],
+	["_side",sideEmpty,[sideEmpty]],
 	["_remoteAccess",true,[false]],
 	["_accessItems",[],[[]]],
 	["_accessItemsLogic",false,[false]],

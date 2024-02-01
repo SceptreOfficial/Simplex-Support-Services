@@ -169,6 +169,12 @@
 			<English>Time it takes to "set up" the new base location</English>
 			<French>Temps nécessaire pour "installer" le nouvel emplacement de base</French>
 		</Key>
+		<Key ID="STR_SSS_Common_RelocationSpeed_name">
+			<English>Relocation speed</English>
+		</Key>
+		<Key ID="STR_SSS_Common_RelocationSpeed_info">
+			<English>Simulated relocation speed in km/h</English>
+		</Key>
 		<Key ID="STR_SSS_Common_Allow">
 			<English>Allow</English>
 			<French>Autoriser</French>
@@ -204,6 +210,9 @@
 		<Key ID="STR_SSS_Common_SideGuer">
 			<English>Independent</English>
 			<French>Independent</French>
+		</Key>
+		<Key ID="STR_SSS_Common_SideCiv">
+			<English>Civilian</English>
 		</Key>
 		<Key ID="STR_SSS_Common_Cooldown_name">
 			<English>Cooldown</English>
@@ -882,6 +891,18 @@
 		<Key ID="STR_SSS_common_targetVehiclesWheeled">
 			<English>Wheeled</English>
 			<French>À roues</French>
+		</Key>
+		<Key ID="STR_SSS_common_targetVehiclesStatic">
+			<English>Static</English>
+		</Key>
+		<Key ID="STR_SSS_common_targetVehiclesRadar">
+			<English>Radar</English>
+		</Key>
+		<Key ID="STR_SSS_common_accessDescription">
+			<English>Access Attributes</English>
+		</Key>
+		<Key ID="STR_SSS_common_providerDescription">
+			<English>Provider Attributes</English>
 		</Key>
 	</Package>
 </Project>

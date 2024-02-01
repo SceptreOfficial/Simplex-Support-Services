@@ -21,10 +21,9 @@ GVAR(strafeElevationOffsets) = createHashMapFromArray [
 	]]],
 
 	// RHS: Littlebird
-	//["rhs_melb_base",[-2,[
-	//	["rhs_weap_m134_pylon",-2],
-	//	["rhs_weap_ffarlauncher",-1.5]
-	//]]],
+	["rhs_melb_base",[-2,[
+		["rhs_weap_ffarlauncher",-1.5]
+	]]],
 
 	// RHS: A10
 	["rhs_a10",[2,[

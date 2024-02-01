@@ -15,7 +15,7 @@ if (isNull _entity) exitWith {true};
 _group allowFleeing 0;
 
 private _moveTick = 0;
-private _relocationDelay = (_entity getVariable [QPVAR(relocation),[false,60]]) # 1;
+private _relocationDelay = (_entity getVariable [QPVAR(relocation),[false,60,60]]) # 1;
 private _relocationTick = _relocationDelay + CBA_missionTime;
 
 waitUntil {

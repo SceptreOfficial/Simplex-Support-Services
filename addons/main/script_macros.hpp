@@ -70,6 +70,7 @@
 #define ICON_CAUTION "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\danger_ca.paa"
 #define ICON_CHECKED "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa"
 #define ICON_CHECKED2 "a3\3DEN\Data\Controls\ctrlCheckbox\textureChecked_ca.paa"
+#define ICON_CIV "\a3\3DEN\Data\Displays\Display3DEN\PanelRight\side_civ_ca.paa"
 #define ICON_CLOCKWISE "\A3\3DEN\Data\Attributes\LoiterDirection\cw_ca.paa"
 #define ICON_COMPOSITION "\a3\3DEN\Data\Displays\Display3DEN\panelright\side_custom_ca.paa"
 #define ICON_COUNTER_CLOCKWISE "\A3\3DEN\Data\Attributes\LoiterDirection\ccw_ca.paa"
@@ -89,6 +90,7 @@
 #define ICON_HELOCAST QPATHTOEF(common,icons\helocast.paa)
 #define ICON_HOME QPATHTOEF(common,icons\home.paa)
 #define ICON_HOME_PATHING QPATHTOEF(common,icons\home_pathing.paa)
+#define ICON_HOVER QPATHTOEF(common,icons\hover.paa)
 #define ICON_HOWITZER QPATHTOEF(common,icons\howitzer.paa)
 #define ICON_INFINITE QPATHTOEF(common,icons\infinite.paa)
 #define ICON_INTEL "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\intel_ca.paa"
@@ -104,7 +106,6 @@
 #define ICON_MINUS QPATHTOEF(common,icons\minus.paa)
 #define ICON_MISSILE QPATHTOEF(common,icons\missile.paa)
 #define ICON_MORTAR QPATHTOEF(common,icons\mortar.paa)
-#define ICON_HOVER QPATHTOEF(common,icons\hover.paa)
 #define ICON_MOVE "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\move_ca.paa"
 #define ICON_MOVE_ENG_OFF QPATHTOEF(common,icons\move_eng_off.paa)
 #define ICON_MRLS QPATHTOEF(common,icons\mrls.paa)
@@ -112,6 +113,7 @@
 #define ICON_PARACHUTE "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\supplydrop_ca.paa"
 #define ICON_PLANE QPATHTOEF(common,icons\plane.paa)
 #define ICON_PLUS QPATHTOEF(common,icons\plus.paa)
+#define ICON_RADAR "\a3\3DEN\Data\Displays\Display3DEN\toolbar\help_updates_ca.paa"
 #define ICON_RESUPPLY "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\rearm_ca.paa"
 #define ICON_ROPE QPATHTOEF(common,icons\rope.paa)
 #define ICON_SEARCH "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\search_ca.paa"
@@ -198,7 +200,49 @@
 #define ATTRIBUTE(V1) displayName = CNAME(V1); tooltip = CINFO(V1); property = QGVAR(V1)
 #define EATTRIBUTE(V1,V2) displayName = ECNAME(V1,V2); tooltip = ECINFO(V1,V2); property = QGVAR(V2)
 
+#define PROVIDER_CATEGORY \
+class ProviderCategory {\
+	data = "AttributeSystemSubcategory";\
+	control = "SubCategory";\
+	displayName = ECSTRING(common,providerDescription);\
+	description = "";\
+}
+
 #define FINAL_ATTRIBUTES \
+class AccessCategory {\
+	data = "AttributeSystemSubcategory";\
+	control = "SubCategory";\
+	displayName = ECSTRING(common,accessDescription);\
+	description = "";\
+};\
+class Side : Combo {\
+	EATTRIBUTE(common,Side);\
+	typeName = "NUMBER";\
+	defaultValue = 0;\
+	class Values {\
+		class West {\
+			name = ECSTRING(common,SideWest);\
+			value = 0;\
+			picture = ICON_WEST;\
+			default = 1;\
+		};\
+		class East {\
+			name = ECSTRING(common,SideEast);\
+			value = 1;\
+			picture = ICON_EAST;\
+		};\
+		class Guer {\
+			name = ECSTRING(common,SideGuer);\
+			value = 2;\
+			picture = ICON_GUER;\
+		};\
+		class Civ {\
+			name = ECSTRING(common,SideCiv);\
+			value = 3;\
+			picture = ICON_CIV;\
+		};\
+	};\
+};\
 class RemoteAccess : Checkbox {\
 	EATTRIBUTE(common,RemoteAccess);\
 	typeName = "BOOL";\
@@ -242,3 +286,17 @@ class PVAR(auth) : Default {\
 	control = QPVAR(hidden);\
 };\
 class ModuleDescription: ModuleDescription {}
+
+
+#define FINAL_ATTRIBUTES_ZEUS \
+["COMBOBOX",EDESC(common,side),[[\
+	[LELSTRING(common,SideWest),"",ICON_WEST],\
+	[LELSTRING(common,SideEast),"",ICON_EAST],\
+	[LELSTRING(common,SideGuer),"",ICON_GUER],\
+	[LELSTRING(common,SideCiv),"",ICON_CIV]\
+],_side,[west,east,independent,civilian]]],\
+["CHECKBOX",EDESC(common,remoteAccess),true],\
+["EDITBOX",EDESC(common,accessItems),""],\
+["TOOLBOX",EDESC(common,accessItemsLogic),[[LELSTRING(common,LogicAND),LELSTRING(common,LogicOR)],0,[false,true]]],\
+["EDITBOX",EDESC(common,accessCondition),"true"],\
+["EDITBOX",EDESC(common,requestCondition),"true"]

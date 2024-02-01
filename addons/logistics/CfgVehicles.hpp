@@ -27,33 +27,11 @@ class CfgVehicles {
 		PVAR(entity) = 1;
 
 		class Attributes: AttributesBase {
+			PROVIDER_CATEGORY;
 			class AircraftClass : Edit {
 				ATTRIBUTE(AircraftClass);
 				typeName = "STRING";
 				defaultValue = "'B_T_VTOL_01_vehicle_F'";
-			};
-			class Side : Combo {
-				EATTRIBUTE(common,Side);
-				typeName = "NUMBER";
-				defaultValue = 0;
-				class Values {
-					class West {
-						name = ECSTRING(common,SideWest);
-						value = 0;
-						picture = ICON_WEST;
-						default = 1;
-					};
-					class East {
-						name = ECSTRING(common,SideEast);
-						value = 1;
-						picture = ICON_EAST;
-					};
-					class Guer {
-						name = ECSTRING(common,SideGuer);
-						value = 2;
-						picture = ICON_GUER;
-					};
-				};
 			};
 			class Callsign : Edit {
 				EATTRIBUTE(common,Callsign);
@@ -150,33 +128,11 @@ class CfgVehicles {
 		PVAR(entity) = 1;
 
 		class Attributes: AttributesBase {
+			PROVIDER_CATEGORY;
 			class AircraftClass : Edit {
 				ATTRIBUTE(AircraftClass);
 				typeName = "STRING";
 				defaultValue = "'B_Heli_Transport_03_F'";
-			};
-			class Side : Combo {
-				EATTRIBUTE(common,Side);
-				typeName = "NUMBER";
-				defaultValue = 0;
-				class Values {
-					class West {
-						name = ECSTRING(common,SideWest);
-						value = 0;
-						picture = ICON_WEST;
-						default = 1;
-					};
-					class East {
-						name = ECSTRING(common,SideEast);
-						value = 1;
-						picture = ICON_EAST;
-					};
-					class Guer {
-						name = ECSTRING(common,SideGuer);
-						value = 2;
-						picture = ICON_GUER;
-					};
-				};
 			};
 			class Callsign : Edit {
 				EATTRIBUTE(common,Callsign);
@@ -278,29 +234,7 @@ class CfgVehicles {
 		PVAR(entity) = 1;
 
 		class Attributes: AttributesBase {
-			class Side : Combo {
-				EATTRIBUTE(common,Side);
-				typeName = "NUMBER";
-				defaultValue = 0;
-				class Values {
-					class West {
-						name = ECSTRING(common,SideWest);
-						value = 0;
-						picture = ICON_WEST;
-						default = 1;
-					};
-					class East {
-						name = ECSTRING(common,SideEast);
-						value = 1;
-						picture = ICON_EAST;
-					};
-					class Guer {
-						name = ECSTRING(common,SideGuer);
-						value = 2;
-						picture = ICON_GUER;
-					};
-				};
-			};
+			PROVIDER_CATEGORY;
 			class Callsign : Edit {
 				EATTRIBUTE(common,Callsign);
 				typeName = "STRING";

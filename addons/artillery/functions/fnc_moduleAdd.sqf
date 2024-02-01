@@ -11,10 +11,9 @@ if (!local _logic) exitWith {};
 	if (isNull findDisplay IDD_RSCDISPLAYCURATOR) then {
 		private _entity = [
 			_synced select {alive _x && !(_x isKindOf "Logic")},
-			[west,east,independent] # (_logic getVariable ["Side",0]),
 			_logic getVariable ["Callsign",""],
 			_logic getVariable ["RespawnDelay",60],
-			[_logic getVariable ["Relocation",0] == 0,_logic getVariable ["RelocationDelay",60]],
+			[_logic getVariable ["Relocation",0] == 0,_logic getVariable ["RelocationDelay",60],_logic getVariable ["RelocationSpeed",60]],
 			[_logic getVariable ["Cooldown",60],_logic getVariable ["RoundCooldown",10]],
 			[_logic getVariable ["Ammunition","[]"]] call EFUNC(common,parseArray),
 			_logic getVariable ["VelocityOverride",0] == 1,
@@ -32,6 +31,7 @@ if (!local _logic) exitWith {};
 			_logic getVariable ["MaxFiringDelay",30],
 			_logic getVariable ["VehicleInit",""],
 			_logic getVariable ["RemoteControl",1] == 0,
+			[west,east,independent,civilian] # (_logic getVariable ["Side",0]),
 			_logic getVariable ["RemoteAccess",true],
 			[_logic getVariable ["AccessItems",""]] call EFUNC(common,parseList),
 			_logic getVariable ["AccessItemsLogic",0] == 1,

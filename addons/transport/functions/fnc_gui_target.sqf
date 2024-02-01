@@ -54,14 +54,20 @@ switch _type do {
 
 		_ctrlTargetDetail lbAdd LELSTRING(common,any);
 		_ctrlTargetDetail lbSetPicture [0,ICON_GEAR];
-		_ctrlTargetDetail lbAdd LELSTRING(common,targetVehiclesTracked);
-		_ctrlTargetDetail lbSetPicture [1,ICON_SELF_PROPELLED];
-		_ctrlTargetDetail lbSetData [1,"TRACKED"];
+		_ctrlTargetDetail lbAdd LELSTRING(common,targetVehiclesStatic);
+		_ctrlTargetDetail lbSetPicture [1,ICON_MORTAR];
+		_ctrlTargetDetail lbSetData [1,"STATIC"];
 		_ctrlTargetDetail lbAdd LELSTRING(common,targetVehiclesWheeled);
 		_ctrlTargetDetail lbSetPicture [2,ICON_CAR];
 		_ctrlTargetDetail lbSetData [2,"WHEELED"];
+		_ctrlTargetDetail lbAdd LELSTRING(common,targetVehiclesTracked);
+		_ctrlTargetDetail lbSetPicture [3,ICON_SELF_PROPELLED];
+		_ctrlTargetDetail lbSetData [3,"TRACKED"];
+		_ctrlTargetDetail lbAdd LELSTRING(common,targetVehiclesRadar);
+		_ctrlTargetDetail lbSetPicture [4,ICON_RADAR];
+		_ctrlTargetDetail lbSetData [4,"RADAR"];
 
-		_ctrlTargetDetail lbSetCurSel 0 max (["","TRACKED","WHEELED"] find _detail);
+		_ctrlTargetDetail lbSetCurSel 0 max (["","STATIC","WHEELED","TRACKED","RADAR"] find _detail);
 	};
 	default {
 		//lbClear _ctrlTargetDetail;

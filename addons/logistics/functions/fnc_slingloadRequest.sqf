@@ -60,6 +60,7 @@ if (GVAR(cooldownTrigger) == "START") then {
 		] call FUNC(flyby);
 
 		private _group = group _vehicle;
+		[_group,currentWaypoint _group] setWaypointPosition [_posASL getPos [_offsetDist / 4,_offsetDir],0];
 		[_group,currentWaypoint _group + 1] setWaypointPosition [getPos _vehicle,0];
 
 		_vehicle setVariable [QGVAR(flybyData),[_player,_entity,_request,getPosASL _vehicle],true];
@@ -80,11 +81,11 @@ if (GVAR(cooldownTrigger) == "START") then {
 			};
 		},_entity] call CBA_fnc_addBISEventHandler;
 
-		_offsetDir = _offsetDir + 72;
+		_offsetDir = _offsetDir + 71;
 		
 		if (_offsetDir >= 360) then {
 			_offsetDir = _offsetDir call CBA_fnc_simplifyAngle;
-			_offsetDist = _offsetDist + 2.5 * ((_entity getVariable QPVAR(class)) call EFUNC(common,sizeOf));
+			_offsetDist = _offsetDist + 8 * ((_entity getVariable QPVAR(class)) call EFUNC(common,sizeOf));
 		};
 
 		_vehicle

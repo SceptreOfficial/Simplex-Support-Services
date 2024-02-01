@@ -86,6 +86,5 @@ _ctrlTabs lbSetCurSel 0;
 _ctrlGroup setVariable [QGVAR(planOptionsOpen),nil];
 0 call FUNC(gui_planOptions);
 
-// Toggle remote control button
 private _ctrlRemoteControl = _ctrlGroup controlsGroupCtrl IDC_PLAN_GROUP controlsGroupCtrl IDC_REMOTE_CONTROL;
 _ctrlRemoteControl ctrlShow (_entity getVariable [QPVAR(remoteControl),false]);

@@ -1,6 +1,13 @@
 #include "script_component.hpp"
 
-params ["_class"];
+params ["_vehicle"];
+
+private _class = "";
+private _side = side group _vehicle;
+
+if (_vehicle isKindOf "Air") then {
+	_class = typeOf _vehicle;
+};
 
 if (_class isEqualTo "") then {
 	_class = "B_T_VTOL_01_vehicle_F";
@@ -8,11 +15,6 @@ if (_class isEqualTo "") then {
 
 [LLSTRING(ModuleAddAirdropName),[
 	["EDITBOX",DESC(aircraftClass),_class],
-	["COMBOBOX",EDESC(common,side),[[
-		[LELSTRING(common,SideWest),"",ICON_WEST],
-		[LELSTRING(common,SideEast),"",ICON_EAST],
-		[LELSTRING(common,SideGuer),"",ICON_GUER]
-	],west,[west,east,independent]]],
 	["EDITBOX",EDESC(common,callsign),""],
 	["EDITBOX",EDESC(common,cooldown),60],
 	["EDITBOX",DESC(itemCooldown),10],
@@ -26,16 +28,11 @@ if (_class isEqualTo "") then {
 	["EDITBOX",DESC(listFunction),"[]"],
 	["EDITBOX",DESC(itemInit),""],
 	["EDITBOX",EDESC(common,vehicleInit),""],
-	["CHECKBOX",EDESC(common,remoteAccess),true],
-	["EDITBOX",EDESC(common,accessItems),""],
-	["TOOLBOX",EDESC(common,accessItemsLogic),[[LELSTRING(common,LogicAND),LELSTRING(common,LogicOR)],0,[false,true]]],
-	["EDITBOX",EDESC(common,accessCondition),"true"],
-	["EDITBOX",EDESC(common,requestCondition),"true"]
+	FINAL_ATTRIBUTES_ZEUS
 ],{
 	params ["_values"];
 	_values params [
 		"_class",
-		"_side",
 		"_callsign",
 		"_cooldown",
 		"_itemCooldown",
@@ -49,6 +46,7 @@ if (_class isEqualTo "") then {
 		"_listFunction",
 		"_itemInit",
 		"_vehicleInit",
+		"_side",
 		"_remoteAccess",
 		"_accessItems",
 		"_accessItemsLogic",
@@ -59,7 +57,6 @@ if (_class isEqualTo "") then {
 
 	[
 		_class,
-		_side,
 		_callsign,
 		[parseNumber _cooldown,parseNumber _itemCooldown],
 		parseNumber _altitude,
@@ -73,6 +70,7 @@ if (_class isEqualTo "") then {
 		_listFunction,
 		_itemInit,
 		_vehicleInit,
+		_side,
 		_remoteAccess,
 		_accessItems call EFUNC(common,parseList),
 		_accessItemsLogic,

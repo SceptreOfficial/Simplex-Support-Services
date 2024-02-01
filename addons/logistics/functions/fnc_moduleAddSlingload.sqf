@@ -11,7 +11,6 @@ if (!local _logic) exitWith {};
 	if (isNull findDisplay IDD_RSCDISPLAYCURATOR) then {
 		private _entity = [
 			_logic getVariable ["AircraftClass",""],
-			[west,east,independent] # (_logic getVariable ["Side",0]),
 			_logic getVariable ["Callsign",""],
 			[_logic getVariable ["Cooldown",60],_logic getVariable ["ItemCooldown",10]],
 			_logic getVariable ["Altitude",500],
@@ -25,6 +24,7 @@ if (!local _logic) exitWith {};
 			_logic getVariable ["ListFunction",""],
 			_logic getVariable ["ItemInit",""],
 			_logic getVariable ["VehicleInit",""],
+			[west,east,independent,civilian] # (_logic getVariable ["Side",0]),
 			_logic getVariable ["RemoteAccess",true],
 			[_logic getVariable ["AccessItems",""]] call EFUNC(common,parseList),
 			_logic getVariable ["AccessItemsLogic",0] isEqualTo 1,
@@ -35,13 +35,7 @@ if (!local _logic) exitWith {};
 
 		[_logic,_entity] call EFUNC(common,addTerminals);
 	} else {
-		private _vehicle = attachedTo _logic;
-
-		if (alive _vehicle && _vehicle isKindOf "Helicopter") then {
-			typeOf _vehicle call FUNC(moduleAddSlingload_zeus);
-		} else {
-			"" call FUNC(moduleAddSlingload_zeus);
-		};
+		(attachedTo _logic) call FUNC(moduleAddSlingload_zeus);
 	};
 
 	deleteVehicle _logic;

@@ -7,7 +7,6 @@ if (!isServer) exitWith {
 
 params [
 	["_vehicle",objNull,[objNull]],
-	["_side",sideEmpty,[sideEmpty]],
 	["_callsign","",[""]],
 	["_respawnDelay",60,[0]],
 	//["_relocation",[true,60],[[]],2],
@@ -17,6 +16,7 @@ params [
 	["_maxTasks",-1,[0]],
 	["_maxTimeout",300,[0]],
 	["_vehicleInit",{},[{},""]],
+	["_side",sideEmpty,[sideEmpty]],
 	["_remoteAccess",true,[false]],
 	["_accessItems",[],[[]]],
 	["_accessItemsLogic",false,[false]],

@@ -95,8 +95,10 @@ switch _type do {
 			case "INFANTRY" : {{_x isKindOf "CAManBase"}};
 			case "VEHICLES" : {
 				switch _typeDetail do {
-					case "TRACKED" : {{_x isKindOf "Tank"}};
+					case "STATIC" : {{_x isKindOf "StaticWeapon"}};
 					case "WHEELED" : {{_x isKindOf "Car"}};
+					case "TRACKED" : {{_x isKindOf "Tank"}};
+					case "RADAR" : {{isVehicleRadarOn _x}};
 					default {{!(_x isKindOf "CAManBase")}};
 				};
 			};

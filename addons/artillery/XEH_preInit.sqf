@@ -102,21 +102,70 @@ if (isServer) then {
 		_entity setVariable [QPVAR(request),[_posASL],true];
 		[_entity,true,"RELOCATE",[LSTRING(statusRelocate),RGBA_YELLOW]] call EFUNC(common,setStatus);
 
-		private _group = _entity getVariable [QPVAR(group),grpNull];
+		if (missionNamespace getVariable [QGVAR(relocationTeleport),true]) then {
+			(_entity getVariable [QPVAR(relocation),[false,60,60]]) params ["","_relocationDelay","_relocationSpeed"];
+			private _formCenter = _entity getVariable QPVAR(formCenter);
+			private _distance = _formCenter distance2D _posASL;
+			
+			[{
+				params ["_entity","_posASL","_relocationTick"];
+				CBA_missionTime >= _relocationTick && {_entity call FUNC(vehiclesReady)}
+			},{
+				params ["_entity","_posASL"];
 
-		{[QEGVAR(common,enableAIFeature),[_x,["PATH",true]],_x] call CBA_fnc_targetEvent} forEach (_entity getVariable QPVAR(vehicles));
+				if (isNull _entity) exitWith {};
 
-		private _waypoint1 = _group addWaypoint [ASLtoAGL _posASL,0];
-		_waypoint1 setWaypointType "MOVE";
-		_waypoint1 setWaypointPosition [_posASL,-1];
-		_waypoint1 setWaypointFormation "COLUMN";
+				private _formCenter = _entity getVariable QPVAR(formCenter);
+				private _diff = _posASL vectorDiff _formCenter;
 
-		private _waypoint2 = _group addWaypoint [ASLtoAGL _posASL,0];
-		_waypoint2 setWaypointType "SCRIPTED";
-		_waypoint2 setWaypointScript format ["%1 %2",QPATHTOF(functions\fnc_wpRelocate.sqf),[_posASL]];
-		_waypoint2 setWaypointPosition [_posASL,-1];
-		
-		_group setCurrentWaypoint _waypoint1;
+				{
+					private _base = _x getVariable [QPVAR(base),getPosASL _x];
+					private _baseNormal = _x getVariable [QPVAR(baseNormal),[vectorDir _x,vectorUp _x]];
+					private _newBase = _base vectorAdd _diff;
+
+					[_x,_newBase] call FUNC(placementSearch) params ["_safePos","_safeUp"];
+
+					if (!isNil "_safePos") then {
+						_x setPosASL _safePos;
+						_x setVectorDirAndUp [_baseNormal # 0,_safeUp];
+					} else {
+						_newBase set [2,getTerrainHeightASL _newBase];
+						_x setPosASL _newBase;
+						_x setVectorDirAndUp [_baseNormal # 0,surfaceNormal _newBase];
+					};					
+
+					_x setVariable [QPVAR(base),getPosASL _x,true];
+					_x setVariable [QPVAR(baseNormal),[vectorDir _x,vectorUp _x],true];
+				} forEach (_entity getVariable QPVAR(vehicles));
+
+				_entity setVariable [QPVAR(formCenter),(_entity getVariable QPVAR(vehicles)) call EFUNC(common,positionAvg),true];
+
+				if (GVAR(relocateCooldown)) then {
+					[_entity,true] call EFUNC(common,cooldown);
+				} else {
+					_entity call EFUNC(common,setStatus);
+				};
+
+				[QPVAR(requestCompleted),[_entity getVariable [QPVAR(requester),objNull],_entity,["RELOCATE",[_posASL]]]] call CBA_fnc_globalEvent;
+
+				NOTIFY(_entity,LSTRING(notifyRelocateComplete));
+			},[_entity,_posASL,CBA_missionTime + (_relocationDelay + (_distance / (_relocationSpeed / 3.6)))]] call CBA_fnc_waitUntilAndExecute;
+		} else {
+			{[QEGVAR(common,enableAIFeature),[_x,["PATH",true]],_x] call CBA_fnc_targetEvent} forEach (_entity getVariable QPVAR(vehicles));
+
+			private _group = _entity getVariable [QPVAR(group),grpNull];
+
+			private _waypoint1 = _group addWaypoint [ASLtoAGL _posASL,0];
+			_waypoint1 setWaypointType "MOVE";
+			_waypoint1 setWaypointPosition [_posASL,-1];
+			_waypoint1 setWaypointFormation "COLUMN";
+			private _waypoint2 = _group addWaypoint [ASLtoAGL _posASL,0];
+			_waypoint2 setWaypointType "SCRIPTED";
+			_waypoint2 setWaypointScript format ["%1 %2",QPATHTOF(functions\fnc_wpRelocate.sqf),[_posASL]];
+			_waypoint2 setWaypointPosition [_posASL,-1];
+
+			_group setCurrentWaypoint _waypoint1;
+		};
 
 		[QPVAR(requestSubmitted),[_player,_entity,["RELOCATE",[_posASL]]]] call CBA_fnc_globalEvent;
 
