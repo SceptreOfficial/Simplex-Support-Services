@@ -57,7 +57,7 @@ CTRL(IDC_TARGET_DETAIL) lbSetCurSel ((switch _type do {
 	case "LASER" : {["","MATCH"]};
 	case "SMOKE";
 	case "FLARE" : {["","WHITE","BLACK","RED","ORANGE","YELLOW","GREEN","BLUE","PURPLE"]};
-	case "VEHICLES" : {["","TRACKED","WHEELED"]};
+	case "VEHICLES" : {["","STATIC","WHEELED","TRACKED","RADAR"]};
 	default {[""]};
 }) find _typeDetail);
 

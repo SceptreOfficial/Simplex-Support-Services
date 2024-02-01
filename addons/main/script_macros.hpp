@@ -90,6 +90,7 @@
 #define ICON_HELOCAST QPATHTOEF(common,icons\helocast.paa)
 #define ICON_HOME QPATHTOEF(common,icons\home.paa)
 #define ICON_HOME_PATHING QPATHTOEF(common,icons\home_pathing.paa)
+#define ICON_HOVER QPATHTOEF(common,icons\hover.paa)
 #define ICON_HOWITZER QPATHTOEF(common,icons\howitzer.paa)
 #define ICON_INFINITE QPATHTOEF(common,icons\infinite.paa)
 #define ICON_INTEL "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\intel_ca.paa"
@@ -105,7 +106,6 @@
 #define ICON_MINUS QPATHTOEF(common,icons\minus.paa)
 #define ICON_MISSILE QPATHTOEF(common,icons\missile.paa)
 #define ICON_MORTAR QPATHTOEF(common,icons\mortar.paa)
-#define ICON_HOVER QPATHTOEF(common,icons\hover.paa)
 #define ICON_MOVE "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\move_ca.paa"
 #define ICON_MOVE_ENG_OFF QPATHTOEF(common,icons\move_eng_off.paa)
 #define ICON_MRLS QPATHTOEF(common,icons\mrls.paa)
@@ -113,6 +113,7 @@
 #define ICON_PARACHUTE "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\supplydrop_ca.paa"
 #define ICON_PLANE QPATHTOEF(common,icons\plane.paa)
 #define ICON_PLUS QPATHTOEF(common,icons\plus.paa)
+#define ICON_RADAR "\a3\3DEN\Data\Displays\Display3DEN\toolbar\help_updates_ca.paa"
 #define ICON_RESUPPLY "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\rearm_ca.paa"
 #define ICON_ROPE QPATHTOEF(common,icons\rope.paa)
 #define ICON_SEARCH "\A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\search_ca.paa"

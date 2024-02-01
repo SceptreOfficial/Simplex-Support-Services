@@ -886,6 +886,12 @@
 			<English>Wheeled</English>
 			<French>À roues</French>
 		</Key>
+		<Key ID="STR_SSS_common_targetVehiclesStatic">
+			<English>Static</English>
+		</Key>
+		<Key ID="STR_SSS_common_targetVehiclesRadar">
+			<English>Radar</English>
+		</Key>
 		<Key ID="STR_SSS_common_accessDescription">
 			<English>Access Attributes</English>
 		</Key>
