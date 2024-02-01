@@ -200,6 +200,13 @@
 #define EATTRIBUTE(V1,V2) displayName = ECNAME(V1,V2); tooltip = ECINFO(V1,V2); property = QGVAR(V2)
 
 #define FINAL_ATTRIBUTES \
+class AccessCategory {\
+	data = "AttributeSystemSubcategory";\
+	control = "SubCategoryNoHeader1";\
+	description = ECSTRING(common,accessDescription);\
+	displayName = "";\
+	tooltip = "";\
+};\
 class Side : Combo {\
 	EATTRIBUTE(common,Side);\
 	typeName = "NUMBER";\

@@ -886,5 +886,8 @@
 			<English>Wheeled</English>
 			<French>À roues</French>
 		</Key>
+		<Key ID="STR_SSS_common_accessDescription">
+			<English>Access Attributes</English>
+		</Key>
 	</Package>
 </Project>
