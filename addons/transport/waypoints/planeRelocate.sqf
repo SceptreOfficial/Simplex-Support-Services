@@ -20,11 +20,10 @@ if (isTouchingGround _vehicle) then {
 	[_entity,_vehicle] call EFUNC(common,planeTakeoff);
 };
 
-private _moveTick = 0;
+_vehicle doMove _wpPos;
 
 waitUntil {
-	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 10;
+	if (unitReady _vehicle) then {
 		_vehicle doMove _wpPos;
 	};
 

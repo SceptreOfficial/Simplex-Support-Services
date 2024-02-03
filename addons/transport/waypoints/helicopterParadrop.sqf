@@ -20,15 +20,14 @@ if (!alive _vehicle) exitWith {true};
 
 [FUNC(waypointUpdate),[[_group,currentWaypoint _group],_entity,_vehicle,_behaviors,ORDER,_wpPos]] call CBA_fnc_directCall;
 
-private _moveTick = 0;
 private _wp = _group addWaypoint [_wpPos getPos [1000,_vehicle getDir _wpPos],0,currentWaypoint _group + 1];
 _wp setWaypointType "MOVE";
 
-waitUntil {
-	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 10;
+_vehicle doMove _wpPos;
 
-		if (isTouchingGround _vehicle && _vehicle distance2D _wpPos < 200) then {
+waitUntil {
+	if (unitReady _vehicle) then {
+		if (isTouchingGround _vehicle && {_vehicle distance2D _wpPos < 200}) then {
 			_vehicle doMove (_vehicle getPos [200,_vehicle getDir _wpPos]);
 		} else {
 			_vehicle doMove _wpPos;
@@ -85,12 +84,11 @@ _vehicle setVariable [QGVAR(paradropEnd),false,true];
 	}],_item] call CBA_fnc_targetEvent;
 },_ejectInterval,[_entity,_vehicle,_ejections,_openAltitude]] call CBA_fnc_addPerFrameHandler;
 
-_moveTick = 0;
+_vehicle doMove (_vehicle getRelPos [10000,0]);
 
 waitUntil {
-	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 5;
-		_vehicle doMove (_vehicle getRelPos [6000,0]);
+	if (unitReady _vehicle) then {
+		_vehicle doMove (_vehicle getRelPos [10000,0]);
 	};
 
 	sleep WAYPOINT_SLEEP;

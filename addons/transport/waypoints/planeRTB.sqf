@@ -16,7 +16,6 @@ if (!alive _vehicle) exitWith {true};
 
 [FUNC(waypointUpdate),[[_group,currentWaypoint _group],_entity,_vehicle,_behaviors,ORDER]] call CBA_fnc_directCall;
 
-private _moveTick = 0;
 private _virtualRunway = _entity getVariable [QPVAR(virtualRunway),[0,0,0]];
 private _posASL = _entity getVariable QPVAR(base);
 private _posAGL = ASLToAGL _posASL;
@@ -30,9 +29,10 @@ if (_vehicle distance2D _posASL > 30 && isTouchingGround _vehicle) then {
 	[_entity,_vehicle] call EFUNC(common,planeTakeoff);
 };
 
+_vehicle doMove _posAGL;
+
 waitUntil {
-	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 10;
+	if (unitReady _vehicle) then {
 		_vehicle doMove _posAGL;
 	};
 

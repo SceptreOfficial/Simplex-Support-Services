@@ -210,7 +210,7 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 
 	if (_distance <= _simDist && _distance >= _minDist && _goodApproach && _goodAim && speed _vehicle >= _minKMH) exitWith {true};
 
-	if (CBA_missionTime > _moveTick) then {
+	if (CBA_missionTime > _moveTick && unitReady _vehicle) then {
 		_this # 0 set [6,CBA_missionTime + 5];
 		_vehicle doMove _movePos;
 	};

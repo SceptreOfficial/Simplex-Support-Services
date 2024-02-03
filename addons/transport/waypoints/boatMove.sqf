@@ -16,11 +16,10 @@ if (!alive _vehicle) exitWith {true};
 
 [FUNC(waypointUpdate),[[_group,currentWaypoint _group],_entity,_vehicle,_behaviors,ORDER,_wpPos]] call CBA_fnc_directCall;
 
-private _moveTick = 0;
+_vehicle doMove _wpPos;
 
 waitUntil {
-	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 10;
+	if (unitReady _vehicle) then {
 		_vehicle doMove _wpPos;
 	};
 

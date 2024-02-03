@@ -21,22 +21,16 @@ if (isTouchingGround _vehicle) then {
 	[_entity,_vehicle] call EFUNC(common,planeTakeoff);
 };
 
-private _moveTick = 0;
+_vehicle doMove _wpPos;
 
 waitUntil {
-	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 10;
-
-		if (isTouchingGround _vehicle && _vehicle distance2D _wpPos < 200) then {
-			_vehicle doMove (_vehicle getPos [200,_vehicle getDir _wpPos]);
-		} else {
-			_vehicle doMove _wpPos;
-		};
+	if (unitReady _vehicle) then {
+		_vehicle doMove _wpPos;
 	};
 
 	sleep WAYPOINT_SLEEP;
 
-	!isTouchingGround _vehicle && _vehicle distance2D _wpPos < _radius + 600
+	!isTouchingGround _vehicle && _vehicle distance2D _wpPos < _radius + SAD_BUFFER
 };
 
 {_group reveal _x} forEach (_wpPos nearEntities _radius);

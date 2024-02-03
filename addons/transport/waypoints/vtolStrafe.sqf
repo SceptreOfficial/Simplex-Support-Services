@@ -21,15 +21,11 @@ if (!alive _vehicle) exitWith {true};
 
 [FUNC(waypointUpdate),[[_group,currentWaypoint _group],_entity,_vehicle,_behaviors,ORDER,_wpPos]] call CBA_fnc_directCall;
 
-private _moveTick = 0;
+_vehicle doMove _wpPos;
 
 waitUntil {
-	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + VTOL_MOVE_TICK;
-
-		if (isTouchingGround _vehicle) then {
-			_vehicle doMove (_vehicle getRelPos [200,0]);
-		};
+	if (unitReady _vehicle && isTouchingGround _vehicle) then {
+		_vehicle doMove (_vehicle getPos [200,_vehicle getDir _wpPos]);
 	};
 
 	sleep WAYPOINT_SLEEP;
