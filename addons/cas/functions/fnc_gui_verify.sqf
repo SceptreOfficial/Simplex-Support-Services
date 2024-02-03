@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 switch (uiNamespace getVariable [QEGVAR(sdf,displayClass),""]) do {
 	case QGVAR(guiStrafe) : FUNC(guiStrafe_verify);

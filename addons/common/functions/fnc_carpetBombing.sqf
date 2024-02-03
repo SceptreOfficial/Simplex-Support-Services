@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #define ABORT_TIMEOUT 5
 
 if (canSuspend) exitWith {[FUNC(carpetBombing),_this] call CBA_fnc_directCall};

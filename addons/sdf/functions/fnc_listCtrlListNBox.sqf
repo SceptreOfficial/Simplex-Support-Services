@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 _valueData params [["_rows",[],[[]]],["_selection",0,[0]],["_height",1,[0]],["_returnData",[],[[]]],["_doubleClick",{},[{}]]];
 _height = ITEM_H * ((round _height) max 1);

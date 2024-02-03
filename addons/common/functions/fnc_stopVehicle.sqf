@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 if (!isServer) exitWith {
 	_this remoteExecCall [QFUNC(stopVehicle),2];

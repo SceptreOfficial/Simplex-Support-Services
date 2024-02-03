@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 if (!isServer) exitWith {
 	[QEGVAR(common,execute),[_this,QFUNC(addAirdrop)]] call CBA_fnc_serverEvent;

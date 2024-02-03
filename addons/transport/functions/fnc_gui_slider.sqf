@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #include "\z\sss\addons\sdf\gui_macros.hpp"
 
 params ["_y","_text","_options","_value","_key","_symbol","_textHash"];

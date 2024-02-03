@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #include "\z\sss\addons\sdf\gui_macros.hpp"
 #define PLAN_H 7
 #define PLAN_OPTIONS_H 8

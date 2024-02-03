@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params [["_multiline",false,[false]]];
 _valueData params [["_string",""],["_tooltip","",[""]]];

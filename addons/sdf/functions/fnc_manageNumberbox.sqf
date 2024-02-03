@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params ["_ctrlEdit",["_value",0,[0,""]],"_onValueChanged",["_suffix",""]];
 

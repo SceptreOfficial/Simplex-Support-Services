@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #define INDEX_LAST_POS 13
 #define INDEX_LAST_VEL 14
 #define INDEX_FIRE_START 15

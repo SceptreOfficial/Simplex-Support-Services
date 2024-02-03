@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params [["_vehicle",objNull,[objNull]],["_entity",objNull,[objNull]],["_respawnable",true,[false]]];
 

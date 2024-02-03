@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 _valueData params [["_sliderData",[0,1,1],[[]]],["_sliderPos",0,[0]]];
 _sliderData params [["_min",0,[0]],["_max",1,[0]],["_decimals",1,[0]]];

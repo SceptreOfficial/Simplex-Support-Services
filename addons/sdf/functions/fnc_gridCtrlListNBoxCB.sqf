@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 _valueData params [["_rows",[],[[]]],["_selection",[],[[],false]],["_returnData",[],[[]]]];
 

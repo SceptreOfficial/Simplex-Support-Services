@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params ["_entity",["_busy",false,[false]],["_task","",[""]],["_status",[LSTRING(statusIdle),[1,1,1,1]],[[]],2]];
 

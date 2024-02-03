@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params ["_v","_d"];
 _v params ["_x","_y","_z"];

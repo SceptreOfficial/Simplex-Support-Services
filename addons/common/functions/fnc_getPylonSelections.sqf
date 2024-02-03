@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params [["_cfg",configNull],["_pylons",[]],["_defaultTurret",[-1],[[]]]];
 

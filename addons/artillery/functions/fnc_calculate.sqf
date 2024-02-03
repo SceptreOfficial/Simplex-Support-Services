@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 /*
 	Authors: Sceptre
 	Compiles artillery config data and calculates firing instruction

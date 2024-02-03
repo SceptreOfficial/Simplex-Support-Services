@@ -2,8 +2,8 @@
 ADDON = false;
 #include "XEH_PREP.hpp"
 #include "\a3\3den\ui\resincl.inc"
-#include "cba_settings.sqf"
-#include "command_events.sqf"
+#include "initSettings.inc.sqf"
+#include "command_events.inc.sqf"
 
 if (isServer && is3DEN) then {
 	if !(uiNamespace getVariable [QGVAR(edenEH),false]) then {
@@ -266,7 +266,7 @@ FUNC(cam) = {
 };
 
 // STRAFE
-#include "strafeElevationOffsets.sqf"
+#include "strafeElevationOffsets.inc.sqf"
 
 GVAR(ignoredWeapons) = ["rhs_weap_fcs"];
 

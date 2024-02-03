@@ -1,5 +1,3 @@
-#include "script_component.hpp"
-
 if (isServer) then {
 	[QGVAR(hideObjectGlobal),{
 		params ["_object","_state"];

@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params ["_args","_PFHID"];
 _args params ["_vehicle","_entity"];

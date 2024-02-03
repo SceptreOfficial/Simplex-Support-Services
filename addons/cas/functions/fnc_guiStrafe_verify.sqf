@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 if ([QSERVICE,QGVAR(guiStrafe)] call EFUNC(common,gui_verify)) exitWith {};
 

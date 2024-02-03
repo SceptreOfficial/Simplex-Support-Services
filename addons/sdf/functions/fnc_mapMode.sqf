@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 disableSerialization;
 params [["_ctrlMap",0,[0,controlNull]],["_mode",0,[0]],["_skip",false,[false]]];

@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params [["_area",false,[[],false]],["_color",[1,0,0,1],[[]],4]];
 

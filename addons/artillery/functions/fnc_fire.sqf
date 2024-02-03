@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 /*
 	Authors: Sceptre
 	Makes an artillery unit fire on target location

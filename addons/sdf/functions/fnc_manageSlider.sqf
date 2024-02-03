@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params ["_ctrlSlider","_ctrlEdit","_options","_value","_onValueChanged",["_symbol",""],["_textHash",[]]];
 _options params [["_min",0,[0]],["_max",1,[0]],["_decimals",1,[0]]];

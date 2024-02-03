@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #define LOOP_TIMEOUT 90
 #define ABORT_TIMEOUT 5
 

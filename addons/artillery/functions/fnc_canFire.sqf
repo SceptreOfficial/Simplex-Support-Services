@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #define FALSE_RETURN [false,[false,-1]] select _returnETA
 /*
 	Authors: Sceptre

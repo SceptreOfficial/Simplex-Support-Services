@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 if (canSuspend) exitWith {[FUNC(addPostponedTasks),_this] call CBA_fnc_directCall};
 if (!isServer) exitWith {[QEGVAR(common,execute),[_this,QFUNC(addPostponedTasks)]] call CBA_fnc_serverEvent};

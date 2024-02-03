@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params ["_waypoint","_entity","_vehicle","_behaviors","_order","_target","_time"];
 

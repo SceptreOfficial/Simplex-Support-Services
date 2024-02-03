@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 private _times = date call BIS_fnc_sunriseSunsetTime;
 

@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params ["_entity","_vehicle","_group","_uid","_wpScript","_signalType","_searchRadius","_searchTimeout"];
 

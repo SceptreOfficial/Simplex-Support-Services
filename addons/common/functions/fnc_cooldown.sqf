@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 if (canSuspend) exitWith {[FUNC(cooldown),_this] call CBA_fnc_directCall};
 if (!isServer) exitWith {[QGVAR(execute),[_this,QFUNC(cooldown)]] call CBA_fnc_serverEvent};

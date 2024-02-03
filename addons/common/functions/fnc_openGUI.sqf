@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 if (!isNull (uiNamespace getVariable [QEGVAR(sdf,display),displayNull])) exitWith {
 	[{isNull (_this # 0)},{(_this # 1) call FUNC(openGUI)},[

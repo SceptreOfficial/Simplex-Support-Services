@@ -2,7 +2,7 @@
 ADDON = false;
 #include "XEH_PREP.hpp"
 #include "\a3\3den\ui\resincl.inc"
-#include "cba_settings.sqf"
+#include "initSettings.inc.sqf"
 
 if (isServer && is3DEN) then {
 	//[QEGVAR(common,ConnectionChanged3DEN),FUNC(syncAttributes)] call CBA_fnc_addEventHandler;

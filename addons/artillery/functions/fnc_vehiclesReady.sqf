@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 if (canSuspend) exitWith {[FUNC(vehiclesReady),_this] call CBA_fnc_directCall};
 

@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 //#define HELPER_TIMEOUT 5
 
 params ["_ammoData","_sourceASL","_sourceVelocity","_targetASL",["_tolerance",3],["_maxIterations",10]];

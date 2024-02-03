@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 _valueData params [["_pointData",[],[[]]],["_areaData",[],[[]]],["_lineData",[],[[]]],["_mode",0,[0]]];
 

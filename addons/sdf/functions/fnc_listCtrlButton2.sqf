@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 _valueData params [["_description1","",["",[]]],["_code1",{},[{},""]],["_description2","",["",[]]],["_code2",{},[{},""]]];
 

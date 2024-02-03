@@ -1,5 +1,3 @@
-#include "script_component.hpp"
-
 [
 	QGVAR(manualInput),
 	"CHECKBOX",
@@ -22,16 +20,16 @@
 	false
 ] call CBA_fnc_addSetting;
 
-[
-	QGVAR(visualAidsLive),
-	"CHECKBOX",
-	DESC(visualAidsLive),
-	[ELSTRING(main,PREFIX),LSTRING(Service)],
-	true,
-	true,
-	{},
-	false
-] call CBA_fnc_addSetting;
+//[
+//	QGVAR(visualAidsLive),
+//	"CHECKBOX",
+//	DESC(visualAidsLive),
+//	[ELSTRING(main,PREFIX),LSTRING(Service)],
+//	true,
+//	true,
+//	{},
+//	false
+//] call CBA_fnc_addSetting;
 
 [
 	QGVAR(taskMarkers),
@@ -45,22 +43,33 @@
 ] call CBA_fnc_addSetting;
 
 [
-	QGVAR(cooldownTrigger),
-	"LIST",
-	DESC(cooldownTrigger),
+	QGVAR(rangeIndicators),
+	"CHECKBOX",
+	DESC(rangeIndicators),
 	[ELSTRING(main,PREFIX),LSTRING(Service)],
-	[["START","END"],[LSTRING(start),LSTRING(end)],1],
+	true,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QGVAR(autoTerminals),
+	"CHECKBOX",
+	EDESC(common,autoTerminals),
+	[ELSTRING(main,PREFIX),LSTRING(Service)],
+	true,
 	true,
 	{},
 	true
 ] call CBA_fnc_addSetting;
 
 [
-	QGVAR(clearAreaRestriction),
+	QGVAR(relocateCooldown),
 	"CHECKBOX",
-	DESC(clearAreaRestriction),
+	DESC(relocateCooldown),
 	[ELSTRING(main,PREFIX),LSTRING(Service)],
-	true,
+	false,
 	true,
 	{},
 	false

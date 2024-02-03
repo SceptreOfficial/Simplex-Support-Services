@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #define FRIENDLY_SEARCH(CANDIDATES) if (_friendlyRange > 0) then { \
 	private "_obj"; \
 	_target = CANDIDATES param [CANDIDATES findIf { \

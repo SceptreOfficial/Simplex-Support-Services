@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #define ANGLE_STEP_SIZE_COEF 20
 #define RADIUS_ANGLE_COEF 60
 #define TOLERATION_HEIGHT 0.25
