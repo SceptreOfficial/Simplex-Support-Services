@@ -57,7 +57,7 @@ if (_magazine isEqualTo "") exitWith {FALSE_RETURN};
 //};
 
 // Handle VLS
-if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") exitWith {
+if (_vehicle isKindOf "B_Ship_MRLS_01_base_F" || _vehicle isKindOf "OPTRE_archer_system_base") exitWith {
 	if (_target distance _vehicle < 50) exitWith {FALSE_RETURN};
 
 	// ETA formula credit: Kex (from ZEN)
