@@ -28,6 +28,6 @@ _ctrl setVariable [QGVAR(onValueChanged),_onValueChanged];
 _ctrl setVariable [QGVAR(enableCondition),_enableCondition];
 _ctrl setVariable [QGVAR(value),_descriptionText];
 _ctrl setVariable [QGVAR(ctrlDescription),_ctrl];
-_ctrl setVariable [QGVAR(ctrlDescriptionType),[0,1] select _structuredText];
+_ctrl setVariable [QGVAR(ctrlDescriptionType),parseNumber _structuredText];
 
 _controls pushBack _ctrl;
