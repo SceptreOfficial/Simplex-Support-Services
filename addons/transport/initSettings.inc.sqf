@@ -1,5 +1,3 @@
-#include "script_component.hpp"
-
 [
 	QGVAR(manualInput),
 	"CHECKBOX",

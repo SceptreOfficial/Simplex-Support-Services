@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params [["_class",objNull,[objNull,""]],["_default",0,[0]],["_weaponHash",createHashMap,[createHashMap,[]]]];
 

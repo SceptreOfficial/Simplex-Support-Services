@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 if (canSuspend) exitWith {[FUNC(changeBehavior),_this] call CBA_fnc_directCall};
 
@@ -23,7 +23,9 @@ private _vehicle = _entity getVariable [QPVAR(vehicle),objNull];
 	};
 } forEach _behaviors;
 
-[QEGVAR(common,setBehaviour),[_vehicle,"CARELESS"],_vehicle] call CBA_fnc_targetEvent;
+if (_vehicle isKindOf "Air") then {
+	[QEGVAR(common,setBehaviour),[_vehicle,"CARELESS"],_vehicle] call CBA_fnc_targetEvent;
+};
 
 [QEGVAR(common,limitSpeed),[_vehicle,_entity getVariable [QPVAR(speed),-1]],_vehicle] call CBA_fnc_targetEvent;
 

@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params ["_unit","_service",["_terminalAccess",false,[false,objNull]]];
 

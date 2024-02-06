@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 ([_this] + _thisArgs # 0) call BIS_fnc_initVehicle;
 [_this,_thisArgs # 1] call EFUNC(common,deserializeInventory);

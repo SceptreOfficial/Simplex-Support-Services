@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 /*
 	Authors: Sceptre
 	Formats a position to a grid readout

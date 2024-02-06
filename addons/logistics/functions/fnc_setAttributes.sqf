@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params [["_object",objNull,[objNull]],["_formatting","",["",[]]],"_init","_args","_load","_requestLimit","_quantity"];
 _formatting params [["_name","",[""]],["_icon","",[""]],["_tooltip","",[""]],["_info","",[""]]];

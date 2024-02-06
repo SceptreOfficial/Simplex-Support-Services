@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 _position = [GD_W(_ctrlX),GD_H(_ctrlY),GD_W(_ctrlW) min safeZoneW,GD_H(_ctrlH) min safeZoneH];
 private _ctrlGroup = _display ctrlCreate [QGVAR(ControlsGroup),-1,_ctrlGroup];

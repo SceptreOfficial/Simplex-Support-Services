@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #define ORDER "SAD"
 
 params [
@@ -17,17 +17,16 @@ if (!alive _vehicle) exitWith {true};
 
 [FUNC(waypointUpdate),[[_group,currentWaypoint _group],_entity,_vehicle,_behaviors,ORDER,_wpPos]] call CBA_fnc_directCall;
 
-private _moveTick = 0;
+_vehicle doMove _wpPos;
 
 waitUntil {
-	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 10;
+	if (unitReady _vehicle) then {
 		_vehicle doMove _wpPos;
 	};
 
 	sleep WAYPOINT_SLEEP;
 
-	unitReady _vehicle || _vehicle distance2D _wpPos < _radius + 400
+	unitReady _vehicle || _vehicle distance2D _wpPos < _radius + SAD_BUFFER
 };
 
 {_group reveal _x} forEach (_wpPos nearEntities _radius);

@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 disableSerialization;
 params [["_ctrl",0,[0,controlNull]],["_tip",LLSTRING(special),[""]],["_shiftMovingCode",{},[{}]],["_shiftDownCode",{},[{}]]];

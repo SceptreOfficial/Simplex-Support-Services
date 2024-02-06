@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #define CTRL(IDC) _ctrlGroup controlsGroupCtrl IDC
 
 params ["_ctrlGroup","_request",["_hasAuto",true]];

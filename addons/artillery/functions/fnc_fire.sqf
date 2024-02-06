@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 /*
 	Authors: Sceptre
 	Makes an artillery unit fire on target location
@@ -35,7 +35,7 @@ if (!local _vehicle) exitWith {
 	[QEGVAR(common,execute),[_this,QFUNC(fire)],_vehicle] call CBA_fnc_targetEvent;
 };
 
-if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") exitWith {_this call FUNC(fireVLS)};
+if (_vehicle isKindOf "B_Ship_MRLS_01_base_F" || _vehicle isKindOf "OPTRE_archer_system_base") exitWith {_this call FUNC(fireVLS)};
 
 private "_area";
 private _gunner = gunner _vehicle;

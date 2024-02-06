@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 if (!isServer) exitWith {
 	[QEGVAR(common,execute),[_this,QFUNC(add)]] call CBA_fnc_serverEvent;
@@ -55,8 +55,9 @@ if (_callsign isEqualTo "") then {_callsign = getText (configOf _vehicle >> "dis
 
 // Verify and compile ammunitions
 if (_ammunition isEqualTo []) then {
-	_ammunition = if (_vehicle isKindOf "B_Ship_MRLS_01_base_F") then {
-		["magazine_Missiles_Cruise_01_x18","magazine_Missiles_Cruise_01_Cluster_x18"]
+	_ammunition = if (_vehicle isKindOf "B_Ship_MRLS_01_base_F" || _vehicle isKindOf "OPTRE_archer_system_base") then {
+		//["magazine_Missiles_Cruise_01_x18","magazine_Missiles_Cruise_01_Cluster_x18"]
+		magazines _vehicle
 	} else {
 		getArtilleryAmmo [_vehicle]
 	};
@@ -84,6 +85,7 @@ if (_icon isEqualTo "") then {
 	} forEach [
 		// Mod compat
 		["RHS_M119_Base",ICON_HOWITZER],
+		["OPTRE_archer_system_base",ICON_MISSILE],
 
 		// Defaults
 		["B_Ship_MRLS_01_base_F",ICON_MISSILE],

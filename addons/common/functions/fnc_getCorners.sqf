@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params ["_center","_width","_height","_dir"];
 _center params ["_cX","_cY","_cZ"];

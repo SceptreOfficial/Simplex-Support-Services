@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params [["_type","",[""]],["_posAGL",[0,0,0],[[],objNull]],["_searchRadius",500,[0]],["_ignore",[]]];
 

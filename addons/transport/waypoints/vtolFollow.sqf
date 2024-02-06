@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #define ORDER "FOLLOW"
 
 params [
@@ -17,7 +17,6 @@ if (!alive _vehicle) exitWith {true};
 [FUNC(waypointUpdate),[[_group,currentWaypoint _group],_entity,_vehicle,_behaviors,ORDER,_attachedObject]] call CBA_fnc_directCall;
 
 private _moveTick = 0;
-private _liftoff = false;
 private _endTick = CBA_missionTime + _timeout;
 private _condition = [{_vehicle getVariable [QGVAR(endHold),false]},{_endTick < CBA_missionTime}] select (_timeout > 0);
 
@@ -28,10 +27,8 @@ waitUntil {
 	if (CBA_missionTime > _moveTick) then {
 		_moveTick = CBA_missionTime + VTOL_MOVE_TICK;
 
-		if (isTouchingGround _vehicle) then {
-			if (_liftoff) exitWith {};
-			_liftoff = true;
-			_vehicle doMove (_vehicle getRelPos [200,0]);
+		if (isTouchingGround _vehicle && {_vehicle distance2D _attachedObject < 200}) then {
+			_vehicle doMove (_vehicle getPos [200,_vehicle getDir _attachedObject]);
 		} else {
 			private _expectedPos = (expectedDestination _attachedObject) # 0;
 			private _pos = getPos _vehicle;

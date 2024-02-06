@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 if (isNil QGVAR(keys)) then {
 	GVAR(keys) = 0;

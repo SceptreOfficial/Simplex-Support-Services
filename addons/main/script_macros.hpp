@@ -174,6 +174,11 @@
 #define HELO_PILOT_DISTANCE 650
 #define VTOL_PILOT_DISTANCE 1300
 #define WAYPOINT_SLEEP 0.5
+#define MOVE_TICK 10
+#define VTOL_MOVE_TICK 20
+#define FOLLOW_MOVE_TICK 5
+#define LOITER_BUFFER 500
+#define SAD_BUFFER 750
 
 // Command macros
 #define IMG_STR(PATH) (format ["<img image='%1'/>",PATH])

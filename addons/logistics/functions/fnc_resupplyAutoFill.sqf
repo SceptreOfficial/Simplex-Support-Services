@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #define MVAR(N,D) missionNamespace getVariable [N,D]
 
 params [

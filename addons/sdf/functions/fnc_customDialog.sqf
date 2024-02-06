@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 // _posX true to center based on width
 // _posY true to center based on height

@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 

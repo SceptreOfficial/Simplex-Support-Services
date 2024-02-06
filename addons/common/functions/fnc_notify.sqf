@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 if (canSuspend) exitWith {[FUNC(notify),_this] call CBA_fnc_directCall};
 
@@ -37,3 +37,5 @@ if (OPTION(notificationStyle) isEqualTo 0) then {
 } else {
 	systemChat format ["%1: %2",_entity getVariable QPVAR(callsign),[_message,_args] call FUNC(parseMessage)];
 };
+
+[QGVAR(notified),[_entity,_message,_args]] call CBA_fnc_localEvent;

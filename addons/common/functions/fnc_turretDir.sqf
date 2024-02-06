@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 /* ----------------------------------------------------------------------------
 (Adapted from CBA_A3: https://github.com/CBATeam/CBA_A3/blob/master/addons/common/fnc_turretDir.sqf)
 

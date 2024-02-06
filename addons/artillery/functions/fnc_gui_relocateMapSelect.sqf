@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 private _display = uiNamespace getVariable QEGVAR(sdf,display);
 private _ctrlMap = _display displayCtrl IDC_MAP;

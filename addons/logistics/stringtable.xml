@@ -41,10 +41,10 @@
 			<English>Show visual aids for request planning on the map</English>
 			<French>Afficher des aides visuelles pour la planification des demandes sur la carte</French>
 		</Key>
-		<Key ID="STR_SSS_Transport_visualAidsLive_name">
+		<Key ID="STR_SSS_Logistics_visualAidsLive_name">
 			<English>Visual aids: Live tracking</English>
 		</Key>
-		<Key ID="STR_SSS_Transport_visualAidsLive_info">
+		<Key ID="STR_SSS_Logistics_visualAidsLive_info">
 			<English>Show current support position and any other relevant info</English>
 		</Key>
 		<Key ID="STR_SSS_Logistics_taskMarkers_name">

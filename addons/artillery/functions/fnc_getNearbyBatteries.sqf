@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params ["_entity","_center","_magazines"];
 
@@ -17,8 +17,9 @@ private _nearbyBatteries = [];
 	if (isNull _xEntity) then {
 		if (_coordinationType isEqualTo 0) exitWith {};
 
-		private _xMagazines = if (_x isKindOf "B_Ship_MRLS_01_base_F") then {
-			["magazine_Missiles_Cruise_01_x18","magazine_Missiles_Cruise_01_Cluster_x18"]
+		private _xMagazines = if (_x isKindOf "B_Ship_MRLS_01_base_F" || _x isKindOf "OPTRE_archer_system_base") then {
+			//["magazine_Missiles_Cruise_01_x18","magazine_Missiles_Cruise_01_Cluster_x18"]
+			magazines _x
 		} else {
 			getArtilleryAmmo [_x]
 		};

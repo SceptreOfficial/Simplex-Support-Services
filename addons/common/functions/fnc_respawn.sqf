@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 if (!isServer) exitWith {[QGVAR(respawn),_this] call CBA_fnc_serverEvent};
 

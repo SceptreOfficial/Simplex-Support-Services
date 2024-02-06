@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params ["_vehicle","_turret","_aimASL",["_tolerance",20]];
 

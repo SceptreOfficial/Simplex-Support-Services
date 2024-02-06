@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 [{
 	params [["_target",objNull,[objNull]],["_event","",[""]],"_eventArgs"];

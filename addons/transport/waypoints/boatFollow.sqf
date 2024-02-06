@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #define ORDER "FOLLOW"
 
 params [
@@ -25,7 +25,7 @@ _vehicle setVariable [QGVAR(hold),LSTRING(stopFollowing),true];
 
 waitUntil {
 	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 10;
+		_moveTick = CBA_missionTime + FOLLOW_MOVE_TICK;
 
 		private _expectedPos = (expectedDestination _attachedObject) # 0;
 		private _pos = getPos _vehicle;

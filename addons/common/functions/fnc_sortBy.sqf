@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params ["_array",["_order",true],["_primaryValueFnc",{}],["_secondaryValueFnc",{}]];
 

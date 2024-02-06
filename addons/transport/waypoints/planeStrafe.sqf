@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #define ORDER "STRAFE"
 
 params [
@@ -25,15 +25,11 @@ if (isTouchingGround _vehicle) then {
 	[_entity,_vehicle] call EFUNC(common,planeTakeoff);
 };
 
-private _moveTick = 0;
+_vehicle doMove _wpPos;
 
 waitUntil {
-	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 10;
-
-		if (isTouchingGround _vehicle) then {
-			_vehicle doMove (_vehicle getPos [200,_vehicle getDir _wpPos]);
-		};
+	if (unitReady _vehicle) then {
+		_vehicle doMove _wpPos;
 	};
 
 	sleep WAYPOINT_SLEEP;

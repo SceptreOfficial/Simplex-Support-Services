@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #define ORDER "RELOCATE"
 
 params [
@@ -25,8 +25,8 @@ waitUntil {
 		_relocationTick = _relocationDelay + CBA_missionTime;
 	};
 
-	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 10;
+	if (CBA_missionTime > _moveTick && _vehiclesReady) then {
+		_moveTick = CBA_missionTime + MOVE_TICK;
 		
 		{
 			doStop _x;

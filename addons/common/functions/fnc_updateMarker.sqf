@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 if (canSuspend) exitWith {[FUNC(updateMarker),_this] call CBA_fnc_directCall};
 if (!isServer) exitWith {[QGVAR(updateMarker),_this] call CBA_fnc_serverEvent};

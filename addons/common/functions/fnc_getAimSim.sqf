@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 //#define HELPER_TIMEOUT 5
 
 params ["_ammoData","_sourceASL","_sourceVelocity","_targetASL",["_tolerance",3],["_maxIterations",10]];
@@ -17,8 +17,8 @@ if (_simulation isEqualTo "shotshell") then {
 // Exit if the target is very close
 private _distance = _sourceASL distance2D _targetASL;
 
-if (_distance < 200) exitWith {
-	//DEBUG("getAimSim: Target close; aiming directly.");
+if (_distance < _initSpeed * 0.25) exitWith {
+	//DEBUG("Target close; aiming directly.");
 	_targetASL vectorDiff _sourceASL
 };
 
@@ -26,7 +26,7 @@ if (_distance < 200) exitWith {
 private _maxRange = _initSpeed^2 / GRAVITY;
 
 if (_distance >= _maxRange / log _maxRange) exitWith {
-	DEBUG_3("getAimSim: Out of range: %1 -> %2: %3",_sourceASL,_targetASL,_ammoData);
+	DEBUG_3("Out of range: %1 -> %2: %3",_sourceASL,_targetASL,_ammoData);
 	_targetASL vectorDiff _sourceASL
 };
 

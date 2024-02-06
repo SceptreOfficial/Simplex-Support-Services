@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #define ORDER "PATH"
 
 params [
@@ -17,15 +17,14 @@ if (!alive _vehicle) exitWith {true};
 
 [FUNC(waypointUpdate),[[_group,currentWaypoint _group],_entity,_vehicle,_behaviors,ORDER,_wpPos]] call CBA_fnc_directCall;
 
-private _points = [getPos _vehicle,_wpPos];
-_vehicle setDriveOnPath _points;
+_vehicle setDriveOnPath [getPos _vehicle,_wpPos];
 
 //(_path # -1) params ["_pX","_pY","_pZ","_pSpeed"];
 //private _lastPos = [_pX,_pY,_pZ];
 
 waitUntil {
 	sleep WAYPOINT_SLEEP;
-	!alive _vehicle || !canMove _vehicle || _vehicle distance _wpPos < 8
+	!alive _vehicle || !canMove _vehicle || _vehicle distance2D _wpPos < 8
 };
 
 if (_timeout > 0) then {

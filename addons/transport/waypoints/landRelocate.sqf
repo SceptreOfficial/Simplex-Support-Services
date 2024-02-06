@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #define ORDER "RELOCATE"
 
 params [
@@ -18,11 +18,10 @@ if (!alive _vehicle) exitWith {true};
 
 if !((_entity getVariable [QPVAR(relocation),[false,60]]) # 0) exitWith {true};
 
-private _moveTick = 0;
+_vehicle doMove _wpPos;
 
 waitUntil {
-	if (CBA_missionTime > _moveTick) then {
-		_moveTick = CBA_missionTime + 10;
+	if (unitReady _vehicle) then {
 		_vehicle doMove _wpPos;
 	};
 

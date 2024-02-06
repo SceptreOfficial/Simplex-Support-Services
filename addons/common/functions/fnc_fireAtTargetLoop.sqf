@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 #define AIM_TICK 0.4
 #define VIEW_TICK 0.5
 

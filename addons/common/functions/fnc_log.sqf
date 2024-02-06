@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 
 params [["_message",""],["_rpt",true],["_chat",true]];
 
