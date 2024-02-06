@@ -81,9 +81,9 @@ if (GVAR(cooldownTrigger) == "START") then {
 			};
 		},_entity] call CBA_fnc_addBISEventHandler;
 
-		_offsetDir = _offsetDir + 71;
+		_offsetDir = _offsetDir + 72;
 		
-		if (_offsetDir >= 360) then {
+		if (_offsetDir > 360) then {
 			_offsetDir = _offsetDir call CBA_fnc_simplifyAngle;
 			_offsetDist = _offsetDist + 8 * ((_entity getVariable QPVAR(class)) call EFUNC(common,sizeOf));
 		};
