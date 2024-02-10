@@ -23,5 +23,6 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-**Logs**
+**Files**
 Please upload any relevant server and client RPT logs from the session the issue occurred.
+Include an example mission file that can be used to replicate the issue.
