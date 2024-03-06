@@ -12,7 +12,7 @@ if (_vehicle isKindOf "Air") then {
 };
 
 [LLSTRING(moduleAddStrafe_name),[
-	["EDITBOX",DESC(aircraftClass),_class],_side,
+	["EDITBOX",DESC(aircraftClass),_class],
 	["EDITBOX",EDESC(common,callsign),""],
 	["EDITBOX",EDESC(common,cooldown),60],
 	["ARRAY",DESC(virtualRunway),[["X","Y","Z"],[0,0,0]]],
