@@ -105,7 +105,7 @@ while {
 	};
 
 	if (_safe) exitWith {
-		_safePos = _searchPos vectorAdd (_safeUp vectorMultiply 0.1);
+		_safePos = _searchPos vectorAdd (_safeUp vectorMultiply 0.15);
 		false
 	};
 
