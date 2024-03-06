@@ -16,7 +16,7 @@ private _ammoSpeed = _yRelVel + _initSpeed;
 private _targetASL = [_velPos,_target,_ammoSpeed] call FUNC(getTargetPos);
 
 // Abort height
-if ((_pos vectorAdd (_lastVelocity vectorMultiply 2)) # 2 < _abortHeight + getTerrainHeightASL _velPos) exitWith {_abort = true};
+if ((_pos vectorAdd (_lastVelocity vectorMultiply 1.3)) # 2 < _abortHeight + getTerrainHeightASL _velPos) exitWith {_abort = true};
 
 // Update linear spread
 private _strafeDir = _velPos getDir _targetASL;
