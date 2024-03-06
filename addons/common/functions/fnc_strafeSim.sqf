@@ -54,10 +54,14 @@ if (_quantity == 0) exitWith {true call FUNC(strafeCleanup)};
 
 if (!alive _vehicle ||
 	!canMove _vehicle ||
-	!local _vehicle ||
 	_vehicle getVariable [QGVAR(strafeCancel),false] ||
 	{_target isEqualType objNull && {isNull _target}}
 ) exitWith {false call FUNC(strafeCleanup)};
+
+if (!local _vehicle) exitWith {
+	false call FUNC(strafeCleanup);
+	LOG_ERROR("Vehicle locality changed");
+};
 
 private _progress = CBA_missionTime - (_path # 3);
 private _delta = CBA_missionTime - _lastTime max 0.000001;

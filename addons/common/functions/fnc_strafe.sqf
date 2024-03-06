@@ -240,10 +240,14 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 
 	if (!alive _vehicle ||
 		!canMove _vehicle ||
-		!local _vehicle ||
 		_vehicle getVariable [QGVAR(strafeCancel),false] ||
 		{_target isEqualType objNull && {isNull _target}}
 	) exitWith {false call FUNC(strafeCleanup)};
+	
+	if (!local _vehicle) exitWith {
+		false call FUNC(strafeCleanup);
+		LOG_ERROR("Vehicle locality changed");
+	};
 	
 	if (!isNil {_vehicle getVariable QGVAR(strafeSimEHID)}) exitWith {
 		false call FUNC(strafeCleanup);
