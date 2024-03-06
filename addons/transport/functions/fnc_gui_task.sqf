@@ -413,6 +413,14 @@ switch _task do {
 		// Approach slider
 		_controls append ([_groupHeight,LLSTRING(approach),[10,600,0],150,"approach",LELSTRING(common,meterAcronym)] call FUNC(gui_slider));
 		_groupHeight = _groupHeight + 1;
+
+		// Note about timeout
+		private _ctrlText = _display ctrlCreate [QEGVAR(sdf,TextCentered),-1,_ctrlTaskGroup];
+		_ctrlText ctrlSetPosition [CTRL_X(0),CTRL_Y(_groupHeight),CTRL_W(20),CTRL_H(1)];
+		_ctrlText ctrlCommit 0;
+		_ctrlText ctrlSetText LLSTRING(helocastInfo);
+		_controls append [_ctrlText];
+		_groupHeight = _groupHeight + 1;
 	};
 	case "LOITER" : {
 		// Loiter type toolbox

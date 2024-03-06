@@ -639,6 +639,9 @@
 			<English>(Slingload target is selected on arrival)</English>
 			<French>(La cible d'élingage est sélectionnée à l'arrivée)</French>
 		</Key>
+		<Key ID="STR_sss_transport_helocastInfo">
+			<English>(Timeout is required to achieve desired effect)</English>
+		</Key>
 		<Key ID="STR_sss_transport_parachuteDeployHeight">
 			<English>Parachute deploy height</English>
 			<French>Altitude de déploiement du parachute</French>
