@@ -136,6 +136,6 @@ _endPos set [2,_altitude];
 		_ingress,
 		[_search,_request getOrDefault ["searchRadius",500],[_entity getVariable QPVAR(friendlyRange),0] select (_request getOrDefault ["dangerClose",false])],
 		_altitude,
-		[_aimRange,-1] select (_aimRange < 600)
+		_aimRange
 	] call EFUNC(common,strafe);
 },[_player,_entity,_request,_class,_posASL,_altitude,_aimRange,_ingress,_speed,_startPos,_endPos],_delay] call CBA_fnc_waitAndExecute;

@@ -40,7 +40,7 @@ if (!alive _vehicle || !canMove _vehicle || {!(_vehicle isKindOf "Air")}) exitWi
 
 if (_ingress < 0) then {_ingress = _target getDir _vehicle};
 if (_aimRange < 0) then {_aimRange = [2000,1000] select (_vehicle isKindOf "Helicopter")};
-_aimRange = _aimRange max 600;
+//_aimRange = _aimRange max 600;
 
 private _weapons = [];
 private _magazines = [];

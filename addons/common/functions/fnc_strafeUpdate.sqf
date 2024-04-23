@@ -57,9 +57,6 @@ private _dirDiff = (_strafeDir - _dir) call CBA_fnc_simplifyAngle;
 _dirDiff = [_dirDiff,_dirDiff - 360] select (_dirDiff > 180);
 _dir = _dir + (-_rate max _dirDiff min _rate);
 
-// Abort if turned around
-//if (abs _dirDiff > 90) exitWith {_abort = true};
-
 private _bankDiff = (-80 max (_dirDiff * 3) min 80) - _bank;
 _bank = _bank + (-_rate max _bankDiff min _rate);
 
