@@ -38,7 +38,7 @@ if (isTouchingGround _vehicle) then {
 	if (_engine && !isEngineOn _vehicle) then {_vehicle engineOn true};
 	if (!_engine && isEngineOn _vehicle) then {_vehicle engineOn false};
 
-	_vehicle setVelocity [_vel # 0 * 0.7,_vel # 1 * 0.7,(_vel # 2 * 0.99) min -0.1];
+	_vehicle setVelocity [_vel # 0 * 0.7,_vel # 1 * 0.7,(_vel # 2 * 0.98) min -0.39];
 } else {
 	_vehicle setVelocity [_vel # 0,_vel # 1,(_vel # 2 - 0.015) max -1];
 };

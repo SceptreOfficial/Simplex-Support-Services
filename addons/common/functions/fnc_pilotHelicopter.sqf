@@ -6,9 +6,9 @@ params [
 	["_vehicle",objNull,[objNull]],
 	["_endASL",[0,0,0],[[],objNull],3],
 	["_endRotation",[],[[],0]],
-	["_altitude",50,[0]],
+	["_altitude",-1,[0]],
 	["_approachDistance",150,[0]],
-	["_maxDropSpeed",-9.5,[0]],
+	["_maxDropSpeed",-12,[0]],
 	["_complete",{true},[{},[]]]
 ];
 
@@ -48,9 +48,10 @@ _endRotation params [["_endDir",-1,[0]],["_endPitch",0,[0]],["_endBank",0,[0]]];
 _endRotation = [_endDir,-89.9 max _endPitch min 89.9,-179.9 max _endBank min 179.9];
 _complete params [["_completeCondition",{true},[{}]],["_completeArgs",[]]];
 _complete = [_completeCondition,_completeArgs];
-_altitude = _altitude max ([10,115] select _vtol);
 _approachDistance = _approachDistance max 10;
 if (_endDir >= 0) then {_endDir = _endDir call CBA_fnc_simplifyAngle};
+if (_altitude < 0) then {_altitude = getPosATL _vehicle # 2};
+_altitude = _altitude max ([15,100] select _vtol);
 
 // Create a path to follow
 private _startASL = getPosASL _vehicle;
