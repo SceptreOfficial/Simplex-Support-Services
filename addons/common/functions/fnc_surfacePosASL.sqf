@@ -14,7 +14,9 @@ switch (toUpper _procedure) do {
 			_height = _height + (1.5 max (1.5 * getNumber (configOf _vehicle >> "gearDownTime")));
 		};
 
-		_posASL vectorAdd [0,0,_height]
+		_posASL = _posASL vectorAdd [0,0,_height];
+		_posASL set [2,0 max (_posASL # 2)];
+		_posASL
 	};
 	case "HOVER";
 	case "FASTROPE" : {
@@ -26,6 +28,7 @@ switch (toUpper _procedure) do {
 			_posASL = (_ix # 0 # 0) vectorAdd [0,0,_hoverHeight];
 		};
 
+		_posASL set [2,0 max (_posASL # 2)];
 		_posASL
 	};
 	case "SEA" : {
