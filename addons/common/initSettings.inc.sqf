@@ -125,17 +125,6 @@
 	false
 ] call CBA_fnc_addSetting;
 
-//[
-//	QOPTION(respawnType),
-//	"LIST",
-//	DESC(respawnType),
-//	[ELSTRING(main,PREFIX),LSTRING(CategoryCore)],
-//	[[false,true],[LSTRING(vanilla),LSTRING(scripted)],1],
-//	true,
-//	{},
-//	false
-//] call CBA_fnc_addSetting;
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Preferences
 

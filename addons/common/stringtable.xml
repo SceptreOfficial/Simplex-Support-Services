@@ -592,14 +592,6 @@
 			<English>Deletes commissioned vehicles when a support entity is removed</English>
 			<French>Supprime les véhicules commandés lorsqu'une entité de support est supprimée</French>
 		</Key>
-		<Key ID="STR_SSS_common_respawnType_name">
-			<English>Respawn type</English>
-			<French>Type de réapparition</French>
-		</Key>
-		<Key ID="STR_SSS_common_respawnType_info">
-			<English>The method vehicles will be created</English>
-			<French>Les méthodes de véhicules seront créés</French>
-		</Key>
 		<Key ID="STR_SSS_common_notifyScope_name">
 			<English>Notification scope</English>
 			<French>Notifications scope</French>

@@ -96,7 +96,6 @@ PREP(slingloadDropoff);
 PREP(slingloadPickup);
 PREP(sortBy);
 PREP(status);
-PREP(stopVehicle);
 PREP(strafe);
 PREP(strafeCleanup);
 PREP(strafeDistance);
