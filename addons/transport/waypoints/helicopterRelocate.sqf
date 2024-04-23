@@ -40,7 +40,7 @@ if (driver _vehicle call EFUNC(common,isRemoteControlled)) exitWith {true};
 	_vehicle,
 	[_vehicle,ATLtoASL waypointPosition [_group,currentWaypoint _group]] call EFUNC(common,surfacePosASL),
 	[],
-	(getPos _vehicle # 2) max 50,
+	nil,
 	50,
 	nil,
 	[EFUNC(common,pilotHelicopterLand),[60,false]]

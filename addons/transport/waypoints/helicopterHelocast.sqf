@@ -42,7 +42,7 @@ if (driver _vehicle call EFUNC(common,isRemoteControlled)) exitWith {true};
 	_vehicle,
 	[_vehicle,ATLtoASL waypointPosition [_group,currentWaypoint _group],"SEA",_hoverHeight] call EFUNC(common,surfacePosASL),
 	[_endDir,1.5],
-	(getPos _vehicle # 2) max 50,
+	nil,
 	_approach,
 	nil,
 	[EFUNC(common,pilotHelicopterHelocast),[_timeout,_hoverHeight,_hoverSpeed,[]]]

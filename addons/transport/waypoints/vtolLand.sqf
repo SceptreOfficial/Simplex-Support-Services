@@ -39,7 +39,7 @@ waitUntil {
 	_vehicle,
 	[_vehicle,ATLtoASL waypointPosition [_group,currentWaypoint _group],"LAND"] call EFUNC(common,surfacePosASL),
 	[_endDir],
-	(getPos _vehicle # 2) max 150,
+	nil,
 	_approach,
 	nil,
 	[EFUNC(common,pilotHelicopterLand),[[60,-1] select _engine,_engine]]
