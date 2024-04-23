@@ -167,14 +167,6 @@
 			<English>When the cooldown process will commence</English>
 			<French>Quand le processus de refroidissement commencera</French>
 		</Key>
-		<Key ID="STR_SSS_Logistics_Submission">
-			<English>Submission</English>
-			<French>Soumission</French>
-		</Key>
-		<Key ID="STR_SSS_Logistics_Completion">
-			<English>Completion</English>
-			<French>Achèvement</French>
-		</Key>
 		<Key ID="STR_SSS_Logistics_Single">
 			<English>Single</English>
 			<French>Simple</French>
