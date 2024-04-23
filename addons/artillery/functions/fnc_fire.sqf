@@ -317,9 +317,9 @@ _gunner setVariable [QGVAR(EHID),[_gunner,"FiredMan",{
 		// Cleanup
 		_PFHID call CBA_fnc_removePerFrameHandler;
 		_gunner removeEventHandler ["FiredMan",_gunner getVariable [QGVAR(EHID),-1]];
-		_gunner doWatch objNull;
-		_gunner lookAt objNull;
-		_vehicle lockCameraTo [objNull,_vehicle unitTurret _gunner,true];
+		//_gunner doWatch objNull;
+		//_gunner lookAt objNull;
+		//_vehicle lockCameraTo [objNull,_vehicle unitTurret _gunner,true];
 		//_gunner setVariable [QGVAR(hold),nil,true];
 		_vehicle setVariable [QGVAR(firing),nil,true];
 		_vehicle setVariable [QGVAR(recursive),nil,true];
@@ -354,6 +354,8 @@ _gunner setVariable [QGVAR(EHID),[_gunner,"FiredMan",{
 		_vehicle setVehicleAmmo 1;
 	};
 	
+	//weaponState [_vehicle,_vehicle unitTurret _gunner] params ["","_muzzle","_firemode"];
+	//_gunner forceWeaponFire [_muzzle,_firemode];
 	_gunner fireAtTarget [objNull];
 },0.05,[_vehicle,_gunner,_area,_magazines,_rounds,_firingDelay,_crew]] call CBA_fnc_addPerFrameHandler;
 
