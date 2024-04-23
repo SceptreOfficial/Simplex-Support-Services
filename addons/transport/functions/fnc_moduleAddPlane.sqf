@@ -14,7 +14,7 @@ if (!local _logic) exitWith {};
 			_logic getVariable ["Callsign",""],
 			_logic getVariable ["RespawnDelay",60],
 			[PLANE_TASK_TYPES,_logic getVariable "TaskTypes"] call EFUNC(common,parseCheckboxes),
-			_logic getVariable ["FlyingHeights",[0,3000]],
+			_logic getVariable ["AltitudeLimits",[0,3000]],
 			_logic getVariable ["VirtualRunway",[0,0,0]],
 			_logic getVariable ["MaxTasks",-1],
 			_logic getVariable ["MaxTimeout",300],
