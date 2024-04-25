@@ -36,7 +36,7 @@ waitUntil {
 
 	sleep WAYPOINT_SLEEP;
 
-	!isTouchingGround _vehicle && unitReady _vehicle
+	!isTouchingGround _vehicle && unitReady _vehicle && _vehicle distance2D _wpPos < 200
 };
 
 _ejectTypes params [["_allPlayers",true,[true]],["_allAI",true,[true]],["_allCargo",true,[true]]];
