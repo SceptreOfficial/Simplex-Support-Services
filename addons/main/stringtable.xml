@@ -4,10 +4,12 @@
 		<Key ID="STR_SSS_main_SimplexSupportServices">
 			<English>Simplex Support Services</English>
 			<French>Simplex Support Services</French>
+			<Chinesesimp>简单支援服务</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_main_SSS">
 			<English>Simplex Support Services</English>
 			<French>Simplex Support Services</French>
-		</Key>		
+			<Chinesesimp>简单支援服务</Chinesesimp>
+		</Key>
 	</Package>
 </Project>

@@ -3,21 +3,26 @@
 	<Key ID="STR_SSS_SDF_confirm">
 		<English>CONFIRM</English>
 		<French>VALIDER</French>
+		<Chinesesimp>确定</Chinesesimp>
 	</Key>
 	<Key ID="STR_SSS_SDF_cancel">
 		<English>CANCEL</English>
 		<French>ANNULER</French>
+		<Chinesesimp>取消</Chinesesimp>
 	</Key>
 	<Key ID="STR_SSS_SDF_mapTooltip">
 		<English>Rotate: CTRL\nResize: ALT</English>
 		<French>Rotation: CTRL\nRedimensionnement: ALT</French>
+		<Chinesesimp>旋转：CTRL\n调整大小：ALT</Chinesesimp>
 	</Key>
 	<Key ID="STR_SSS_SDF_mapTooltipSpecial">
 		<English>Rotate: CTRL\nResize: ALT\n%1: SHIFT</English>
 		<French>Rotation: CTRL\nRedimensionner: ALT\n%1: MAJ</French>
+		<Chinesesimp>旋转: CTRL\n调整大小: ALT\n%1: SHIFT</Chinesesimp>
 	</Key>
 	<Key ID="STR_SSS_SDF_special">
 		<English>Special</English>
 		<French>Special</French>
+		<Chinesesimp>特殊</Chinesesimp>
 	</Key>
 </Project>

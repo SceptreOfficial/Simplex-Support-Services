@@ -4,897 +4,1122 @@
 		<Key ID="STR_sss_common_zeusSelectionItems">
 			<English>SELECT ITEMS, THEN PRESS ENTER</English>
 			<French>SÉLECTIONNEZ LES ÉLÉMENTS, PUIS APPUYEZ SUR ENTRÉE</French>
+			<Chinesesimp>选择项目，然后按 ENTER</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_zeusSelectionUnits">
 			<English>SELECT UNITS, THEN PRESS ENTER</English>
 			<French>SÉLECTIONNEZ LES UNITÉS, PUIS APPUYEZ SUR ENTRÉE</French>
+			<Chinesesimp>选择单位，然后按 ENTER</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_zeusSelectionObjects">
 			<English>SELECT OBJECTS, THEN PRESS ENTER</English>
 			<French>SÉLECTIONNEZ LES OBJETS, PUIS APPUYEZ SUR ENTRÉE</French>
+			<Chinesesimp>选择对象，然后按 ENTER</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_zeusSelectionVehicles">
 			<English>SELECT VEHICLES, THEN PRESS ENTER</English>
 			<French>SÉLECTIONNEZ LES VÉHICULES, PUIS APPUYEZ SUR ENTRÉE</French>
+			<Chinesesimp>选择车辆，然后按 ENTER</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_zeusSelectionCancelled">
 			<English>SELECTION CANCELLED</English>
 			<French>SÉLECTION ANNULÉE</French>
+			<Chinesesimp>取消选择</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_zeusSelectionSubmitted">
 			<English>SELECTION SUBMITTED</English>
 			<French>SÉLECTION ANNULÉE</French>
+			<Chinesesimp>选择已提交</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_zeusNothingSelected">
 			<English>NOTHING SELECTED</English>
 			<French>RIEN DE SÉLECTIONNÉ</French>
+			<Chinesesimp>未选择任何内容</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Remove">
 			<English>Remove</English>
 			<French>Retirer</French>
+			<Chinesesimp>移除</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_AuthorizedPlayers">
 			<English>Authorized players</English>
 			<French>Joueurs autorisés</French>
+			<Chinesesimp>授权玩家</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Entities">
 			<English>Entities</English>
 			<French>Entités</French>
+			<Chinesesimp>对象</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_SupportAdded">
 			<English>Support added</English>
 			<French>Prise en charge ajoutée</French>
+			<Chinesesimp>已添加支持</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_LogicAND">
 			<English>AND</English>
 			<French>ET</French>
+			<Chinesesimp>和</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_LogicOR">
 			<English>OR</English>
 			<French>OU</French>
+			<Chinesesimp>或</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Min">
 			<English>Min</English>
 			<French>Min</French>
+			<Chinesesimp>最小值</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Max">
 			<English>Max</English>
 			<French>Max</French>
+			<Chinesesimp>最大值</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_AuthAttribute">
 			<English>SSS Player Key</English>
 			<French>Clé du lecteur SSS</French>
+			<Chinesesimp>SSS 玩家密钥</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_moduleRestrictAccess_name">
 			<English>Restrict Access</English>
 			<French>Accès restreint</French>
+			<Chinesesimp>限制访问</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_moduleRestrictAccess_info">
 			<English>Restricts access to specified units. Sync supports and units you wish to authorize with eachother to this module.</English>
 			<French>Restreint l'accès aux unités spécifiées. Synchronisez les supports et les unités que vous souhaitez autoriser entre eux sur ce module.</French>
+			<Chinesesimp>限制对指定单位的访问。将您希望相互授权的支持和单位同步到此模块。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_moduleTerminal_name">
 			<English>Terminal</English>
 			<French>Terminal</French>
+			<Chinesesimp>终端</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_moduleTerminal_info">
 			<English>Adds terminal access to synced objects for available synced entities</English>
 			<French>Ajoute un accès au terminal d'objets synchronisés pour les entités synchronisées disponibles</French>
+			<Chinesesimp>为可用的同步实体添加访问同步对象终端的功能</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_ApplyRestrictions">
 			<English>Apply restrictions</English>
 			<French>Appliquer des restrictions</French>
+			<Chinesesimp>应用限制</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_moduleManage_name">
 			<English>Manage</English>
 			<French>Gérer</French>
+			<Chinesesimp>管理</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_moduleManage_info">
 			<English>Manage supports</English>
 			<French>Gérer les supports</French>
+			<Chinesesimp>管理支持</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Service">
 			<English>Service</English>
 			<French>Service</French>
+			<Chinesesimp>服务</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Support">
 			<English>Support</English>
 			<French>Support</French>
+			<Chinesesimp>支持</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Instructions">
 			<English>INSTRUCTIONS</English>
 			<French>INSTRUCTIONS</French>
+			<Chinesesimp>使用说明</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_CeasedExistence">
 			<English>Support no longer exists</English>
 			<French>Le support n'existe plus</French>
+			<Chinesesimp>支持不再存在</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_LostAuthorization">
 			<English>No longer authorized to use support</English>
 			<French>N'est plus autorisé à utiliser le support</French>
+			<Chinesesimp>不再被授权使用支持</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Easting">
 			<English>E</English>
 			<French>E</French>
+			<Chinesesimp>E</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Northing">
 			<English>N</English>
 			<French>N</French>
+			<Chinesesimp>N</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_ETA">
 			<English>ETA</English>
 			<French>ETA</French>
+			<Chinesesimp>预计到达时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Width">
 			<English>Width</English>
 			<French>Largeur</French>
+			<Chinesesimp>宽度</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Height">
 			<English>Height</English>
 			<French>Hauteur</French>
+			<Chinesesimp>高度</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Angle">
 			<English>Angle</English>
 			<French>Angle</French>
+			<Chinesesimp>角度</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Callsign_name">
 			<English>Callsign</English>
 			<French>Indicatif</French>
+			<Chinesesimp>通信呼号</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Callsign_info">
 			<English>Display name</English>
 			<French>Nom affiché dans l'interface pour désigner ce support.\nLaisser le champ vide pour utiliser le nom par défaut du véhicule.</French>
+			<Chinesesimp>显示名称</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_RespawnDelay_name">
 			<English>Respawn time</English>
 			<French>Délai de réapparition</French>
+			<Chinesesimp>复活时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_RespawnDelay_info">
 			<English>-1 will disable respawn</English>
 			<French>Délai avant la réapparition du support.\nMettre "-1" pour désactiver la réapparition.</French>
+			<Chinesesimp>-1将禁用重生</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Relocation_name">
 			<English>Relocation</English>
 			<French>Repositionnement</French>
+			<Chinesesimp>重新部署</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Relocation_info">
 			<English>Allow changing the base/respawn position of the support entity</English>
 			<French>Autoriser la modification de la position de base/réapparition de l'entité de support</French>
+			<Chinesesimp>允许更改支持实体的基础/重生位置</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_RelocationDelay_name">
 			<English>Relocation delay</English>
 			<French>Délai de repositionnement</French>
+			<Chinesesimp>重新部署延迟</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_RelocationDelay_info">
 			<English>Time it takes to "set up" the new base location</English>
 			<French>Temps nécessaire pour "installer" le nouvel emplacement de base</French>
+			<Chinesesimp>"建立 "新基地所需的时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_RelocationSpeed_name">
 			<English>Relocation speed</English>
+			<Chinesesimp>转移速度</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_RelocationSpeed_info">
 			<English>Simulated relocation speed in km/h</English>
+			<Chinesesimp>模拟转移速度（km/h）</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Allow">
 			<English>Allow</English>
 			<French>Autoriser</French>
+			<Chinesesimp>允许</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Deny">
 			<English>Deny</English>
 			<French>Refuser</French>
+			<Chinesesimp>拒绝</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Enable">
 			<English>Enable</English>
 			<French>Activer</French>
+			<Chinesesimp>开启</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Disable">
 			<English>Disable</English>
 			<French>Désactiver</French>
+			<Chinesesimp>关闭</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Side_name">
 			<English>Side</English>
 			<French>Camp</French>
+			<Chinesesimp>阵营</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Side_info">
 			<English>Determines player side availability and AI hostility</English>
 			<French>Détermine le l'atribution du camp et l'hostilité de l'IA</French>
+			<Chinesesimp>确定玩家阵营的可用性和 AI 敌意</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_SideWest">
 			<English>BLUFOR</English>
 			<French>BLUFOR</French>
+			<Chinesesimp>BLUFOR</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_SideEast">
 			<English>OPFOR</English>
 			<French>OPFOR</French>
+			<Chinesesimp>OPFOR</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_SideGuer">
 			<English>Independent</English>
 			<French>Independent</French>
+			<Chinesesimp>Independent</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_SideCiv">
 			<English>Civilian</English>
+			<Chinesesimp>Civilian</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Cooldown_name">
 			<English>Cooldown</English>
 			<French>Délai d'attente</French>
+			<Chinesesimp>冷却</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Cooldown_info">
 			<English>Minimum time between requests</English>
 			<French>Délai d'attente minimal entre deux demandes, en secondes.</French>
+			<Chinesesimp>请求之间的最短时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_VehicleInit_name">
 			<English>Vehicle init</English>
 			<French>Vehicle init</French>
+			<Chinesesimp>车辆初始化</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_VehicleInit_info">
 			<English>Code executed when a support vehicle is commissioned or respawned (vehicle = _this).</English>
 			<French>Code exécuté lorsqu'un véhicule de support est mis en service ou réapparu (vehicle = _this).</French>
+			<Chinesesimp>当支援车辆投入使用或重生时执行的代码 (vehicle = _this)。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_RemoteAccess_name">
 			<English>Remote access</English>
 			<French>Accès à distance</French>
+			<Chinesesimp>远程访问</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_RemoteAccess_info">
 			<English>Allow players to access this support remotely.</English>
 			<French>Autorisez les joueurs à accéder à ce support à distance.</French>
+			<Chinesesimp>允许玩家远程访问此支持。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_AccessItems_name">
 			<English>Access items</English>
 			<French>Objets requis</French>
+			<Chinesesimp>访问项目</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_AccessItems_info">
 			<English>Item classes that permit usage of support.\nExample:\nitemMap,itemRadio</English>
 			<French>Item classes qui permettent l'utilisation du support.\nExemple:\nitemMap,itemRadio</French>
+			<Chinesesimp>允许使用支持的项目类别。 \n示例：\nitemMap、itemRadio</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_AccessItemsLogic_name">
 			<English>Access items logic</English>
 			<French>Logique des conditions d'accès</French>
+			<Chinesesimp>访问项目逻辑</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_AccessItemsLogic_info">
 			<English>Check if all items must be present or at least one</English>
 			<French>Vérifiez si toutes les conditions "doivent être présentes" OU "au moins une"</French>
+			<Chinesesimp>检查是否所有项目都必须存在或至少有一个项目存在</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_AccessCondition_name">
 			<English>Access condition</English>
 			<French>Condition requise</French>
+			<Chinesesimp>访问条件</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_AccessCondition_info">
 			<English>Code evaluated on player machines that must return true for the support to be accessible.</English>
 			<French>Code évalué sur les machines des joueurs qui doit retourner "true" pour que le support soit accessible.</French>
+			<Chinesesimp>在玩家机器上评估的代码必须返回 true 才能访问支持。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_RequestCondition_name">
 			<English>Request approval condition</English>
 			<French>Condition d'approbation</French>
+			<Chinesesimp>请求批准条件</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_RequestCondition_info">
 			<English>Code evaluated on the requester's machine that allows requests to be called.\n\nArguments:\n0: Player [OBJECT]\n1: Entity namespace [OBJECT]\n2: Request data [ARRAY]</English>
 			<French>Code évalué sur la machine du demandeur qui permet d'appeler les requêtes.\n\nArguments:\n0: Player [OBJECT]\n1: Entity namespace [OBJECT]\n2: Request data [ARRAY]</French>
+			<Chinesesimp>在请求者的机器上评估允许调用请求的代码。 \n\n参数：\n0：玩家 [OBJECT]\n1：实体命名空间 [OBJECT]\n2：请求数据 [ARRAY]</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_NotReady">
 			<English>Not ready for new requests. Ready in %1.</English>
 			<French>Pas prêt pour de nouvelles demandes. Prêt dans %1.</French>
+			<Chinesesimp>尚未准备好接受新请求。 %1 准备就绪。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_NotReadyColored">
 			<English>&lt;t color='#f4ca00'&gt;NOT READY.&lt;/t&gt; Ready in %1.</English>
 			<French>&lt;t color='#f4ca00'&gt;PAS PRÊT.&lt;/t&gt; Prêt dans %1.</French>
+			<Chinesesimp>&lt;t color='#f4ca00'&gt;未就绪。&lt;/t&gt; %1 准备就绪。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_RogerThat">
 			<English>Roger that. Changing it up.</English>
 			<French>Bien reçu ! C'est parti !</French>
+			<Chinesesimp>收到.我们改变一下.</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_VehicleReplacementETA">
 			<English>Vehicle destroyed. A replacement vehicle will arrive in %1.</English>
 			<French>Véhicule détruit. Un véhicule de remplacement arrivera dans %1.</French>
+			<Chinesesimp>车辆被毁。替换车辆将在 %1 到达。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_VehicleReplacementArrived">
 			<English>Replacement vehicle has arrived.</English>
 			<French>Le véhicule de remplacement est arrivé.</French>
+			<Chinesesimp>替换车辆已经到达。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_ZeusSelectUnits">
 			<English>SELECT UNITS - PRESS ENTER TO SUBMIT</English>
 			<French>SÉLECTIONNEZ LES UNITÉS - APPUYEZ SUR ENTRER POUR VALIDER</French>
+			<Chinesesimp>选择单位-按Enter提交</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_ZeusSelectCancelled">
 			<English>Selection cancelled</English>
 			<French>Sélection annulée</French>
+			<Chinesesimp>选择已取消</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_ZeusSelectSubmitted">
 			<English>Selection submitted</English>
 			<French>Sélection validée</French>
+			<Chinesesimp>已提交选择</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Day">
 			<English>day</English>
 			<French>jour</French>
+			<Chinesesimp>天</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Hour">
 			<English>hour</English>
 			<French>heure</French>
+			<Chinesesimp>小时</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Minute">
 			<English>minute</English>
 			<French>minute</French>
+			<Chinesesimp>分钟</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_Second">
 			<English>second</English>
 			<French>seconde</French>
+			<Chinesesimp>秒</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_DayPlural">
 			<English>days</English>
 			<French>jours</French>
+			<Chinesesimp>天</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_HourPlural">
 			<English>hours</English>
 			<French>heures</French>
+			<Chinesesimp>小时</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_MinutePlural">
 			<English>minutes</English>
 			<French>minutes</French>
+			<Chinesesimp>分钟</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_SecondPlural">
 			<English>seconds</English>
 			<French>secondes</French>
+			<Chinesesimp>秒</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_NotifyStopVehicle">
 			<English>Current request cancelled. Stop the vehicle.</English>
 			<French>Mission annulée. Arrêt immédiat du véhicule.</French>
+			<Chinesesimp>当前请求已取消。停车。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_VehicleNotAlive">
 			<English>Vehicle is not alive: %1: %2</English>
 			<French>Le véhicule n'est pas vivant: %1: %2</French>
+			<Chinesesimp>车辆不存在: %1: %2</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_VehicleAlreadyASupport">
 			<English>Vehicle is already a support: %1: %2</English>
 			<French>Le véhicule est déjà un support: %1: %2</French>
+			<Chinesesimp>车辆已经是支持: %1: %2</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_NoPlayersAllowed">
 			<English>No players allowed: %1: %2</English>
 			<French>Aucun joueur autorisé: %1: %2</French>
+			<Chinesesimp>禁止玩家进入: %1: %2</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_statusCooldown">
 			<English>COOLDOWN</English>
 			<French>ATTENTE</French>
+			<Chinesesimp>冷却</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_statusBusy">
 			<English>BUSY</English>
 			<French>OCCUPÉ</French>
+			<Chinesesimp>忙碌</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_statusIdle">
 			<English>IDLE</English>
 			<French>INACTIF</French>
+			<Chinesesimp>空闲</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_statusIdleAwayFromBase">
 			<English>IDLE - AWAY FROM BASE</English>
 			<French>INACTIF - LOIN DE LA BASE</French>
+			<Chinesesimp>闲置 - 远离基地</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_statusIdleAtBase">
 			<English>IDLE - AT BASE</English>
 			<French>INACTIF - À LA BASE</French>
+			<Chinesesimp>空闲 - 在基地</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_statusRespawn">
 			<English>RESPAWNING</English>
 			<French>RÉAPPARITION</French>
+			<Chinesesimp>重生</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_IRStrobe">
 			<English>IR strobe</English>
 			<French>IR Stroboscopique</French>
+			<Chinesesimp>红外频闪</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_SmokeWhite">
 			<English>White smoke</English>
 			<French>Fumigène Blanc</French>
+			<Chinesesimp>白色烟雾</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_SmokeBlack">
 			<English>Black smoke</English>
 			<French>Fumigène Noir</French>
+			<Chinesesimp>黑色烟雾</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_SmokeRed">
 			<English>Red smoke</English>
 			<French>Fumigène Rouge</French>
+			<Chinesesimp>红色烟雾</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_SmokeOrange">
 			<English>Orange smoke</English>
 			<French>Fumigène Orange</French>
+			<Chinesesimp>橙色烟雾</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_SmokeYellow">
 			<English>Yellow smoke</English>
 			<French>Fumigène Jaune</French>
+			<Chinesesimp>黄色烟雾</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_SmokeGreen">
 			<English>Green smoke</English>
 			<French>Fumigène Vert</French>
+			<Chinesesimp>绿色烟雾</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_SmokeBlue">
 			<English>Blue smoke</English>
 			<French>Fumigène Bleu</French>
+			<Chinesesimp>蓝色烟雾</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_SmokePurple">
 			<English>Purple smoke</English>
 			<French>Fumigène Violet</French>
+			<Chinesesimp>紫色烟雾</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_flareWhite">
 			<English>White flare</English>
 			<French>Fusée Blanche</French>
+			<Chinesesimp>白色照明弹</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_flareBlack">
 			<English>Black flare</English>
 			<French>Fusée Noir</French>
+			<Chinesesimp>黑色照明弹</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_flareRed">
 			<English>Red flare</English>
 			<French>Fusée Rouge</French>
+			<Chinesesimp>红色照明弹</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_flareOrange">
 			<English>Orange flare</English>
 			<French>Fusée Orange</French>
+			<Chinesesimp>橙色照明弹</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_flareYellow">
 			<English>Yellow flare</English>
 			<French>Fusée Jaune</French>
+			<Chinesesimp>黄色照明弹</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_flareGreen">
 			<English>Green flare</English>
 			<French>Fusée Verte</French>
+			<Chinesesimp>绿色照明弹</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_flareBlue">
 			<English>Blue flare</English>
 			<French>Fusée Bleu</French>
+			<Chinesesimp>蓝色照明弹</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_flarePurple">
 			<English>Purple flare</English>
 			<French>Fusée Violette</French>
+			<Chinesesimp>紫色照明弹</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_white">
 			<English>White</English>
 			<French>Blanc</French>
+			<Chinesesimp>白色</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_black">
 			<English>Black</English>
 			<French>Noir</French>
+			<Chinesesimp>黑色</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_red">
 			<English>Red</English>
 			<French>Rouge</French>
+			<Chinesesimp>红色</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_orange">
 			<English>Orange</English>
 			<French>Orange</French>
+			<Chinesesimp>橙色</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_yellow">
 			<English>Yellow</English>
 			<French>Jaune</French>
+			<Chinesesimp>黄色</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_green">
 			<English>Green</English>
 			<French>Vert</French>
+			<Chinesesimp>绿色</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_blue">
 			<English>Blue</English>
 			<French>Bleu</French>
+			<Chinesesimp>蓝色</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_purple">
 			<English>Purple</English>
 			<French>Violet</French>
+			<Chinesesimp>紫色</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_any">
 			<English>Any</English>
 			<French>N'importe lequel</French>
+			<Chinesesimp>任何</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_NA">
 			<English>N/A</English>
 			<French>N/A</French>
+			<Chinesesimp>N/A</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_default">
 			<English>Default</English>
 			<French>Défaut</French>
+			<Chinesesimp>默认</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_gridFormat">
 			<English>%1 E %2 N</English>
 			<French>%1 E %2 N</French>
+			<Chinesesimp>%1 E %2 N</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_guiTitle">
 			<English>SIMPLEX SUPPORT SERVICES</English>
 			<French>SIMPLEX SUPPORT SERVICES</French>
+			<Chinesesimp>简单支持服务</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_guiClose">
 			<English>CLOSE</English>
 			<French>FERMER</French>
+			<Chinesesimp>关闭</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_guiConfirm">
 			<English>CONFIRM</English>
 			<French>CONFIRMER</French>
+			<Chinesesimp>确定</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_guiService">
 			<English>Service</English>
 			<French>Service</French>
+			<Chinesesimp>服务</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_guiEntity">
 			<English>Entity</English>
 			<French>Entité</French>
+			<Chinesesimp>实体</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_guiStatus">
 			<English>Status</English>
 			<French>Statut</French>
+			<Chinesesimp>状态</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_guiAbort">
 			<English>ABORT</English>
 			<French>ANNULER</French>
+			<Chinesesimp>中止</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_guiInstructions">
 			<English>INSTRUCTIONS</English>
 			<French>INSTRUCTIONS</French>
+			<Chinesesimp>使用说明</Chinesesimp>
 		</Key>
 		<!-- Setting categories -->
 		<Key ID="STR_SSS_common_CategoryAdmin">
 			<English>Admin</English>
 			<French>Administration</French>
+			<Chinesesimp>管理员</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_CategoryCore">
 			<English>Core</English>
 			<French>Divers</French>
+			<Chinesesimp>核心</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_CategoryPreferences">
 			<English>Preferences</English>
 			<French>Préférences</French>
+			<Chinesesimp>参数设置</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_CategoryInputAndIndicators">
 			<English>Input and Indicators</English>
 			<French>Entrées et indicateurs</French>
+			<Chinesesimp>输入和指标</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_CategoryDebug">
 			<English>Debug</English>
 			<French>Debug</French>
+			<Chinesesimp>调试</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_vanilla">
 			<English>Vanilla</English>
 			<French>Vanilla</French>
+			<Chinesesimp>Vanilla</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_scripted">
 			<English>Scripted</English>
 			<French>Scripté</French>
+			<Chinesesimp>脚本化</Chinesesimp>
 		</Key>
 		<!-- Settings -->
 		<Key ID="STR_SSS_common_adminAccess_name">
 			<English>Admin access</English>
 			<French>Accès admin</French>
+			<Chinesesimp>管理员访问权限</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_adminAccess_info">
 			<English>Give admins access to all supports</English>
 			<French>Donner aux admins l'accès à tous les supports</French>
+			<Chinesesimp>给予管理员访问所有支持的权限</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_adminSide_name">
 			<English>Admin access side</English>
 			<French>Camp pour l'accès administrateur</French>
+			<Chinesesimp>给予同管理员阵营访问所有支持的权限</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_adminSide_info">
 			<English>Only shows supports that share the same side as the admin</English>
 			<French>Affiche uniquement les supports partageant le même camp que l'administrateur</French>
+			<Chinesesimp>仅显示与管理员共享同一阵营的支持</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_cleanupCrew_name">
 			<English>Delete old vehicle crew on respawn</English>
 			<French>Supprimer l'équipage des véhicules hors d'usage</French>
+			<Chinesesimp>重生时删除旧车辆人员</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_cleanupCrew_info">
 			<English>When a vehicle is decommissioned, the crew will be deleted instead of leaving the vehicle</English>
 			<French>Lorsqu'un véhicule est mis hors service, l'équipage sera supprimé au lieu de quitter le véhicule</French>
+			<Chinesesimp>当车辆删除时，乘员将被删除，而不是离开车辆</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_removeEntityOnVehicleDeletion_name">
 			<English>Remove support on vehicle deletion</English>
 			<French>Supprimer le support lors de la suppression du véhicule</French>
+			<Chinesesimp>取消对车辆支持</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_removeEntityOnVehicleDeletion_info">
 			<English>Removes the support entity when the physical vehicle is deleted</English>
 			<French>Supprime l'entité du support lorsque le véhicule physique est supprimé</French>
+			<Chinesesimp>删除实体车辆时，删除支持实体</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_deleteVehicleOnEntityRemoval_name">
 			<English>Delete vehicle(s) on entity removal</English>
 			<French>Supprimer le(s) véhicule(s) lors de la suppression de l'entité</French>
+			<Chinesesimp>删除实体时删除车辆</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_deleteVehicleOnEntityRemoval_info">
 			<English>Deletes commissioned vehicles when a support entity is removed</English>
 			<French>Supprime les véhicules commandés lorsqu'une entité de support est supprimée</French>
+			<Chinesesimp>删除支持实体时，删除已投入使用的车辆</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_notifyScope_name">
 			<English>Notification scope</English>
 			<French>Notifications scope</French>
+			<Chinesesimp>通知范围</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_notifyScope_info">
 			<English>Set who will receive support updates</English>
 			<French>Définir qui recevra les mises à jour du support</French>
+			<Chinesesimp>设置谁将接收支持更新</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_markerScope_name">
 			<English>Marker scope</English>
 			<French>Marqueur scope</French>
+			<Chinesesimp>标记范围</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_markerScope_info">
 			<English>Set who can see support task markers</English>
 			<French>Définir qui peut voir les marqueurs de tâches de support</French>
+			<Chinesesimp>设置谁可以看到支持任务标记</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_notificationStyle_name">
 			<English>Notification style</English>
 			<French>Style de notification</French>
+			<Chinesesimp>通知样式</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_notificationStyle_info">
 			<English>Choose how messages will appear</English>
 			<French>Choisissez comment les messages apparaîtront</French>
+			<Chinesesimp>选择消息的显示方式</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_notificationStylePopup">
 			<English>Stacked popup</English>
 			<French>Fenêtre contextuelle empilée</French>
+			<Chinesesimp>堆叠弹出窗口</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_notificationStyleChat">
 			<English>System chat</English>
 			<French>System chat</French>
+			<Chinesesimp>系统聊天</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_none">
 			<English>None</English>
 			<French>Aucun</French>
+			<Chinesesimp>默认值</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_requester">
 			<English>Requester</English>
 			<French>Demandeur</French>
+			<Chinesesimp>请求者</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_access">
 			<English>Access</English>
 			<French>Accès</French>
+			<Chinesesimp>访问</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_side">
 			<English>Side</English>
 			<French>Camp</French>
+			<Chinesesimp>阵营</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_closeOnConfirm_name">
 			<English>Close GUI when confirmed</English>
 			<French>Fermez le GUI une fois confirmé</French>
+			<Chinesesimp>确认后关闭图形用户界面</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_closeOnConfirm_info">
 			<English>Closes the GUI when the confirm button is used</English>
 			<French>Ferme l'interface graphique lorsque le bouton de confirmation est utilisé</French>
+			<Chinesesimp>使用确认按钮时关闭图形用户界面</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_autoParachute_name">
 			<English>Automatic parachute</English>
 			<French>Parachute automatique</French>
+			<Chinesesimp>自动降落伞</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_autoParachute_info">
 			<English>Opens parachute automatically when ejected via paradrop request</English>
 			<French>Ouvre automatiquement le parachute lorsqu'il est éjecté via une demande de parachutage</French>
+			<Chinesesimp>通过跳伞请求时,自动弹出并打开降落伞</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_terminalRequireAuth_name">
 			<English>Terminals: Require authentication</English>
 			<French>Terminaux: Exiger une authentification</French>
+			<Chinesesimp>终端：需要身份验证</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_terminalRequireAuth_info">
 			<English>Require players to have explicit authorization to interact with a support's terminals</English>
 			<French>Exiger que les joueurs aient une autorisation explicite pour interagir avec les terminaux d'un support</French>
+			<Chinesesimp>要求玩家获得授权才能与支持终端进行交互</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_terminalRequireItems_name">
 			<English>Terminals: Require access items</English>
 			<French>Terminaux: exiger des éléments d'accès</French>
+			<Chinesesimp>终端：需要访问项目</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_terminalRequireItems_info">
 			<English>Require players to have defined access items to interact with a support's terminals</English>
 			<French>Exiger que les joueurs disposent d'éléments d'accès définis pour interagir avec les terminaux d'un support</French>
+			<Chinesesimp>要求玩家具有定义的访问项目才能与支持的终端进行交互</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_terminalActions_name">
 			<English>Terminals: Interaction types</English>
 			<French>Terminaux: types d'interaction</French>
+			<Chinesesimp>终端：交互类型</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_terminalActions_info">
 			<English>Determines which kind of actions are created for terminals</English>
 			<French>Détermine le type d'actions créées pour les terminaux</French>
+			<Chinesesimp>决定为终端创建哪种操作</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_both">
 			<English>Both</English>
 			<French>Les deux</French>
+			<Chinesesimp>两者都</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_scrollMenu">
 			<English>Vanilla scroll menu</English>
 			<French>Menu déroulant vanilla</French>
+			<Chinesesimp>Vanilla 滚动菜单</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_ACEinteract">
 			<English>ACE interact menu</English>
 			<French>Menu d'interaction ACE</French>
+			<Chinesesimp>ACE 互动菜单</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_debug_name">
 			<English>Debug: General</English>
 			<French>Debug: Général</French>
+			<Chinesesimp>调试：一般</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_debug_info">
 			<English>Display general debug information</English>
 			<French>Afficher les informations générales de débogage</French>
+			<Chinesesimp>显示常规调试信息</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_debugPerf_name">
 			<English>Debug: Performance</English>
 			<French>Debug: Performances</French>
+			<Chinesesimp>调试：性能</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_debugPerf_info">
 			<English>Display function performance</English>
 			<French>Afficher les informations de performance</French>
+			<Chinesesimp>显示功能性能</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_autoTerminals_name">
 			<English>Auto terminals</English>
 			<French>Terminaux automatiques</French>
+			<Chinesesimp>车辆终端</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_autoTerminals_info">
 			<English>Automatically create terminal interactions on support vehicles</English>
 			<French>Créez automatiquement des interactions de terminal sur les véhicules d'assistance</French>
+			<Chinesesimp>在支持车辆上自动创建终端交互</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_COMMON_grid">
 			<English>Grid</English>
 			<French>Grille</French>
+			<Chinesesimp>网格</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_COMMON_remoteControl">
 			<English>REMOTE CONTROL</English>
 			<French>CONTRÔLE À DIST*</French>
+			<Chinesesimp>遥控</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_COMMON_zeusInvalidSelection">
 			<English>INVALID SELECTION</English>
 			<French>SELECTION INVALIDE</French>
+			<Chinesesimp>选择无效</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_dirAuto">
 			<English>AUTO</English>
 			<French>AUTO</French>
+			<Chinesesimp>自动</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_dirN">
 			<English>N</English>
 			<French>N</French>
+			<Chinesesimp>北</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_dirNE">
 			<English>NE</English>
 			<French>NE</French>
+			<Chinesesimp>东北</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_dirE">
 			<English>E</English>
 			<French>E</French>
+			<Chinesesimp>东</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_dirSE">
 			<English>SE</English>
 			<French>SE</French>
+			<Chinesesimp>东南</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_dirS">
 			<English>S</English>
 			<French>S</French>
+			<Chinesesimp>南</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_dirSW">
 			<English>SW</English>
 			<French>SO</French>
+			<Chinesesimp>西南</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_dirW">
 			<English>W</English>
 			<French>O</French>
+			<Chinesesimp>西</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_dirNW">
 			<English>NW</English>
 			<French>NO</French>
+			<Chinesesimp>西北</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_secondAcronym">
 			<English>s</English>
 			<French>s</French>
+			<Chinesesimp>秒</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_off">
 			<English>OFF</English>
 			<French>OFF</French>
+			<Chinesesimp>关闭</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_on">
 			<English>ON</English>
 			<French>ON</French>
+			<Chinesesimp>开启</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_meterAcronym">
 			<English>m</English>
 			<French>m</French>
+			<Chinesesimp>米</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_kmh">
 			<English>km/h</English>
 			<French>km/h</French>
+			<Chinesesimp>km/h</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_chemlightBlue">
 			<English>Blue chemlight</English>
 			<French>Lumière Bleu</French>
+			<Chinesesimp>蓝色荧光棒</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_chemlightGreen">
 			<English>Green chemlight</English>
 			<French>Lumière Verte</French>
+			<Chinesesimp>绿色荧光棒</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_chemlightRed">
 			<English>Red chemlight</English>
 			<French>Lumière Rouge</French>
+			<Chinesesimp>红色荧光棒</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_chemlightYellow">
 			<English>Yellow chemlight</English>
 			<French>Lumière Jaune</French>
+			<Chinesesimp>黄色荧光棒</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_recipientUnavailable">
 			<English>Recipient unavailable.</English>
 			<French>Destinataire indisponible.</French>
+			<Chinesesimp>无法找到。</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_strafeFinalApproach">
 			<English>On final approach to location. Be ready...</English>
 			<French>En approche finale du lieu.  Être prêt...</French>
+			<Chinesesimp>接近目标地点。准备好...</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_strafeFiring">
 			<English>Firing...</English>
 			<French>Tir sur...</French>
+			<Chinesesimp>开火中...</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_strafeTargetAcquired">
 			<English>Target acquired...</English>
 			<French>Cible acquise...</French>
+			<Chinesesimp>目标锁定</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_strafeNoTarget">
 			<English>No suitable target found. Airstrike aborted.</English>
 			<French>Aucune cible appropriée trouvée. Frappe aérienne annulée.</French>
+			<Chinesesimp>没有找到合适的目标。空袭失败。</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_noServices">
 			<English>SSS: NO SERVICES AVAILABLE</English>
 			<French>SSS : AUCUN SERVICE DISPONIBLE</French>
+			<Chinesesimp>SSS：无可用服务</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_common_remoteControlWarning">
 			<English>Allow time for locality to transfer for full control...</English>
 			<French>Laissez le temps à la localité de se transférer pour un contrôle total...</French>
+			<Chinesesimp>请等待，正在获取控制中...</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_ejectInterval_name">
 			<English>Ejection interval</English>
 			<French>Intervalle d'éjection</French>
+			<Chinesesimp>弹射间隔</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_ejectInterval_info">
 			<English>Default interval used when unloading infantry and cargo</English>
 			<French>Intervalle par défaut utilisé lors du déchargement de l'infanterie et du fret</French>
+			<Chinesesimp>卸载步兵和货物时，使用的默认间隔</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_invalidClass">
 			<English>'%1' Invalid class: %2</English>
 			<French>'%1' Classe invalide: %2</French>
+			<Chinesesimp>'%1' 无效类别: %2</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_targetMap">
 			<English>Map position</English>
 			<French>Position sur la carte</French>
+			<Chinesesimp>地图位置</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_targetLaser">
 			<English>Laser designator</English>
 			<French>Désignateur laser</French>
+			<Chinesesimp>激光指示器</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_targetLaserMatch">
 			<English>Match</English>
 			<French>Correspondre</French>
+			<Chinesesimp>同步镭射</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_targetSmoke">
 			<English>Smoke</English>
 			<French>Fumigène</French>
+			<Chinesesimp>烟雾弹</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_targetIR">
 			<English>IR</English>
 			<French>IR</French>
+			<Chinesesimp>IR镭射</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_targetFlare">
 			<English>Flare</English>
 			<French>Fusées éclairantes</French>
+			<Chinesesimp>照明弹</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_targetEnemies">
 			<English>Any enemy</English>
 			<French>N'importe quel ennemi</French>
+			<Chinesesimp>任何敌人</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_targetInfantry">
 			<English>Enemy infantry</English>
 			<French>Infanterie ennemie</French>
+			<Chinesesimp>敌方步兵</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_targetVehicles">
 			<English>Enemy vehicles</English>
 			<French>Véhicules ennemis</French>
+			<Chinesesimp>敌方车辆</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_targetVehiclesTracked">
 			<English>Tracked</English>
 			<French>Piste</French>
+			<Chinesesimp>履带式汽车</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_targetVehiclesWheeled">
 			<English>Wheeled</English>
 			<French>À roues</French>
+			<Chinesesimp>轮式汽车</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_targetVehiclesStatic">
 			<English>Static</English>
+			<Chinesesimp>静态</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_targetVehiclesRadar">
 			<English>Radar</English>
+			<Chinesesimp>雷达</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_accessDescription">
 			<English>Access Attributes</English>
+			<Chinesesimp>访问属性</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_common_providerDescription">
 			<English>Provider Attributes</English>
+			<Chinesesimp>提供方属性</Chinesesimp>
 		</Key>
 	</Package>
 </Project>
