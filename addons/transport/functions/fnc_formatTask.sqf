@@ -7,7 +7,7 @@
 params ["_group","_item"];
 
 private _task = toUpper (_item get "task");
-private _taskArgs = [_item get "behaviors",_item get "timeout"];
+private _taskArgs = [_item getOrDefault ["behaviors",nil],_item getOrDefault ["timeout",nil]];
 
 _taskArgs append (switch _task do {
 	case "RTB" : {[]};
@@ -70,4 +70,4 @@ _taskArgs append (switch _task do {
 	default {[]};
 } apply {_item getOrDefault [_x,nil]});
 
-[_task,_item get "posASL",_item getOrDefault ["attachedObject",objNull],_taskArgs]
+[_task,_item getOrDefault ["posASL",[0,0,0]],_item getOrDefault ["attachedObject",objNull],_taskArgs]
