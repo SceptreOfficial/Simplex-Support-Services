@@ -1,4 +1,8 @@
 #include "..\script_component.hpp"
+#define EJECT_ID \
+	private _id = GEN_STR(_task); \
+	_group setVariable [_id,_item get "ejections",true]; \
+	_item set ["ejectionsID",_id]
 
 params ["_group","_item"];
 
@@ -18,28 +22,22 @@ _taskArgs append (switch _task do {
 	case "LANDSIGNAL" : {["engine","signalType","searchRadius","searchTimeout"]};
 	case "HOVER" : {["hoverHeight","endDir","approach"]};
 	case "FASTROPE" : {
-		private _id = GEN_STR(_task);
-		_group setVariable [_id,_item get "ejections",true];
-		_item set ["ejectionsID",_id];
-		
+		EJECT_ID;
 		["hoverHeight","endDir","approach","ejectTypes","ejectionsID"]
 	};
-	case "HELOCAST" : {["hoverHeight","hoverSpeed","endDir","approach"]};
+	case "HELOCAST" : {
+		EJECT_ID;
+		["hoverHeight","hoverSpeed","endDir","approach","ejectTypes","ejectionsID"]
+	};
 	case "LOITER" : {["loiterType","loiterRadius"]};
 	case "SLINGLOADPICKUP" : {["searchRadius"]};
 	case "SLINGLOADDROPOFF" : {[]};
 	case "UNLOAD" : {
-		private _id = GEN_STR(_task);
-		_group setVariable [_id,_item get "ejections"];
-		_item set ["ejectionsID",_id];
-
+		EJECT_ID;
 		["ejectTypes","ejectionsID","ejectInterval"]
 	};
 	case "PARADROP" : {
-		private _id = GEN_STR(_task);
-		_group setVariable [_id,_item get "ejections"];
-		_item set ["ejectionsID",_id];
-
+		EJECT_ID;
 		["ejectTypes","ejectionsID","ejectInterval","openAltitude"]
 	};
 	case "SAD" : {[]};

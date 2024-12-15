@@ -421,6 +421,142 @@ switch _task do {
 		_ctrlText ctrlSetText LLSTRING(helocastInfo);
 		_controls append [_ctrlText];
 		_groupHeight = _groupHeight + 1;
+
+		// Ejections
+		private _ctrlText = _display ctrlCreate [QEGVAR(sdf,Text),-1,_ctrlTaskGroup];
+		_ctrlText ctrlSetPosition [CTRL_X(0),CTRL_Y(_groupHeight),CTRL_W(7),CTRL_H(5)];
+		_ctrlText ctrlCommit 0;
+		_ctrlText ctrlSetText LLSTRING(ejections);
+
+		private _ctrlCBText1 = _display ctrlCreate [QEGVAR(sdf,Text),-1,_ctrlTaskGroup];
+		_ctrlCBText1 ctrlSetPosition [CTRL_X(7),CTRL_Y(_groupHeight),CTRL_W(4.33),CTRL_H(1)];
+		_ctrlCBText1 ctrlCommit 0;
+		_ctrlCBText1 ctrlSetText LLSTRING(allPlayers);
+
+		private _ctrlCBText2 = _display ctrlCreate [QEGVAR(sdf,Text),-1,_ctrlTaskGroup];
+		_ctrlCBText2 ctrlSetPosition [CTRL_X(11.33),CTRL_Y(_groupHeight),CTRL_W(4.33),CTRL_H(1)];
+		_ctrlCBText2 ctrlCommit 0;
+		_ctrlCBText2 ctrlSetText LLSTRING(allAI);
+
+		private _ctrlCBText3 = _display ctrlCreate [QEGVAR(sdf,Text),-1,_ctrlTaskGroup];
+		_ctrlCBText3 ctrlSetPosition [CTRL_X(15.66),CTRL_Y(_groupHeight),CTRL_W(4.33),CTRL_H(1)];
+		_ctrlCBText3 ctrlCommit 0;
+		_ctrlCBText3 ctrlSetText LLSTRING(allCargo);
+
+		private _ctrlCB1 = _display ctrlCreate [QEGVAR(sdf,Checkbox),-1,_ctrlTaskGroup];
+		_ctrlCB1 ctrlSetPosition [CTRL_X(10.33),CTRL_Y(_groupHeight),CTRL_W(1),CTRL_H(1)];
+		_ctrlCB1 ctrlCommit 0;
+
+		private _ctrlCB2 = _display ctrlCreate [QEGVAR(sdf,Checkbox),-1,_ctrlTaskGroup];
+		_ctrlCB2 ctrlSetPosition [CTRL_X(14.66),CTRL_Y(_groupHeight),CTRL_W(1),CTRL_H(1)];
+		_ctrlCB2 ctrlCommit 0;
+
+		private _ctrlCB3 = _display ctrlCreate [QEGVAR(sdf,Checkbox),-1,_ctrlTaskGroup];
+		_ctrlCB3 ctrlSetPosition [CTRL_X(18.99),CTRL_Y(_groupHeight),CTRL_W(1),CTRL_H(1)];
+		_ctrlCB3 ctrlCommit 0;
+
+		_groupHeight = _groupHeight + 1;
+
+		private _ctrlBG = _display ctrlCreate [QEGVAR(sdf,Text),-1,_ctrlTaskGroup];
+		_ctrlBG ctrlSetPosition [CTRL_X(7),CTRL_Y(_groupHeight),CTRL_W(13),CTRL_H(4)];
+		_ctrlBG ctrlCommit 0;
+		_ctrlBG ctrlSetBackgroundColor [0,0,0,0.9];
+
+		private _ctrlList = _display ctrlCreate [QEGVAR(sdf,ListNBoxCB),-1,_ctrlTaskGroup];
+		_ctrlList ctrlSetPosition [CTRL_X(7),CTRL_Y(_groupHeight),CTRL_W(13),CTRL_H(4)];
+		_ctrlList ctrlCommit 0;
+		_ctrlList lnbSetColumnsPos [0,0.08,0.45,0.8];
+
+		private _ctrlOverlay = _display ctrlCreate [QEGVAR(sdf,TextCentered),-1,_ctrlTaskGroup];
+		_ctrlOverlay ctrlSetPosition [CTRL_X(7),CTRL_Y(_groupHeight),CTRL_W(13),CTRL_H(4)];
+		_ctrlOverlay ctrlCommit 0;
+		_ctrlOverlay ctrlSetText LELSTRING(common,NA);
+		_ctrlOverlay ctrlSetTextColor [1,1,1,0.5];
+		_ctrlOverlay ctrlSetFontHeight GD_H(1.5);
+		_ctrlOverlay ctrlSetBackgroundColor [0.2,0.2,0.2,0.5];
+
+		[_ctrlList,"LBSelChanged",{
+			params ["_ctrlList","_index"];
+
+			private _item = _ctrlList getVariable [str _index,objNull];
+			private _selected = GVAR(plan) # GVAR(planIndex) getOrDefault ["ejections",[]];
+
+			if (_ctrlList lnbPicture [_index,0] == ICON_CHECKED2) then {
+				_ctrlList lnbSetPicture [[_index,0],ICON_UNCHECKED2];
+				_selected deleteAt (_selected find _item);
+			} else {
+				_ctrlList lnbSetPicture [[_index,0],ICON_CHECKED2];
+				_selected pushBackUnique _item;
+			};
+
+			GVAR(plan) # GVAR(planIndex) set ["ejections",_selected - [objNull]];
+			call FUNC(gui_verify);
+		}] call CBA_fnc_addBISEventHandler;
+
+		private _thisArgs = [_ctrlCB1,_ctrlCB2,_ctrlCB3,_ctrlList,_ctrlOverlay];
+		private _fnc_listUpdate = {
+			_thisArgs params ["_ctrlCB1","_ctrlCB2","_ctrlCB3","_ctrlList","_ctrlOverlay"];
+
+			private _vehicle = PVAR(guiEntity) getVariable [QPVAR(vehicle),objNull];
+
+			[cbChecked _ctrlCB1,cbChecked _ctrlCB2,cbChecked _ctrlCB3] params ["_players","_ai","_cargo"];
+
+			GVAR(plan) # GVAR(planIndex) set ["ejectTypes",[_players,_ai,_cargo]];
+
+			// for some reason overlay isn't hidden on menu load
+			[{
+				params ["_ctrlList","_ctrlOverlay","_showList"];
+				_ctrlList ctrlEnable _showList;
+				_ctrlList ctrlShow _showList;
+				_ctrlOverlay ctrlShow !_showList;
+			},[_ctrlList,_ctrlOverlay,!(_players && _ai && _cargo)]] call CBA_fnc_execNextFrame;
+
+			lnbClear _ctrlList;
+			private _items = [];
+			private _selected = GVAR(plan) # GVAR(planIndex) getOrDefault ["ejections",[]];
+
+			if (!_cargo) then {
+				{
+					private _row = _ctrlList lnbAddRow ["",getText (configOf _x >> "displayName"),"","CARGO"];
+					_ctrlList lnbSetPicture [[_row,0],[ICON_UNCHECKED2,ICON_CHECKED2] select (_x in _selected)];
+					_ctrlList lnbSetPicture [[_row,1],_x call EFUNC(common,getIcon)];
+					_ctrlList setVariable [str _row,_x];
+					_items pushBack _x;
+				} forEach getVehicleCargo _vehicle;
+			};
+
+			{
+				private _isPlayer = isPlayer _x;
+				
+				if (alive _x && {(_isPlayer && !_players) || (!_isPlayer && !_ai)}) then {
+					private _row = _ctrlList lnbAddRow ["",name _x,groupID group _x,["AI","PLAYER"] select _isPlayer];
+					_ctrlList lnbSetPicture [[_row,0],[ICON_UNCHECKED2,ICON_CHECKED2] select (_x in _selected)];
+					_ctrlList setVariable [str _row,_x];
+					_items pushBack _x;
+				};
+			} forEach SECONDARY_CREW(_vehicle);
+
+			GVAR(plan) # GVAR(planIndex) set ["ejections",_items arrayIntersect _selected - [objNull]];
+			call FUNC(gui_verify);
+		};
+
+		[_ctrlCB1,"CheckedChanged",_fnc_listUpdate,_thisArgs] call CBA_fnc_addBISEventHandler;
+		[_ctrlCB2,"CheckedChanged",_fnc_listUpdate,_thisArgs] call CBA_fnc_addBISEventHandler;
+		[_ctrlCB3,"CheckedChanged",_fnc_listUpdate,_thisArgs] call CBA_fnc_addBISEventHandler;
+
+		private _ejectTypes = _item getOrDefault ["ejectTypes",[true,true,true]];
+		_ctrlCB1 cbSetChecked (_ejectTypes # 0);
+		_ctrlCB2 cbSetChecked (_ejectTypes # 1);
+		_ctrlCB3 cbSetChecked (_ejectTypes # 2);
+
+		call _fnc_listUpdate;
+
+		_groupHeight = _groupHeight + 4;
+		_controls append [_ctrlText,_ctrlCBText1,_ctrlCBText2,_ctrlCBText3,_ctrlCB1,_ctrlCB2,_ctrlCB3,_ctrlBG,_ctrlList,_ctrlOverlay];
+
+		// Ejection interval
+		_controls append ([_groupHeight,LLSTRING(ejectInterval),[0,5,1],OPTION(ejectInterval),"ejectInterval",LELSTRING(common,secondAcronym)] call FUNC(gui_slider));
+		_groupHeight = _groupHeight + 1;
 	};
 	case "LOITER" : {
 		// Loiter type toolbox

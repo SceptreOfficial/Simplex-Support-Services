@@ -43,7 +43,7 @@ waitUntil {
 	nil,
 	_approach,
 	nil,
-	[EFUNC(common,pilotHelicopterHelocast),[_timeout,_hoverHeight,_hoverSpeed,[]]]
+	[EFUNC(common,pilotHelicopterHelocast),[_timeout,_hoverHeight,_hoverSpeed,_ejections,[]]]
 ] call EFUNC(common,pilotHelicopter);
 
 waitUntil {
