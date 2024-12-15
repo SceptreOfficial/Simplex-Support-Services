@@ -13,7 +13,7 @@ private _vehicle = _entity getVariable [QPVAR(vehicle),objNull];
 
 	if (isNil "_value") then {continue};
 
-	switch (tolower _type) do {
+	switch (toLower _type) do {
 		case "speed" : {_entity setVariable [QPVAR(speed),_value,true]};
 		case "combatmode" : {_entity setVariable [QPVAR(combatMode),_value,true]};
 		case "lights" : {_entity setVariable [QPVAR(lights),_value,true]};

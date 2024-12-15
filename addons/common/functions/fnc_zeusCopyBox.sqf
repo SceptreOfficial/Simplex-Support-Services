@@ -1,6 +1,6 @@
 #include "..\script_component.hpp"
-#include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 #include "\a3\ui_f\hpp\definedikcodes.inc"
+#define IDD_RSCDISPLAYCURATOR 312
 
 disableSerialization;
 params [["_text","",[""]]];
@@ -18,8 +18,8 @@ _container ctrlSetBackgroundColor [0,0,0,0];
 _container ctrlSetPosition [0,0,safeZoneWAbs,safeZoneH];
 _container ctrlCommit 0;
 
-private _posX = (safezoneWAbs / 2) - 0.5;
-private _posY = (safezoneH / 2) - 0.5;
+private _posX = (safeZoneWAbs / 2) - 0.5;
+private _posY = (safeZoneH / 2) - 0.5;
 
 private _editbox = _display ctrlCreate ["RscEditMulti",-1,_container];
 _editbox ctrlSetBackgroundColor [0,0,0,1];

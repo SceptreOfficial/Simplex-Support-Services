@@ -31,8 +31,8 @@ group _vehicle setVariable [QGVAR(flybyHold),true,true];
 		NOTIFY(_entity,LSTRING(notifyAirdropComplete));
 
 		private _group = group _vehicle;
-		[_group,currentWaypoint _group] setWaypointPosition [ASLtoAGL _startPosASL,0];
-		[_group,currentWaypoint _group + 1] setWaypointPosition [ASLtoAGL _startPosASL,0];
+		[_group,currentWaypoint _group] setWaypointPosition [ASLToAGL _startPosASL,0];
+		[_group,currentWaypoint _group + 1] setWaypointPosition [ASLToAGL _startPosASL,0];
 		_group setVariable [QGVAR(flybyHold),nil,true];
 	};
 
@@ -74,12 +74,12 @@ group _vehicle setVariable [QGVAR(flybyHold),true,true];
 
 		_selection # 0 set [7,_group];
 
-		//_object = _group createUnit [_objectClass,ASLtoAGL _spawnPosASL,[],0,"NONE"];
+		//_object = _group createUnit [_objectClass,ASLToAGL _spawnPosASL,[],0,"NONE"];
 		_object = _group createUnit [_objectClass,[0,0,0],[],0,"CAN_COLLIDE"];
 
 		[EFUNC(common,paradropUnit),[_object,_entity getVariable [QPVAR(openAltitudeAI),200],""]] call CBA_fnc_execNextFrame;
 	} else {
-		//_object = createVehicle [_objectClass,ASLtoAGL _spawnPosASL,[],0,"NONE"];
+		//_object = createVehicle [_objectClass,ASLToAGL _spawnPosASL,[],0,"NONE"];
 		_object = _objectClass createVehicle [0,0,0];
 
 		[EFUNC(common,paradropObject),[_object,_entity getVariable [QPVAR(openAltitudeObjects),-1],"",_signals]] call CBA_fnc_execNextFrame;

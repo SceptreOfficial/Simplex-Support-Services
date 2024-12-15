@@ -7,7 +7,7 @@ uiNamespace setVariable [
 ];
 
 // Smoke and flare color references
-private _cfgAmmo = configfile >> "CfgAmmo";
+private _cfgAmmo = configFile >> "CfgAmmo";
 private _smokeColors = [[[1,1,1],"WHITE"],[[0,0,0],"BLACK"]];
 private _flareColors = [
 	[[0.5,0.5,0.5],"WHITE"],

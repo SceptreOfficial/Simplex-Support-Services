@@ -81,7 +81,7 @@ if (_ejections isNotEqualTo []) then {
 	if (_entity getVariable QPVAR(unloadAltitude) > 0) then {
 		[
 			_vehicle,
-			[_vehicle,ATLtoASL (_posASL getPos [sizeOf typeOf _object,random 360]),"FASTROPE",_entity getVariable QPVAR(unloadAltitude)] call EFUNC(common,surfacePosASL),
+			[_vehicle,ATLToASL (_posASL getPos [sizeOf typeOf _object,random 360]),"FASTROPE",_entity getVariable QPVAR(unloadAltitude)] call EFUNC(common,surfacePosASL),
 			[-1],
 			(getPos _vehicle # 2) max 50,
 			400,
@@ -100,7 +100,7 @@ if (_ejections isNotEqualTo []) then {
 	} else {
 		[
 			_vehicle,
-			[_vehicle,ATLtoASL (_posASL getPos [sizeOf typeOf _object + sizeOf typeOf _vehicle,random 360]),"LAND"] call EFUNC(common,surfacePosASL),
+			[_vehicle,ATLToASL (_posASL getPos [sizeOf typeOf _object + sizeOf typeOf _vehicle,random 360]),"LAND"] call EFUNC(common,surfacePosASL),
 			[-1],
 			(getPos _vehicle # 2) max 50,
 			100,

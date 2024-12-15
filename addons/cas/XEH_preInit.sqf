@@ -1,8 +1,8 @@
 #include "script_component.hpp"
 ADDON = false;
 #include "XEH_PREP.hpp"
-#include "\a3\3den\ui\resincl.inc"
 #include "initSettings.inc.sqf"
+#define IDD_DISPLAY3DEN 313
 
 if (isServer && is3DEN) then {
 	//[QEGVAR(common,ConnectionChanged3DEN),FUNC(syncAttributes)] call CBA_fnc_addEventHandler;
@@ -82,7 +82,7 @@ if (isServer) then {
 
 			private _group = group _vehicle;
 			private _wpIndex = currentWaypoint _group;
-			private _pos = ASLtoAGL _egressPosASL;
+			private _pos = ASLToAGL _egressPosASL;
 
 			[_group,_wpIndex] setWaypointPosition [_pos,0];
 			[_group,_wpIndex + 1] setWaypointPosition [_pos,0];

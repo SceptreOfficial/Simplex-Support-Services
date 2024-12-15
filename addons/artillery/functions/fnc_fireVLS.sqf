@@ -116,7 +116,7 @@ private _canFire = switch _targeting do {
 		_height = _height max 1;
 
 		private _spacing = (_height / _rounds) * 2;
-		_target = ATLtoASL (_vehicle getVariable [QGVAR(creepingTarget),_target getPos [_height - _spacing/2,_dir - 180]]);
+		_target = ATLToASL (_vehicle getVariable [QGVAR(creepingTarget),_target getPos [_height - _spacing/2,_dir - 180]]);
 		_vehicle setVariable [QGVAR(creepingTarget),_target getPos [_spacing,_dir]];
 		
 		if (_target distance _vehicle > 50) exitWith {true};
@@ -152,7 +152,7 @@ if (!_canFire) exitWith {
 	false
 };
 
-private _maxSpeed = getNumber (configfile >> "CfgAmmo" >> getText (configfile >> "CfgMagazines" >> _magazine >> "ammo") >> "maxSpeed");
+private _maxSpeed = getNumber (configFile >> "CfgAmmo" >> getText (configFile >> "CfgMagazines" >> _magazine >> "ammo") >> "maxSpeed");
 private _ETA = round (10 + (((_target distance _vehicle) - 900) max 0) / (0.94 * _maxSpeed));
 private _reloadTime = getNumber (configFile >> "cfgWeapons" >> _weapon >> "reloadTime");
 

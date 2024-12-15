@@ -1,5 +1,5 @@
 #include "..\script_component.hpp"
-#include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
+#define IDD_RSCDISPLAYCURATOR 312
 
 params [["_vehicle",objNull],["_unit",objNull],["_turret",[]],["_camera",""]];
 

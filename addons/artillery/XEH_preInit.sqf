@@ -155,11 +155,11 @@ if (isServer) then {
 
 			private _group = _entity getVariable [QPVAR(group),grpNull];
 
-			private _waypoint1 = _group addWaypoint [ASLtoAGL _posASL,0];
+			private _waypoint1 = _group addWaypoint [ASLToAGL _posASL,0];
 			_waypoint1 setWaypointType "MOVE";
 			_waypoint1 setWaypointPosition [_posASL,-1];
 			_waypoint1 setWaypointFormation "COLUMN";
-			private _waypoint2 = _group addWaypoint [ASLtoAGL _posASL,0];
+			private _waypoint2 = _group addWaypoint [ASLToAGL _posASL,0];
 			_waypoint2 setWaypointType "SCRIPTED";
 			_waypoint2 setWaypointScript format ["%1 %2",QPATHTOF(functions\fnc_wpRelocate.sqf),[_posASL]];
 			_waypoint2 setWaypointPosition [_posASL,-1];

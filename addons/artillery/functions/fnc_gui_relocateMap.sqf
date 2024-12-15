@@ -9,7 +9,7 @@ if (GVAR(manualInput) || _ctrlMap getVariable [QGVAR(viaGrid),false]) exitWith {
 private _display = ctrlParent _ctrlMap;
 private _ctrlRelocateGroup = _display displayCtrl IDC_INSTRUCTIONS_GROUP controlsGroupCtrl IDC_RELOCATE_GROUP;
 
-private _posASL = AGLtoASL (_value param [0,[0,0,0]]);
+private _posASL = AGLToASL (_value param [0,[0,0,0]]);
 GVAR(relocatePosASL) = _posASL;
 
 [_posASL] call EFUNC(common,getMapGridFromPos) params ["_easting","_northing"];

@@ -53,8 +53,8 @@ private _ctrlGroup = _display displayCtrl 2;
 private _controls = [];
 
 _dialogSize params ["_sizeW","_sizeH"];
-private _posX = ((safezoneXAbs + (safezoneWAbs / 2)) - (GD_W(_sizeW) / 2)) max safeZoneX;
-private _posY = ((safezoneY + (safezoneH / 2)) - (GD_H(_sizeH) / 2)) max safeZoneY;
+private _posX = ((safeZoneXAbs + (safeZoneWAbs / 2)) - (GD_W(_sizeW) / 2)) max safeZoneX;
+private _posY = ((safeZoneY + (safeZoneH / 2)) - (GD_H(_sizeH) / 2)) max safeZoneY;
 
 // Dummy control because listNbox makes first control disappear for some reason
 private _dummy = _display ctrlCreate ["RscText",-1,_ctrlGroup];

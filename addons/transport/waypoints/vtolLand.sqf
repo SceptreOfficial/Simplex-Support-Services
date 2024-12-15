@@ -37,7 +37,7 @@ waitUntil {
 
 [
 	_vehicle,
-	[_vehicle,ATLtoASL waypointPosition [_group,currentWaypoint _group],"LAND"] call EFUNC(common,surfacePosASL),
+	[_vehicle,ATLToASL waypointPosition [_group,currentWaypoint _group],"LAND"] call EFUNC(common,surfacePosASL),
 	[_endDir],
 	nil,
 	_approach,

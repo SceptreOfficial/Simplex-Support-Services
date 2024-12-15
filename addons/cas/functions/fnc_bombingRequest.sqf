@@ -126,7 +126,7 @@ _entity setVariable [QPVAR(cooldownTimer),_entity getVariable [QPVAR(cooldown),0
 	_wp1 setWaypointType "MOVE";
 	_wp1 setWaypointDescription QGVAR(bombingIngress);
 
-	private _wp2 = _group addWaypoint [ASLtoAGL _egressPos,0];
+	private _wp2 = _group addWaypoint [ASLToAGL _egressPos,0];
 	_wp2 setWaypointType "MOVE";
 	_wp2 setWaypointDescription QGVAR(bombingEgress);
 

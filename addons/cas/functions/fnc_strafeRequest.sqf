@@ -66,7 +66,7 @@ _endPos set [2,_altitude];
 		_vehicle,
 		_pylonConfig,
 		_entity getVariable [QPVAR(infiniteAmmo),false],
-		AGLtoASL _startPos # 2,
+		AGLToASL _startPos # 2,
 		[_aimRange,-1] select (_aimRange < 600)
 	] call EFUNC(common,strafeDistance) params ["","","_prepDist"];
 
@@ -124,7 +124,7 @@ _endPos set [2,_altitude];
 		};
 	}];
 
-	_vehicle setVariable [QGVAR(strafeData),[_player,_entity,_request,AGLtoASL _startPos,_endPos],true];
+	_vehicle setVariable [QGVAR(strafeData),[_player,_entity,_request,AGLToASL _startPos,_endPos],true];
 	_vehicle setVariable [QEGVAR(common,strafeCountermeasures),_entity getVariable [QPVAR(countermeasures),true],true];
 
 	[

@@ -20,7 +20,7 @@ if (_type isEqualTo "MAP") exitWith {_pos};
 private _enemies = [];
 private _friendlies = [];
 private _target = +_pos;
-_pos = ASLtoAGL _pos;
+_pos = ASLToAGL _pos;
 
 switch _type do {
 	case "LASER" : {

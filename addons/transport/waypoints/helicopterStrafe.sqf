@@ -37,7 +37,7 @@ if (driver _vehicle call EFUNC(common,isRemoteControlled)) exitWith {true};
 
 [
 	_vehicle,
-	[_attachedObject,ATLtoASL waypointPosition [_group,currentWaypoint _group]] select (isNull _attachedObject),
+	[_attachedObject,ATLToASL waypointPosition [_group,currentWaypoint _group]] select (isNull _attachedObject),
 	_pylonConfig,
 	_entity getVariable [QPVAR(infiniteStrafeAmmo),false],
 	_spread,

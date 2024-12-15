@@ -123,7 +123,7 @@ private _instruction = switch _targeting do {
 		_height = _height max 1;
 
 		private _spacing = (_height / _rounds) * 2;
-		_target = ATLtoASL (_vehicle getVariable [QGVAR(creepingTarget),_target getPos [_height - _spacing/2,_dir - 180]]);
+		_target = ATLToASL (_vehicle getVariable [QGVAR(creepingTarget),_target getPos [_height - _spacing/2,_dir - 180]]);
 		_vehicle setVariable [QGVAR(creepingTarget),_target getPos [_spacing,_dir]];
 		private _instruction = [_vehicle,_target,_magazine,true] call FUNC(calculate);
 

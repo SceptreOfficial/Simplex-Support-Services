@@ -49,7 +49,7 @@ _ejections append (SECONDARY_CREW(_vehicle) select {(_allPlayers && isPlayer _x)
 
 [
 	_vehicle,
-	[_vehicle,ATLtoASL waypointPosition [_group,currentWaypoint _group],"SEA",_hoverHeight] call EFUNC(common,surfacePosASL),
+	[_vehicle,ATLToASL waypointPosition [_group,currentWaypoint _group],"SEA",_hoverHeight] call EFUNC(common,surfacePosASL),
 	[_endDir,1.5],
 	nil,
 	_approach,

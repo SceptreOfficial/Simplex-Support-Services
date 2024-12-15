@@ -37,7 +37,7 @@ if (_sources isEqualTo []) then {
 		//_helper setPosWorld _ixStart;
 		//private _helper = "Sign_Sphere25cm_F" createVehicle [0,0,0];
 		//_helper setPosWorld _ixEnd;
-		//[{drawLine3D _this; false},{},[ASLtoAGL _ixStart,ASLToAGL _ixEnd,RGBA_RED],10] call CBA_fnc_waitUntilAndExecute;
+		//[{drawLine3D _this; false},{},[ASLToAGL _ixStart,ASLToAGL _ixEnd,RGBA_RED],10] call CBA_fnc_waitUntilAndExecute;
 
 		private _ix = lineIntersectsSurfaces [_ixStart,_ixEnd,objNull,objNull,true,-1,"GEOM","FIRE",false];
 		private _index = _ix findIf {_x # 2 == _vehicle};

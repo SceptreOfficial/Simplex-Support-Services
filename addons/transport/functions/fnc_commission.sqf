@@ -55,7 +55,7 @@ switch (_entity getVariable QPVAR(supportType)) do {
 			["altitudeASL",100]
 		]],1] call CBA_fnc_waitAndExecute;
 
-		deleteVehicle (_vehicle getVariable ["ace_fastroping_FRIES",objnull]);
+		deleteVehicle (_vehicle getVariable ["ace_fastroping_FRIES",objNull]);
 	};
 	case "VTOL" : {
 		[FUNC(changeBehavior),[_entity,[

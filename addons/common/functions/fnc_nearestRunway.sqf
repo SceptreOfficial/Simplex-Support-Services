@@ -8,7 +8,7 @@ if (_source isEqualType objNull) then {
 	_source = getPosASL _source;
 };
 
-private _worldCfg = configfile >> "CfgWorlds" >> worldName;
+private _worldCfg = configFile >> "CfgWorlds" >> worldName;
 private _airportData = [[getArray (_worldCfg >> "ilsPosition"),getArray (_worldCfg >> "ilsTaxiIn"),getArray (_worldCfg >> "ilsDirection")]];
 private _secondaryData = "true" configClasses (_worldCfg >> "SecondaryAirports");
 
@@ -29,4 +29,4 @@ if !(_ilsTaxiIn isEqualTo []) then {
 
 _position set [2,0];
 
-[AGLtoASL _position,((_ilsDirection # 0) atan2 (_ilsDirection # 2)) - 180,asin (_ilsDirection # 1)]
+[AGLToASL _position,((_ilsDirection # 0) atan2 (_ilsDirection # 2)) - 180,asin (_ilsDirection # 1)]

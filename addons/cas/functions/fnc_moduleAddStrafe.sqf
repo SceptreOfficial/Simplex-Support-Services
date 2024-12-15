@@ -1,5 +1,5 @@
 #include "..\script_component.hpp"
-#include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
+#define IDD_RSCDISPLAYCURATOR 312
 #define LVAR(N) _logic getVariable QUOTE(N)
 
 params ["_logic","_synced"];

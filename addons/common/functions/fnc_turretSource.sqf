@@ -5,7 +5,7 @@ params ["_vehicle","_turret",["_returnWorld",true]];
 private _cache = _vehicle getVariable [QGVAR(turretSources),createHashMap];
 private _gunEnd = _cache getOrDefault [_turret,""];
 
-if (_gunEnd isEqualto "") then {
+if (_gunEnd isEqualTo "") then {
 	private _cfg = [_vehicle,_turret] call CBA_fnc_getTurret;
 	private _gunBeg = _vehicle selectionPosition getText (_cfg >> "gunBeg");
 	_gunEnd = _vehicle selectionPosition getText (_cfg >> "gunEnd");
@@ -17,7 +17,7 @@ if (_gunEnd isEqualto "") then {
 		
 		private _vehicleConfig = configOf _vehicle;
 		
-		if (((getNumber (_vehicleConfig >> "isUAV")) == 1) && {_turret isEqualto [0]}) then {
+		if (((getNumber (_vehicleConfig >> "isUAV")) == 1) && {_turret isEqualTo [0]}) then {
 			//_gunBeg = _vehicle selectionPosition getText (_vehicleConfig >> "uavCameraGunnerDir");
 			_gunEnd = _vehicle selectionPosition getText (_vehicleConfig >> "uavCameraGunnerPos");
 

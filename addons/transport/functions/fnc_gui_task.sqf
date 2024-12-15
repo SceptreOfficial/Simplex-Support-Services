@@ -134,7 +134,7 @@ switch _task do {
 
 			lnbClear _ctrlList;
 			
-			private _pos = ASLtoAGL (GVAR(plan) # GVAR(planIndex) get "posASL");
+			private _pos = ASLToAGL (GVAR(plan) # GVAR(planIndex) get "posASL");
 			private _radius = GVAR(plan) # GVAR(planIndex) getOrDefault ["searchRadius",500 min GVAR(maxSearchRadius)];
 
 			{
@@ -143,7 +143,7 @@ switch _task do {
 					{[_side,side _x] call BIS_fnc_sideIsFriendly} &&
 					{!(_x isKindOf "Animal")}
 				) then {
-					private _row = _ctrlList lnbAddRow ["",getText (configOf _x >> "displayName"),groupID group _x];
+					private _row = _ctrlList lnbAddRow ["",getText (configOf _x >> "displayName"),groupId group _x];
 					_ctrlList lnbSetTextRight [[_row,1],["",name _x] select (_x isKindOf "CAManBase")];
 					_ctrlList lnbSetPicture [[_row,0],_x call EFUNC(common,getIcon)];
 					_ctrlList setVariable [str _row,_x];
@@ -374,7 +374,7 @@ switch _task do {
 				private _isPlayer = isPlayer _x;
 				
 				if (alive _x && {(_isPlayer && !_players) || (!_isPlayer && !_ai)}) then {
-					private _row = _ctrlList lnbAddRow ["",name _x,groupID group _x,["AI","PLAYER"] select _isPlayer];
+					private _row = _ctrlList lnbAddRow ["",name _x,groupId group _x,["AI","PLAYER"] select _isPlayer];
 					_ctrlList lnbSetPicture [[_row,0],[ICON_UNCHECKED2,ICON_CHECKED2] select (_x in _selected)];
 					_ctrlList setVariable [str _row,_x];
 					_items pushBack _x;
@@ -529,7 +529,7 @@ switch _task do {
 				private _isPlayer = isPlayer _x;
 				
 				if (alive _x && {(_isPlayer && !_players) || (!_isPlayer && !_ai)}) then {
-					private _row = _ctrlList lnbAddRow ["",name _x,groupID group _x,["AI","PLAYER"] select _isPlayer];
+					private _row = _ctrlList lnbAddRow ["",name _x,groupId group _x,["AI","PLAYER"] select _isPlayer];
 					_ctrlList lnbSetPicture [[_row,0],[ICON_UNCHECKED2,ICON_CHECKED2] select (_x in _selected)];
 					_ctrlList setVariable [str _row,_x];
 					_items pushBack _x;
@@ -706,7 +706,7 @@ switch _task do {
 				private _isPlayer = isPlayer _x;
 				
 				if (alive _x && {(_isPlayer && !_players) || (!_isPlayer && !_ai)}) then {
-					private _row = _ctrlList lnbAddRow ["",name _x,groupID group _x,["AI","PLAYER"] select _isPlayer];
+					private _row = _ctrlList lnbAddRow ["",name _x,groupId group _x,["AI","PLAYER"] select _isPlayer];
 					_ctrlList lnbSetPicture [[_row,0],[ICON_UNCHECKED2,ICON_CHECKED2] select (_x in _selected)];
 					_ctrlList setVariable [str _row,_x];
 					_items pushBack _x;
@@ -843,7 +843,7 @@ switch _task do {
 				private _isPlayer = isPlayer _x;
 				
 				if (alive _x && {(_isPlayer && !_players) || (!_isPlayer && !_ai)}) then {
-					private _row = _ctrlList lnbAddRow ["",name _x,groupID group _x,["AI","PLAYER"] select _isPlayer];
+					private _row = _ctrlList lnbAddRow ["",name _x,groupId group _x,["AI","PLAYER"] select _isPlayer];
 					_ctrlList lnbSetPicture [[_row,0],[ICON_UNCHECKED2,ICON_CHECKED2] select (_x in _selected)];
 					_ctrlList setVariable [str _row,_x];
 					_items pushBack _x;

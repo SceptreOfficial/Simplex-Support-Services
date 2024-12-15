@@ -51,7 +51,7 @@ if (_magazine isEqualTo "") exitWith {-1};
 // Handle VLS
 if (_vehicle isKindOf "B_Ship_MRLS_01_base_F" || _vehicle isKindOf "OPTRE_archer_system_base") exitWith {
 	// ETA formula credit: Kex (from ZEN)
-	private _maxSpeed = getNumber (configfile >> "CfgAmmo" >> getText (configfile >> "CfgMagazines" >> _magazine >> "ammo") >> "maxSpeed");
+	private _maxSpeed = getNumber (configFile >> "CfgAmmo" >> getText (configFile >> "CfgMagazines" >> _magazine >> "ammo") >> "maxSpeed");
 	round (10 + (((_target distance _vehicle) - 900) max 0) / (0.94 * _maxSpeed))
 };
 

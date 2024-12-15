@@ -136,7 +136,7 @@ _endPos set [2,_altitude];
 		};
 	}];
 
-	_vehicle setVariable [QGVAR(loiterData),[_player,_entity,_request,AGLtoASL _startPos,_endPos],true];
+	_vehicle setVariable [QGVAR(loiterData),[_player,_entity,_request,AGLToASL _startPos,_endPos],true];
 	_vehicle setVariable [QGVAR(loiterTargetTick),nil,true];
 
 	// Loiter targeting

@@ -1,5 +1,6 @@
 #include "..\script_component.hpp"
-#include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
+#define IDD_RSCDISPLAYCURATOR 312
+#define IDC_RSCDISPLAYCURATOR_FEEDBACKMESSAGE 15512
 
 disableSerialization;
 params [["_message","<NO MESSAGE>",[""]],["_sound","RscDisplayCurator_error01",[""]],["_duration",1,[0]]];

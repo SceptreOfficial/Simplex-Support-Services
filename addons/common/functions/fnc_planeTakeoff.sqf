@@ -20,7 +20,7 @@ _vehicle call EFUNC(common,nearestRunway) params ["_runwayPosASL","_runwayDir"];
 
 //DEBUG_3("""%1"" Takeoff [%2,%3]",_entity getVariable QPVAR(callsign),_runwayPosASL,_runwayDir);
 
-private _offsetASL = AGLtoASL (_runwayPosASL getPos [50,_runwayDir - 180]);
+private _offsetASL = AGLToASL (_runwayPosASL getPos [50,_runwayDir - 180]);
 private _ix = lineIntersectsSurfaces [_runwayPosASL vectorAdd [0,0,2],_offsetASL vectorAdd [0,0,1],_vehicle,objNull,true,1,"GEOM","FIRE"];
 if (_ix isNotEqualTo []) then {
 	_offsetASL = _ix # 0 # 0;

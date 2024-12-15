@@ -51,7 +51,7 @@ if (_ejections isEqualTo []) exitWith {
 
 [
 	_vehicle,
-	[_vehicle,ATLtoASL waypointPosition [_group,currentWaypoint _group],"FASTROPE",_hoverHeight] call EFUNC(common,surfacePosASL),
+	[_vehicle,ATLToASL waypointPosition [_group,currentWaypoint _group],"FASTROPE",_hoverHeight] call EFUNC(common,surfacePosASL),
 	[_endDir],
 	nil,
 	_approach,

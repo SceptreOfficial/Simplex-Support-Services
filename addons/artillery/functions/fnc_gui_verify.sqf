@@ -97,7 +97,7 @@ GVAR(coordinated) = _nearbyBatteries arrayIntersect GVAR(coordinated);
 			continue;
 		};
 
-		private _target = AGLtoASL (_x getPos [_center distance2D _target,_center getDir _target]);
+		private _target = AGLToASL (_x getPos [_center distance2D _target,_center getDir _target]);
 		[_x,_target,_magazines,true] call FUNC(canFire) params ["_canFire","_ETA"];
 		private _color = if (_canFire && !_busy) then {
 			_ETAs pushBack _ETA;
@@ -163,7 +163,7 @@ GVAR(coordinated) = _nearbyBatteries arrayIntersect GVAR(coordinated);
 		{
 			private _color = "ColorRed";
 			private _target = if (_isParallel) then {
-				AGLtoASL (_x getPos [_center distance2D _target,_center getDir _target])
+				AGLToASL (_x getPos [_center distance2D _target,_center getDir _target])
 			} else {
 				_target
 			};
