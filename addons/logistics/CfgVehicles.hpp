@@ -90,21 +90,18 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "'[]'";
 				control = "EditCodeMulti5";
-				validate = "expression";
 			};
 			class ItemInit : Default {
 				ATTRIBUTE(ItemInit);
 				typeName = "STRING";
 				defaultValue = "''";
 				control = "EditCodeMulti3";
-				validate = "expression";
 			};
 			class VehicleInit : Default {
 				EATTRIBUTE(common,VehicleInit);
 				typeName = "STRING";
 				defaultValue = "''";
 				control = "EditCodeMulti3";
-				validate = "expression";
 			};
 			FINAL_ATTRIBUTES;
 		};
@@ -196,21 +193,18 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "'[]'";
 				control = "EditCodeMulti5";
-				validate = "expression";
 			};
 			class ItemInit : Default {
 				ATTRIBUTE(ItemInit);
 				typeName = "STRING";
 				defaultValue = "''";
 				control = "EditCodeMulti3";
-				validate = "expression";
 			};
 			class VehicleInit : Default {
 				EATTRIBUTE(common,VehicleInit);
 				typeName = "STRING";
 				defaultValue = "''";
 				control = "EditCodeMulti3";
-				validate = "expression";
 			};
 			FINAL_ATTRIBUTES;
 		};
@@ -255,14 +249,12 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "'[]'";
 				control = "EditCodeMulti5";
-				validate = "expression";
 			};
 			class ItemInit : Default {
 				ATTRIBUTE(ItemInit);
 				typeName = "STRING";
 				defaultValue = "''";
 				control = "EditCodeMulti3";
-				validate = "expression";
 			};
 			FINAL_ATTRIBUTES;
 		};
@@ -343,21 +335,18 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "'false'";
 				control = "EditCodeMulti3";
-				validate = "expression";
 			};
 			class LoadEval : Default {
 				ATTRIBUTE(LoadEval);
 				typeName = "STRING";
 				defaultValue = "'1'";
 				control = "EditCodeMulti3";
-				validate = "expression";
 			};
 			class ItemInit : Default {
 				ATTRIBUTE(ItemInit);
 				typeName = "STRING";
 				defaultValue = "''";
 				control = "EditCodeMulti3";
-				validate = "expression";
 			};
 
 			class ModuleDescription: ModuleDescription {};

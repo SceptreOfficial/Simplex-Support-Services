@@ -273,14 +273,12 @@ class AccessCondition : Default {\
 	typeName = "STRING";\
 	defaultValue = "'true'";\
 	control = "EditCodeMulti3";\
-	validate = "expression";\
 };\
 class RequestCondition : Default {\
 	EATTRIBUTE(common,RequestCondition);\
 	typeName = "STRING";\
 	defaultValue = "'true'";\
 	control = "EditCodeMulti3";\
-	validate = "expression";\
 };\
 class PVAR(auth) : Default {\
 	displayName = QPVAR(auth);\
