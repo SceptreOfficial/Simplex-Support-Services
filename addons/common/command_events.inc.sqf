@@ -61,7 +61,7 @@ if (isServer) then {
 
 [QGVAR(flyInHeight),{
 	params ["_vehicle","_height"];
-	_vehicle flyInHeight _height;
+	_vehicle flyInHeight [_height,true];
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(flyInHeightASL),{
