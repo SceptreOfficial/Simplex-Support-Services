@@ -23,6 +23,7 @@ if (isNil {_entity getVariable QPVAR(vehicles)}) then {
 	{deleteWaypoint [_group,0]} forEach (waypoints _group);
 	private _wp = _group addWaypoint [_entity getVariable QPVAR(base),-1,0];
 	_wp setWaypointType "MOVE";
+	_wp setWaypointDescription "RTB";
 
 	[_entity,true,"RESPAWN",[LSTRING(statusRespawn),RGBA_RED]] call FUNC(setStatus);
 	
@@ -88,11 +89,16 @@ DEBUG_2("%1: Vehicle respawning in %2s",_entity getVariable QPVAR(callsign),_res
 		([_vehicle] + (_entity getVariable [QPVAR(vehicleCustomization),_customization])) call BIS_fnc_initVehicle;
 		[_entity,_vehicle] call FUNC(restoreCrew);
 
+		_vehicle setVariable [QPVAR(base),_base,true];
+		_vehicle setVariable [QPVAR(baseNormal),_normal,true];
+
+		[_vehicle,_entity] call EFUNC(common,commission);
+
 		private _vehicles = _entity getVariable QPVAR(vehicles);
 
 		if (isNil "_vehicles") then {
-			_entity setVariable [QPVAR(vehicle),_vehicle,true];
 			[_entity] call FUNC(setStatus);
+			_entity setVariable [QPVAR(vehicle),_vehicle,true];
 		} else {
 			if ({alive _x} count _vehicles == 0) then {
 				[_entity] call FUNC(setStatus);
@@ -100,11 +106,6 @@ DEBUG_2("%1: Vehicle respawning in %2s",_entity getVariable QPVAR(callsign),_res
 			
 			_entity setVariable [QPVAR(vehicles),_vehicles + [_vehicle],true];
 		};
-
-		_vehicle setVariable [QPVAR(base),_base,true];
-		_vehicle setVariable [QPVAR(baseNormal),_normal,true];
-
-		[_vehicle,_entity] call EFUNC(common,commission);
 
 		NOTIFY(_entity,LSTRING(VehicleReplacementArrived));
 
