@@ -1035,6 +1035,9 @@
 			<French>Aucune cible appropriée trouvée. Frappe aérienne annulée.</French>
 			<Chinesesimp>没有找到合适的目标。空袭失败。</Chinesesimp>
 		</Key>
+		<Key ID="STR_sss_common_strafeDangerClose">
+			<English>No targets in safe engagement range from friendlies. Airstrike aborted.</English>
+		</Key>
 		<Key ID="STR_sss_common_noServices">
 			<English>SSS: NO SERVICES AVAILABLE</English>
 			<French>SSS : AUCUN SERVICE DISPONIBLE</French>
