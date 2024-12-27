@@ -29,7 +29,7 @@ if (!isNull _group) then {
 	[QGVAR(deleteGroupWhenEmpty),[_group,true],_group] call CBA_fnc_targetEvent;
 };
 
-private _vehicles = _entity getVariable [QPVAR(vehicles),[]];
+private _vehicles = _entity getVariable [QPVAR(vehicles),[]] + [_entity getVariable [QPVAR(vehicle),objNull]];
 
 if (OPTION(deleteVehicleOnEntityRemoval)) then {
 	{
