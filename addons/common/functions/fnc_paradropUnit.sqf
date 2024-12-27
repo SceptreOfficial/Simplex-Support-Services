@@ -58,6 +58,6 @@ if (isPlayer _unit) then {
 	
 	_this setVariable [QGVAR(paradropLoadout),nil];
 	[QGVAR(paradropUnitEnd),[_this]] call CBA_fnc_globalEvent;
-},_this] call CBA_fnc_waitUntilAndExecute;
+},_unit] call CBA_fnc_waitUntilAndExecute;
 
 [QGVAR(paradropUnitStart),[_unit]] call CBA_fnc_globalEvent;
