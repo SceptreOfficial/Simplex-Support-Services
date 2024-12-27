@@ -20,7 +20,7 @@ params ["_vehicle","_target","_magazine",["_sort",true,[false]]];
 _target = _target vectorAdd [0,0,-1]; // Compensate for slight overshoot in some cases
 private _initSpeed = getNumber (configFile >> "CfgMagazines" >> _magazine >> "initSpeed");
 private _G = GRAVITY;
-private _startASL = eyePos _vehicle;
+private _startASL = getPosWorld _vehicle;
 private _distance = _startASL distance2D _target;
 private _height = _target # 2 - _startASL # 2;
 private _fireOption = _vehicle getVariable QGVAR(fireOption);

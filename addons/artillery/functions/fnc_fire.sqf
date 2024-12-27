@@ -204,9 +204,9 @@ if !(_vehicle getVariable [QGVAR(velocityOverride),false]) then {
 	//};	
 };
 
-private _eyePos = eyePos _vehicle;
-private _aimPosASL = _eyePos getPos [400,_eyePos getDir _target];
-_aimPosASL set [2,_eyePos # 2 + tan _angle * 400];
+private _startASL = getPosWorld _vehicle;
+private _aimPosASL = _startASL getPos [600,_startASL getDir _target];
+_aimPosASL set [2,_startASL # 2 + tan _angle * 600];
 
 _gunner setVariable [QGVAR(aimPosATL),ASLToATL _aimPosASL];
 _gunner setVariable [QGVAR(aimPosASL),_aimPosASL];
@@ -234,7 +234,7 @@ _vehicle setVariable [QGVAR(aimTick),CBA_missionTime + 2];
 	}
 },{
 	[{_this setVariable [QGVAR(hold),nil]},_this # 1,0.15] call CBA_fnc_waitAndExecute;
-},[_vehicle,_gunner,_weapon,_eyePos vectorFromTo _aimPosASL],10,{
+},[_vehicle,_gunner,_weapon,_startASL vectorFromTo _aimPosASL],10,{
 	[{_this setVariable [QGVAR(hold),nil]},_this # 1,0.15] call CBA_fnc_waitAndExecute;
 }] call CBA_fnc_waitUntilAndExecute;
 
@@ -345,7 +345,7 @@ _gunner setVariable [QGVAR(EHID),[_gunner,"FiredMan",{
 
 	_gunner doWatch (_gunner getVariable QGVAR(aimPosATL));
 	_gunner lookAt (_gunner getVariable QGVAR(aimPosATL));
-	_vehicle lockCameraTo [_gunner getVariable QGVAR(aimPosASL),_vehicle unitTurret _gunner,false];
+	//_vehicle lockCameraTo [_gunner getVariable QGVAR(aimPosASL),_vehicle unitTurret _gunner,false];
 
 	if (_gunner getVariable [QGVAR(hold),false]) exitWith {};
 
