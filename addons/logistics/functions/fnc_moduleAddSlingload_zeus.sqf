@@ -42,6 +42,7 @@ if (_class isEqualTo "") then {
 		"_spawnDistance",
 		"_spawnDelay",
 		"_capacity",
+		"_fulfillment",
 		"_listFunction",
 		"_itemInit",
 		"_vehicleInit",
