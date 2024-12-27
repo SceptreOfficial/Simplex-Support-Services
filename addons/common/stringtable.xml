@@ -810,15 +810,25 @@
 			<French>Ferme l'interface graphique lorsque le bouton de confirmation est utilisé</French>
 			<Chinesesimp>使用确认按钮时关闭图形用户界面</Chinesesimp>
 		</Key>
-		<Key ID="STR_SSS_common_autoParachute_name">
-			<English>Automatic parachute</English>
-			<French>Parachute automatique</French>
-			<Chinesesimp>自动降落伞</Chinesesimp>
+		<Key ID="STR_SSS_common_parachuteEquip_name">
+			<English>Parachute: Auto-equip</English>
 		</Key>
-		<Key ID="STR_SSS_common_autoParachute_info">
-			<English>Opens parachute automatically when ejected via paradrop request</English>
+		<Key ID="STR_SSS_common_parachuteEquip_info">
+			<English>Equips a parachute backpack automatically on paradrop requests</English>
+		</Key>
+		<Key ID="STR_SSS_common_parachuteDeploy_name">
+			<English>Parachute: Auto-deploy</English>
+		</Key>
+		<Key ID="STR_SSS_common_parachuteDeploy_info">
+			<English>Opens parachute automatically on paradrop requests</English>
 			<French>Ouvre automatiquement le parachute lorsqu'il est éjecté via une demande de parachutage</French>
 			<Chinesesimp>通过跳伞请求时,自动弹出并打开降落伞</Chinesesimp>
+		</Key>
+		<Key ID="STR_SSS_common_parachuteClass_name">
+			<English>Parachute: Class</English>
+		</Key>
+		<Key ID="STR_SSS_common_parachuteClass_info">
+			<English>Class name of parachute backpack that will be equipped automatically</English>
 		</Key>
 		<Key ID="STR_SSS_common_terminalRequireAuth_name">
 			<English>Terminals: Require authentication</English>

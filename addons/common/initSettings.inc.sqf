@@ -151,12 +151,34 @@
 ] call CBA_fnc_addSetting;
 
 [
-	QOPTION(autoParachute),
+	QOPTION(parachuteEquip),
 	"CHECKBOX",
-	DESC(autoParachute),
+	DESC(parachuteEquip),
 	[ELSTRING(main,PREFIX),LSTRING(CategoryPreferences)],
 	true,
+	false,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QOPTION(parachuteDeploy),
+	"CHECKBOX",
+	DESC(parachuteDeploy),
+	[ELSTRING(main,PREFIX),LSTRING(CategoryPreferences)],
 	true,
+	false,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QOPTION(parachuteClass),
+	"EDITBOX",
+	DESC(parachuteClass),
+	[ELSTRING(main,PREFIX),LSTRING(CategoryPreferences)],
+	"B_Parachute",
+	false,
 	{},
 	false
 ] call CBA_fnc_addSetting;
