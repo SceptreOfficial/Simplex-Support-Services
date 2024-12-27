@@ -198,11 +198,11 @@
 // Debug
 
 [
-	QOPTION(debug),
+	QOPTION(debugGeneral),
 	"CHECKBOX",
-	DESC(debug),
+	DESC(debugGeneral),
 	[ELSTRING(main,PREFIX),LSTRING(CategoryDebug)],
-	true,
+	false,
 	true,
 	{},
 	false

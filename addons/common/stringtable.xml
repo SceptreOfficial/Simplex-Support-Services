@@ -875,12 +875,12 @@
 			<French>Menu d'interaction ACE</French>
 			<Chinesesimp>ACE 互动菜单</Chinesesimp>
 		</Key>
-		<Key ID="STR_SSS_common_debug_name">
+		<Key ID="STR_SSS_common_debugGeneral_name">
 			<English>Debug: General</English>
 			<French>Debug: Général</French>
 			<Chinesesimp>调试：一般</Chinesesimp>
 		</Key>
-		<Key ID="STR_SSS_common_debug_info">
+		<Key ID="STR_SSS_common_debugGeneral_info">
 			<English>Display general debug information</English>
 			<French>Afficher les informations générales de débogage</French>
 			<Chinesesimp>显示常规调试信息</Chinesesimp>
