@@ -182,7 +182,7 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 				_this # 0 set [11,CBA_missionTime + 1];
 				_search params ["_search","_searchRadius","_friendlyRange"];
 				private _target = [_target,side group _vehicle,_search,_searchRadius,_friendlyRange] call FUNC(targetSearch);
-				if (_target isEqualType objNull && {isNull _target}) exitWith {};
+				if (_target isEqualTo sideFriendly || _target isEqualType objNull && {isNull _target}) exitWith {};
 				NOTIFY(_vehicle,LSTRING(strafeTargetAcquired));
 				_vehicle setVariable [QGVAR(strafeTarget),_target];
 			};
@@ -262,10 +262,15 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 	if (isNil {_vehicle getVariable QGVAR(strafeTarget)}) then {
 		_search params ["_search","_searchRadius","_friendlyRange"];
 		_target = [_target,side group _vehicle,_search,_searchRadius,_friendlyRange] call FUNC(targetSearch);
-		if (_target isEqualType objNull && {isNull _target}) exitWith {};
+		if (_target isEqualTo sideFriendly || _target isEqualType objNull && {isNull _target}) exitWith {};
 		NOTIFY(_vehicle,LSTRING(strafeTargetAcquired));
 	} else {
 		_target = _vehicle getVariable QGVAR(strafeTarget);
+	};
+
+	if (_target isEqualTo sideFriendly) exitWith {
+		NOTIFY(_vehicle,LSTRING(strafeDangerClose));
+		false call FUNC(strafeCleanup);
 	};
 
 	if (_target isEqualType objNull && {isNull _target}) exitWith {

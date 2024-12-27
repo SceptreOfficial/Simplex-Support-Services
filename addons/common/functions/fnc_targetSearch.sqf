@@ -1,13 +1,4 @@
 #include "..\script_component.hpp"
-#define FRIENDLY_SEARCH(CANDIDATES) if (_friendlyRange > 0) then { \
-	private "_obj"; \
-	_target = CANDIDATES param [CANDIDATES findIf { \
-		_obj = _x; \
-		_friendlies findIf {_obj distance _x < _friendlyRange} < 0 \
-	},objNull]; \
-} else { \
-	_target = selectRandom CANDIDATES; \
-}
 
 params ["_pos","_friendlySide","_search",["_radius",500],["_friendlyRange",0]];
 
@@ -21,6 +12,18 @@ private _enemies = [];
 private _friendlies = [];
 private _target = +_pos;
 _pos = ASLToAGL _pos;
+
+private _fnc_friendlySearch = {
+	if (_friendlyRange > 0) then {
+		private "_obj";
+		_target = _this param [_this findIf {
+			_obj = _x;
+			_friendlies findIf {_obj distance _x < _friendlyRange} < 0
+		},sideFriendly];
+	} else {
+		_target = selectRandom _this;
+	}
+};
 
 switch _type do {
 	case "LASER" : {
@@ -48,7 +51,7 @@ switch _type do {
 
 		if (_lasers isEqualTo []) exitWith {_target = objNull};
 
-		FRIENDLY_SEARCH(_lasers);
+		_lasers call _fnc_friendlySearch;
 
 		if (_typeDetail isNotEqualTo "MATCH") exitWith {};
 		
@@ -81,7 +84,7 @@ switch _type do {
 			};
 		} forEach (_pos nearEntities _radius);
 		
-		FRIENDLY_SEARCH(_signals);
+		_signals call _fnc_friendlySearch;
 
 		if (!isNull _target) then {
 			_target = getPosASL _target;
@@ -121,7 +124,7 @@ switch _type do {
 
 		if (_enemies isEqualTo []) exitWith {_target = objNull};
 
-		FRIENDLY_SEARCH(_enemies);
+		_enemies call _fnc_friendlySearch;
 	};
 };
 
