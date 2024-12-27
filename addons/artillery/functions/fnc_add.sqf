@@ -98,9 +98,9 @@ if (_icon isEqualTo "") then {
 // Make sure there is a sheaf type available
 _sheafTypes = SHEAF_TYPES arrayIntersect (_sheafTypes apply {toUpper _x});
 
-if (_sheafTypes isEqualTo []) exitWith {
-	LOG_ERROR("NO VALID SHEAF TYPES");
-	objNull
+if (_sheafTypes isEqualTo []) then {
+	LOG_WARNING("NO SHEAF TYPES SELECTED");
+	_sheafTypes = ["NONE"];
 };
 
 // Register

@@ -4,6 +4,7 @@ ADDON = false;
 #include "initSettings.inc.sqf"
 
 GVAR(sheafNames) = createHashMapFromArray [
+	["NONE","N/A"],
 	["CONVERGED",LLSTRING(Converged)],
 	["PARALLEL",LLSTRING(Parallel)],
 	["BOX",LLSTRING(Box)],

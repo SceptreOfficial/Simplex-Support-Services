@@ -44,7 +44,7 @@ private _ctrlTaskGroup = _ctrlGroup controlsGroupCtrl IDC_TASK_GROUP;
 (_ctrlTaskGroup controlsGroupCtrl IDC_GRID_E) ctrlSetText _easting;
 (_ctrlTaskGroup controlsGroupCtrl IDC_GRID_N) ctrlSetText _northing;
 
-if (_sheaf in ["CONVERGED","PARALLEL"]) then {
+if (_sheaf in ["CONVERGED","PARALLEL","NONE"]) then {
 	[_display displayCtrl IDC_MAP,[[[_area # 0]],[],[],0]] call EFUNC(sdf,setValueData);
 } else {
 	[_display displayCtrl IDC_MAP,[[],[_area],[],1]] call EFUNC(sdf,setValueData);

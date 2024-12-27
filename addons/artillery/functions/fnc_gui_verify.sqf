@@ -29,6 +29,10 @@ if (GVAR(plan) isEqualTo []) exitWith {
 	_ctrlConfirm ctrlEnable false;
 };
 
+if ((_entity getVariable QPVAR(sheafTypes)) isEqualTo ["NONE"]) exitWith {
+	_ctrlConfirm ctrlEnable false;
+};
+
 private _ctrlAmmunition = (_ctrlGroup controlsGroupCtrl IDC_TASK_GROUP) controlsGroupCtrl IDC_AMMUNITION;
 private _ctrlETA = (_ctrlGroup controlsGroupCtrl IDC_TASK_GROUP) controlsGroupCtrl IDC_ETA;
 private _ctrlPlan = _ctrlGroup controlsGroupCtrl IDC_PLAN_GROUP controlsGroupCtrl IDC_PLAN;

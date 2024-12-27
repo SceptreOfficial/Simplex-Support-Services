@@ -62,10 +62,12 @@ lnbClear _ctrlAmmunition;
 // Populate planner
 call FUNC(gui_planRefresh);
 
+private _ctrlPlanGroup = _ctrlGroup controlsGroupCtrl IDC_PLAN_GROUP;
+
 if (GVAR(plan) isEqualTo []) then {
-	(_ctrlGroup controlsGroupCtrl IDC_PLAN_GROUP controlsGroupCtrl IDC_ADD) call FUNC(gui_addTask);
+	(_ctrlPlanGroup controlsGroupCtrl IDC_ADD) call FUNC(gui_addTask);
 } else {
-	(_ctrlGroup controlsGroupCtrl IDC_PLAN_GROUP controlsGroupCtrl IDC_PLAN) lbSetCurSel GVAR(planIndex);
+	(_ctrlPlanGroup controlsGroupCtrl IDC_PLAN) lbSetCurSel GVAR(planIndex);
 };
 
 // Load cached relocate data
@@ -86,5 +88,14 @@ _ctrlTabs lbSetCurSel 0;
 _ctrlGroup setVariable [QGVAR(planOptionsOpen),nil];
 0 call FUNC(gui_planOptions);
 
-private _ctrlRemoteControl = _ctrlGroup controlsGroupCtrl IDC_PLAN_GROUP controlsGroupCtrl IDC_REMOTE_CONTROL;
+private _ctrlRemoteControl = _ctrlPlanGroup controlsGroupCtrl IDC_REMOTE_CONTROL;
 _ctrlRemoteControl ctrlShow (_entity getVariable [QPVAR(remoteControl),false]);
+
+// Disable planner if sheaf types removed
+if ((_entity getVariable QPVAR(sheafTypes)) isEqualTo ["NONE"]) then {
+	(_ctrlPlanGroup controlsGroupCtrl IDC_ADD) ctrlEnable false;
+	(_ctrlPlanGroup controlsGroupCtrl IDC_REMOVE) ctrlEnable false;
+} else {
+	(_ctrlPlanGroup controlsGroupCtrl IDC_ADD) ctrlEnable true;
+	(_ctrlPlanGroup controlsGroupCtrl IDC_REMOVE) ctrlEnable true;
+};

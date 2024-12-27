@@ -10,7 +10,7 @@ if (GVAR(manualInput)) exitWith {
 	private _center = AGLToASL ([_easting + _northing] call EFUNC(common,getMapPosFromGrid));
 	private _sheaf = (_ctrlTaskGroup controlsGroupCtrl IDC_SHEAF) lbData (0 max lbCurSel (_ctrlTaskGroup controlsGroupCtrl IDC_SHEAF));
 
-	if (_sheaf in ["CONVERGED","PARALLEL"]) then {
+	if (_sheaf in ["CONVERGED","PARALLEL","NONE"]) then {
 		private _dispersion = sliderPosition (_ctrlTaskGroup controlsGroupCtrl IDC_SHEAF_DISPERSION);
 		[_center,_dispersion,_dispersion,0,true]
 	} else {

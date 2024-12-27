@@ -21,7 +21,7 @@ if (GVAR(manualInput)) then { // Update values if map clicking won't do it
 	call FUNC(gui_verify);
 };
 
-if (_sheaf in ["CONVERGED","PARALLEL"]) then {
+if (_sheaf in ["CONVERGED","PARALLEL","NONE"]) then {
 	[ctrlParent _ctrl displayCtrl IDC_MAP,[[[_area # 0]],[],[],0]] call EFUNC(sdf,setValueData);
 } else {
 	[ctrlParent _ctrl displayCtrl IDC_MAP,[[],[_area],[],1]] call EFUNC(sdf,setValueData);
