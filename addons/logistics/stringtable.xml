@@ -1,453 +1,455 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="SSS">
-	<Package name="Logistics">
-		<Key ID="STR_SSS_Logistics_Service">
-			<English>Logistics</English>
-			<French>Logistique</French>
-			<Chinesesimp>后勤</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_moduleAddAirdrop_name">
-			<English>Logistics Airdrop</English>
-			<French>Largage logistique</French>
-			<Chinesesimp>后勤空投</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_moduleAddSlingload_name">
-			<English>Logistics Slingload</English>
-			<French>Logistique Slingload</French>
-			<Chinesesimp>后勤吊装</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_moduleAddStation_name">
-			<English>Logistics Station</English>
-			<French>Station Logistique</French>
-			<Chinesesimp>后勤站</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_moduleReferenceArea_name">
-			<English>Logistics Reference Area</English>
-			<French>Zone de référence logistique</French>
-			<Chinesesimp>后勤参考区</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_moduleReferenceArea_info">
-			<English>Designate an area that will populate synced logistics support list(s)</English>
-			<French>Désignez une zone qui remplira la ou les listes de support logistique synchronisées</French>
-			<Chinesesimp>指定一个区域，该区域将填充同步到后勤支持列表</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_manualInput_name">
-			<English>Require manual input</English>
-			<French>Exiger une saisie manuelle</French>
-			<Chinesesimp>需要手动输入</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_manualInput_info">
-			<English>Require players to manually input grid coordinates</English>
-			<French>Demander aux joueurs de saisir manuellement les coordonnées de la grille</French>
-			<Chinesesimp>需要玩家手动输入网格坐标</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_visualAids_name">
-			<English>Visual aids</English>
-			<French>Aides visuelles</French>
-			<Chinesesimp>视觉辅助</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_visualAids_info">
-			<English>Show visual aids for request planning on the map</English>
-			<French>Afficher des aides visuelles pour la planification des demandes sur la carte</French>
-			<Chinesesimp>在地图上显示申请规划的视觉辅助工具</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_visualAidsLive_name">
-			<English>Visual aids: Live tracking</English>
-			<Chinesesimp>视觉辅助：实时跟踪</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_visualAidsLive_info">
-			<English>Show current support position and any other relevant info</English>
-			<Chinesesimp>显示当前支持位置和任何其他相关信息</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_taskMarkers_name">
-			<English>Task markers</English>
-			<French>Marqueurs de tâches</French>
-			<Chinesesimp>任务标记</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_taskMarkers_info">
-			<English>Create map markers on task locations</English>
-			<French>Créer des marqueurs de carte sur les emplacements des tâches</French>
-			<Chinesesimp>在任务位置上创建地图标记</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_Altitude_name">
-			<English>Altitude</English>
-			<French>Altitude</French>
-			<Chinesesimp>海拔高度</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_Altitude_info">
-			<English>Flying height</English>
-			<French>Altitude de vol</French>
-			<Chinesesimp>飞行高度</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_UnloadAltitude_name">
-			<English>Infantry unload height</English>
-			<French>Altitude de déchargement de l'infanterie</French>
-			<Chinesesimp>步兵卸载高度</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_UnloadAltitude_info">
-			<English>If set to 0, helicopter will land to unload.</English>
-			<French>S'il est réglé sur 0, l'hélicoptère atterrira pour décharger.</French>
-			<Chinesesimp>如果设置为0，直升机将着陆卸载。</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_VirtualRunway_name">
-			<English>Virtual runway</English>
-			<French>Piste virtuelle</French>
-			<Chinesesimp>虚拟跑道</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_VirtualRunway_info">
-			<English>Aircraft will spawn at this position.\n[0,0,0] will spawn at a random position.</English>
-			<French>L'avion apparaîtra à cette position.\n[0,0,0] fera l'apparaître à une position aléatoire.</French>
-			<Chinesesimp>飞机将在此位置生成。 \n[0, 0, 0] 将在随机位置生成。</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_SpawnDistance_name">
-			<English>Spawn distance</English>
-			<French>Distance d'apparition</French>
-			<Chinesesimp>生成距离</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_SpawnDistance_info">
-			<English>If virtual runway is undefined, the aircraft will spawn this far away from the target</English>
-			<French>Si la piste virtuelle n'est pas définie, l'avion apparaîtra loin de la cible</French>
-			<Chinesesimp>如果虚拟跑道未定义，飞机将在离目标该距离的地方生成</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_SpawnDelay_name">
-			<English>Spawn delay</English>
-			<French>Délai d'apparition</French>
-			<Chinesesimp>生成延迟</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_SpawnDelay_info">
-			<English>Aircraft will spawn after specified random duration. Use to simulate takeoff or flight delays.</English>
-			<French>Les avions apparaîtront après une durée aléatoire spécifiée. À utiliser pour simuler des retards de décollage ou de vol.</French>
-			<Chinesesimp>飞机将在指定的随机时间后生成。用于模拟起飞或航班延误。</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_Capacity_name">
-			<English>Capacity</English>
-			<French>Capacité</French>
-			<Chinesesimp>容量</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_Capacity_info">
-			<English>Determines how many items may be requested depending on their load (default item load is 1).</English>
-			<French>Détermine le nombre d'éléments pouvant être demandés en fonction de leur charge (la charge d'élément par défaut est 1).</French>
-			<Chinesesimp>根据负载确定可以请求的项目数量（默认项目负载为 1）。</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_ListFunction_name">
-			<English>List function</English>
-			<French>Liste de fonctions</French>
-			<Chinesesimp>列表功能</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_ListFunction_info">
-			<English>Code that must return an array of items that can be requested.\n\nCategory arguments:\n0: Name (must be prefixed with #) [STRING]\n1: Child items [ARRAY]\n\nItem arguments:\n0: Class or array of classes [STRING | ARRAY]\n1: Formatting (name, icon, tooltip, info) [STRING | ARRAY]\n2: Init [CODE]\n3: Extra arguments [ANY]\n4: Load [NUMBER]\n5: Request limit [NUMBER]\n6: Quantity available [NUMBER]</English>
-			<French>Code qui doit renvoyer un tableau d'éléments pouvant être demandés.\n\nCategory arguments:\n0: Name (must be prefixed with #) [STRING]\n1: Child items [ARRAY]\n\nItem arguments:\n0: Class or array of classes [STRING | ARRAY]\n1: Formatting (name, icon, tooltip, info) [STRING | ARRAY]\n2: Init [CODE]\n3: Extra arguments [ANY]\n4: Load [NUMBER]\n5: Request limit [NUMBER]\n6: Quantity available [NUMBER]</French>
-			<Chinesesimp>必须返回可请求的项目数组的代码。 \n\n类别参数:\n0: 名称(必须以 # 为前缀)[STRING]\n1: 子项 [ARRAY]\n\n项参数:\n0: 类或类数组 [STRING | ARRAY]\n1：格式（名称、图标、工具提示、信息）[STRING | ARRAY]\n2: 初始化 [CODE]\n3: 额外参数 [ANY]\n4: 加载 [NUMBER]\n5: 请求限制 [NUMBER]\n6: 可用数量 [NUMBER]</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_ItemInit_name">
-			<English>Item init</English>
-			<French>Objet init</French>
-			<Chinesesimp>项目初始化</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_ItemInit_info">
-			<English>Code ran for every item spawned.\n'_this' refers to the object. '_thisArgs' refers to any extra arguments passed with the item.</English>
-			<French>Le code a été exécuté pour chaque élément généré.\n'_this' fait référence à l'objet. '_thisArgs' fait référence à tous les arguments supplémentaires transmis avec l'élément.</French>
-			<Chinesesimp>为每个生成的项目运行代码。\n'_this'指的是对象。 '_thisArgs'指与项目一起传递的任何额外参数。</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_AircraftClass_name">
-			<English>Aircraft class</English>
-			<French>Avion Class</French>
-			<Chinesesimp>飞机类</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_AircraftClass_info">
-			<English>Class name of the aircraft which will deliver the cargo.</English>
-			<French>Nom de classe de l'avion qui livrera la cargaison.</French>
-			<Chinesesimp>将运送货物的飞机的类别名称</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_Fulfillment_name">
-			<English>Fulfillment</English>
-			<French>Remplissage</French>
-			<Chinesesimp>满足</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_Fulfillment_info">
-			<English>Restrict items to the physical capacity of a single helicopter or send as many helicopters as needed to fulfill the request</English>
-			<French>Limiter les articles à la capacité physique d'un seul hélicoptère ou envoyer autant d'hélicoptères que nécessaire pour répondre à la demande</French>
-			<Chinesesimp>将物品限制为单架直升机的实际容量，或根据需要派遣尽可能多的直升机来满足请求</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_OpenAltitudeAI_name">
-			<English>Parachute altitude: AI</English>
-			<French>Altitude de parachutage : IA</French>
-			<Chinesesimp>降落伞高度：AI</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_OpenAltitudeAI_info">
-			<English>Height when parachutes are deployed for infantry. -1 for immediate.</English>
-			<French>Altitude de déploiement de parachutes pour l'infanterie. -1 pour immédiat.</French>
-			<Chinesesimp>步兵展开降落伞时的高度。 -1 表示立即。</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_OpenAltitudeObjects_name">
-			<English>Parachute altitude: Objects</English>
-			<French>Altitude du parachutage : Objets</French>
-			<Chinesesimp>降落伞高度：物体</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_OpenAltitudeObjects_info">
-			<English>Height when parachutes are deployed for objects. -1 for immediate.</English>
-			<French>Altitude de déploiement de parachutes pour des objets. -1 pour immédiat.</French>
-			<Chinesesimp>为物体展开降落伞时的高度。-1表示立即。</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_ItemCooldown_name">
-			<English>Item cooldown</English>
-			<French>Temps d'attente de recharge d'objet</French>
-			<Chinesesimp>物品冷却时间</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_ItemCooldown_info">
-			<English>Additional time incremented per object loaded.</English>
-			<French>Temps supplémentaire incrémenté par objet chargé.</French>
-			<Chinesesimp>每个加载的对象都会增加额外的时间。</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_cooldownTrigger_name">
-			<English>Cooldown trigger</English>
-			<French>Déclencheur de temps d'attente</French>
-			<Chinesesimp>冷却触发</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_cooldownTrigger_info">
-			<English>When the cooldown process will commence</English>
-			<French>Quand le processus de refroidissement commencera</French>
-			<Chinesesimp>冷却过程何时开始</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_Single">
-			<English>Single</English>
-			<French>Simple</French>
-			<Chinesesimp>单一</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_Multiple">
-			<English>Multiple</English>
-			<French>Multiple</French>
-			<Chinesesimp>多倍</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_statusAirdropInbound">
-			<English>MOVING TO DROP LOCATION</English>
-			<French>DÉPLACEMENT À L'EMPLACEMENT DE LARGAGE</French>
-			<Chinesesimp>移动到降落地点</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_statusAirdropDropping">
-			<English>DROPPING CARGO</English>
-			<French>LARGAGE D'UNE CARGAISON</French>
-			<Chinesesimp>空投货物</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_statusAirdropComplete">
-			<English>RETURNING TO BASE</English>
-			<French>RETOURNE À LA BASE</French>
-			<Chinesesimp>返回基地</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_statusAirdropAbort">
-			<English>ABORTING</English>
-			<French>ANNULATION</French>
-			<Chinesesimp>中止</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_notifyAirdropInbound">
-			<English>Cargo inbound to %1. ETA %2</English>
-			<French>Cargaison en chemin vers %1. ETA %2</French>
-			<Chinesesimp>货物运至 %1. 估计到达时间 %2</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_notifyAirdropDropping">
-			<English>Dropping cargo...</English>
-			<French>Largage d'une cargaison...</French>
-			<Chinesesimp>卸货中...</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_notifyAirdropComplete">
-			<English>Request complete. Returning to base.</English>
-			<French>Demande terminée. Retour à la base.</French>
-			<Chinesesimp>请求完成。返回基地。</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_notifyAirdropAbort">
-			<English>Request aborted.</English>
-			<French>Demande annulée.</French>
-			<Chinesesimp>请求被中止。</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_notifyAirdropKilled">
-			<English>Aircraft was destroyed and was unable to fulfill your request</English>
-			<French>L'avion a été détruit et n'a pas pu répondre à votre demande</French>
-			<Chinesesimp>飞机被摧毁，无法满足您的要求</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_notifyStationSpawned">
-			<English>%1 has arrived at %2</English>
-			<French>%1 est arrivé à %2</French>
-			<Chinesesimp>%1 已经到达 %2</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_notifyCooldownComplete">
-			<English>Refueled and ready for further tasking.</English>
-			<French>Ravitaillé et prêt pour d’autres tâches.</French>
-			<Chinesesimp>已补充燃料，准备执行下一步任务。</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_notifyStationCooldownComplete">
-			<English>Restocked and ready for use.</English>
-			<French>Réapprovisionné et prêt à l'emploi.</French>
-			<Chinesesimp>重新入库，随时可用。</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_direction_name">
-			<English>Direction</English>
-			<French>Direction</French>
-			<Chinesesimp>方向</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_direction_info">
-			<English>Objects will face this direction on spawn</English>
-			<French>Les objets feront face à cette direction lors de leur apparition</French>
-			<Chinesesimp>物体在生成时将面向这个方向</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_behavior_name">
-			<English>Behavior</English>
-			<French>Comportement</French>
-			<Chinesesimp>反应</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_behavior_info">
-			<English>Determine how objects are handled</English>
-			<French>Déterminer comment les objets sont gérés</French>
-			<Chinesesimp>确定处理对象的方式</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_initiate_name">
-			<English>Initiate</English>
-			<French>Init</French>
-			<Chinesesimp>初始化</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_initiate_info">
-			<English>List is updated upon init, then objects are deleted</English>
-			<French>La liste est mise à jour au démarrage, puis les objets sont supprimés</French>
-			<Chinesesimp>列表在初始化时更新，然后对象被删除</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_monitor_name">
-			<English>Monitor</English>
-			<French>Monitor</French>
-			<Chinesesimp>监控器</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_monitor_info">
-			<English>List is perpetually updated with objects that are in the area</English>
-			<French>La liste est perpétuellement mise à jour avec les objets qui se trouvent dans la zone</French>
-			<Chinesesimp>列表会根据该区域中的对象不断更新</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_category_name">
-			<English>Category</English>
-			<French>Catégorie</French>
-			<Chinesesimp>种类</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_category_info">
-			<English>Name of the category that the items listed under. Leave empty for no category.</English>
-			<French>Nom de la catégorie sous laquelle les éléments sont répertoriés. Laisser vide pour aucune catégorie.</French>
-			<Chinesesimp>下面列出的项目的类别名称。留空表示没有类别。</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_infantry_name">
-			<English>Infantry referencing</English>
-			<French>Référencement d'infanterie</French>
-			<Chinesesimp>步兵参考</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_infantry_info">
-			<English>Determines how infantry is referenced in the area</English>
-			<French>Détermine comment l'infanterie est référencée dans la zone</French>
-			<Chinesesimp>确定如何在区域中引用步兵</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_filter_name">
-			<English>Filter</English>
-			<French>Filtre</French>
-			<Chinesesimp>滤波器</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_filter_info">
-			<English>Exclusionary condition to filter out objects in the area.\n'_x' refers to the current iterated object.</English>
-			<French>Condition d'exclusion pour filtrer les objets dans la zone.\n'_x' fait référence à l'objet itéré actuel.</French>
-			<Chinesesimp>用于过滤掉该区域中的对象的排除条件。 \n'_x' 指的是当前迭代的对象。</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_loadEval_name">
-			<English>Load evaluation</English>
-			<French>Évaluation du chargement</French>
-			<Chinesesimp>负载评估</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_loadEval_info">
-			<English>Code to evaluate an item's load from the area.\n'_x' refers to the object.</English>
-			<French>Code pour évaluer la charge d'un élément à partir de la zone.\n'_x' fait référence à l'objet.</French>
-			<Chinesesimp>用于评估该区域的物品负载的代码。 \n'_x' 指的是该对象。</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_individuals">
-			<English>Individual units</English>
-			<French>Unités individuelles</French>
-			<Chinesesimp>独立单位</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_groups">
-			<English>Groups</English>
-			<French>Groupes</French>
-			<Chinesesimp>组</Chinesesimp>
-		</Key>
-		<Key ID="STR_sss_logistics_availableItems">
-			<English>Available items</English>
-			<French>Articles disponibles</French>
-			<Chinesesimp>可用项目</Chinesesimp>
-		</Key>
-		<Key ID="STR_sss_logistics_itemInfo">
-			<English>Item info</English>
-			<French>Informations sur l'article</French>
-			<Chinesesimp>项目</Chinesesimp>
-		</Key>
-		<Key ID="STR_sss_logistics_requestedItems">
-			<English>Requested items</English>
-			<French>Articles demandés</French>
-			<Chinesesimp>请求的项目</Chinesesimp>
-		</Key>
-		<Key ID="STR_sss_logistics_landingSignals">
-			<English>Landing signals</English>
-			<French>Signaux d'atterrissage</French>
-			<Chinesesimp>着陆信号</Chinesesimp>
-		</Key>
-		<Key ID="STR_sss_logistics_aiHandling">
-			<English>AI Handling</English>
-			<French>Gestion de l'IA</French>
-			<Chinesesimp>AI 处理</Chinesesimp>
-		</Key>
-		<Key ID="STR_sss_logistics_joinRequesterGroup">
-			<English>Join requester group</English>
-			<French>Rejoindre grp du demandeur</French>
-			<Chinesesimp>加入请求者组</Chinesesimp>
-		</Key>
-		<Key ID="STR_sss_logistics_createStandaloneGroups">
-			<English>Create standalone group(s)</English>
-			<French>Créer des grps autonomes</French>
-			<Chinesesimp>创建独立组</Chinesesimp>
-		</Key>
-		<Key ID="STR_sss_logistics_load">
-			<English>Load</English>
-			<French>Quantité</French>
-			<Chinesesimp>装载</Chinesesimp>
-		</Key>
-		<Key ID="STR_sss_logistics_requestLimit">
-			<English>Request limit</English>
-			<French>Limite de demande</French>
-			<Chinesesimp>请求限制</Chinesesimp>
-		</Key>
-		<Key ID="STR_sss_logistics_quantity">
-			<English>Quantity</English>
-			<French>Disponible</French>
-			<Chinesesimp>数量</Chinesesimp>
-		</Key>
-		<Key ID="STR_sss_logistics_group">
-			<English>Group</English>
-			<French>Groupe</French>
-			<Chinesesimp>组</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_clearingRadius_name">
-			<English>Clearing radius</English>
-			<French>Rayon de dégagement</French>
-			<Chinesesimp>清除半径</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_clearingRadius_info">
-			<English>Allows players to clear obstructions around spawn position</English>
-			<French>Permet aux joueurs de dégager les obstacles autour de la position d'apparition</French>
-			<Chinesesimp>允许玩家清除生成位置周围的障碍物</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_areaCleared">
-			<English>Area cleared.</English>
-			<French>Zone dégagée.</French>
-			<Chinesesimp>区域已清理</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_clearAreaRestriction_name">
-			<English>Clear area restriction</English>
-			<French>Effacer la restriction de zone</French>
-			<Chinesesimp>清除区域限制</Chinesesimp>
-		</Key>
-		<Key ID="STR_SSS_Logistics_clearAreaRestriction_info">
-			<English>Only remove objects spawned with the Logistics service</English>
-			<French>Supprimez uniquement les objets générés avec le service Logistique</French>
-			<Chinesesimp>仅移除通过后勤服务生成的对象</Chinesesimp>
-		</Key>
-	</Package>
+    <Package name="Logistics">
+        <Key ID="STR_SSS_Logistics_Service">
+            <English>Logistics</English>
+            <French>Logistique</French>
+            <Chinesesimp>后勤</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_moduleAddAirdrop_name">
+            <English>Logistics Airdrop</English>
+            <French>Largage logistique</French>
+            <Chinesesimp>后勤空投</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_moduleAddSlingload_name">
+            <English>Logistics Slingload</English>
+            <French>Logistique Slingload</French>
+            <Chinesesimp>后勤吊装</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_moduleAddStation_name">
+            <English>Logistics Station</English>
+            <French>Station Logistique</French>
+            <Chinesesimp>后勤站</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_moduleReferenceArea_name">
+            <English>Logistics Reference Area</English>
+            <French>Zone de référence logistique</French>
+            <Chinesesimp>后勤参考区</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_moduleReferenceArea_info">
+            <English>Designate an area that will populate synced logistics support list(s)</English>
+            <French>Désignez une zone qui remplira la ou les listes de support logistique synchronisées</French>
+            <Chinesesimp>指定一个区域，该区域将填充同步到后勤支持列表</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_manualInput_name">
+            <English>Require manual input</English>
+            <French>Exiger une saisie manuelle</French>
+            <Chinesesimp>需要手动输入</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_manualInput_info">
+            <English>Require players to manually input grid coordinates</English>
+            <French>Demander aux joueurs de saisir manuellement les coordonnées de la grille</French>
+            <Chinesesimp>需要玩家手动输入网格坐标</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_visualAids_name">
+            <English>Visual aids</English>
+            <French>Aides visuelles</French>
+            <Chinesesimp>视觉辅助</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_visualAids_info">
+            <English>Show visual aids for request planning on the map</English>
+            <French>Afficher des aides visuelles pour la planification des demandes sur la carte</French>
+            <Chinesesimp>在地图上显示申请规划的视觉辅助工具</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_visualAidsLive_name">
+            <English>Visual aids: Live tracking</English>
+            <Chinesesimp>视觉辅助：实时跟踪</Chinesesimp>
+            <French>Aides visuelles : suivi en temps réel</French>
+        </Key>
+        <Key ID="STR_SSS_Logistics_visualAidsLive_info">
+            <English>Show current support position and any other relevant info</English>
+            <Chinesesimp>显示当前支持位置和任何其他相关信息</Chinesesimp>
+            <French>Indiquer la position de soutien actuelle et toute autre information pertinente</French>
+        </Key>
+        <Key ID="STR_SSS_Logistics_taskMarkers_name">
+            <English>Task markers</English>
+            <French>Marqueurs de tâches</French>
+            <Chinesesimp>任务标记</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_taskMarkers_info">
+            <English>Create map markers on task locations</English>
+            <French>Créer des marqueurs de carte sur les emplacements des tâches</French>
+            <Chinesesimp>在任务位置上创建地图标记</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_Altitude_name">
+            <English>Altitude</English>
+            <French>Altitude</French>
+            <Chinesesimp>海拔高度</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_Altitude_info">
+            <English>Flying height</English>
+            <French>Altitude de vol</French>
+            <Chinesesimp>飞行高度</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_UnloadAltitude_name">
+            <English>Infantry unload height</English>
+            <French>Altitude de déchargement de l'infanterie</French>
+            <Chinesesimp>步兵卸载高度</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_UnloadAltitude_info">
+            <English>If set to 0, helicopter will land to unload.</English>
+            <French>S'il est réglé sur 0, l'hélicoptère atterrira pour décharger.</French>
+            <Chinesesimp>如果设置为0，直升机将着陆卸载。</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_VirtualRunway_name">
+            <English>Virtual runway</English>
+            <French>Piste virtuelle</French>
+            <Chinesesimp>虚拟跑道</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_VirtualRunway_info">
+            <English>Aircraft will spawn at this position.\n[0,0,0] will spawn at a random position.</English>
+            <French>L'avion apparaîtra à cette position.\n[0,0,0] fera l'apparaître à une position aléatoire.</French>
+            <Chinesesimp>飞机将在此位置生成。 \n[0, 0, 0] 将在随机位置生成。</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_SpawnDistance_name">
+            <English>Spawn distance</English>
+            <French>Distance d'apparition</French>
+            <Chinesesimp>生成距离</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_SpawnDistance_info">
+            <English>If virtual runway is undefined, the aircraft will spawn this far away from the target</English>
+            <French>Si la piste virtuelle n'est pas définie, l'avion apparaîtra loin de la cible</French>
+            <Chinesesimp>如果虚拟跑道未定义，飞机将在离目标该距离的地方生成</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_SpawnDelay_name">
+            <English>Spawn delay</English>
+            <French>Délai d'apparition</French>
+            <Chinesesimp>生成延迟</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_SpawnDelay_info">
+            <English>Aircraft will spawn after specified random duration. Use to simulate takeoff or flight delays.</English>
+            <French>Les avions apparaîtront après une durée aléatoire spécifiée. À utiliser pour simuler des retards de décollage ou de vol.</French>
+            <Chinesesimp>飞机将在指定的随机时间后生成。用于模拟起飞或航班延误。</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_Capacity_name">
+            <English>Capacity</English>
+            <French>Capacité</French>
+            <Chinesesimp>容量</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_Capacity_info">
+            <English>Determines how many items may be requested depending on their load (default item load is 1).</English>
+            <French>Détermine le nombre d'éléments pouvant être demandés en fonction de leur charge (la charge d'élément par défaut est 1).</French>
+            <Chinesesimp>根据负载确定可以请求的项目数量（默认项目负载为 1）。</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_ListFunction_name">
+            <English>List function</English>
+            <French>Liste de fonctions</French>
+            <Chinesesimp>列表功能</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_ListFunction_info">
+            <English>Code that must return an array of items that can be requested.\n\nCategory arguments:\n0: Name (must be prefixed with #) [STRING]\n1: Child items [ARRAY]\n\nItem arguments:\n0: Class or array of classes [STRING | ARRAY]\n1: Formatting (name, icon, tooltip, info) [STRING | ARRAY]\n2: Init [CODE]\n3: Extra arguments [ANY]\n4: Load [NUMBER]\n5: Request limit [NUMBER]\n6: Quantity available [NUMBER]</English>
+            <French>Code qui doit renvoyer un tableau d'éléments pouvant être demandés.\n\nCategory arguments:\n0: Name (must be prefixed with #) [STRING]\n1: Child items [ARRAY]\n\nItem arguments:\n0: Class or array of classes [STRING | ARRAY]\n1: Formatting (name, icon, tooltip, info) [STRING | ARRAY]\n2: Init [CODE]\n3: Extra arguments [ANY]\n4: Load [NUMBER]\n5: Request limit [NUMBER]\n6: Quantity available [NUMBER]</French>
+            <Chinesesimp>必须返回可请求的项目数组的代码。 \n\n类别参数:\n0: 名称(必须以 # 为前缀)[STRING]\n1: 子项 [ARRAY]\n\n项参数:\n0: 类或类数组 [STRING | ARRAY]\n1：格式（名称、图标、工具提示、信息）[STRING | ARRAY]\n2: 初始化 [CODE]\n3: 额外参数 [ANY]\n4: 加载 [NUMBER]\n5: 请求限制 [NUMBER]\n6: 可用数量 [NUMBER]</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_ItemInit_name">
+            <English>Item init</English>
+            <French>Objet init</French>
+            <Chinesesimp>项目初始化</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_ItemInit_info">
+            <English>Code ran for every item spawned.\n'_this' refers to the object. '_thisArgs' refers to any extra arguments passed with the item.</English>
+            <French>Le code a été exécuté pour chaque élément généré.\n'_this' fait référence à l'objet. '_thisArgs' fait référence à tous les arguments supplémentaires transmis avec l'élément.</French>
+            <Chinesesimp>为每个生成的项目运行代码。\n'_this'指的是对象。 '_thisArgs'指与项目一起传递的任何额外参数。</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_AircraftClass_name">
+            <English>Aircraft class</English>
+            <French>Avion Class</French>
+            <Chinesesimp>飞机类</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_AircraftClass_info">
+            <English>Class name of the aircraft which will deliver the cargo.</English>
+            <French>Nom de classe de l'avion qui livrera la cargaison.</French>
+            <Chinesesimp>将运送货物的飞机的类别名称</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_Fulfillment_name">
+            <English>Fulfillment</English>
+            <French>Remplissage</French>
+            <Chinesesimp>满足</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_Fulfillment_info">
+            <English>Restrict items to the physical capacity of a single helicopter or send as many helicopters as needed to fulfill the request</English>
+            <French>Limiter les articles à la capacité physique d'un seul hélicoptère ou envoyer autant d'hélicoptères que nécessaire pour répondre à la demande</French>
+            <Chinesesimp>将物品限制为单架直升机的实际容量，或根据需要派遣尽可能多的直升机来满足请求</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_OpenAltitudeAI_name">
+            <English>Parachute altitude: AI</English>
+            <French>Altitude de parachutage : IA</French>
+            <Chinesesimp>降落伞高度：AI</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_OpenAltitudeAI_info">
+            <English>Height when parachutes are deployed for infantry. -1 for immediate.</English>
+            <French>Altitude de déploiement de parachutes pour l'infanterie. -1 pour immédiat.</French>
+            <Chinesesimp>步兵展开降落伞时的高度。 -1 表示立即。</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_OpenAltitudeObjects_name">
+            <English>Parachute altitude: Objects</English>
+            <French>Altitude du parachutage : Objets</French>
+            <Chinesesimp>降落伞高度：物体</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_OpenAltitudeObjects_info">
+            <English>Height when parachutes are deployed for objects. -1 for immediate.</English>
+            <French>Altitude de déploiement de parachutes pour des objets. -1 pour immédiat.</French>
+            <Chinesesimp>为物体展开降落伞时的高度。-1表示立即。</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_ItemCooldown_name">
+            <English>Item cooldown</English>
+            <French>Temps d'attente de recharge d'objet</French>
+            <Chinesesimp>物品冷却时间</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_ItemCooldown_info">
+            <English>Additional time incremented per object loaded.</English>
+            <French>Temps supplémentaire incrémenté par objet chargé.</French>
+            <Chinesesimp>每个加载的对象都会增加额外的时间。</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_cooldownTrigger_name">
+            <English>Cooldown trigger</English>
+            <French>Déclencheur de temps d'attente</French>
+            <Chinesesimp>冷却触发</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_cooldownTrigger_info">
+            <English>When the cooldown process will commence</English>
+            <French>Quand le processus de refroidissement commencera</French>
+            <Chinesesimp>冷却过程何时开始</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_Single">
+            <English>Single</English>
+            <French>Simple</French>
+            <Chinesesimp>单一</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_Multiple">
+            <English>Multiple</English>
+            <French>Multiple</French>
+            <Chinesesimp>多倍</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_statusAirdropInbound">
+            <English>MOVING TO DROP LOCATION</English>
+            <French>DÉPLACEMENT À L'EMPLACEMENT DE LARGAGE</French>
+            <Chinesesimp>移动到降落地点</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_statusAirdropDropping">
+            <English>DROPPING CARGO</English>
+            <French>LARGAGE D'UNE CARGAISON</French>
+            <Chinesesimp>空投货物</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_statusAirdropComplete">
+            <English>RETURNING TO BASE</English>
+            <French>RETOURNE À LA BASE</French>
+            <Chinesesimp>返回基地</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_statusAirdropAbort">
+            <English>ABORTING</English>
+            <French>ANNULATION</French>
+            <Chinesesimp>中止</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_notifyAirdropInbound">
+            <English>Cargo inbound to %1. ETA %2</English>
+            <French>Cargaison en chemin vers %1. ETA %2</French>
+            <Chinesesimp>货物运至 %1. 估计到达时间 %2</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_notifyAirdropDropping">
+            <English>Dropping cargo...</English>
+            <French>Largage d'une cargaison...</French>
+            <Chinesesimp>卸货中...</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_notifyAirdropComplete">
+            <English>Request complete. Returning to base.</English>
+            <French>Demande terminée. Retour à la base.</French>
+            <Chinesesimp>请求完成。返回基地。</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_notifyAirdropAbort">
+            <English>Request aborted.</English>
+            <French>Demande annulée.</French>
+            <Chinesesimp>请求被中止。</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_notifyAirdropKilled">
+            <English>Aircraft was destroyed and was unable to fulfill your request</English>
+            <French>L'avion a été détruit et n'a pas pu répondre à votre demande</French>
+            <Chinesesimp>飞机被摧毁，无法满足您的要求</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_notifyStationSpawned">
+            <English>%1 has arrived at %2</English>
+            <French>%1 est arrivé à %2</French>
+            <Chinesesimp>%1 已经到达 %2</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_notifyCooldownComplete">
+            <English>Refueled and ready for further tasking.</English>
+            <French>Ravitaillé et prêt pour d’autres tâches.</French>
+            <Chinesesimp>已补充燃料，准备执行下一步任务。</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_notifyStationCooldownComplete">
+            <English>Restocked and ready for use.</English>
+            <French>Réapprovisionné et prêt à l'emploi.</French>
+            <Chinesesimp>重新入库，随时可用。</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_direction_name">
+            <English>Direction</English>
+            <French>Direction</French>
+            <Chinesesimp>方向</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_direction_info">
+            <English>Objects will face this direction on spawn</English>
+            <French>Les objets feront face à cette direction lors de leur apparition</French>
+            <Chinesesimp>物体在生成时将面向这个方向</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_behavior_name">
+            <English>Behavior</English>
+            <French>Comportement</French>
+            <Chinesesimp>反应</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_behavior_info">
+            <English>Determine how objects are handled</English>
+            <French>Déterminer comment les objets sont gérés</French>
+            <Chinesesimp>确定处理对象的方式</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_initiate_name">
+            <English>Initiate</English>
+            <French>Init</French>
+            <Chinesesimp>初始化</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_initiate_info">
+            <English>List is updated upon init, then objects are deleted</English>
+            <French>La liste est mise à jour au démarrage, puis les objets sont supprimés</French>
+            <Chinesesimp>列表在初始化时更新，然后对象被删除</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_monitor_name">
+            <English>Monitor</English>
+            <French>Monitor</French>
+            <Chinesesimp>监控器</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_monitor_info">
+            <English>List is perpetually updated with objects that are in the area</English>
+            <French>La liste est perpétuellement mise à jour avec les objets qui se trouvent dans la zone</French>
+            <Chinesesimp>列表会根据该区域中的对象不断更新</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_category_name">
+            <English>Category</English>
+            <French>Catégorie</French>
+            <Chinesesimp>种类</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_category_info">
+            <English>Name of the category that the items listed under. Leave empty for no category.</English>
+            <French>Nom de la catégorie sous laquelle les éléments sont répertoriés. Laisser vide pour aucune catégorie.</French>
+            <Chinesesimp>下面列出的项目的类别名称。留空表示没有类别。</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_infantry_name">
+            <English>Infantry referencing</English>
+            <French>Référencement d'infanterie</French>
+            <Chinesesimp>步兵参考</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_infantry_info">
+            <English>Determines how infantry is referenced in the area</English>
+            <French>Détermine comment l'infanterie est référencée dans la zone</French>
+            <Chinesesimp>确定如何在区域中引用步兵</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_filter_name">
+            <English>Filter</English>
+            <French>Filtre</French>
+            <Chinesesimp>滤波器</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_filter_info">
+            <English>Exclusionary condition to filter out objects in the area.\n'_x' refers to the current iterated object.</English>
+            <French>Condition d'exclusion pour filtrer les objets dans la zone.\n'_x' fait référence à l'objet itéré actuel.</French>
+            <Chinesesimp>用于过滤掉该区域中的对象的排除条件。 \n'_x' 指的是当前迭代的对象。</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_loadEval_name">
+            <English>Load evaluation</English>
+            <French>Évaluation du chargement</French>
+            <Chinesesimp>负载评估</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_loadEval_info">
+            <English>Code to evaluate an item's load from the area.\n'_x' refers to the object.</English>
+            <French>Code pour évaluer la charge d'un élément à partir de la zone.\n'_x' fait référence à l'objet.</French>
+            <Chinesesimp>用于评估该区域的物品负载的代码。 \n'_x' 指的是该对象。</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_individuals">
+            <English>Individual units</English>
+            <French>Unités individuelles</French>
+            <Chinesesimp>独立单位</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_groups">
+            <English>Groups</English>
+            <French>Groupes</French>
+            <Chinesesimp>组</Chinesesimp>
+        </Key>
+        <Key ID="STR_sss_logistics_availableItems">
+            <English>Available items</English>
+            <French>Articles disponibles</French>
+            <Chinesesimp>可用项目</Chinesesimp>
+        </Key>
+        <Key ID="STR_sss_logistics_itemInfo">
+            <English>Item info</English>
+            <French>Informations sur l'article</French>
+            <Chinesesimp>项目</Chinesesimp>
+        </Key>
+        <Key ID="STR_sss_logistics_requestedItems">
+            <English>Requested items</English>
+            <French>Articles demandés</French>
+            <Chinesesimp>请求的项目</Chinesesimp>
+        </Key>
+        <Key ID="STR_sss_logistics_landingSignals">
+            <English>Landing signals</English>
+            <French>Signaux d'atterrissage</French>
+            <Chinesesimp>着陆信号</Chinesesimp>
+        </Key>
+        <Key ID="STR_sss_logistics_aiHandling">
+            <English>AI Handling</English>
+            <French>Gestion de l'IA</French>
+            <Chinesesimp>AI 处理</Chinesesimp>
+        </Key>
+        <Key ID="STR_sss_logistics_joinRequesterGroup">
+            <English>Join requester group</English>
+            <French>Rejoindre grp du demandeur</French>
+            <Chinesesimp>加入请求者组</Chinesesimp>
+        </Key>
+        <Key ID="STR_sss_logistics_createStandaloneGroups">
+            <English>Create standalone group(s)</English>
+            <French>Créer des grps autonomes</French>
+            <Chinesesimp>创建独立组</Chinesesimp>
+        </Key>
+        <Key ID="STR_sss_logistics_load">
+            <English>Load</English>
+            <French>Quantité</French>
+            <Chinesesimp>装载</Chinesesimp>
+        </Key>
+        <Key ID="STR_sss_logistics_requestLimit">
+            <English>Request limit</English>
+            <French>Limite de demande</French>
+            <Chinesesimp>请求限制</Chinesesimp>
+        </Key>
+        <Key ID="STR_sss_logistics_quantity">
+            <English>Quantity</English>
+            <French>Disponible</French>
+            <Chinesesimp>数量</Chinesesimp>
+        </Key>
+        <Key ID="STR_sss_logistics_group">
+            <English>Group</English>
+            <French>Groupe</French>
+            <Chinesesimp>组</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_clearingRadius_name">
+            <English>Clearing radius</English>
+            <French>Rayon de dégagement</French>
+            <Chinesesimp>清除半径</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_clearingRadius_info">
+            <English>Allows players to clear obstructions around spawn position</English>
+            <French>Permet aux joueurs de dégager les obstacles autour de la position d'apparition</French>
+            <Chinesesimp>允许玩家清除生成位置周围的障碍物</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_areaCleared">
+            <English>Area cleared.</English>
+            <French>Zone dégagée.</French>
+            <Chinesesimp>区域已清理</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_clearAreaRestriction_name">
+            <English>Clear area restriction</English>
+            <French>Effacer la restriction de zone</French>
+            <Chinesesimp>清除区域限制</Chinesesimp>
+        </Key>
+        <Key ID="STR_SSS_Logistics_clearAreaRestriction_info">
+            <English>Only remove objects spawned with the Logistics service</English>
+            <French>Supprimez uniquement les objets générés avec le service Logistique</French>
+            <Chinesesimp>仅移除通过后勤服务生成的对象</Chinesesimp>
+        </Key>
+    </Package>
 </Project>
