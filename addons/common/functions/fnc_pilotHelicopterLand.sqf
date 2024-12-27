@@ -4,7 +4,7 @@ params ["_hold","_engine"];
 
 if !(_vehicle getVariable [QGVAR(pilotHelicopterReached),false]) then {
 	doStop _vehicle;
-	_vehicle flyInHeight 0;
+	_vehicle flyInHeight [0,true];
 	_vehicle action ["LandGear",_vehicle];
 
 	if (_vehicle isKindOf "VTOL_base_F" || _vehicle getVariable [QPVAR(vtol),false]) then {
