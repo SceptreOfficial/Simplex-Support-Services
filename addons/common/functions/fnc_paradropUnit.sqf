@@ -11,20 +11,21 @@ if (!local _unit) exitWith {
 };
 
 if (_parachuteClass isEqualTo "") then {
-	_parachuteClass = "B_Parachute";
+	_parachuteClass = OPTION(parachuteClass);
 };
 
 if (_openAltitude <= 0) then {
 	_openAltitude = getPos _unit # 2 + 999;
 };
 
-_unit setVariable [QGVAR(paradropLoadout),getUnitLoadout _unit];
-removeBackpack _unit;
-
 if (isPlayer _unit) then {
-	_unit addBackpack _parachuteClass;
+	if (OPTION(parachuteEquip)) then {
+		_unit setVariable [QGVAR(paradropLoadout),getUnitLoadout _unit];
+		removeBackpack _unit;
+		_unit addBackpack _parachuteClass;
+	};
 
-	if (OPTION(autoParachute)) then {
+	if (OPTION(parachuteDeploy)) then {
 		[{
 			params ["_unit","_openAltitude"];
 			isNull _unit || getPos _unit # 2 <= _openAltitude
@@ -34,6 +35,9 @@ if (isPlayer _unit) then {
 		},[_unit,_openAltitude]] call CBA_fnc_waitUntilAndExecute;
 	};
 } else {
+	_unit setVariable [QGVAR(paradropLoadout),getUnitLoadout _unit];
+	removeBackpack _unit;
+	
 	[{
 		params ["_unit","_openAltitude"];
 		isNull _unit || getPos _unit # 2 <= _openAltitude
@@ -45,9 +49,13 @@ if (isPlayer _unit) then {
 };
 
 [{
-	isNull _this || {!(vehicle _this isKindOf "ParachuteBase") && getPos _this # 2 < 2}
+	!alive _this || {!(vehicle _this isKindOf "ParachuteBase") && getPos _this # 2 < 2}
 },{
-	_this setUnitLoadout (_this getVariable QGVAR(paradropLoadout));
+	if (alive _this) then {
+		if (isPlayer _this && !OPTION(parachuteEquip)) exitWith {};
+		_this setUnitLoadout (_this getVariable QGVAR(paradropLoadout));
+	};
+	
 	_this setVariable [QGVAR(paradropLoadout),nil];
 	[QGVAR(paradropUnitEnd),[_this]] call CBA_fnc_globalEvent;
 },_unit] call CBA_fnc_waitUntilAndExecute;

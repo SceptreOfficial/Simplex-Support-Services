@@ -4,11 +4,11 @@ params ["_sourceASL","_target","_ammoSpeed"];
 
 if (_target isEqualType objNull) then {
 	if (vectorMagnitude velocity _target <= 2) then {
-		//getPosASL _target
-		AGLtoASL unitAimPositionVisual _target;
+		getPosASL _target vectorAdd [0,0,1]
+		//AGLToASL unitAimPositionVisual _target;
 	} else {
-		//private _targetASL = getPosASL _target;
-		private _targetASL = AGLtoASL unitAimPositionVisual _target;
+		private _targetASL = getPosASL _target vectorAdd [0,0,1];
+		//private _targetASL = AGLToASL unitAimPositionVisual _target;
 		private _targetZ = _targetASL # 2 - getTerrainHeightASL _targetASL;
 		private _G = GRAVITY;
 		private _distance = _sourceASL distance2D _targetASL;

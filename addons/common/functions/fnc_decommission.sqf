@@ -24,8 +24,4 @@ _vehicle lockDriver false;
 	_x enableAI "AUTOTARGET";
 } forEach PRIMARY_CREW(_vehicle);
 
-private _group = group _vehicle;
-_group setCombatMode "YELLOW";
-_group enableAttack true;
-
 [QPVAR(vehicleDecommissioned),[_vehicle]] call CBA_fnc_globalEvent;

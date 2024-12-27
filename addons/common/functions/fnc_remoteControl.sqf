@@ -1,5 +1,5 @@
 #include "..\script_component.hpp"
-#include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
+#define IDD_RSCDISPLAYCURATOR 312
 
 params [["_vehicle",objNull],["_unit",objNull],["_turret",[]],["_camera",""]];
 
@@ -18,6 +18,10 @@ missionNamespace setVariable ["bis_fnc_moduleRemoteControl_unit",_unit];
 if (!local _unit) then {
 	//[QGVAR(remoteControlTransfer),[_unit,clientOwner]] call CBA_fnc_serverEvent;
 	systemChat LLSTRING(remoteControlWarning);
+};
+
+if (OPTION(remoteControlAddMap) && {_unit getSlotItemName 608 isEqualTo ""}) then {
+	_unit linkItem "itemMap";
 };
 
 [{

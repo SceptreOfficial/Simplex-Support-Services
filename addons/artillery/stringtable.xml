@@ -4,456 +4,569 @@
 		<Key ID="STR_SSS_Artillery_Service">
 			<English>Artillery</English>
 			<French>Artillerie</French>
+			<Chinesesimp>炮火</Chinesesimp>
 		</Key>
 		<!-- Modules -->
 		<Key ID="STR_SSS_Artillery_ModuleAdd_name">
 			<English>Artillery</English>
 			<French>Artillerie</French>
+			<Chinesesimp>炮火</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_ModuleAdd_info">
 			<English>Sync artillery vehicles to add</English>
 			<French>Synchronisez les véhicules d'artillerie pour ajouter</French>
+			<Chinesesimp>同步火炮车辆</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Ammunition_name">
 			<English>Ammuniton</English>
 			<French>Munitions</French>
+			<Chinesesimp>弹药</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Ammunition_info">
 			<English>Ammunition configuration array. Leave empty for vehicle defaults.\n\nArray item arguments:\n0: Magazine class\n1: Round limit</English>
 			<French>Tableau de configuration des munitions. Laissez vide pour les valeurs par défaut du véhicule.\n\nArray item arguments:\n0: Magazine class\n1: Round limit</French>
+			<Chinesesimp>弹药配置阵列。为车辆默认值留空。\数组项目参数：\n0: 弹夹类别 \n1：子弹数量限制</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_RoundCooldown_name">
 			<English>Round cooldown</English>
 			<French>Délai d'attente</French>
+			<Chinesesimp>回合冷却时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_RoundCooldown_info">
 			<English>Additional time incremented per round fired</English>
 			<French>Attente supplémentaire, additionnée au délai d'attente ci-dessus après chaque tir effectué.</French>
+			<Chinesesimp>每发射一轮增加的额外时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_MaxLoops_name">
 			<English>Max loops</English>
 			<French>Boucles maximale</French>
+			<Chinesesimp>最大循环数</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_MaxLoops_info">
 			<English>How many times a plan can be looped</English>
 			<French>Combien de fois un plan de tir peut être bouclé</French>
+			<Chinesesimp>一个计划可以循环多少次</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_MaxLoopDelay_name">
 			<English>Max loop delay</English>
 			<French>Délai d'attente maximal</French>
+			<Chinesesimp>最大循环延迟</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_MaxLoopDelay_info">
 			<English>How much time should pass between loops</English>
 			<French>Combien de temps doit s'écouler entre chaque boucle de tir</French>
+			<Chinesesimp>循环之间经过多少时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_MaxTasks_name">
 			<English>Max tasks</English>
 			<French>Tâches maximales</French>
+			<Chinesesimp>最大任务数</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_MaxTasks_info">
 			<English>Limits the amount of tasks that can be planned (-1 for no limit)</English>
 			<French>Limite le nombre de tâches pouvant être planifiées (-1 pour aucune limite)</French>
+			<Chinesesimp>限制可计划的任务数量（-1表示无限制）</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_SheafTypes_name">
 			<English>Sheaf types</English>
 			<French>Types de gerbes</French>
+			<Chinesesimp>层类型</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_SheafTypes_info">
 			<English>Set what sheaf options are available</English>
 			<French>Définir les options de gerbe disponibles</French>
+			<Chinesesimp>设置可用的层选项</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_MaxRounds_name">
 			<English>Max rounds</English>
 			<French>Tirs (maximum) par demande</French>
+			<Chinesesimp>最大回合数</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_MaxRounds_info">
 			<English>Limits the round count slider</English>
 			<French>Limite le curseur du nombre de tirs</French>
+			<Chinesesimp>限制轮数滑块</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_MaxExecutionDelay_name">
 			<English>Max execution delay</English>
 			<French>Délai d'exécution maximum</French>
+			<Chinesesimp>最大执行延迟</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_MaxExecutionDelay_info">
 			<English>Limits the execution delay slider</English>
 			<French>Limite le curseur de délai d'exécution</French>
+			<Chinesesimp>限制执行延迟滑块</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_MaxFiringDelay_name">
 			<English>Max firing delay</English>
 			<French>Délai de tir maximum</French>
+			<Chinesesimp>最大发射延迟</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_MaxFiringDelay_info">
 			<English>Limits the firing delay slider</English>
 			<French>Limite le curseur du délai de déclenchement</French>
+			<Chinesesimp>限制触发延迟滑块</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_CoordinationDistance_name">
 			<English>Maximum coordination distance</English>
 			<French>Distance max. de coordination</French>
+			<Chinesesimp>最大协调距离</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_CoordinationDistance_info">
 			<English>How far to search for batteries that can coordinate on fire missions</English>
 			<French>Jusqu'où rechercher des unités capables de se coordonner lors des missions de tir</French>
+			<Chinesesimp>在射击任务中寻找能够协调的部队需要多远</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_CoordinationType_name">
 			<English>Coordinate with</English>
 			<French>Coordination possible avec</French>
+			<Chinesesimp>与...协调</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_CoordinationType_info">
 			<English>Set what kind of artillery to coordinate with</English>
 			<French>Sélection des artilleries pouvant se coordonner.</French>
+			<Chinesesimp>设置配合什么样的火炮</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_CoordinationTypeSupport">
 			<English>Support entities only (requires access)</English>
 			<French>Les autres artilleries de support (accès requis)</French>
+			<Chinesesimp>仅支持实体（需要访问权限）</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_CoordinationTypeNonSupport">
 			<English>Non-support entities only</English>
 			<French>Les artilleries n'étant pas configurées comme support</French>
+			<Chinesesimp>仅支持非实体</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_CoordinationTypeAll">
 			<English>Any nearby batteries (supports require access)</English>
 			<French>Toutes les artilleries (accès requis pour les supports)</French>
+			<Chinesesimp>所有火炮（支援需要访问）</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_IconSelection_name">
 			<English>Icon</English>
 			<French>Icône</French>
+			<Chinesesimp>图标</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_IconSelection_info">
 			<English>Assign custom icon type (in case automatic detection fails for modded vehicles)</English>
 			<French>Attribuer un type d'icône personnalisé (au cas où la détection automatique échouerait pour les véhicules modifiés)</French>
+			<Chinesesimp>分配自定义图标类型（以防改装车辆自动检测失败）</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Automatic">
 			<English>Automatic</English>
 			<French>Automatique</French>
+			<Chinesesimp>自动</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Mortar">
 			<English>Mortar</English>
 			<French>Mortier</French>
+			<Chinesesimp>迫击炮</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Howitzer">
 			<English>Howitzer</English>
 			<French>Howitzer</French>
+			<Chinesesimp>榴弹炮</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_SelfPropelled">
 			<English>Self-Propelled</English>
 			<French>Autopropulsé</French>
+			<Chinesesimp>自行式火炮</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_MRLS">
 			<English>MRLS</English>
 			<French>MRLS</French>
+			<Chinesesimp>多管火箭炮</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_MRLSTruck">
 			<English>MRLS Truck</English>
 			<French>Camion MRLS</French>
+			<Chinesesimp>多管火箭车</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Missile">
 			<English>Missile</English>
 			<French>Missile</French>
+			<Chinesesimp>导弹</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_ExecutionDelay_name">
 			<English>Initial execution delay</English>
 			<French>Délai d'exécution initial</French>
+			<Chinesesimp>初始执​​行延迟</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_ExecutionDelay_info">
 			<English>Random time between requesting a fire mission and it being received/executed</English>
 			<French>Temps aléatoire entre la demande d'une mission de tir et sa réception/exécution</French>
+			<Chinesesimp>请求炮火任务和接收/执行任务之间的随机时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_FiringDelay_name">
 			<English>Minimum firing delay</English>
 			<French>Délai de tir minimum</French>
+			<Chinesesimp>最小发射延迟</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_FiringDelay_info">
 			<English>Random time between firing each round</English>
 			<French>Temps aléatoire entre chaque tir</French>
+			<Chinesesimp>每轮发射之间的随机间隔时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_VelocityOverride_name">
 			<English>Projectile velocity</English>
 			<French>Vitesse du projectile</French>
+			<Chinesesimp>弹丸速度</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_VelocityOverride_info">
 			<English>Override velocity to bypass fixed ranges in ammo config. \nThis can reduce ETA and remove possible ranging deadzones. \nRecommended for creeping barrages.</English>
 			<French>Remplacez la vitesse du projectile pour contourner les plages fixes dans la configuration des munitions. \nCela peut réduire l'ETA et supprimer d'éventuelles zones mortes de télémétrie. \nRecommandé pour les tirs de barrage rampant.</French>
+			<Chinesesimp>替换弹丸速度和弹药配置中的固定射程。\n这可以减少预计到达时间并消除可能的射程死角。\n建议用于覆盖式炮击。</Chinesesimp>
 		</Key>
 		<!-- Interaction -->
 		<Key ID="STR_SSS_Artillery_Ammunition">
 			<English>Ammunition</English>
 			<French>Munition</French>
+			<Chinesesimp>武器</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_StrikePlan">
 			<English>Strike plan</English>
 			<French>Plan de frappe</French>
+			<Chinesesimp>打击计划</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Rounds">
 			<English>Rounds</English>
 			<French>Nombre d'obus (par unité)</French>
+			<Chinesesimp>回合</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Coordination">
 			<English>Coordination</English>
 			<French>Coordination</French>
+			<Chinesesimp>协调</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_ExecutionDelay">
 			<English>Execution delay</English>
 			<French>Délai avant exécution</French>
+			<Chinesesimp>执行延迟</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_FiringDelay">
 			<English>Firing delay</English>
 			<French>Délai entre chaque tir</French>
+			<Chinesesimp>发射延迟</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_MixedAmmo">
 			<English>[Mixed]</English>
 			<French>[Mixte]</French>
+			<Chinesesimp>[混合]</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Type">
 			<English>Type</English>
 			<French>Type</French>
+			<Chinesesimp>类型</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_AddTask">
 			<English>ADD TASK</English>
 			<French>AJOUTER UNE TÂCHE</French>
+			<Chinesesimp>添加任务</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_RemoveTask">
 			<English>REMOVE TASK</English>
 			<French>SUPPRIMER UNE TÂCHE</French>
+			<Chinesesimp>删除任务</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_Artillery_ClearAll">
 			<English>CLEAR ALL</English>
 			<French>TOUT EFFACER</French>
+			<Chinesesimp>清除所有</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Loop">
 			<English>Loop</English>
 			<French>Boucle</French>
+			<Chinesesimp>循环</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Loop_info">
 			<English>How many times to loop fire mission (-1 for indefinite) and the delay betwen each loop</English>
 			<French>Combien de fois boucler la mission de tir (-1 pour une durée indéfinie) et le délai entre chaque boucle</French>
+			<Chinesesimp>循环射击任务多少次（-1表示无限期）以及每次循环之间的延迟</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Sheaf">
 			<English>Sheaf</English>
 			<French>Gerbe</French>
+			<Chinesesimp>弹幕形状</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Converged">
 			<English>CONVERGED</English>
 			<French>CONVERGÉ</French>
+			<Chinesesimp>以某个点为中心</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Parallel">
 			<English>PARALLEL</English>
 			<French>PARALLÈLE</French>
+			<Chinesesimp>所有火炮都会平行发射</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Box">
 			<English>BOX</English>
 			<French>EN BOÎTE</French>
+			<Chinesesimp>设置一个矩形区域来进行轰炸</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Creeping">
 			<English>CREEPING</English>
 			<French>RAMPANT</French>
+			<Chinesesimp>设置一个具有定向轰击的区域</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Validation">
 			<English>Validation</English>
 			<French>Validation</French>
+			<Chinesesimp>确认</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Dispersion">
 			<English>Dispersion</English>
 			<French>Dispersion</French>
+			<Chinesesimp>散布</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Abort">
 			<English>Abort active request</English>
 			<French>Abandonner la demande active</French>
+			<Chinesesimp>终止活动请求</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_SheafParameters">
 			<English>Sheaf parameters</English>
 			<French>Paramètres de gerbe</French>
+			<Chinesesimp>层参数</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_TaskLimitReached">
 			<English>Task limit reached</English>
 			<French>Limite de tâches atteinte</French>
+			<Chinesesimp>已达到任务上限</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Grid">
 			<English>Grid</English>
 			<French>Grille</French>
+			<Chinesesimp>网格</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_unavailable">
 			<English>UNAVAILABLE</English>
 			<French>INDISPONIBLE</French>
+			<Chinesesimp>不可用</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_readyToFire">
 			<English>READY TO FIRE</English>
 			<French>PRÊT À TIRER</French>
+			<Chinesesimp>准备发射</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_invalidRange">
 			<English>INVALID RANGE</English>
 			<French>PORTÉE INVALIDE</French>
+			<Chinesesimp>无效范围</Chinesesimp>
 		</Key>
 		<!-- Settings -->
 		<Key ID="STR_SSS_Artillery_manualInput_name">
 			<English>Require manual input</English>
 			<French>Exige une saisie manuelle</French>
+			<Chinesesimp>需要手动输入</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_manualInput_info">
 			<English>Require players to manually input grid coordinates</English>
 			<French>Demander aux joueurs de saisir manuellement les coordonnées de la grille</French>
+			<Chinesesimp>要求玩家手动输入网格坐标</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_visualAids_name">
 			<English>Visual aids</English>
 			<French>Aides visuelles</French>
+			<Chinesesimp>视觉辅助工具</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_visualAids_info">
 			<English>Show visual aids for request planning on the map</English>
 			<French>Afficher des aides visuelles pour la planification des demandes sur la carte</French>
+			<Chinesesimp>在地图上显示申请规划的视觉辅助工具</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_visualAidsLive_name">
 			<English>Visual aids: Live tracking</English>
+			<Chinesesimp>视觉辅助：实时跟踪</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_visualAidsLive_info">
 			<English>Show current support position and any other relevant info</English>
+			<Chinesesimp>显示当前的支持位置和其他相关信息</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_taskMarkers_name">
 			<English>Task markers</English>
 			<French>Marqueurs de tâches</French>
+			<Chinesesimp>任务标记符号</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_taskMarkers_info">
 			<English>Create map markers on task locations</English>
 			<French>Créer des marqueurs de carte sur les emplacements des tâches</French>
+			<Chinesesimp>在任务位置创建地图标记</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_rangeIndicators_name">
 			<English>Range indicators</English>
 			<French>Indicateurs de portée</French>
+			<Chinesesimp>范围指标</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_rangeIndicators_info">
 			<English>Create min/max range indicators on the map</English>
 			<French>Créer des indicateurs de portée min/max sur la carte</French>
+			<Chinesesimp>在地图上创建最小/最大范围指示器</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_relocateCooldown_name">
 			<English>Cooldown after relocation</English>
 			<French>Délai d'attente après la relocalisation</French>
+			<Chinesesimp>转移后的冷却时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_relocateCooldown_info">
 			<English>Execute a cooldown after relocation completes.</English>
 			<French>Exécutez un délai d'attente une fois la relocalisation terminée.</French>
+			<Chinesesimp>转移完成后执行冷却.</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_remoteControl_name">
 			<English>Remote control</English>
 			<French>Contrôle à distance</French>
+			<Chinesesimp>遥控</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_remoteControl_info">
 			<English>Allows remote controlling a gunner</English>
 			<French>Permettre le contrôle à distance d'un tireur</French>
+			<Chinesesimp>允许远程控制炮手</Chinesesimp>
 		</Key>
 		<!-- Notifications -->
 		<Key ID="STR_SSS_Artillery_NoGunnerInVehicle">
 			<English>No gunner in vehicle: %1: %2</English>
 			<French>Aucun tireur à bord du véhicule : %1 : %2</French>
+			<Chinesesimp>车内没有炮手：%1：%2</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_DifferentVehicleType">
 			<English>Different vehicle type: %1: %2 - Expected: %3</English>
 			<French>Type de véhicule différent: %1: %2 - Attendu: %3</French>
+			<Chinesesimp>不同车辆类型：%1：%2 - 预期：%3</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_InvalidMagazineClass">
 			<English>Invalid magazine class: %1</English>
 			<French>Classe de munition invalide: %1</French>
+			<Chinesesimp>无效弹药类别：%1</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_RequestSubmitted">
 			<English>Instructions received. Beginning fire mission...</English>
 			<French>Instructions reçues. Début de la mission de tir...</French>
+			<Chinesesimp>收到指示。开始执行炮火任务...</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_RequestCompleted">
 			<English>Fire mission complete</English>
 			<French>Mission de tir terminée</French>
+			<Chinesesimp>炮火任务完成</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_LoopsLeft">
 			<English>Fire mission complete and will loop %1 more time(s)</English>
 			<French>Mission de tir terminée et bouclera %1 fois de plus</French>
+			<Chinesesimp>开火任务已完成并将再循环 %1 次</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_EndlessLoops">
 			<English>Fire mission complete and will loop until aborted</English>
 			<French>Mission de tir terminée et bouclera jusqu'à son annulation</French>
+			<Chinesesimp>射击任务完成并将循环直至中止</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_InitStrike">
 			<English>Initiating strike at grid %1. ETA: %2</English>
 			<French>Lancement de l'attaque sur la grille %1. ETA: %2</French>
+			<Chinesesimp>在网格%1处开始攻击。预计到达时间：%2</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_StrikeInbound">
 			<English>Artillery strike inbound</English>
 			<French>Frappe d'artillerie en approche</French>
+			<Chinesesimp>炮火来袭</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Splash">
 			<English>Splash at grid %1 - Over.</English>
 			<French>Splash sur la grille %1 - Terminé.</French>
+			<Chinesesimp>在网格 %1 处溅起 - 结束。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Default">
 			<English>Default</English>
 			<French>Défaut</French>
+			<Chinesesimp>默认值</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_Override">
 			<English>Override</English>
 			<French>Outrepasser</French>
+			<Chinesesimp>手动控制</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_statusFireMission">
 			<English>EXECUTING FIRE MISSION</English>
 			<French>EXÉCUTION D'UNE MISSION DE TIR</French>
+			<Chinesesimp>执行炮火任务</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_statusRelocate">
 			<English>RELOCATING</English>
 			<French>REPOSITIONNEMENT</French>
+			<Chinesesimp>重新部署</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_notifyRelocate">
 			<English>Relocating to %1 E %2 N.</English>
 			<French>Repositionnement vers %1 E %2 N.</French>
+			<Chinesesimp>转移至 %1 E %2 N</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_notifyRelocateAbort">
 			<English>Relocation aborted.</English>
 			<French>Repositionnement annulé.</French>
+			<Chinesesimp>转移失败</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_notifyRelocateComplete">
 			<English>Relocation complete.</English>
 			<French>Repositionnement effectué.</French>
+			<Chinesesimp>转移完成</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_notifyAbort">
 			<English>Request aborted.</English>
 			<French>Demande abandonnée.</French>
+			<Chinesesimp>请求被中止。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Artillery_notifyCooldownComplete">
 			<English>Rearmed and ready for further tasking.</English>
 			<French>Réarmé et prêt pour d'autres tâches.</French>
+			<Chinesesimp>已重新装备，准备执行下一步任务。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_ARTILLERY_fireMission">
 			<English>FIRE MISSION</English>
 			<French>MISSION DE TIR</French>
+			<Chinesesimp>炮火任务</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_ARTILLERY_relocation">
 			<English>RELOCATION</English>
 			<French>REPOSITIONNER</French>
+			<Chinesesimp>重新部署</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_ARTILLERY_noRecipientsAvailable">
 			<English>No recipients available.</English>
 			<French>Aucun destinataire disponible.</French>
+			<Chinesesimp>没有可用的收件人</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_artillery_loopCount">
 			<English>Loop count</English>
 			<French>Nombre de boucles</French>
+			<Chinesesimp>循环计数</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_artillery_loopDelay">
 			<English>Loop delay</English>
 			<French>Délai de boucle</French>
+			<Chinesesimp>循环延迟</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_artillery_eta">
 			<English>ETA</English>
 			<French>ETA</French>
+			<Chinesesimp>估计到达时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_artillery_sheafType">
 			<English>Sheaf type</English>
 			<French>Type de gerbe</French>
+			<Chinesesimp>弹幕形状类型</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_artillery_widthAcronym">
 			<English>W</English>
 			<French>W</French>
+			<Chinesesimp>W</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_artillery_heightAcronym">
 			<English>H</English>
 			<French>H</French>
+			<Chinesesimp>H</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_artillery_angle">
 			<English>Angle</English>
 			<French>Angle</French>
+			<Chinesesimp>角度</Chinesesimp>
 		</Key>
 	</Package>
 </Project>

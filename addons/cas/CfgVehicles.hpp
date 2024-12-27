@@ -100,7 +100,6 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "''";
 				control = "EditCodeMulti3";
-				validate = "expression";
 			};
 			FINAL_ATTRIBUTES;
 		};
@@ -248,7 +247,6 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "''";
 				control = "EditCodeMulti3";
-				validate = "expression";
 			};
 			class RemoteControl : Default {
 				ATTRIBUTE(RemoteControl);
@@ -394,7 +392,6 @@ class CfgVehicles {
 				typeName = "STRING";
 				defaultValue = "''";
 				control = "EditCodeMulti3";
-				validate = "expression";
 			};
 			FINAL_ATTRIBUTES;
 		};

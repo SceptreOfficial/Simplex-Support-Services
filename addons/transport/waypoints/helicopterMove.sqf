@@ -29,7 +29,7 @@ waitUntil {
 
 	sleep WAYPOINT_SLEEP;
 
-	!isTouchingGround _vehicle && unitReady _vehicle
+	!isTouchingGround _vehicle && unitReady _vehicle && _vehicle distance2D _wpPos < 200
 };
 
 if (driver _vehicle call EFUNC(common,isRemoteControlled)) exitWith {true};

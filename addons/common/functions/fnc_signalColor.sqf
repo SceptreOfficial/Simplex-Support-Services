@@ -8,7 +8,7 @@ if (_signal isEqualType objNull) then {
 
 switch true do {
 	case (_signal isKindOf "FlareBase") : {
-		private _color = getArray (configfile >> "CfgAmmo" >> _signal >> "lightColor");
+		private _color = getArray (configFile >> "CfgAmmo" >> _signal >> "lightColor");
 		_color deleteAt 3;
 
 		private _distances = (uiNamespace getVariable QGVAR(flareColors)) apply {[_color distance _x # 0,_x # 1,_x # 0]};
@@ -21,7 +21,7 @@ switch true do {
 		};
 	};
 	case (_signal isKindOf "ACE_G_Handflare_White") : {
-		private _color = getArray (configfile >> "CfgAmmo" >> _signal >> "ace_grenades_color");
+		private _color = getArray (configFile >> "CfgAmmo" >> _signal >> "ace_grenades_color");
 		_color deleteAt 3;
 
 		private _distances = (uiNamespace getVariable QGVAR(flareColors)) apply {[_color distance _x # 0,_x # 1,_x # 0]};
@@ -34,7 +34,7 @@ switch true do {
 		};
 	};
 	case (_signal isKindOf "SmokeShell") : {
-		private _color = getArray (configfile >> "CfgAmmo" >> _signal >> "smokeColor");
+		private _color = getArray (configFile >> "CfgAmmo" >> _signal >> "smokeColor");
 		_color deleteAt 3;
 
 		private _distances = (uiNamespace getVariable QGVAR(smokeColors)) apply {[_color distance _x # 0,_x # 1,_x # 0]};

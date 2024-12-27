@@ -1,7 +1,7 @@
 #include "\a3\ui_f\hpp\defineCommonGrids.inc"
 
-#define POPUP_X (safezoneX + 1 * GUI_GRID_W)
-#define POPUP_Y (safezoneY + 14 * GUI_GRID_H)
+#define POPUP_X (safeZoneX + 1 * GUI_GRID_W)
+#define POPUP_Y (safeZoneY + 14 * GUI_GRID_H)
 #define POPUP_W (16 * GUI_GRID_W)
 
 #define POPUP_TITLE_H (1 * GUI_GRID_H)

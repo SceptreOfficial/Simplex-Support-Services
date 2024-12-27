@@ -40,7 +40,7 @@ private _target = [
 	[_entity getVariable QPVAR(friendlyRange),0] select (_request getOrDefault ["dangerClose",false])
 ] call EFUNC(common,targetSearch);
 
-if (_target in [objNull,[0,0,0]]) exitWith {};
+if (_target in [objNull,[0,0,0],sideFriendly]) exitWith {};
 
 if (_weapon == "SEARCHLIGHT") exitWith {
 	[_vehicle,_turret,_target] call EFUNC(common,searchlight);

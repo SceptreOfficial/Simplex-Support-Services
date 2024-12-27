@@ -44,18 +44,16 @@ if (isNull _group) then {
 
 _vehicle setVariable [QPVAR(entity),_entity,true];
 
-// ACEX headless compat
-_group setVariable ["acex_headless_blacklist",true,true];
-
-// ALIVE headless compat
-{_x setVariable ["alive_ignore_hc",true,true]} forEach PRIMARY_CREW(_vehicle);
-
-// ZHC headless compat
-_group setVariable ["zhc_offload_blacklisted",true,true];
-
-// AI mod compat
-_group setVariable ["Vcm_Disable",true,true];
-_group setVariable ["lambs_danger_disableGroupAI",true,true];
+// Mod compat
+_group setVariable ["Vcm_Disable",true,true];// VCOM
+_group setVariable ["lambs_danger_disableGroupAI",true,true];// LAMBS
+_group setVariable ["acex_headless_blacklist",true,true];// ACE
+_group setVariable ["zhc_offload_blacklisted",true,true];// ZHC
+_group setVariable ["sfsm_excluded",true,true];// DCO Soldier FSM
+{
+	_x setVariable ["sfsm_excluded",true,true];// DCO Soldier FSM
+	_x setVariable ["alive_ignore_hc",true,true];// ALIVE
+} forEach (PRIMARY_CREW(_vehicle) + [_vehicle]);
 
 _vehicle call (_entity getVariable QPVAR(vehicleInit));
 

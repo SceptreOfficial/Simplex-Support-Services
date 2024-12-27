@@ -6,7 +6,7 @@ private _display = uiNamespace getVariable QEGVAR(sdf,display);
 private _ctrlGroup = _display displayCtrl IDC_INSTRUCTIONS_GROUP;
 private _ctrlTaskGroup = _ctrlGroup controlsGroupCtrl IDC_TASK_GROUP;
 private _ctrlMap = _display displayCtrl IDC_MAP;
-private _showDispersion = _sheaf in ["CONVERGED","PARALLEL"];
+private _showDispersion = _sheaf in ["CONVERGED","PARALLEL","NONE"];
 
 {[_ctrlTaskGroup controlsGroupCtrl _x,_showDispersion] call EFUNC(sdf,show)} forEach [
 	IDC_SHEAF_DISPERSION_TEXT,

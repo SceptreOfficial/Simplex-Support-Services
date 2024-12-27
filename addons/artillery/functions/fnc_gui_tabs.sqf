@@ -37,7 +37,7 @@ _ctrlMap setVariable [QEGVAR(sdf,skip),true];
 if (_planOpen) then {
 	GVAR(plan) # GVAR(planIndex) params ["_area","_sheaf"];
 	
-	if (_sheaf in ["CONVERGED","PARALLEL"]) then {
+	if (_sheaf in ["CONVERGED","PARALLEL","NONE"]) then {
 		[_ctrlMap,[[_area # 0]],[],[],0,FUNC(gui_map)] call EFUNC(sdf,manageMap);
 	} else {
 		[_ctrlMap,[],[_area],[],1,FUNC(gui_map)] call EFUNC(sdf,manageMap);

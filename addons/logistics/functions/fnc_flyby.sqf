@@ -67,7 +67,7 @@ if !(_scriptedWaypoint in [[],""]) then {
 	private _wp1 = _group addWaypoint [_pos,0];
 	_wp1 setWaypointType "SCRIPTED";
 	_wp1 setWaypointScript format ["%1 %2",_script,_args];
-	_wp1 setWaypointPosition [ATLtoASL _pos,-1];
+	_wp1 setWaypointPosition [ATLToASL _pos,-1];
 	_wp1 setWaypointDescription QGVAR(flyby1);
 } else {
 	private _wp1 = _group addWaypoint [_pos,0];

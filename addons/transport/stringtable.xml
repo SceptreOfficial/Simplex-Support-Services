@@ -4,702 +4,880 @@
 		<Key ID="STR_SSS_Transport_Service">
 			<English>Transport</English>
 			<French>Transport</French>
+			<Chinesesimp>运输</Chinesesimp>
 		</Key>
 		<!-- Modules -->
 		<Key ID="STR_SSS_Transport_ModuleAddBoat_name">
 			<English>Transport Boat</English>
 			<French>Transport Bateau</French>
+			<Chinesesimp>运输船</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_ModuleAddBoat_info">
 			<English>Sync boat to add</English>
 			<French>Synchroniser le bateau à ajouter</French>
+			<Chinesesimp>同步要添加的船</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_ModuleAddHelicopter_name">
 			<English>Transport Helicopter</English>
 			<French>Transport Hélicoptère</French>
+			<Chinesesimp>运输直升机</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_ModuleAddHelicopter_info">
 			<English>Sync helicopter to add</English>
 			<French>Synchroniser l'hélicoptère à ajouter</French>
+			<Chinesesimp>同步要添加的直升机</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_ModuleAddLand_name">
 			<English>Transport Land Vehicle</English>
 			<French>Transport Terrestre</French>
+			<Chinesesimp>运输陆地车辆</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_ModuleAddLand_info">
 			<English>Sync vehicle to add</English>
 			<French>Synchroniser le véhicule à ajouter</French>
+			<Chinesesimp>同步要添加的车辆</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_ModuleAddPlane_name">
 			<English>Transport Plane</English>
 			<French>Transport Avion</French>
+			<Chinesesimp>运输飞机</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_ModuleAddPlane_info">
 			<English>Sync plane to add</English>
 			<French>Plan de synchronisation à ajouter</French>
+			<Chinesesimp>同步要添加的飞机</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_ModuleAddVTOL_name">
 			<English>Transport VTOL</English>
 			<French>Transport VTOL</French>
+			<Chinesesimp>运输垂直起降飞机</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_ModuleAddVTOL_info">
 			<English>Sync VTOL to add</English>
 			<French>Synchronisez VTOL pour ajouter</French>
+			<Chinesesimp>同步要添加的垂直起降飞机</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_Cooldown_name">
 			<English>Cooldown</English>
 			<French>Délai d'attente</French>
+			<Chinesesimp>冷却</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_Cooldown_info">
 			<English>Minimum time between requests</English>
 			<French>Délai d'attente minimal entre deux demandes, en secondes.</French>
+			<Chinesesimp>请求之间的最短时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_MaxTasks_name">
 			<English>Max tasks</English>
 			<French>Tâches maximales</French>
+			<Chinesesimp>最大任务数</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_MaxTasks_info">
 			<English>Limits the amount of tasks that can be planned (-1 for no limit)</English>
 			<French>Limite le nombre de tâches pouvant être planifiées (-1 pour aucune limite)</French>
+			<Chinesesimp>限制可计划的任务量（-1 表示无限制）</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_MaxTimeout_name">
 			<English>Max timeout</English>
 			<French>Délai d'expiration maximum</French>
+			<Chinesesimp>最大超时时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_MaxTimeout_info">
 			<English>Maximum amount of time a waypoint can be suspended after completion</English>
 			<French>Durée maximale pendant laquelle un waypoint peut être suspendu une fois terminé</French>
+			<Chinesesimp>航路点完成后可以等待的最长时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_VirtualRunway_name">
 			<English>Virtual runway</English>
 			<French>Piste virtuelle</French>
+			<Chinesesimp>虚拟跑道</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_VirtualRunway_info">
 			<English>Aircraft will be teleported to/from this position for takeoff/landing.\n[0,0,0] will use the nearest physical runway.</English>
 			<French>L'avion sera téléporté vers/depuis cette position pour le décollage/l'atterrissage.[0,0,0] utilisera la piste physique la plus proche.</French>
+			<Chinesesimp>飞机将被传送到这个位置/从这个位置起飞/降落。\n[0，0，0]将使用最近的物理跑道。</Chinesesimp>
 		</Key>
 		<!-- Interaction -->
 		<Key ID="STR_SSS_Transport_TaskLimitReached">
 			<English>Task limit reached</English>
 			<French>Limite de tâches atteinte</French>
+			<Chinesesimp>已到达任务数量限制</Chinesesimp>
 		</Key>
 		<!-- Settings -->
 		<Key ID="STR_SSS_Transport_manualInput_name">
 			<English>Require manual input</English>
 			<French>Exige une saisie manuelle</French>
+			<Chinesesimp>需要手动输入</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_manualInput_info">
 			<English>Require players to manually input grid coordinates</English>
 			<French>Demander aux joueurs de saisir manuellement les coordonnées de la grille</French>
+			<Chinesesimp>需要玩家手动输入网格坐标</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_visualAids_name">
 			<English>Visual aids</English>
 			<French>Aides visuelles</French>
+			<Chinesesimp>视觉辅助</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_visualAids_info">
 			<English>Show visual aids for request planning</English>
 			<French>Afficher des aides visuelles pour la planification des demandes sur la carte</French>
+			<Chinesesimp>显示请求规划的视觉辅助工具</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_visualAidsLive_name">
 			<English>Visual aids: Live tracking</English>
+			<Chinesesimp>视觉辅助：实时跟踪</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_visualAidsLive_info">
 			<English>Show current support position and any other relevant info</English>
+			<Chinesesimp>显示当前支持位置和任何其他相关信息</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_taskMarkers_name">
 			<English>Task markers</English>
 			<French>Marqueurs de tâches</French>
+			<Chinesesimp>任务标记</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_taskMarkers_info">
 			<English>Create map markers on task locations</English>
 			<French>Créer des marqueurs de carte sur les emplacements des tâches</French>
+			<Chinesesimp>在任务位置创建地图标记</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_holdTimeoutStr_name">
 			<English>Hold timeout</English>
 			<French>Délai d'attente</French>
+			<Chinesesimp>保持超时</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_holdTimeoutStr_info">
 			<English>A 'hold' waypoint will auto-complete after this amount of time (-1 for indefinite)</English>
 			<French>Un waypoint "Tenir" se terminera automatiquement après ce laps de temps (-1 pour une durée indéfinie)</French>
+			<Chinesesimp>“等待”航路点将在此时间后自动完成（-1 表示无限期）</Chinesesimp>
 		</Key>
 		<!-- Notifications -->
 		<Key ID="STR_SSS_Transport_RequestSubmitted">
 			<English>Request received.</English>
 			<French>Demande reçue.</French>
+			<Chinesesimp>收到请求。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_RequestComplete">
 			<English>Request complete.</English>
 			<French>Demande terminée.</French>
+			<Chinesesimp>请求完成</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_NoDriverInVehicle">
 			<English>No driver in vehicle: %1: %2</English>
 			<French>Aucun conducteur dans le véhicule: %1: %2</French>
+			<Chinesesimp>车内无驾驶员: %1: %2</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_RTB">
 			<English>Return to base</English>
 			<French>Retourner à la base</French>
+			<Chinesesimp>返回基地</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_Move">
 			<English>Move</English>
 			<French>Se déplacer</French>
+			<Chinesesimp>移动</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_Follow">
 			<English>Follow</English>
 			<French>Suivre</French>
+			<Chinesesimp>跟随</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_Hold">
 			<English>Hold</English>
 			<French>Tenir</French>
+			<Chinesesimp>坚守</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_Land">
 			<English>Land</English>
 			<French>Atterrir</French>
+			<Chinesesimp>着陆</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_LandSignal">
 			<English>Land signal</English>
 			<French>Signal d'atterrissage</French>
+			<Chinesesimp>着陆信号</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_Hover">
 			<English>Hover</English>
 			<French>Stationnaire</French>
+			<Chinesesimp>悬停</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_Helocast">
 			<English>Helocast</English>
 			<French>Rase motte (Helocast)</French>
+			<Chinesesimp>Helocast</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_Loiter">
 			<English>Loiter</English>
 			<French>Vol en attente</French>
+			<Chinesesimp>盘旋</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_Fastrope">
 			<English>Fastrope</English>
 			<French>Corde lisse (Fast-roping)</French>
+			<Chinesesimp>快速索降</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_SlingloadPickup">
 			<English>Slingload Pickup</English>
 			<French>Élingage Pickup</French>
+			<Chinesesimp>升起货物</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_SlingloadDropoff">
 			<English>Slingload Dropoff</English>
 			<French>Élingage Dropoff</French>
+			<Chinesesimp>降下货物</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_Unload">
 			<English>Unload</English>
 			<French>Déchargement</French>
+			<Chinesesimp>卸载</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_Paradrop">
 			<English>Paradrop</English>
 			<French>Parachutage</French>
+			<Chinesesimp>空投</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_SAD">
 			<English>Seek and destroy</English>
 			<French>Rechercher et détruir</French>
+			<Chinesesimp>寻找并摧毁</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_Strafe">
 			<English>Strafe</English>
 			<French>Attaque</French>
+			<Chinesesimp>扫射</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_Fire">
 			<English>Fire at target</English>
 			<French>Tirer sur la cible</French>
+			<Chinesesimp>向目标开火</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_Relocate">
 			<English>Relocate</English>
 			<French>Relocaliser</French>
+			<Chinesesimp>转移</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_Path">
 			<English>Path</English>
 			<French>Cheminement</French>
+			<Chinesesimp>路径</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_TaskTypes_name">
 			<English>Task types</English>
 			<French>Types de tâches</French>
+			<Chinesesimp>任务类型</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_TaskTypes_info">
 			<English>Waypoints available for use</English>
 			<French>Points de passage disponibles pour utilisation</French>
+			<Chinesesimp>可供使用的航点</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_AltitudeLimits_name">
 			<English>Altitude limits</English>
 			<French>Limites d'altitude</French>
+			<Chinesesimp>海拔高度限制</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_AltitudeLimits_info">
 			<English>Minumum and maximum flying heights ATL/ASL</English>
 			<French>Altitude de vol minimales et maximales ATL/ASL</French>
+			<Chinesesimp>最小和最大飞行高度ATL/ASL</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusRTB">
 			<English>RTB</English>
 			<French>RTB</French>
+			<Chinesesimp>返回基地</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusMove">
 			<English>MOVE</English>
 			<French>SE DÉPLACER</French>
+			<Chinesesimp>移动</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusFollow">
 			<English>FOLLOW</English>
 			<French>SUIVRE</French>
+			<Chinesesimp>跟随</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusHold">
 			<English>HOLD</English>
 			<French>TENIR</French>
+			<Chinesesimp>保持</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusLand">
 			<English>LAND</English>
 			<French>ATTERRIR</French>
+			<Chinesesimp>着陆</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusLandSignal">
 			<English>LAND SIGNAL</English>
 			<French>SIGNAL TERRESTRE</French>
+			<Chinesesimp>着陆信号</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusHover">
 			<English>HOVER</English>
 			<French>STATIONNAIRE</French>
+			<Chinesesimp>悬停</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusHelocast">
 			<English>HELOCAST</English>
 			<French>RASE MOTTE</French>
+			<Chinesesimp>HELOCAST</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusLoiter">
 			<English>LOITER</English>
 			<French>VOL EN ATTENTE</French>
+			<Chinesesimp>盘旋</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusFastrope">
 			<English>FASTROPE</English>
 			<French>FASTROPE</French>
+			<Chinesesimp>快速索降</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusSlingloadPickup">
 			<English>SLINGLOAD PICKUP</English>
 			<French>ÉLINGAGE PICKUP</French>
+			<Chinesesimp>吊装拾取</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusSlingloadDropoff">
 			<English>SLINGLOAD DROPOFF</English>
 			<French>ÉLINGAGE DROPOFF</French>
+			<Chinesesimp>吊装卸载</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusUnload">
 			<English>UNLOAD</English>
 			<French>DÉCHARGEMENT</French>
+			<Chinesesimp>卸载</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusParadrop">
 			<English>PARADROP</English>
 			<French>PARACHUTAGE</French>
+			<Chinesesimp>空投</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusSAD">
 			<English>SEEK AND DESTROY</English>
 			<French>RECHERCHER ET DÉTRUIR</French>
+			<Chinesesimp>寻找并摧毁</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusStrafe">
 			<English>STRAFE</English>
 			<French>ATTAQUE</French>
+			<Chinesesimp>扫射</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusFire">
 			<English>FIRE</English>
 			<French>TIRER</French>
+			<Chinesesimp>开火</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusRelocate">
 			<English>RELOCATE</English>
 			<French>RELOCALISER</French>
+			<Chinesesimp>转移</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_statusPath">
 			<English>PATH</English>
 			<French>CHEMINEMENT</French>
+			<Chinesesimp>路径</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyRTB">
 			<English>Returning to base</English>
 			<French>Retourne à la base</French>
+			<Chinesesimp>返回基地</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyMove">
 			<English>Moving to %1</English>
 			<French>Déplacement au %1</French>
+			<Chinesesimp>移动到 %1</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyFollow">
 			<English>Following %1</English>
 			<French>Suit %1</French>
+			<Chinesesimp>跟随 %1</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyHold">
 			<English>Moving to hold at %1</English>
 			<French>Déplacement pour tenir au %1</French>
+			<Chinesesimp>移动到%1保持</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyLand">
 			<English>Landing at %1</English>
 			<French>Atterrissage au %1</French>
+			<Chinesesimp>在%1着陆</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyLandSignal">
 			<English>Moving to signal area %1</English>
 			<French>Déplacement vers la zone signalé %1</French>
+			<Chinesesimp>正在移动到信号区域%1</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyHover">
 			<English>Moving to hover position %1</English>
 			<French>Déplacement vers la position de stationnaire au %1</French>
+			<Chinesesimp>移动到悬停位置%1</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyHelocast">
 			<English>Moving to helocast position %1</English>
 			<French>Déplacement vers la position de rase motte au %1</French>
+			<Chinesesimp>移至 helocast 位置 %1</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyLoiter">
 			<English>Moving to loiter area %1</English>
 			<French>Déplacement vers la zone de Vol en attente au %1</French>
+			<Chinesesimp>移动到待机区域%1盘旋</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyFastrope">
 			<English>Moving to fastrope position %1</English>
 			<French>Déplacement vers la position de Fast-roping au %1</French>
+			<Chinesesimp>移至快速索降位置 %1</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifySlingloadPickup">
 			<English>Moving to slingload cargo area %1</English>
 			<French>Déplacement vers la zone de l'élingage au %1</French>
+			<Chinesesimp>正在移动到吊货区%1</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifySlingloadDropoff">
 			<English>Delivering slingload cargo at %1</English>
 			<French>Livraison de fret à l'élingue au %1</French>
+			<Chinesesimp>在%1交付吊重货物</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyUnload">
 			<English>Unloading at %1</English>
 			<French>Déchargement au %1</French>
+			<Chinesesimp>正在%1卸载</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyParadrop">
 			<English>Paradropping at %1</English>
 			<French>Parachutage au %1</French>
+			<Chinesesimp>在%1处跳伞</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifySAD">
 			<English>Moving to secure target area %1</English>
 			<French>Déplacement vers la zone cible sécurisée au %1</French>
+			<Chinesesimp>移动到安全目标区域 %1</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyStrafe">
 			<English>Performing strafe run at %1</English>
 			<French>Exécution d'une attaque au %1</French>
+			<Chinesesimp>在%1执行扫射</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyFire">
 			<English>Firing at %1</English>
 			<French>Tir au %1</French>
+			<Chinesesimp>在 %1 开火</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyRelocate">
 			<English>Relocating to %1</English>
 			<French>Relocalisation au %1</French>
+			<Chinesesimp>正在转移到%1</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyPath">
 			<English>Following designated path at %1</English>
 			<French>Suivi du cheminement désigné au %1</French>
+			<Chinesesimp>沿着 %1 处的指定路径行驶</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyWaiting">
 			<English>Waiting for %1</English>
 			<French>En attente pour %1</French>
+			<Chinesesimp>正在等待%1</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyContinueSearch">
 			<English>Roger; continuing search...</English>
 			<French>Roger; poursuite des recherches...</French>
+			<Chinesesimp>收到，继续搜索...</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyWaypointsComplete">
 			<English>Tasking complete.</English>
 			<French>Tâche terminée.</French>
+			<Chinesesimp>任务完成。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyRelocateFailed">
 			<English>Relocation failed.</English>
 			<French>La relocalisation a échoué.</French>
+			<Chinesesimp>转移失败。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyRelocateComplete">
 			<English>Relocation completed.</English>
 			<French>Relocalisation terminé.</French>
+			<Chinesesimp>转移完成。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyHolding">
 			<English>Holding at location until further notice.</English>
 			<French>En attente sur place jusqu'à nouvel ordre.</French>
+			<Chinesesimp>原地待命等待进一步通知。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyLookForLandSignal">
 			<English>Looking for landing signal...</English>
 			<French>À la recherche du signal d'atterrissage...</French>
+			<Chinesesimp>寻找着陆信号...</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyLandSignalFound">
 			<English>%1 found. Please confirm...</English>
 			<French>%1 trouvé. Veuillez confirmer...</French>
+			<Chinesesimp>找到 %1。请确认...</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyLandSignalConfirm">
 			<English>Please confirm a landing signal...</English>
 			<French>Veuillez confirmer un signal d'atterrissage...</French>
+			<Chinesesimp>请确认着陆信号...</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyLoiterTime">
 			<English>Loitering for %1.</English>
 			<French>Vol en attente pour %1.</French>
+			<Chinesesimp>在 %1 处盘旋</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyAbort">
 			<English>Request aborted.</English>
 			<French>Demande annulée.</French>
+			<Chinesesimp>请求中止</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyLoiterIndefinite">
 			<English>Loitering indefinitely.</English>
 			<French>Vol en attente indéfiniment.</French>
+			<Chinesesimp>无限期盘旋。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifySlingloadTarget">
 			<English>Please confirm slingload target.</English>
 			<French>Veuillez confirmer la cible d'élingage.</French>
+			<Chinesesimp>请确认吊装目标</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_notifyAppend">
 			<English>Additional tasks received.</English>
 			<French>Tâches supplémentaires reçues.</French>
+			<Chinesesimp>收到额外任务。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_guiConfirmSignal">
 			<English>%1 found at %2 E %3 N</English>
 			<French>%1 trouvé à %2 E %3 N</French>
+			<Chinesesimp>%1 发现于 %2 E %3 N</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_guiConfirmContinueSearch">
 			<English>Continue search</English>
 			<French>Continuer la recherche</French>
+			<Chinesesimp>继续搜索</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_guiConfirmApproveSignal">
 			<English>Approve signal</English>
 			<French>Approuver le signal</French>
+			<Chinesesimp>批准信号</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_stopFollowing">
 			<English>Stop following</English>
 			<French>Arrêtez de suivre</French>
+			<Chinesesimp>停止跟随</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_stopHolding">
 			<English>Stop holding</English>
 			<French>Arrêtez de tenir</French>
+			<Chinesesimp>停止吊装</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_slingloadTarget">
 			<English>Slingload target</English>
 			<French>Cible d'élingage.</French>
+			<Chinesesimp>吊装目标</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_transport_slingloadMassOverride_name">
 			<English>Slingload mass override</English>
 			<French>Outrepassage de la masse d'élingage.</French>
+			<Chinesesimp>吊装目标超重</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_transport_slingloadMassOverride_info">
 			<English>Ignore vanilla mass limits</English>
 			<French>Ignorer les limites de masse de vanilla</French>
+			<Chinesesimp>忽略vanilla质量限制</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_transport_RTBReset_name">
 			<English>RTB: Reset vehicle</English>
 			<French>RTB: Réinitialiser le véhicule</French>
+			<Chinesesimp>返回基地：重置车辆</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_transport_RTBReset_info">
 			<English>Restores vehicle health and ammo after RTB</English>
 			<French>Restaure la santé et les munitions du véhicule après le RTB</French>
+			<Chinesesimp>返回基地后恢复车辆健康和弹药</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_transport_RTBRestoreCrew_name">
 			<English>RTB: Restore crew</English>
 			<French>RTB: Restaurer l'équipage</French>
+			<Chinesesimp>返回基地: 恢复机组人员</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_transport_RTBRestoreCrew_info">
 			<English>Restores crew after RTB</English>
 			<French>Restaure l'équipage après RTB</French>
+			<Chinesesimp>返回基地后恢复机组人员</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_transport_RemoteControl_name">
 			<English>Remote control</English>
 			<French>Contrôle à distance</French>
+			<Chinesesimp>遥控</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_transport_RemoteControl_info">
 			<English>Allows remote controlling vehicle slots</English>
 			<French>Permettre le contrôle à distance des emplacements des véhicules</French>
+			<Chinesesimp>允许远程控制车辆内位置</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_planner">
 			<English>PLANNER</English>
 			<French>PLANIFICATEUR</French>
+			<Chinesesimp>计划者</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_confirmations">
 			<English>CONFIRMATIONS</English>
 			<French>CONFIRMATIONS</French>
+			<Chinesesimp>确定</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_waypoints">
 			<English>Waypoints</English>
 			<French>Points de passage</French>
+			<Chinesesimp>路径点</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_append">
 			<English>APPEND</English>
 			<French>AJOUTER</French>
+			<Chinesesimp>附加</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_overwrite">
 			<English>OVERWRITE</English>
 			<French>ÉCRASER</French>
+			<Chinesesimp>覆盖</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_task">
 			<English>Task</English>
 			<French>Tâche</French>
+			<Chinesesimp>任务</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_timeout">
 			<English>Timeout</English>
 			<French>Timeout</French>
+			<Chinesesimp>超时</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_speedLimit">
 			<English>Speed limit</English>
 			<French>Limitation de vitesse</French>
+			<Chinesesimp>速度限制</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_combatMode">
 			<English>Combat mode</English>
 			<French>Mode de combat</French>
+			<Chinesesimp>战斗模式</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_combatModeBlue">
 			<English>Blue</English>
 			<French>Bleu</French>
+			<Chinesesimp>蓝色</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_combatModeBlueTooltip">
 			<English>Never fire.</English>
 			<French>Ne pas tirer.</French>
+			<Chinesesimp>不开火。</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_combatModeGreen">
 			<English>Green</English>
 			<French>Vert</French>
+			<Chinesesimp>绿色</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_combatModeGreenTooltip">
 			<English>Do not fire unless fired upon.</English>
 			<French>Ne tire pas à moins d'être pris pour cible, reste en formation.</French>
+			<Chinesesimp>除非遭到射击，否则不开火。</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_combatModeWhite">
 			<English>White</English>
 			<French>Blanc</French>
+			<Chinesesimp>白色</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_combatModeWhiteTooltip">
 			<English>Do not fire unless fired upon. Pursue targets.</English>
 			<French>Ne tire pas à moins d'être pris pour cible.</French>
+			<Chinesesimp>除非遭到射击，否则不开火，并追踪目标。</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_combatModeYellow">
 			<English>Yellow</English>
 			<French>Jaune</French>
+			<Chinesesimp>黄色</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_combatModeYellowTooltip">
 			<English>Fire at will.</English>
 			<French>Feu à volonté, reste en formation</French>
+			<Chinesesimp>随意开火。</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_combatModeRed">
 			<English>Red</English>
 			<French>Rouge</French>
+			<Chinesesimp>红色</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_combatModeRedTooltip">
 			<English>Fire at will. Pursue targets.</English>
 			<French>Ouvre le feu.</French>
+			<Chinesesimp>随意开火。追踪目标。</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_lights">
 			<English>Lights</English>
 			<French>Lumières (phares)</French>
+			<Chinesesimp>灯光</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_collisionLights">
 			<English>Collision lights</English>
 			<French>Feux de anti-collision</French>
+			<Chinesesimp>碰撞灯</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_altitudeATL">
 			<English>Altitude ATL</English>
 			<French>Altitude ATL</French>
+			<Chinesesimp>高度 ATL</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_altitudeASL">
 			<English>Altitude ASL</English>
 			<French>Altitude ASL</French>
+			<Chinesesimp>高度 ASL</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_target">
 			<English>Target</English>
 			<French>Cible</French>
+			<Chinesesimp>目标</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_engine">
 			<English>Engine</English>
 			<French>Moteur</French>
+			<Chinesesimp>发动机</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_finalAzimuth">
 			<English>Final azimuth</English>
 			<French>Azimut final</French>
+			<Chinesesimp>最后的方位角</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_approach">
 			<English>Approach</English>
 			<French>Approche</French>
+			<Chinesesimp>接近</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_signalType">
 			<English>Signal type</English>
 			<French>Type de signal</French>
+			<Chinesesimp>信号类型</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_searchRadius">
 			<English>Search radius</English>
 			<French>Rayon de recherche</French>
+			<Chinesesimp>搜索半径</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_searchTimeout">
 			<English>Search timeout</English>
 			<French>Timeout de recherche</French>
+			<Chinesesimp>搜索超时</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_hoverHeight">
 			<English>Hover height</English>
 			<French>Altitude de stationnaire</French>
+			<Chinesesimp>悬停高度</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_ejections">
 			<English>Ejections</English>
 			<French>Éjections</French>
+			<Chinesesimp>弹射</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_allPlayers">
 			<English>All players</English>
 			<French>Tous les joueurs</French>
+			<Chinesesimp>所有玩家</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_allAI">
 			<English>All AI</English>
 			<French>Tous les IA</French>
+			<Chinesesimp>所有AI</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_allCargo">
 			<English>All cargo</English>
 			<French>Tous les cargos</French>
+			<Chinesesimp>所有货物</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_radius">
 			<English>Radius</English>
 			<French>Rayon</French>
+			<Chinesesimp>半径</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_slingloadInfo">
 			<English>(Slingload target is selected on arrival)</English>
 			<French>(La cible d'élingage est sélectionnée à l'arrivée)</French>
+			<Chinesesimp>（吊装目标在抵达时选择）</Chinesesimp>
+		</Key>
+		<Key ID="STR_sss_transport_helocastInfo">
+			<English>(Timeout is required to achieve desired effect)</English>
 		</Key>
 		<Key ID="STR_sss_transport_parachuteDeployHeight">
 			<English>Parachute deploy height</English>
 			<French>Altitude de déploiement du parachute</French>
+			<Chinesesimp>降落伞展开高度</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_ejectInterval">
 			<English>Ejection interval</English>
 			<French>Intervalle d'éjection</French>
+			<Chinesesimp>弹射间隔</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_direction">
 			<English>Direction</English>
 			<French>Direction</French>
+			<Chinesesimp>方向</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_hoverSpeed">
 			<English>Hover speed</English>
 			<French>Vitesse de stationnaire</French>
+			<Chinesesimp>悬停速度</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_linearSpread">
 			<English>Linear spread</English>
 			<French>Propagation linéaire</French>
+			<Chinesesimp>线性排列</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_primaryWeapon">
 			<English>Primary weapon</English>
 			<French>Arme primaire</French>
+			<Chinesesimp>主武器</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_primaryRateControl">
 			<English>Primary rate control</English>
 			<French>Contrôle de la cadence de tir d'arme primaire</French>
+			<Chinesesimp>主武器速率控制</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_secondaryWeapon">
 			<English>Secondary weapon</English>
 			<French>Arme secondaire</French>
+			<Chinesesimp>副武器</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_secondaryRateControl">
 			<English>Secondary rate control</English>
 			<French>Contrôle de la cadence de tir d'arme secondaire</French>
+			<Chinesesimp>副武器速率控制</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_weapon">
 			<English>Weapon</English>
 			<French>Arme</French>
+			<Chinesesimp>武器</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_totalDuration">
 			<English>Total duration</English>
 			<French>Durée totale</French>
+			<Chinesesimp>总持续时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_burstDuration">
 			<English>Burst duration</English>
 			<French>Durée de rafale</French>
+			<Chinesesimp>射击持续时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_burstInterval">
 			<English>Burst interval</English>
 			<French>Intervalle de rafale</French>
+			<Chinesesimp>射击间隔时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_transport_spread">
 			<English>Spread</English>
 			<French>Propagation</French>
+			<Chinesesimp>散布</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_maxSearchRadiusStr_name">
 			<English>Max search radius</English>
+			<Chinesesimp>最大搜索半径</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Transport_maxSearchRadiusStr_info">
 			<English>Maximum value for search radius sliders</English>
+			<Chinesesimp>搜索半径滑块的最大值</Chinesesimp>
 		</Key>
 	</Package>
 </Project>

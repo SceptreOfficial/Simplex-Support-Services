@@ -1,9 +1,9 @@
 #include "script_component.hpp"
 ADDON = false;
 #include "XEH_PREP.hpp"
-#include "\a3\3den\ui\resincl.inc"
 #include "initSettings.inc.sqf"
 #include "command_events.inc.sqf"
+#define IDD_DISPLAY3DEN 313
 
 if (isServer && is3DEN) then {
 	if !(uiNamespace getVariable [QGVAR(edenEH),false]) then {

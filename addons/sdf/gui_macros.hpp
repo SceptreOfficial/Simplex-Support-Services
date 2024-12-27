@@ -1,7 +1,7 @@
 // Preferences
-#define PROFILE_COLORS_R profilenamespace getvariable ['GUI_BCG_RGB_R',0.77]
-#define PROFILE_COLORS_G profilenamespace getvariable ['GUI_BCG_RGB_G',0.51]
-#define PROFILE_COLORS_B profilenamespace getvariable ['GUI_BCG_RGB_B',0.08]
+#define PROFILE_COLORS_R profileNamespace getVariable ['GUI_BCG_RGB_R',0.77]
+#define PROFILE_COLORS_G profileNamespace getVariable ['GUI_BCG_RGB_G',0.51]
+#define PROFILE_COLORS_B profileNamespace getVariable ['GUI_BCG_RGB_B',0.08]
 
 // Macros
 #define COLOR_DISABLED 1,1,1,0.35
@@ -14,8 +14,8 @@
 #define BUFFER_W GD_W(0.1)
 #define BUFFER_H GD_H(0.1)
 
-#define MAIN_X(N) ((safezoneXAbs + (safezoneWAbs / 2)) - (GD_W(N) / 2))
-#define MAIN_Y(N) ((safezoneY + (safezoneH / 2)) - (GD_H(N) / 2))
+#define MAIN_X(N) ((safeZoneXAbs + (safeZoneWAbs / 2)) - (GD_W(N) / 2))
+#define MAIN_Y(N) ((safeZoneY + (safeZoneH / 2)) - (GD_H(N) / 2))
 
 #define TITLE_X(N) (MAIN_X(N) - BUFFER_W)
 #define TITLE_Y(N) (MAIN_Y(N) - GD_H(1) - BUFFER_H)

@@ -54,7 +54,7 @@ if (!isNull _zeusDisplay && visibleMap) then {
 	ctrlSetFocus _parent;
 
 	[
-		(safezoneWAbs / 2) - (CONTENT_W / 2),
+		(safeZoneWAbs / 2) - (CONTENT_W / 2),
 		_zeusDisplay,
 		_parent,
 		_parent controlsGroupCtrl 1,
@@ -68,7 +68,7 @@ if (!isNull _zeusDisplay && visibleMap) then {
 	private _parent = uiNamespace getVariable QGVAR(parent);
 
 	[
-		(safezoneXAbs + (safezoneWAbs / 2)) - (CONTENT_W / 2),
+		(safeZoneXAbs + (safeZoneWAbs / 2)) - (CONTENT_W / 2),
 		_parent,
 		_parent,
 		_parent displayCtrl 1,
@@ -105,9 +105,9 @@ GVAR(PFHID) = [FUNC(enablePFH),0,_parent] call CBA_fnc_addPerFrameHandler;
 // Update positions
 private _contentHeight = MIN_H max (_posY - SPACING_H) min MAX_H;
 private _contentY = if (_parent isEqualType displayNull) then {
-	(safezoneY + (safezoneH / 2)) - (_contentHeight / 2)
+	(safeZoneY + (safeZoneH / 2)) - (_contentHeight / 2)
 } else {
-	(safezoneH / 2) - (_contentHeight / 2)
+	(safeZoneH / 2) - (_contentHeight / 2)
 };
 
 _ctrlBG ctrlSetPosition [_posX - BUFFER_W,_contentY - BUFFER_H - SPACING_H,CONTENT_W + (BUFFER_W * 2),_contentHeight + (BUFFER_H * 2) + (SPACING_H * 2)];

@@ -18,7 +18,7 @@ private _vehicle = _entity getVariable [QPVAR(vehicle),objNull];
 
 if (!alive _vehicle) exitWith {true};
 
-private _target = [_attachedObject,ATLtoASL waypointPosition [_group,currentWaypoint _group]] select (isNull _attachedObject);
+private _target = [_attachedObject,ATLToASL waypointPosition [_group,currentWaypoint _group]] select (isNull _attachedObject);
 
 [FUNC(waypointUpdate),[[_group,currentWaypoint _group],_entity,_vehicle,_behaviors,ORDER,_target]] call CBA_fnc_directCall;
 

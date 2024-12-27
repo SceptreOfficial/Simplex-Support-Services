@@ -29,6 +29,10 @@ if (GVAR(plan) isEqualTo []) exitWith {
 	_ctrlConfirm ctrlEnable false;
 };
 
+if ((_entity getVariable QPVAR(sheafTypes)) isEqualTo ["NONE"]) exitWith {
+	_ctrlConfirm ctrlEnable false;
+};
+
 private _ctrlAmmunition = (_ctrlGroup controlsGroupCtrl IDC_TASK_GROUP) controlsGroupCtrl IDC_AMMUNITION;
 private _ctrlETA = (_ctrlGroup controlsGroupCtrl IDC_TASK_GROUP) controlsGroupCtrl IDC_ETA;
 private _ctrlPlan = _ctrlGroup controlsGroupCtrl IDC_PLAN_GROUP controlsGroupCtrl IDC_PLAN;
@@ -97,7 +101,7 @@ GVAR(coordinated) = _nearbyBatteries arrayIntersect GVAR(coordinated);
 			continue;
 		};
 
-		private _target = AGLtoASL (_x getPos [_center distance2D _target,_center getDir _target]);
+		private _target = AGLToASL (_x getPos [_center distance2D _target,_center getDir _target]);
 		[_x,_target,_magazines,true] call FUNC(canFire) params ["_canFire","_ETA"];
 		private _color = if (_canFire && !_busy) then {
 			_ETAs pushBack _ETA;
@@ -163,7 +167,7 @@ GVAR(coordinated) = _nearbyBatteries arrayIntersect GVAR(coordinated);
 		{
 			private _color = "ColorRed";
 			private _target = if (_isParallel) then {
-				AGLtoASL (_x getPos [_center distance2D _target,_center getDir _target])
+				AGLToASL (_x getPos [_center distance2D _target,_center getDir _target])
 			} else {
 				_target
 			};

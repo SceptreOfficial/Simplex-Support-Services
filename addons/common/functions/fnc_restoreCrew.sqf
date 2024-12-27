@@ -74,7 +74,7 @@ private _isArtillery = _entity getVariable [QPVAR(supportType),""] == "ARTILLERY
 	_x disableAI "SUPPRESSION";
 	//_x disableAI "FSM";
 	_x disableAI "COVER";
-	_x disableAI "LIGHTS";
+	//_x disableAI "LIGHTS";
 	_x enableAIFeature ["TARGET",_canTarget];
 	_x enableAIFeature ["AUTOTARGET",_canTarget];
 

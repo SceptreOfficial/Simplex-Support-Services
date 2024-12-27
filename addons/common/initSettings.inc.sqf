@@ -125,16 +125,16 @@
 	false
 ] call CBA_fnc_addSetting;
 
-//[
-//	QOPTION(respawnType),
-//	"LIST",
-//	DESC(respawnType),
-//	[ELSTRING(main,PREFIX),LSTRING(CategoryCore)],
-//	[[false,true],[LSTRING(vanilla),LSTRING(scripted)],1],
-//	true,
-//	{},
-//	false
-//] call CBA_fnc_addSetting;
+[
+	QOPTION(remoteControlAddMap),
+	"CHECKBOX",
+	DESC(remoteControlAddMap),
+	[ELSTRING(main,PREFIX),LSTRING(CategoryCore)],
+	true,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Preferences
@@ -162,12 +162,34 @@
 ] call CBA_fnc_addSetting;
 
 [
-	QOPTION(autoParachute),
+	QOPTION(parachuteEquip),
 	"CHECKBOX",
-	DESC(autoParachute),
+	DESC(parachuteEquip),
 	[ELSTRING(main,PREFIX),LSTRING(CategoryPreferences)],
 	true,
+	false,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QOPTION(parachuteDeploy),
+	"CHECKBOX",
+	DESC(parachuteDeploy),
+	[ELSTRING(main,PREFIX),LSTRING(CategoryPreferences)],
 	true,
+	false,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
+[
+	QOPTION(parachuteClass),
+	"EDITBOX",
+	DESC(parachuteClass),
+	[ELSTRING(main,PREFIX),LSTRING(CategoryPreferences)],
+	"B_Parachute",
+	false,
 	{},
 	false
 ] call CBA_fnc_addSetting;
@@ -176,11 +198,11 @@
 // Debug
 
 [
-	QOPTION(debug),
+	QOPTION(debugGeneral),
 	"CHECKBOX",
-	DESC(debug),
+	DESC(debugGeneral),
 	[ELSTRING(main,PREFIX),LSTRING(CategoryDebug)],
-	true,
+	false,
 	true,
 	{},
 	false

@@ -39,7 +39,7 @@ private _nearbyBatteries = [];
 			_nearbyBatteries pushBack _xEntity;
 		};
 	};
-} forEach (ASLtoAGL _center nearEntities (_entity getVariable [QPVAR(coordinationDistance),100]));
+} forEach (ASLToAGL _center nearEntities (_entity getVariable [QPVAR(coordinationDistance),100]));
 
 [_nearbyBatteries,true,{
 	private _entity = _x getVariable [QPVAR(entity),objNull];

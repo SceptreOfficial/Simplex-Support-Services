@@ -123,7 +123,7 @@ private _instruction = switch _targeting do {
 		_height = _height max 1;
 
 		private _spacing = (_height / _rounds) * 2;
-		_target = ATLtoASL (_vehicle getVariable [QGVAR(creepingTarget),_target getPos [_height - _spacing/2,_dir - 180]]);
+		_target = ATLToASL (_vehicle getVariable [QGVAR(creepingTarget),_target getPos [_height - _spacing/2,_dir - 180]]);
 		_vehicle setVariable [QGVAR(creepingTarget),_target getPos [_spacing,_dir]];
 		private _instruction = [_vehicle,_target,_magazine,true] call FUNC(calculate);
 
@@ -204,9 +204,9 @@ if !(_vehicle getVariable [QGVAR(velocityOverride),false]) then {
 	//};	
 };
 
-private _eyePos = eyePos _vehicle;
-private _aimPosASL = _eyePos getPos [400,_eyePos getDir _target];
-_aimPosASL set [2,_eyePos # 2 + tan _angle * 400];
+private _startASL = getPosWorld _vehicle;
+private _aimPosASL = _startASL getPos [600,_startASL getDir _target];
+_aimPosASL set [2,_startASL # 2 + tan _angle * 600];
 
 _gunner setVariable [QGVAR(aimPosATL),ASLToATL _aimPosASL];
 _gunner setVariable [QGVAR(aimPosASL),_aimPosASL];
@@ -234,7 +234,7 @@ _vehicle setVariable [QGVAR(aimTick),CBA_missionTime + 2];
 	}
 },{
 	[{_this setVariable [QGVAR(hold),nil]},_this # 1,0.15] call CBA_fnc_waitAndExecute;
-},[_vehicle,_gunner,_weapon,_eyePos vectorFromTo _aimPosASL],10,{
+},[_vehicle,_gunner,_weapon,_startASL vectorFromTo _aimPosASL],10,{
 	[{_this setVariable [QGVAR(hold),nil]},_this # 1,0.15] call CBA_fnc_waitAndExecute;
 }] call CBA_fnc_waitUntilAndExecute;
 
@@ -317,9 +317,9 @@ _gunner setVariable [QGVAR(EHID),[_gunner,"FiredMan",{
 		// Cleanup
 		_PFHID call CBA_fnc_removePerFrameHandler;
 		_gunner removeEventHandler ["FiredMan",_gunner getVariable [QGVAR(EHID),-1]];
-		_gunner doWatch objNull;
-		_gunner lookAt objNull;
-		_vehicle lockCameraTo [objNull,_vehicle unitTurret _gunner,true];
+		//_gunner doWatch objNull;
+		//_gunner lookAt objNull;
+		//_vehicle lockCameraTo [objNull,_vehicle unitTurret _gunner,true];
 		//_gunner setVariable [QGVAR(hold),nil,true];
 		_vehicle setVariable [QGVAR(firing),nil,true];
 		_vehicle setVariable [QGVAR(recursive),nil,true];
@@ -345,7 +345,7 @@ _gunner setVariable [QGVAR(EHID),[_gunner,"FiredMan",{
 
 	_gunner doWatch (_gunner getVariable QGVAR(aimPosATL));
 	_gunner lookAt (_gunner getVariable QGVAR(aimPosATL));
-	_vehicle lockCameraTo [_gunner getVariable QGVAR(aimPosASL),_vehicle unitTurret _gunner,false];
+	//_vehicle lockCameraTo [_gunner getVariable QGVAR(aimPosASL),_vehicle unitTurret _gunner,false];
 
 	if (_gunner getVariable [QGVAR(hold),false]) exitWith {};
 
@@ -354,6 +354,8 @@ _gunner setVariable [QGVAR(EHID),[_gunner,"FiredMan",{
 		_vehicle setVehicleAmmo 1;
 	};
 	
+	//weaponState [_vehicle,_vehicle unitTurret _gunner] params ["","_muzzle","_firemode"];
+	//_gunner forceWeaponFire [_muzzle,_firemode];
 	_gunner fireAtTarget [objNull];
 },0.05,[_vehicle,_gunner,_area,_magazines,_rounds,_firingDelay,_crew]] call CBA_fnc_addPerFrameHandler;
 

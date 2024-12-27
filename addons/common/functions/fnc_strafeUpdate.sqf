@@ -16,7 +16,7 @@ private _ammoSpeed = _yRelVel + _initSpeed;
 private _targetASL = [_velPos,_target,_ammoSpeed] call FUNC(getTargetPos);
 
 // Abort height
-if ((_pos vectorAdd (_lastVelocity vectorMultiply 2)) # 2 < _abortHeight + getTerrainHeightASL _velPos) exitWith {_abort = true};
+if ((_pos vectorAdd (_lastVelocity vectorMultiply 1.3)) # 2 < _abortHeight + getTerrainHeightASL _velPos) exitWith {_abort = true};
 
 // Update linear spread
 private _strafeDir = _velPos getDir _targetASL;
@@ -56,9 +56,6 @@ if (_fireStart > 0) then {
 private _dirDiff = (_strafeDir - _dir) call CBA_fnc_simplifyAngle;
 _dirDiff = [_dirDiff,_dirDiff - 360] select (_dirDiff > 180);
 _dir = _dir + (-_rate max _dirDiff min _rate);
-
-// Abort if turned around
-//if (abs _dirDiff > 90) exitWith {_abort = true};
 
 private _bankDiff = (-80 max (_dirDiff * 3) min 80) - _bank;
 _bank = _bank + (-_rate max _bankDiff min _rate);

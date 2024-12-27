@@ -31,7 +31,7 @@ _turrets select {
 	private _elevation = asin ((_vehicle vectorWorldToModelVisual ((_vehicle modelToWorldVisualWorld _source) vectorFromTo _targetASL)) # 2);
 
 	private _inView = _minElev <= _elevation && _maxElev >= _elevation && {abs _minTurn >= 360 || abs _maxTurn >= 360 || {
-		private _relDir = ((_source getDir (_vehicle worldToModelVisual ASLtoAGL _targetASL)) - ((_minTurn + _maxTurn) / 2 call CBA_fnc_simplifyAngle)) call CBA_fnc_simplifyAngle;
+		private _relDir = ((_source getDir (_vehicle worldToModelVisual ASLToAGL _targetASL)) - ((_minTurn + _maxTurn) / 2 call CBA_fnc_simplifyAngle)) call CBA_fnc_simplifyAngle;
 		_relDir = [_relDir,_relDir - 360] select (_relDir > 180);
 
 		abs _relDir <= abs (_minTurn - _maxTurn) / 2
@@ -41,7 +41,7 @@ _turrets select {
 	//private _p2 = _vehicle modelToWorldVisualWorld (_source vectorAdd ([sin _minTurn,cos _minTurn,tan _maxElev] vectorMultiply 1000));
 	//private _p3 = _vehicle modelToWorldVisualWorld (_source vectorAdd ([sin _maxTurn,cos _maxTurn,tan _minElev] vectorMultiply 1000));
 	//private _p4 = _vehicle modelToWorldVisualWorld (_source vectorAdd ([sin _maxTurn,cos _maxTurn,tan _maxElev] vectorMultiply 1000));
-	//private _sourceAGL = ASLtoAGL (_vehicle modelToWorldVisualWorld _source);
+	//private _sourceAGL = ASLToAGL (_vehicle modelToWorldVisualWorld _source);
 	//[{drawLine3D _this},{},[_sourceAGL,ASLToAGL _p1,[0,0,1,1]],3] call CBA_fnc_waitUntilAndExecute;
 	//[{drawLine3D _this},{},[_sourceAGL,ASLToAGL _p2,[0,0,1,1]],3] call CBA_fnc_waitUntilAndExecute;
 	//[{drawLine3D _this},{},[_sourceAGL,ASLToAGL _p3,[0,0,1,1]],3] call CBA_fnc_waitUntilAndExecute;

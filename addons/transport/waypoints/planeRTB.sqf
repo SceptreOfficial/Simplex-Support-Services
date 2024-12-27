@@ -38,7 +38,7 @@ waitUntil {
 
 	sleep WAYPOINT_SLEEP;
 
-	!isTouchingGround _vehicle && unitReady _vehicle
+	!isTouchingGround _vehicle && unitReady _vehicle && _vehicle distance2D _wpPos < 200
 };
 
 if (_virtualRunway isEqualTo [0,0,0]) then {

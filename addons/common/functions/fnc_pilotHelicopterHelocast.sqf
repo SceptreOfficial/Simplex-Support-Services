@@ -1,9 +1,10 @@
 #include "..\script_component.hpp"
 
-params ["_hold","_hoverHeight","_hoverSpeed","_helocastPos"];
+params ["_hold","_hoverHeight","_hoverSpeed","_ejections","_ejectInterval","_helocastPos"];
 
 if !(_vehicle getVariable [QGVAR(pilotHelicopterReached),false]) then {
 	doStop _vehicle;
+	[_vehicle,_ejections,_ejectInterval] call EFUNC(common,unloadTransport);
 };
 
 private _holdProgress = if (_hold >= 0) then {

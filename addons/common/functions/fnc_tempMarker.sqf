@@ -5,10 +5,10 @@ if (!isServer) exitWith {[QGVAR(execute),[_this,QFUNC(tempMarker)]] call CBA_fnc
 params ["_entity","_position","_type","_color","_message",["_lifetime",-1,[0]]];
 
 private _marker = createMarker [GEN_STR(_entity),_position];
-_marker setMarkerShape "ICON";
-_marker setMarkerType _type;
-_marker setMarkerColor _color;
-_marker setMarkerSize [0.8,0.8];
+_marker setMarkerShapeLocal "ICON";
+_marker setMarkerTypeLocal _type;
+_marker setMarkerColorLocal _color;
+_marker setMarkerSizeLocal [0.8,0.8];
 _marker setMarkerAlpha 0;
 
 private _tempMarkers = _entity getVariable [QPVAR(tempMarkers),[]];

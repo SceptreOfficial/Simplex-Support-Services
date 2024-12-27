@@ -80,7 +80,7 @@ while {
 		};
 	};
 	
-	if (_safe && {ASLtoAGL _searchPos nearEntities _objectRadius isEqualTo []}) then {
+	if (_safe && {ASLToAGL _searchPos nearEntities _objectRadius isEqualTo []}) then {
 		_angle = 0;
 		
 		for "_height" from 0.05 to _objectHeight step 0.005 do {
@@ -88,8 +88,8 @@ while {
 			_ix = lineIntersectsSurfaces [_center,_center vectorAdd ([_objectRadius * cos _angle,_objectRadius * sin _angle,0] vectorCrossProduct _safeUp),objNull,objNull,true,1,"GEOM","FIRE"];
 
 			//[{drawLine3D _this},{},[
-			//	ASLtoAGL (_center),
-			//	ASLtoAGL (_center vectorAdd ([_objectRadius * cos _angle,_objectRadius * sin _angle,0] vectorCrossProduct _safeUp)),
+			//	ASLToAGL (_center),
+			//	ASLToAGL (_center vectorAdd ([_objectRadius * cos _angle,_objectRadius * sin _angle,0] vectorCrossProduct _safeUp)),
 			//	[1,0,0,0.5]
 			//],10] call CBA_fnc_waitUntilAndExecute;
 
@@ -105,7 +105,7 @@ while {
 	};
 
 	if (_safe) exitWith {
-		_safePos = _searchPos vectorAdd (_safeUp vectorMultiply 0.1);
+		_safePos = _searchPos vectorAdd (_safeUp vectorMultiply 0.15);
 		false
 	};
 

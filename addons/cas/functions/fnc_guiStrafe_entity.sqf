@@ -19,7 +19,7 @@ private _posASL = GVAR(request) getOrDefault ["posASL",call FUNC(gui_getPos)];
 // Sliders
 private _isHelicopter = _entity getVariable [QPVAR(class),""] isKindOf "Helicopter";
 [CTRL(IDC_ALTITUDE),CTRL(IDC_ALTITUDE_EDIT),[[800,300] select _isHelicopter,6000,0],"altitude",[2000,500] select _isHelicopter,LELSTRING(common,meterAcronym)] call FUNC(gui_slider);
-[CTRL(IDC_RANGE),CTRL(IDC_RANGE_EDIT),[600,[3500,2500] select _isHelicopter,0],"range",[2000,1000] select _isHelicopter,LELSTRING(common,meterAcronym)] call FUNC(gui_slider);
+[CTRL(IDC_RANGE),CTRL(IDC_RANGE_EDIT),[300,[3500,2500] select _isHelicopter,0],"range",[2000,1000] select _isHelicopter,LELSTRING(common,meterAcronym)] call FUNC(gui_slider);
 [CTRL(IDC_SPREAD),CTRL(IDC_SPREAD_EDIT),[0,_entity getVariable QPVAR(maxSpread),0],"spread",0,LELSTRING(common,meterAcronym)] call FUNC(gui_slider);
 [CTRL(IDC_SEARCH_RADIUS),CTRL(IDC_SEARCH_RADIUS_EDIT),[1,1000,0],"searchRadius",500,LELSTRING(common,meterAcronym)] call FUNC(gui_slider);
 

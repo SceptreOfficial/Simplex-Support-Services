@@ -55,7 +55,11 @@ switch (_entity getVariable QPVAR(supportType)) do {
 			["altitudeASL",100]
 		]],1] call CBA_fnc_waitAndExecute;
 
-		deleteVehicle (_vehicle getVariable ["ace_fastroping_FRIES",objnull]);
+		deleteVehicle (_vehicle getVariable ["ace_fastroping_FRIES",objNull]);
+
+		if (currentWaypoint _group >= count waypoints _group - 1) then {
+			_vehicle call FUNC(landedStop);
+		};
 	};
 	case "VTOL" : {
 		[FUNC(changeBehavior),[_entity,[
@@ -67,6 +71,10 @@ switch (_entity getVariable QPVAR(supportType)) do {
 		]],1] call CBA_fnc_waitAndExecute;
 
 		_vehicle setVariable [QPVAR(vtol),true,true];
+
+		if (currentWaypoint _group >= count waypoints _group - 1) then {
+			_vehicle call FUNC(landedStop);
+		};
 	};
 	case "PLANE" : {
 		[FUNC(changeBehavior),[_entity,[
@@ -78,6 +86,10 @@ switch (_entity getVariable QPVAR(supportType)) do {
 		]],1] call CBA_fnc_waitAndExecute;
 
 		_vehicle setFuel 0;
+
+		if (currentWaypoint _group >= count waypoints _group - 1) then {
+			_vehicle call FUNC(landedStop);
+		};
 	};
 	case "LAND" : {
 		[FUNC(changeBehavior),[_entity,[

@@ -23,10 +23,10 @@ _posASL = _posASL vectorAdd [0,0,-_height];
 _height = _height * 2;
 
 if (_isRectangle) then {
-	private _x1 = ASLtoAGL (_posASL vectorAdd ([[-_width,-_length,0],_dir] call FUNC(rotateVector2D)));
-	private _x2 = ASLtoAGL (_posASL vectorAdd ([[_width,-_length,0],_dir] call FUNC(rotateVector2D)));
-	private _x3 = ASLtoAGL (_posASL vectorAdd ([[_width,_length,0],_dir] call FUNC(rotateVector2D)));
-	private _x4 = ASLtoAGL (_posASL vectorAdd ([[-_width,_length,0],_dir] call FUNC(rotateVector2D)));
+	private _x1 = ASLToAGL (_posASL vectorAdd ([[-_width,-_length,0],_dir] call FUNC(rotateVector2D)));
+	private _x2 = ASLToAGL (_posASL vectorAdd ([[_width,-_length,0],_dir] call FUNC(rotateVector2D)));
+	private _x3 = ASLToAGL (_posASL vectorAdd ([[_width,_length,0],_dir] call FUNC(rotateVector2D)));
+	private _x4 = ASLToAGL (_posASL vectorAdd ([[-_width,_length,0],_dir] call FUNC(rotateVector2D)));
 	private _y1 = _x1 vectorAdd [0,0,_height];
 	private _y2 = _x2 vectorAdd [0,0,_height];
 	private _y3 = _x3 vectorAdd [0,0,_height];
@@ -53,14 +53,14 @@ if (_isRectangle) then {
 		{drawIcon3D _x} forEach (_thisArgs # 1);
 	},[_lines,_dots]];
 } else {
-	private _lastX = ASLtoAGL (_posASL vectorAdd ([[_width,0,0],_dir] call FUNC(rotateVector2D)));
+	private _lastX = ASLToAGL (_posASL vectorAdd ([[_width,0,0],_dir] call FUNC(rotateVector2D)));
 	private _lastY = _lastX vectorAdd [0,0,_height];
 	private _lines = [];
 	private _dots = [];
 
 	for "_i" from 1 to 12 do {
 		private _a = 360 * (_i / 12);
-		private _newX = ASLtoAGL (_posASL vectorAdd ([[cos _a * _width,sin _a * _length,0],_dir] call FUNC(rotateVector2D)));
+		private _newX = ASLToAGL (_posASL vectorAdd ([[cos _a * _width,sin _a * _length,0],_dir] call FUNC(rotateVector2D)));
 		private _newY = _newX vectorAdd [0,0,_height];
 
 		_dots pushBack ["\A3\ui_f\data\map\markers\military\dot_CA.paa",_color,_newX,1,1,0];

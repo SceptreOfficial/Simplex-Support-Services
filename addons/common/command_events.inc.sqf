@@ -45,23 +45,25 @@ if (isServer) then {
 	if (_unit isKindOf "CAManBase") then {
 		_unit enableAIFeature _args;
 	} else {
-		{[QEGVAR(common,enableAIFeature),[_x,_args],_x] call CBA_fnc_targetEvent} forEach PRIMARY_CREW(_unit);
+		{[QGVAR(enableAIFeature),[_x,_args],_x] call CBA_fnc_targetEvent} forEach PRIMARY_CREW(_unit);
 	};
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(setPilotLight),{
 	params ["_object","_state"];
+	[QGVAR(enableAIFeature),[_object,["LIGHTS",false]],_object] call CBA_fnc_targetEvent;
 	_object setPilotLight _state;
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(setCollisionLight),{
 	params ["_object","_state"];
+	[QGVAR(enableAIFeature),[_object,["LIGHTS",false]],_object] call CBA_fnc_targetEvent;
 	_object setCollisionLight _state;
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(flyInHeight),{
 	params ["_vehicle","_height"];
-	_vehicle flyInHeight _height;
+	_vehicle flyInHeight [_height,true];
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(flyInHeightASL),{

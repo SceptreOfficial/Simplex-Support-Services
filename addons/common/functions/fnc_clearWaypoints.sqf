@@ -14,7 +14,7 @@ private _vehicles = (_entity getVariable [QPVAR(vehicles),[]]) + [_entity getVar
 if (_stop) then {
 	private _wp = _group addWaypoint [getPosASL leader _group,-1,0];
 	_wp setWaypointType "MOVE";
-	_group setCurrentWaypoint _wp;
+	//_group setCurrentWaypoint _wp;
 	//_leader doMove (waypointPosition _wp);
 	//(units _group) doFollow _leader;
 	//{_x doFollow _x} forEach _vehicles;

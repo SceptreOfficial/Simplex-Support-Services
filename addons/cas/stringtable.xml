@@ -4,448 +4,545 @@
 		<Key ID="STR_SSS_CAS_Service">
 			<English>CAS</English>
 			<French>CAS</French>
+			<Chinesesimp>CAS</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_moduleAddBombing_name">
 			<English>CAS Bombing</English>
 			<French>CAS Bombardement</French>
-		</Key>
-		<Key ID="STR_SSS_CAS_moduleAddBombing_info">
-			<English></English>
-			<French></French>
+			<Chinesesimp>CAS 轰炸</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_moduleAddLoiter_name">
 			<English>CAS Loiter</English>
 			<French>CAS Vol en attente</French>
-		</Key>
-		<Key ID="STR_SSS_CAS_moduleAddLoiter_info">
-			<English></English>
-			<French></French>
+			<Chinesesimp>CAS 环绕</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_moduleAddStrafe_name">
 			<English>CAS Strafe</English>
 			<French>CAS Attaque</French>
-		</Key>
-		<Key ID="STR_SSS_CAS_moduleAddStrafe_info">
-			<English></English>
-			<French></French>
+			<Chinesesimp>CAS 扫射</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_manualInput_name">
 			<English>Require manual input</English>
 			<French>Exige une saisie manuelle</French>
+			<Chinesesimp>需要手动输入</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_manualInput_info">
 			<English>Require players to manually input grid coordinates</English>
 			<French>Demander aux joueurs de saisir manuellement les coordonnées de la grille</French>
+			<Chinesesimp>要求玩家手动输入网格坐标</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_visualAids_name">
 			<English>Visual aids</English>
 			<French>Aides visuelles</French>
+			<Chinesesimp>视觉辅助</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_visualAids_info">
 			<English>Show visual aids for request planning</English>
 			<French>Afficher des aides visuelles pour la planification des demandes sur la carte</French>
+			<Chinesesimp>显示请求规划的视觉辅助工具</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_visualAidsLive_name">
 			<English>Visual aids: Live tracking</English>
+			<Chinesesimp>视觉辅助：实时跟踪</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_visualAidsLive_info">
 			<English>Show current support position and any other relevant info</English>
+			<Chinesesimp>显示当前支持位置和任何其他相关信息</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_taskMarkers_name">
 			<English>Task markers</English>
 			<French>Marqueurs de tâches</French>
+			<Chinesesimp>任务标记</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_taskMarkers_info">
 			<English>Create map markers on task locations</English>
 			<French>Créer des marqueurs de carte sur les emplacements des tâches</French>
+			<Chinesesimp>在任务位置上创建地图标记</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_Altitude_name">
 			<English>Altitude</English>
 			<French>Altitude</French>
+			<Chinesesimp>海拔高度</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_Altitude_info">
 			<English>Flying height</English>
 			<French>Altitude de vol</French>
+			<Chinesesimp>飞行高度</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_VirtualRunway_name">
 			<English>Virtual runway</English>
 			<French>Piste virtuelle</French>
+			<Chinesesimp>虚拟跑道</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_VirtualRunway_info">
 			<English>Aircraft will spawn at this position.\n[0,0,0] will spawn at random or other requested position.</English>
 			<French>L'avion apparaîtra à cette position.\n[0,0,0] fera apparaître au hasard ou à une autre position demandée.</French>
+			<Chinesesimp>飞机将在此位置生成。\n[0, 0, 0] 将在随机位置或其他要求的位置生成。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_SpawnDistance_name">
 			<English>Spawn distance</English>
 			<French>Distance d'apparition</French>
+			<Chinesesimp>生成距离</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_SpawnDistance_info">
 			<English>If virtual runway is undefined, the aircraft will spawn this far away from the target</English>
 			<French>Si la piste virtuelle n'est pas définie, l'avion apparaîtra loin de la cible</French>
+			<Chinesesimp>如果虚拟跑道未定义，飞机将在离目标这么远的地方生成</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_SpawnDelay_name">
 			<English>Spawn delay</English>
 			<French>Délai d'apparition</French>
+			<Chinesesimp>生成延迟</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_SpawnDelay_info">
 			<English>Aircraft will spawn after specified random duration. Use to simulate takeoff or flight delays.</English>
 			<French>Les avions apparaîtront après une durée aléatoire spécifiée. À utiliser pour simuler des retards de décollage ou de vol.</French>
+			<Chinesesimp>飞机将在指定的随机持续时间后生成。用于模拟起飞或飞行延误。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_AircraftClass_name">
 			<English>Aircraft class</English>
 			<French>Avion Classe</French>
+			<Chinesesimp>飞机等级</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_AircraftClass_info">
 			<English>Class name of the aircraft to use.\nSyncing a vehicle to the module will override this value.</English>
 			<French>Class Name de l'avion à utiliser.\nLa synchronisation d'un véhicule avec le module remplacera cette valeur.</French>
+			<Chinesesimp>要使用的飞机的类别名称。\n将车辆同步到模块将覆盖此值</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_Pylons_name">
 			<English>Pylons / Weapons</English>
 			<French>Point d'emport / Armes</French>
+			<Chinesesimp>挂架 / 武器</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_Pylons_info">
 			<English>List available pylon magazines or define additional weapons. Leave empty for defaults.\nSyncing a vehicle to the module will override this value.\n\nPylon magazines are added in sequential order (reference hardpoint IDs).\nMagazine classes must have a pylon config.\n\nFor weapons that don't use pylon hardpoints, use the following arguments:\n0: Weapon class [STRING]\n1: Magazine class (optional) [STRING]</English>
 			<French>Répertoriez les point d'emports disponibles ou définissez des armes supplémentaires. Laissez vide pour les valeurs par défaut.\nLa synchronisation d'un véhicule avec le module remplacera cette valeur.\n\nLes point d'emports sont ajoutés dans un ordre séquentiel (ID de point d'attache de référence).\nLes chargeurs doivent avoir une configuration de point d'emports.\n\nPour les armes qui n'utilise pas de point d'emports, utiliser des points d'ancrage de point d'emports. Utilisez les arguments suivants:\n0: Weapon class [STRING]\n1: Magazine class (optional) [STRING]</French>
+			<Chinesesimp>列出可用的塔架弹仓或定义其他武器。默认值留空。\n将载具同步到模块将覆盖此值。\n塔架弹夹按顺序添加（参考硬点 ID）。\n弹夹类必须有一个塔架配置。\n对于不使用塔架硬点的武器，请使用以下参数：\n0: 武器类别 [STRING]\n1: 弹匣类别（可选） [STRING］</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_BombTechnique_name">
 			<English>Bombing technique</English>
 			<French>Technique de bombardement</French>
+			<Chinesesimp>轰炸技术</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_BombTechnique_info">
 			<English>Determines the flight behavior when dropping bombs</English>
 			<French>Détermine le comportement de vol lors du largage de bombes</French>
+			<Chinesesimp>决定投弹时的飞行行为</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_Standard">
 			<English>Standard</English>
 			<French>Standard</French>
+			<Chinesesimp>标准</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_Carpet">
 			<English>Carpet</English>
 			<French>Tapis</French>
+			<Chinesesimp>地毯</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_Dive">
 			<English>Dive</English>
 			<French>Plongeant</French>
+			<Chinesesimp>俯冲</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_InfiniteAmmo_name">
 			<English>Infinite ammo</English>
 			<French>Munitions infinies</French>
+			<Chinesesimp>无限弹药</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_InfiniteAmmo_info">
 			<English>Aircraft won't consume ammunition while firing</English>
 			<French>Les avions ne consommeront pas de munitions lors du tir</French>
+			<Chinesesimp>飞机在开火时不会消耗弹药</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_TargetTypes_name">
 			<English>Target types</English>
 			<French>Types de cibles</French>
+			<Chinesesimp>目标类型</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_TargetTypes_info">
 			<English>Available targeting options</English>
 			<French>Options de ciblage disponibles</French>
+			<Chinesesimp>可用的定位选项</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_EgressDespawn_name">
 			<English>Egress despawn</English>
 			<French>Point de sortie</French>
+			<Chinesesimp>出口消失</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_EgressDespawn_info">
 			<English>Deletes aircraft at egress point. If disabled, aircraft returns to starting point or virtual runway to be deleted.</English>
 			<French>Supprime l'avion au point de sortie. S'il est désactivé, l'avion revient au point de départ ou à la piste virtuelle pour être supprimé.</French>
+			<Chinesesimp>删除出口点的飞机。如果禁用，飞机将返回起点或要删除的虚拟跑道。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_DeleteSynced_name">
 			<English>Delete synced vehicle</English>
 			<French>Supprimer le véhicule synchronisé</French>
+			<Chinesesimp>删除同步车辆</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_DeleteSynced_info">
 			<English>If a vehicle is synced to the module, it will be deleted on init.</English>
 			<French>Si un véhicule est synchronisé avec le module, il sera supprimé lors de l'initialisation.</French>
+			<Chinesesimp>如果车辆与模块同步，则会在初始化时删除。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusStrafe">
 			<English>STRAFE</English>
 			<French>ATTAQUE</French>
+			<Chinesesimp>扫射</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusStrafeIngress">
 			<English>INGRESS</English>
 			<French>EN APPROCHE</French>
+			<Chinesesimp>入口处</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusStrafeEgress">
 			<English>EGRESS</English>
 			<French>EN SORTIE</French>
+			<Chinesesimp>出口处</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusStrafeAbort">
 			<English>ABORT</English>
 			<French>ANNULÉ</French>
+			<Chinesesimp>中止</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyStrafeInbound">
 			<English>Airstrike inbound to %1. ETA %2</English>
 			<French>Frappe aérienne en direction de %1. ETA %2</French>
+			<Chinesesimp>对%1进行空袭。预计到达时间%2</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyStrafeKilled">
 			<English>Aircraft was destroyed and was unable to fulfill your request</English>
 			<French>L'avion a été détruit et n'a pas pu répondre à votre demande</French>
+			<Chinesesimp>飞机被摧毁，无法满足您的要求</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyStrafeAbort">
 			<English>Request aborted.</English>
 			<French>Demande abandonnée.</French>
+			<Chinesesimp>请求被中止</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyStrafeComplete">
 			<English>Request complete. Returning to base.</English>
 			<French>Demande terminée. Retour à la base.</French>
+			<Chinesesimp>请求完成。返回基地。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusLoiter">
 			<English>LOITER</English>
 			<French>VOL EN ATTENTE</French>
+			<Chinesesimp>等待区域</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusLoiterIngress">
 			<English>INGRESS</English>
 			<French>EN APPROCHE</French>
+			<Chinesesimp>入口处</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusLoiterEgress">
 			<English>EGRESS</English>
 			<French>EN SORTIE</French>
+			<Chinesesimp>出口处</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_statusLoiterAbort">
 			<English>ABORT</English>
 			<French>ANNULÉ</French>
+			<Chinesesimp>终止</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyLoiterInbound">
 			<English>Inbound to loiter at %1. ETA %2</English>
 			<French>En chemin pour un Vol en attente à %1. ETA %2</French>
+			<Chinesesimp>进入 %1 停留点。预计到达时间 %2</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyLoiterKilled">
 			<English>Aircraft was destroyed and was unable to fulfill your request</English>
 			<French>L'avion a été détruit et n'a pas pu répondre à votre demande</French>
+			<Chinesesimp>飞机被摧毁，无法满足您的要求</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyLoiterAbort">
 			<English>Request aborted.</English>
 			<French>Demande abandonnée.</French>
+			<Chinesesimp>请求被中止。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyLoiter">
 			<English>Loitering at location...</English>
 			<French>Vol en attente sur place...</French>
+			<Chinesesimp>在现场环绕...</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyLoiterHover">
 			<English>Hovering at location...</English>
 			<French>Survolant l'emplacement...</French>
+			<Chinesesimp>盘旋在位置...盘旋</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyLoiterTimeoutWarning">
 			<English>Leaving the area in 1 minute.</English>
 			<French>Quitter la zone dans 1 minute.</French>
+			<Chinesesimp>1分钟后离开该区域。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyLoiterTimeout">
 			<English>Returning to base.</English>
 			<French>Retourne à la base.</French>
+			<Chinesesimp>返回基地。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyLoiterUpdate">
 			<English>Repositioning to %1</English>
 			<French>Repositionnement vers %1</French>
+			<Chinesesimp>重新定位到 %1</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_notifyCooldownComplete">
 			<English>Rearmed and ready for further tasking.</English>
 			<French>Réarmé et prêt pour d'autres tâches.</French>
+			<Chinesesimp>重新武装并准备好执行进一步的任务。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_countermeasures_name">
 			<English>Countermeasures</English>
 			<French>Contre-mesures</French>
+			<Chinesesimp>对策</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_countermeasures_info">
 			<English>Deploy countermeasures before and after firing</English>
 			<French>Déploie des contre-mesures avant et après le tir</French>
+			<Chinesesimp>开火前后部署对策</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_Repositioning_name">
 			<English>Repositioning</English>
 			<French>Repositionnement</French>
+			<Chinesesimp>重新布置</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_Repositioning_info">
 			<English>Allow moving the aircraft after being requested</English>
 			<French>Autoriser le déplacement de l'avion après avoir été demandé</French>
+			<Chinesesimp>经请求后允许移动飞机</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_Duration_name">
 			<English>Duration</English>
 			<French>Durée</French>
+			<Chinesesimp>持续时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_Duration_info">
 			<English>Time the asset can stay in the area. -1 in any value will make duration indefinite which requires manually aborting the request</English>
 			<French>Durée pendant laquelle l’actif peut rester dans la zone. -1 dans n'importe quelle valeur rendra la durée indéfinie, ce qui nécessitera l'abandon manuel de la demande</French>
+			<Chinesesimp>资产可以留在该区域的时间。任何值的 -1 都会使持续时间不确定，这需要手动中止请求</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_RadiusLimits_name">
 			<English>Radius limits</English>
 			<French>Limites de rayon</French>
+			<Chinesesimp>半径限制</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_RadiusLimits_info">
 			<English>Minimum and maximum loitering range</English>
 			<French>Portée de Vol en attente minimale et maximale</French>
+			<Chinesesimp>最小和最大盘旋范围</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_AltitudeLimits_name">
 			<English>Altitude limits</English>
 			<French>Limites d'altitude</French>
+			<Chinesesimp>海拔高度限制</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_AltitudeLimits_info">
 			<English>Minumum and maximum flying heights ATL/ASL</English>
 			<French>Hauteurs de vol minimales et maximales ATL/ASL</French>
+			<Chinesesimp>最小和最大飞行高度 ATL/ASL</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_AutoTarget_name">
 			<English>Auto targeting</English>
 			<French>Ciblage automatique</French>
+			<Chinesesimp>自动瞄准</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_AutoTarget_info">
 			<English>Aircraft will automatically engage known enemy targets</English>
 			<French>Les avions engageront automatiquement des cibles ennemies connues</French>
+			<Chinesesimp>飞机将自动攻击已知的敌方目标</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_FriendlyRange_name">
 			<English>Minimum friendly range</English>
 			<French>Portée minimale d'unités amicale</French>
+			<Chinesesimp>最小友方射程</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_FriendlyRange_info">
 			<English>Aircraft will not freely engage enemies within this range to friendlies.\nMap targets are excluded from this check.</English>
 			<French>Les avions n'engageront pas librement les ennemis dans cette portée avec des alliés.\nLes cibles cartographiques sont exclues de cette vérification.</French>
+			<Chinesesimp>飞机不会在这个范围内随意与友军交战。 \n地图目标被排除在此检查之外。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_RemoteControl_name">
 			<English>Remote control</English>
 			<French>Contrôle à distance</French>
+			<Chinesesimp>遥控</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_RemoteControl_info">
 			<English>Allows remote controlling vehicle slots</English>
 			<French>Permettre le contrôle à distance des emplacements des véhicules</French>
+			<Chinesesimp>允许远程控制车辆插槽</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_MaxAircraft_name">
 			<English>Max aircraft </English>
 			<French>Avion maximum </French>
+			<Chinesesimp>最大飞机数量</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_MaxAircraft_info">
 			<English>The most aircraft that can be spawned </English>
 			<French>Le plus grand nombre d'avions pouvant être générés </French>
+			<Chinesesimp>最多可生成的飞机</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_MaxSpread_name">
 			<English>Max spread</English>
 			<French>Propagation maximale</French>
+			<Chinesesimp>最大散布</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_MaxSpread_info">
 			<English>Limit for strike area dimensions</English>
 			<French>Limite des dimensions de la zone de frappe</French>
+			<Chinesesimp>打击区域尺寸限制</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_altitude">
 			<English>Altitude</English>
 			<French>Altitude</French>
+			<Chinesesimp>海拔高度</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_firingRangeTooltip">
 			<English>Distance to aim and fire. Superceded by minimum ammo range.</English>
 			<French>Distance pour viser et tirer. Remplacé par la portée minimale des munitions.</French>
+			<Chinesesimp>瞄准和开火的距离。被最小弹药范围取代。</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_firingRange">
 			<English>Firing range</English>
 			<French>Portée de tir</French>
+			<Chinesesimp>射击范围</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_ingressAzimuth">
 			<English>Ingress azimuth</English>
 			<French>Azimut d'entrée</French>
+			<Chinesesimp>进入方位角</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_egressAzimuth">
 			<English>Egress azimuth</English>
 			<French>Azimut de sortie</French>
+			<Chinesesimp>离开方位角</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_target">
 			<English>Target</English>
 			<French>Cible</French>
+			<Chinesesimp>目标</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_linearSpread">
 			<English>Linear spread</English>
 			<French>Propagation linéaire</French>
+			<Chinesesimp>线性排列</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_spread">
 			<English>Spread</English>
 			<French>Propagation</French>
+			<Chinesesimp>散布</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_weapon">
 			<English>Weapon</English>
 			<French>Arme</French>
+			<Chinesesimp>武器</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_primaryWeapon">
 			<English>Primary weapon</English>
 			<French>Arme primaire</French>
+			<Chinesesimp>主武器</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_primaryRateControl">
 			<English>Primary rate control</English>
 			<French>Mode de tir (nbr/temps)</French>
+			<Chinesesimp>主武器速率控制</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_distribution">
 			<English>Distribution</English>
 			<French>Distribution</French>
+			<Chinesesimp>分布</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_triggerInterval">
 			<English>Trigger interval</English>
 			<French>Intervalle de tir</French>
+			<Chinesesimp>触发间隔</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_secondaryWeapon">
 			<English>Secondary weapon</English>
 			<French>Arme secondaire</French>
+			<Chinesesimp>副武器</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_secondaryRateControl">
 			<English>Secondary rate control</English>
 			<French>Mode de tir (nbr/temps)</French>
+			<Chinesesimp>副武器速率控制</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_none">
 			<English>[NONE]</English>
 			<French>[AUCUN]</French>
+			<Chinesesimp>[默认值]</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_radius">
 			<English>Radius</English>
 			<French>Rayon</French>
+			<Chinesesimp>半径</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_searchRadius">
 			<English>Search radius</English>
 			<French>Rayon de recherche</French>
+			<Chinesesimp>搜索半径</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_loiterType">
 			<English>Loiter type</English>
 			<French>Type de Vol en attente</French>
+			<Chinesesimp>盘旋型</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_burstDuration">
 			<English>Burst duration</English>
 			<French>Durée de rafale</French>
+			<Chinesesimp>射击持续时间</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_burstCycleInterval">
 			<English>Burst cycle interval</English>
 			<French>Intervalle de cycle de rafale</French>
+			<Chinesesimp>爆炸周期间隔</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_burstCycleIntervalTooltip">
 			<English>-1 to only fire once</English>
 			<French>-1 pour ne tirer qu'une seule fois</French>
+			<Chinesesimp>-1 表示仅发射一次</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_remoteControlHeader">
 			<English>Remote control</English>
 			<French>Contrôle à distance</French>
+			<Chinesesimp>遥控</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_turretSelection">
 			<English>Turret selection</English>
 			<French>Sélection de tourelle</French>
+			<Chinesesimp>炮塔选择</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_unavailable">
 			<English>Unavailable</English>
 			<French>Indisponible</French>
+			<Chinesesimp>不可用</Chinesesimp>
 		</Key>
 		<Key ID="STR_sss_cas_available">
 			<English>Available</English>
 			<French>Disponible</French>
+			<Chinesesimp>可用</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_dangerClose">
 			<English>Danger close</English>
 			<French>Danger proche</French>
+			<Chinesesimp>危险接近</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_dangerCloseTooltip">
 			<English>Minimum friendly range: %1</English>
 			<French>Portée minimale d'unités amicale: %1</French>
+			<Chinesesimp>最小友方范围: %1</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_speedMode">
 			<English>Speed</English>
 			<French>Vitesse</French>
+			<Chinesesimp>全速</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_limited">
 			<English>Limited</English>
 			<French>Limité</French>
+			<Chinesesimp>慢速</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_CAS_normal">
 			<English>Normal</English>
 			<French>Normale</French>
+			<Chinesesimp>正常</Chinesesimp>
 		</Key>
 	</Package>
 </Project>

@@ -52,7 +52,7 @@ if (!isNull (uiNamespace getVariable [QEGVAR(sdf,display),displayNull])) exitWit
 		PVAR(terminalEntity) = _entity;
 	};
 	
-	//if (createDialog (getText (configfile >> QPVAR(services) >> _service >> "gui"))) then {
+	//if (createDialog (getText (configFile >> QPVAR(services) >> _service >> "gui"))) then {
 
 	if (createDialog (_entity getVariable QPVAR(gui))) then {
 		[QPVAR(guiOpen),[_service,_entity]] call CBA_fnc_localEvent;

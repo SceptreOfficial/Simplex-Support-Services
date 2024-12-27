@@ -40,7 +40,7 @@ if (!alive _vehicle || !canMove _vehicle || {!(_vehicle isKindOf "Air")}) exitWi
 
 if (_ingress < 0) then {_ingress = _target getDir _vehicle};
 if (_aimRange < 0) then {_aimRange = [2000,1000] select (_vehicle isKindOf "Helicopter")};
-_aimRange = _aimRange max 600;
+//_aimRange = _aimRange max 600;
 
 private _weapons = [];
 private _magazines = [];
@@ -182,7 +182,7 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 				_this # 0 set [11,CBA_missionTime + 1];
 				_search params ["_search","_searchRadius","_friendlyRange"];
 				private _target = [_target,side group _vehicle,_search,_searchRadius,_friendlyRange] call FUNC(targetSearch);
-				if (_target isEqualType objNull && {isNull _target}) exitWith {};
+				if (_target isEqualTo sideFriendly || _target isEqualType objNull && {isNull _target}) exitWith {};
 				NOTIFY(_vehicle,LSTRING(strafeTargetAcquired));
 				_vehicle setVariable [QGVAR(strafeTarget),_target];
 			};
@@ -240,10 +240,14 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 
 	if (!alive _vehicle ||
 		!canMove _vehicle ||
-		!local _vehicle ||
 		_vehicle getVariable [QGVAR(strafeCancel),false] ||
 		{_target isEqualType objNull && {isNull _target}}
 	) exitWith {false call FUNC(strafeCleanup)};
+	
+	if (!local _vehicle) exitWith {
+		false call FUNC(strafeCleanup);
+		LOG_ERROR("Vehicle locality changed");
+	};
 	
 	if (!isNil {_vehicle getVariable QGVAR(strafeSimEHID)}) exitWith {
 		false call FUNC(strafeCleanup);
@@ -258,10 +262,15 @@ _vehicle setVariable [QGVAR(strafeAI),_units];
 	if (isNil {_vehicle getVariable QGVAR(strafeTarget)}) then {
 		_search params ["_search","_searchRadius","_friendlyRange"];
 		_target = [_target,side group _vehicle,_search,_searchRadius,_friendlyRange] call FUNC(targetSearch);
-		if (_target isEqualType objNull && {isNull _target}) exitWith {};
+		if (_target isEqualTo sideFriendly || _target isEqualType objNull && {isNull _target}) exitWith {};
 		NOTIFY(_vehicle,LSTRING(strafeTargetAcquired));
 	} else {
 		_target = _vehicle getVariable QGVAR(strafeTarget);
+	};
+
+	if (_target isEqualTo sideFriendly) exitWith {
+		NOTIFY(_vehicle,LSTRING(strafeDangerClose));
+		false call FUNC(strafeCleanup);
 	};
 
 	if (_target isEqualType objNull && {isNull _target}) exitWith {

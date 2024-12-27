@@ -29,7 +29,7 @@ if (!isNull _group) then {
 	[QGVAR(deleteGroupWhenEmpty),[_group,true],_group] call CBA_fnc_targetEvent;
 };
 
-private _vehicles = _entity getVariable [QPVAR(vehicles),[]];
+private _vehicles = _entity getVariable [QPVAR(vehicles),[]] + [_entity getVariable [QPVAR(vehicle),objNull]];
 
 if (OPTION(deleteVehicleOnEntityRemoval)) then {
 	{
@@ -37,7 +37,12 @@ if (OPTION(deleteVehicleOnEntityRemoval)) then {
 		deleteVehicle _x;
 	} forEach _vehicles;
 } else {
-	{_x call FUNC(decommission)} forEach _vehicles;
+	{
+		_x call FUNC(decommission);
+		private _group = group _x;
+		_group setCombatMode "YELLOW";
+		_group enableAttack true;
+	} forEach _vehicles;
 };
 
 [QPVAR(supportRemoved),[

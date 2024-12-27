@@ -18,7 +18,7 @@ _vehicle setVariable [QGVAR(flybyData),nil,true];
 
 private _group = group _vehicle;
 private _wpIndex = currentWaypoint _group;
-private _pos = ASLtoAGL _startPosASL;
+private _pos = ASLToAGL _startPosASL;
 
 [_group,_wpIndex] setWaypointPosition [_pos,0];
 [_group,_wpIndex + 1] setWaypointPosition [_pos,0];

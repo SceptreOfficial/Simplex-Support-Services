@@ -43,7 +43,7 @@ if (driver _vehicle call EFUNC(common,isRemoteControlled)) exitWith {true};
 	_vehicle,
 	[_vehicle,_posASL] call EFUNC(common,surfacePosASL),
 	[(_vDX atan2 _vDY) call CBA_fnc_simplifyAngle],
-	(getPos _vehicle # 2) max 50,
+	nil,
 	75,
 	nil,
 	[EFUNC(common,pilotHelicopterLand),[60,false]]

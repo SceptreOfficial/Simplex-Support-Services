@@ -10,7 +10,10 @@ params [
 	["_hoverHeight",4],
 	["_hoverSpeed",2],
 	["_endDir",-1],
-	["_approach",150]
+	["_approach",150],
+	["_ejectTypes",[]],
+	["_ejectionsID",""],
+	["_ejectInterval",OPTION(ejectInterval)]
 ];
 
 private _entity = _group getVariable [QPVAR(entity),objNull];
@@ -38,14 +41,20 @@ waitUntil {
 
 if (driver _vehicle call EFUNC(common,isRemoteControlled)) exitWith {true};
 
+_ejectTypes params [["_allPlayers",true,[true]],["_allAI",true,[true]],["_allCargo",true,[true]]];
+
+private _ejections = _group getVariable [_ejectionsID,[]];
+_ejections append ([[],getVehicleCargo _vehicle] select _allCargo);
+_ejections append (SECONDARY_CREW(_vehicle) select {(_allPlayers && isPlayer _x) || (_allAI && !isPlayer _x)});
+
 [
 	_vehicle,
-	[_vehicle,ATLtoASL waypointPosition [_group,currentWaypoint _group],"SEA",_hoverHeight] call EFUNC(common,surfacePosASL),
+	[_vehicle,ATLToASL waypointPosition [_group,currentWaypoint _group],"SEA",_hoverHeight] call EFUNC(common,surfacePosASL),
 	[_endDir,1.5],
-	(getPos _vehicle # 2) max 50,
+	nil,
 	_approach,
 	nil,
-	[EFUNC(common,pilotHelicopterHelocast),[_timeout,_hoverHeight,_hoverSpeed,[]]]
+	[EFUNC(common,pilotHelicopterHelocast),[_timeout,_hoverHeight,_hoverSpeed,_ejections,_ejectInterval,[]]]
 ] call EFUNC(common,pilotHelicopter);
 
 waitUntil {
@@ -53,5 +62,7 @@ waitUntil {
 	!(_vehicle getVariable [QEGVAR(common,pilotHelicopter),false]) ||
 	_vehicle getVariable [QEGVAR(common,pilotHelicopterCompleted),false]
 };
+
+_group setVariable [_ejectionsID,nil,true];
 
 true
