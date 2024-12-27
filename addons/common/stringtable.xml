@@ -1055,6 +1055,12 @@
 			<French>Intervalle par défaut utilisé lors du déchargement de l'infanterie et du fret</French>
 			<Chinesesimp>卸载步兵和货物时，使用的默认间隔</Chinesesimp>
 		</Key>
+		<Key ID="STR_SSS_common_remoteControlAddMap_name">
+			<English>Remote control: Assign map</English>
+		</Key>
+		<Key ID="STR_SSS_common_remoteControlAddMap_info">
+			<English>Gives remote controlled units a map if they do not already have one equipped.</English>
+		</Key>
 		<Key ID="STR_SSS_common_invalidClass">
 			<English>'%1' Invalid class: %2</English>
 			<French>'%1' Classe invalide: %2</French>

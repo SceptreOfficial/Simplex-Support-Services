@@ -20,6 +20,10 @@ if (!local _unit) then {
 	systemChat LLSTRING(remoteControlWarning);
 };
 
+if (OPTION(remoteControlAddMap) && {_unit getSlotItemName 608 isEqualTo ""}) then {
+	_unit linkItem "itemMap";
+};
+
 [{
 	params ["_vehicle","_unit","_turret","_camera"];	
 

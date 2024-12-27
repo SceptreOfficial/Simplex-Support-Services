@@ -125,6 +125,17 @@
 	false
 ] call CBA_fnc_addSetting;
 
+[
+	QOPTION(remoteControlAddMap),
+	"CHECKBOX",
+	DESC(remoteControlAddMap),
+	[ELSTRING(main,PREFIX),LSTRING(CategoryCore)],
+	true,
+	true,
+	{},
+	false
+] call CBA_fnc_addSetting;
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Preferences
 
