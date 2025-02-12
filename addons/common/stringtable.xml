@@ -324,8 +324,8 @@
 			<Chinesesimp>访问条件</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_AccessCondition_info">
-			<English>Code evaluated on player machines that must return true for the support to be accessible.</English>
-			<French>Code évalué sur les machines des joueurs qui doit retourner "true" pour que le support soit accessible.</French>
+			<English>Code evaluated on player machines that must return true for the support to be accessible.\n\nArguments:\n0: Player [OBJECT]\n1: Player items [ARRAY]\n2: Access items [ARRAY]\n3: Support entity [OBJECT]</English>
+			<French>Code évalué sur les machines des joueurs qui doit retourner "true" pour que le support soit accessible.\n\nArguments:\n0: Player [OBJECT]\n1: Player items [ARRAY]\n2: Access items [ARRAY]\n3: Support entity [OBJECT]</French>
 			<Chinesesimp>在玩家机器上评估的代码必须返回 true 才能访问支持。</Chinesesimp>
 		</Key>
 		<Key ID="STR_SSS_Common_RequestCondition_name">
